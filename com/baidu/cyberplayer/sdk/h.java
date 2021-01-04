@@ -8,18 +8,20 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.i;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class h extends TextureView implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f1391a;
-    private SurfaceTexture b;
+    private a f1822a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private SurfaceTexture f1823b;
     private Surface c;
     private i.a d;
     private f e;
     private boolean f;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     private class a implements TextureView.SurfaceTextureListener {
         public a() {
         }
@@ -27,15 +29,15 @@ public class h extends TextureView implements i {
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
             CyberLog.d("CyberTextureView", "onSurfaceTextureAvailable surface:" + surfaceTexture + " width:" + i + " height:" + i2);
-            if (h.this.b == null) {
-                h.this.b = surfaceTexture;
+            if (h.this.f1823b == null) {
+                h.this.f1823b = surfaceTexture;
                 if (h.this.d != null) {
                     h.this.d.a(1);
                 }
             } else if (Build.VERSION.SDK_INT >= 21) {
-                h.this.setSurfaceTexture(h.this.b);
+                h.this.setSurfaceTexture(h.this.f1823b);
             } else {
-                h.this.b = surfaceTexture;
+                h.this.f1823b = surfaceTexture;
                 if (h.this.d != null) {
                     h.this.d.a(1);
                 }
@@ -67,8 +69,8 @@ public class h extends TextureView implements i {
 
     public h(Context context) {
         super(context);
-        this.f1391a = new a();
-        setSurfaceTextureListener(this.f1391a);
+        this.f1822a = new a();
+        setSurfaceTextureListener(this.f1822a);
         this.e = new f();
         this.f = false;
     }
@@ -94,12 +96,12 @@ public class h extends TextureView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void a() {
-        CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.b);
+        CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.f1823b);
         if (this.c != null) {
             this.c.release();
             this.c = null;
         }
-        this.b = null;
+        this.f1823b = null;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -111,9 +113,9 @@ public class h extends TextureView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void b() {
-        if (this.b != null) {
-            this.b.release();
-            this.b = null;
+        if (this.f1823b != null) {
+            this.f1823b.release();
+            this.f1823b = null;
         }
         a();
     }
@@ -134,7 +136,7 @@ public class h extends TextureView implements i {
         CyberLog.d("CyberTextureView", "createNewSurface getSurfaceTexture:" + getSurfaceTexture());
         if (getSurfaceTexture() != null) {
             this.c = new Surface(getSurfaceTexture());
-            this.b = getSurfaceTexture();
+            this.f1823b = getSurfaceTexture();
             this.f = false;
         }
         CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.c);
@@ -155,24 +157,29 @@ public class h extends TextureView implements i {
     protected void onMeasure(int i, int i2) {
         int i3;
         int i4;
+        int i5;
+        int i6;
         this.e.a(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         this.e.b();
         boolean z = this.e.d() == 90 || this.e.d() == 270;
-        if (!z) {
-            i2 = i;
-            i = i2;
+        if (z) {
+            i3 = i;
+            i4 = i2;
+        } else {
+            i3 = i2;
+            i4 = i;
         }
-        int defaultSize = View.getDefaultSize(this.e.e(), i2);
-        int defaultSize2 = View.getDefaultSize(this.e.f(), i);
+        int defaultSize = View.getDefaultSize(this.e.e(), i4);
+        int defaultSize2 = View.getDefaultSize(this.e.f(), i3);
         float[] c = this.e.c();
         if (z) {
-            i3 = (int) (c[1] * defaultSize);
-            i4 = (int) (c[0] * defaultSize2);
+            i5 = (int) (defaultSize * c[1]);
+            i6 = (int) (defaultSize2 * c[0]);
         } else {
-            i3 = (int) (c[0] * defaultSize);
-            i4 = (int) (c[1] * defaultSize2);
+            i5 = (int) (defaultSize * c[0]);
+            i6 = (int) (defaultSize2 * c[1]);
         }
-        setMeasuredDimension(i3, i4);
+        setMeasuredDimension(i5, i6);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i

@@ -1,6 +1,6 @@
 package okhttp3.internal.http2;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +14,7 @@ import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class Http2Reader implements Closeable {
     static final Logger logger = Logger.getLogger(Http2.class.getName());
     private final boolean client;
@@ -23,7 +23,7 @@ public final class Http2Reader implements Closeable {
     private final BufferedSource source;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface Handler {
         void ackSettings();
 
@@ -125,44 +125,44 @@ public final class Http2Reader implements Closeable {
         }
     }
 
-    private void readHeaders(Handler handler, int i, byte b, int i2) throws IOException {
+    private void readHeaders(Handler handler, int i, byte b2, int i2) throws IOException {
         if (i2 == 0) {
             throw Http2.ioException("PROTOCOL_ERROR: TYPE_HEADERS streamId == 0", new Object[0]);
         }
-        boolean z = (b & 1) != 0;
-        short readByte = (b & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
-        if ((b & 32) != 0) {
+        boolean z = (b2 & 1) != 0;
+        short readByte = (b2 & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
+        if ((b2 & 32) != 0) {
             readPriority(handler, i2);
             i -= 5;
         }
-        handler.headers(z, i2, -1, readHeaderBlock(lengthWithoutPadding(i, b, readByte), readByte, b, i2));
+        handler.headers(z, i2, -1, readHeaderBlock(lengthWithoutPadding(i, b2, readByte), readByte, b2, i2));
     }
 
-    private List<Header> readHeaderBlock(int i, short s, byte b, int i2) throws IOException {
+    private List<Header> readHeaderBlock(int i, short s, byte b2, int i2) throws IOException {
         ContinuationSource continuationSource = this.continuation;
         this.continuation.left = i;
         continuationSource.length = i;
         this.continuation.padding = s;
-        this.continuation.flags = b;
+        this.continuation.flags = b2;
         this.continuation.streamId = i2;
         this.hpackReader.readHeaders();
         return this.hpackReader.getAndResetHeaderList();
     }
 
-    private void readData(Handler handler, int i, byte b, int i2) throws IOException {
+    private void readData(Handler handler, int i, byte b2, int i2) throws IOException {
         if (i2 == 0) {
             throw Http2.ioException("PROTOCOL_ERROR: TYPE_DATA streamId == 0", new Object[0]);
         }
-        boolean z = (b & 1) != 0;
-        if ((b & 32) != 0) {
+        boolean z = (b2 & 1) != 0;
+        if ((b2 & 32) != 0) {
             throw Http2.ioException("PROTOCOL_ERROR: FLAG_COMPRESSED without SETTINGS_COMPRESS_DATA", new Object[0]);
         }
-        short readByte = (b & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
-        handler.data(z, i2, this.source, lengthWithoutPadding(i, b, readByte));
+        short readByte = (b2 & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
+        handler.data(z, i2, this.source, lengthWithoutPadding(i, b2, readByte));
         this.source.skip(readByte);
     }
 
-    private void readPriority(Handler handler, int i, byte b, int i2) throws IOException {
+    private void readPriority(Handler handler, int i, byte b2, int i2) throws IOException {
         if (i != 5) {
             throw Http2.ioException("TYPE_PRIORITY length: %d != 5", Integer.valueOf(i));
         }
@@ -177,7 +177,7 @@ public final class Http2Reader implements Closeable {
         handler.priority(i, readInt & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, (this.source.readByte() & 255) + 1, (Integer.MIN_VALUE & readInt) != 0);
     }
 
-    private void readRstStream(Handler handler, int i, byte b, int i2) throws IOException {
+    private void readRstStream(Handler handler, int i, byte b2, int i2) throws IOException {
         if (i != 4) {
             throw Http2.ioException("TYPE_RST_STREAM length: %d != 4", Integer.valueOf(i));
         }
@@ -192,11 +192,11 @@ public final class Http2Reader implements Closeable {
         handler.rstStream(i2, fromHttp2);
     }
 
-    private void readSettings(Handler handler, int i, byte b, int i2) throws IOException {
+    private void readSettings(Handler handler, int i, byte b2, int i2) throws IOException {
         if (i2 != 0) {
             throw Http2.ioException("TYPE_SETTINGS streamId != 0", new Object[0]);
         }
-        if ((b & 1) != 0) {
+        if ((b2 & 1) != 0) {
             if (i != 0) {
                 throw Http2.ioException("FRAME_SIZE_ERROR ack frame should be empty!", new Object[0]);
             }
@@ -235,25 +235,25 @@ public final class Http2Reader implements Closeable {
         }
     }
 
-    private void readPushPromise(Handler handler, int i, byte b, int i2) throws IOException {
+    private void readPushPromise(Handler handler, int i, byte b2, int i2) throws IOException {
         if (i2 == 0) {
             throw Http2.ioException("PROTOCOL_ERROR: TYPE_PUSH_PROMISE streamId == 0", new Object[0]);
         }
-        short readByte = (b & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
-        handler.pushPromise(i2, this.source.readInt() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, readHeaderBlock(lengthWithoutPadding(i - 4, b, readByte), readByte, b, i2));
+        short readByte = (b2 & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
+        handler.pushPromise(i2, this.source.readInt() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, readHeaderBlock(lengthWithoutPadding(i - 4, b2, readByte), readByte, b2, i2));
     }
 
-    private void readPing(Handler handler, int i, byte b, int i2) throws IOException {
+    private void readPing(Handler handler, int i, byte b2, int i2) throws IOException {
         if (i != 8) {
             throw Http2.ioException("TYPE_PING length != 8: %s", Integer.valueOf(i));
         }
         if (i2 != 0) {
             throw Http2.ioException("TYPE_PING streamId != 0", new Object[0]);
         }
-        handler.ping((b & 1) != 0, this.source.readInt(), this.source.readInt());
+        handler.ping((b2 & 1) != 0, this.source.readInt(), this.source.readInt());
     }
 
-    private void readGoAway(Handler handler, int i, byte b, int i2) throws IOException {
+    private void readGoAway(Handler handler, int i, byte b2, int i2) throws IOException {
         if (i < 8) {
             throw Http2.ioException("TYPE_GOAWAY length < 8: %s", Integer.valueOf(i));
         }
@@ -274,7 +274,7 @@ public final class Http2Reader implements Closeable {
         handler.goAway(readInt, fromHttp2, byteString);
     }
 
-    private void readWindowUpdate(Handler handler, int i, byte b, int i2) throws IOException {
+    private void readWindowUpdate(Handler handler, int i, byte b2, int i2) throws IOException {
         if (i != 4) {
             throw Http2.ioException("TYPE_WINDOW_UPDATE length !=4: %s", Integer.valueOf(i));
         }
@@ -291,7 +291,7 @@ public final class Http2Reader implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class ContinuationSource implements Source {
         byte flags;
         int left;
@@ -355,8 +355,8 @@ public final class Http2Reader implements Closeable {
         return ((bufferedSource.readByte() & 255) << 16) | ((bufferedSource.readByte() & 255) << 8) | (bufferedSource.readByte() & 255);
     }
 
-    static int lengthWithoutPadding(int i, byte b, short s) throws IOException {
-        if ((b & 8) != 0) {
+    static int lengthWithoutPadding(int i, byte b2, short s) throws IOException {
+        if ((b2 & 8) != 0) {
             i--;
         }
         if (s > i) {

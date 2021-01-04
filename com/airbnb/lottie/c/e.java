@@ -4,12 +4,12 @@ import android.graphics.PointF;
 import android.util.JsonReader;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.airbnb.lottie.model.content.a b(JsonReader jsonReader, com.airbnb.lottie.e eVar, int i) throws IOException {
-        com.airbnb.lottie.model.a.f fVar = null;
+    public static com.airbnb.lottie.model.content.a b(JsonReader jsonReader, com.airbnb.lottie.d dVar, int i) throws IOException {
         boolean z = i == 3;
+        com.airbnb.lottie.model.a.f fVar = null;
         com.airbnb.lottie.model.a.m<PointF, PointF> mVar = null;
         String str = null;
         while (jsonReader.hasNext()) {
@@ -46,10 +46,10 @@ public class e {
                     str = jsonReader.nextString();
                     break;
                 case 1:
-                    mVar = a.b(jsonReader, eVar);
+                    mVar = a.b(jsonReader, dVar);
                     break;
                 case 2:
-                    fVar = d.h(jsonReader, eVar);
+                    fVar = d.h(jsonReader, dVar);
                     break;
                 case 3:
                     if (jsonReader.nextInt() != 3) {

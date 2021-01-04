@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public final class g {
-    private static final Map<Class<?>, Class<?>> pux;
-    private static final Map<Class<?>, Class<?>> puy;
+    private static final Map<Class<?>, Class<?>> pLx;
+    private static final Map<Class<?>, Class<?>> pLy;
 
     static {
         HashMap hashMap = new HashMap(16);
@@ -21,8 +21,8 @@ public final class g {
         a(hashMap, hashMap2, Long.TYPE, Long.class);
         a(hashMap, hashMap2, Short.TYPE, Short.class);
         a(hashMap, hashMap2, Void.TYPE, Void.class);
-        pux = Collections.unmodifiableMap(hashMap);
-        puy = Collections.unmodifiableMap(hashMap2);
+        pLx = Collections.unmodifiableMap(hashMap);
+        pLy = Collections.unmodifiableMap(hashMap2);
     }
 
     private static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
@@ -30,12 +30,12 @@ public final class g {
         map2.put(cls2, cls);
     }
 
-    public static boolean j(Type type) {
-        return pux.containsKey(type);
+    public static boolean q(Type type) {
+        return pLx.containsKey(type);
     }
 
-    public static <T> Class<T> G(Class<T> cls) {
-        Class<T> cls2 = (Class<T>) pux.get(a.checkNotNull(cls));
+    public static <T> Class<T> z(Class<T> cls) {
+        Class<T> cls2 = (Class<T>) pLx.get(a.checkNotNull(cls));
         return cls2 == null ? cls : cls2;
     }
 }

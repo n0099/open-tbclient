@@ -11,10 +11,11 @@ import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.callback.ICancellable;
 import com.baidu.ar.callback.IError;
 import com.baidu.ar.ihttp.IProgressCallback;
+import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class d implements com.baidu.ar.lua.c, IStepLoading {
     private Context mContext;
     private ARCaseBundleInfo xA;
@@ -35,7 +36,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     public static void d(String str, int i) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("request_id", str);
-        hashMap.put("ret", Integer.valueOf(i));
+        hashMap.put(Constants.KEYS.RET, Integer.valueOf(i));
         ARPMessage.getInstance().sendMessage(5003, hashMap);
     }
 

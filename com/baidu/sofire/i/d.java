@@ -10,7 +10,7 @@ import java.security.cert.CertificateFactory;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class d {
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
         jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
@@ -20,21 +20,21 @@ public final class d {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    private static java.security.cert.Certificate[] a(java.util.jar.JarFile r5, java.util.jar.JarEntry r6, byte[] r7) {
+    private static java.security.cert.Certificate[] a(java.util.jar.JarFile r4, java.util.jar.JarEntry r5, byte[] r6) {
         /*
             r3 = 0
             r0 = 0
             java.io.BufferedInputStream r1 = new java.io.BufferedInputStream     // Catch: java.lang.Throwable -> L28
-            java.io.InputStream r2 = r5.getInputStream(r6)     // Catch: java.lang.Throwable -> L28
+            java.io.InputStream r2 = r4.getInputStream(r5)     // Catch: java.lang.Throwable -> L28
             r1.<init>(r2)     // Catch: java.lang.Throwable -> L28
         Lb:
             r0 = 0
             r2 = 8192(0x2000, float:1.148E-41)
-            int r0 = r1.read(r7, r0, r2)     // Catch: java.lang.Throwable -> L4f
+            int r0 = r1.read(r6, r0, r2)     // Catch: java.lang.Throwable -> L4f
             r2 = -1
             if (r0 != r2) goto Lb
-            if (r6 == 0) goto L1f
-            java.security.cert.Certificate[] r0 = r6.getCertificates()     // Catch: java.lang.Throwable -> L4f
+            if (r5 == 0) goto L1f
+            java.security.cert.Certificate[] r0 = r5.getCertificates()     // Catch: java.lang.Throwable -> L4f
         L1b:
             r1.close()     // Catch: java.lang.Throwable -> L23
         L1e:
@@ -50,7 +50,7 @@ public final class d {
         L28:
             r1 = move-exception
         L29:
-            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L4a
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L4b
             if (r0 == 0) goto L31
             r0.close()     // Catch: java.lang.Throwable -> L34
         L31:
@@ -62,27 +62,27 @@ public final class d {
             goto L31
         L39:
             r1 = move-exception
-            r4 = r1
-            r1 = r0
-            r0 = r4
-        L3d:
-            if (r1 == 0) goto L42
-            r1.close()     // Catch: java.lang.Throwable -> L43
+            r2 = r1
+            r3 = r0
+        L3c:
+            if (r3 == 0) goto L41
+            r3.close()     // Catch: java.lang.Throwable -> L42
+        L41:
+            throw r2
         L42:
-            throw r0
-        L43:
-            r1 = move-exception
-            com.baidu.sofire.i.e.a()
-            goto L42
-        L48:
             r0 = move-exception
-            goto L3d
-        L4a:
+            com.baidu.sofire.i.e.a()
+            goto L41
+        L47:
+            r0 = move-exception
+            r2 = r0
+            r3 = r1
+            goto L3c
+        L4b:
             r1 = move-exception
-            r4 = r1
-            r1 = r0
-            r0 = r4
-            goto L3d
+            r2 = r1
+            r3 = r0
+            goto L3c
         L4f:
             r0 = move-exception
             r0 = r1

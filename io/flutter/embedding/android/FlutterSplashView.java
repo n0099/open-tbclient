@@ -7,36 +7,48 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import io.flutter.Log;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 final class FlutterSplashView extends FrameLayout {
     private static String TAG = "FlutterSplashView";
+    @NonNull
     private final FlutterView.FlutterEngineAttachmentListener flutterEngineAttachmentListener;
+    @NonNull
     private final FlutterUiDisplayListener flutterUiDisplayListener;
+    @Nullable
     private FlutterView flutterView;
+    @NonNull
     private final Runnable onTransitionComplete;
+    @Nullable
     private String previousCompletedSplashIsolate;
+    @Nullable
     private SplashScreen splashScreen;
+    @Nullable
     private Bundle splashScreenState;
+    @Nullable
     private View splashScreenView;
+    @Nullable
     private String transitioningIsolateId;
 
-    public FlutterSplashView(Context context) {
+    public FlutterSplashView(@NonNull Context context) {
         this(context, null, 0);
     }
 
-    public FlutterSplashView(Context context, AttributeSet attributeSet) {
+    public FlutterSplashView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public FlutterSplashView(Context context, AttributeSet attributeSet, int i) {
+    public FlutterSplashView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.flutterEngineAttachmentListener = new FlutterView.FlutterEngineAttachmentListener() { // from class: io.flutter.embedding.android.FlutterSplashView.1
             @Override // io.flutter.embedding.android.FlutterView.FlutterEngineAttachmentListener
-            public void onFlutterEngineAttachedToFlutterView(FlutterEngine flutterEngine) {
+            public void onFlutterEngineAttachedToFlutterView(@NonNull FlutterEngine flutterEngine) {
                 FlutterSplashView.this.flutterView.removeFlutterEngineAttachmentListener(this);
                 FlutterSplashView.this.displayFlutterViewWithSplash(FlutterSplashView.this.flutterView, FlutterSplashView.this.splashScreen);
             }
@@ -68,6 +80,7 @@ final class FlutterSplashView extends FrameLayout {
     }
 
     @Override // android.view.View
+    @Nullable
     protected Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
         savedState.previousCompletedSplashIsolate = this.previousCompletedSplashIsolate;
@@ -83,7 +96,7 @@ final class FlutterSplashView extends FrameLayout {
         this.splashScreenState = savedState.splashScreenState;
     }
 
-    public void displayFlutterViewWithSplash(FlutterView flutterView, SplashScreen splashScreen) {
+    public void displayFlutterViewWithSplash(@NonNull FlutterView flutterView, @Nullable SplashScreen splashScreen) {
         if (this.flutterView != null) {
             this.flutterView.removeOnFirstFrameRenderedListener(this.flutterUiDisplayListener);
             removeView(this.flutterView);
@@ -147,7 +160,8 @@ final class FlutterSplashView extends FrameLayout {
         this.splashScreen.transitionToFlutter(this.onTransitionComplete);
     }
 
-    /* loaded from: classes9.dex */
+    @Keep
+    /* loaded from: classes6.dex */
     public static class SavedState extends View.BaseSavedState {
         public static Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: io.flutter.embedding.android.FlutterSplashView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.personcenter.privilege.entereffect.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.f.b;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.ala.gift.AlaDynamicGift;
 import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
 import com.baidu.ala.gift.AlaDynamicGiftZip;
@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class AlaEnterEffectData implements q, Serializable {
+/* loaded from: classes10.dex */
+public class AlaEnterEffectData implements n, Serializable {
     public static final int ALA_ENTER_EFFECT_DOWNLOADING = 102;
     public static final int ALA_ENTER_EFFECT_HAS_DOWNLOAD = 101;
     public static final int ALA_ENTER_EFFECT_NOT_DOWNLOAD = 100;
@@ -45,7 +45,7 @@ public class AlaEnterEffectData implements q, Serializable {
     public int type;
     public int use_status;
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         return TYPE_ENTER_EFFECT_DATA;
     }

@@ -6,8 +6,8 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
-import android.support.v4.view.ViewCompat;
 import android.widget.ImageView;
+import androidx.core.view.ViewCompat;
 /* loaded from: classes.dex */
 public class h extends k {
     private final Paint mModeBeforePaint = new Paint();
@@ -34,17 +34,17 @@ public class h extends k {
                 return;
             }
             this.mBitmapRect.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.Sy.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
+            dVar.SB.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
         } else if (dVar.isBdImgAvailable()) {
             if (this.isPathAvailable) {
-                drawPathClip(canvas, dVar.Sy.getRawBitmap());
+                drawPathClip(canvas, dVar.SB.getRawBitmap());
                 return;
             }
             this.mBitmapRect.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.Sy.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
+            dVar.SB.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
         } else {
             this.mBitmapRect.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.Sy.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
+            dVar.SB.drawImageTo(canvas, this.mBitmapRect, this.mBounds, this.mPaint);
         }
     }
 

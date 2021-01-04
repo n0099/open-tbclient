@@ -3,11 +3,11 @@ package com.baidu.swan.apps;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class SwanRelayActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(@Nullable Bundle bundle) {

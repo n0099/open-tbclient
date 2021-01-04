@@ -8,16 +8,16 @@ import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
 import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
 import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private PushDialogActivity mDJ;
+    private PushDialogActivity mJc;
     private long taskId;
     private String tid;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(PushDialogActivity pushDialogActivity) {
-        this.mDJ = pushDialogActivity;
-        this.mDJ.registerListener(new com.baidu.adp.framework.listener.a(1003412, 309614) { // from class: com.baidu.tieba.pushdialog.a.1
+        this.mJc = pushDialogActivity;
+        this.mJc.registerListener(new com.baidu.adp.framework.listener.a(1003412, 309614) { // from class: com.baidu.tieba.pushdialog.a.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage instanceof PushDialogHttpResMsg) {
@@ -27,12 +27,12 @@ public class a {
                 }
             }
         });
-        Intent intent = this.mDJ.getIntent();
+        Intent intent = this.mJc.getIntent();
         if (intent != null) {
             this.tid = intent.getStringExtra("thread_id");
             this.taskId = intent.getLongExtra("task_id", 0L);
             if (StringUtils.isNull(this.tid)) {
-                this.mDJ.finish();
+                this.mJc.finish();
             }
         }
     }
@@ -41,8 +41,8 @@ public class a {
     public void loadData() {
         long j = com.baidu.adp.lib.f.b.toLong(this.tid, 0L);
         if (j == 0) {
-            if (this.mDJ != null) {
-                this.mDJ.a(false, null);
+            if (this.mJc != null) {
+                this.mJc.a(false, null);
                 return;
             }
             return;
@@ -55,15 +55,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PushDialogSocketResMsg pushDialogSocketResMsg) {
-        if (this.mDJ != null) {
-            this.mDJ.a(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
+        if (this.mJc != null) {
+            this.mJc.a(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PushDialogHttpResMsg pushDialogHttpResMsg) {
-        if (this.mDJ != null) {
-            this.mDJ.a(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
+        if (this.mJc != null) {
+            this.mJc.a(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
         }
     }
 

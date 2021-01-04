@@ -1,10 +1,10 @@
 package com.baidu.searchbox.player.message;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.interfaces.INeuron;
 import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface IMessenger {
     String getType();
 

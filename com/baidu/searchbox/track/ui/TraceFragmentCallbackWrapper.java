@@ -1,8 +1,9 @@
 package com.baidu.searchbox.track.ui;
 
 import android.app.Activity;
+import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.DeviceUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TraceFragmentCallbackWrapper implements ITraceFragmentCallback {
     private TraceFragmentNativeCallback mTraceFragmentNativeCallback;
     private TraceFragmentXCallback mTraceFragmentXCallback;
@@ -20,7 +21,7 @@ public class TraceFragmentCallbackWrapper implements ITraceFragmentCallback {
     }
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean register(Activity activity) {
+    public boolean register(@Nullable Activity activity) {
         if (activity == null) {
             return false;
         }
@@ -32,7 +33,7 @@ public class TraceFragmentCallbackWrapper implements ITraceFragmentCallback {
     }
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean unregister(Activity activity) {
+    public boolean unregister(@Nullable Activity activity) {
         if (activity == null) {
             return false;
         }

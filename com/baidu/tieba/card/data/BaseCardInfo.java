@@ -1,10 +1,8 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes.dex */
-public abstract class BaseCardInfo implements q, com.baidu.afd.k {
-    public boolean forceNoTest;
+public abstract class BaseCardInfo implements com.baidu.adp.widget.ListView.n, com.baidu.afd.k {
     public int position;
     private com.baidu.afd.j trigger;
     public boolean needTopMargin = false;
@@ -58,7 +56,7 @@ public abstract class BaseCardInfo implements q, com.baidu.afd.k {
         return this.mSupportType == SupportType.BOTTOM;
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         return null;
     }

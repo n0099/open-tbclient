@@ -1,42 +1,42 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class as<T> implements aj<T> {
-    private final at ply;
-    private final aj<T> poz;
+    private final at pBb;
+    private final aj<T> pDZ;
 
     public as(aj<T> ajVar, at atVar) {
-        this.poz = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
-        this.ply = atVar;
+        this.pDZ = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.pBb = atVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void a(final k<T> kVar, final ak akVar) {
-        final am ewx = akVar.ewx();
+        final am eAe = akVar.eAe();
         final String id = akVar.getId();
-        final aq<T> aqVar = new aq<T>(kVar, ewx, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.as.1
+        final aq<T> aqVar = new aq<T>(kVar, eAe, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.as.1
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
+            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.e
             public void onSuccess(T t) {
-                ewx.a(id, "BackgroundThreadHandoffProducer", null);
-                as.this.poz.a(kVar, akVar);
+                eAe.b(id, "BackgroundThreadHandoffProducer", null);
+                as.this.pDZ.a(kVar, akVar);
             }
 
-            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
-            protected void aZ(T t) {
+            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.e
+            protected void ba(T t) {
             }
 
-            @Override // com.facebook.common.b.h
+            @Override // com.facebook.common.b.e
             protected T getResult() throws Exception {
                 return null;
             }
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.as.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void ewD() {
+            public void eAk() {
                 aqVar.cancel();
-                as.this.ply.F(aqVar);
+                as.this.pBb.C(aqVar);
             }
         });
-        this.ply.E(aqVar);
+        this.pBb.B(aqVar);
     }
 }

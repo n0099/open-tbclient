@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class aw {
     public static void a(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
@@ -27,21 +27,21 @@ public class aw {
     }
 
     public static void a(Context context, il ilVar) {
-        com.xiaomi.channel.commonutils.logger.b.m47a("need to update local info with: " + ilVar.m426a());
-        String str = ilVar.m426a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
+        com.xiaomi.channel.commonutils.logger.b.m73a("need to update local info with: " + ilVar.m452a());
+        String str = ilVar.m452a().get(Constants.EXTRA_KEY_ACCEPT_TIME);
         if (str != null) {
             MiPushClient.removeAcceptTime(context);
             String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             if (split.length == 2) {
                 MiPushClient.addAcceptTime(context, split[0], split[1]);
                 if ("00:00".equals(split[0]) && "00:00".equals(split[1])) {
-                    b.m87a(context).a(true);
+                    b.m113a(context).a(true);
                 } else {
-                    b.m87a(context).a(false);
+                    b.m113a(context).a(false);
                 }
             }
         }
-        String str2 = ilVar.m426a().get(Constants.EXTRA_KEY_ALIASES);
+        String str2 = ilVar.m452a().get(Constants.EXTRA_KEY_ALIASES);
         if (str2 != null) {
             MiPushClient.removeAllAliases(context);
             if (!"".equals(str2)) {
@@ -51,7 +51,7 @@ public class aw {
                 }
             }
         }
-        String str4 = ilVar.m426a().get("topics");
+        String str4 = ilVar.m452a().get(Constants.EXTRA_KEY_TOPICS);
         if (str4 != null) {
             MiPushClient.removeAllTopics(context);
             if (!"".equals(str4)) {
@@ -61,7 +61,7 @@ public class aw {
                 }
             }
         }
-        String str6 = ilVar.m426a().get(Constants.EXTRA_KEY_ACCOUNTS);
+        String str6 = ilVar.m452a().get(Constants.EXTRA_KEY_ACCOUNTS);
         if (str6 != null) {
             MiPushClient.removeAllAccounts(context);
             if ("".equals(str6)) {

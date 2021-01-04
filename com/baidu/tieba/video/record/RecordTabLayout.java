@@ -9,48 +9,48 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class RecordTabLayout extends LinearLayout {
-    private int jqf;
-    private LinearLayout nIM;
-    private View nIN;
-    private boolean nIO;
-    private a nIP;
+    private int jCC;
+    private LinearLayout nMf;
+    private View nMg;
+    private boolean nMh;
+    private a nMi;
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void ak(int i, boolean z);
+        void ai(int i, boolean z);
     }
 
     public RecordTabLayout(Context context) {
         super(context);
-        this.nIO = true;
+        this.nMh = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nIO = true;
+        this.nMh = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nIO = true;
+        this.nMh = true;
         initView();
     }
 
     private void initView() {
         setOrientation(1);
-        this.nIM = new LinearLayout(getContext());
-        this.nIM.setOrientation(0);
-        this.nIM.setGravity(17);
-        addView(this.nIM, new ViewGroup.LayoutParams(-1, -2));
-        this.nIN = new View(getContext());
-        this.nIN.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
+        this.nMf = new LinearLayout(getContext());
+        this.nMf.setOrientation(0);
+        this.nMf.setGravity(17);
+        addView(this.nMf, new ViewGroup.LayoutParams(-1, -2));
+        this.nMg = new View(getContext());
+        this.nMg.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44), com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds4));
         layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds18);
-        addView(this.nIN, layoutParams);
+        addView(this.nMg, layoutParams);
     }
 
     public void bX(final int i, String str) {
@@ -62,29 +62,29 @@ public class RecordTabLayout extends LinearLayout {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.RecordTabLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (RecordTabLayout.this.jqf != i) {
+                if (RecordTabLayout.this.jCC != i) {
                     RecordTabLayout.this.setCurrentTab(i, true);
-                    if (RecordTabLayout.this.nIP != null) {
-                        RecordTabLayout.this.nIP.ak(i, true);
+                    if (RecordTabLayout.this.nMi != null) {
+                        RecordTabLayout.this.nMi.ai(i, true);
                     }
                 }
             }
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        if (this.nIM.getChildCount() != 0) {
+        if (this.nMf.getChildCount() != 0) {
             layoutParams.leftMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44);
         }
-        this.nIM.addView(textView, layoutParams);
+        this.nMf.addView(textView, layoutParams);
     }
 
     public void setCurrentTab(int i, final boolean z) {
         TextView textView;
-        if (this.jqf != i) {
-            this.jqf = i;
+        if (this.jCC != i) {
+            this.jCC = i;
             final TextView textView2 = null;
             int i2 = 0;
-            while (i2 < this.nIM.getChildCount()) {
-                View childAt = this.nIM.getChildAt(i2);
+            while (i2 < this.nMf.getChildCount()) {
+                View childAt = this.nMf.getChildAt(i2);
                 if (childAt instanceof TextView) {
                     Object tag = childAt.getTag();
                     if ((tag instanceof Integer) && ((Integer) tag).intValue() == i) {
@@ -100,19 +100,19 @@ public class RecordTabLayout extends LinearLayout {
                 i2++;
                 textView2 = textView;
             }
-            if (this.nIO) {
+            if (this.nMh) {
                 textView2.post(new Runnable() { // from class: com.baidu.tieba.video.record.RecordTabLayout.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.nIN.getWidth()) / 2)) - RecordTabLayout.this.nIN.getLeft();
+                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.nMg.getWidth()) / 2)) - RecordTabLayout.this.nMg.getLeft();
                         if (z) {
-                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.nIN, "translationX", RecordTabLayout.this.nIN.getTranslationX(), x);
+                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.nMg, "translationX", RecordTabLayout.this.nMg.getTranslationX(), x);
                             ofFloat.setDuration(500L);
                             ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
                             ofFloat.start();
                             return;
                         }
-                        RecordTabLayout.this.nIN.setTranslationX(x);
+                        RecordTabLayout.this.nMg.setTranslationX(x);
                     }
                 });
             }
@@ -120,17 +120,17 @@ public class RecordTabLayout extends LinearLayout {
     }
 
     public int getCurrentTab() {
-        return this.jqf;
+        return this.jCC;
     }
 
     public void setListener(a aVar) {
-        this.nIP = aVar;
+        this.nMi = aVar;
     }
 
     public void setShowIndicator(boolean z) {
-        this.nIO = z;
-        if (!this.nIO) {
-            this.nIN.setVisibility(4);
+        this.nMh = z;
+        if (!this.nMh) {
+            this.nMg.setVisibility(4);
         }
     }
 }

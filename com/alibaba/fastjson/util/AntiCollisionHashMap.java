@@ -1,6 +1,6 @@
 package com.alibaba.fastjson.util;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Serializable, Cloneable, Map<K, V> {
     static final int DEFAULT_INITIAL_CAPACITY = 16;
     static final float DEFAULT_LOAD_FACTOR = 0.75f;
@@ -301,23 +301,24 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
         int indexFor = indexFor(hash, this.table.length);
         Entry<K, V> entry = this.table[indexFor];
         Entry<K, V> entry2 = entry;
-        while (entry != null) {
-            Entry<K, V> entry3 = entry.next;
-            if (entry.hash == hash && ((k = entry.key) == obj || (obj != null && obj.equals(k)))) {
+        Entry<K, V> entry3 = entry;
+        while (entry2 != null) {
+            Entry<K, V> entry4 = entry2.next;
+            if (entry2.hash == hash && ((k = entry2.key) == obj || (obj != null && obj.equals(k)))) {
                 this.modCount++;
                 this.size--;
-                if (entry2 == entry) {
-                    this.table[indexFor] = entry3;
+                if (entry3 == entry2) {
+                    this.table[indexFor] = entry4;
                 } else {
-                    entry2.next = entry3;
+                    entry3.next = entry4;
                 }
-                entry.recordRemoval(this);
-                return entry;
+                entry2.recordRemoval(this);
+                return entry2;
             }
-            entry2 = entry;
-            entry = entry3;
+            entry3 = entry2;
+            entry2 = entry4;
         }
-        return entry;
+        return entry2;
     }
 
     final Entry<K, V> removeMapping(Object obj) {
@@ -337,23 +338,24 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
         int indexFor = indexFor(hash, this.table.length);
         Entry<K, V> entry2 = this.table[indexFor];
         Entry<K, V> entry3 = entry2;
-        while (entry2 != null) {
-            Entry<K, V> entry4 = entry2.next;
-            if (entry2.hash == hash && entry2.equals(entry)) {
+        Entry<K, V> entry4 = entry2;
+        while (entry3 != null) {
+            Entry<K, V> entry5 = entry3.next;
+            if (entry3.hash == hash && entry3.equals(entry)) {
                 this.modCount++;
                 this.size--;
-                if (entry3 == entry2) {
-                    this.table[indexFor] = entry4;
+                if (entry4 == entry3) {
+                    this.table[indexFor] = entry5;
                 } else {
-                    entry3.next = entry4;
+                    entry4.next = entry5;
                 }
-                entry2.recordRemoval(this);
-                return entry2;
+                entry3.recordRemoval(this);
+                return entry3;
             }
-            entry3 = entry2;
-            entry2 = entry4;
+            entry4 = entry3;
+            entry3 = entry5;
         }
-        return entry2;
+        return entry3;
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -412,7 +414,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class Entry<K, V> implements Map.Entry<K, V> {
         final int hash;
         final K key;
@@ -490,7 +492,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public abstract class HashIterator<E> implements Iterator<E> {
         Entry<K, V> current;
         int expectedModCount;
@@ -560,7 +562,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public final class ValueIterator extends AntiCollisionHashMap<K, V>.HashIterator<V> {
         private ValueIterator() {
             super();
@@ -573,7 +575,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public final class KeyIterator extends AntiCollisionHashMap<K, V>.HashIterator<K> {
         private KeyIterator() {
             super();
@@ -586,7 +588,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public final class EntryIterator extends AntiCollisionHashMap<K, V>.HashIterator<Map.Entry<K, V>> {
         private EntryIterator() {
             super();
@@ -622,7 +624,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
         return keySet;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     private final class KeySet extends AbstractSet<K> {
         private KeySet() {
         }
@@ -664,7 +666,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
         return values;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     private final class Values extends AbstractCollection<V> {
         private Values() {
         }
@@ -706,7 +708,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public final class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         private EntrySet() {
         }

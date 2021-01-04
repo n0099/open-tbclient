@@ -1,9 +1,6 @@
 package com.baidu.live.tbadk.core.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -11,9 +8,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class MessageRedDotView extends FrameLayout {
     public static final int TYPE_PLUS = 2;
     public static final int TYPE_THREE_DOT = 1;

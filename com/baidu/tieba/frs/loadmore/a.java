@@ -1,16 +1,16 @@
 package com.baidu.tieba.frs.loadmore;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.f;
 import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public interface a extends FrsLoadMoreModel.a {
-    FrsViewData cCK();
+    FrsViewData cFE();
 
     String getForumName();
 
-    e getPageContext();
+    f getPageContext();
 
     BdUniqueId getUniqueId();
 }

@@ -1,5 +1,5 @@
 package com.baidu.clientupdate.appinfo;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class RuleInfo extends AppInfo {
     public String mAutoDownload;
     public String mCategory;

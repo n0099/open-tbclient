@@ -3,11 +3,11 @@ package com.baidu.live.gift;
 import android.content.Context;
 import com.baidu.live.tbadk.core.data.AlaBroadcastGiftToastData;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static long broadGiftMsgId;
-    public boolean aVr;
-    public ArrayList<AlaBroadcastGiftToastData> aVs;
+    public boolean aWW;
+    public ArrayList<AlaBroadcastGiftToastData> aWX;
     public Context context;
     public String fromType;
 }

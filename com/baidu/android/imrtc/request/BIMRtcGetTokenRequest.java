@@ -1,7 +1,6 @@
 package com.baidu.android.imrtc.request;
 
 import android.content.Context;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imrtc.request.BIMRtcTokenListener;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -10,6 +9,7 @@ import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.sapi2.SapiContext;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -18,7 +18,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     private static final String TAG = "BIMRtcGetTokenRequest";
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -84,7 +84,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     }
 
     private String getMd5(String str) throws NoSuchAlgorithmException {
-        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         messageDigest.update(str.getBytes());
         return byte2Hex(messageDigest.digest());
     }
@@ -94,9 +94,9 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            char c = hexDigits[(b & 240) >> 4];
-            char c2 = hexDigits[b & 15];
+        for (byte b2 : bArr) {
+            char c = hexDigits[(b2 & 240) >> 4];
+            char c2 = hexDigits[b2 & 15];
             sb.append(c);
             sb.append(c2);
         }
@@ -110,48 +110,34 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         return hashMap;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x005f  */
     @Override // com.baidu.android.imrtc.request.HttpExecutor.ResponseHandler
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void onSuccess(byte[] bArr) {
-        JSONException e;
         String str;
-        String str2;
         int i;
-        String str3 = new String(bArr);
-        LogUtils.e(TAG, "onSuccess :" + str3);
+        String str2 = new String(bArr);
+        LogUtils.e(TAG, "onSuccess :" + str2);
+        String str3 = "";
         String str4 = "";
         try {
-            JSONObject jSONObject = new JSONObject(str3);
+            JSONObject jSONObject = new JSONObject(str2);
             i = jSONObject.optInt("error_code", -1);
-            str2 = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
-            str4 = jSONObject.optString("rtc_room_token", "");
-            RtcUtility.setRtcRoomToken(this.mContext, str4);
-            str = jSONObject.optString("rtc_appid", "");
-        } catch (JSONException e2) {
-            e = e2;
-            str = "";
-        }
-        try {
-            RtcUtility.setRtcAppId(this.mContext, str);
-        } catch (JSONException e3) {
-            e = e3;
+            str = jSONObject.optString("error_msg", "");
+            str3 = jSONObject.optString("rtc_room_token", "");
+            RtcUtility.setRtcRoomToken(this.mContext, str3);
+            str4 = jSONObject.optString("rtc_appid", "");
+            RtcUtility.setRtcAppId(this.mContext, str4);
+        } catch (JSONException e) {
             LogUtils.e(TAG, "JSONException", e);
-            str2 = "ERROR_MSG_JSON_PARSE_EXCEPTION";
+            str = "ERROR_MSG_JSON_PARSE_EXCEPTION";
             i = -1;
-            if (this.mListener == null) {
-            }
         }
-        if (this.mListener == null) {
+        if (this.mListener != null) {
             BIMRtcTokenListener.BIMRTCGetTokeResult bIMRTCGetTokeResult = new BIMRtcTokenListener.BIMRTCGetTokeResult();
             bIMRTCGetTokeResult.roomId = this.mRtcRoomId;
             bIMRTCGetTokeResult.useId = this.mRtcUserId;
-            bIMRTCGetTokeResult.token = str4;
-            bIMRTCGetTokeResult.rtcAppId = str;
-            this.mListener.onResult(i, str2, bIMRTCGetTokeResult);
+            bIMRTCGetTokeResult.token = str3;
+            bIMRTCGetTokeResult.rtcAppId = str4;
+            this.mListener.onResult(i, str, bIMRTCGetTokeResult);
             trackRequest(i, "room/get_rtc_token");
         }
     }

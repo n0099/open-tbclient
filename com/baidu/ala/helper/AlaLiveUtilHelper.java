@@ -4,12 +4,13 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.opengl.Matrix;
+import android.view.Display;
+import android.view.WindowManager;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.ala.recorder.AlaLiveRecorderConfig;
-import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaLiveUtilHelper {
     private static final String ALA_PLUGIN_NAME = "com.baidu.tieba.pluginAla";
     public static final int ALIVE_SDK_PLATFORM = 4;
@@ -87,8 +88,19 @@ public class AlaLiveUtilHelper {
         return sb.toString();
     }
 
+    public static int[] getScreenDimensions(Context context) {
+        int[] iArr = new int[2];
+        if (context == null) {
+            return iArr;
+        }
+        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+        iArr[0] = defaultDisplay.getWidth();
+        iArr[1] = defaultDisplay.getHeight();
+        return iArr;
+    }
+
     public static int getRealScreenOrientation(Context context) {
-        int[] screenDimensions = BdUtilHelper.getScreenDimensions(context);
+        int[] screenDimensions = getScreenDimensions(context);
         int i = context.getResources().getConfiguration().orientation;
         if (i == 2 || screenDimensions[0] <= screenDimensions[1]) {
             return i;

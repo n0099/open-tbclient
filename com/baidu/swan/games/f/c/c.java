@@ -10,35 +10,35 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String dWr;
-    private com.baidu.swan.games.network.b dWs;
-    private a dZf;
+    private String efo;
+    private com.baidu.swan.games.network.b efp;
+    private a eic;
     private String mSrc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.baidu.swan.games.network.b bVar, String str, String str2, a aVar) {
         this.mSrc = "";
-        this.dWr = "";
-        this.dWs = bVar;
-        this.dWr = str;
+        this.efo = "";
+        this.efp = bVar;
+        this.efo = str;
         this.mSrc = str2;
-        this.dZf = aVar;
+        this.eic = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void load() {
-        this.dWs.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.f.c.c.1
+        this.efp.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.f.c.c.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (c.DEBUG) {
                     Log.e("ImageDownloader", c.this.mSrc + " load failed");
                     iOException.printStackTrace();
                 }
-                if (c.this.dZf != null) {
-                    c.this.dZf.au(-1, c.this.mSrc);
+                if (c.this.eic != null) {
+                    c.this.eic.aw(-1, c.this.mSrc);
                 }
             }
 
@@ -47,61 +47,48 @@ class c {
             public void onResponse(Call call, Response response) {
                 FileOutputStream fileOutputStream;
                 InputStream inputStream;
-                FileOutputStream fileOutputStream2;
-                InputStream inputStream2;
-                File file = null;
+                File file;
                 byte[] bArr = new byte[2048];
                 try {
                     inputStream = response.body().byteStream();
                     try {
                         try {
-                            String wM = f.wM(c.this.mSrc);
-                            String str = c.this.dWr + wM.substring(0, wM.lastIndexOf("/"));
+                            String wL = f.wL(c.this.mSrc);
+                            String str = c.this.efo + wL.substring(0, wL.lastIndexOf("/"));
                             File file2 = new File(str);
                             if (!file2.exists() || !file2.isDirectory()) {
                                 file2.mkdirs();
                             }
-                            String substring = wM.substring(wM.lastIndexOf("/") + 1);
-                            File file3 = new File(str, substring + ".bddownload");
+                            String substring = wL.substring(wL.lastIndexOf("/") + 1);
+                            file = new File(str, substring + ".bddownload");
                             try {
-                                fileOutputStream = new FileOutputStream(file3);
+                                fileOutputStream = new FileOutputStream(file);
                                 while (true) {
                                     try {
-                                        int read = inputStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        fileOutputStream.write(bArr, 0, read);
-                                    } catch (Exception e) {
-                                        e = e;
-                                        file = file3;
-                                        fileOutputStream2 = fileOutputStream;
-                                        inputStream2 = inputStream;
                                         try {
+                                            int read = inputStream.read(bArr);
+                                            if (read == -1) {
+                                                break;
+                                            }
+                                            fileOutputStream.write(bArr, 0, read);
+                                        } catch (Exception e) {
+                                            e = e;
                                             if (c.DEBUG) {
                                                 Log.e("ImageDownloader", c.this.mSrc + " load failed", e);
                                             }
                                             if (file != null) {
                                                 file.delete();
                                             }
-                                            if (c.this.dZf != null) {
-                                                c.this.dZf.au(-1, c.this.mSrc);
+                                            if (c.this.eic != null) {
+                                                c.this.eic.aw(-1, c.this.mSrc);
                                             }
-                                            com.baidu.swan.c.d.closeSafely(inputStream2);
-                                            com.baidu.swan.c.d.closeSafely(fileOutputStream2);
-                                            com.baidu.swan.c.d.closeSafely(response);
-                                            return;
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            inputStream = inputStream2;
-                                            fileOutputStream = fileOutputStream2;
                                             com.baidu.swan.c.d.closeSafely(inputStream);
                                             com.baidu.swan.c.d.closeSafely(fileOutputStream);
                                             com.baidu.swan.c.d.closeSafely(response);
-                                            throw th;
+                                            return;
                                         }
-                                    } catch (Throwable th2) {
-                                        th = th2;
+                                    } catch (Throwable th) {
+                                        th = th;
                                         com.baidu.swan.c.d.closeSafely(inputStream);
                                         com.baidu.swan.c.d.closeSafely(fileOutputStream);
                                         com.baidu.swan.c.d.closeSafely(response);
@@ -109,25 +96,25 @@ class c {
                                     }
                                 }
                                 fileOutputStream.flush();
-                                File file4 = new File(str, substring);
-                                if (file4.exists() && !file4.isDirectory()) {
-                                    file4.delete();
+                                File file3 = new File(str, substring);
+                                if (file3.exists() && !file3.isDirectory()) {
+                                    file3.delete();
                                 }
-                                String absolutePath = file4.getAbsolutePath();
-                                if (file3.renameTo(file4)) {
+                                String absolutePath = file3.getAbsolutePath();
+                                if (file.renameTo(file3)) {
                                     if (c.DEBUG) {
                                         Log.e("ImageDownloader", c.this.mSrc + " load rename success path = " + absolutePath);
                                     }
-                                    if (c.this.dZf != null) {
-                                        c.this.dZf.cS(c.this.mSrc, absolutePath);
+                                    if (c.this.eic != null) {
+                                        c.this.eic.cR(c.this.mSrc, absolutePath);
                                     }
                                 } else {
                                     if (c.DEBUG) {
                                         Log.e("ImageDownloader", c.this.mSrc + " load rename error path = " + absolutePath);
                                     }
-                                    file3.delete();
-                                    if (c.this.dZf != null) {
-                                        c.this.dZf.au(-1, absolutePath);
+                                    file.delete();
+                                    if (c.this.eic != null) {
+                                        c.this.eic.aw(-1, absolutePath);
                                     }
                                 }
                                 com.baidu.swan.c.d.closeSafely(inputStream);
@@ -135,25 +122,24 @@ class c {
                                 com.baidu.swan.c.d.closeSafely(response);
                             } catch (Exception e2) {
                                 e = e2;
-                                inputStream2 = inputStream;
-                                file = file3;
-                                fileOutputStream2 = null;
+                                fileOutputStream = null;
                             }
-                        } catch (Throwable th3) {
-                            th = th3;
+                        } catch (Exception e3) {
+                            e = e3;
+                            file = null;
                             fileOutputStream = null;
                         }
-                    } catch (Exception e3) {
-                        e = e3;
-                        fileOutputStream2 = null;
-                        inputStream2 = inputStream;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileOutputStream = null;
                     }
                 } catch (Exception e4) {
                     e = e4;
-                    fileOutputStream2 = null;
-                    inputStream2 = null;
-                } catch (Throwable th4) {
-                    th = th4;
+                    file = null;
+                    fileOutputStream = null;
+                    inputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
                     fileOutputStream = null;
                     inputStream = null;
                 }

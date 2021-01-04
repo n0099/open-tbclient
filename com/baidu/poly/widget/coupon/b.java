@@ -11,21 +11,21 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 import com.baidu.poly.widget.coupon.a;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class b extends BaseAdapter {
     private Context mContext;
     private List<a.C0325a> mData;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     private static class a {
-        TextView ckg;
-        ImageView ckh;
+        TextView crk;
+        ImageView icon;
         TextView title;
 
         a(View view) {
             this.title = (TextView) view.findViewById(b.e.coupon_title);
-            this.ckg = (TextView) view.findViewById(b.e.coupon_subtitle);
-            this.ckh = (ImageView) view.findViewById(b.e.select_icon);
+            this.crk = (TextView) view.findViewById(b.e.coupon_subtitle);
+            this.icon = (ImageView) view.findViewById(b.e.select_icon);
         }
     }
 
@@ -63,14 +63,14 @@ public class b extends BaseAdapter {
             }
             if (view.getTag() != null && (view.getTag() instanceof a)) {
                 a aVar = (a) view.getTag();
-                aVar.title.setText(item.ckc);
+                aVar.title.setText(item.crg);
                 if (TextUtils.isEmpty(item.af)) {
-                    aVar.ckg.setVisibility(8);
+                    aVar.crk.setVisibility(8);
                 } else {
-                    aVar.ckg.setVisibility(0);
-                    aVar.ckg.setText(item.af);
+                    aVar.crk.setVisibility(0);
+                    aVar.crk.setText(item.af);
                 }
-                aVar.ckh.setSelected(item.cke == 1);
+                aVar.icon.setSelected(item.cri == 1);
             }
         }
         return view;
@@ -78,7 +78,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: hm */
+    /* renamed from: hl */
     public a.C0325a getItem(int i) {
         if (i < this.mData.size()) {
             return this.mData.get(i);

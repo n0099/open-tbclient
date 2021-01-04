@@ -4,13 +4,13 @@ import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.NetMessageListener;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends BdBaseModel {
-    private NetMessageListener bFF;
+    private NetMessageListener bKt;
 
     /* renamed from: com.baidu.live.tieba.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0223a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0221a {
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -23,12 +23,12 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void Vg() {
+    public void Wk() {
         MessageManager.getInstance().removeMessage(1003325, getUniqueId());
         MessageManager.getInstance().removeMessage(CmdConfigSocket.CMD_CHECK_REAL_NAME, getUniqueId());
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bFF);
+        MessageManager.getInstance().unRegisterListener(this.bKt);
     }
 }

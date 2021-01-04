@@ -1,78 +1,76 @@
 package com.baidu.live.view.web.a;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.atomdata.FaceRecognitionActivityConfig;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
+import com.baidu.live.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.extraparams.ResultCallback;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
-import com.baidu.live.tbadk.scheme.SchemeUtils;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes4.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
 public class n extends com.baidu.live.view.web.a {
-    private SchemeCallback bRj;
-    private Context context;
+    private SchemeCallback schemeCallback;
 
-    public n(Context context, SchemeCallback schemeCallback) {
-        this.context = context;
-        this.bRj = schemeCallback;
+    public n(SchemeCallback schemeCallback) {
+        this.schemeCallback = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "wkBridge";
+        return "payBridge";
     }
 
     @Override // com.baidu.live.view.web.a
-    public void jm(String str) {
-        Log.d("JsInterface", "@@ JsInterface-impl WkBridgeJsInterface params = " + str);
-        if (str != null && str.contains("rmb_baiducloud://")) {
-            if (this.context instanceof Activity) {
-                FaceRecognitionActivityConfig faceRecognitionActivityConfig = new FaceRecognitionActivityConfig(this.context, RequestResponseCode.REQUEST_REAL_AUTHEN, "");
-                Uri parse = Uri.parse(str);
-                Iterator<String> it = parse.getQueryParameterNames().iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
+    public void jf(String str) {
+        Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            final String optString = jSONObject.optString(BuyTBeanActivityConfig.CALLBACK);
+            boolean z = jSONObject.optInt("is_translucent") == 1;
+            String optString2 = jSONObject.optString("from");
+            if (this.schemeCallback != null) {
+                ExtraParamsManager.addEnterBuyTBeanCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.n.1
+                    @Override // com.baidu.live.tbadk.extraparams.ResultCallback
+                    public void onCallback(JSONObject jSONObject2) {
+                        try {
+                            int optInt = jSONObject2.optInt("status", 0);
+                            String optString3 = jSONObject2.optString("message");
+                            String optString4 = jSONObject2.optString("productId");
+                            String optString5 = jSONObject2.optString("total");
+                            String optString6 = jSONObject2.optString("transitionId");
+                            JSONObject jSONObject3 = new JSONObject();
+                            if (!TextUtils.isEmpty(optString4)) {
+                                jSONObject3.put("productId", optString4);
+                            }
+                            if (!TextUtils.isEmpty(optString5)) {
+                                jSONObject3.put("total", optString5);
+                            }
+                            if (!TextUtils.isEmpty(optString6)) {
+                                jSONObject3.put("transitionId", optString6);
+                            }
+                            n.this.schemeCallback.doJsCallback(optInt, optString3, jSONObject3, optString);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
-                    String next = it.next();
-                    String queryParameter = parse.getQueryParameter(next);
-                    if ("retry".equals(next) && "1".equals(queryParameter)) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913142));
-                        break;
-                    }
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913222, faceRecognitionActivityConfig));
+                });
             }
-        } else if (this.bRj == null) {
-            SchemeUtils.openScheme(str);
-        } else {
-            SchemeUtils.openScheme(str, this.bRj);
-        }
-    }
-
-    @Override // com.baidu.live.view.web.a
-    public void i(String str, String str2, boolean z) {
-        PackageManager packageManager;
-        if (!TextUtils.isEmpty(str)) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-            List<ResolveInfo> queryIntentActivities = (this.context == null || (packageManager = this.context.getPackageManager()) == null) ? null : packageManager.queryIntentActivities(intent, 0);
-            boolean z2 = (queryIntentActivities == null || queryIntentActivities.isEmpty()) ? false : true;
-            if (this.bRj != null) {
-                this.bRj.doJsCallback(z2 ? 1 : 0, "", null, str2);
+            BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst(), 0L, true);
+            if (!TextUtils.isEmpty(optString)) {
+                buyTBeanActivityConfig.setCallback(optString);
             }
-            if (z && z2 && this.context != null) {
-                intent.addFlags(268435456);
-                this.context.startActivity(intent);
+            if (!TextUtils.isEmpty(optString2)) {
+                buyTBeanActivityConfig.setFrom(optString2);
             }
+            buyTBeanActivityConfig.setIsTranslucent(z);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, buyTBeanActivityConfig));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

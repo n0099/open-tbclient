@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.h264.read;
 import com.googlecode.mp4parser.h264.CharCache;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BitstreamReader {
     protected static int bitsRead;
     private int curByte;
@@ -82,7 +82,6 @@ public class BitstreamReader {
     */
     public int peakNextBits(int i) throws IOException {
         int i2 = -1;
-        int i3 = 0;
         if (i > 8) {
             throw new IllegalArgumentException("N should be less then 8");
         }
@@ -90,24 +89,22 @@ public class BitstreamReader {
             advance();
         }
         int[] iArr = new int[16 - this.nBit];
-        int i4 = this.nBit;
-        int i5 = 0;
-        while (i4 < 8) {
-            iArr[i5] = (this.curByte >> (7 - i4)) & 1;
+        int i3 = this.nBit;
+        int i4 = 0;
+        while (i3 < 8) {
+            iArr[i4] = (this.curByte >> (7 - i3)) & 1;
+            i3++;
             i4++;
-            i5++;
         }
-        int i6 = i5;
-        int i7 = 0;
-        while (i7 < 8) {
-            iArr[i6] = (this.nextByte >> (7 - i7)) & 1;
-            i7++;
-            i6++;
+        int i5 = 0;
+        while (i5 < 8) {
+            iArr[i4] = (this.nextByte >> (7 - i5)) & 1;
+            i5++;
+            i4++;
         }
         i2 = 0;
-        while (i3 < i) {
-            i3++;
-            i2 = iArr[i3] | (i2 << 1);
+        for (int i6 = 0; i6 < i; i6++) {
+            i2 = (i2 << 1) | iArr[i6];
         }
         return i2;
     }

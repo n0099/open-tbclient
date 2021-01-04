@@ -2,16 +2,16 @@ package com.baidu.swan.games.bdtls.model;
 
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class f {
-    private String dXf;
-    private com.baidu.swan.games.bdtls.b.b dXg;
+    private String egc;
+    private com.baidu.swan.games.bdtls.b.b egd;
 
     public boolean equals(Object obj) {
         if (this != obj) {
             if (obj instanceof f) {
                 f fVar = (f) obj;
-                if (!p.l(this.dXf, fVar.dXf) || !p.l(this.dXg, fVar.dXg)) {
+                if (!p.l(this.egc, fVar.egc) || !p.l(this.egd, fVar.egd)) {
                 }
             }
             return false;
@@ -20,26 +20,26 @@ public final class f {
     }
 
     public int hashCode() {
-        String str = this.dXf;
+        String str = this.egc;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        com.baidu.swan.games.bdtls.b.b bVar = this.dXg;
+        com.baidu.swan.games.bdtls.b.b bVar = this.egd;
         return hashCode + (bVar != null ? bVar.hashCode() : 0);
     }
 
     public String toString() {
-        return "BdtlsRequestParams(requestData=" + this.dXf + ", bdtlsRequest=" + this.dXg + ")";
+        return "BdtlsRequestParams(requestData=" + this.egc + ", bdtlsRequest=" + this.egd + ")";
     }
 
     public f(String str, com.baidu.swan.games.bdtls.b.b bVar) {
-        this.dXf = str;
-        this.dXg = bVar;
+        this.egc = str;
+        this.egd = bVar;
     }
 
-    public final String aWm() {
-        return this.dXf;
+    public final String aYG() {
+        return this.egc;
     }
 
-    public final com.baidu.swan.games.bdtls.b.b aWn() {
-        return this.dXg;
+    public final com.baidu.swan.games.bdtls.b.b aYH() {
+        return this.egd;
     }
 }

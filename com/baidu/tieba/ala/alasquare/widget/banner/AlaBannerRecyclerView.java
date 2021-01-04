@@ -1,15 +1,15 @@
 package com.baidu.tieba.ala.alasquare.widget.banner;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-/* loaded from: classes6.dex */
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+/* loaded from: classes10.dex */
 public class AlaBannerRecyclerView extends RecyclerView {
-    private int WZ;
-    private int dMD;
+    private int WX;
+    private int dVw;
 
     public AlaBannerRecyclerView(Context context) {
         super(context);
@@ -29,8 +29,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.WZ = y;
-                this.dMD = x;
+                this.WX = y;
+                this.dVw = x;
                 getParent().requestDisallowInterceptTouchEvent(true);
                 break;
             case 1:
@@ -38,8 +38,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 getParent().requestDisallowInterceptTouchEvent(false);
                 break;
             case 2:
-                int i = y - this.WZ;
-                int i2 = x - this.dMD;
+                int i = y - this.WX;
+                int i2 = x - this.dVw;
                 if (Math.abs(i) > ViewConfiguration.getTouchSlop() && Math.abs(i) > Math.abs(i2)) {
                     getParent().requestDisallowInterceptTouchEvent(false);
                     break;
@@ -49,17 +49,17 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 }
                 break;
         }
-        this.WZ = y;
-        this.dMD = x;
+        this.WX = y;
+        this.dVw = x;
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    @Override // android.support.v7.widget.RecyclerView
+    @Override // androidx.recyclerview.widget.RecyclerView
     public boolean fling(int i, int i2) {
-        return super.fling(vo(i), vo(i2));
+        return super.fling(vz(i), vz(i2));
     }
 
-    private int vo(int i) {
+    private int vz(int i) {
         return i > 0 ? Math.min(i, 3000) : Math.max(i, -3000);
     }
 }

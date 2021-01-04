@@ -4,7 +4,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ObservableUnsubscribeOn<T> extends a<T, T> {
     final v scheduler;
 
@@ -13,7 +13,7 @@ public final class ObservableUnsubscribeOn<T> extends a<T, T> {
         this.source.subscribe(new UnsubscribeObserver(uVar, this.scheduler));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class UnsubscribeObserver<T> extends AtomicBoolean implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 1015244841293359600L;
         final u<? super T> actual;
@@ -59,7 +59,7 @@ public final class ObservableUnsubscribeOn<T> extends a<T, T> {
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (compareAndSet(false, true)) {
-                this.scheduler.G(new a());
+                this.scheduler.E(new a());
             }
         }
 
@@ -68,7 +68,7 @@ public final class ObservableUnsubscribeOn<T> extends a<T, T> {
             return get();
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         final class a implements Runnable {
             a() {
             }

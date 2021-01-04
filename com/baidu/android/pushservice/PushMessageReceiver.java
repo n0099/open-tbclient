@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.PublicMsg;
@@ -23,11 +22,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public abstract class PushMessageReceiver extends BroadcastReceiver {
     public static final String TAG = "PushMessageReceiver";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     private static class a extends Handler {
         protected final WeakReference<Context> d;
 
@@ -38,7 +37,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         MSG_PASS(1),
         MSG_ARRIVED(2),
@@ -303,7 +302,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 if (TextUtils.isEmpty(stringExtra3)) {
                     return;
                 }
-                int intExtra2 = intent.getIntExtra(AlaRecorderLog.KEY_ERROR_MSG, 0);
+                int intExtra2 = intent.getIntExtra("error_msg", 0);
                 String str = intent.getByteArrayExtra("content") != null ? new String(intent.getByteArrayExtra("content")) : "";
                 if (stringExtra3.equals("com.baidu.android.pushservice.action.notification.ARRIVED")) {
                     String stringExtra4 = intent.getStringExtra("msgid");
@@ -368,7 +367,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     try {
                         JSONObject jSONObject3 = new JSONObject(str);
                         String string5 = jSONObject3.getString("request_id");
-                        if (!TextUtils.isEmpty(jSONObject3.optString(AlaRecorderLog.KEY_ERROR_MSG))) {
+                        if (!TextUtils.isEmpty(jSONObject3.optString("error_msg"))) {
                             onSetTags(context, intExtra2, new ArrayList(), new ArrayList(), string5);
                             return;
                         }

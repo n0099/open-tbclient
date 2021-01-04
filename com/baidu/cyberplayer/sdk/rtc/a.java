@@ -4,11 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.d;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1427a = null;
+    private static a f1873a = null;
 
     private a() {
     }
@@ -17,10 +17,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1427a == null) {
-                f1427a = new a();
+            if (f1873a == null) {
+                f1873a = new a();
             }
-            aVar = f1427a;
+            aVar = f1873a;
         }
         return aVar;
     }

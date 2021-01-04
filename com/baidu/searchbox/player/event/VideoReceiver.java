@@ -5,12 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.searchbox.player.utils.BdBatteryUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class VideoReceiver extends BroadcastReceiver {
     public static final String ACTION_VOLUME_CHANGED = "android.media.VOLUME_CHANGED_ACTION";
     private static String TAG = "BdVideoReceiver";
@@ -20,7 +21,7 @@ public class VideoReceiver extends BroadcastReceiver {
     private VideoReceiverListener mListener;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public interface VideoReceiverListener {
         void onBatteryChanged(int i);
 
@@ -165,7 +166,7 @@ public class VideoReceiver extends BroadcastReceiver {
                         return;
                     }
                 case 7:
-                    BdBatteryUtils.batter_level = (intent.getIntExtra("level", 0) * 100) / intent.getIntExtra("scale", 1);
+                    BdBatteryUtils.batter_level = (intent.getIntExtra(MapBundleKey.MapObjKey.OBJ_LEVEL, 0) * 100) / intent.getIntExtra("scale", 1);
                     this.mListener.onBatteryChanged(BdBatteryUtils.batter_level);
                     return;
                 case '\b':

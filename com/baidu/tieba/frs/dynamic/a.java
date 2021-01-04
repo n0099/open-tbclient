@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.dynamic;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.mvc.b.c;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
@@ -15,15 +15,15 @@ import tbclient.StarTrends.DataRes;
 import tbclient.StarTrends.StarTrendsResIdl;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a implements c {
     public static final Wire WIRE = new Wire(new Class[0]);
     public boolean hasMore;
-    public ArrayList<q> threadList = new ArrayList<>();
+    public ArrayList<n> threadList = new ArrayList<>();
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public int mErrorNo = 0;
 
-    public StarTrendsResIdl ah(byte[] bArr) {
+    public StarTrendsResIdl ae(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -42,7 +42,7 @@ public class a implements c {
 
     private void a(DataRes dataRes) {
         if (dataRes != null) {
-            if (!y.isEmpty(dataRes.user_list)) {
+            if (!x.isEmpty(dataRes.user_list)) {
                 for (User user : dataRes.user_list) {
                     if (user != null) {
                         MetaData metaData = new MetaData();
@@ -54,21 +54,21 @@ public class a implements c {
                     }
                 }
             }
-            if (!y.isEmpty(dataRes.thread_list)) {
+            if (!x.isEmpty(dataRes.thread_list)) {
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
-                        by byVar = new by();
-                        byVar.setUserMap(this.userMap);
-                        byVar.a(threadInfo);
-                        byVar.bpP();
-                        byVar.bor();
-                        if (byVar.getType() == by.eIS || byVar.getType() == by.eJp || byVar.getType() == by.eJv || byVar.getType() == by.eJq || byVar.getType() == by.eJz || byVar.getType() == by.eJA) {
-                            this.threadList.add(byVar);
+                        bz bzVar = new bz();
+                        bzVar.setUserMap(this.userMap);
+                        bzVar.a(threadInfo);
+                        bzVar.bsq();
+                        bzVar.bqS();
+                        if (bzVar.getType() == bz.eSL || bzVar.getType() == bz.eTi || bzVar.getType() == bz.eTo || bzVar.getType() == bz.eTj || bzVar.getType() == bz.eTs || bzVar.getType() == bz.eTt) {
+                            this.threadList.add(bzVar);
                         }
                     }
                 }
             }
-            com.baidu.tbadk.a.a.a.bh(this.threadList);
+            com.baidu.tbadk.a.a.a.bo(this.threadList);
             this.hasMore = dataRes.has_more.intValue() == 1;
         }
     }

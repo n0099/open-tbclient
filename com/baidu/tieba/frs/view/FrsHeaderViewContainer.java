@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class FrsHeaderViewContainer extends LinearLayout {
     public FrsHeaderViewContainer(Context context) {
         super(context);
@@ -45,34 +45,44 @@ public class FrsHeaderViewContainer extends LinearLayout {
     }
 
     public View getHeadBgContainer() {
-        for (int i = 0; i < getChildCount(); i++) {
-            if (R.id.container == getChildAt(i).getId()) {
+        View view = null;
+        int i = 0;
+        while (true) {
+            if (i >= getChildCount()) {
+                break;
+            } else if (R.id.container != getChildAt(i).getId()) {
+                i++;
+            } else {
                 ViewGroup viewGroup = (ViewGroup) getChildAt(i);
-                View view = null;
-                for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-                    if (R.id.head_top_bg_container == viewGroup.getChildAt(i2).getId()) {
-                        view = viewGroup.getChildAt(i2);
-                    }
+                int i2 = 0;
+                while (i2 < viewGroup.getChildCount()) {
+                    View childAt = R.id.head_top_bg_container == viewGroup.getChildAt(i2).getId() ? viewGroup.getChildAt(i2) : view;
+                    i2++;
+                    view = childAt;
                 }
-                return view;
             }
         }
-        return null;
+        return view;
     }
 
     public View getHeaderEmptyView() {
-        for (int i = 0; i < getChildCount(); i++) {
-            if (R.id.container == getChildAt(i).getId()) {
+        View view = null;
+        int i = 0;
+        while (true) {
+            if (i >= getChildCount()) {
+                break;
+            } else if (R.id.container != getChildAt(i).getId()) {
+                i++;
+            } else {
                 ViewGroup viewGroup = (ViewGroup) getChildAt(i);
-                View view = null;
-                for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-                    if (R.id.frs_header_empty_view == viewGroup.getChildAt(i2).getId()) {
-                        view = viewGroup.getChildAt(i2);
-                    }
+                int i2 = 0;
+                while (i2 < viewGroup.getChildCount()) {
+                    View childAt = R.id.frs_header_empty_view == viewGroup.getChildAt(i2).getId() ? viewGroup.getChildAt(i2) : view;
+                    i2++;
+                    view = childAt;
                 }
-                return view;
             }
         }
-        return null;
+        return view;
     }
 }

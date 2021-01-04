@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.a.f;
+import com.baidu.tbadk.core.util.b.f;
 import com.baidu.tbadk.lcs.a;
 import org.apache.http.conn.params.ConnRoutePNames;
 /* loaded from: classes.dex */
@@ -28,7 +28,7 @@ public class SocketStatic {
                         BdSocketLinkService.startService(false, "net succ");
                     }
                     synchronized (f.class) {
-                        f.eUW.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
+                        f.few.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
                         f.proxyHost = null;
                     }
                 }

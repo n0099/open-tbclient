@@ -1,8 +1,8 @@
 package com.baidu.k;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -15,7 +15,7 @@ import com.baidu.bdhttpdns.BDHttpDnsResult;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.a.h;
+import com.baidu.tbadk.core.util.b.h;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -23,9 +23,9 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
-    private static CustomMessageListener PN = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.k.a.1
+    private static CustomMessageListener PQ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.k.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -35,7 +35,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
-                a.mMethodChannel.invokeMethod("setNetInfo", a.adg());
+                a.mMethodChannel.invokeMethod("setNetInfo", a.afc());
             }
         }
     };
@@ -53,10 +53,10 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     }
 
     private static void init() {
-        MessageManager.getInstance().registerListener(PN);
+        MessageManager.getInstance().registerListener(PQ);
     }
 
-    static HashMap adg() {
+    static HashMap afc() {
         HashMap hashMap = new HashMap();
         hashMap.put("isNetWorkAvailable", Boolean.valueOf(j.isNetWorkAvailable()));
         hashMap.put("netType", Integer.valueOf(j.netType()));
@@ -75,18 +75,18 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         } else if (methodCall.method.equals("isNetworkAvailableForImmediately")) {
             result.success(Boolean.valueOf(j.isNetworkAvailableForImmediately()));
         } else if (methodCall.method.equals("getNetInfo")) {
-            result.success(adg());
+            result.success(afc());
         } else if (methodCall.method.equals("getDnsIp")) {
             String str = (String) methodCall.argument("url");
             HashMap hashMap2 = new HashMap();
             try {
-                hashMap = jU(str);
+                hashMap = jQ(str);
             } catch (Exception e) {
                 hashMap = hashMap2;
             }
             result.success(hashMap);
         } else if (methodCall.method.equals("jumpRealNameAuthWebActivity")) {
-            adh();
+            afd();
         }
     }
 
@@ -128,7 +128,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         return "";
     }
 
-    private HashMap jU(String str) throws Exception {
+    private HashMap jQ(String str) throws Exception {
         String host;
         HashMap hashMap = new HashMap();
         URL url = new URL(str);
@@ -144,27 +144,27 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 }
                 BDHttpDnsResult j = BDHttpDns.Q(BdBaseApplication.getInst().getApplicationContext()).j(host, true);
                 if (j != null) {
-                    hashMap.put("dnsResolveType", a(j.sZ()));
-                    hashMap.put("dnsResolveStatus", a(j.ta()));
-                    ArrayList<String> tb = j.tb();
-                    if (tb != null && tb.size() > 0) {
-                        hashMap.put("dnsIpList", tb);
+                    hashMap.put("dnsResolveType", a(j.sz()));
+                    hashMap.put("dnsResolveStatus", a(j.sA()));
+                    ArrayList<String> sB = j.sB();
+                    if (sB != null && sB.size() > 0) {
+                        hashMap.put("dnsIpList", sB);
                         return hashMap;
                     }
                 }
             }
         }
-        com.baidu.adp.lib.network.http.a ml = com.baidu.adp.lib.network.http.a.ml();
-        if (ml != null) {
-            String bL = ml.bL(str);
-            if (!TextUtils.isEmpty(bL)) {
-                hashMap.put("dnsIp", bL);
+        com.baidu.adp.lib.network.http.a lJ = com.baidu.adp.lib.network.http.a.lJ();
+        if (lJ != null) {
+            String bF = lJ.bF(str);
+            if (!TextUtils.isEmpty(bF)) {
+                hashMap.put("dnsIp", bF);
             }
         }
         return hashMap;
     }
 
-    private void adh() {
+    private void afd() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder(UrlSchemaHelper.REAL_NAME_AUTH_URL);
         sb.append("&u=").append(URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW));

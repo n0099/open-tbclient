@@ -2,28 +2,28 @@ package com.baidu.m;
 
 import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public class d {
-    public static void adn() {
+    public static void afj() {
         if (ProcessUtils.isMainProcess()) {
-            b.adl().jV("");
+            b.afh().jR("");
         }
     }
 
     public static void k(Bundle bundle) {
-        b.adl().k(bundle);
+        b.afh().k(bundle);
     }
 
     public static void l(Bundle bundle) {
         if (bundle == null) {
-            a.ac(3, "闪付返回信息为空");
+            a.ae(3, "闪付返回信息为空");
             return;
         }
         String string = bundle.getString("statusCode");
         try {
-            a.ac(Integer.parseInt(string), bundle.getString("payInfo"));
+            a.ae(Integer.parseInt(string), bundle.getString("payInfo"));
         } catch (NumberFormatException e) {
-            a.ac(3, e.getMessage());
+            a.ae(3, e.getMessage());
         }
     }
 }

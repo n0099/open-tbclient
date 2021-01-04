@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.view.commonLike;
 import android.view.View;
 /* loaded from: classes.dex */
 public interface b {
-    void aP(boolean z);
+    void aM(boolean z);
 
-    void bB(View view);
+    void bK(View view);
 
-    void h(View.OnClickListener onClickListener);
+    void i(View.OnClickListener onClickListener);
 }

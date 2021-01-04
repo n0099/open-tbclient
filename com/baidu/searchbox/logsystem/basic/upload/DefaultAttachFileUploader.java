@@ -1,8 +1,8 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class DefaultAttachFileUploader extends BaseAttachFileUploader {
     @Override // com.baidu.searchbox.logsystem.basic.upload.BaseAttachFileUploader
     public ResponseEntity uploadSync(@NonNull String str, @NonNull File file) {

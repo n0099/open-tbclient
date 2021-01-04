@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class HighLevelEncoder {
     private static final int[][] CHAR_MAP;
     static final int MODE_DIGIT = 2;
@@ -72,10 +72,10 @@ public final class HighLevelEncoder {
         Collection<State> singletonList = Collections.singletonList(State.INITIAL_STATE);
         int i2 = 0;
         while (i2 < this.text.length) {
-            byte b = i2 + 1 < this.text.length ? this.text[i2 + 1] : (byte) 0;
+            byte b2 = i2 + 1 < this.text.length ? this.text[i2 + 1] : (byte) 0;
             switch (this.text[i2]) {
                 case 13:
-                    if (b != 10) {
+                    if (b2 != 10) {
                         i = 0;
                         break;
                     } else {
@@ -83,7 +83,7 @@ public final class HighLevelEncoder {
                         break;
                     }
                 case 44:
-                    if (b != 32) {
+                    if (b2 != 32) {
                         i = 0;
                         break;
                     } else {
@@ -91,7 +91,7 @@ public final class HighLevelEncoder {
                         break;
                     }
                 case 46:
-                    if (b != 32) {
+                    if (b2 != 32) {
                         i = 0;
                         break;
                     } else {
@@ -99,7 +99,7 @@ public final class HighLevelEncoder {
                         break;
                     }
                 case 58:
-                    if (b != 32) {
+                    if (b2 != 32) {
                         i = 0;
                         break;
                     } else {
@@ -136,22 +136,26 @@ public final class HighLevelEncoder {
     }
 
     private void updateStateForChar(State state, int i, Collection<State> collection) {
+        State state2;
         char c = (char) (this.text[i] & 255);
         boolean z = CHAR_MAP[state.getMode()][c] > 0;
-        State state2 = null;
-        for (int i2 = 0; i2 <= 4; i2++) {
+        State state3 = null;
+        int i2 = 0;
+        while (i2 <= 4) {
             int i3 = CHAR_MAP[i2][c];
             if (i3 > 0) {
-                if (state2 == null) {
-                    state2 = state.endBinaryShift(i);
-                }
+                state2 = state3 == null ? state.endBinaryShift(i) : state3;
                 if (!z || i2 == state.getMode() || i2 == 2) {
                     collection.add(state2.latchAndAppend(i2, i3));
                 }
                 if (!z && SHIFT_TABLE[state.getMode()][i2] >= 0) {
                     collection.add(state2.shiftAndAppend(i2, i3));
                 }
+            } else {
+                state2 = state3;
             }
+            i2++;
+            state3 = state2;
         }
         if (state.getBinaryShiftByteCount() > 0 || CHAR_MAP[state.getMode()][c] == 0) {
             collection.add(state.addBinaryShiftChar(i));

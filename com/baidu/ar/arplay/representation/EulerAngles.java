@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.representation;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class EulerAngles {
     private float pitch;
     private float roll;

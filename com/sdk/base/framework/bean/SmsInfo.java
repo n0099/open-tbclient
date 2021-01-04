@@ -1,7 +1,7 @@
 package com.sdk.base.framework.bean;
 
 import com.sdk.base.framework.f.d.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class SmsInfo {
     private String content;
     private Long ctime;

@@ -4,22 +4,24 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public final class b implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ int f4290a;
-    private /* synthetic */ a b;
+    private /* synthetic */ int f13180a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private /* synthetic */ a f13181b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, int i) {
-        this.b = aVar;
-        this.f4290a = i;
+        this.f13181b = aVar;
+        this.f13180a = i;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, int i2, String str) {
-        this.b.a(i, i2, str);
+        this.f13181b.a(i, i2, str);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r10v0, resolved type: T */
@@ -30,21 +32,21 @@ public final class b implements com.sdk.base.framework.b.a<T> {
         String str3;
         Context context2;
         Context context3;
-        context = this.b.d;
+        context = this.f13181b.d;
         com.sdk.base.framework.f.j.b.b(context);
         if (i == 0) {
-            context2 = this.b.d;
-            com.sdk.base.framework.a.a.a.a(context2, this.f4290a, com.sdk.base.framework.a.a.a.a(t, str2));
+            context2 = this.f13181b.d;
+            com.sdk.base.framework.a.a.a.a(context2, this.f13180a, com.sdk.base.framework.a.a.a.a(t, str2));
             try {
-                context3 = this.b.d;
+                context3 = this.f13181b.d;
                 str3 = com.sdk.base.framework.f.l.a.a(context3, String.valueOf(t));
                 try {
                     if (str3 == null) {
-                        this.b.a(1, "SDK解密异常", CmdConfigSocket.CMD_PB_PAGE, str3, str2);
+                        this.f13181b.a(1, "SDK解密异常", CmdConfigSocket.CMD_PB_PAGE, str3, str2);
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(String.valueOf(str3));
-                    if (this.f4290a == 1) {
+                    if (this.f13180a == 1) {
                         jSONObject.remove("fakeMobile");
                         str3 = jSONObject.toString();
                     }
@@ -56,6 +58,6 @@ public final class b implements com.sdk.base.framework.b.a<T> {
         } else {
             str3 = t;
         }
-        this.b.a(i, str, i2, str3, str2);
+        this.f13181b.a(i, str, i2, str3, str2);
     }
 }

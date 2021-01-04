@@ -5,19 +5,19 @@ import android.net.Uri;
 import android.view.View;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface d {
+    View Pp();
+
     void b(int i, Map<String, String> map);
 
     void b(int i, JSONObject jSONObject);
 
-    void c(Uri uri);
-
     void d(Context context, Uri uri);
 
-    void fj(int i);
+    void e(Uri uri);
 
-    View getPlayerView();
+    void fh(int i);
 
     boolean isPlaying();
 

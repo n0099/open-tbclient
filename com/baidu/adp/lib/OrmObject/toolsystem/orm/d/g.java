@@ -32,14 +32,12 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [133=4] */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0181 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x017d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final h w(Object obj) {
+    public static final h s(Object obj) {
         ObjectOutputStream objectOutputStream;
-        Throwable th;
-        Exception e;
         if (obj == null) {
             return null;
         }
@@ -117,58 +115,58 @@ public class g {
                     if (objectOutputStream != null) {
                         try {
                             objectOutputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }
                     try {
                         byteArrayOutputStream.close();
                         return aVar;
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                         return aVar;
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     e.printStackTrace();
                     o oVar = new o(obj);
                     if (objectOutputStream != null) {
                         try {
                             objectOutputStream.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
                         }
                     }
                     try {
                         byteArrayOutputStream.close();
                         return oVar;
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
                         return oVar;
                     }
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 if (objectOutputStream != null) {
                     try {
                         objectOutputStream.close();
-                    } catch (IOException e7) {
-                        e7.printStackTrace();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
                     }
                 }
                 try {
                     byteArrayOutputStream.close();
-                } catch (IOException e8) {
-                    e8.printStackTrace();
+                } catch (IOException e7) {
+                    e7.printStackTrace();
                 }
                 throw th;
             }
-        } catch (Exception e9) {
+        } catch (Exception e8) {
+            e = e8;
             objectOutputStream = null;
-            e = e9;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             objectOutputStream = null;
-            th = th3;
             if (objectOutputStream != null) {
             }
             byteArrayOutputStream.close();

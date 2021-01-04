@@ -4,7 +4,6 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tieba.im.util.d;
 import com.squareup.wire.Wire;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
 /* loaded from: classes.dex */
@@ -47,7 +46,7 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         }
         long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
         setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-        setMsgId(d.hb(longValue));
+        setMsgId(com.baidu.tieba.im.util.b.gY(longValue));
         setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
         setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
         setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));

@@ -1,7 +1,0 @@
-package com.baidu.i.a.b.a;
-
-import java.util.List;
-/* loaded from: classes11.dex */
-public interface f {
-    void a(String str, int i, List<c> list);
-}

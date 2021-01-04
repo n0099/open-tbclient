@@ -4,15 +4,15 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.media.browse.MediaBrowser;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import java.util.List;
 @RequiresApi(21)
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 class MediaBrowserCompatApi21 {
     static final String NULL_MEDIA_ITEM_ID = "android.support.v4.media.MediaBrowserCompat.NULL_MEDIA_ITEM";
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     interface ConnectionCallback {
         void onConnected();
 
@@ -21,14 +21,11 @@ class MediaBrowserCompatApi21 {
         void onConnectionSuspended();
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     interface SubscriptionCallback {
         void onChildrenLoaded(@NonNull String str, List<?> list);
 
         void onError(@NonNull String str);
-    }
-
-    MediaBrowserCompatApi21() {
     }
 
     public static Object createConnectionCallback(ConnectionCallback connectionCallback) {
@@ -79,7 +76,7 @@ class MediaBrowserCompatApi21 {
         ((MediaBrowser) obj).unsubscribe(str);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     static class ConnectionCallbackProxy<T extends ConnectionCallback> extends MediaBrowser.ConnectionCallback {
         protected final T mConnectionCallback;
 
@@ -103,7 +100,7 @@ class MediaBrowserCompatApi21 {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     static class SubscriptionCallbackProxy<T extends SubscriptionCallback> extends MediaBrowser.SubscriptionCallback {
         protected final T mSubscriptionCallback;
 
@@ -122,11 +119,8 @@ class MediaBrowserCompatApi21 {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     static class MediaItem {
-        MediaItem() {
-        }
-
         public static int getFlags(Object obj) {
             return ((MediaBrowser.MediaItem) obj).getFlags();
         }
@@ -134,5 +128,11 @@ class MediaBrowserCompatApi21 {
         public static Object getDescription(Object obj) {
             return ((MediaBrowser.MediaItem) obj).getDescription();
         }
+
+        private MediaItem() {
+        }
+    }
+
+    private MediaBrowserCompatApi21() {
     }
 }

@@ -2,25 +2,25 @@ package com.baidu.live.gift.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaGiftSendHttpResponseMessage extends JsonHttpResponsedMessage {
-    private long bgl;
-    private long bgm;
-    private com.baidu.live.gift.a.a bgn;
+    private long bhT;
+    private long bhU;
+    private com.baidu.live.gift.a.a bhV;
     private long mLogId;
     public String orderId;
 
     public AlaGiftSendHttpResponseMessage() {
         super(1021015);
-        this.bgl = 0L;
+        this.bhT = 0L;
     }
 
-    public long KK() {
-        return this.bgl;
+    public long Kl() {
+        return this.bhT;
     }
 
-    public long KL() {
-        return this.bgm;
+    public long Km() {
+        return this.bhU;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -28,21 +28,21 @@ public class AlaGiftSendHttpResponseMessage extends JsonHttpResponsedMessage {
         return this.mLogId;
     }
 
-    public com.baidu.live.gift.a.a KM() {
-        return this.bgn;
+    public com.baidu.live.gift.a.a Kn() {
+        return this.bhV;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null && i == 1021015) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.bgl = jSONObject.optLong("left_scores");
-            this.bgm = jSONObject.optLong("tdou_num");
+            this.bhT = jSONObject.optLong("left_scores");
+            this.bhU = jSONObject.optLong("tdou_num");
             this.mLogId = jSONObject.optLong("logid");
             this.orderId = jSONObject.optString("order_id");
             JSONObject optJSONObject = jSONObject.optJSONObject("system_luck_window");
             if (optJSONObject != null) {
-                this.bgn = com.baidu.live.gift.a.a.E(optJSONObject);
+                this.bhV = com.baidu.live.gift.a.a.L(optJSONObject);
             }
         }
     }

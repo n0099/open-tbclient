@@ -10,13 +10,15 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class b {
-    public static String b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjTe6LTkPFvWowhciLFGS+nqhc\nhfaYCwBhVIkmZXNNiqdBMcNBUmqaAIKYB8lh1+UFf/KmuO14QbAKqzE/FjHWAV51\n68IJCk+DLxu885hYRiNH+kJDRuzDVMOv4NudroOwY1zB3c8VOjjLuz7xE7rRet7d\nAjH9k8YPZuedladalwIDAQAB";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f5998b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjTe6LTkPFvWowhciLFGS+nqhc\nhfaYCwBhVIkmZXNNiqdBMcNBUmqaAIKYB8lh1+UFf/KmuO14QbAKqzE/FjHWAV51\n68IJCk+DLxu885hYRiNH+kJDRuzDVMOv4NudroOwY1zB3c8VOjjLuz7xE7rRet7d\nAjH9k8YPZuedladalwIDAQAB";
     public static String c = "1_0";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3959a;
+    public String f5999a;
     public HashMap<String, a> d = new HashMap<>();
     public HashMap<String, String> e = new HashMap<>();
     private HashMap<String, c> f = new HashMap<>();
@@ -39,7 +41,7 @@ public final class b {
             i = jSONObject.optInt("log_level", i);
             str2 = jSONObject.optString(EditNickNameActivityConfig.PARAM_TYPE, "full");
         }
-        aVar.b = i;
+        aVar.f5997b = i;
         aVar.e = str2;
         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createConfig type = " + str + ", level = " + i + ", params = " + str2);
         if (i == 3) {
@@ -67,7 +69,7 @@ public final class b {
     }
 
     public static String d() {
-        return a().getString("publickey", b);
+        return a().getString("publickey", f5998b);
     }
 
     public static String e() {
@@ -83,31 +85,24 @@ public final class b {
     }
 
     public final a a(String str) {
-        int i;
-        String str2;
         JSONObject jSONObject;
         if (this.d.containsKey(str)) {
             return this.d.get(str);
         }
         SharedPreferences a2 = a();
-        int i2 = 1;
+        int i = 1;
         if ("frame_pv".equals(str)) {
-            i2 = 2;
+            i = 2;
         } else if ("frame_event".equals(str)) {
-            i2 = 3;
+            i = 3;
         }
-        String str3 = "";
+        String str2 = "";
         try {
-            str3 = a2.getString(str, "");
-            com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig = " + str3);
-            i = i2;
-            str2 = str3;
+            str2 = a2.getString(str, "");
+            com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig = " + str2);
         } catch (ClassCastException e) {
-            int i3 = a2.getInt(str, i2);
-            com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig level = " + str3);
-            String str4 = str3;
-            i = i3;
-            str2 = str4;
+            i = a2.getInt(str, i);
+            com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig level = " + str2);
         }
         try {
             jSONObject = new JSONObject(str2);

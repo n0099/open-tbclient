@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.inlinewidget.f.a;
 
-import android.support.annotation.NonNull;
 import android.view.Surface;
+import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class o extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.f.c.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String aya() {
+    public String azr() {
         return "setSurface";
     }
 

@@ -3,11 +3,11 @@ package com.baidu.tbadk.suspended;
 import android.content.Intent;
 /* loaded from: classes.dex */
 public interface a {
-    boolean bFL();
+    boolean bIg();
 
-    boolean bFM();
+    boolean bIh();
 
-    Intent bFN();
+    Intent bIi();
 
-    void sN(int i);
+    void sY(int i);
 }

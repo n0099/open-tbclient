@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import java.net.URLDecoder;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class NASLib extends Activity {
     private static NASCallBack callback;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public interface NASCallBack {
         void callback(String str, String str2);
     }
@@ -54,21 +54,18 @@ public class NASLib extends Activity {
 
     private String parseRequest(String str, boolean z, Context context) {
         String str2;
-        Exception e;
         String str3;
         try {
-        } catch (Exception e2) {
+        } catch (Exception e) {
+            e = e;
             str2 = null;
-            e = e2;
         }
         if (str.contains(Info.kUrlSecStart)) {
             str2 = Encryption.desEncrypt(URLDecoder.decode(str.substring(str.indexOf(Info.kUrlSecStart) + Info.kUrlSecStart.length()), "utf-8")).trim();
             if (str2.contains(Info.kUrlLogStart)) {
                 String[] split = str2.split(Info.kUrlLogStart);
-                String str4 = split[0];
-                String str5 = split[1];
-                str2 = str4;
-                str3 = str5;
+                str2 = split[0];
+                str3 = split[1];
             } else {
                 str3 = null;
             }
@@ -83,8 +80,8 @@ public class NASLib extends Activity {
                     } else if (z) {
                         startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str2)));
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     e.printStackTrace();
                     return str2;
                 }

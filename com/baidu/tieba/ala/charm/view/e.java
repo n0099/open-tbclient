@@ -8,7 +8,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e extends BaseAdapter {
     private List<ALaCharmData> mDatas;
 
@@ -33,7 +33,7 @@ public class e extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vy */
+    /* renamed from: vJ */
     public ALaCharmData getItem(int i) {
         if (this.mDatas != null) {
             return this.mDatas.get(i);
@@ -53,22 +53,22 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.sdk_charm_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.gFU = (CharmItemView) view.findViewById(a.f.item);
+            aVar2.gRF = (CharmItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (item = getItem(i)) != null) {
-            aVar.gFU.setData(1, i + 4, item.user_name, item.portrait, 0L, item.forwardDiff);
-            aVar.gFU.gFK.setupLevelIcon(item.level_id);
+            aVar.gRF.setData(1, i + 4, item.user_name, item.portrait, 0L, item.forwardDiff);
+            aVar.gRF.gRv.setupLevelIcon(item.level_id);
         }
         return view;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private class a {
-        private CharmItemView gFU;
+        private CharmItemView gRF;
 
         private a() {
         }

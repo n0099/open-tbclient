@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.guardclub;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class o {
     public static int getScreenHeight(Context context) {
         return context.getResources().getDisplayMetrics().heightPixels;

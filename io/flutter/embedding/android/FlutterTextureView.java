@@ -5,23 +5,27 @@ import android.graphics.SurfaceTexture;
 import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.TextureView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import io.flutter.Log;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.RenderSurface;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class FlutterTextureView extends TextureView implements RenderSurface {
     private static final String TAG = "FlutterTextureView";
+    @Nullable
     private FlutterRenderer flutterRenderer;
     private boolean isAttachedToFlutterRenderer;
     private boolean isSurfaceAvailableForRendering;
+    @Nullable
     private Surface renderSurface;
     private final TextureView.SurfaceTextureListener surfaceTextureListener;
 
-    public FlutterTextureView(Context context) {
+    public FlutterTextureView(@NonNull Context context) {
         this(context, null);
     }
 
-    public FlutterTextureView(Context context, AttributeSet attributeSet) {
+    public FlutterTextureView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isSurfaceAvailableForRendering = false;
         this.isAttachedToFlutterRenderer = false;
@@ -36,7 +40,7 @@ public class FlutterTextureView extends TextureView implements RenderSurface {
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
-            public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
+            public void onSurfaceTextureSizeChanged(@NonNull SurfaceTexture surfaceTexture, int i, int i2) {
                 Log.v(FlutterTextureView.TAG, "SurfaceTextureListener.onSurfaceTextureSizeChanged()");
                 if (FlutterTextureView.this.isAttachedToFlutterRenderer) {
                     FlutterTextureView.this.changeSurfaceSize(i, i2);
@@ -44,11 +48,11 @@ public class FlutterTextureView extends TextureView implements RenderSurface {
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
-            public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+            public void onSurfaceTextureUpdated(@NonNull SurfaceTexture surfaceTexture) {
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
-            public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+            public boolean onSurfaceTextureDestroyed(@NonNull SurfaceTexture surfaceTexture) {
                 Log.v(FlutterTextureView.TAG, "SurfaceTextureListener.onSurfaceTextureDestroyed()");
                 FlutterTextureView.this.isSurfaceAvailableForRendering = false;
                 if (FlutterTextureView.this.isAttachedToFlutterRenderer) {
@@ -66,12 +70,13 @@ public class FlutterTextureView extends TextureView implements RenderSurface {
     }
 
     @Override // io.flutter.embedding.engine.renderer.RenderSurface
+    @Nullable
     public FlutterRenderer getAttachedRenderer() {
         return this.flutterRenderer;
     }
 
     @Override // io.flutter.embedding.engine.renderer.RenderSurface
-    public void attachToRenderer(FlutterRenderer flutterRenderer) {
+    public void attachToRenderer(@NonNull FlutterRenderer flutterRenderer) {
         Log.v(TAG, "Attaching to FlutterRenderer.");
         if (this.flutterRenderer != null) {
             Log.v(TAG, "Already connected to a FlutterRenderer. Detaching from old one and attaching to new one.");

@@ -12,61 +12,62 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.h;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class i {
-    private TbPageContext<WriteActivity> eNx;
+    private TbPageContext<WriteActivity> eXu;
     private WriteImagesInfo mWriteImagesInfo;
-    private WriteImageGridView oeH;
-    public h oeI;
-    private com.baidu.tbadk.img.b fvq = new com.baidu.tbadk.img.b();
+    private WriteImageGridView ogU;
+    public h ogV;
+    private com.baidu.tbadk.img.b fEW = new com.baidu.tbadk.img.b();
     private String mFrom = "write";
     private String mForumId = "";
-    private h.a oeJ = new h.a() { // from class: com.baidu.tieba.write.write.i.1
+    private h.a ogW = new h.a() { // from class: com.baidu.tieba.write.write.i.1
         @Override // com.baidu.tieba.write.write.h.a
-        public void MT(int i) {
+        public void MF(int i) {
             if (i.this.mWriteImagesInfo != null && i.this.mWriteImagesInfo.getChosedFiles() != null && i >= 0 && i < i.this.mWriteImagesInfo.getChosedFiles().size()) {
                 ImageFileInfo remove = i.this.mWriteImagesInfo.getChosedFiles().remove(i);
                 if (remove.isTempFile()) {
-                    com.baidu.adp.lib.Disk.d.lL().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                    com.baidu.adp.lib.Disk.d.lh().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
-                i.this.oeI.a(i.this.mWriteImagesInfo);
-                i.this.oeI.notifyDataSetChanged();
-                if (y.isEmpty(i.this.mWriteImagesInfo.getChosedFiles()) && i.this.eNx.getOrignalPage() != 0) {
-                    ((WriteActivity) i.this.eNx.getOrignalPage()).dLG();
+                i.this.ogV.a(i.this.mWriteImagesInfo);
+                i.this.ogV.notifyDataSetChanged();
+                if (x.isEmpty(i.this.mWriteImagesInfo.getChosedFiles()) && i.this.eXu.getOrignalPage() != 0) {
+                    ((WriteActivity) i.this.eXu.getOrignalPage()).dLx();
                 }
-                if (i.this.eNx.getPageActivity() instanceof WriteActivity) {
-                    ((WriteActivity) i.this.eNx.getPageActivity()).ebA();
+                if (i.this.eXu.getPageActivity() instanceof WriteActivity) {
+                    ((WriteActivity) i.this.eXu.getPageActivity()).eaN();
                 }
             }
         }
 
         @Override // com.baidu.tieba.write.write.h.a
-        public void Nd(int i) {
+        public void MP(int i) {
             int count;
             ImageFileInfo imageInfoAt;
-            if (i.this.mWriteImagesInfo != null && (count = y.getCount(i.this.mWriteImagesInfo.getChosedFiles())) != 0 && i >= 0 && i < count && (imageInfoAt = i.this.mWriteImagesInfo.getImageInfoAt(i)) != null && imageInfoAt.getImageType() != 1) {
-                i.this.eNx.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(i.this.eNx.getPageActivity(), RequestResponseCode.REQUEST_MOTU_IMAGE, i.this.mWriteImagesInfo, i)));
+            if (i.this.mWriteImagesInfo != null && (count = x.getCount(i.this.mWriteImagesInfo.getChosedFiles())) != 0 && i >= 0 && i < count && (imageInfoAt = i.this.mWriteImagesInfo.getImageInfoAt(i)) != null && imageInfoAt.getImageType() != 1) {
+                i.this.eXu.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(i.this.eXu.getPageActivity(), RequestResponseCode.REQUEST_MOTU_IMAGE, i.this.mWriteImagesInfo, i)));
             }
         }
 
         @Override // com.baidu.tieba.write.write.h.a
-        public void ebM() {
+        public void eaZ() {
             if (i.this.mWriteImagesInfo != null) {
-                AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(i.this.eNx.getPageActivity(), i.this.mWriteImagesInfo.toJsonString(), true, true);
+                AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(i.this.eXu.getPageActivity(), i.this.mWriteImagesInfo.toJsonString(), true, true);
                 albumFloatActivityConfig.getIntent().putExtra("forum_id", i.this.mForumId);
                 albumFloatActivityConfig.getIntent().putExtra("from", i.this.mFrom);
-                albumFloatActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
-                if (i.this.eNx.getPageActivity() instanceof WriteActivity) {
-                    albumFloatActivityConfig.setCanSelectVideo(((WriteActivity) i.this.eNx.getPageActivity()).dYS());
+                albumFloatActivityConfig.setRequestCode(12002);
+                if (i.this.eXu.getPageActivity() instanceof WriteActivity) {
+                    albumFloatActivityConfig.setCanSelectVideo(((WriteActivity) i.this.eXu.getPageActivity()).dYv());
                     AntiData antiData = new AntiData();
-                    antiData.voice_message = ((WriteActivity) i.this.eNx.getPageActivity()).fwy;
-                    antiData.setIfVoice(((WriteActivity) i.this.eNx.getPageActivity()).oda);
-                    albumFloatActivityConfig.setExtraData(antiData, ((WriteActivity) i.this.eNx.getPageActivity()).mPrefixData, ((WriteActivity) i.this.eNx.getPageActivity()).nbe.getFirstDir(), ((WriteActivity) i.this.eNx.getPageActivity()).nbe.getSecondDir());
+                    antiData.voice_message = ((WriteActivity) i.this.eXu.getPageActivity()).fGe;
+                    antiData.setIfVoice(((WriteActivity) i.this.eXu.getPageActivity()).ofm);
+                    albumFloatActivityConfig.setStatisticFrom(((WriteActivity) i.this.eXu.getPageActivity()).ngI.getStatisticFrom());
+                    albumFloatActivityConfig.setExtraData(antiData, ((WriteActivity) i.this.eXu.getPageActivity()).mPrefixData, ((WriteActivity) i.this.eXu.getPageActivity()).ngI.getFirstDir(), ((WriteActivity) i.this.eXu.getPageActivity()).ngI.getSecondDir());
                 }
                 albumFloatActivityConfig.setFromWrite(true);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumFloatActivityConfig));
@@ -75,29 +76,29 @@ public class i {
     };
 
     public i(TbPageContext<WriteActivity> tbPageContext, View view) {
-        this.eNx = tbPageContext;
-        this.oeH = (WriteImageGridView) view.findViewById(R.id.write_image_grid_view);
-        this.oeI = new h(view.getContext(), this.fvq, null, this.oeJ);
-        this.oeH.setAdapter((ListAdapter) this.oeI);
+        this.eXu = tbPageContext;
+        this.ogU = (WriteImageGridView) view.findViewById(R.id.write_image_grid_view);
+        this.ogV = new h(view.getContext(), this.fEW, null, this.ogW);
+        this.ogU.setAdapter((ListAdapter) this.ogV);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, String str, String str2) {
         this.mFrom = str;
         this.mForumId = str2;
         this.mWriteImagesInfo = writeImagesInfo;
-        this.oeI.a(this.mWriteImagesInfo);
-        this.oeI.notifyDataSetChanged();
+        this.ogV.a(this.mWriteImagesInfo);
+        this.ogV.notifyDataSetChanged();
     }
 
-    public GridView ebN() {
-        return this.oeH;
+    public GridView ZX() {
+        return this.ogU;
     }
 
     public void destroy() {
-        this.fvq.cancelAllAsyncTask();
+        this.fEW.cancelAllAsyncTask();
     }
 
-    public void zi(boolean z) {
-        this.oeI.zi(z);
+    public void zj(boolean z) {
+        this.ogV.zj(z);
     }
 }

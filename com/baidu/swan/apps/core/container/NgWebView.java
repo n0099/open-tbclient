@@ -1,9 +1,6 @@
 package com.baidu.swan.apps.core.container;
 
 import android.content.Context;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Pair;
@@ -13,6 +10,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.browser.sailor.util.BdZeusUtil;
@@ -22,10 +22,10 @@ import com.baidu.searchbox.widget.SlideInterceptor;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.adaptation.b.d;
 import com.baidu.swan.apps.adaptation.b.e;
-import com.baidu.swan.apps.ap.ah;
+import com.baidu.swan.apps.ao.ah;
 import com.baidu.swan.apps.core.container.view.SwanAppSelectPopView;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, SwanAppSelectPopView.a {
     public static final String APP_CACHE_PATH = "appcache";
     public static final String APP_DATABASE_PATH = "databases";
@@ -38,7 +38,7 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
     private e mWebViewManager;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String WEBVIEW_SIZE_SWITCH = "swan_app_set_webview_size_switch";
-    private static final boolean sIsSetWebViewSize = com.baidu.swan.apps.t.a.azd().getSwitch(WEBVIEW_SIZE_SWITCH, false);
+    private static final boolean sIsSetWebViewSize = com.baidu.swan.apps.t.a.aAu().getSwitch(WEBVIEW_SIZE_SWITCH, false);
 
     @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
     public /* bridge */ /* synthetic */ AbsoluteLayout getCurrentWebView() {
@@ -65,7 +65,7 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
 
     @DebugTrace
     private void init(Context context) {
-        com.baidu.swan.apps.ap.a.a(this);
+        com.baidu.swan.apps.ao.a.a(this);
         disableFeature(BdSailorConfig.SAILOR_EXT_WEBVIEWPAGER);
         disableControls();
     }
@@ -119,14 +119,14 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
     public boolean canGoBack() {
         boolean canGoBack = super.canGoBack();
         if (this.mWebViewHookHandler != null) {
-            return this.mWebViewHookHandler.eV(canGoBack);
+            return this.mWebViewHookHandler.fe(canGoBack);
         }
         return canGoBack;
     }
 
     @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
     public void goBack() {
-        if (this.mWebViewHookHandler == null || !this.mWebViewHookHandler.apJ()) {
+        if (this.mWebViewHookHandler == null || !this.mWebViewHookHandler.aqV()) {
             super.goBack();
         }
     }
@@ -200,9 +200,9 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
         if (sIsSetWebViewSize) {
             Pair<Integer, Integer> pair = null;
             if (i2 == Integer.MIN_VALUE) {
-                Pair<Integer, Integer> uV = ah.uV(str);
-                i2 = ((Integer) uV.second).intValue();
-                pair = uV;
+                Pair<Integer, Integer> uU = ah.uU(str);
+                i2 = ((Integer) uU.second).intValue();
+                pair = uU;
             }
             if (i == Integer.MIN_VALUE) {
                 i3 = pair != null ? ((Integer) pair.first).intValue() : ah.getDisplayWidth(AppRuntime.getAppContext());
@@ -379,54 +379,64 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
 
     /* JADX INFO: Access modifiers changed from: private */
     public void calcPopWindowPos(@NonNull SwanAppSelectPopView swanAppSelectPopView) {
-        int M;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int O;
         int popLeftX = swanAppSelectPopView.getPopLeftX();
         int popRightX = swanAppSelectPopView.getPopRightX();
         int popTopY = swanAppSelectPopView.getPopTopY();
         int popBottomY = swanAppSelectPopView.getPopBottomY();
         int scrollX = getCurrentWebView().getScrollX();
         int scrollY = getCurrentWebView().getScrollY();
-        if (popLeftX <= popRightX) {
-            popRightX = popLeftX;
-            popLeftX = popRightX;
+        if (popLeftX > popRightX) {
+            i = popLeftX;
+            i2 = popRightX;
+        } else {
+            i = popRightX;
+            i2 = popLeftX;
         }
-        if (popTopY <= popBottomY) {
-            popBottomY = popTopY;
-            popTopY = popBottomY;
+        if (popTopY > popBottomY) {
+            i3 = popTopY;
+            i4 = popBottomY;
+        } else {
+            i3 = popBottomY;
+            i4 = popTopY;
         }
         if (DEBUG) {
-            Log.d(TAG, popRightX + ", " + popLeftX + ", " + popBottomY + ", " + popTopY);
+            Log.d(TAG, i2 + ", " + i + ", " + i4 + ", " + i3);
         }
         int measuredWidth = swanAppSelectPopView.getMeasuredWidth();
         int width = getCurrentWebView().getWidth();
-        int i = ((popLeftX + popRightX) - measuredWidth) / 2;
-        if (i + measuredWidth > width) {
-            i = width - measuredWidth;
+        int i5 = ((i2 + i) - measuredWidth) / 2;
+        if (i5 + measuredWidth > width) {
+            i5 = width - measuredWidth;
         }
-        if (i < 0) {
-            i = 0;
+        if (i5 < 0) {
+            i5 = 0;
         }
         int measuredHeight = swanAppSelectPopView.getMeasuredHeight();
         int height = getCurrentWebView().getHeight();
-        int M2 = ah.M(22.0f) + measuredHeight;
-        int i2 = popBottomY - M2;
-        if (i2 < 0) {
-            M = ah.M(22.0f) + popTopY;
+        int O2 = ah.O(22.0f) + measuredHeight;
+        int i6 = i4 - O2;
+        if (i6 < 0) {
+            O = ah.O(22.0f) + i3;
             swanAppSelectPopView.setBackgroundResource(a.e.swanapp_browser_select_menu_up_bg);
         } else {
-            M = i2 + ah.M(22.0f);
+            O = i6 + ah.O(22.0f);
             swanAppSelectPopView.setBackgroundResource(a.e.swanapp_browser_select_menu_down_bg);
         }
-        int i3 = M + M2 > height ? (popTopY - popBottomY) - M2 : M;
-        swanAppSelectPopView.setPopX(i + scrollX);
-        swanAppSelectPopView.setPopY(i3 + scrollY);
+        int i7 = O + O2 > height ? (i3 - i4) - O2 : O;
+        swanAppSelectPopView.setPopX(i5 + scrollX);
+        swanAppSelectPopView.setPopY(i7 + scrollY);
         if (DEBUG) {
-            Log.d(TAG, i + ", " + i3);
+            Log.d(TAG, i5 + ", " + i7);
         }
     }
 
     @Override // com.baidu.swan.apps.core.container.a
     public String getContainerId() {
-        return this.mWebViewManager != null ? this.mWebViewManager.alj() : "";
+        return this.mWebViewManager != null ? this.mWebViewManager.amt() : "";
     }
 }

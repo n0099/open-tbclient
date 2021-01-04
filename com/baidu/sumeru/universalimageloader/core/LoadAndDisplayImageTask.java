@@ -24,7 +24,7 @@ import java.io.InputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runnable {
     private static final int BUFFER_SIZE = 32768;
     private static final String ERROR_POST_PROCESSOR_NULL = "Post-processor returned null [%s]";
@@ -185,9 +185,6 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     */
     private Bitmap tryLoadBitmap() throws TaskCancelledException {
         Bitmap bitmap;
-        Throwable th;
-        OutOfMemoryError e;
-        IOException e2;
         File imageFileInDiscCache = getImageFileInDiscCache();
         try {
             try {
@@ -204,24 +201,24 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
                     try {
                         if (bitmap.getWidth() > 0) {
                         }
-                    } catch (IOException e3) {
-                        e2 = e3;
-                        L.e(e2);
-                        fireFailEvent(FailReason.FailType.IO_ERROR, e2);
+                    } catch (IOException e) {
+                        e = e;
+                        L.e(e);
+                        fireFailEvent(FailReason.FailType.IO_ERROR, e);
                         if (imageFileInDiscCache.exists()) {
                             imageFileInDiscCache.delete();
                         }
                         return bitmap;
-                    } catch (IllegalStateException e4) {
+                    } catch (IllegalStateException e2) {
                         fireFailEvent(FailReason.FailType.NETWORK_DENIED, null);
                         return bitmap;
-                    } catch (OutOfMemoryError e5) {
-                        e = e5;
+                    } catch (OutOfMemoryError e3) {
+                        e = e3;
                         L.e(e);
                         fireFailEvent(FailReason.FailType.OUT_OF_MEMORY, e);
                         return bitmap;
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th) {
+                        th = th;
                         L.e(th);
                         fireFailEvent(FailReason.FailType.UNKNOWN, th);
                         return bitmap;
@@ -237,20 +234,20 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
                 if (bitmap == null || bitmap.getWidth() <= 0 || bitmap.getHeight() <= 0) {
                     fireFailEvent(FailReason.FailType.DECODING_ERROR, null);
                 }
-            } catch (TaskCancelledException e6) {
-                throw e6;
+            } catch (TaskCancelledException e4) {
+                throw e4;
             }
-        } catch (IOException e7) {
+        } catch (IOException e5) {
+            e = e5;
             bitmap = null;
-            e2 = e7;
-        } catch (IllegalStateException e8) {
+        } catch (IllegalStateException e6) {
             bitmap = null;
-        } catch (OutOfMemoryError e9) {
+        } catch (OutOfMemoryError e7) {
+            e = e7;
             bitmap = null;
-            e = e9;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             bitmap = null;
-            th = th3;
         }
         return bitmap;
     }
@@ -270,32 +267,24 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     }
 
     private boolean tryCacheImageOnDisc(File file) throws TaskCancelledException {
-        boolean z;
-        IOException e;
         log(LOG_CACHE_IMAGE_ON_DISC);
+        boolean z = false;
         try {
             z = downloadImage(file);
             if (z) {
-                try {
-                    int i = this.configuration.maxImageWidthForDiscCache;
-                    int i2 = this.configuration.maxImageHeightForDiscCache;
-                    if (i > 0 || i2 > 0) {
-                        log(LOG_RESIZE_CACHED_IMAGE_FILE);
-                        z = resizeAndSaveImage(file, i, i2);
-                    }
-                    this.configuration.discCache.put(this.uri, file);
-                } catch (IOException e2) {
-                    e = e2;
-                    L.e(e);
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    return z;
+                int i = this.configuration.maxImageWidthForDiscCache;
+                int i2 = this.configuration.maxImageHeightForDiscCache;
+                if (i > 0 || i2 > 0) {
+                    log(LOG_RESIZE_CACHED_IMAGE_FILE);
+                    z = resizeAndSaveImage(file, i, i2);
                 }
+                this.configuration.discCache.put(this.uri, file);
             }
-        } catch (IOException e3) {
-            z = false;
-            e = e3;
+        } catch (IOException e) {
+            L.e(e);
+            if (file.exists()) {
+                file.delete();
+            }
         }
         return z;
     }
@@ -457,7 +446,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     public class TaskCancelledException extends Exception {
         TaskCancelledException() {
         }

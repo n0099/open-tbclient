@@ -8,7 +8,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebView;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class ZeusJsBridge {
     public static final String JS_BRIDGE_NAME = "_flyflowNative";
     private static final String REMOVE_CLOUD_SETTINGS_VALUE = "flyflownative_remove";

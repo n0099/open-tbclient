@@ -8,12 +8,14 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class Polyline extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2039a;
-    List<LatLng> b;
+    int f2865a;
+
+    /* renamed from: b  reason: collision with root package name */
+    List<LatLng> f2866b;
     int[] c;
     int[] d;
     BitmapDescriptor j;
@@ -92,15 +94,15 @@ public final class Polyline extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.b.get(0));
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2866b.get(0));
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         bundle.putInt("width", this.e);
-        Overlay.a(this.b, bundle);
-        Overlay.a(this.f2039a, bundle);
+        Overlay.a(this.f2866b, bundle);
+        Overlay.a(this.f2865a, bundle);
         a(this.c, bundle);
         b(this.d, bundle);
-        if (this.c != null && this.c.length > 0 && this.c.length > this.b.size() - 1) {
+        if (this.c != null && this.c.length > 0 && this.c.length > this.f2866b.size() - 1) {
             Log.e("baidumapsdk", "the size of textureIndexs is larger than the size of points");
         }
         bundle.putInt("dotline", this.f ? 1 : 0);
@@ -146,7 +148,7 @@ public final class Polyline extends Overlay {
     }
 
     public int getColor() {
-        return this.f2039a;
+        return this.f2865a;
     }
 
     public int[] getColorList() {
@@ -166,7 +168,7 @@ public final class Polyline extends Overlay {
     }
 
     public List<LatLng> getPoints() {
-        return this.b;
+        return this.f2866b;
     }
 
     public BitmapDescriptor getTexture() {
@@ -203,7 +205,7 @@ public final class Polyline extends Overlay {
     }
 
     public void setColor(int i) {
-        this.f2039a = i;
+        this.f2865a = i;
         this.listener.b(this);
     }
 
@@ -260,7 +262,7 @@ public final class Polyline extends Overlay {
         if (list.contains(null)) {
             throw new IllegalArgumentException("BDMapSDKException: points list can not contains null");
         }
-        this.b = list;
+        this.f2866b = list;
         this.listener.b(this);
     }
 

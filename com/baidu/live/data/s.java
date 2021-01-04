@@ -1,28 +1,54 @@
 package com.baidu.live.data;
 
+import com.baidu.live.adp.base.BdBaseApplication;
+import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.data.BaseData;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class s extends BaseData {
-    public AlaLiveInfoData mLiveInfo;
+    private int aKD;
+    public String aKE;
+    public String aKF;
+    public String aKG;
+    public List<l> aKH;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
+        int i = 0;
         if (jSONObject != null) {
-            this.mLiveInfo = new AlaLiveInfoData();
-            JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
-            if (optJSONObject != null) {
-                this.mLiveInfo.parserJson(optJSONObject);
+            this.aKD = jSONObject.optInt("contact_authority_bar_switch");
+            this.aKE = jSONObject.optString("qq", "");
+            this.aKF = jSONObject.optString("live_assistent_url", "");
+            this.aKG = jSONObject.optString("live_assistent_msg", BdBaseApplication.getInst().getResources().getString(a.h.ala_live_assistant_msg));
+            JSONArray optJSONArray = jSONObject.optJSONArray("rolling_msg_conf");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.aKH = new ArrayList();
+                int length = optJSONArray.length();
+                while (i < length) {
+                    l y = l.y(optJSONArray.optJSONObject(i));
+                    if (y != null) {
+                        this.aKH.add(y);
+                    }
+                    i++;
+                }
+                return;
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("author");
-            if (optJSONObject2 != null) {
-                long optLong = optJSONObject2.optLong("id");
-                String optString = optJSONObject2.optString("name");
-                String optString2 = optJSONObject2.optString("name_show");
-                optJSONObject2.optString("portrait");
-                this.mLiveInfo.user_id = optLong;
-                this.mLiveInfo.user_name = optString;
-                this.mLiveInfo.user_nickname = optString2;
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("rolling_msg");
+            if (optJSONArray2 != null) {
+                if (this.aKH == null) {
+                    this.aKH = new ArrayList();
+                }
+                int length2 = optJSONArray2.length();
+                while (i < length2) {
+                    l lVar = new l();
+                    lVar.gl(this.aKF);
+                    lVar.setText(optJSONArray2.optString(i));
+                    this.aKH.add(lVar);
+                    i++;
+                }
             }
         }
     }

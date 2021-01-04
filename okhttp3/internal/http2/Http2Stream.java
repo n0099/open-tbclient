@@ -18,7 +18,7 @@ import okio.BufferedSource;
 import okio.Sink;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class Http2Stream {
     static final /* synthetic */ boolean $assertionsDisabled;
     long bytesLeftInWriteWindow;
@@ -247,7 +247,7 @@ public final class Http2Stream {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public final class FramingSource implements Source {
         static final /* synthetic */ boolean $assertionsDisabled;
         boolean closed;
@@ -272,14 +272,15 @@ public final class Http2Stream {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public long read(Buffer buffer, long j) throws IOException {
+            long j2;
             ErrorCode errorCode;
-            long read;
             Header.Listener listener;
-            Headers headers;
             if (j < 0) {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
             }
             while (true) {
+                Headers headers = null;
+                j2 = -1;
                 synchronized (Http2Stream.this) {
                     Http2Stream.this.readTimeout.enter();
                     if (Http2Stream.this.errorCode == null) {
@@ -294,26 +295,20 @@ public final class Http2Stream {
                         Headers headers2 = (Headers) Http2Stream.this.headersQueue.removeFirst();
                         listener = Http2Stream.this.headersListener;
                         headers = headers2;
-                        read = -1;
-                    } else if (this.readBuffer.size() > 0) {
-                        read = this.readBuffer.read(buffer, Math.min(j, this.readBuffer.size()));
-                        Http2Stream.this.unacknowledgedBytesRead += read;
-                        if (errorCode != null || Http2Stream.this.unacknowledgedBytesRead < Http2Stream.this.connection.okHttpSettings.getInitialWindowSize() / 2) {
-                            listener = null;
-                            headers = null;
-                        } else {
-                            Http2Stream.this.connection.writeWindowUpdateLater(Http2Stream.this.id, Http2Stream.this.unacknowledgedBytesRead);
-                            Http2Stream.this.unacknowledgedBytesRead = 0L;
-                            listener = null;
-                            headers = null;
-                        }
-                    } else if (this.finished || errorCode != null) {
-                        read = -1;
-                        listener = null;
-                        headers = null;
                     } else {
-                        Http2Stream.this.waitForIo();
-                        Http2Stream.this.readTimeout.exitAndThrowIfTimedOut();
+                        if (this.readBuffer.size() > 0) {
+                            j2 = this.readBuffer.read(buffer, Math.min(j, this.readBuffer.size()));
+                            Http2Stream.this.unacknowledgedBytesRead += j2;
+                            if (errorCode == null && Http2Stream.this.unacknowledgedBytesRead >= Http2Stream.this.connection.okHttpSettings.getInitialWindowSize() / 2) {
+                                Http2Stream.this.connection.writeWindowUpdateLater(Http2Stream.this.id, Http2Stream.this.unacknowledgedBytesRead);
+                                Http2Stream.this.unacknowledgedBytesRead = 0L;
+                                listener = null;
+                            }
+                        } else if (!this.finished && errorCode == null) {
+                            Http2Stream.this.waitForIo();
+                            Http2Stream.this.readTimeout.exitAndThrowIfTimedOut();
+                        }
+                        listener = null;
                     }
                     Http2Stream.this.readTimeout.exitAndThrowIfTimedOut();
                     if (headers == null || listener == null) {
@@ -322,9 +317,9 @@ public final class Http2Stream {
                     listener.onHeaders(headers);
                 }
             }
-            if (read != -1) {
-                updateConnectionFlowControl(read);
-                return read;
+            if (j2 != -1) {
+                updateConnectionFlowControl(j2);
+                return j2;
             } else if (errorCode != null) {
                 throw new StreamResetException(errorCode);
             } else {
@@ -393,17 +388,17 @@ public final class Http2Stream {
         public void close() throws IOException {
             long size;
             Header.Listener listener;
-            ArrayList<Headers> arrayList = null;
+            ArrayList<Headers> arrayList;
             synchronized (Http2Stream.this) {
                 this.closed = true;
                 size = this.readBuffer.size();
                 this.readBuffer.clear();
                 if (Http2Stream.this.headersQueue.isEmpty() || Http2Stream.this.headersListener == null) {
                     listener = null;
+                    arrayList = null;
                 } else {
-                    ArrayList arrayList2 = new ArrayList(Http2Stream.this.headersQueue);
+                    arrayList = new ArrayList(Http2Stream.this.headersQueue);
                     Http2Stream.this.headersQueue.clear();
-                    arrayList = arrayList2;
                     listener = Http2Stream.this.headersListener;
                 }
                 Http2Stream.this.notifyAll();
@@ -438,7 +433,7 @@ public final class Http2Stream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public final class FramingSink implements Sink {
         static final /* synthetic */ boolean $assertionsDisabled;
         private static final long EMIT_BUFFER_SIZE = 16384;
@@ -559,7 +554,7 @@ public final class Http2Stream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public class StreamTimeout extends AsyncTimeout {
         StreamTimeout() {
         }

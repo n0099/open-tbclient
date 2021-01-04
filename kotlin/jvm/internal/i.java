@@ -5,14 +5,14 @@ import kotlin.collections.w;
 import kotlin.collections.y;
 import kotlin.collections.z;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class i {
     public static final kotlin.collections.l ay(byte[] bArr) {
         p.o(bArr, com.baidu.fsg.base.statistics.b.j);
         return new b(bArr);
     }
 
-    public static final kotlin.collections.m c(char[] cArr) {
+    public static final kotlin.collections.m d(char[] cArr) {
         p.o(cArr, com.baidu.fsg.base.statistics.b.j);
         return new c(cArr);
     }
@@ -22,7 +22,7 @@ public final class i {
         return new k(sArr);
     }
 
-    public static final y w(int[] iArr) {
+    public static final y u(int[] iArr) {
         p.o(iArr, com.baidu.fsg.base.statistics.b.j);
         return new f(iArr);
     }
@@ -32,7 +32,7 @@ public final class i {
         return new j(jArr);
     }
 
-    public static final w C(float[] fArr) {
+    public static final w B(float[] fArr) {
         p.o(fArr, com.baidu.fsg.base.statistics.b.j);
         return new e(fArr);
     }

@@ -9,12 +9,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class RimFaceResultPageTipView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f1775a;
-    private TextView b;
+    private TextView f2425a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private TextView f2426b;
     private ImageView c;
     private TextView d;
     private TextView e;
@@ -24,14 +26,14 @@ public class RimFaceResultPageTipView extends LinearLayout {
     private a i;
     private b j;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a();
     }
@@ -54,8 +56,8 @@ public class RimFaceResultPageTipView extends LinearLayout {
         this.e = (TextView) findViewById(R.id.rim_face_result_tips_next_title);
         this.f = (TextView) findViewById(R.id.rim_face_result_page_tip_msg);
         this.g = (LinearLayout) findViewById(R.id.layout_result_page_show_risk_tip);
-        this.b = (TextView) findViewById(R.id.rim_face_result_page_confirm);
-        this.f1775a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
+        this.f2426b = (TextView) findViewById(R.id.rim_face_result_page_confirm);
+        this.f2425a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
         this.h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -64,7 +66,7 @@ public class RimFaceResultPageTipView extends LinearLayout {
                 }
             }
         });
-        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.2
+        this.f2426b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (RimFaceResultPageTipView.this.i != null) {
@@ -72,7 +74,7 @@ public class RimFaceResultPageTipView extends LinearLayout {
                 }
             }
         });
-        this.f1775a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
+        this.f2425a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (RimFaceResultPageTipView.this.i != null) {
@@ -88,8 +90,8 @@ public class RimFaceResultPageTipView extends LinearLayout {
         this.e.setVisibility(4);
         this.h.setVisibility(4);
         this.g.setVisibility(4);
-        this.f1775a.setVisibility(4);
-        this.b.setVisibility(4);
+        this.f2425a.setVisibility(4);
+        this.f2426b.setVisibility(4);
         this.j = null;
         this.i = null;
     }
@@ -133,15 +135,15 @@ public class RimFaceResultPageTipView extends LinearLayout {
 
     public void setResultPageConfirmText(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.b.setVisibility(0);
-            this.b.setText(str);
+            this.f2426b.setVisibility(0);
+            this.f2426b.setText(str);
         }
     }
 
     public void setResultPageCancelText(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.f1775a.setVisibility(0);
-            this.f1775a.setText(str);
+            this.f2425a.setVisibility(0);
+            this.f2425a.setText(str);
         }
     }
 

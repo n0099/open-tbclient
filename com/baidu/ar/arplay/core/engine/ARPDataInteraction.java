@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.ar.arplay.core.engine.ARPContent;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class ARPDataInteraction implements ARPContent.a {
     private com.baidu.ar.arplay.a.b mDataStore;
     private a mHtmlCallback;
@@ -14,17 +14,17 @@ public class ARPDataInteraction implements ARPContent.a {
     public ByteBuffer mMaskBuffer;
     private c mVideoCallback;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         boolean c(int i, int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(float f, float f2, float f3);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a(String str, int i, String str2, String str3);
     }

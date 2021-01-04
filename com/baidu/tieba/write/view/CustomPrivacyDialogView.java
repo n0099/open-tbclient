@@ -7,15 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.c;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class CustomPrivacyDialogView extends LinearLayout {
-    private EMTextView nZN;
-    private TBSpecificationBtn nZO;
-    private TBSpecificationBtn nZP;
+    private EMTextView oca;
+    private TBSpecificationBtn ocb;
+    private TBSpecificationBtn occ;
 
     public CustomPrivacyDialogView(Context context) {
         this(context, null);
@@ -27,65 +27,65 @@ public class CustomPrivacyDialogView extends LinearLayout {
 
     public CustomPrivacyDialogView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        ev(context);
+        eO(context);
     }
 
-    private void ev(Context context) {
+    private void eO(Context context) {
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         setOrientation(1);
         setGravity(1);
         setLayoutParams(layoutParams);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
-        gradientDrawable.setColor(ap.getColor(R.color.CAM_X0211));
+        gradientDrawable.setColor(ao.getColor(R.color.CAM_X0211));
         setBackgroundDrawable(gradientDrawable);
         inflate(context, R.layout.custom_privacy_dialog_view, this);
-        this.nZN = (EMTextView) findViewById(R.id.privacy_message);
-        this.nZO = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
-        this.nZP = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
-        this.nZO.setTextSize(R.dimen.tbds34);
+        this.oca = (EMTextView) findViewById(R.id.privacy_message);
+        this.ocb = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
+        this.occ = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
+        this.ocb.setTextSize(R.dimen.tbds34);
         c cVar = new c();
-        cVar.rj(R.color.CAM_X0105);
-        this.nZO.setConfig(cVar);
-        this.nZP.setTextSize(R.dimen.tbds34);
+        cVar.ru(R.color.CAM_X0105);
+        this.ocb.setConfig(cVar);
+        this.occ.setTextSize(R.dimen.tbds34);
         c cVar2 = new c();
-        cVar2.rh(R.color.CAM_X0302);
-        this.nZP.setConfig(cVar2);
+        cVar2.rs(R.color.CAM_X0302);
+        this.occ.setConfig(cVar2);
     }
 
     public void setMessageTextViewColor(int i) {
-        if (this.nZN != null) {
-            this.nZN.setTextColor(i);
+        if (this.oca != null) {
+            this.oca.setTextColor(i);
         }
     }
 
     public void setMessageTextViewMessage(String str) {
-        if (this.nZN != null) {
-            this.nZN.setText(str);
+        if (this.oca != null) {
+            this.oca.setText(str);
         }
     }
 
     public void setPrivacyDialogCancelButtonListener(View.OnClickListener onClickListener) {
-        if (this.nZO != null) {
-            this.nZO.setOnClickListener(onClickListener);
+        if (this.ocb != null) {
+            this.ocb.setOnClickListener(onClickListener);
         }
     }
 
     public void setPrivacyDialogConfirmButtonListener(View.OnClickListener onClickListener) {
-        if (this.nZP != null) {
-            this.nZP.setOnClickListener(onClickListener);
+        if (this.occ != null) {
+            this.occ.setOnClickListener(onClickListener);
         }
     }
 
     public void setPrivacyDialogCancelButtonText(String str) {
-        if (this.nZO != null) {
-            this.nZO.setText(str);
+        if (this.ocb != null) {
+            this.ocb.setText(str);
         }
     }
 
     public void setPrivacyDialogConfirmButtonText(String str) {
-        if (this.nZP != null) {
-            this.nZP.setText(str);
+        if (this.occ != null) {
+            this.occ.setText(str);
         }
     }
 }

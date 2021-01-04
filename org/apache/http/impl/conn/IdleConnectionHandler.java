@@ -3,7 +3,7 @@ package org.apache.http.impl.conn;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.HttpConnection;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class IdleConnectionHandler {
     public IdleConnectionHandler() {
         throw new RuntimeException("Stub!");

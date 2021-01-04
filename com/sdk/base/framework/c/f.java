@@ -1,12 +1,14 @@
 package com.sdk.base.framework.c;
 
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4256a;
-    public static boolean b;
+    public static String f13117a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f13118b;
     public static boolean c;
     public static boolean d;
     public static boolean e;
@@ -14,9 +16,9 @@ public class f {
 
     static {
         f.class.getSimpleName();
-        f4256a = "aes_key";
+        f13117a = "aes_key";
         new HashMap();
-        b = false;
+        f13118b = false;
         c = true;
         d = false;
         e = false;

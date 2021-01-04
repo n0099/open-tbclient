@@ -1,18 +1,18 @@
 package com.baidu.live.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaListEmptyView extends LinearLayout {
-    private ImageView bOL;
-    private TextView bOM;
+    private ImageView bTA;
+    private TextView bTB;
 
     public AlaListEmptyView(@NonNull Context context) {
         super(context);
@@ -31,31 +31,31 @@ public class AlaListEmptyView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.sdk_list_empty_view_layout, this);
-        this.bOL = (ImageView) findViewById(a.f.ala_empty_view_img);
-        this.bOM = (TextView) findViewById(a.f.ala_empty_view_text);
+        this.bTA = (ImageView) findViewById(a.f.ala_empty_view_img);
+        this.bTB = (TextView) findViewById(a.f.ala_empty_view_text);
     }
 
     public void setParams(int i, int i2) {
         if (i <= 0) {
-            this.bOL.setVisibility(8);
+            this.bTA.setVisibility(8);
         } else {
-            this.bOL.setVisibility(0);
-            this.bOL.setImageResource(i);
+            this.bTA.setVisibility(0);
+            this.bTA.setImageResource(i);
         }
         if (i2 <= 0) {
-            this.bOM.setVisibility(8);
+            this.bTB.setVisibility(8);
             return;
         }
-        this.bOM.setVisibility(0);
-        this.bOM.setText(i2);
+        this.bTB.setVisibility(0);
+        this.bTB.setText(i2);
     }
 
     public void setImageRes(int i) {
         if (i <= 0) {
-            this.bOL.setVisibility(8);
+            this.bTA.setVisibility(8);
             return;
         }
-        this.bOL.setVisibility(0);
-        this.bOL.setImageResource(i);
+        this.bTA.setVisibility(0);
+        this.bTA.setImageResource(i);
     }
 }

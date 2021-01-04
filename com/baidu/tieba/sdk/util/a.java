@@ -4,24 +4,23 @@ import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.account.AccountLoginCoreHelper;
 import com.baidu.live.tbadk.core.data.AccountData;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends AccountLoginCoreHelper {
-    private static a mTe = null;
+    private static a mYE = null;
 
     private a() {
     }
 
-    public static a dHJ() {
-        if (mTe == null) {
-            mTe = new a();
+    public static a dHz() {
+        if (mYE == null) {
+            mYE = new a();
         }
-        return mTe;
+        return mYE;
     }
 
     @Override // com.baidu.live.tbadk.core.account.AccountLoginCoreHelper
     public AccountLoginCoreHelper.OurToken parseBDUSS(String str) {
         AccountLoginCoreHelper.OurToken ourToken;
-        Exception e;
         if (str != null) {
             try {
                 String[] split = str.split("[|]");
@@ -34,15 +33,15 @@ public class a extends AccountLoginCoreHelper {
                             return ourToken;
                         }
                         return ourToken;
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         BdLog.e(e.getMessage());
                         return ourToken;
                     }
                 }
-            } catch (Exception e3) {
+            } catch (Exception e2) {
+                e = e2;
                 ourToken = null;
-                e = e3;
             }
         }
         return null;

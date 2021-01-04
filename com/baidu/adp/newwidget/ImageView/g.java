@@ -8,7 +8,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 /* loaded from: classes.dex */
 public class g extends l {
     private boolean mIsRound;
@@ -27,20 +27,20 @@ public class g extends l {
     private void makePath(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.path == null || this.mIsRound != this.St.mIsRound) {
+            if (this.path == null || this.mIsRound != this.Sw.mIsRound) {
                 z = true;
             }
             if (this.mRect == null || !this.mRect.contains(rect)) {
                 z = true;
             }
-            this.mIsRound = this.St.mIsRound;
+            this.mIsRound = this.Sw.mIsRound;
             if (z) {
                 this.mRect = rect;
                 this.path = new Path();
                 if (this.mIsRound) {
                     this.path.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.path.addRoundRect(new RectF(rect), this.St.mRadius, Path.Direction.CW);
+                    this.path.addRoundRect(new RectF(rect), this.Sw.mRadius, Path.Direction.CW);
                 }
                 this.path.close();
             }

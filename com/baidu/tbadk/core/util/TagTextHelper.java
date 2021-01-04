@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import android.support.annotation.ColorRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public final class TagTextHelper {
@@ -44,19 +44,19 @@ public final class TagTextHelper {
         }
     }
 
-    public static String C(@NonNull Context context, int i) {
+    public static String D(@NonNull Context context, int i) {
         HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
         return hotTopicTag != null ? context.getString(hotTopicTag.tagStrRes) : "";
     }
 
     @ColorRes
-    public static int pZ(int i) {
+    public static int qk(int i) {
         HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
         return hotTopicTag != null ? hotTopicTag.tagColorRes : R.color.transparent;
     }
 
     @ColorRes
-    public static int qa(int i) {
+    public static int ql(int i) {
         switch (i) {
             case 1:
                 return R.color.CAM_X0301;

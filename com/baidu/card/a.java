@@ -1,88 +1,98 @@
 package com.baidu.card;
 
+import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.card.a.a;
+import com.baidu.card.view.ThreadCardView;
 import com.baidu.tbadk.core.data.a;
-/* loaded from: classes21.dex */
-public class a<T extends com.baidu.tbadk.core.data.a> extends am<T> implements com.baidu.tieba.play.e {
-    private at agD;
+import com.baidu.tieba.R;
+/* loaded from: classes.dex */
+public abstract class a<T extends com.baidu.tbadk.core.data.a> implements p<T>, q {
+    protected ak ahd;
+    private Boolean ahe = false;
+    private com.baidu.tieba.card.aa<T> ahf;
+    public InterfaceC0089a ahg;
+    protected Context mContext;
 
-    public a(ak<T> akVar) {
-        super(akVar);
-        this.agD = null;
-        if (akVar.tS() instanceof at) {
-            this.agD = (at) akVar.tS();
+    /* renamed from: com.baidu.card.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public interface InterfaceC0089a {
+        void a(com.baidu.tbadk.core.data.a aVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract View getView();
+
+    public a(Context context) {
+        this.mContext = context;
+    }
+
+    public void a(ak akVar) {
+        this.ahd = akVar;
+    }
+
+    public void bs(int i) {
+    }
+
+    public void bt(int i) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void tb() {
+    }
+
+    public com.baidu.tieba.card.aa<T> tc() {
+        return this.ahf;
+    }
+
+    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<T> aaVar) {
+        this.ahf = aaVar;
+    }
+
+    public void a(int i, a.b bVar) {
+        this.ahd.a(i, bVar);
+    }
+
+    public void bu(int i) {
+    }
+
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+    }
+
+    public void setMarginsTop(View view, int i) {
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            if (marginLayoutParams.topMargin != i) {
+                marginLayoutParams.topMargin = i;
+                view.setLayoutParams(marginLayoutParams);
+            }
         }
     }
 
-    public void setVideoStatsData(com.baidu.tieba.play.o oVar) {
-        if (this.agD != null) {
-            this.agD.setVideoStatData(oVar);
-        }
+    public Boolean td() {
+        return this.ahe;
     }
 
-    public at tC() {
-        return this.agD;
+    public void c(Boolean bool) {
+        this.ahe = bool;
     }
 
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlayStarted() {
-        if (this.agD == null) {
-            return false;
-        }
-        return this.agD.isPlayStarted();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlaying() {
-        if (this.agD == null) {
-            return false;
-        }
-        return this.agD.isPlaying();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isFullScreen() {
-        if (this.agD == null) {
-            return false;
-        }
-        return this.agD.isFullScreen();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public void startPlay() {
-        if (this.agD != null) {
-            this.agD.startPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public void stopPlay() {
-        if (this.agD != null) {
-            this.agD.stopPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public View getVideoContainer() {
-        if (this.agD == null) {
+    private ThreadCardView f(View view, int i) {
+        if (view == null || view.getParent() == null || i == 0) {
             return null;
         }
-        return this.agD.getVideoContainer();
+        if (view.getParent() instanceof ThreadCardView) {
+            return (ThreadCardView) view.getParent();
+        }
+        return f((View) view.getParent(), i - 1);
     }
 
-    @Override // com.baidu.tieba.play.e
-    public String getPlayUrl() {
-        if (this.agD == null) {
-            return null;
+    public void g(View view, int i) {
+        ThreadCardView f = f(view, i);
+        if (f != null) {
+            com.baidu.tbadk.core.elementsMaven.c.bv(f).pK(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
         }
-        return this.agD.getPlayUrl();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public int getCurrentPosition() {
-        if (this.agD == null) {
-            return 0;
-        }
-        return this.agD.getCurrentPosition();
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.live.adp.widget.listview.BdIListPage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class PbListView extends BdIListPage {
     private String endText;
     private int lineColor;
@@ -35,7 +35,7 @@ public class PbListView extends BdIListPage {
     private TextView mTextView;
     private LinearLayout mTopExtraView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public enum IconType {
         ICON_DOWN_WARD,
         ICON_UP_WARD
@@ -231,22 +231,29 @@ public class PbListView extends BdIListPage {
     @SuppressLint({"ResourceAsColor"})
     public void changeSkin(int i) {
         int color;
-        boolean z = false;
+        boolean z;
         if (this.mSkinType != -1) {
             i = this.mSkinType;
         }
         String charSequence = this.mTextView.getText().toString();
         if (charSequence.equals(this.mContext.getText(a.h.sdk_pb_load_more))) {
             color = SkinManager.getColor(i, a.c.sdk_common_color_10039);
+            z = false;
         } else if (charSequence.equals(this.mContext.getText(a.h.sdk_loading))) {
             color = SkinManager.getColor(i, a.c.sdk_common_color_10039);
+            z = false;
         } else if (charSequence.equals(this.mContext.getText(a.h.sdk_list_no_more)) || charSequence.equals(this.mContext.getText(a.h.sdk_list_has_no_more))) {
             color = SkinManager.getColor(i, a.c.sdk_common_color_10005);
             z = true;
         } else if (charSequence.equals(this.mContext.getText(a.h.sdk_list_no_more_new))) {
             color = SkinManager.getColor(i, a.c.sdk_cp_cont_e);
+            z = false;
+        } else if (charSequence.equals(this.mContext.getText(a.h.sdk_list_click_load_more))) {
+            color = SkinManager.getColor(i, a.c.sdk_cp_cont_d);
+            z = false;
         } else {
-            color = charSequence.equals(this.mContext.getText(a.h.sdk_list_click_load_more)) ? SkinManager.getColor(i, a.c.sdk_cp_cont_d) : 0;
+            color = 0;
+            z = false;
         }
         if (z && this.mNoMoreTextColorId != 0) {
             color = SkinManager.getColor(i, this.mNoMoreTextColorId);

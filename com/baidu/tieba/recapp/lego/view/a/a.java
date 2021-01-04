@@ -6,17 +6,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.lego.card.view.e;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements e<AdCard> {
-    protected boolean fpu;
-    protected AdvertAppInfo kLa;
+    protected boolean fzb;
+    protected AdvertAppInfo kQj;
     private int mBusinessType;
     protected Context mContext;
-    protected AdCard mJS;
-    protected com.baidu.tieba.lego.card.a mMr;
+    protected AdCard mOZ;
     protected TbPageContext mPageContext;
+    protected com.baidu.tieba.lego.card.a mRA;
 
-    protected abstract void ddY();
+    protected abstract void ddJ();
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -24,16 +24,16 @@ public abstract class a implements e<AdCard> {
     }
 
     public void b(AdCard adCard) {
-        this.mJS = adCard;
-        this.kLa = adCard.getAdvertAppInfo();
+        this.mOZ = adCard;
+        this.kQj = adCard.getAdvertAppInfo();
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
     public void aN(Object obj) {
         if (obj instanceof AdCard) {
-            this.mJS = (AdCard) obj;
-            ddY();
-            b(this.mJS);
+            this.mOZ = (AdCard) obj;
+            ddJ();
+            b(this.mOZ);
         }
     }
 
@@ -47,15 +47,15 @@ public abstract class a implements e<AdCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void deb() {
+    public void ddM() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void aUj() {
+    public void aWD() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void cRj() {
+    public void cUp() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -64,7 +64,7 @@ public abstract class a implements e<AdCard> {
 
     @Override // com.baidu.tieba.lego.card.view.e
     public void setAfterClickSchemeListener(com.baidu.tieba.lego.card.a aVar) {
-        this.mMr = aVar;
+        this.mRA = aVar;
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -73,10 +73,10 @@ public abstract class a implements e<AdCard> {
 
     @Override // com.baidu.tieba.lego.card.view.e
     public void setFromCDN(boolean z) {
-        this.fpu = z;
+        this.fzb = z;
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void dec() {
+    public void ddN() {
     }
 }

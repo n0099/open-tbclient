@@ -1,7 +1,7 @@
 package com.baidu.pano.platform.comjni;
 
 import android.graphics.Bitmap;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class JNIEngine {
     public static native boolean addCustomMarkerByBitmap(String str, double d, double d2, double d3, Bitmap bitmap);
 

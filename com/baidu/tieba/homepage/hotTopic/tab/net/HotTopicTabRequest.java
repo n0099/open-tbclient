@@ -2,10 +2,10 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.HotThreadList.DataReq;
 import tbclient.HotThreadList.HotThreadListReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class HotTopicTabRequest extends NetMessage {
     public static final String HOT_COMMENT_TAB_ID = "2";
     public static final String HOT_TAB_CODE_ALL = "all";
@@ -33,7 +33,7 @@ public class HotTopicTabRequest extends NetMessage {
         builder.tab_id = this.tabId;
         builder.tab_code = this.tabCode;
         if (z) {
-            u.a(builder, true);
+            t.b(builder, true);
         }
         HotThreadListReqIdl.Builder builder2 = new HotThreadListReqIdl.Builder();
         builder2.data = builder.build(false);

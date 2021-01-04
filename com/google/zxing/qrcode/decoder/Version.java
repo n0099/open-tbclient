@@ -1,11 +1,12 @@
 package com.google.zxing.qrcode.decoder;
 
+import androidx.appcompat.widget.ActivityChooserView;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Version {
     private final int[] alignmentPatternCenters;
     private final ECBlocks[] ecBlocks;
@@ -15,16 +16,20 @@ public final class Version {
     private static final Version[] VERSIONS = buildVersions();
 
     private Version(int i, int[] iArr, ECBlocks... eCBlocksArr) {
-        ECB[] eCBlocks;
         this.versionNumber = i;
         this.alignmentPatternCenters = iArr;
         this.ecBlocks = eCBlocksArr;
         int eCCodewordsPerBlock = eCBlocksArr[0].getECCodewordsPerBlock();
+        ECB[] eCBlocks = eCBlocksArr[0].getECBlocks();
+        int length = eCBlocks.length;
         int i2 = 0;
-        for (ECB ecb : eCBlocksArr[0].getECBlocks()) {
-            i2 += (ecb.getDataCodewords() + eCCodewordsPerBlock) * ecb.getCount();
+        int i3 = 0;
+        while (i2 < length) {
+            ECB ecb = eCBlocks[i2];
+            i2++;
+            i3 = ((ecb.getDataCodewords() + eCCodewordsPerBlock) * ecb.getCount()) + i3;
         }
-        this.totalCodewords = i2;
+        this.totalCodewords = i3;
     }
 
     public int getVersionNumber() {
@@ -67,23 +72,30 @@ public final class Version {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Version decodeVersionInformation(int i) {
-        int i2 = Integer.MAX_VALUE;
-        int i3 = 0;
-        for (int i4 = 0; i4 < VERSION_DECODE_INFO.length; i4++) {
-            int i5 = VERSION_DECODE_INFO[i4];
-            if (i5 == i) {
-                return getVersionForNumber(i4 + 7);
-            }
-            int numBitsDiffering = FormatInformation.numBitsDiffering(i, i5);
-            if (numBitsDiffering < i2) {
-                i3 = i4 + 7;
-                i2 = numBitsDiffering;
+        int i2 = 0;
+        int i3 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i4 = 0;
+        while (true) {
+            int i5 = i2;
+            if (i4 < VERSION_DECODE_INFO.length) {
+                int i6 = VERSION_DECODE_INFO[i4];
+                if (i6 == i) {
+                    return getVersionForNumber(i4 + 7);
+                }
+                int numBitsDiffering = FormatInformation.numBitsDiffering(i, i6);
+                if (numBitsDiffering < i3) {
+                    i2 = i4 + 7;
+                    i3 = numBitsDiffering;
+                } else {
+                    i2 = i5;
+                }
+                i4++;
+            } else if (i3 <= 3) {
+                return getVersionForNumber(i5);
+            } else {
+                return null;
             }
         }
-        if (i2 <= 3) {
-            return getVersionForNumber(i3);
-        }
-        return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -111,7 +123,7 @@ public final class Version {
         return bitMatrix;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static final class ECBlocks {
         private final ECB[] ecBlocks;
         private final int ecCodewordsPerBlock;
@@ -126,11 +138,15 @@ public final class Version {
         }
 
         public int getNumBlocks() {
+            ECB[] ecbArr = this.ecBlocks;
+            int length = ecbArr.length;
             int i = 0;
-            for (ECB ecb : this.ecBlocks) {
-                i += ecb.getCount();
+            int i2 = 0;
+            while (i < length) {
+                i++;
+                i2 = ecbArr[i].getCount() + i2;
             }
-            return i;
+            return i2;
         }
 
         public int getTotalECCodewords() {
@@ -142,7 +158,7 @@ public final class Version {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static final class ECB {
         private final int count;
         private final int dataCodewords;

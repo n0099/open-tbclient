@@ -1,138 +1,61 @@
 package com.baidu.tieba.personExtra;
 
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.R;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.SmartApp;
-/* loaded from: classes24.dex */
-public class h extends RecyclerView.Adapter<a> {
-    private Context mContext;
-    private List<SmartApp> mDataList;
-    private View.OnClickListener mOnItemClickListener;
-    private View.OnLongClickListener mpf;
-
-    public h(Context context) {
-        this.mContext = context;
-    }
-
-    public void bl(List<SmartApp> list) {
-        this.mDataList = list;
-    }
-
-    public SmartApp Rg(String str) {
-        if (y.isEmpty(this.mDataList)) {
-            return null;
-        }
-        Iterator<SmartApp> it = this.mDataList.iterator();
-        while (it.hasNext()) {
-            SmartApp next = it.next();
-            if (next != null && au.equals(next.id, str)) {
-                it.remove();
-                return next;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+/* loaded from: classes8.dex */
+public class h {
+    private a muu;
+    private boolean isLoading = false;
+    private com.baidu.adp.framework.listener.a eFZ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638) { // from class: com.baidu.tieba.personExtra.h.1
+        @Override // com.baidu.adp.framework.listener.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            h.this.isLoading = false;
+            if (responsedMessage == null || responsedMessage.getError() != 0) {
+                h.this.b(false, null);
+            } else if (responsedMessage instanceof SmartAppBrowseHistorySocketResponsedMessage) {
+                h.this.b(true, ((SmartAppBrowseHistorySocketResponsedMessage) responsedMessage).getData());
+            } else if (responsedMessage instanceof SmartAppBrowseHistoryHttpResponsedMessage) {
+                h.this.b(true, ((SmartAppBrowseHistoryHttpResponsedMessage) responsedMessage).getData());
             }
         }
-        return null;
+    };
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(boolean z, com.baidu.tieba.personExtra.a aVar);
     }
 
-    public void setOnItemClickListener(View.OnClickListener onClickListener) {
-        this.mOnItemClickListener = onClickListener;
+    public h() {
+        registerTask();
+        registerListener();
     }
 
-    public void d(View.OnLongClickListener onLongClickListener) {
-        this.mpf = onLongClickListener;
+    private void registerTask() {
+        com.baidu.tieba.tbadkCore.a.a.c(309638, SmartAppBrowseHistorySocketResponsedMessage.class, false);
+        com.baidu.tieba.tbadkCore.a.a.a(309638, CmdConfigHttp.CMD_HISTORY_SWAN, TbConfig.URL_HISTORY_SWAN, SmartAppBrowseHistoryHttpResponsedMessage.class, false, false, true, false);
     }
 
-    private SmartApp Ip(int i) {
-        return (SmartApp) y.getItem(this.mDataList, i);
+    private void registerListener() {
+        MessageManager.getInstance().registerListener(this.eFZ);
     }
 
-    public void a(SmartApp smartApp) {
-        SmartApp Rg = Rg(smartApp.id);
-        if (Rg != null && this.mDataList != null) {
-            y.add(this.mDataList, 0, Rg);
+    public void bIm() {
+        if (!this.isLoading) {
+            this.isLoading = true;
+            MessageManager.getInstance().sendMessage(new SmartAppBrowseHistoryRequestMessage());
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: L */
-    public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new a(LayoutInflater.from(this.mContext).inflate(R.layout.smart_app_history_record_item, viewGroup, false));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: a */
-    public void onBindViewHolder(a aVar, int i) {
-        SmartApp Ip;
-        if (aVar != null && (Ip = Ip(i)) != null) {
-            aVar.b(Ip);
-            aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.mpf);
-            aVar.onChangeSkinType();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(boolean z, com.baidu.tieba.personExtra.a aVar) {
+        if (this.muu != null) {
+            this.muu.a(z, aVar);
         }
     }
 
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        return y.getCount(this.mDataList);
-    }
-
-    /* loaded from: classes24.dex */
-    public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView kKS;
-        private TextView mName;
-        private View mRootView;
-        private SmartApp mpg;
-
-        public a(View view) {
-            super(view);
-            this.mRootView = view;
-            this.kKS = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.kKS.setIsRound(true);
-            this.kKS.setPlaceHolder(1);
-            this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
-        }
-
-        public void b(SmartApp smartApp) {
-            this.mpg = smartApp;
-            this.mRootView.setTag(smartApp);
-            if (!au.isEmpty(smartApp.avatar)) {
-                this.kKS.setPlaceHolder(1);
-                this.kKS.startLoad(smartApp.avatar, 10, false, false);
-            }
-            if (!au.isEmpty(smartApp.name)) {
-                this.mName.setText(smartApp.name);
-            } else {
-                this.mName.setText(R.string.intelligent_smart_app);
-            }
-        }
-
-        public void setOnClickListener(View.OnClickListener onClickListener) {
-            if (this.mRootView != null) {
-                this.mRootView.setOnClickListener(onClickListener);
-            }
-        }
-
-        public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-            if (this.mRootView != null) {
-                this.mRootView.setOnLongClickListener(onLongClickListener);
-            }
-        }
-
-        public void onChangeSkinType() {
-            ap.setBackgroundResource(this.mRootView, R.drawable.person_center_action_item_selector);
-            ap.setViewTextColor(this.mName, (int) R.color.CAM_X0105);
-        }
+    public void a(a aVar) {
+        this.muu = aVar;
     }
 }

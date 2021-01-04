@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.controller;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.message.RequestBlessMessage;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class BlessModel extends BdBaseModel<BaseActivity<?>> {
     private BaseActivity<?> mActivity;
 

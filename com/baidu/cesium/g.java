@@ -3,7 +3,6 @@ package com.baidu.cesium;
 import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.cesium.b.a;
@@ -19,21 +18,23 @@ import java.util.List;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class g {
-    private static boolean b = false;
-    c anP;
-    private a.C0102a anT;
-    private volatile FileLock anU;
-    private volatile RandomAccessFile anV;
-    private com.baidu.cesium.b.b anW;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static boolean f1700b = false;
+    c aoq;
+    private a.C0094a aou;
+    private volatile FileLock aov;
+    private volatile RandomAccessFile aow;
+    private com.baidu.cesium.b.b aox;
     private Context f;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f1314a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
+        public static final String[] f1701a = {"V", "O", "0"};
         private String i;
         private String j;
         private String k;
@@ -95,7 +96,7 @@ public class g {
             }
             StringBuilder sb = new StringBuilder();
             sb.append(this.i).append("|").append(str);
-            if (ExifInterface.GPS_MEASUREMENT_INTERRUPTED.equals(str)) {
+            if ("V".equals(str)) {
                 sb.append(this.k);
             }
             if (!TextUtils.isEmpty(this.m)) {
@@ -108,12 +109,12 @@ public class g {
             return Arrays.hashCode(new Object[]{this.i, this.j, this.k, this.m, Integer.valueOf(this.n)});
         }
 
-        public e uC() {
+        public e ub() {
             e eVar = new e();
             eVar.d = this.i;
             StringBuilder sb = new StringBuilder();
             sb.append(this.j);
-            if (ExifInterface.GPS_MEASUREMENT_INTERRUPTED.equals(this.j)) {
+            if ("V".equals(this.j)) {
                 sb.append(this.k);
             }
             if (!TextUtils.isEmpty(this.m)) {
@@ -129,9 +130,9 @@ public class g {
             throw new NullPointerException("context should not be null!!!");
         }
         this.f = context.getApplicationContext();
-        this.anT = aVar.uy().dt("bohrium");
-        this.anT.a();
-        this.anP = cVar;
+        this.aou = aVar.tX().dm("bohrium");
+        this.aou.a();
+        this.aoq = cVar;
         a(aVar);
     }
 
@@ -146,7 +147,7 @@ public class g {
             long optLong = jSONObject.optLong("ctk", 0L);
             int optInt = jSONObject.optInt("vsk", 1);
             String optString3 = jSONObject.optString("ek", "");
-            String optString4 = jSONObject.optString("v270fk", ExifInterface.GPS_MEASUREMENT_INTERRUPTED);
+            String optString4 = jSONObject.optString("v270fk", "V");
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
@@ -170,20 +171,20 @@ public class g {
     }
 
     private String a(boolean z) {
-        return this.anT.a("libbh.so", z);
+        return this.aou.a("libbh.so", z);
     }
 
     private void a(com.baidu.cesium.e.a aVar) {
         com.baidu.cesium.b.b bVar = new com.baidu.cesium.b.b(new com.baidu.cesium.a());
-        a.C0099a c0099a = new a.C0099a();
-        c0099a.f1296a = this.f;
-        c0099a.anj = aVar;
+        a.C0091a c0091a = new a.C0091a();
+        c0091a.f1669a = this.f;
+        c0091a.anN = aVar;
         a.c cVar = new a.c();
         for (com.baidu.cesium.b.a aVar2 : bVar.a()) {
-            aVar2.a(c0099a);
+            aVar2.a(c0091a);
             aVar2.a(cVar);
         }
-        this.anW = bVar;
+        this.aox = bVar;
     }
 
     private static String c(String str) {
@@ -217,19 +218,19 @@ public class g {
     }
 
     public a S(String str, String str2) {
-        com.baidu.cesium.b.a ds = this.anW.ds(str2);
+        com.baidu.cesium.b.a dl = this.aox.dl(str2);
         a.f fVar = new a.f();
-        fVar.f1297a = true;
-        a.g a2 = ds.a(str, fVar);
+        fVar.f1671a = true;
+        a.g a2 = dl.a(str, fVar);
         if (a2 == null || !a2.a()) {
             return null;
         }
-        return a2.f1298a;
+        return a2.f1672a;
     }
 
     public void a(a aVar) {
         a.d dVar = new a.d();
-        for (com.baidu.cesium.b.a aVar2 : this.anW.a()) {
+        for (com.baidu.cesium.b.a aVar2 : this.aox.a()) {
             aVar2.a(dVar, aVar);
         }
     }
@@ -241,7 +242,7 @@ public class g {
         }
         if (!z2) {
             try {
-                if (new File(this.anT.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
+                if (new File(this.aou.b(), "libbh.so").exists() && (a2 = a(a(true))) != null) {
                     String g = a2.g();
                     if (!TextUtils.isEmpty(g) && g.equals(aVar.g())) {
                         return true;
@@ -252,7 +253,7 @@ public class g {
                 return false;
             }
         }
-        return this.anT.c("libbh.so", aVar.f(), z);
+        return this.aou.a("libbh.so", aVar.f(), z);
     }
 
     public a b(e eVar) {
@@ -267,7 +268,7 @@ public class g {
             aVar.j = eVar.e.substring(0, 1);
             aVar.i = eVar.d;
             aVar.k = c(eVar.d);
-            String[] strArr = a.f1314a;
+            String[] strArr = a.f1701a;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -295,7 +296,7 @@ public class g {
         String a2 = a(this.f);
         if (Build.VERSION.SDK_INT < 23) {
             String uuid = UUID.randomUUID().toString();
-            if (b) {
+            if (f1700b) {
                 Log.d("CuidV270Manager", "uuid: " + uuid);
             }
             str2 = str + a2 + uuid;
@@ -307,7 +308,7 @@ public class g {
         aVar.l = System.currentTimeMillis();
         aVar.n = 1;
         aVar.i = a3;
-        aVar.j = ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
+        aVar.j = "V";
         aVar.k = c(a3);
         aVar.m = null;
         return aVar;
@@ -317,7 +318,7 @@ public class g {
         RandomAccessFile randomAccessFile;
         boolean z = false;
         synchronized (this) {
-            File b2 = this.anT.b(".lock");
+            File b2 = this.aou.b(".lock");
             if (!b2.exists()) {
                 try {
                     b2.createNewFile();
@@ -333,8 +334,8 @@ public class g {
                         break;
                     }
                     try {
-                        this.anU = randomAccessFile.getChannel().lock();
-                        this.anV = randomAccessFile;
+                        this.aov = randomAccessFile.getChannel().lock();
+                        this.aow = randomAccessFile;
                         z = true;
                         break;
                     } catch (OverlappingFileLockException e2) {
@@ -344,7 +345,7 @@ public class g {
                         } catch (Exception e3) {
                             e = e3;
                             com.baidu.cesium.f.c.a(e);
-                            if (this.anU == null) {
+                            if (this.aov == null) {
                                 com.baidu.cesium.f.c.a(randomAccessFile);
                             }
                             return z;
@@ -360,31 +361,31 @@ public class g {
     }
 
     public synchronized void c() {
-        if (this.anU != null) {
+        if (this.aov != null) {
             try {
-                this.anU.release();
+                this.aov.release();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            this.anU = null;
+            this.aov = null;
         }
-        com.baidu.cesium.f.c.a(this.anV);
-        this.anV = null;
+        com.baidu.cesium.f.c.a(this.aow);
+        this.aow = null;
     }
 
     public a d() {
         a.f fVar = new a.f();
-        fVar.f1297a = true;
-        List<com.baidu.cesium.b.a> a2 = this.anW.a();
-        Collections.sort(a2, com.baidu.cesium.b.a.ani);
-        List<b> O = this.anP.O(this.f);
-        if (O != null) {
-            for (b bVar : O) {
+        fVar.f1671a = true;
+        List<com.baidu.cesium.b.a> a2 = this.aox.a();
+        Collections.sort(a2, com.baidu.cesium.b.a.d);
+        List<b> b2 = this.aoq.b(this.f);
+        if (b2 != null) {
+            for (b bVar : b2) {
                 if (!bVar.d && bVar.c) {
                     for (com.baidu.cesium.b.a aVar : a2) {
-                        a.g a3 = aVar.a(bVar.adT.packageName, fVar);
-                        if (a3 != null && a3.a() && a3.f1298a != null) {
-                            return a3.f1298a;
+                        a.g a3 = aVar.a(bVar.aeJ.packageName, fVar);
+                        if (a3 != null && a3.a() && a3.f1672a != null) {
+                            return a3.f1672a;
                         }
                     }
                     continue;
@@ -394,8 +395,8 @@ public class g {
         return null;
     }
 
-    public a uw() {
-        if (new File(this.anT.b(), "libbh.so").exists()) {
+    public a tV() {
+        if (new File(this.aou.b(), "libbh.so").exists()) {
             return a(a(true));
         }
         return null;

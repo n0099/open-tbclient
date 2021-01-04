@@ -1,5 +1,5 @@
 package com.baidu.yuyinala.privatemessage.implugin.ui.activity;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    void Yw(String str);
+    void Yg(String str);
 }

@@ -5,14 +5,14 @@ import java.util.Collection;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class p extends o {
     public static final <T> int a(Iterable<? extends T> iterable, int i) {
         kotlin.jvm.internal.p.o(iterable, "$receiver");
         return iterable instanceof Collection ? ((Collection) iterable).size() : i;
     }
 
-    private static final <T> boolean p(Collection<? extends T> collection) {
+    private static final <T> boolean o(Collection<? extends T> collection) {
         return collection.size() > 2 && (collection instanceof ArrayList);
     }
 
@@ -22,7 +22,7 @@ public class p extends o {
             return (Collection) iterable;
         }
         if (iterable instanceof Collection) {
-            return p((Collection) iterable) ? n.f(iterable) : (Collection) iterable;
+            return o((Collection) iterable) ? n.f(iterable) : (Collection) iterable;
         }
         return n.f(iterable);
     }

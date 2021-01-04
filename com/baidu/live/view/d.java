@@ -4,11 +4,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d extends Dialog {
     public d(@NonNull Context context) {
         super(context, a.i.sdk_Transparent);

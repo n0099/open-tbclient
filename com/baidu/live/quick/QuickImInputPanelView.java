@@ -2,7 +2,6 @@ package com.baidu.live.quick;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
@@ -10,17 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.live.im.d.b;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.flex.FlexAdapter;
 import com.baidu.live.tbadk.widget.flex.FlexLayout;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class QuickImInputPanelView extends RelativeLayout implements com.baidu.live.im.d.b {
-    private TextView aYs;
-    private FlexLayout buB;
-    private a buF;
-    private b.a buG;
+    private TextView aZY;
+    private FlexLayout bzm;
+    private a bzq;
+    private b.a bzr;
 
     public QuickImInputPanelView(Context context) {
         super(context);
@@ -29,18 +29,18 @@ public class QuickImInputPanelView extends RelativeLayout implements com.baidu.l
 
     @Override // com.baidu.live.im.d.b
     public void setCallback(b.a aVar) {
-        this.buG = aVar;
+        this.bzr = aVar;
     }
 
     @Override // com.baidu.live.im.d.b
     public void setData(List<String> list) {
-        if (this.buF == null) {
-            this.buF = new a(list);
-            this.buB.setAdapter(this.buF);
+        if (this.bzq == null) {
+            this.bzq = new a(list);
+            this.bzm.setAdapter(this.bzq);
             return;
         }
-        this.buF.setDatas(list);
-        this.buF.notifyDataSetChanged();
+        this.bzq.setDatas(list);
+        this.bzq.notifyDataSetChanged();
     }
 
     @Override // com.baidu.live.im.d.b
@@ -50,51 +50,51 @@ public class QuickImInputPanelView extends RelativeLayout implements com.baidu.l
     }
 
     @Override // com.baidu.live.im.d.b
-    public void Ow() {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aYs.getLayoutParams();
+    public void Oc() {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aZY.getLayoutParams();
         if (Build.VERSION.SDK_INT >= 17) {
             layoutParams.removeRule(12);
         } else {
             layoutParams.addRule(12, 0);
         }
-        layoutParams.addRule(3, this.buB.getId());
-        this.aYs.setLayoutParams(layoutParams);
+        layoutParams.addRule(3, this.bzm.getId());
+        this.aZY.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.live.im.d.b
-    public void Ox() {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aYs.getLayoutParams();
+    public void Od() {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aZY.getLayoutParams();
         if (Build.VERSION.SDK_INT >= 17) {
             layoutParams.removeRule(3);
         } else {
             layoutParams.addRule(3, 0);
         }
         layoutParams.addRule(12);
-        this.aYs.setLayoutParams(layoutParams);
+        this.aZY.setLayoutParams(layoutParams);
     }
 
     private void init() {
         setBackgroundColor(0);
         LayoutInflater.from(getContext()).inflate(a.g.ala_quick_im_input_panel, (ViewGroup) this, true);
-        this.buB = (FlexLayout) findViewById(a.f.layout_quick_input_flow);
-        this.buB.setHorizontalSpacing(getResources().getDimensionPixelOffset(a.d.sdk_ds20));
-        this.buB.setVerticalSpacing(getResources().getDimensionPixelOffset(a.d.sdk_ds24));
-        this.buB.setOnItemClickListener(new FlexLayout.OnItemClickListener() { // from class: com.baidu.live.quick.QuickImInputPanelView.1
+        this.bzm = (FlexLayout) findViewById(a.f.layout_quick_input_flow);
+        this.bzm.setHorizontalSpacing(getResources().getDimensionPixelOffset(a.d.sdk_ds20));
+        this.bzm.setVerticalSpacing(getResources().getDimensionPixelOffset(a.d.sdk_ds24));
+        this.bzm.setOnItemClickListener(new FlexLayout.OnItemClickListener() { // from class: com.baidu.live.quick.QuickImInputPanelView.1
             @Override // com.baidu.live.tbadk.widget.flex.FlexLayout.OnItemClickListener
             public void onItemClick(FlexLayout flexLayout, View view, int i) {
-                if (QuickImInputPanelView.this.buG != null) {
-                    QuickImInputPanelView.this.buG.E(QuickImInputPanelView.this.buF.getItem(i), i);
+                if (QuickImInputPanelView.this.bzr != null) {
+                    QuickImInputPanelView.this.bzr.G(QuickImInputPanelView.this.bzq.getItem(i), i);
                 }
             }
         });
-        this.aYs = (TextView) findViewById(a.f.tv_quick_input_tip);
+        this.aZY = (TextView) findViewById(a.f.tv_quick_input_tip);
         ImageSpan imageSpan = new ImageSpan(getContext(), a.e.sdk_icon_live_quickpanel_hi);
         SpannableString spannableString = new SpannableString("点击发言区域的图也可以支持快捷输入");
         spannableString.setSpan(imageSpan, 7, 8, 18);
-        this.aYs.setText(spannableString);
+        this.aZY.setText(spannableString);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private static class a extends FlexAdapter<String> {
         a(List<String> list) {
             super(list);

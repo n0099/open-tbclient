@@ -3,7 +3,6 @@ package com.baidu.tbadk;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
@@ -26,7 +25,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity;
-import com.baidu.adp.widget.ListView.t;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
@@ -35,10 +34,10 @@ import com.baidu.tbadk.core.a;
 import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ag;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.af;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.e;
-import com.baidu.tbadk.core.util.f.b;
+import com.baidu.tbadk.core.util.g.b;
 import com.baidu.tbadk.core.view.GuidPageView;
 import com.baidu.tbadk.core.view.d;
 import com.baidu.tbadk.l.g;
@@ -109,7 +108,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.bsW();
+        this.customToast = e.bvy();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -122,7 +121,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        bd.setCurrentActivity(getClass().getName());
+        bc.setCurrentActivity(getClass().getName());
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
         this.mIsLogin = TbadkCoreApplication.isLogin();
@@ -137,7 +136,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.f
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.g
     public TbPageContext<T> getPageContext() {
         if (this.pageContext == null) {
             this.pageContext = new ProxyAdkBaseActivityPageContext(this);
@@ -194,13 +193,13 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
 
     protected void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
-            d.ae(getPageContext().getPageActivity());
+            d.ag(getPageContext().getPageActivity());
         }
     }
 
     protected void adjustResizeForSoftInput(int i, boolean z) {
         if (this.mUseStyleImmersiveSticky) {
-            d.a(getPageContext().getPageActivity(), i, z);
+            d.c(getPageContext().getPageActivity(), i, z);
         }
     }
 
@@ -362,19 +361,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).brB();
+        BdToast.b(getActivity(), str, i, false).bud();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2, false).brB();
+        BdToast.a(getActivity(), str, i, i2, false).bud();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).brB();
+        BdToast.a(getActivity(), str, defaultIcon).bud();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).brB();
+        BdToast.a(getActivity(), str, defaultIcon, i).bud();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -492,7 +491,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        bd.setCurrentActivity(getClass().getName());
+        bc.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
@@ -588,11 +587,11 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
         this.mLayoutInflateFactory = aVar;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.h
-    public void onPreLoad(t tVar) {
-        super.onPreLoad(tVar);
-        ag.a(tVar, getUniqueId());
-        com.baidu.tbadk.core.util.f.c.a(tVar, getUniqueId(), this);
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.i
+    public void onPreLoad(q qVar) {
+        super.onPreLoad(qVar);
+        af.a(qVar, getUniqueId());
+        com.baidu.tbadk.core.util.g.c.a(qVar, getUniqueId(), this);
     }
 
     public boolean checkMessageIsBelongToCurPage(ResponsedMessage<?> responsedMessage) {
@@ -871,7 +870,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
         this.mUseStyleImmersiveSticky = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.f.b
+    @Override // com.baidu.tbadk.core.util.g.b
     public boolean videoNeedPreload() {
         return false;
     }

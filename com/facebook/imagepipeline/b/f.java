@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.b;
 import android.net.Uri;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public interface f {
     com.facebook.cache.common.b a(ImageRequest imageRequest, Uri uri, @Nullable Object obj);
 

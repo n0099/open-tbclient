@@ -124,6 +124,10 @@ public class AlbumActivityConfig extends IntentConfig {
         getIntent().putExtra("KEY_CALL_FROM", str);
     }
 
+    public void setStatisticFrom(int i) {
+        getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i);
+    }
+
     public void setProfessionZone(int i) {
         getIntent().putExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, i);
     }

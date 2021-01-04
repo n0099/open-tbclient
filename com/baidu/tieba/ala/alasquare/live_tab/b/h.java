@@ -3,38 +3,38 @@ package com.baidu.tieba.ala.alasquare.live_tab.b;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class h {
-    public boolean grP = false;
-    public ArrayList<a> grQ;
-    public String grR;
+    public boolean gCO = false;
+    public ArrayList<a> gCP;
+    public String gCQ;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
             if (optJSONObject != null) {
-                this.grP = optJSONObject.optInt("has_follow_live") == 1;
+                this.gCO = optJSONObject.optInt("has_follow_live") == 1;
                 JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.grQ = new ArrayList<>(optJSONArray.length());
+                    this.gCP = new ArrayList<>(optJSONArray.length());
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                         if (optJSONObject2 != null) {
                             a aVar = new a();
                             aVar.parserJson(optJSONObject2);
-                            this.grQ.add(aVar);
+                            this.gCP.add(aVar);
                         }
                     }
                 }
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
             if (optJSONObject3 != null) {
-                this.grR = optJSONObject3.optString("url");
+                this.gCQ = optJSONObject3.optString("url");
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a {
         public String portrait;
         public String userId;

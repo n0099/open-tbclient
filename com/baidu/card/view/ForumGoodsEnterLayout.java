@@ -7,63 +7,63 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class ForumGoodsEnterLayout extends RelativeLayout {
-    private com.baidu.tbadk.core.data.a agJ;
-    private int aiz;
-    private View.OnClickListener akX;
-    private ThreadForumEnterGoodsButton alc;
-    private int ali;
+    private com.baidu.tbadk.core.data.a ahi;
+    private int ajl;
+    private View.OnClickListener alA;
+    private ThreadForumEnterGoodsButton alF;
+    private int alL;
     private Context mContext;
     private int mFrom;
 
     public ForumGoodsEnterLayout(Context context) {
         super(context);
-        this.aiz = 0;
+        this.ajl = 0;
         this.mFrom = 0;
         init(context);
     }
 
     public ForumGoodsEnterLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aiz = 0;
+        this.ajl = 0;
         this.mFrom = 0;
         init(context);
     }
 
     public ForumGoodsEnterLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aiz = 0;
+        this.ajl = 0;
         this.mFrom = 0;
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        this.alc = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
+        this.alF = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_goods_enter_item, (ViewGroup) this, true).findViewById(R.id.forum_enter_goods_button);
     }
 
     public void setData(com.baidu.tbadk.core.data.a aVar) {
         boolean z;
-        this.agJ = aVar;
-        by bmn = aVar.bmn();
-        if (c(aVar) || d(aVar) || aVar.bmn() == null || !aVar.bmn().bra() || this.ali == 3) {
+        this.ahi = aVar;
+        bz boO = aVar.boO();
+        if (c(aVar) || d(aVar) || aVar.boO() == null || !aVar.boO().btC() || this.alL == 3) {
             z = false;
         } else {
-            this.alc.setVisibility(0);
-            this.alc.setFrom(2);
-            this.alc.r(bmn);
-            this.alc.setAfterClickListener(this.akX);
+            this.alF.setVisibility(0);
+            this.alF.setFrom(2);
+            this.alF.r(boO);
+            this.alF.setAfterClickListener(this.alA);
             z = true;
         }
         setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.alc.onChangeSkinType();
+        this.alF.onChangeSkinType();
     }
 
     public void setFrom(int i) {
@@ -71,22 +71,22 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     }
 
     public void setFrstype(int i) {
-        this.ali = i;
+        this.alL = i;
     }
 
     public void setSourceForPb(int i) {
-        this.aiz = i;
+        this.ajl = i;
     }
 
     public void setOnAfterClickListener(View.OnClickListener onClickListener) {
-        this.akX = onClickListener;
+        this.alA = onClickListener;
     }
 
     private boolean c(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.bmn() == null || aVar.bmn().bqX() == null || aVar.bmn().bqX().getOptions() == null || aVar.bmn().bqX().getOptions().size() <= 0) ? false : true;
+        return (aVar == null || aVar.boO() == null || aVar.boO().btz() == null || aVar.boO().btz().getOptions() == null || aVar.boO().btz().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean d(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.bmn() == null || !aVar.bmn().bnv() || aVar.bmn().bph() == null) ? false : true;
+        return (aVar == null || aVar.boO() == null || !aVar.boO().bpV() || aVar.boO().brH() == null) ? false : true;
     }
 }

@@ -6,7 +6,8 @@ import org.json.JSONObject;
 import tbclient.McnAdInfo;
 /* loaded from: classes.dex */
 public class as {
-    public static McnAdInfo dg(JSONObject jSONObject) {
+    /* renamed from: do  reason: not valid java name */
+    public static McnAdInfo m37do(JSONObject jSONObject) {
         McnAdInfo.Builder builder = new McnAdInfo.Builder();
         if (jSONObject != null) {
             builder.ad_start_time = Long.valueOf(jSONObject.optLong(SharedPrefConfig.AD_START_TIME));

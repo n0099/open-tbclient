@@ -4,7 +4,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class UPCEReader extends UPCEANReader {
     static final int[] CHECK_DIGIT_ENCODINGS = {56, 52, 50, 49, 44, 38, 35, 42, 41, 37};
     private static final int[] MIDDLE_END_PATTERN = {1, 1, 1, 1, 1, 1};
@@ -22,21 +22,17 @@ public final class UPCEReader extends UPCEANReader {
         int size = bitArray.getSize();
         int i = iArr[1];
         int i2 = 0;
-        int i3 = 0;
-        while (i2 < 6 && i < size) {
+        for (int i3 = 0; i3 < 6 && i < size; i3++) {
             int decodeDigit = decodeDigit(bitArray, iArr2, i, L_AND_G_PATTERNS);
             sb.append((char) ((decodeDigit % 10) + 48));
-            int i4 = i;
-            for (int i5 : iArr2) {
-                i4 += i5;
+            for (int i4 : iArr2) {
+                i += i4;
             }
             if (decodeDigit >= 10) {
-                i3 |= 1 << (5 - i2);
+                i2 |= 1 << (5 - i3);
             }
-            i2++;
-            i = i4;
         }
-        determineNumSysAndCheckDigit(sb, i3);
+        determineNumSysAndCheckDigit(sb, i2);
         return i;
     }
 

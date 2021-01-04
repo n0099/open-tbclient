@@ -4,45 +4,46 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.live_tab.b.k;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o;
-/* loaded from: classes6.dex */
-public class c extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f> {
-    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.e gtg;
-    private o gth;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.i;
+/* loaded from: classes10.dex */
+public class c extends com.baidu.adp.widget.ListView.a<k, LiveTabConcernItemViewLineHolder> {
+    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.d gEf;
+    private i gEg;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), k.grV);
+        super(tbPageContext.getPageActivity(), k.gCU);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: O */
-    public com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f c(ViewGroup viewGroup) {
-        this.gtg = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.e(this.mPageContext, viewGroup);
-        if (this.gth != null) {
-            this.gtg.a(this.gth);
+    /* renamed from: aa */
+    public LiveTabConcernItemViewLineHolder e(ViewGroup viewGroup) {
+        this.gEf = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.d(this.mPageContext, viewGroup);
+        if (this.gEg != null) {
+            this.gEf.a(this.gEg);
         }
-        return new com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f(this.gtg);
+        return new LiveTabConcernItemViewLineHolder(this.gEf);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.f fVar) {
-        if (fVar == null || fVar.gtg == null) {
+    public View a(int i, View view, ViewGroup viewGroup, k kVar, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
+        if (liveTabConcernItemViewLineHolder == null || liveTabConcernItemViewLineHolder.gEf == null) {
             return null;
         }
-        fVar.gtg.a(kVar);
-        return fVar.getView();
+        liveTabConcernItemViewLineHolder.gEf.a(kVar);
+        return liveTabConcernItemViewLineHolder.getView();
     }
 
-    public void a(o oVar) {
-        this.gth = oVar;
-        if (this.gtg != null) {
-            this.gtg.a(this.gth);
+    public void a(i iVar) {
+        this.gEg = iVar;
+        if (this.gEf != null) {
+            this.gEf.a(this.gEg);
         }
     }
 }

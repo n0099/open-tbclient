@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.textarea;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    void N(String str, int i);
-
     void O(String str, int i);
 
-    void mM(String str);
+    void P(String str, int i);
+
+    void mF(String str);
 }

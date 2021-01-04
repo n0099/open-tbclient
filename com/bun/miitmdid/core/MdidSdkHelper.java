@@ -1,14 +1,14 @@
 package com.bun.miitmdid.core;
 
 import android.content.Context;
-import android.support.annotation.Keep;
 import android.util.Log;
+import androidx.annotation.Keep;
 import com.bun.miitmdid.supplier.IdSupplier;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @Keep
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class MdidSdkHelper {
     public static String TAG = MdidSdkHelper.class.getSimpleName();
     @Keep
@@ -16,7 +16,7 @@ public class MdidSdkHelper {
     @Keep
     private String sdk_date = "2019120111";
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static class a implements IdSupplier {
         @Override // com.bun.miitmdid.supplier.IdSupplier
         public String getAAID() {

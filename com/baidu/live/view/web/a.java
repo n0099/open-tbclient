@@ -4,16 +4,16 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class a {
-    protected h bQH;
+    protected h bWo;
     protected Handler mHandler;
 
     public abstract String getName();
 
-    public abstract void jm(String str);
+    public abstract void jf(String str);
 
-    public void i(String str, String str2, boolean z) {
+    public void j(String str, String str2, boolean z) {
     }
 
     @JavascriptInterface
@@ -25,10 +25,10 @@ public abstract class a {
         this.mHandler.post(new Runnable() { // from class: com.baidu.live.view.web.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bQH != null) {
-                    a.this.bQH.jr(str);
+                if (a.this.bWo != null) {
+                    a.this.bWo.jk(str);
                 } else {
-                    a.this.jm(str);
+                    a.this.jf(str);
                 }
             }
         });
@@ -43,12 +43,12 @@ public abstract class a {
         this.mHandler.post(new Runnable() { // from class: com.baidu.live.view.web.a.2
             @Override // java.lang.Runnable
             public void run() {
-                a.this.i(str, str2, z);
+                a.this.j(str, str2, z);
             }
         });
     }
 
     public void a(h hVar) {
-        this.bQH = hVar;
+        this.bWo = hVar;
     }
 }

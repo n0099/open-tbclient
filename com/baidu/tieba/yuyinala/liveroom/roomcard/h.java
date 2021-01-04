@@ -6,16 +6,15 @@ import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class h extends BdBaseModel {
-    private Context bJK;
-    private BdUniqueId brR = BdUniqueId.gen();
-    private final HttpMessageListener bxC;
-    private a oqD;
+    private final HttpMessageListener bCn;
+    private Context bOy;
+    private BdUniqueId bwz = BdUniqueId.gen();
+    private a otX;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage);
 
@@ -23,37 +22,37 @@ public class h extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.oqD = aVar;
+        this.otX = aVar;
     }
 
     public h(Context context) {
-        this.bJK = context;
-        setUniqueId(this.brR);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031018, TbConfig.SERVER_ADDRESS + "ala/audio/room/follow");
+        this.bOy = context;
+        setUniqueId(this.bwz);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031018, com.baidu.live.a.aAH + "ala/audio/room/follow");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaGetCollectRoomHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bxC = new HttpMessageListener(1031018) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.h.1
+        this.bCn = new HttpMessageListener(1031018) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetCollectRoomHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.getUniqueId() && h.this.oqD != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetCollectRoomHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.getUniqueId() && h.this.otX != null) {
                     AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage = (AlaGetCollectRoomHttpResponseMessage) httpResponsedMessage;
                     if (alaGetCollectRoomHttpResponseMessage.getError() != 0 || !alaGetCollectRoomHttpResponseMessage.isSuccess()) {
-                        h.this.oqD.onFail(alaGetCollectRoomHttpResponseMessage.getError(), alaGetCollectRoomHttpResponseMessage.getErrorString());
+                        h.this.otX.onFail(alaGetCollectRoomHttpResponseMessage.getError(), alaGetCollectRoomHttpResponseMessage.getErrorString());
                     } else {
-                        h.this.oqD.a(alaGetCollectRoomHttpResponseMessage);
+                        h.this.otX.a(alaGetCollectRoomHttpResponseMessage);
                     }
                 }
             }
         };
-        registerListener(this.bxC);
+        registerListener(this.bCn);
     }
 
-    public void w(String str, String str2, int i) {
+    public void y(String str, String str2, int i) {
         b bVar = new b(str, str2, i);
-        bVar.setTag(this.brR);
+        bVar.setTag(this.bwz);
         sendMessage(bVar);
     }
 
@@ -64,7 +63,7 @@ public class h extends BdBaseModel {
 
     public void onDestroy() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.bxC);
+        MessageManager.getInstance().unRegisterListener(this.bCn);
         MessageManager.getInstance().unRegisterTask(1031018);
     }
 

@@ -3,14 +3,14 @@ package com.baidu.swan.apps.runtime;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class g extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, Object> dyu;
+    private Map<String, Object> dGZ;
 
     public g(e eVar) {
         super(eVar);
-        this.dyu = new HashMap();
+        this.dGZ = new HashMap();
     }
 
     public void putString(String str, String str2) {
@@ -43,11 +43,11 @@ public class g extends f {
         }
     }
 
-    public void a(String str, Integer num) {
+    public void b(String str, Integer num) {
         s(str, num);
     }
 
-    public Integer b(String str, Integer num) {
+    public Integer c(String str, Integer num) {
         try {
             return (Integer) r(str, num);
         } catch (ClassCastException e) {
@@ -59,23 +59,23 @@ public class g extends f {
     }
 
     public void clear() {
-        this.dyu.clear();
+        this.dGZ.clear();
     }
 
     public boolean containsKey(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.dyu.containsKey(str);
+        return this.dGZ.containsKey(str);
     }
 
     private <V> V r(String str, V v) {
         if (containsKey(str)) {
-            if (this.dyu.get(str) == null) {
+            if (this.dGZ.get(str) == null) {
                 return null;
             }
             try {
-                return (V) this.dyu.get(str);
+                return (V) this.dGZ.get(str);
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -88,7 +88,7 @@ public class g extends f {
     }
 
     private <V> void s(String str, V v) {
-        this.dyu.put(str, v);
+        this.dGZ.put(str, v);
     }
 
     @Override // com.baidu.swan.apps.runtime.f

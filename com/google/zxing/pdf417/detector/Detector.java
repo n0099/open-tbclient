@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Detector {
     private static final int BARCODE_MIN_HEIGHT = 10;
     private static final float MAX_AVG_VARIANCE = 0.42f;
@@ -30,7 +30,7 @@ public final class Detector {
         BitMatrix blackMatrix = binaryBitmap.getBlackMatrix();
         List<ResultPoint[]> detect = detect(z, blackMatrix);
         if (detect.isEmpty()) {
-            blackMatrix = blackMatrix.m46clone();
+            blackMatrix = blackMatrix.m51clone();
             blackMatrix.rotate180();
             detect = detect(z, blackMatrix);
         }
@@ -56,20 +56,20 @@ public final class Detector {
                         i2 = Math.max(i2, (int) resultPointArr[3].getY());
                     }
                 }
-                i = 0;
                 i2 += 5;
                 z2 = false;
+                i = 0;
             } else {
                 arrayList.add(findVertices);
                 if (!z) {
                     break;
                 } else if (findVertices[2] != null) {
-                    i2 = (int) findVertices[2].getY();
                     i = (int) findVertices[2].getX();
+                    i2 = (int) findVertices[2].getY();
                     z2 = true;
                 } else {
-                    i2 = (int) findVertices[4].getY();
                     i = (int) findVertices[4].getX();
+                    i2 = (int) findVertices[4].getY();
                     z2 = true;
                 }
             }
@@ -185,15 +185,16 @@ public final class Detector {
         int length = iArr.length;
         boolean z2 = z;
         int i7 = i;
-        while (i < i3) {
-            if (bitMatrix.get(i, i2) ^ z2) {
+        int i8 = i;
+        while (i7 < i3) {
+            if (bitMatrix.get(i7, i2) ^ z2) {
                 iArr2[i6] = iArr2[i6] + 1;
             } else {
                 if (i6 == length - 1) {
                     if (patternMatchVariance(iArr2, iArr, 0.8f) < MAX_AVG_VARIANCE) {
-                        return new int[]{i7, i};
+                        return new int[]{i8, i7};
                     }
-                    i7 += iArr2[0] + iArr2[1];
+                    i8 += iArr2[0] + iArr2[1];
                     System.arraycopy(iArr2, 2, iArr2, 0, length - 2);
                     iArr2[length - 2] = 0;
                     iArr2[length - 1] = 0;
@@ -204,12 +205,12 @@ public final class Detector {
                 iArr2[i6] = 1;
                 z2 = !z2;
             }
-            i++;
+            i7++;
         }
         if (i6 != length - 1 || patternMatchVariance(iArr2, iArr, 0.8f) >= MAX_AVG_VARIANCE) {
             return null;
         }
-        return new int[]{i7, i - 1};
+        return new int[]{i8, i7 - 1};
     }
 
     private static float patternMatchVariance(int[] iArr, int[] iArr2, float f) {

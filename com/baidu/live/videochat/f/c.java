@@ -1,14 +1,16 @@
 package com.baidu.live.videochat.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
     private String avatar;
     private boolean isHost;
     private String nickName;
+    private String userId;
 
-    public c(String str, String str2, boolean z) {
+    public c(String str, String str2, String str3, boolean z) {
         this.avatar = str;
         this.nickName = str2;
         this.isHost = z;
+        this.userId = str3;
     }
 
     public String getAvatar() {
@@ -19,7 +21,11 @@ public class c {
         return this.nickName;
     }
 
-    public boolean Yh() {
+    public boolean Zp() {
         return this.isHost;
+    }
+
+    public String getUserId() {
+        return this.userId;
     }
 }

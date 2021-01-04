@@ -2,7 +2,7 @@ package kotlin.text;
 
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class StringsKt___StringsKt$withIndex$1 extends Lambda implements kotlin.jvm.a.a<kotlin.collections.m> {
     final /* synthetic */ CharSequence receiver$0;
 

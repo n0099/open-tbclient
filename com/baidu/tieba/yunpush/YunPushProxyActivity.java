@@ -17,27 +17,27 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.R;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x02b3  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x02b9  */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x02bc  */
-    /* JADX WARN: Removed duplicated region for block: B:118:0x0147 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0095 A[Catch: Exception -> 0x02a7, TryCatch #2 {Exception -> 0x02a7, blocks: (B:3:0x0008, B:5:0x000e, B:7:0x001f, B:9:0x0043, B:10:0x004b, B:12:0x0057, B:13:0x005f, B:15:0x006b, B:16:0x0072, B:18:0x0078, B:20:0x0081, B:67:0x020c, B:23:0x008b, B:25:0x0095, B:26:0x009d, B:28:0x00a6, B:35:0x00b8, B:39:0x00c7, B:76:0x022c, B:79:0x0238, B:82:0x0244, B:42:0x00d1, B:44:0x012e, B:47:0x0138, B:51:0x0162, B:53:0x0168, B:54:0x0185, B:56:0x018e, B:58:0x01bf, B:106:0x02ab, B:59:0x01c2, B:61:0x01cb, B:62:0x01e1, B:64:0x01ea, B:102:0x028e, B:101:0x0288, B:85:0x0250, B:87:0x0256, B:90:0x0262, B:92:0x0268, B:95:0x0274, B:97:0x027a, B:70:0x0218, B:57:0x01a1, B:49:0x0147), top: B:120:0x0008, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00a6 A[Catch: Exception -> 0x02a7, TryCatch #2 {Exception -> 0x02a7, blocks: (B:3:0x0008, B:5:0x000e, B:7:0x001f, B:9:0x0043, B:10:0x004b, B:12:0x0057, B:13:0x005f, B:15:0x006b, B:16:0x0072, B:18:0x0078, B:20:0x0081, B:67:0x020c, B:23:0x008b, B:25:0x0095, B:26:0x009d, B:28:0x00a6, B:35:0x00b8, B:39:0x00c7, B:76:0x022c, B:79:0x0238, B:82:0x0244, B:42:0x00d1, B:44:0x012e, B:47:0x0138, B:51:0x0162, B:53:0x0168, B:54:0x0185, B:56:0x018e, B:58:0x01bf, B:106:0x02ab, B:59:0x01c2, B:61:0x01cb, B:62:0x01e1, B:64:0x01ea, B:102:0x028e, B:101:0x0288, B:85:0x0250, B:87:0x0256, B:90:0x0262, B:92:0x0268, B:95:0x0274, B:97:0x027a, B:70:0x0218, B:57:0x01a1, B:49:0x0147), top: B:120:0x0008, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x02ca  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x02d0  */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x02d3  */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0095 A[Catch: Exception -> 0x02be, TryCatch #1 {Exception -> 0x02be, blocks: (B:3:0x0008, B:5:0x000e, B:7:0x001f, B:9:0x0043, B:10:0x004b, B:12:0x0057, B:13:0x005f, B:15:0x006b, B:16:0x0072, B:18:0x0078, B:20:0x0081, B:67:0x0223, B:23:0x008b, B:25:0x0095, B:26:0x009d, B:28:0x00a6, B:35:0x00b8, B:39:0x00c7, B:76:0x0243, B:79:0x024f, B:82:0x025b, B:42:0x00d1, B:44:0x0145, B:47:0x014f, B:51:0x0179, B:53:0x017f, B:54:0x019c, B:56:0x01a5, B:58:0x01d6, B:106:0x02c2, B:59:0x01d9, B:61:0x01e2, B:62:0x01f8, B:64:0x0201, B:102:0x02a5, B:101:0x029f, B:85:0x0267, B:87:0x026d, B:90:0x0279, B:92:0x027f, B:95:0x028b, B:97:0x0291, B:70:0x022f, B:49:0x015e, B:57:0x01b8), top: B:118:0x0008, inners: #0, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00a6 A[Catch: Exception -> 0x02be, TryCatch #1 {Exception -> 0x02be, blocks: (B:3:0x0008, B:5:0x000e, B:7:0x001f, B:9:0x0043, B:10:0x004b, B:12:0x0057, B:13:0x005f, B:15:0x006b, B:16:0x0072, B:18:0x0078, B:20:0x0081, B:67:0x0223, B:23:0x008b, B:25:0x0095, B:26:0x009d, B:28:0x00a6, B:35:0x00b8, B:39:0x00c7, B:76:0x0243, B:79:0x024f, B:82:0x025b, B:42:0x00d1, B:44:0x0145, B:47:0x014f, B:51:0x0179, B:53:0x017f, B:54:0x019c, B:56:0x01a5, B:58:0x01d6, B:106:0x02c2, B:59:0x01d9, B:61:0x01e2, B:62:0x01f8, B:64:0x0201, B:102:0x02a5, B:101:0x029f, B:85:0x0267, B:87:0x026d, B:90:0x0279, B:92:0x027f, B:95:0x028b, B:97:0x0291, B:70:0x022f, B:49:0x015e, B:57:0x01b8), top: B:118:0x0008, inners: #0, #2 }] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x00b0  */
     /* JADX WARN: Removed duplicated region for block: B:32:0x00b3  */
     /* JADX WARN: Removed duplicated region for block: B:37:0x00c4  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00c7 A[Catch: Exception -> 0x02a7, TryCatch #2 {Exception -> 0x02a7, blocks: (B:3:0x0008, B:5:0x000e, B:7:0x001f, B:9:0x0043, B:10:0x004b, B:12:0x0057, B:13:0x005f, B:15:0x006b, B:16:0x0072, B:18:0x0078, B:20:0x0081, B:67:0x020c, B:23:0x008b, B:25:0x0095, B:26:0x009d, B:28:0x00a6, B:35:0x00b8, B:39:0x00c7, B:76:0x022c, B:79:0x0238, B:82:0x0244, B:42:0x00d1, B:44:0x012e, B:47:0x0138, B:51:0x0162, B:53:0x0168, B:54:0x0185, B:56:0x018e, B:58:0x01bf, B:106:0x02ab, B:59:0x01c2, B:61:0x01cb, B:62:0x01e1, B:64:0x01ea, B:102:0x028e, B:101:0x0288, B:85:0x0250, B:87:0x0256, B:90:0x0262, B:92:0x0268, B:95:0x0274, B:97:0x027a, B:70:0x0218, B:57:0x01a1, B:49:0x0147), top: B:120:0x0008, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0224  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x0229  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00c7 A[Catch: Exception -> 0x02be, TryCatch #1 {Exception -> 0x02be, blocks: (B:3:0x0008, B:5:0x000e, B:7:0x001f, B:9:0x0043, B:10:0x004b, B:12:0x0057, B:13:0x005f, B:15:0x006b, B:16:0x0072, B:18:0x0078, B:20:0x0081, B:67:0x0223, B:23:0x008b, B:25:0x0095, B:26:0x009d, B:28:0x00a6, B:35:0x00b8, B:39:0x00c7, B:76:0x0243, B:79:0x024f, B:82:0x025b, B:42:0x00d1, B:44:0x0145, B:47:0x014f, B:51:0x0179, B:53:0x017f, B:54:0x019c, B:56:0x01a5, B:58:0x01d6, B:106:0x02c2, B:59:0x01d9, B:61:0x01e2, B:62:0x01f8, B:64:0x0201, B:102:0x02a5, B:101:0x029f, B:85:0x0267, B:87:0x026d, B:90:0x0279, B:92:0x027f, B:95:0x028b, B:97:0x0291, B:70:0x022f, B:49:0x015e, B:57:0x01b8), top: B:118:0x0008, inners: #0, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x023b  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x0240  */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -108,7 +108,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 i5 = 5;
                             }
                         }
-                        ar al = new ar(TbadkCoreStatisticKey.PUSH_CCLICK).al("obj_type", 2).dY("task_id", str).dY(Constants.EXTRA_SERVICE, str2).dY(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).dY(TiebaInitialize.Params.OBJ_TO, str5).al("obj_source", i).al("obj_locate", i2).al("obj_param1", i6).al(TiebaInitialize.Params.OBJ_PARAM2, i4).al(TiebaInitialize.Params.OBJ_PARAM3, i5);
+                        aq an = new aq(TbadkCoreStatisticKey.PUSH_CCLICK).an("obj_type", 2).dX("task_id", str).dX(Constants.EXTRA_SERVICE, str2).dX(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).dX(TiebaInitialize.Params.OBJ_TO, str5).an("obj_source", i).an("obj_locate", i2).an("obj_param1", i6).an(TiebaInitialize.Params.OBJ_PARAM2, i4).an(TiebaInitialize.Params.OBJ_PARAM3, i5).an("obj_id", TbadkCoreApplication.getInst().getStartType()).an("obj_ishost", 1);
                         if (TextUtils.isEmpty(str5) && str5.contains("HotThreadList")) {
                             i3 = 6;
                         } else if (TextUtils.isEmpty(str5) && str5.contains("HotInteraction")) {
@@ -118,8 +118,8 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         } else {
                             i3 = (TextUtils.isEmpty(str5) && str5.contains("collect")) ? 8 : i;
                         }
-                        al.al("obj_source", i3);
-                        TiebaStatic.log(al);
+                        an.an("obj_source", i3);
+                        TiebaStatic.log(an);
                         if (!TextUtils.isEmpty(str5)) {
                             try {
                                 str4 = Uri.parse(str5).buildUpon().appendQueryParameter("from_yunpush", "1").build().toString();
@@ -127,33 +127,33 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 BdLog.e(e);
                                 str4 = str5;
                             }
-                            if (Wf(str4)) {
+                            if (VF(str4)) {
                                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                                 mainTabActivityConfig.setTargetScheme(str4);
                                 mainTabActivityConfig.setPushFollowUpAction(optInt);
                                 mainTabActivityConfig.setPushDesPage(str3);
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
                             } else {
-                                bf.bua().b(getPageContext(), new String[]{str4, "yun_push_tag"});
+                                be.bwu().b(getPageContext(), new String[]{str4, "yun_push_tag"});
                             }
                             if (str4.contains("ForumGradePage")) {
-                                ar w = new ar("c13782").w("uid", TbadkCoreApplication.getCurrentAccountId());
+                                aq w = new aq("c13782").w("uid", TbadkCoreApplication.getCurrentAccountId());
                                 try {
                                     Uri parse = Uri.parse(str4);
                                     String queryParameter = parse.getQueryParameter("forum_id");
                                     String queryParameter2 = parse.getQueryParameter("obj_type");
-                                    w.dY("fid", queryParameter);
-                                    w.dY("obj_type", queryParameter2);
+                                    w.dX("fid", queryParameter);
+                                    w.dX("obj_type", queryParameter2);
                                 } catch (Exception e2) {
                                     BdLog.e(e2);
                                 }
                                 TiebaStatic.log(w);
                             }
                             if (str4.contains("unidispatch/hotuserrank")) {
-                                TiebaStatic.log(new ar("c13662").w("uid", TbadkCoreApplication.getCurrentAccountId()));
+                                TiebaStatic.log(new aq("c13662").w("uid", TbadkCoreApplication.getCurrentAccountId()));
                             }
                             if (str4.contains("weeklygodview")) {
-                                TiebaStatic.log(new ar("c13691").w("uid", TbadkCoreApplication.getCurrentAccountId()).al("obj_source", 2));
+                                TiebaStatic.log(new aq("c13691").w("uid", TbadkCoreApplication.getCurrentAccountId()).an("obj_source", 2));
                             }
                         }
                     }
@@ -172,7 +172,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     }
                     if (str5 != null) {
                     }
-                    ar al2 = new ar(TbadkCoreStatisticKey.PUSH_CCLICK).al("obj_type", 2).dY("task_id", str).dY(Constants.EXTRA_SERVICE, str2).dY(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).dY(TiebaInitialize.Params.OBJ_TO, str5).al("obj_source", i).al("obj_locate", i2).al("obj_param1", i6).al(TiebaInitialize.Params.OBJ_PARAM2, i4).al(TiebaInitialize.Params.OBJ_PARAM3, i5);
+                    aq an2 = new aq(TbadkCoreStatisticKey.PUSH_CCLICK).an("obj_type", 2).dX("task_id", str).dX(Constants.EXTRA_SERVICE, str2).dX(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).dX(TiebaInitialize.Params.OBJ_TO, str5).an("obj_source", i).an("obj_locate", i2).an("obj_param1", i6).an(TiebaInitialize.Params.OBJ_PARAM2, i4).an(TiebaInitialize.Params.OBJ_PARAM3, i5).an("obj_id", TbadkCoreApplication.getInst().getStartType()).an("obj_ishost", 1);
                     if (TextUtils.isEmpty(str5)) {
                     }
                     if (TextUtils.isEmpty(str5)) {
@@ -181,8 +181,8 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     }
                     if (TextUtils.isEmpty(str5)) {
                     }
-                    al2.al("obj_source", i3);
-                    TiebaStatic.log(al2);
+                    an2.an("obj_source", i3);
+                    TiebaStatic.log(an2);
                     if (!TextUtils.isEmpty(str5)) {
                     }
                 }
@@ -192,7 +192,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         finish();
     }
 
-    private boolean Wf(String str) {
+    private boolean VF(String str) {
         return Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() || str.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("flt://") || str.startsWith("bdtiebalive://") || str.startsWith("tiebachushou://") || str.contains("achievement=");
     }
 }

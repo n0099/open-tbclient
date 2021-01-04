@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class SyncGroupMessageService {
     private static final int MAX_MAP_SIZE = 1;
     public static final String TAG = SyncGroupMessageService.class.getSimpleName();
@@ -124,8 +124,8 @@ public class SyncGroupMessageService {
     }
 
     public void execute(final Context context, DialogRecord dialogRecord, final int i) {
-        int i2;
         DialogRecord dialogRecord2;
+        int i2;
         if (i == 0) {
             this.mComplete = false;
         }
@@ -146,13 +146,13 @@ public class SyncGroupMessageService {
                     dialogRecord2 = dialogRecord4;
                     i2 = 1;
                 } else {
-                    i2 = 0;
                     dialogRecord2 = dialogRecord4;
+                    i2 = 0;
                 }
             } else {
+                dialogRecord2 = dialogRecord3;
                 i2 = 0;
                 i = 0;
-                dialogRecord2 = dialogRecord3;
             }
             if (dialogRecord2 == null) {
                 LogUtils.d(TAG, "SYNCGROUP loging trigger dialog is null --2");

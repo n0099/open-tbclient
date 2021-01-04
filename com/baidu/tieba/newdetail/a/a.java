@@ -1,8 +1,8 @@
 package com.baidu.tieba.newdetail.a;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    public static final BdUniqueId lqg = BdUniqueId.gen();
-    public static final BdUniqueId lqh = BdUniqueId.gen();
+    public static final BdUniqueId lvo = BdUniqueId.gen();
+    public static final BdUniqueId lvp = BdUniqueId.gen();
 }

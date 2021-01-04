@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class UnEffectiveMsgTask implements Runnable {
     private static final String TAG = "UnEffectiveMsgTask";
     private Context mContext;

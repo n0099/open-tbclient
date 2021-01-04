@@ -1,14 +1,16 @@
 package com.baidu.ufosdk;
 
 import android.graphics.Bitmap;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import java.util.HashMap;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3703a = false;
-    public static String b = "";
+    public static boolean f5637a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f5638b = "";
     public static String c = "";
     public static String d = "";
     public static int e = 0;

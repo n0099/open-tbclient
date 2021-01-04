@@ -1,9 +1,11 @@
 package com.baidu.ala.helper;
 
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaDataModel {
     public static final String ALA_DATA_BEAUTY_PARAMS_KEYS = "ala_beauty_params_key";
+    public static final String ALA_DATA_DUMMY_AUDIO_KEYS = "ala_dummy_audio_key";
+    public static final String ALA_DATA_DUMMY_VIDEO_KEYS = "ala_dummy_video_key";
     private static volatile AlaDataModel mInstance = null;
     private ConcurrentHashMap<String, String> mCache = new ConcurrentHashMap<>();
 

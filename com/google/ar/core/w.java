@@ -20,31 +20,33 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes3.dex */
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Queue<Runnable> f4051a;
-    private Context b;
+    private final Queue<Runnable> f8168a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f8169b;
     private volatile int c;
     private BroadcastReceiver e;
     private Context f;
-    private final AtomicReference<l> ptA;
-    private com.google.a.b.a.a.a.a pty;
-    private final ServiceConnection ptz;
+    private final ServiceConnection g;
+    private com.google.a.b.a.a.a.a pKy;
+    private final AtomicReference<l> pKz;
 
     w() {
     }
 
     public synchronized void a(Context context) {
-        this.b = context;
-        if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.ptz, 1)) {
-            this.c = al.b;
+        this.f8169b = context;
+        if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.g, 1)) {
+            this.c = al.f8158b;
         } else {
-            this.c = al.f4044a;
-            this.b = null;
+            this.c = al.f8157a;
+            this.f8169b = null;
             Log.w("ARCore-InstallService", "bindService returned false.");
-            context.unbindService(this.ptz);
+            context.unbindService(this.g);
         }
     }
 
@@ -53,9 +55,9 @@ public class w {
         switch (this.c - 1) {
             case 1:
             case 2:
-                this.b.unbindService(this.ptz);
-                this.b = null;
-                this.c = al.f4044a;
+                this.f8169b.unbindService(this.g);
+                this.f8169b = null;
+                this.c = al.f8157a;
                 break;
         }
         if (this.e != null) {
@@ -74,7 +76,7 @@ public class w {
 
     public void a(Activity activity, y yVar) {
         l lVar = new l(activity, yVar);
-        l andSet = this.ptA.getAndSet(lVar);
+        l andSet = this.pKz.getAndSet(lVar);
         if (andSet != null) {
             andSet.a();
         }
@@ -93,12 +95,12 @@ public class w {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(byte b) {
+    public w(byte b2) {
         this();
-        this.f4051a = new ArrayDeque();
-        this.c = al.f4044a;
-        this.ptz = new z(this);
-        this.ptA = new AtomicReference<>();
+        this.f8168a = new ArrayDeque();
+        this.c = al.f8157a;
+        this.g = new z(this);
+        this.pKz = new AtomicReference<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -135,7 +137,7 @@ public class w {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        l andSet = this.ptA.getAndSet(null);
+        l andSet = this.pKz.getAndSet(null);
         if (andSet != null) {
             andSet.a();
         }
@@ -145,9 +147,9 @@ public class w {
     public synchronized void a(IBinder iBinder) {
         com.google.a.b.a.a.a.a a2 = com.google.a.b.a.a.a.b.a(iBinder);
         Log.i("ARCore-InstallService", "Install service connected");
-        this.pty = a2;
+        this.pKy = a2;
         this.c = al.c;
-        for (Runnable runnable : this.f4051a) {
+        for (Runnable runnable : this.f8168a) {
             runnable.run();
         }
     }
@@ -155,8 +157,8 @@ public class w {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void d() {
         Log.i("ARCore-InstallService", "Install service disconnected");
-        this.c = al.f4044a;
-        this.pty = null;
+        this.c = al.f8157a;
+        this.pKy = null;
         c();
     }
 
@@ -165,7 +167,7 @@ public class w {
             case 0:
                 throw new ab();
             case 1:
-                this.f4051a.offer(runnable);
+                this.f8168a.offer(runnable);
                 break;
             case 2:
                 runnable.run();

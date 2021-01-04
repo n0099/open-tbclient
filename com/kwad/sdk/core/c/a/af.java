@@ -1,0 +1,29 @@
+package com.kwad.sdk.core.c.a;
+
+import com.kwad.sdk.core.webview.jshandler.WebCardVideoPositionHandler;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class af implements com.kwad.sdk.core.c<WebCardVideoPositionHandler.VideoPosition> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.c
+    public JSONObject a(WebCardVideoPositionHandler.VideoPosition videoPosition) {
+        JSONObject jSONObject = new JSONObject();
+        com.kwad.sdk.utils.o.a(jSONObject, "leftMarginRation", videoPosition.leftMarginRation);
+        com.kwad.sdk.utils.o.a(jSONObject, "topMarginRation", videoPosition.topMarginRation);
+        com.kwad.sdk.utils.o.a(jSONObject, "widthRation", videoPosition.widthRation);
+        com.kwad.sdk.utils.o.a(jSONObject, "heightWidthRation", videoPosition.heightWidthRation);
+        return jSONObject;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.c
+    public void a(WebCardVideoPositionHandler.VideoPosition videoPosition, JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        videoPosition.leftMarginRation = jSONObject.optDouble("leftMarginRation");
+        videoPosition.topMarginRation = jSONObject.optDouble("topMarginRation");
+        videoPosition.widthRation = jSONObject.optDouble("widthRation");
+        videoPosition.heightWidthRation = jSONObject.optDouble("heightWidthRation");
+    }
+}

@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class i extends aa {
     public i(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/removeStorage");
@@ -24,13 +24,13 @@ public class i extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String aP = com.baidu.swan.apps.api.module.i.a.aP(optParamsAsJo);
-        if (aP == null) {
+        String aX = com.baidu.swan.apps.api.module.i.a.aX(optParamsAsJo);
+        if (aX == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.aKf().aNb().remove(aP);
-        com.baidu.swan.apps.am.e.dIh.update();
+        eVar.aMv().aPr().remove(aX);
+        com.baidu.swan.apps.al.e.dQM.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

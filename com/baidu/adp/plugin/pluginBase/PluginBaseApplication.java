@@ -45,6 +45,13 @@ public class PluginBaseApplication extends Application {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void setApplicationProxy(Application application) {
+        Exception e;
+        InvocationTargetException e2;
+        NoSuchMethodException e3;
+        InstantiationException e4;
+        IllegalArgumentException e5;
+        IllegalAccessException e6;
+        ClassNotFoundException e7;
         Context context;
         this.mApplicationProxy = application;
         if (application == null) {
@@ -60,69 +67,69 @@ public class PluginBaseApplication extends Application {
                 Method declaredMethod = cls.getDeclaredMethod("setOuterContext", Context.class);
                 declaredMethod.setAccessible(true);
                 declaredMethod.invoke(context, this);
-            } catch (ClassNotFoundException e) {
+            } catch (ClassNotFoundException e8) {
+                e7 = e8;
                 context2 = context;
-                e = e;
-                BdLog.e(e);
+                BdLog.e(e7);
                 context = context2;
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field = application.getClass().getField("mLoadedApk");
                 field.set(this, field.get(application));
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e9) {
+                e6 = e9;
                 context2 = context;
-                e = e2;
-                BdLog.e(e);
+                BdLog.e(e6);
                 context = context2;
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field2 = application.getClass().getField("mLoadedApk");
                 field2.set(this, field2.get(application));
-            } catch (IllegalArgumentException e3) {
+            } catch (IllegalArgumentException e10) {
+                e5 = e10;
                 context2 = context;
-                e = e3;
-                BdLog.e(e);
+                BdLog.e(e5);
                 context = context2;
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field22 = application.getClass().getField("mLoadedApk");
                 field22.set(this, field22.get(application));
-            } catch (InstantiationException e4) {
+            } catch (InstantiationException e11) {
+                e4 = e11;
                 context2 = context;
-                e = e4;
-                BdLog.e(e);
+                BdLog.e(e4);
                 context = context2;
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field222 = application.getClass().getField("mLoadedApk");
                 field222.set(this, field222.get(application));
-            } catch (NoSuchMethodException e5) {
+            } catch (NoSuchMethodException e12) {
+                e3 = e12;
                 context2 = context;
-                e = e5;
-                BdLog.e(e);
+                BdLog.e(e3);
                 context = context2;
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field2222 = application.getClass().getField("mLoadedApk");
                 field2222.set(this, field2222.get(application));
-            } catch (InvocationTargetException e6) {
+            } catch (InvocationTargetException e13) {
+                e2 = e13;
                 context2 = context;
-                e = e6;
-                BdLog.e(e);
+                BdLog.e(e2);
                 context = context2;
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field22222 = application.getClass().getField("mLoadedApk");
                 field22222.set(this, field22222.get(application));
-            } catch (Exception e7) {
+            } catch (Exception e14) {
+                e = e14;
                 context2 = context;
-                e = e7;
                 BdLog.e(e);
                 context = context2;
                 if (context == null) {
@@ -131,20 +138,20 @@ public class PluginBaseApplication extends Application {
                 Field field222222 = application.getClass().getField("mLoadedApk");
                 field222222.set(this, field222222.get(application));
             }
-        } catch (ClassNotFoundException e8) {
-            e = e8;
-        } catch (IllegalAccessException e9) {
-            e = e9;
-        } catch (IllegalArgumentException e10) {
-            e = e10;
-        } catch (InstantiationException e11) {
-            e = e11;
-        } catch (NoSuchMethodException e12) {
-            e = e12;
-        } catch (InvocationTargetException e13) {
-            e = e13;
-        } catch (Exception e14) {
-            e = e14;
+        } catch (ClassNotFoundException e15) {
+            e7 = e15;
+        } catch (IllegalAccessException e16) {
+            e6 = e16;
+        } catch (IllegalArgumentException e17) {
+            e5 = e17;
+        } catch (InstantiationException e18) {
+            e4 = e18;
+        } catch (NoSuchMethodException e19) {
+            e3 = e19;
+        } catch (InvocationTargetException e20) {
+            e2 = e20;
+        } catch (Exception e21) {
+            e = e21;
         }
         if (context == null) {
             context = application.getBaseContext();
@@ -153,10 +160,10 @@ public class PluginBaseApplication extends Application {
         try {
             Field field2222222 = application.getClass().getField("mLoadedApk");
             field2222222.set(this, field2222222.get(application));
-        } catch (IllegalAccessException e15) {
-        } catch (IllegalArgumentException e16) {
-        } catch (NoSuchFieldException e17) {
-        } catch (Exception e18) {
+        } catch (IllegalAccessException e22) {
+        } catch (IllegalArgumentException e23) {
+        } catch (NoSuchFieldException e24) {
+        } catch (Exception e25) {
         }
     }
 
@@ -207,7 +214,7 @@ public class PluginBaseApplication extends Application {
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.qx().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.getSharedPreferences(str, i) : this.mApplicationProxy.getSharedPreferences(pluginPackageName + str, i);
     }
 
@@ -264,7 +271,7 @@ public class PluginBaseApplication extends Application {
     @Override // android.content.ContextWrapper, android.content.Context
     public String getPackageResourcePath() {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.qx().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
         if (findPluginSetting != null && findPluginSetting.isThird) {
             Plugin plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName);
             if (plugin2 == null) {
@@ -283,28 +290,28 @@ public class PluginBaseApplication extends Application {
     @Override // android.content.ContextWrapper, android.content.Context
     public FileInputStream openFileInput(String str) throws FileNotFoundException {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.qx().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.openFileInput(str) : this.mApplicationProxy.openFileInput(pluginPackageName + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.qx().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.openFileOutput(str, i) : this.mApplicationProxy.openFileOutput(pluginPackageName + str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean deleteFile(String str) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.qx().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.deleteFile(str) : this.mApplicationProxy.deleteFile(pluginPackageName + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getFileStreamPath(String str) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.qx().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.getFileStreamPath(str) : this.mApplicationProxy.getFileStreamPath(pluginPackageName + str);
     }
 
@@ -326,7 +333,7 @@ public class PluginBaseApplication extends Application {
             return null;
         }
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.qx().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird) {
             return filesDir;
         }
@@ -349,7 +356,7 @@ public class PluginBaseApplication extends Application {
             return null;
         }
         try {
-            PluginSetting findPluginSetting = c.qx().findPluginSetting(getPluginPackageName());
+            PluginSetting findPluginSetting = c.pZ().findPluginSetting(getPluginPackageName());
             if (findPluginSetting == null || !findPluginSetting.isThird) {
                 return cacheDir;
             }
@@ -367,14 +374,14 @@ public class PluginBaseApplication extends Application {
     @Override // android.content.ContextWrapper, android.content.Context
     public File getDir(String str, int i) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.qx().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.getDir(str, i) : this.mApplicationProxy.getDir(pluginPackageName + str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.qx().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.openOrCreateDatabase(str, i, cursorFactory) : this.mApplicationProxy.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);
     }
 

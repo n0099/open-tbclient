@@ -5,21 +5,21 @@ import android.os.Build;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bg;
-/* loaded from: classes22.dex */
+import com.baidu.tbadk.core.util.bf;
+/* loaded from: classes2.dex */
 public class a extends PopupWindow {
-    private TbPageContext eNx;
-    private InterfaceC0760a jOT;
+    private TbPageContext eXu;
+    private InterfaceC0752a kch;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public interface InterfaceC0760a {
-        void cOW();
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0752a {
+        void cSc();
     }
 
     public a(TbPageContext tbPageContext, View view, int i, int i2) {
         super(view, i, i2);
-        this.eNx = tbPageContext;
+        this.eXu = tbPageContext;
     }
 
     @Override // android.widget.PopupWindow
@@ -27,7 +27,7 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bg.getScreenFullSize(this.eNx.getPageActivity())[1] - rect.bottom);
+            setHeight(bf.getScreenFullSize(this.eXu.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view);
     }
@@ -37,25 +37,25 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bg.getScreenFullSize(this.eNx.getPageActivity())[1] - rect.bottom);
+            setHeight(bf.getScreenFullSize(this.eXu.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view, i, i2);
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        if (this.jOT != null) {
-            this.jOT.cOW();
+        if (this.kch != null) {
+            this.kch.cSc();
         } else {
             super.dismiss();
         }
     }
 
-    public void YQ() {
+    public void aag() {
         super.dismiss();
     }
 
-    public void a(InterfaceC0760a interfaceC0760a) {
-        this.jOT = interfaceC0760a;
+    public void a(InterfaceC0752a interfaceC0752a) {
+        this.kch = interfaceC0752a;
     }
 }

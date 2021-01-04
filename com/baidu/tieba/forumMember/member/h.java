@@ -1,28 +1,40 @@
 package com.baidu.tieba.forumMember.member;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.af;
-import com.baidu.tbadk.core.util.ap;
-/* loaded from: classes23.dex */
-public class h extends af.a {
-    public View iPg;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.tbadkCore.w;
+/* loaded from: classes8.dex */
+public class h implements com.baidu.adp.widget.ListView.n {
+    public static final BdUniqueId jbv = BdUniqueId.gen();
+    private String forumId;
+    private String forumName;
+    private w jbw;
 
-    public h(View view) {
-        super(view);
-        this.iPg = view;
+    @Override // com.baidu.adp.widget.ListView.n
+    public BdUniqueId getType() {
+        return jbv;
     }
 
-    public void zs(int i) {
-        if (i < 0) {
-            this.iPg.setMinimumHeight(0);
-        } else {
-            this.iPg.setMinimumHeight(i);
-        }
+    public w cDs() {
+        return this.jbw;
     }
 
-    public void setBackground(int i) {
-        if (i != 0) {
-            ap.setBackgroundResource(this.iPg, i);
-        }
+    public void a(w wVar) {
+        this.jbw = wVar;
+    }
+
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = str;
+    }
+
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public void setForumName(String str) {
+        this.forumName = str;
     }
 }

@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.utils;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public interface ILog {
     void d(String str, String str2);
 

@@ -1,54 +1,54 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private String fki;
-    private long fkj;
-    private long fkk;
-    private long fkl;
-    private String fkm;
-    private String fkn;
+    private String ftT;
+    private long ftU;
+    private long ftV;
+    private long ftW;
+    private String ftX;
+    private String ftY;
 
     public void parseJson(String str) {
-        if (!au.isEmpty(str)) {
+        if (!at.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.fki = jSONObject.optString("splash_video_url");
-                this.fkj = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.fkk = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.fkl = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.fkm = jSONObject.optString("splash_video_h5_url");
-                this.fkn = jSONObject.optString("splash_video_h5_text");
+                this.ftT = jSONObject.optString("splash_video_url");
+                this.ftU = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.ftV = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.ftW = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.ftX = jSONObject.optString("splash_video_h5_url");
+                this.ftY = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String bxN() {
-        return this.fki;
+    public String bAh() {
+        return this.ftT;
     }
 
-    public long bxO() {
-        return this.fkj;
+    public long bAi() {
+        return this.ftU;
     }
 
-    public long bxP() {
-        return this.fkk;
+    public long bAj() {
+        return this.ftV;
     }
 
-    public long bxQ() {
-        return this.fkl;
+    public long bAk() {
+        return this.ftW;
     }
 
-    public String bxR() {
-        return this.fkm;
+    public String bAl() {
+        return this.ftX;
     }
 
-    public String bxS() {
-        return this.fkn;
+    public String bAm() {
+        return this.ftY;
     }
 }

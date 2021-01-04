@@ -4,14 +4,16 @@ import android.util.Pair;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.MapStatus;
 import com.baidu.platform.comapi.map.b.a;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class c extends a {
-    private boolean b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private boolean f4325b;
     private long c;
 
     public c(MapController mapController) {
         super(mapController);
-        this.b = true;
+        this.f4325b = true;
     }
 
     private void a(double d, MapStatus mapStatus) {
@@ -32,24 +34,24 @@ public class c extends a {
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void a(com.baidu.platform.comapi.map.b.a.b bVar, Pair<a.d, a.d> pair) {
-        MapStatus mapStatus = this.f2909a.getMapStatus();
+        MapStatus mapStatus = this.f4322a.getMapStatus();
         if (mapStatus.bOverlookSpringback) {
             if (mapStatus.overlooking > 0) {
                 mapStatus.overlooking = 0;
             } else {
                 mapStatus.overlooking = mapStatus.minOverlooking;
             }
-            this.f2909a.setMapStatusWithAnimation(mapStatus, 200);
+            this.f4322a.setMapStatusWithAnimation(mapStatus, 200);
         }
     }
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void b(com.baidu.platform.comapi.map.b.a.b bVar) {
-        a.C0290a c0290a = bVar.b;
+        a.C0290a c0290a = bVar.f4313b;
         a.C0290a c0290a2 = bVar.c;
-        MapStatus mapStatus = this.f2909a.getMapStatus();
-        double d = c0290a2.f2903a.b - c0290a.f2903a.b;
-        double d2 = c0290a2.b.b - c0290a.b.b;
+        MapStatus mapStatus = this.f4322a.getMapStatus();
+        double d = c0290a2.f4310a.f4315b - c0290a.f4310a.f4315b;
+        double d2 = c0290a2.f4311b.f4315b - c0290a.f4311b.f4315b;
         if (d * d2 > 0.0d) {
             a(d, mapStatus);
         } else if (d * d2 == 0.0d) {
@@ -63,10 +65,10 @@ public class c extends a {
         } else {
             a(d2, mapStatus);
         }
-        this.f2909a.setMapStatus(mapStatus);
-        if (this.b) {
-            this.b = false;
-            this.f2909a.getGestureMonitor().d();
+        this.f4322a.setMapStatus(mapStatus);
+        if (this.f4325b) {
+            this.f4325b = false;
+            this.f4322a.getGestureMonitor().d();
         }
     }
 }

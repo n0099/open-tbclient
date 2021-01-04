@@ -10,16 +10,16 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hosttabpanel.b.d> {
-    private TextView hKA;
-    private TextView hKB;
-    private LinearLayout hKu;
-    private LinearLayout hKv;
-    private TbImageView hKw;
-    private TbImageView hKx;
-    private TextView hKy;
-    private TextView hKz;
+    private LinearLayout hWG;
+    private LinearLayout hWH;
+    private TbImageView hWI;
+    private TbImageView hWJ;
+    private TextView hWK;
+    private TextView hWL;
+    private TextView hWM;
+    private TextView hWN;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -27,24 +27,24 @@ public class e extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         this.mRootView = getView();
-        this.hKu = (LinearLayout) this.mRootView.findViewById(a.f.replay_item_one);
-        this.hKv = (LinearLayout) this.mRootView.findViewById(a.f.replay_item_two);
-        b(this.hKu);
-        b(this.hKv);
-        this.hKu.setOnClickListener(this);
-        this.hKv.setOnClickListener(this);
-        this.hKw = (TbImageView) this.hKu.findViewById(a.f.replay_cover);
-        this.hKw.setDefaultErrorResource(0);
-        this.hKw.setAutoChangeStyle(false);
-        this.hKw.setDefaultBgResource(a.e.sdk_pic_bg_video_frs);
-        this.hKy = (TextView) this.hKu.findViewById(a.f.replay_title);
-        this.hKA = (TextView) this.hKu.findViewById(a.f.replay_info);
-        this.hKx = (TbImageView) this.hKv.findViewById(a.f.replay_cover);
-        this.hKx.setDefaultErrorResource(0);
-        this.hKx.setAutoChangeStyle(false);
-        this.hKx.setDefaultBgResource(a.e.sdk_pic_bg_video_frs);
-        this.hKz = (TextView) this.hKv.findViewById(a.f.replay_title);
-        this.hKB = (TextView) this.hKv.findViewById(a.f.replay_info);
+        this.hWG = (LinearLayout) this.mRootView.findViewById(a.f.replay_item_one);
+        this.hWH = (LinearLayout) this.mRootView.findViewById(a.f.replay_item_two);
+        b(this.hWG);
+        b(this.hWH);
+        this.hWG.setOnClickListener(this);
+        this.hWH.setOnClickListener(this);
+        this.hWI = (TbImageView) this.hWG.findViewById(a.f.replay_cover);
+        this.hWI.setDefaultErrorResource(0);
+        this.hWI.setAutoChangeStyle(false);
+        this.hWI.setDefaultBgResource(a.e.sdk_pic_bg_video_frs);
+        this.hWK = (TextView) this.hWG.findViewById(a.f.replay_title);
+        this.hWM = (TextView) this.hWG.findViewById(a.f.replay_info);
+        this.hWJ = (TbImageView) this.hWH.findViewById(a.f.replay_cover);
+        this.hWJ.setDefaultErrorResource(0);
+        this.hWJ.setAutoChangeStyle(false);
+        this.hWJ.setDefaultBgResource(a.e.sdk_pic_bg_video_frs);
+        this.hWL = (TextView) this.hWH.findViewById(a.f.replay_title);
+        this.hWN = (TextView) this.hWH.findViewById(a.f.replay_info);
     }
 
     private void b(LinearLayout linearLayout) {
@@ -64,49 +64,49 @@ public class e extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     @Override // com.baidu.live.tieba.b.a
     /* renamed from: a */
     public void onBindDataToView(com.baidu.tieba.ala.person.hosttabpanel.b.d dVar) {
-        if (dVar.hJw != null) {
-            this.hKu.setVisibility(0);
-            this.hKw.startLoad(StringUtils.isNull(dVar.hJw.getMedia_pic()) ? dVar.hJw.getLiveCover() : dVar.hJw.getMedia_pic(), 10, false);
-            this.hKA.setText(String.format(this.mPageContext.getString(a.h.ala_person_audience), com.baidu.tieba.ala.person.d.a.bc(dVar.hJw.join_count)) + " | " + StringHelper.getTimeInterval(dVar.hJw.end_time));
-            this.hKy.setText(dVar.hJw.getLiveTitle());
-            this.hKu.setTag(dVar.hJw);
+        if (dVar.hVI != null) {
+            this.hWG.setVisibility(0);
+            this.hWI.startLoad(StringUtils.isNull(dVar.hVI.getMedia_pic()) ? dVar.hVI.getLiveCover() : dVar.hVI.getMedia_pic(), 10, false);
+            this.hWM.setText(String.format(this.mPageContext.getString(a.h.ala_person_audience), com.baidu.tieba.ala.person.d.a.bc(dVar.hVI.join_count)) + " | " + StringHelper.getTimeInterval(dVar.hVI.end_time));
+            this.hWK.setText(dVar.hVI.getLiveTitle());
+            this.hWG.setTag(dVar.hVI);
         } else {
-            this.hKu.setVisibility(4);
+            this.hWG.setVisibility(4);
         }
-        if (dVar.hJx != null) {
-            this.hKv.setVisibility(0);
-            this.hKx.startLoad(StringUtils.isNull(dVar.hJx.getMedia_pic()) ? dVar.hJx.getLiveCover() : dVar.hJx.getMedia_pic(), 10, false);
-            this.hKB.setText(String.format(this.mPageContext.getString(a.h.ala_person_audience), com.baidu.tieba.ala.person.d.a.bc(dVar.hJx.join_count)) + " | " + StringHelper.getTimeInterval(dVar.hJx.end_time));
-            this.hKz.setText(dVar.hJx.getLiveTitle());
-            this.hKv.setTag(dVar.hJx);
+        if (dVar.hVJ != null) {
+            this.hWH.setVisibility(0);
+            this.hWJ.startLoad(StringUtils.isNull(dVar.hVJ.getMedia_pic()) ? dVar.hVJ.getLiveCover() : dVar.hVJ.getMedia_pic(), 10, false);
+            this.hWN.setText(String.format(this.mPageContext.getString(a.h.ala_person_audience), com.baidu.tieba.ala.person.d.a.bc(dVar.hVJ.join_count)) + " | " + StringHelper.getTimeInterval(dVar.hVJ.end_time));
+            this.hWL.setText(dVar.hVJ.getLiveTitle());
+            this.hWH.setTag(dVar.hVJ);
             return;
         }
-        this.hKv.setVisibility(4);
+        this.hWH.setVisibility(4);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hKu) {
-            aG(this.hKu.getTag());
-        } else if (view == this.hKv) {
-            aG(this.hKv.getTag());
+        if (view == this.hWG) {
+            aH(this.hWG.getTag());
+        } else if (view == this.hWH) {
+            aH(this.hWH.getTag());
         }
     }
 
-    private void aG(Object obj) {
+    private void aH(Object obj) {
     }
 
     @Override // com.baidu.live.tieba.b.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        public e hKC;
+        public e hWO;
 
         public a(e eVar) {
             super(eVar.getView());
-            this.hKC = eVar;
+            this.hWO = eVar;
         }
     }
 }

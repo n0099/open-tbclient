@@ -3,11 +3,12 @@ package com.baidu.searchbox.logsystem.basic.upload.identity;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.util.Common;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class UaParam {
     private String mEnUa;
     private String mUa;
@@ -32,7 +33,7 @@ public class UaParam {
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(displayHeight);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append("android");
+        stringBuffer.append(HttpConstants.OS_TYPE_VALUE);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(this.mVersionName);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);

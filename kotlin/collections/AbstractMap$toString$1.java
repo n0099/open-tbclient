@@ -4,7 +4,7 @@ import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.Map;
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class AbstractMap$toString$1 extends Lambda implements kotlin.jvm.a.b<Map.Entry<? extends K, ? extends V>, String> {
     final /* synthetic */ e this$0;
 
@@ -18,9 +18,9 @@ final class AbstractMap$toString$1 extends Lambda implements kotlin.jvm.a.b<Map.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(Map.Entry<? extends K, ? extends V> entry) {
-        String c;
+        String d;
         kotlin.jvm.internal.p.o(entry, AdvanceSetting.NETWORK_TYPE);
-        c = this.this$0.c(entry);
-        return c;
+        d = this.this$0.d(entry);
+        return d;
     }
 }

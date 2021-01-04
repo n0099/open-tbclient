@@ -5,7 +5,7 @@ import kotlin.coroutines.experimental.jvm.internal.CoroutineImpl;
 import kotlin.h;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implements kotlin.jvm.a.c<kotlin.coroutines.experimental.f<? super R>, kotlin.coroutines.experimental.b<? super h>, Object> {
     final /* synthetic */ kotlin.jvm.a.c $transform;
     Object L$0;
@@ -40,39 +40,48 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
     public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super h> bVar) {
         p.o(fVar, "$receiver");
         p.o(bVar, "continuation");
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.pKa, null);
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.qlD, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1615=4] */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0031  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0062  */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x005f -> B:13:0x002b). Please submit an issue!!! */
     @Override // kotlin.coroutines.experimental.jvm.internal.CoroutineImpl
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final Object doResume(Object obj, Throwable th) {
-        kotlin.coroutines.experimental.f fVar;
-        Iterator it;
         Object obj2;
-        Object eDW = kotlin.coroutines.experimental.a.a.eDW();
+        Iterator it;
+        kotlin.coroutines.experimental.f fVar;
+        Object obj3;
+        Iterator it2;
+        Object eMe = kotlin.coroutines.experimental.a.a.eMe();
         switch (this.label) {
             case 0:
                 if (th == null) {
-                    fVar = this.p$;
-                    it = this.receiver$0.iterator();
-                    if (it.hasNext()) {
-                        obj2 = it.next();
+                    kotlin.coroutines.experimental.f fVar2 = this.p$;
+                    it2 = this.receiver$0.iterator();
+                    if (it2.hasNext()) {
+                        obj3 = it2.next();
+                        fVar = fVar2;
                         break;
                     } else {
-                        return h.pKa;
+                        return h.qlD;
                     }
                 } else {
                     throw th;
                 }
             case 1:
-                Object obj3 = this.L$3;
+                obj2 = this.L$3;
                 Object obj4 = this.L$2;
-                Iterator it2 = (Iterator) this.L$1;
-                kotlin.coroutines.experimental.f fVar2 = (kotlin.coroutines.experimental.f) this.L$0;
+                Iterator it3 = (Iterator) this.L$1;
+                kotlin.coroutines.experimental.f fVar3 = (kotlin.coroutines.experimental.f) this.L$0;
                 if (th == null) {
-                    fVar = fVar2;
-                    it = it2;
-                    obj2 = obj3;
+                    it = it3;
+                    fVar = fVar3;
+                    obj3 = obj2;
+                    it2 = it;
                     break;
                 } else {
                     throw th;
@@ -80,19 +89,23 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
             default:
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }
-        while (it.hasNext()) {
-            Object next = it.next();
-            Object invoke = this.$transform.invoke(obj2, next);
+        if (!it2.hasNext()) {
+            obj2 = it2.next();
+            Object invoke = this.$transform.invoke(obj3, obj2);
             this.L$0 = fVar;
-            this.L$1 = it;
-            this.L$2 = obj2;
-            this.L$3 = next;
+            this.L$1 = it2;
+            this.L$2 = obj3;
+            this.L$3 = obj2;
             this.label = 1;
-            if (fVar.a(invoke, this) == eDW) {
-                return eDW;
+            if (fVar.a(invoke, this) == eMe) {
+                return eMe;
             }
-            obj2 = next;
+            it = it2;
+            obj3 = obj2;
+            it2 = it;
+            if (!it2.hasNext()) {
+                return h.qlD;
+            }
         }
-        return h.pKa;
     }
 }

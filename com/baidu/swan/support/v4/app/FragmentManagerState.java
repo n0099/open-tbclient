@@ -3,34 +3,34 @@ package com.baidu.swan.support.v4.app;
 import android.os.Parcel;
 import android.os.Parcelable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class FragmentManagerState implements Parcelable {
     public static final Parcelable.Creator<FragmentManagerState> CREATOR = new Parcelable.Creator<FragmentManagerState>() { // from class: com.baidu.swan.support.v4.app.FragmentManagerState.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: H */
+        /* renamed from: I */
         public FragmentManagerState createFromParcel(Parcel parcel) {
             return new FragmentManagerState(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ny */
+        /* renamed from: nH */
         public FragmentManagerState[] newArray(int i) {
             return new FragmentManagerState[i];
         }
     };
-    FragmentState[] epR;
-    BackStackState[] epS;
+    FragmentState[] ezC;
+    BackStackState[] ezD;
     int[] mAdded;
 
     public FragmentManagerState() {
     }
 
     public FragmentManagerState(Parcel parcel) {
-        this.epR = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
+        this.ezC = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
         this.mAdded = parcel.createIntArray();
-        this.epS = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
+        this.ezD = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
     }
 
     @Override // android.os.Parcelable
@@ -40,8 +40,8 @@ public final class FragmentManagerState implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeTypedArray(this.epR, i);
+        parcel.writeTypedArray(this.ezC, i);
         parcel.writeIntArray(this.mAdded);
-        parcel.writeTypedArray(this.epS, i);
+        parcel.writeTypedArray(this.ezD, i);
     }
 }

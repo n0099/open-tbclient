@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.jsbridge;
 
-import android.support.annotation.Keep;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
+import androidx.annotation.Keep;
 import com.baidu.swan.apps.b;
 @Keep
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class SwanAppPreloadJsBridge {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "swanPreload";
@@ -22,6 +22,6 @@ public class SwanAppPreloadJsBridge {
         if (DEBUG) {
             Log.d(TAG, "onJsLoaded");
         }
-        return com.baidu.swan.apps.process.messaging.service.b.aIa();
+        return com.baidu.swan.apps.process.messaging.service.b.aJt();
     }
 }

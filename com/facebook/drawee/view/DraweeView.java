@@ -14,51 +14,51 @@ import com.facebook.common.internal.f;
 import com.facebook.drawee.d.b;
 import com.facebook.drawee.view.a;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
-    private static boolean phy = false;
-    private final a.C0994a pht;
-    private float phu;
-    private b<DH> phv;
-    private boolean phw;
-    private boolean phx;
+    private static boolean pyG = false;
+    private final a.C1023a pyB;
+    private float pyC;
+    private b<DH> pyD;
+    private boolean pyE;
+    private boolean pyF;
 
     public static void setGlobalLegacyVisibilityHandlingEnabled(boolean z) {
-        phy = z;
+        pyG = z;
     }
 
     public DraweeView(Context context) {
         super(context);
-        this.pht = new a.C0994a();
-        this.phu = 0.0f;
-        this.phw = false;
-        this.phx = false;
+        this.pyB = new a.C1023a();
+        this.pyC = 0.0f;
+        this.pyE = false;
+        this.pyF = false;
         init(context);
     }
 
     public DraweeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.pht = new a.C0994a();
-        this.phu = 0.0f;
-        this.phw = false;
-        this.phx = false;
+        this.pyB = new a.C1023a();
+        this.pyC = 0.0f;
+        this.pyE = false;
+        this.pyF = false;
         init(context);
     }
 
     public DraweeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.pht = new a.C0994a();
-        this.phu = 0.0f;
-        this.phw = false;
-        this.phx = false;
+        this.pyB = new a.C1023a();
+        this.pyC = 0.0f;
+        this.pyE = false;
+        this.pyF = false;
         init(context);
     }
 
     private void init(Context context) {
         boolean z = true;
-        if (!this.phw) {
-            this.phw = true;
-            this.phv = b.a(null, context);
+        if (!this.pyE) {
+            this.pyE = true;
+            this.pyD = b.a(null, context);
             if (Build.VERSION.SDK_INT >= 21) {
                 ColorStateList imageTintList = getImageTintList();
                 if (imageTintList != null) {
@@ -67,81 +67,81 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
                     return;
                 }
             }
-            this.phx = (!phy || context.getApplicationInfo().targetSdkVersion < 24) ? false : false;
+            this.pyF = (!pyG || context.getApplicationInfo().targetSdkVersion < 24) ? false : false;
         }
     }
 
     public void setHierarchy(DH dh) {
-        this.phv.setHierarchy(dh);
-        super.setImageDrawable(this.phv.getTopLevelDrawable());
+        this.pyD.setHierarchy(dh);
+        super.setImageDrawable(this.pyD.getTopLevelDrawable());
     }
 
     public DH getHierarchy() {
-        return this.phv.getHierarchy();
+        return this.pyD.getHierarchy();
     }
 
     @Nullable
     public Drawable getTopLevelDrawable() {
-        return this.phv.getTopLevelDrawable();
+        return this.pyD.getTopLevelDrawable();
     }
 
     public void setController(@Nullable com.facebook.drawee.d.a aVar) {
-        this.phv.setController(aVar);
-        super.setImageDrawable(this.phv.getTopLevelDrawable());
+        this.pyD.setController(aVar);
+        super.setImageDrawable(this.pyD.getTopLevelDrawable());
     }
 
     @Nullable
     public com.facebook.drawee.d.a getController() {
-        return this.phv.getController();
+        return this.pyD.getController();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        esu();
+        ewx();
         onAttach();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        esu();
+        ewx();
         onDetach();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        esu();
+        ewx();
         onDetach();
     }
 
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         super.onFinishTemporaryDetach();
-        esu();
+        ewx();
         onAttach();
     }
 
     protected void onAttach() {
-        ess();
+        ewv();
     }
 
     protected void onDetach() {
-        est();
+        eww();
     }
 
-    protected void ess() {
-        this.phv.onAttach();
+    protected void ewv() {
+        this.pyD.onAttach();
     }
 
-    protected void est() {
-        this.phv.onDetach();
+    protected void eww() {
+        this.pyD.onDetach();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.phv.onTouchEvent(motionEvent)) {
+        if (this.pyD.onTouchEvent(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
@@ -151,7 +151,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageDrawable(Drawable drawable) {
         init(getContext());
-        this.phv.setController(null);
+        this.pyD.setController(null);
         super.setImageDrawable(drawable);
     }
 
@@ -159,7 +159,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageBitmap(Bitmap bitmap) {
         init(getContext());
-        this.phv.setController(null);
+        this.pyD.setController(null);
         super.setImageBitmap(bitmap);
     }
 
@@ -167,7 +167,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageResource(int i) {
         init(getContext());
-        this.phv.setController(null);
+        this.pyD.setController(null);
         super.setImageResource(i);
     }
 
@@ -175,48 +175,48 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageURI(Uri uri) {
         init(getContext());
-        this.phv.setController(null);
+        this.pyD.setController(null);
         super.setImageURI(uri);
     }
 
     public void setAspectRatio(float f) {
-        if (f != this.phu) {
-            this.phu = f;
+        if (f != this.pyC) {
+            this.pyC = f;
             requestLayout();
         }
     }
 
     public float getAspectRatio() {
-        return this.phu;
+        return this.pyC;
     }
 
     public void setLegacyVisibilityHandlingEnabled(boolean z) {
-        this.phx = z;
+        this.pyF = z;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onMeasure(int i, int i2) {
-        this.pht.width = i;
-        this.pht.height = i2;
-        a.a(this.pht, this.phu, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
-        super.onMeasure(this.pht.width, this.pht.height);
+        this.pyB.width = i;
+        this.pyB.height = i2;
+        a.a(this.pyB, this.pyC, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
+        super.onMeasure(this.pyB.width, this.pyB.height);
     }
 
     @Override // android.view.View
     protected void onVisibilityChanged(View view, int i) {
         super.onVisibilityChanged(view, i);
-        esu();
+        ewx();
     }
 
-    private void esu() {
+    private void ewx() {
         Drawable drawable;
-        if (this.phx && (drawable = getDrawable()) != null) {
+        if (this.pyF && (drawable = getDrawable()) != null) {
             drawable.setVisible(getVisibility() == 0, false);
         }
     }
 
     @Override // android.view.View
     public String toString() {
-        return f.ba(this).E("holder", this.phv != null ? this.phv.toString() : "<no holder set>").toString();
+        return f.bb(this).I("holder", this.pyD != null ? this.pyD.toString() : "<no holder set>").toString();
     }
 }

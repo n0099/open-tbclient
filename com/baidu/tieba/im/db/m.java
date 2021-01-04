@@ -10,53 +10,47 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class m extends a {
     public static String HEAD = "tb_private_msg_";
-    private static a kqK;
+    private static a kBz;
 
     private m() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized m cWj() {
+    public static synchronized m cXF() {
         m mVar;
         synchronized (m.class) {
-            if (kqK == null) {
-                kqK = new m();
+            if (kBz == null) {
+                kBz = new m();
             }
-            mVar = (m) kqK;
+            mVar = (m) kBz;
         }
         return mVar;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x017b */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x017d */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x017f */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x001b */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.StringBuilder] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v18 */
-    /* JADX WARN: Type inference failed for: r2v19 */
-    /* JADX WARN: Type inference failed for: r2v20 */
-    /* JADX WARN: Type inference failed for: r2v21 */
+    /* JADX WARN: Type inference failed for: r2v22 */
+    /* JADX WARN: Type inference failed for: r2v3 */
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r2v5 */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo bj(String str, int i) {
-        Throwable th;
+    /* JADX WARN: Type inference failed for: r2v7, types: [android.database.Cursor] */
+    public CommonMsgPojo bq(String str, int i) {
+        ?? r2;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
-            ?? sb = new StringBuilder();
-            ?? r2 = HEAD;
+            StringBuilder sb = new StringBuilder();
+            String str2 = HEAD;
             try {
                 try {
-                    cursor = h.cVW().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = h.cXs().rawQuery("select * from " + sb.append(str2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
-                        if (cursor == null || !cursor.moveToNext()) {
+                        if (cursor == 0 || !cursor.moveToNext()) {
                             com.baidu.adp.lib.util.n.close(cursor);
-                            r2 = cursor;
+                            str2 = cursor;
                         } else {
                             commonMsgPojo2.setGid(str);
                             commonMsgPojo2.setUid(cursor.getString(cursor.getColumnIndex("uid")));
@@ -75,38 +69,39 @@ public class m extends a {
                             commonMsgPojo2.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
                             com.baidu.adp.lib.util.n.close(cursor);
                             commonMsgPojo = commonMsgPojo2;
-                            r2 = cursor;
+                            str2 = cursor;
                         }
                     } catch (SQLiteException e) {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        Nh(str);
-                        com.baidu.adp.lib.util.n.close(cursor);
-                        r2 = cursor;
+                        Nb(str);
+                        com.baidu.adp.lib.util.n.close((Cursor) cursor);
+                        str2 = cursor;
                         return commonMsgPojo;
                     } catch (Exception e2) {
                         e = e2;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
                         com.baidu.adp.lib.util.n.close(cursor);
-                        r2 = cursor;
+                        str2 = cursor;
                         return commonMsgPojo;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th) {
+                    th = th;
+                    r2 = str2;
                     com.baidu.adp.lib.util.n.close((Cursor) r2);
                     throw th;
                 }
             } catch (SQLiteException e3) {
                 e = e3;
-                cursor = null;
+                cursor = 0;
             } catch (Exception e4) {
                 e = e4;
                 cursor = null;
-            } catch (Throwable th3) {
+            } catch (Throwable th2) {
+                th = th2;
                 r2 = 0;
-                th = th3;
                 com.baidu.adp.lib.util.n.close((Cursor) r2);
                 throw th;
             }

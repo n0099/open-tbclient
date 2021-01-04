@@ -7,7 +7,7 @@ import com.baidu.tieba.godSquare.model.req.GodSquareRequestMsg;
 import com.squareup.wire.Wire;
 import tbclient.GetHotGod.DataRes;
 import tbclient.GetHotGod.GetHotGodResIdl;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class GodSquareSocketResponsedMsg extends SocketResponsedMessage {
     private boolean hasMore;
     private DataRes mResult;
@@ -44,7 +44,7 @@ public class GodSquareSocketResponsedMsg extends SocketResponsedMessage {
         if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof GodSquareRequestMsg)) {
             GodSquareRequestMsg godSquareRequestMsg = (GodSquareRequestMsg) getOrginalMessage().getExtra();
             if (godSquareRequestMsg.pn == 1) {
-                new a().l(godSquareRequestMsg.pn + "", bArr);
+                new a().m(godSquareRequestMsg.pn + "", bArr);
             }
         }
     }

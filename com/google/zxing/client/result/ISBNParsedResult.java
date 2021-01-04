@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class ISBNParsedResult extends ParsedResult {
     private final String isbn;
 

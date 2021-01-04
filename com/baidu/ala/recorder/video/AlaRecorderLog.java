@@ -2,21 +2,22 @@ package com.baidu.ala.recorder.video;
 
 import android.hardware.Camera;
 import android.net.Uri;
+import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.ala.adp.lib.safe.SafeHandler;
+import com.baidu.ala.adp.lib.util.BdNetTypeUtil;
 import com.baidu.ala.helper.AlaLiveDebugInfo;
 import com.baidu.ala.recorder.RecorderCallback;
-import com.baidu.live.adp.lib.safe.SafeHandler;
-import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.sapi2.activity.BindWidgetActivity;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaRecorderLog {
-    public static final String BEAUTY_INFO_LOG_ID = "2423";
-    public static final String BEAUTY_PERFORMANCE_LOG_ID = "2424";
+    public static final String BEAUTY_INFO_LOG_ID = "2449";
+    public static final String BEAUTY_PERFORMANCE_LOG_ID = "2448";
     public static final String CAMERA_START_TYPE = "0";
     public static final String KEY_AUDIO = "audio";
     public static final String KEY_AUDIO_BITRATE = "audio_bitrate";
@@ -103,33 +104,33 @@ public class AlaRecorderLog {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class ErrCodeSeg {
         public static final int ERROR_BASE_RECORDER = 300000;
         public static final int ERROR_BASE_RTC = 110000;
         public static final int ERROR_BASE_RTMP = 200000;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class ErrorCode {
         public static final int ERROR_RECORDER_NOT_DEFINE_ERROR = 9999;
         public static final int ERROR_STREAM_INTERRUPT = 1;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class Protocol {
         public static final String RTC = "rtc";
         public static final String RTMP = "rtmp";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class RtcSource {
         public static final String AUDIO_CHAT_1V1 = "1v1";
         public static final String VIDEO_CHAT_1V1 = "1v1";
         public static final String VIDEO_CHAT_1V2 = "1v2";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class Stage {
         public static final int CONN_SUCC = 20;
         public static final int ENTER_BACKGROUND = 50;
@@ -142,7 +143,7 @@ public class AlaRecorderLog {
         public static final int STREAM_ERROR = 80;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class Value {
         public static final String CLOSE_ROOM_CLK = "close_room_clk";
         public static final String HANGOFF_CLK = "hangoff_clk";
@@ -156,7 +157,7 @@ public class AlaRecorderLog {
         public static final String USER_REJECT_REMOTE = "user_reject_remote";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class CameraInfo {
         public int cameraApi = 1;
         public int cameraCount;
@@ -246,7 +247,7 @@ public class AlaRecorderLog {
             jSONObject.put(KEY_CONTENT_EXT_RES_ID, this.mPushResId);
             jSONObject.put("error_code", i);
             if (!TextUtils.isEmpty(str)) {
-                jSONObject.put(KEY_ERROR_MSG, str);
+                jSONObject.put("error_msg", str);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -279,7 +280,7 @@ public class AlaRecorderLog {
             try {
                 jSONObject.put(KEY_CURRENT_STAGE, 80);
                 jSONObject.put("error_code", i);
-                jSONObject.put(KEY_ERROR_MSG, str);
+                jSONObject.put("error_msg", str);
                 fillExtCommonData(jSONObject);
                 logEvent(KEY_ID_2425, TYPE_ADKLIVECORE, "author_liveroom", VALUE_PUSH_STREAM, jSONObject);
             } catch (JSONException e) {
@@ -293,8 +294,8 @@ public class AlaRecorderLog {
             try {
                 jSONObject.put(KEY_CURRENT_STAGE, 70);
                 jSONObject.put("error_code", i);
-                jSONObject.put(KEY_ERROR_MSG, str);
-                jSONObject.put(KEY_NETWORK_AVAILABLE, BdUtilHelper.isNetOk());
+                jSONObject.put("error_msg", str);
+                jSONObject.put(KEY_NETWORK_AVAILABLE, BdNetTypeUtil.isNetworkAvailableForImmediately());
                 fillExtCommonData(jSONObject);
                 logEvent(KEY_ID_2425, TYPE_ADKLIVECORE, "author_liveroom", VALUE_PUSH_STREAM, jSONObject);
             } catch (JSONException e) {
@@ -465,7 +466,7 @@ public class AlaRecorderLog {
     public void setVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig) {
         this.mVideoConfig = alaLiveVideoConfig;
         if (alaLiveVideoConfig != null) {
-            setPushCommonData(alaLiveVideoConfig.getMaxFps(), alaLiveVideoConfig.getMinFps(), alaLiveVideoConfig.getMaxBitRate() / 1024, alaLiveVideoConfig.getMinBitRate() / 1024, alaLiveVideoConfig.getVideoWidth(), alaLiveVideoConfig.getVideoHeight(), 44100, 2, 21);
+            setPushCommonData(alaLiveVideoConfig.getMaxFps(), alaLiveVideoConfig.getMinFps(), alaLiveVideoConfig.getMaxBitRate() / 1024, alaLiveVideoConfig.getMinBitRate() / 1024, alaLiveVideoConfig.getVideoWidth(), alaLiveVideoConfig.getVideoHeight(), 44100, 1, 43);
         }
     }
 
@@ -477,7 +478,7 @@ public class AlaRecorderLog {
         return pathSegments.get(pathSegments.size() - 1);
     }
 
-    public void logEvent(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+    public void logEventInMainThread(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         if (this.mRecorderCallback != null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
@@ -488,5 +489,22 @@ public class AlaRecorderLog {
             }
             this.mRecorderCallback.onLogReport(str, jSONObject2, jSONObject);
         }
+    }
+
+    public void logEvent(final String str, final String str2, final String str3, final String str4, final JSONObject jSONObject) {
+        if (isMainThread()) {
+            logEventInMainThread(str, str2, str3, str4, jSONObject);
+        } else {
+            SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.ala.recorder.video.AlaRecorderLog.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    AlaRecorderLog.this.logEventInMainThread(str, str2, str3, str4, jSONObject);
+                }
+            });
+        }
+    }
+
+    public boolean isMainThread() {
+        return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 }

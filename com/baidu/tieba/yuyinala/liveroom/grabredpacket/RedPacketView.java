@@ -6,49 +6,49 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class RedPacketView extends View {
-    private static final Random omS = new Random();
+    private static final Random opU = new Random();
+    private ValueAnimator animator;
     private int count;
-    private ValueAnimator gKa;
     private int mWidth;
-    private int[] omT;
-    private float omU;
-    private float omV;
-    private long omW;
-    private ArrayList<c> omX;
-    private a omY;
+    private int[] opV;
+    private float opW;
+    private float opX;
+    private long opY;
+    private ArrayList<c> opZ;
+    private a oqa;
     private Paint paint;
     private int speed;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(c cVar);
     }
 
     public RedPacketView(Context context) {
         super(context);
-        this.omT = new int[]{a.e.ic_red_packet_middle};
-        this.omX = new ArrayList<>();
+        this.opV = new int[]{a.e.ic_red_packet_middle};
+        this.opZ = new ArrayList<>();
         init();
     }
 
     public RedPacketView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.omT = new int[]{a.e.ic_red_packet_middle};
-        this.omX = new ArrayList<>();
+        this.opV = new int[]{a.e.ic_red_packet_middle};
+        this.opZ = new ArrayList<>();
         this.count = 9;
         this.speed = 300;
-        this.omV = 0.7f;
-        this.omU = 0.7f;
+        this.opX = 0.7f;
+        this.opW = 0.7f;
         init();
     }
 
@@ -57,29 +57,29 @@ public class RedPacketView extends View {
         this.paint.setFilterBitmap(true);
         this.paint.setDither(true);
         this.paint.setAntiAlias(true);
-        this.gKa = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.animator = ValueAnimator.ofFloat(0.0f, 1.0f);
         setLayerType(2, null);
-        Yz();
+        ZJ();
     }
 
-    private void Yz() {
-        this.gKa.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.RedPacketView.1
+    private void ZJ() {
+        this.animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.RedPacketView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 long currentTimeMillis = System.currentTimeMillis();
-                float f = ((float) (currentTimeMillis - RedPacketView.this.omW)) / 1000.0f;
-                RedPacketView.this.omW = currentTimeMillis;
+                float f = ((float) (currentTimeMillis - RedPacketView.this.opY)) / 1000.0f;
+                RedPacketView.this.opY = currentTimeMillis;
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 < RedPacketView.this.omX.size()) {
-                        c cVar = (c) RedPacketView.this.omX.get(i2);
+                    if (i2 < RedPacketView.this.opZ.size()) {
+                        c cVar = (c) RedPacketView.this.opZ.get(i2);
                         cVar.y += cVar.speed * f;
                         if (cVar.y > RedPacketView.this.getHeight()) {
                             cVar.y = 0 - cVar.height;
-                            cVar.omB = cVar.edw();
+                            cVar.opD = cVar.ecH();
                         }
-                        cVar.omz += cVar.omA * f;
+                        cVar.rotation += cVar.opC * f;
                         i = i2 + 1;
                     } else {
                         RedPacketView.this.invalidate();
@@ -88,37 +88,37 @@ public class RedPacketView extends View {
                 }
             }
         });
-        this.gKa.setRepeatCount(-1);
-        this.gKa.setDuration(100L);
+        this.animator.setRepeatCount(-1);
+        this.animator.setDuration(100L);
     }
 
-    public void edA() {
+    public void ecM() {
         clear();
         invalidate();
-        this.gKa.cancel();
+        this.animator.cancel();
     }
 
-    public void edB() {
+    public void ecN() {
         clear();
         setRedpacketCount(this.count);
-        this.omW = System.currentTimeMillis();
-        this.gKa.start();
+        this.opY = System.currentTimeMillis();
+        this.animator.start();
     }
 
     public void setRedpacketCount(int i) {
-        if (this.omT != null && this.omT.length != 0) {
+        if (this.opV != null && this.opV.length != 0) {
             for (int i2 = 0; i2 < i; i2++) {
-                this.omX.add(new c(getContext(), BitmapFactory.decodeResource(getResources(), this.omT[omS.nextInt(this.omT.length)]), this.speed, this.omU, this.omV, this.mWidth));
+                this.opZ.add(new c(getContext(), BitmapFactory.decodeResource(getResources(), this.opV[opU.nextInt(this.opV.length)]), this.speed, this.opW, this.opX, this.mWidth));
             }
         }
     }
 
     private void clear() {
-        Iterator<c> it = this.omX.iterator();
+        Iterator<c> it = this.opZ.iterator();
         while (it.hasNext()) {
             it.next().recycle();
         }
-        this.omX.clear();
+        this.opZ.clear();
     }
 
     @Override // android.view.View
@@ -132,11 +132,11 @@ public class RedPacketView extends View {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.omX.size()) {
-                c cVar = this.omX.get(i2);
+            if (i2 < this.opZ.size()) {
+                c cVar = this.opZ.get(i2);
                 Matrix matrix = new Matrix();
                 matrix.setTranslate((-cVar.width) / 2, (-cVar.height) / 2);
-                matrix.postRotate(cVar.omz);
+                matrix.postRotate(cVar.rotation);
                 matrix.postTranslate((cVar.width / 2) + cVar.x, (cVar.height / 2) + cVar.y);
                 canvas.drawBitmap(cVar.bitmap, matrix, this.paint);
                 i = i2 + 1;
@@ -153,9 +153,9 @@ public class RedPacketView extends View {
                 c H = H(motionEvent.getX(), motionEvent.getY());
                 if (H != null) {
                     H.y = 0 - H.height;
-                    H.omB = H.edw();
-                    if (this.omY != null) {
-                        this.omY.a(H);
+                    H.opD = H.ecH();
+                    if (this.oqa != null) {
+                        this.oqa.a(H);
                         return true;
                     }
                     return true;
@@ -169,15 +169,15 @@ public class RedPacketView extends View {
     }
 
     private c H(float f, float f2) {
-        for (int size = this.omX.size() - 1; size >= 0; size--) {
-            if (this.omX.get(size).G(f, f2)) {
-                return this.omX.get(size);
+        for (int size = this.opZ.size() - 1; size >= 0; size--) {
+            if (this.opZ.get(size).G(f, f2)) {
+                return this.opZ.get(size);
             }
         }
         return null;
     }
 
     public void setOnRedPacketClickListener(a aVar) {
-        this.omY = aVar;
+        this.oqa = aVar;
     }
 }

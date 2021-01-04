@@ -3,8 +3,8 @@ package com.baidu.tieba.frs.sportspage.notification;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.sharedPref.b;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private TbPageContext eNx;
-    private CustomMessageListener jtP = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
+    private TbPageContext eXu;
+    private CustomMessageListener jGk = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,17 +27,17 @@ public class a {
                     String optString2 = jSONObject.optString("gameName");
                     String optString3 = jSONObject.optString("gameTime");
                     String optString4 = jSONObject.optString("gameType");
-                    String string = b.bsO().getString("key_match_id_list_" + optString4, "");
+                    String string = b.bvq().getString("key_match_id_list_" + optString4, "");
                     String str = "match_id_" + optString4 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + optString;
                     String str2 = TextUtils.isEmpty(string) ? str : "," + str;
                     if (TextUtils.isEmpty(string) || !string.contains(str)) {
-                        b.bsO().putString("key_match_id_list_" + optString4, string + str2);
+                        b.bvq().putString("key_match_id_list_" + optString4, string + str2);
                     }
-                    Intent intent = new Intent(a.this.eNx.getPageActivity(), AlarmReceiver.class);
+                    Intent intent = new Intent(a.this.eXu.getPageActivity(), AlarmReceiver.class);
                     intent.putExtra("KEY_MATCH_NAME", optString2);
                     intent.putExtra("KEY_MATCH_TYPE", optString4);
                     intent.putExtra("KEY_MATCH_ID", optString);
-                    PendingIntent broadcast = PendingIntent.getBroadcast(a.this.eNx.getPageActivity(), 0, intent, 0);
+                    PendingIntent broadcast = PendingIntent.getBroadcast(a.this.eXu.getPageActivity(), 0, intent, 0);
                     Calendar calendar = Calendar.getInstance();
                     long currentTimeMillis = System.currentTimeMillis();
                     calendar.setTimeInMillis(currentTimeMillis);
@@ -45,7 +45,7 @@ public class a {
                     if (j > 0) {
                         calendar.add(14, (int) j);
                     }
-                    ((AlarmManager) a.this.eNx.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
+                    ((AlarmManager) a.this.eXu.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -54,7 +54,7 @@ public class a {
     };
 
     public a(TbPageContext tbPageContext) {
-        this.eNx = tbPageContext;
-        this.eNx.registerListener(this.jtP);
+        this.eXu = tbPageContext;
+        this.eXu.registerListener(this.jGk);
     }
 }

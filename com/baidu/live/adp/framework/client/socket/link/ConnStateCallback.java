@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.client.socket.link;
 
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface ConnStateCallback {
     boolean onClose(int i, String str);
 

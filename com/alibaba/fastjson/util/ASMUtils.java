@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.util;
 
-import android.support.media.ExifInterface;
 import com.alibaba.fastjson.asm.ClassReader;
 import com.alibaba.fastjson.asm.TypeCollector;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
@@ -10,7 +9,7 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ASMUtils {
     public static final String JAVA_VM_NAME = System.getProperty("java.vm.name");
     public static final boolean IS_ANDROID = isAndroid(JAVA_VM_NAME);
@@ -60,7 +59,7 @@ public class ASMUtils {
             return "I";
         }
         if (Void.TYPE == cls) {
-            return ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
+            return "V";
         }
         if (Boolean.TYPE == cls) {
             return "Z";
@@ -72,7 +71,7 @@ public class ASMUtils {
             return "B";
         }
         if (Short.TYPE == cls) {
-            return ExifInterface.LATITUDE_SOUTH;
+            return "S";
         }
         if (Float.TYPE == cls) {
             return "F";

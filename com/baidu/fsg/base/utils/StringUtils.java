@@ -1,13 +1,14 @@
 package com.baidu.fsg.base.utils;
 
 import android.text.TextUtils;
+import com.bytedance.sdk.openadsdk.preload.falconx.statistic.StatisticData;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class StringUtils {
     public static boolean hasLength(CharSequence charSequence) {
         return charSequence != null && charSequence.length() > 0;
@@ -124,7 +125,7 @@ public abstract class StringUtils {
             str = "0";
         }
         try {
-            return String.valueOf(new BigDecimal(str).multiply(new BigDecimal("100")).setScale(0));
+            return String.valueOf(new BigDecimal(str).multiply(new BigDecimal(StatisticData.ERROR_CODE_NOT_FOUND)).setScale(0));
         } catch (Exception e) {
             return "0";
         }

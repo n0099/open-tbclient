@@ -7,18 +7,18 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static com.airbnb.lottie.model.content.d o(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+    public static com.airbnb.lottie.model.content.d o(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         char c;
         boolean z;
         Path.FillType fillType = null;
         com.airbnb.lottie.model.a.f fVar = null;
         com.airbnb.lottie.model.a.f fVar2 = null;
         GradientType gradientType = null;
-        com.airbnb.lottie.model.a.d dVar = null;
+        com.airbnb.lottie.model.a.d dVar2 = null;
         com.airbnb.lottie.model.a.c cVar = null;
         String str = null;
         while (jsonReader.hasNext()) {
@@ -110,7 +110,7 @@ public class m {
                                 i = jsonReader.nextInt();
                                 break;
                             case true:
-                                cVar = d.a(jsonReader, eVar, i);
+                                cVar = d.a(jsonReader, dVar, i);
                                 break;
                             default:
                                 jsonReader.skipValue();
@@ -120,7 +120,7 @@ public class m {
                     jsonReader.endObject();
                     break;
                 case 2:
-                    dVar = d.g(jsonReader, eVar);
+                    dVar2 = d.g(jsonReader, dVar);
                     break;
                 case 3:
                     if (jsonReader.nextInt() != 1) {
@@ -131,10 +131,10 @@ public class m {
                         break;
                     }
                 case 4:
-                    fVar2 = d.h(jsonReader, eVar);
+                    fVar2 = d.h(jsonReader, dVar);
                     break;
                 case 5:
-                    fVar = d.h(jsonReader, eVar);
+                    fVar = d.h(jsonReader, dVar);
                     break;
                 case 6:
                     if (jsonReader.nextInt() != 1) {
@@ -149,6 +149,6 @@ public class m {
                     break;
             }
         }
-        return new com.airbnb.lottie.model.content.d(str, gradientType, fillType, cVar, dVar, fVar2, fVar, null, null);
+        return new com.airbnb.lottie.model.content.d(str, gradientType, fillType, cVar, dVar2, fVar2, fVar, null, null);
     }
 }

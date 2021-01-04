@@ -3,7 +3,7 @@ package com.baidu.pass.biometrics.base.dynamicupdate;
 import android.content.Context;
 import android.os.Bundle;
 import com.baidu.pass.biometrics.base.PassBiometricConfiguration;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class SoManager {
     public static void checkVersion(PassBiometricConfiguration passBiometricConfiguration) {
         new UpdateSo().checkSoUpdate(passBiometricConfiguration);

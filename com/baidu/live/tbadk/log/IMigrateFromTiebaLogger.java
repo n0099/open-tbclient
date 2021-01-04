@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface IMigrateFromTiebaLogger {
     void doClickRankListEntryLog(String str);
 

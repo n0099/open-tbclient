@@ -2,10 +2,10 @@ package com.baidu.live.videochat.panel.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class LiveBBVideoCheckStatusResponseMessage extends JsonHttpResponsedMessage {
-    private boolean bNB;
-    private int bNC;
+    private boolean bSo;
+    private int bSp;
 
     public LiveBBVideoCheckStatusResponseMessage() {
         super(1021217);
@@ -16,16 +16,16 @@ public class LiveBBVideoCheckStatusResponseMessage extends JsonHttpResponsedMess
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.bNB = optJSONObject.optInt("live_status") == 1;
-            this.bNC = optJSONObject.optInt("liveconnect_status");
+            this.bSo = optJSONObject.optInt("live_status") == 1;
+            this.bSp = optJSONObject.optInt("liveconnect_status");
         }
     }
 
-    public boolean Fl() {
-        return this.bNB;
+    public boolean EB() {
+        return this.bSo;
     }
 
-    public boolean Yd() {
-        return this.bNC == 0;
+    public boolean Zk() {
+        return this.bSp == 0;
     }
 }

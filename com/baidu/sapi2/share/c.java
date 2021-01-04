@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.AES;
@@ -14,11 +13,11 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.k;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3520a;
+    private static String f5346a;
 
     c() {
     }
@@ -34,7 +33,7 @@ final class c {
             HashMap hashMap = new HashMap();
             hashMap.put(Config.DEVICE_PART, Build.MODEL);
             hashMap.put("device_ver", Build.VERSION.RELEASE);
-            hashMap.put(AlaRecorderLog.KEY_ERROR_MSG, android.util.Log.getStackTraceString(e));
+            hashMap.put("error_msg", android.util.Log.getStackTraceString(e));
             k.a("aes_decrypt_error", hashMap);
             return null;
         }
@@ -51,7 +50,7 @@ final class c {
             HashMap hashMap = new HashMap();
             hashMap.put(Config.DEVICE_PART, Build.MODEL);
             hashMap.put("device_ver", Build.VERSION.RELEASE);
-            hashMap.put(AlaRecorderLog.KEY_ERROR_MSG, android.util.Log.getStackTraceString(e));
+            hashMap.put("error_msg", android.util.Log.getStackTraceString(e));
             k.a("aes_encrypt_error", hashMap);
             return null;
         }
@@ -59,27 +58,28 @@ final class c {
 
     private static String a(Context context) {
         String str;
-        String str2 = null;
-        String str3 = f3520a;
+        String str2;
+        String str3 = f5346a;
         if (str3 == null) {
             String deviceId = Build.VERSION.SDK_INT < 23 ? ((TelephonyManager) context.getSystemService("phone")).getDeviceId() : null;
             String str4 = Build.MODEL;
             if ("mounted".equals(Environment.getExternalStorageState())) {
                 StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                str = statFs.getBlockSize() + "";
-                str2 = statFs.getBlockCount() + "";
+                str2 = statFs.getBlockSize() + "";
+                str = statFs.getBlockCount() + "";
             } else {
                 str = null;
+                str2 = null;
             }
-            String substring = (!TextUtils.isEmpty(deviceId) ? String.format("%1$s-%2$s-%3$s-%4$s", str4, deviceId, str, str2) : String.format("%1$s-%2$s-%3$s", str4, str, str2)).substring(0, 16);
+            String substring = (!TextUtils.isEmpty(deviceId) ? String.format("%1$s-%2$s-%3$s-%4$s", str4, deviceId, str2, str) : String.format("%1$s-%2$s-%3$s", str4, str2, str)).substring(0, 16);
             if (TextUtils.isEmpty(substring)) {
                 substring = "----------------";
             }
             if (substring.length() < 16) {
                 substring = (substring + "----------------").substring(0, 16);
             }
-            f3520a = substring;
-            return f3520a;
+            f5346a = substring;
+            return f5346a;
         }
         return str3;
     }

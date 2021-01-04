@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class CouponsView extends View {
     public CouponsView(Context context) {
         super(context);

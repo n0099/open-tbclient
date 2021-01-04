@@ -1,50 +1,14 @@
 package com.baidu.tieba.hottopic.a;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.af;
-import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
-public class b extends af.a {
-    public int aku;
-    public TextView keH;
-    public View keK;
-    public View keL;
-    public TextView keO;
-    public TextView keP;
-    public ImageView keQ;
-    public LinearLayout keR;
-    public TextView keS;
-    public TextView keT;
-    public LinearLayout keU;
-    public LinearLayout keV;
-
-    public b(View view) {
-        super(view);
-        this.aku = 3;
-        this.keO = null;
-        this.keH = null;
-        this.keP = null;
-        this.keK = null;
-        this.keL = null;
-        this.keQ = null;
-        this.keR = null;
-        this.keS = null;
-        this.keT = null;
-        this.keU = null;
-        this.keV = null;
-        this.keO = (TextView) view.findViewById(R.id.hot_topic_rank);
-        this.keH = (TextView) view.findViewById(R.id.hot_topic_title);
-        this.keP = (TextView) view.findViewById(R.id.hot_topic_num);
-        this.keK = view.findViewById(R.id.devide_line_top);
-        this.keL = view.findViewById(R.id.topic_devide_line_bottom);
-        this.keQ = (ImageView) view.findViewById(R.id.hot_topic_pic);
-        this.keR = (LinearLayout) view.findViewById(R.id.tip_info_item);
-        this.keS = (TextView) view.findViewById(R.id.tip_info_title);
-        this.keT = (TextView) view.findViewById(R.id.tip_info_rule);
-        this.keU = (LinearLayout) view.findViewById(R.id.topic_normal_item);
-        this.keV = (LinearLayout) view.findViewById(R.id.tip_rule_container);
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aq;
+/* loaded from: classes8.dex */
+public class b {
+    public static void a(bz bzVar, String str, String str2, int i) {
+        if (bzVar != null && !TextUtils.isEmpty(str)) {
+            TiebaStatic.log(new aq("c13022").dX("obj_name", str).dX("tid", bzVar.getTid()).w("fid", bzVar.getFid()).dX("obj_source", bzVar.mRecomSource).dX("obj_locate", str2).an("obj_type", i).dX("ab_tag", bzVar.mRecomAbTag));
+        }
     }
 }

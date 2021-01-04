@@ -25,23 +25,23 @@ import com.baidu.live.tbadk.widget.CommonEmptyView;
 import com.baidu.tieba.ala.charm.ALaCharmCardActivity;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private String aGk;
-    private boolean bns;
-    private CommonEmptyView btg;
-    private TextView fWZ;
-    private String gDA;
-    private String gDB;
-    private int gDF;
-    private PbListView gDM;
-    private ALaCharmCardActivity gDV;
-    private String gDz;
-    private a gEL;
-    private View gFi;
-    private View gFj;
-    private LinearLayout gFk;
-    private f gFl;
+    private String aGB;
+    private boolean boZ;
+    private CommonEmptyView bxT;
+    private ALaCharmCardActivity gPH;
+    private String gPl;
+    private String gPm;
+    private String gPn;
+    private int gPr;
+    private PbListView gPy;
+    private View gQT;
+    private View gQU;
+    private LinearLayout gQV;
+    private f gQW;
+    private a gQw;
+    private TextView ggF;
     private String mGroupId;
     private BdListView mListView;
     private String mLiveId;
@@ -49,20 +49,20 @@ public class b {
     private View mRootView;
     private String mUserId;
     private String mUserName;
-    private View.OnClickListener gEO = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.view.b.2
+    private View.OnClickListener gQz = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.view.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && (view.getTag() instanceof Integer)) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (b.this.gEL != null) {
-                    ALaCharmData item = b.this.gEL.getItem(intValue);
+                if (b.this.gQw != null) {
+                    ALaCharmData item = b.this.gQw.getItem(intValue);
                     if (item == null || item.disableClick == 0) {
                         b.this.b(item);
-                        if (!b.this.bns) {
+                        if (!b.this.boZ) {
                             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                                String vx = com.baidu.tieba.ala.charm.g.vx(b.this.gDF);
+                                String vI = com.baidu.tieba.ala.charm.g.vI(b.this.gPr);
                                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.CLICK_CHARMLIST_HEAD);
-                                alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vx);
+                                alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vI);
                                 alaStaticItem.addParams("pos", (intValue + 1) + "");
                                 alaStaticItem.addParams("other_params", b.this.mOtherParams);
                                 AlaStaticsManager.getInst().onStatic(alaStaticItem);
@@ -73,23 +73,23 @@ public class b {
             }
         }
     };
-    private View.OnClickListener gEP = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.view.b.3
+    private View.OnClickListener gQA = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.view.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ALaCharmData item;
             if (view != null && (view.getTag() instanceof Integer)) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (b.this.gEL != null && ViewHelper.checkUpIsLogin(b.this.gDV.getPageContext().getPageActivity()) && (item = b.this.gEL.getItem(intValue)) != null && item.pay_userid != null) {
+                if (b.this.gQw != null && ViewHelper.checkUpIsLogin(b.this.gPH.getPageContext().getPageActivity()) && (item = b.this.gQw.getItem(intValue)) != null && item.pay_userid != null) {
                     boolean z = item.follow_status != 0;
                     item.follow_status = z ? 0 : 1;
-                    b.this.gEL.notifyDataSetChanged();
+                    b.this.gQw.notifyDataSetChanged();
                     com.baidu.live.data.f fVar = new com.baidu.live.data.f();
                     fVar.setUserId(item.pay_userid);
                     fVar.setPortrait(item.portrait);
-                    fVar.setPageId(b.this.gDV.getUniqueId());
+                    fVar.setPageId(b.this.gPH.getUniqueId());
                     fVar.setIsAttention(z ? false : true);
                     fVar.setFrom("source_charm_detail");
-                    com.baidu.live.view.a.Yo().a(item.pay_userid, fVar);
+                    com.baidu.live.view.a.Zx().a(item.pay_userid, fVar);
                     if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
                         AlaStaticItem alaStaticItem = new AlaStaticItem(z ? QMStaticKeys.QM_STATIC_FOLLOW_CANCEL_CLICK : QMStaticKeys.QM_STATIC_FOLLOW_CLICK);
                         alaStaticItem.addParams("live_id", QMStaticManager.LIVE_ID);
@@ -97,9 +97,9 @@ public class b {
                         alaStaticItem.addParams("feed_id", QMStaticManager.FEED_ID);
                         alaStaticItem.addParams("pos", (intValue + 1) + "");
                         String str = "";
-                        if (b.this.gDF != 2) {
-                            if (b.this.gDF != 1) {
-                                if (b.this.gDF == 3) {
+                        if (b.this.gPr != 2) {
+                            if (b.this.gPr != 1) {
+                                if (b.this.gPr == 3) {
                                     str = "charm_day";
                                 }
                             } else {
@@ -112,11 +112,11 @@ public class b {
                         alaStaticItem.addParams("other_params", b.this.mOtherParams);
                         AlaStaticsManager.getInst().onStatic(alaStaticItem);
                     }
-                    if (!b.this.bns) {
+                    if (!b.this.boZ) {
                         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                            String vx = com.baidu.tieba.ala.charm.g.vx(b.this.gDF);
+                            String vI = com.baidu.tieba.ala.charm.g.vI(b.this.gPr);
                             AlaStaticItem alaStaticItem2 = new AlaStaticItem(SdkStaticKeys.FOLLOWCLICK_CHARMLIST);
-                            alaStaticItem2.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vx);
+                            alaStaticItem2.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vI);
                             alaStaticItem2.addParams("pos", (intValue + 1) + "");
                             AlaStaticsManager.getInst().onStatic(alaStaticItem2);
                         }
@@ -125,13 +125,13 @@ public class b {
             }
         }
     };
-    private View.OnClickListener gDY = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.view.b.4
+    private View.OnClickListener gPK = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.view.b.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!b.this.bns && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo())) {
-                String vx = com.baidu.tieba.ala.charm.g.vx(b.this.gDF);
+            if (!b.this.boZ && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo())) {
+                String vI = com.baidu.tieba.ala.charm.g.vI(b.this.gPr);
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.CLICK_CHARMLIST_BAR);
-                alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vx);
+                alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vI);
                 alaStaticItem.addParams(SdkStaticKeys.KEY_CHARMLIST_ACTION_TYPE, "to_login");
                 alaStaticItem.addParams("other_params", b.this.mOtherParams);
                 AlaStaticsManager.getInst().onStatic(alaStaticItem);
@@ -139,18 +139,18 @@ public class b {
             ViewHelper.checkUpIsLogin(view.getContext());
         }
     };
-    private View.OnClickListener gFm = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.view.b.5
+    private View.OnClickListener gQX = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.view.b.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.gDV != null) {
-                b.this.gDV.bUf();
+            if (b.this.gPH != null) {
+                b.this.gPH.bWK();
             }
             if (view.getTag() == null) {
-                if (!b.this.bns) {
+                if (!b.this.boZ) {
                     if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                        String vx = com.baidu.tieba.ala.charm.g.vx(b.this.gDF);
+                        String vI = com.baidu.tieba.ala.charm.g.vI(b.this.gPr);
                         AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.CLICK_CHARMLIST_BAR);
-                        alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vx);
+                        alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vI);
                         alaStaticItem.addParams(SdkStaticKeys.KEY_CHARMLIST_ACTION_TYPE, "to_rank");
                         alaStaticItem.addParams("other_params", b.this.mOtherParams);
                         AlaStaticsManager.getInst().onStatic(alaStaticItem);
@@ -177,11 +177,11 @@ public class b {
                     str = "to_list_hundred";
                 }
             }
-            if (!b.this.bns) {
+            if (!b.this.boZ) {
                 if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                    String vx2 = com.baidu.tieba.ala.charm.g.vx(b.this.gDF);
+                    String vI2 = com.baidu.tieba.ala.charm.g.vI(b.this.gPr);
                     AlaStaticItem alaStaticItem2 = new AlaStaticItem(SdkStaticKeys.CLICK_CHARMLIST_BAR);
-                    alaStaticItem2.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vx2);
+                    alaStaticItem2.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vI2);
                     alaStaticItem2.addParams(SdkStaticKeys.KEY_CHARMLIST_ACTION_TYPE, str);
                     alaStaticItem2.addParams("other_params", b.this.mOtherParams);
                     AlaStaticsManager.getInst().onStatic(alaStaticItem2);
@@ -191,53 +191,53 @@ public class b {
     };
 
     public b(ALaCharmCardActivity aLaCharmCardActivity, String str, String str2, boolean z, String str3, int i, String str4, String str5, String str6, String str7, String str8) {
-        this.gDF = -1;
-        this.gDV = aLaCharmCardActivity;
+        this.gPr = -1;
+        this.gPH = aLaCharmCardActivity;
         this.mGroupId = str;
         this.mLiveId = str2;
-        this.bns = z;
-        this.aGk = str3;
-        this.gDF = i;
+        this.boZ = z;
+        this.aGB = str3;
+        this.gPr = i;
         this.mUserId = str4;
         this.mUserName = str5;
-        this.gDz = str6;
-        this.gDA = str7;
-        this.gDB = str8;
-        this.mRootView = this.gDV.getLayoutInflater().inflate(a.g.ala_charm_detail_layout, (ViewGroup) null);
+        this.gPl = str6;
+        this.gPm = str7;
+        this.gPn = str8;
+        this.mRootView = this.gPH.getLayoutInflater().inflate(a.g.ala_charm_detail_layout, (ViewGroup) null);
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.detail_list);
-        this.btg = (CommonEmptyView) this.mRootView.findViewById(a.f.emptyView);
-        this.gFi = this.mRootView.findViewById(a.f.toLogin_layout);
-        this.gFj = this.mRootView.findViewById(a.f.toLogin_text);
-        this.gFj.setOnClickListener(this.gDY);
+        this.bxT = (CommonEmptyView) this.mRootView.findViewById(a.f.emptyView);
+        this.gQT = this.mRootView.findViewById(a.f.toLogin_layout);
+        this.gQU = this.mRootView.findViewById(a.f.toLogin_text);
+        this.gQU.setOnClickListener(this.gPK);
         if (TbadkCoreApplication.isLogin()) {
-            this.gFi.setVisibility(8);
+            this.gQT.setVisibility(8);
         } else {
-            this.gFi.setVisibility(0);
+            this.gQT.setVisibility(0);
         }
-        this.gEL = new a(aLaCharmCardActivity.getPageContext(), 1);
-        this.mListView.setAdapter((ListAdapter) this.gEL);
-        this.mListView.setEmptyView(this.btg);
-        this.fWZ = (TextView) this.mRootView.findViewById(a.f.top_text);
-        this.fWZ.setText(com.baidu.tieba.ala.charm.g.K(aLaCharmCardActivity.getPageContext().getPageActivity(), this.gDF));
-        if (this.gDM == null) {
-            this.gDM = new PbListView(this.gDV);
-            this.gDM.setTextColor(this.gDV.getResources().getColor(a.c.sdk_cp_cont_j));
-            this.gDM.setSkinType(0);
-            this.gDM.setContainerBackgroundColorResId(a.c.sdk_transparent);
-            this.gDM.createView();
+        this.gQw = new a(aLaCharmCardActivity.getPageContext(), 1);
+        this.mListView.setAdapter((ListAdapter) this.gQw);
+        this.mListView.setEmptyView(this.bxT);
+        this.ggF = (TextView) this.mRootView.findViewById(a.f.top_text);
+        this.ggF.setText(com.baidu.tieba.ala.charm.g.L(aLaCharmCardActivity.getPageContext().getPageActivity(), this.gPr));
+        if (this.gPy == null) {
+            this.gPy = new PbListView(this.gPH);
+            this.gPy.setTextColor(this.gPH.getResources().getColor(a.c.sdk_cp_cont_j));
+            this.gPy.setSkinType(0);
+            this.gPy.setContainerBackgroundColorResId(a.c.sdk_transparent);
+            this.gPy.createView();
         }
-        this.gEL.n(this.gEP);
-        this.gEL.o(this.gEO);
-        this.gEL.p(this.gFm);
-        this.gFk = (LinearLayout) this.mRootView.findViewById(a.f.bottomImproveCard_layout);
+        this.gQw.o(this.gQA);
+        this.gQw.p(this.gQz);
+        this.gQw.q(this.gQX);
+        this.gQV = (LinearLayout) this.mRootView.findViewById(a.f.bottomImproveCard_layout);
     }
 
-    public void bUx() {
-        if (!this.bns && this.gFi != null && this.gFi.getVisibility() == 0) {
+    public void bXb() {
+        if (!this.boZ && this.gQT != null && this.gQT.getVisibility() == 0) {
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                String vx = com.baidu.tieba.ala.charm.g.vx(this.gDF);
+                String vI = com.baidu.tieba.ala.charm.g.vI(this.gPr);
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.DISPLAY_CHARMLIST_BAR);
-                alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vx);
+                alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vI);
                 alaStaticItem.addParams(SdkStaticKeys.KEY_CHARMLIST_ACTION_TYPE, "login_see");
                 alaStaticItem.addParams("other_params", this.mOtherParams);
                 AlaStaticsManager.getInst().onStatic(alaStaticItem);
@@ -255,9 +255,9 @@ public class b {
 
     public void a(ArrayList<ALaCharmData> arrayList, boolean z, long j) {
         if (z) {
-            this.gEL.setData(arrayList);
+            this.gQw.setData(arrayList);
         } else {
-            this.gEL.ac(arrayList);
+            this.gQw.ac(arrayList);
         }
         b(arrayList, j);
     }
@@ -266,29 +266,29 @@ public class b {
         long j2;
         long j3;
         long j4;
-        if (this.gDF == 3 && !this.bns && TbadkCoreApplication.isLogin() && this.gDV != null) {
-            if (this.gFl != null) {
-                this.gFk.removeView(this.gFl.getRootView());
+        if (this.gPr == 3 && !this.boZ && TbadkCoreApplication.isLogin() && this.gPH != null) {
+            if (this.gQW != null) {
+                this.gQV.removeView(this.gQW.getRootView());
             }
-            final int dimensionPixelSize = this.gDV.getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds120);
+            final int dimensionPixelSize = this.gPH.getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds120);
             final int paddingLeft = this.mListView.getPaddingLeft();
             final int paddingTop = this.mListView.getPaddingTop();
             final int paddingRight = this.mListView.getPaddingRight();
             final int paddingBottom = this.mListView.getPaddingBottom();
-            this.gFl = new f(this.gDV.getPageContext().getPageActivity(), this.gFm);
-            this.gFl.mv(this.bns);
-            this.gFl.setOtherParams(this.mOtherParams);
-            this.gFl.vA(this.gDF);
+            this.gQW = new f(this.gPH.getPageContext().getPageActivity(), this.gQX);
+            this.gQW.mV(this.boZ);
+            this.gQW.setOtherParams(this.mOtherParams);
+            this.gQW.vL(this.gPr);
             com.baidu.tieba.ala.charm.data.a aVar = new com.baidu.tieba.ala.charm.data.a();
-            aVar.userId = this.gDz;
-            aVar.userName = this.gDA;
-            aVar.portrait = this.gDB;
+            aVar.userId = this.gPl;
+            aVar.userName = this.gPm;
+            aVar.portrait = this.gPn;
             aVar.totalPrice = j;
             if (j <= 0) {
                 aVar.type = 0;
-                this.gFl.a(aVar);
-                this.gFk.addView(this.gFl.getRootView());
-                this.gFk.setVisibility(0);
+                this.gQW.a(aVar);
+                this.gQV.addView(this.gQW.getRootView());
+                this.gQV.setVisibility(0);
                 this.mListView.setPadding(paddingLeft, paddingTop, paddingRight, dimensionPixelSize);
                 return;
             }
@@ -299,7 +299,7 @@ public class b {
                     int i3 = i2;
                     if (i3 >= arrayList.size()) {
                         break;
-                    } else if (!TextUtils.equals(arrayList.get(i3).user_id, this.gDz)) {
+                    } else if (!TextUtils.equals(arrayList.get(i3).user_id, this.gPl)) {
                         i2 = i3 + 1;
                     } else {
                         i = i3 + 1;
@@ -310,7 +310,7 @@ public class b {
             if (i <= 0 || i > 100) {
                 aVar.type = 1;
                 if (arrayList == null || arrayList.isEmpty()) {
-                    aVar.gEA = 1L;
+                    aVar.gQl = 1L;
                 } else {
                     long j5 = 0;
                     try {
@@ -323,11 +323,11 @@ public class b {
                     } else {
                         j2 = (j5 - j) + 1;
                     }
-                    aVar.gEA = j2;
+                    aVar.gQl = j2;
                 }
-                this.gFl.a(aVar);
-                this.gFk.addView(this.gFl.getRootView());
-                this.gFk.setVisibility(0);
+                this.gQW.a(aVar);
+                this.gQV.addView(this.gQW.getRootView());
+                this.gQV.setVisibility(0);
                 this.mListView.setPadding(paddingLeft, paddingTop, paddingRight, dimensionPixelSize);
                 return;
             }
@@ -351,12 +351,12 @@ public class b {
                 } else {
                     j4 = (j6 - j) + 1;
                 }
-                aVar.gEA = j4;
+                aVar.gQl = j4;
             }
             aVar.grade = i;
-            this.gFl.a(aVar);
-            this.gFk.addView(this.gFl.getRootView());
-            this.gFk.setVisibility(0);
+            this.gQW.a(aVar);
+            this.gQV.addView(this.gQW.getRootView());
+            this.gQV.setVisibility(0);
             this.mListView.setClipToPadding(false);
             final int i4 = i - 1;
             this.mListView.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.charm.view.b.1
@@ -368,35 +368,35 @@ public class b {
                 public void onScroll(AbsListView absListView, int i5, int i6, int i7) {
                     if (i4 < i5 || i4 >= i5 + i6) {
                         b.this.mListView.setPadding(paddingLeft, paddingTop, paddingRight, dimensionPixelSize + paddingBottom);
-                        b.this.gFk.setVisibility(0);
+                        b.this.gQV.setVisibility(0);
                         return;
                     }
                     b.this.mListView.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-                    b.this.gFk.setVisibility(8);
+                    b.this.gQV.setVisibility(8);
                 }
             });
         }
     }
 
-    public void XZ() {
-        this.mListView.setNextPage(this.gDM);
-        this.gDM.startLoadData();
+    public void Zg() {
+        this.mListView.setNextPage(this.gPy);
+        this.gPy.startLoadData();
     }
 
     public void Hm(String str) {
-        this.mListView.setNextPage(this.gDM);
-        this.gDM.endLoadDataWithNoMore(str);
+        this.mListView.setNextPage(this.gPy);
+        this.gPy.endLoadDataWithNoMore(str);
     }
 
-    public void dG(boolean z) {
+    public void dM(boolean z) {
         if (z) {
-            this.btg.reset();
-            this.btg.setTitle(a.h.charm_empty_text);
-            this.btg.setup(CommonEmptyView.ImgType.NO_RANK_LIST, CommonEmptyView.StyleType.DARK);
-            this.btg.setVisibility(0);
+            this.bxT.reset();
+            this.bxT.setTitle(a.h.charm_empty_text);
+            this.bxT.setup(CommonEmptyView.ImgType.NO_RANK_LIST, CommonEmptyView.StyleType.DARK);
+            this.bxT.setVisibility(0);
             return;
         }
-        this.btg.setVisibility(8);
+        this.bxT.setVisibility(8);
     }
 
     public void a(BdListView.OnScrollToBottomListener onScrollToBottomListener) {
@@ -405,34 +405,36 @@ public class b {
         }
     }
 
-    public void m(View.OnClickListener onClickListener) {
-        this.btg.reset();
-        this.btg.setTitle(a.h.sdk_net_fail_tip);
-        this.btg.setRefreshButton(a.h.sdk_net_refresh_btn_text, onClickListener);
-        this.btg.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.btg.setVisibility(0);
+    public void n(View.OnClickListener onClickListener) {
+        this.bxT.reset();
+        this.bxT.setTitle(a.h.sdk_net_fail_tip);
+        this.bxT.setRefreshButton(a.h.sdk_net_refresh_btn_text, onClickListener);
+        this.bxT.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.bxT.setVisibility(0);
     }
 
-    public void Yb() {
-        this.btg.setVisibility(8);
+    public void Zi() {
+        this.bxT.setVisibility(8);
     }
 
-    public void HO() {
-        if (this.gFl != null) {
-            this.gFl.HO();
+    public void Hp() {
+        if (this.gQW != null) {
+            this.gQW.Hp();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ALaCharmData aLaCharmData) {
         if (aLaCharmData != null && aLaCharmData.pay_userid != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.gDV.getPageContext().getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.bns, this.aGk, null, aLaCharmData.user_name, this.mOtherParams)));
+            AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(this.gPH.getPageContext().getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.boZ, this.aGB, null, aLaCharmData.user_name);
+            alaPersonCardActivityConfig.setOtherParams(this.mOtherParams);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
         }
     }
 
-    public void aA(String str, boolean z) {
-        if (this.gEL != null) {
-            this.gEL.aA(str, z);
+    public void aB(String str, boolean z) {
+        if (this.gQw != null) {
+            this.gQw.aB(str, z);
         }
     }
 }

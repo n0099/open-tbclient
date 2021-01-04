@@ -1,10 +1,10 @@
 package com.baidu.swan.menu.viewpager;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes14.dex */
+import androidx.viewpager.widget.ViewPager;
+/* loaded from: classes5.dex */
 public class WrapContentHeightViewPager extends ViewPager {
     public WrapContentHeightViewPager(Context context) {
         super(context);
@@ -15,14 +15,13 @@ public class WrapContentHeightViewPager extends ViewPager {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.view.ViewPager, android.view.View
+    @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public void onMeasure(int i, int i2) {
         int i3;
-        View view;
         super.onMeasure(i, i2);
         if (getChildCount() > 0) {
             int childCount = getChildCount();
-            View view2 = null;
+            View view = null;
             int i4 = -1;
             int i5 = 0;
             while (i5 < childCount) {
@@ -31,25 +30,24 @@ public class WrapContentHeightViewPager extends ViewPager {
                     childAt.measure(i, i2);
                     i3 = childAt.getMeasuredHeight();
                     if (i3 > i4) {
-                        view = childAt;
                         i5++;
-                        view2 = view;
                         i4 = i3;
+                        view = childAt;
                     }
                 }
                 i3 = i4;
-                view = view2;
+                childAt = view;
                 i5++;
-                view2 = view;
                 i4 = i3;
+                view = childAt;
             }
-            if (view2 == null) {
-                view2 = getChildAt(0);
+            if (view == null) {
+                view = getChildAt(0);
             }
-            if (view2 != null) {
-                view2.measure(i, i2);
+            if (view != null) {
+                view.measure(i, i2);
             }
-            setMeasuredDimension(getMeasuredWidth(), c(i2, view2));
+            setMeasuredDimension(getMeasuredWidth(), c(i2, view));
         }
     }
 

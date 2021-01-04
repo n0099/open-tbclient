@@ -1,41 +1,41 @@
 package com.baidu.swan.apps.j;
 
 import android.content.ContentValues;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.a;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public String cMA;
-    public String cMB;
-    public String cMC;
-    public String cMD;
-    public String cME;
-    public String cMF;
-    public String cMG;
-    public String cMH;
-    public String cMI;
-    public String cMJ;
-    public String cMK;
-    public String cML;
-    public String cMM;
-    public String cMN;
-    public String cMO;
-    public String cMP;
-    public String cMQ;
-    public String cMq;
-    public String cMr;
-    public String cMs;
-    public String cMt;
-    public String cMu;
-    public String cMv;
-    public String cMw;
-    public String cMx;
-    public String cMy;
-    public String cMz;
+    public String cRA;
+    public String cRB;
+    public String cRC;
+    public String cRD;
+    public String cRE;
+    public String cRF;
+    public String cRG;
+    public String cRH;
+    public String cRI;
+    public String cRJ;
+    public String cRK;
+    public String cRL;
+    public String cRl;
+    public String cRm;
+    public String cRn;
+    public String cRo;
+    public String cRp;
+    public String cRq;
+    public String cRr;
+    public String cRs;
+    public String cRt;
+    public String cRu;
+    public String cRv;
+    public String cRw;
+    public String cRx;
+    public String cRy;
+    public String cRz;
     public String email;
     public String nickName;
     public String remark;
@@ -43,63 +43,63 @@ public class a {
     public String url;
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.cMt);
+        return !TextUtils.isEmpty(this.cRo);
     }
 
-    public static a be(JSONObject jSONObject) {
+    public static a bm(JSONObject jSONObject) {
         a aVar = new a();
         if (jSONObject != null) {
-            aVar.cMq = jSONObject.optString("photoFilePath");
+            aVar.cRl = jSONObject.optString("photoFilePath");
             aVar.nickName = jSONObject.optString("nickName");
-            aVar.cMr = jSONObject.optString("lastName");
-            aVar.cMs = jSONObject.optString("middleName");
-            aVar.cMt = jSONObject.optString("firstName");
+            aVar.cRm = jSONObject.optString("lastName");
+            aVar.cRn = jSONObject.optString("middleName");
+            aVar.cRo = jSONObject.optString("firstName");
             aVar.remark = jSONObject.optString("remark");
-            aVar.cMu = jSONObject.optString("mobilePhoneNumber");
-            aVar.cMv = jSONObject.optString("weChatNumber");
-            aVar.cMw = jSONObject.optString("addressCountry");
-            aVar.cMx = jSONObject.optString("addressState");
-            aVar.cMy = jSONObject.optString("addressCity");
-            aVar.cMz = jSONObject.optString("addressStreet");
-            aVar.cMA = jSONObject.optString("addressPostalCode");
-            aVar.cMB = jSONObject.optString("organization");
+            aVar.cRp = jSONObject.optString("mobilePhoneNumber");
+            aVar.cRq = jSONObject.optString("weChatNumber");
+            aVar.cRr = jSONObject.optString("addressCountry");
+            aVar.cRs = jSONObject.optString("addressState");
+            aVar.cRt = jSONObject.optString("addressCity");
+            aVar.cRu = jSONObject.optString("addressStreet");
+            aVar.cRv = jSONObject.optString("addressPostalCode");
+            aVar.cRw = jSONObject.optString("organization");
             aVar.title = jSONObject.optString("title");
-            aVar.cMC = jSONObject.optString("workFaxNumber");
-            aVar.cMD = jSONObject.optString("workPhoneNumber");
-            aVar.cME = jSONObject.optString("hostNumber");
+            aVar.cRx = jSONObject.optString("workFaxNumber");
+            aVar.cRy = jSONObject.optString("workPhoneNumber");
+            aVar.cRz = jSONObject.optString("hostNumber");
             aVar.email = jSONObject.optString(NotificationCompat.CATEGORY_EMAIL);
             aVar.url = jSONObject.optString("url");
-            aVar.cMF = jSONObject.optString("workAddressCountry");
-            aVar.cMG = jSONObject.optString("workAddressState");
-            aVar.cMH = jSONObject.optString("workAddressCity");
-            aVar.cMI = jSONObject.optString("workAddressStreet");
-            aVar.cMJ = jSONObject.optString("workAddressPostalCode");
-            aVar.cMK = jSONObject.optString("homeFaxNumber");
-            aVar.cML = jSONObject.optString("homePhoneNumber");
-            aVar.cMM = jSONObject.optString("homeAddressCountry");
-            aVar.cMN = jSONObject.optString("homeAddressState");
-            aVar.cMO = jSONObject.optString("homeAddressCity");
-            aVar.cMP = jSONObject.optString("homeAddressStreet");
-            aVar.cMQ = jSONObject.optString("homeAddressPostalCode");
+            aVar.cRA = jSONObject.optString("workAddressCountry");
+            aVar.cRB = jSONObject.optString("workAddressState");
+            aVar.cRC = jSONObject.optString("workAddressCity");
+            aVar.cRD = jSONObject.optString("workAddressStreet");
+            aVar.cRE = jSONObject.optString("workAddressPostalCode");
+            aVar.cRF = jSONObject.optString("homeFaxNumber");
+            aVar.cRG = jSONObject.optString("homePhoneNumber");
+            aVar.cRH = jSONObject.optString("homeAddressCountry");
+            aVar.cRI = jSONObject.optString("homeAddressState");
+            aVar.cRJ = jSONObject.optString("homeAddressCity");
+            aVar.cRK = jSONObject.optString("homeAddressStreet");
+            aVar.cRL = jSONObject.optString("homeAddressPostalCode");
         }
         return aVar;
     }
 
     public String getDisplayName() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.cMr)) {
-            sb.append(this.cMr);
+        if (!TextUtils.isEmpty(this.cRm)) {
+            sb.append(this.cRm);
         }
-        if (!TextUtils.isEmpty(this.cMs)) {
-            sb.append(this.cMs);
+        if (!TextUtils.isEmpty(this.cRn)) {
+            sb.append(this.cRn);
         }
-        if (!TextUtils.isEmpty(this.cMt)) {
-            sb.append(this.cMt);
+        if (!TextUtils.isEmpty(this.cRo)) {
+            sb.append(this.cRo);
         }
         return sb.toString();
     }
 
-    public ContentValues aoX() {
+    public ContentValues aqk() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/nickname");
         contentValues.put("data2", (Integer) 1);
@@ -107,80 +107,80 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues aoY() {
+    public ContentValues aql() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/note");
         contentValues.put("data1", this.remark);
         return contentValues;
     }
 
-    public ContentValues aoZ() {
+    public ContentValues aqm() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 2);
-        contentValues.put("data1", this.cMu);
+        contentValues.put("data1", this.cRp);
         return contentValues;
     }
 
-    public ContentValues apa() {
+    public ContentValues aqn() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 1);
-        contentValues.put("data1", this.cML);
+        contentValues.put("data1", this.cRG);
         return contentValues;
     }
 
-    public ContentValues apb() {
+    public ContentValues aqo() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 3);
-        contentValues.put("data1", this.cMD);
+        contentValues.put("data1", this.cRy);
         return contentValues;
     }
 
-    public ContentValues apc() {
+    public ContentValues aqp() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 10);
-        contentValues.put("data1", this.cME);
+        contentValues.put("data1", this.cRz);
         return contentValues;
     }
 
-    public ContentValues apd() {
+    public ContentValues aqq() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 5);
-        contentValues.put("data1", this.cMK);
+        contentValues.put("data1", this.cRF);
         return contentValues;
     }
 
-    public ContentValues ape() {
+    public ContentValues aqr() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 4);
-        contentValues.put("data1", this.cMC);
+        contentValues.put("data1", this.cRx);
         return contentValues;
     }
 
-    public ContentValues apf() {
+    public ContentValues aqs() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/im");
         contentValues.put("data5", (Integer) (-1));
         contentValues.put("data6", AppRuntime.getAppContext().getString(a.h.aiapps_cantact_wechat_lable));
-        contentValues.put("data1", this.cMv);
+        contentValues.put("data1", this.cRq);
         return contentValues;
     }
 
-    public ContentValues apg() {
+    public ContentValues aqt() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/organization");
         contentValues.put("data2", (Integer) 1);
-        contentValues.put("data1", this.cMB);
+        contentValues.put("data1", this.cRw);
         contentValues.put("data4", this.title);
         return contentValues;
     }
 
-    public ContentValues aph() {
+    public ContentValues aqu() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/website");
         contentValues.put("data2", (Integer) 1);
@@ -188,89 +188,89 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues apj() {
+    public ContentValues aqv() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
         contentValues.put("data2", (Integer) 3);
-        contentValues.put("data1", apo());
-        contentValues.put("data9", this.cMA);
+        contentValues.put("data1", aqA());
+        contentValues.put("data9", this.cRv);
         return contentValues;
     }
 
-    public ContentValues apk() {
+    public ContentValues aqw() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
         contentValues.put("data2", (Integer) 2);
-        contentValues.put("data1", apn());
-        contentValues.put("data9", this.cMJ);
+        contentValues.put("data1", aqz());
+        contentValues.put("data9", this.cRE);
         return contentValues;
     }
 
-    public ContentValues apl() {
+    public ContentValues aqx() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
         contentValues.put("data2", (Integer) 1);
-        contentValues.put("data1", apm());
-        contentValues.put("data9", this.cMQ);
+        contentValues.put("data1", aqy());
+        contentValues.put("data9", this.cRL);
         return contentValues;
     }
 
-    public String apm() {
+    public String aqy() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.cMM)) {
-            sb.append(this.cMM);
+        if (!TextUtils.isEmpty(this.cRH)) {
+            sb.append(this.cRH);
         }
-        if (!TextUtils.isEmpty(this.cMN)) {
-            sb.append(this.cMN);
+        if (!TextUtils.isEmpty(this.cRI)) {
+            sb.append(this.cRI);
         }
-        if (!TextUtils.isEmpty(this.cMO)) {
-            sb.append(this.cMO);
+        if (!TextUtils.isEmpty(this.cRJ)) {
+            sb.append(this.cRJ);
         }
-        if (!TextUtils.isEmpty(this.cMP)) {
-            sb.append(this.cMP);
+        if (!TextUtils.isEmpty(this.cRK)) {
+            sb.append(this.cRK);
         }
-        if (!TextUtils.isEmpty(this.cMQ)) {
-            sb.append(" ").append(this.cMQ);
+        if (!TextUtils.isEmpty(this.cRL)) {
+            sb.append(" ").append(this.cRL);
         }
         return sb.toString();
     }
 
-    public String apn() {
+    public String aqz() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.cMF)) {
-            sb.append(this.cMF);
+        if (!TextUtils.isEmpty(this.cRA)) {
+            sb.append(this.cRA);
         }
-        if (!TextUtils.isEmpty(this.cMG)) {
-            sb.append(this.cMG);
+        if (!TextUtils.isEmpty(this.cRB)) {
+            sb.append(this.cRB);
         }
-        if (!TextUtils.isEmpty(this.cMH)) {
-            sb.append(this.cMH);
+        if (!TextUtils.isEmpty(this.cRC)) {
+            sb.append(this.cRC);
         }
-        if (!TextUtils.isEmpty(this.cMI)) {
-            sb.append(this.cMI);
+        if (!TextUtils.isEmpty(this.cRD)) {
+            sb.append(this.cRD);
         }
-        if (!TextUtils.isEmpty(this.cMJ)) {
-            sb.append(" ").append(this.cMJ);
+        if (!TextUtils.isEmpty(this.cRE)) {
+            sb.append(" ").append(this.cRE);
         }
         return sb.toString();
     }
 
-    public String apo() {
+    public String aqA() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.cMw)) {
-            sb.append(this.cMw);
+        if (!TextUtils.isEmpty(this.cRr)) {
+            sb.append(this.cRr);
         }
-        if (!TextUtils.isEmpty(this.cMx)) {
-            sb.append(this.cMx);
+        if (!TextUtils.isEmpty(this.cRs)) {
+            sb.append(this.cRs);
         }
-        if (!TextUtils.isEmpty(this.cMy)) {
-            sb.append(this.cMy);
+        if (!TextUtils.isEmpty(this.cRt)) {
+            sb.append(this.cRt);
         }
-        if (!TextUtils.isEmpty(this.cMz)) {
-            sb.append(this.cMz);
+        if (!TextUtils.isEmpty(this.cRu)) {
+            sb.append(this.cRu);
         }
-        if (!TextUtils.isEmpty(this.cMA)) {
-            sb.append(" ").append(this.cMA);
+        if (!TextUtils.isEmpty(this.cRv)) {
+            sb.append(" ").append(this.cRv);
         }
         return sb.toString();
     }

@@ -1,7 +1,7 @@
 package com.google.zxing.qrcode.decoder;
 
 import com.google.zxing.qrcode.decoder.Version;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class DataBlock {
     private final byte[] codewords;
     private final int numDataCodewords;
@@ -23,59 +23,53 @@ final class DataBlock {
             i += ecb.getCount();
         }
         DataBlock[] dataBlockArr = new DataBlock[i];
-        int length = eCBlocks.length;
         int i2 = 0;
-        int i3 = 0;
-        while (i2 < length) {
-            Version.ECB ecb2 = eCBlocks[i2];
-            int i4 = i3;
-            int i5 = 0;
-            while (i5 < ecb2.getCount()) {
+        for (Version.ECB ecb2 : eCBlocks) {
+            int i3 = 0;
+            while (i3 < ecb2.getCount()) {
                 int dataCodewords = ecb2.getDataCodewords();
-                dataBlockArr[i4] = new DataBlock(dataCodewords, new byte[eCBlocksForLevel.getECCodewordsPerBlock() + dataCodewords]);
-                i5++;
-                i4++;
+                dataBlockArr[i2] = new DataBlock(dataCodewords, new byte[eCBlocksForLevel.getECCodewordsPerBlock() + dataCodewords]);
+                i3++;
+                i2++;
             }
-            i2++;
-            i3 = i4;
         }
-        int length2 = dataBlockArr[0].codewords.length;
-        int length3 = dataBlockArr.length - 1;
-        while (length3 >= 0 && dataBlockArr[length3].codewords.length != length2) {
-            length3--;
+        int length = dataBlockArr[0].codewords.length;
+        int length2 = dataBlockArr.length - 1;
+        while (length2 >= 0 && dataBlockArr[length2].codewords.length != length) {
+            length2--;
         }
-        int i6 = length3 + 1;
-        int eCCodewordsPerBlock = length2 - eCBlocksForLevel.getECCodewordsPerBlock();
-        int i7 = 0;
-        int i8 = 0;
-        while (i7 < eCCodewordsPerBlock) {
-            int i9 = i8;
+        int i4 = length2 + 1;
+        int eCCodewordsPerBlock = length - eCBlocksForLevel.getECCodewordsPerBlock();
+        int i5 = 0;
+        int i6 = 0;
+        while (i5 < eCCodewordsPerBlock) {
+            int i7 = 0;
+            int i8 = i6;
+            while (i7 < i2) {
+                dataBlockArr[i7].codewords[i5] = bArr[i8];
+                i7++;
+                i8++;
+            }
+            i5++;
+            i6 = i8;
+        }
+        int i9 = i4;
+        while (i9 < i2) {
+            dataBlockArr[i9].codewords[eCCodewordsPerBlock] = bArr[i6];
+            i9++;
+            i6++;
+        }
+        int length3 = dataBlockArr[0].codewords.length;
+        while (eCCodewordsPerBlock < length3) {
             int i10 = 0;
-            while (i10 < i3) {
-                dataBlockArr[i10].codewords[i7] = bArr[i9];
+            int i11 = i6;
+            while (i10 < i2) {
+                dataBlockArr[i10].codewords[i10 < i4 ? eCCodewordsPerBlock : eCCodewordsPerBlock + 1] = bArr[i11];
                 i10++;
-                i9++;
-            }
-            i7++;
-            i8 = i9;
-        }
-        int i11 = i6;
-        while (i11 < i3) {
-            dataBlockArr[i11].codewords[eCCodewordsPerBlock] = bArr[i8];
-            i11++;
-            i8++;
-        }
-        int length4 = dataBlockArr[0].codewords.length;
-        while (eCCodewordsPerBlock < length4) {
-            int i12 = 0;
-            int i13 = i8;
-            while (i12 < i3) {
-                dataBlockArr[i12].codewords[i12 < i6 ? eCCodewordsPerBlock : eCCodewordsPerBlock + 1] = bArr[i13];
-                i12++;
-                i13++;
+                i11++;
             }
             eCCodewordsPerBlock++;
-            i8 = i13;
+            i6 = i11;
         }
         return dataBlockArr;
     }

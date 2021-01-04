@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int Jg;
-    private a Jh;
+    private a IE;
+    private int mUid;
 
-    public a lm() throws IOException {
+    public a kI() throws IOException {
         a aVar = new a();
-        aVar.Jj = bu("/proc/uid_stat/" + this.Jg + "/tcp_rcv");
-        aVar.Jk = bu("/proc/uid_stat/" + this.Jg + "/tcp_snd");
-        aVar.Ji = d.g(aVar.Jj + aVar.Jk);
+        aVar.IG = bp("/proc/uid_stat/" + this.mUid + "/tcp_rcv");
+        aVar.IH = bp("/proc/uid_stat/" + this.mUid + "/tcp_snd");
+        aVar.IF = d.g(aVar.IG + aVar.IH);
         return aVar;
     }
 
-    public a ln() throws IOException {
-        a lm = lm();
-        this.Jh.Jj = d.g(lm.Jj - d.ll().Jj);
-        this.Jh.Jk = d.g(lm.Jk - d.ll().Jk);
-        this.Jh.Ji = d.g(lm.Ji - d.ll().Ji);
-        return this.Jh;
+    public a kJ() throws IOException {
+        a kI = kI();
+        this.IE.IG = d.g(kI.IG - d.kH().IG);
+        this.IE.IH = d.g(kI.IH - d.kH().IH);
+        this.IE.IF = d.g(kI.IF - d.kH().IF);
+        return this.IE;
     }
 
-    public double bu(String str) {
+    public double bp(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(ln());
+                d.a(kJ());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!lj()) {
+            if (!kF()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double Ji = 0.0d;
-        double Jj = 0.0d;
-        double Jk = 0.0d;
+        double IF = 0.0d;
+        double IG = 0.0d;
+        double IH = 0.0d;
 
         public a() {
         }

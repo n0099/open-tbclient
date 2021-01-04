@@ -13,13 +13,13 @@ import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import com.baidu.tieba.ala.charm.data.ALaCharmDataList;
 import com.baidu.tieba.ala.charm.model.a;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b implements c {
-    private String aGk;
-    private boolean bns;
-    private com.baidu.tieba.ala.charm.model.a gDD;
-    private c.a gDS;
-    private CustomMessageListener gDT;
+    private String aGB;
+    private boolean boZ;
+    private c.a gPE;
+    private CustomMessageListener gPF;
+    private com.baidu.tieba.ala.charm.model.a gPp;
     private String mGroupId;
     private String mLiveId;
     private String mOtherParams;
@@ -35,77 +35,80 @@ public class b implements c {
         this.mUserId = str;
         this.mGroupId = str2;
         this.mLiveId = str3;
-        this.bns = z;
-        this.aGk = str4;
+        this.boZ = z;
+        this.aGB = str4;
         this.mOtherParams = str5;
         registerListener();
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void a(c.a aVar) {
-        this.gDS = aVar;
+        this.gPE = aVar;
     }
 
     @Override // com.baidu.tieba.ala.charm.c
-    public void bFR() {
-        if (this.gDD == null) {
-            this.gDD = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0650a() { // from class: com.baidu.tieba.ala.charm.b.1
-                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0650a
+    public void bIm() {
+        if (this.gPp == null) {
+            this.gPp = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0641a() { // from class: com.baidu.tieba.ala.charm.b.1
+                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0641a
                 public void a(ALaCharmDataList aLaCharmDataList) {
                     b.this.b(aLaCharmDataList);
                 }
 
-                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0650a
-                public void t(int i, String str) {
-                    if (b.this.gDS != null) {
-                        b.this.gDS.vi(str);
+                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0641a
+                public void v(int i, String str) {
+                    if (b.this.gPE != null) {
+                        b.this.gPE.vh(str);
                     }
                 }
             });
         }
-        this.gDD.L(1, 20, 1);
+        this.gPp.N(1, 20, 1);
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void a(ALaCharmData aLaCharmData) {
         if (aLaCharmData != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913186));
-            if (this.gDS != null) {
-                this.gDS.onClose();
+            if (this.gPE != null) {
+                this.gPE.onClose();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.bns, this.aGk, null, aLaCharmData.user_name, this.mOtherParams)));
+            AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.boZ, this.aGB, null, aLaCharmData.user_name);
+            alaPersonCardActivityConfig.setOtherParams(this.mOtherParams);
+            alaPersonCardActivityConfig.setExtInfo(aLaCharmData.extInfoJson);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
         }
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void release() {
-        this.gDS = null;
-        if (this.gDT != null) {
-            MessageManager.getInstance().unRegisterListener(this.gDT);
+        this.gPE = null;
+        if (this.gPF != null) {
+            MessageManager.getInstance().unRegisterListener(this.gPF);
         }
-        if (this.gDD != null) {
-            this.gDD.onDestroy();
+        if (this.gPp != null) {
+            this.gPp.onDestroy();
         }
     }
 
     private void registerListener() {
-        this.gDT = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.b.2
+        this.gPF = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.gDS != null) {
-                    b.this.gDS.onClose();
+                if (b.this.gPE != null) {
+                    b.this.gPE.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.gDT);
+        MessageManager.getInstance().registerListener(this.gPF);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ALaCharmDataList aLaCharmDataList) {
         ArrayList<ALaCharmData> arrayList;
         String str;
-        if (this.gDS != null && aLaCharmDataList != null && (arrayList = aLaCharmDataList.data) != null) {
+        if (this.gPE != null && aLaCharmDataList != null && (arrayList = aLaCharmDataList.data) != null) {
             int size = arrayList.size();
             if (size > 3) {
                 if (size >= 20) {
@@ -113,10 +116,10 @@ public class b implements c {
                 } else {
                     str = "没有更多了哦";
                 }
-                this.gDS.b(arrayList.subList(0, 3), arrayList.subList(3, size), str);
+                this.gPE.b(arrayList.subList(0, 3), arrayList.subList(3, size), str);
                 return;
             }
-            this.gDS.b(arrayList.subList(0, size), null, null);
+            this.gPE.b(arrayList.subList(0, size), null, null);
         }
     }
 }

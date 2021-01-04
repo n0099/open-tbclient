@@ -4,9 +4,9 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.data.m;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaUpdateWishListResponseMessage extends JsonHttpResponsedMessage {
-    private m hHH;
+    private m hTH;
 
     public AlaUpdateWishListResponseMessage(int i) {
         super(i);
@@ -17,14 +17,14 @@ public class AlaUpdateWishListResponseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
-            this.hHH = new m();
+            this.hTH = new m();
             if (optJSONObject != null) {
-                this.hHH.parserJson(optJSONObject);
+                this.hTH.parserJson(optJSONObject);
             }
         }
     }
 
-    public m clT() {
-        return this.hHH;
+    public m coK() {
+        return this.hTH;
     }
 }

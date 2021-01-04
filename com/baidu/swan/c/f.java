@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static String streamToString(InputStream inputStream) {
         return streamToString(inputStream, Xml.Encoding.UTF_8.toString());
@@ -100,7 +100,7 @@ public class f {
         }
     }
 
-    public static boolean f(InputStream inputStream, String str) {
+    public static boolean i(InputStream inputStream, String str) {
         if (inputStream == null || TextUtils.isEmpty(str)) {
             return false;
         }

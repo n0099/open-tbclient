@@ -1,19 +1,21 @@
 package com.baidu.pano.platform.c;
 
 import android.content.Context;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f2677a = 0.0f;
-    private static float b = 0.0f;
+    private static float f3952a = 0.0f;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static float f3953b = 0.0f;
     private static int c;
 
     public static float a(Context context) {
-        if (f2677a == 0.0f) {
-            f2677a = context.getResources().getDisplayMetrics().density;
+        if (f3952a == 0.0f) {
+            f3952a = context.getResources().getDisplayMetrics().density;
         }
-        return f2677a;
+        return f3952a;
     }
 
     public static int b(Context context) {
@@ -24,10 +26,10 @@ public class h {
     }
 
     public static float c(Context context) {
-        if (b == 0.0f) {
-            b = context.getResources().getDisplayMetrics().scaledDensity;
+        if (f3953b == 0.0f) {
+            f3953b = context.getResources().getDisplayMetrics().scaledDensity;
         }
-        return b;
+        return f3953b;
     }
 
     public static int a(int i, Context context) {

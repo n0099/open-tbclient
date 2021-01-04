@@ -7,18 +7,18 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class d extends com.baidu.swan.apps.component.b.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public boolean dCa;
-    public List<String> dCb;
+    public boolean dKF;
+    public List<String> dKG;
     public String mSrc;
     public String mType;
     public String mUa;
 
     public d() {
         super("webView", "viewId");
-        this.dCa = true;
+        this.dKF = true;
     }
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
@@ -30,17 +30,17 @@ public final class d extends com.baidu.swan.apps.component.b.b {
             this.mType = jSONObject.optString("type");
             JSONArray optJSONArray = jSONObject.optJSONArray("targetUrls");
             if (optJSONArray != null && optJSONArray.length() != 0) {
-                this.dCb = new ArrayList();
+                this.dKG = new ArrayList();
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
-                    this.dCb.add(optJSONArray.optString(i));
+                    this.dKG.add(optJSONArray.optString(i));
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static d p(UnitedSchemeEntity unitedSchemeEntity) {
+    public static d o(UnitedSchemeEntity unitedSchemeEntity) {
         if (unitedSchemeEntity == null) {
             return null;
         }
@@ -57,6 +57,6 @@ public final class d extends com.baidu.swan.apps.component.b.b {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.cIW);
+        return !TextUtils.isEmpty(this.cNP);
     }
 }

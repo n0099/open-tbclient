@@ -1,18 +1,18 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes22.dex */
-public class a implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId lAy = BdUniqueId.gen();
-    public b lAz;
+/* loaded from: classes2.dex */
+public class a implements com.baidu.adp.widget.ListView.n {
+    public static final BdUniqueId lFE = BdUniqueId.gen();
+    public b lFF;
     public int locate;
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lAy;
+        return lFE;
     }
 
     public void a(b bVar) {
-        this.lAz = bVar;
+        this.lFF = bVar;
     }
 }

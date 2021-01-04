@@ -1,69 +1,64 @@
 package com.baidu.tieba.hottopic.adapter;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.TbPageContext;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-import com.baidu.tieba.hottopic.data.n;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes21.dex */
-public class e {
-    private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
-    private BdTypeListView gpZ;
-    private j kbE;
-    private h kbF;
-    private k kbG;
-    private f kbH;
-    private g kbI;
-    private a kbJ;
-    private i kbK;
+import com.baidu.tieba.hottopic.holder.HotTopicIntervalItemHolder;
+/* loaded from: classes8.dex */
+public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.g, HotTopicIntervalItemHolder> {
+    public int mSkinType;
 
-    public e(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
-        a(hotTopicActivity, bdTypeListView);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public e(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
+        super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
     }
 
-    private void a(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
-        this.kbH = new f(hotTopicActivity, com.baidu.tieba.hottopic.data.g.TYPE);
-        this.kbE = new j(hotTopicActivity, com.baidu.tieba.hottopic.data.m.kem);
-        this.kbF = new h(hotTopicActivity, com.baidu.tieba.hottopic.data.i.kdU);
-        this.kbG = new k(hotTopicActivity, n.kep);
-        TbPageContext pageContext = hotTopicActivity.getPageContext();
-        this.kbI = new g(pageContext, com.baidu.tieba.card.data.k.TYPE);
-        this.kbJ = new a(pageContext, com.baidu.tieba.card.data.l.eJq);
-        this.kbK = new i(pageContext, com.baidu.tieba.card.data.k.eJv);
-        this.bnf.add(this.kbE);
-        this.bnf.add(this.kbF);
-        this.bnf.add(this.kbG);
-        this.bnf.add(this.kbH);
-        this.bnf.add(this.kbI);
-        this.bnf.add(this.kbJ);
-        this.bnf.add(this.kbK);
-        this.gpZ = bdTypeListView;
-        this.gpZ.addAdapters(this.bnf);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: cc */
+    public HotTopicIntervalItemHolder e(ViewGroup viewGroup) {
+        return new HotTopicIntervalItemHolder(LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_interval, viewGroup, false));
     }
 
-    public void a(com.baidu.tieba.hottopic.data.e eVar) {
-        ArrayList<q> arrayList;
-        if (eVar.cSa() != null) {
-            arrayList = eVar.cSa();
-        } else {
-            arrayList = new ArrayList<>();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.hottopic.data.g gVar, HotTopicIntervalItemHolder hotTopicIntervalItemHolder) {
+        if (gVar != null && hotTopicIntervalItemHolder != null) {
+            a(hotTopicIntervalItemHolder, view);
+            a(hotTopicIntervalItemHolder, gVar);
         }
-        if (this.gpZ != null) {
-            this.gpZ.setData(arrayList);
+        return view;
+    }
+
+    private void a(HotTopicIntervalItemHolder hotTopicIntervalItemHolder, View view) {
+        if (hotTopicIntervalItemHolder != null) {
+            this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
+            if (hotTopicIntervalItemHolder.akW != this.mSkinType) {
+                hotTopicIntervalItemHolder.akW = this.mSkinType;
+                ao.setBackgroundColor(hotTopicIntervalItemHolder.getView(), R.color.CAM_X0201);
+                ao.setBackgroundColor(hotTopicIntervalItemHolder.ksi, R.color.CAM_X0204);
+                ao.setViewTextColor(hotTopicIntervalItemHolder.ksj, R.color.CAM_X0108, 1);
+            }
         }
     }
 
-    public void setFromCDN(boolean z) {
-        if (this.kbI != null) {
-            this.kbI.setFromCDN(z);
+    private void a(HotTopicIntervalItemHolder hotTopicIntervalItemHolder, com.baidu.tieba.hottopic.data.g gVar) {
+        if (hotTopicIntervalItemHolder == null || gVar == null || StringUtils.isNull(gVar.kqD)) {
+            if (hotTopicIntervalItemHolder != null) {
+                hotTopicIntervalItemHolder.ksj.setVisibility(8);
+                return;
+            }
+            return;
         }
-    }
-
-    public void notifyDataSetChanged() {
-        if (this.gpZ.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
-            this.gpZ.getAdapter().notifyDataSetChanged();
-        }
+        hotTopicIntervalItemHolder.ksj.setVisibility(0);
+        hotTopicIntervalItemHolder.ksj.setText(gVar.kqD);
     }
 }

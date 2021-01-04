@@ -7,8 +7,8 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.StatFs;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.ReflectUtils;
@@ -28,7 +28,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class SevenZipUtils {
     private static final String ASSETS_NAME_PREFIX = "file:///android_assets";
     private static final int BUF_SIZE = 512;

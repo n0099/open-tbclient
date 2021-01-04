@@ -1,6 +1,6 @@
 package com.baidu.searchbox.logsystem.uploadfile;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.bosuploader.BOSResponseEntity;
 import com.baidu.searchbox.aperf.bosuploader.BOSUploader;
 import com.baidu.searchbox.aperf.bosuploader.UploadUrlListener;
@@ -8,7 +8,7 @@ import com.baidu.searchbox.logsystem.basic.upload.BaseAttachFileUploader;
 import com.baidu.searchbox.logsystem.basic.upload.ResponseEntity;
 import com.baidu.searchbox.logsystem.basic.upload.identity.LokiIdentityManager;
 import java.io.File;
-/* loaded from: classes16.dex */
+/* loaded from: classes7.dex */
 public class BOSAttachFileUploader extends BaseAttachFileUploader {
     private static final String BIZ_CRASH = "crash";
 

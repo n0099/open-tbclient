@@ -1,21 +1,21 @@
 package com.baidu.live.im.b;
 
-import android.support.annotation.NonNull;
 import android.view.View;
-import com.baidu.live.data.ci;
+import androidx.annotation.NonNull;
+import com.baidu.live.data.ck;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface c {
     void f(Map<String, Integer> map);
 
-    ci getSelectInfo();
+    ck getSelectInfo();
 
     @NonNull
     View getView();
 
     void setCallback(e eVar);
 
-    void setData(ci[] ciVarArr, Map<String, Integer> map, int i);
+    void setData(ck[] ckVarArr, Map<String, Integer> map, int i);
 
     void setSelectEnabled(boolean z);
 

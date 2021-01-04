@@ -1,8 +1,8 @@
 package com.baidu.swan.games.u.a.b;
 
-import android.support.annotation.NonNull;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes9.dex */
 public interface b {
     @NonNull
-    a arY();
+    a atq();
 }

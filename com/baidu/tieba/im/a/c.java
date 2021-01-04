@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.a;
 
-import android.support.v4.util.LongSparseArray;
+import androidx.collection.LongSparseArray;
 import com.baidu.adp.framework.b.k;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;

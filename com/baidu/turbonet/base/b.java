@@ -6,19 +6,19 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b<E> implements Iterable<E> {
     static final /* synthetic */ boolean $assertionsDisabled;
     public final List<E> mObservers = new ArrayList();
-    private int oBn = 0;
+    private int mIterationDepth = 0;
     private int mCount = 0;
-    private boolean oBo = false;
+    private boolean mNeedsCompact = false;
 
     static {
         $assertionsDisabled = !b.class.desiredAssertionStatus();
     }
 
-    public boolean aT(E e) {
+    public boolean addObserver(E e) {
         if (e == null || this.mObservers.contains(e)) {
             return false;
         }
@@ -36,7 +36,7 @@ public class b<E> implements Iterable<E> {
     }
 
     private void compact() {
-        if (!$assertionsDisabled && this.oBn != 0) {
+        if (!$assertionsDisabled && this.mIterationDepth != 0) {
             throw new AssertionError();
         }
         for (int size = this.mObservers.size() - 1; size >= 0; size--) {
@@ -47,18 +47,18 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void egN() {
-        this.oBn++;
+    public void ehs() {
+        this.mIterationDepth++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void egO() {
-        this.oBn--;
-        if (!$assertionsDisabled && this.oBn < 0) {
+    public void eht() {
+        this.mIterationDepth--;
+        if (!$assertionsDisabled && this.mIterationDepth < 0) {
             throw new AssertionError();
         }
-        if (this.oBn <= 0 && this.oBo) {
-            this.oBo = false;
+        if (this.mIterationDepth <= 0 && this.mNeedsCompact) {
+            this.mNeedsCompact = false;
             compact();
         }
     }
@@ -69,48 +69,48 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public E Oa(int i) {
+    public E NU(int i) {
         return this.mObservers.get(i);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     private class a implements c<E> {
         private int mIndex;
-        private int oBp;
-        private boolean oBq;
+        private boolean mIsExhausted;
+        private int mListEndMarker;
 
         private a() {
             this.mIndex = 0;
-            this.oBq = false;
-            b.this.egN();
-            this.oBp = b.this.capacity();
+            this.mIsExhausted = false;
+            b.this.ehs();
+            this.mListEndMarker = b.this.capacity();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             int i = this.mIndex;
-            while (i < this.oBp && b.this.Oa(i) == null) {
+            while (i < this.mListEndMarker && b.this.NU(i) == null) {
                 i++;
             }
-            if (i < this.oBp) {
+            if (i < this.mListEndMarker) {
                 return true;
             }
-            egP();
+            ehu();
             return false;
         }
 
         @Override // java.util.Iterator
         public E next() {
-            while (this.mIndex < this.oBp && b.this.Oa(this.mIndex) == null) {
+            while (this.mIndex < this.mListEndMarker && b.this.NU(this.mIndex) == null) {
                 this.mIndex++;
             }
-            if (this.mIndex < this.oBp) {
+            if (this.mIndex < this.mListEndMarker) {
                 b bVar = b.this;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
-                return (E) bVar.Oa(i);
+                return (E) bVar.NU(i);
             }
-            egP();
+            ehu();
             throw new NoSuchElementException();
         }
 
@@ -119,10 +119,10 @@ public class b<E> implements Iterable<E> {
             throw new UnsupportedOperationException();
         }
 
-        private void egP() {
-            if (!this.oBq) {
-                this.oBq = true;
-                b.this.egO();
+        private void ehu() {
+            if (!this.mIsExhausted) {
+                this.mIsExhausted = true;
+                b.this.eht();
             }
         }
     }

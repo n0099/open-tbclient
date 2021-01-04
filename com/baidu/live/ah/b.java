@@ -1,23 +1,97 @@
 package com.baidu.live.ah;
 
-import com.baidu.live.data.w;
-import com.baidu.live.pendantview.PendantChildView;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public interface b {
-    void R(JSONObject jSONObject);
+import android.text.TextUtils;
+/* loaded from: classes11.dex */
+public class b {
+    public static String Tf() {
+        return a.bCu;
+    }
 
-    PendantChildView UC();
+    public static String Tg() {
+        return a.bCw;
+    }
 
-    void UD();
+    public static String il(String str) {
+        return !TextUtils.isEmpty(str) ? Tg() + "/" + str : "";
+    }
 
-    void UE();
+    public static String im(String str) {
+        return !TextUtils.isEmpty(str) ? il(str) + "/dest" : "";
+    }
 
-    void i(w wVar);
+    public static String in(String str) {
+        return !TextUtils.isEmpty(str) ? il(str) + "/video" : "";
+    }
 
-    void onDestroy();
+    public static String io(String str) {
+        return !TextUtils.isEmpty(str) ? il(str) + "/frame" : "";
+    }
 
-    void setCanVisible(boolean z);
+    public static String Th() {
+        return a.bCx;
+    }
 
-    void setOtherParams(String str);
+    public static String ip(String str) {
+        return !TextUtils.isEmpty(str) ? Th() + "/" + str : "";
+    }
+
+    public static String iq(String str) {
+        return !TextUtils.isEmpty(str) ? ip(str) + "/dest" : "";
+    }
+
+    public static String ir(String str) {
+        return !TextUtils.isEmpty(str) ? ip(str) + "/video" : "";
+    }
+
+    public static String is(String str) {
+        return !TextUtils.isEmpty(str) ? ip(str) + "/frame" : "";
+    }
+
+    public static String Ti() {
+        return a.bCy;
+    }
+
+    public static String Tj() {
+        return a.bCB;
+    }
+
+    public static String Tk() {
+        return Ti() + "/start";
+    }
+
+    public static String Tl() {
+        return Tj() + "/start";
+    }
+
+    public static String Tm() {
+        return Tk() + "/dest";
+    }
+
+    public static String Tn() {
+        return Tl() + "/dest";
+    }
+
+    public static String To() {
+        return Tk() + "/video";
+    }
+
+    public static String it(String str) {
+        return a.bCz + "/" + str + "/dest";
+    }
+
+    public static String iu(String str) {
+        return a.bCA + "/" + str + "/dest";
+    }
+
+    public static String iv(String str) {
+        return a.bCz + "/" + str;
+    }
+
+    public static String iw(String str) {
+        return a.bCA + "/" + str;
+    }
+
+    public static String Tp() {
+        return Tl() + "/video";
+    }
 }

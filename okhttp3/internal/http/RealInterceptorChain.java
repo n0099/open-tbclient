@@ -12,7 +12,7 @@ import okhttp3.Response;
 import okhttp3.internal.Util;
 import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.StreamAllocation;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class RealInterceptorChain implements Interceptor.Chain {
     private final Call call;
     private int calls;

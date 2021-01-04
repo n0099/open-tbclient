@@ -1,16 +1,17 @@
 package com.baidu.adp.widget.ListView;
 
-import android.view.ViewGroup;
-import java.util.List;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.R;
+import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes.dex */
-public interface v<V extends ViewGroup> {
-    void addAdapters(List<a> list);
+public class v extends BaseCardInfo {
+    public static final BdUniqueId Yr = BdUniqueId.gen();
+    private int position = 0;
+    public int resId = R.drawable.new_pic_emotion_06;
+    public String showText;
 
-    List<q> getData();
-
-    r getListAdapter();
-
-    V getListView();
-
-    void setData(List<? extends q> list);
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
+    public BdUniqueId getType() {
+        return Yr;
+    }
 }

@@ -1,5 +1,6 @@
 package okhttp3.internal.http2;
 
+import com.baidu.live.tbadk.log.LogConfig;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.List;
@@ -9,7 +10,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http2.Hpack;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 final class Http2Writer implements Closeable {
     private static final Logger logger = Logger.getLogger(Http2.class.getName());
     private final boolean client;
@@ -27,7 +28,7 @@ final class Http2Writer implements Closeable {
 
     public synchronized void connectionPreface() throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         if (this.client) {
             if (logger.isLoggable(Level.FINE)) {
@@ -40,7 +41,7 @@ final class Http2Writer implements Closeable {
 
     public synchronized void applyAndAckSettings(Settings settings) throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         this.maxFrameSize = settings.getMaxFrameSize(this.maxFrameSize);
         if (settings.getHeaderTableSize() != -1) {
@@ -52,7 +53,7 @@ final class Http2Writer implements Closeable {
 
     public synchronized void pushPromise(int i, int i2, List<Header> list) throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         this.hpackWriter.writeHeaders(list);
         long size = this.hpackBuffer.size();
@@ -67,35 +68,35 @@ final class Http2Writer implements Closeable {
 
     public synchronized void flush() throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         this.sink.flush();
     }
 
     public synchronized void synStream(boolean z, int i, int i2, List<Header> list) throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         headers(z, i, list);
     }
 
     public synchronized void synReply(boolean z, int i, List<Header> list) throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         headers(z, i, list);
     }
 
     public synchronized void headers(int i, List<Header> list) throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         headers(false, i, list);
     }
 
     public synchronized void rstStream(int i, ErrorCode errorCode) throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         if (errorCode.httpCode == -1) {
             throw new IllegalArgumentException();
@@ -111,13 +112,13 @@ final class Http2Writer implements Closeable {
 
     public synchronized void data(boolean z, int i, Buffer buffer, int i2) throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         dataFrame(i, z ? (byte) 1 : (byte) 0, buffer, i2);
     }
 
-    void dataFrame(int i, byte b, Buffer buffer, int i2) throws IOException {
-        frameHeader(i, i2, (byte) 0, b);
+    void dataFrame(int i, byte b2, Buffer buffer, int i2) throws IOException {
+        frameHeader(i, i2, (byte) 0, b2);
         if (i2 > 0) {
             this.sink.write(buffer, i2);
         }
@@ -128,7 +129,7 @@ final class Http2Writer implements Closeable {
         int i2 = 0;
         synchronized (this) {
             if (this.closed) {
-                throw new IOException("closed");
+                throw new IOException(LogConfig.TYPE_CLOSED);
             }
             frameHeader(0, settings.size() * 6, (byte) 4, (byte) 0);
             while (i2 < 10) {
@@ -150,7 +151,7 @@ final class Http2Writer implements Closeable {
     public synchronized void ping(boolean z, int i, int i2) throws IOException {
         synchronized (this) {
             if (this.closed) {
-                throw new IOException("closed");
+                throw new IOException(LogConfig.TYPE_CLOSED);
             }
             frameHeader(0, 8, (byte) 6, z ? (byte) 1 : (byte) 0);
             this.sink.writeInt(i);
@@ -161,7 +162,7 @@ final class Http2Writer implements Closeable {
 
     public synchronized void goAway(int i, ErrorCode errorCode, byte[] bArr) throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         if (errorCode.httpCode == -1) {
             throw Http2.illegalArgument("errorCode.httpCode == -1", new Object[0]);
@@ -177,7 +178,7 @@ final class Http2Writer implements Closeable {
 
     public synchronized void windowUpdate(int i, long j) throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         if (j == 0 || j > 2147483647L) {
             throw Http2.illegalArgument("windowSizeIncrement == 0 || windowSizeIncrement > 0x7fffffffL: %s", Long.valueOf(j));
@@ -187,9 +188,9 @@ final class Http2Writer implements Closeable {
         this.sink.flush();
     }
 
-    public void frameHeader(int i, int i2, byte b, byte b2) throws IOException {
+    public void frameHeader(int i, int i2, byte b2, byte b3) throws IOException {
         if (logger.isLoggable(Level.FINE)) {
-            logger.fine(Http2.frameLog(false, i, i2, b, b2));
+            logger.fine(Http2.frameLog(false, i, i2, b2, b3));
         }
         if (i2 > this.maxFrameSize) {
             throw Http2.illegalArgument("FRAME_SIZE_ERROR length > %d: %d", Integer.valueOf(this.maxFrameSize), Integer.valueOf(i2));
@@ -198,8 +199,8 @@ final class Http2Writer implements Closeable {
             throw Http2.illegalArgument("reserved bit set: %s", Integer.valueOf(i));
         }
         writeMedium(this.sink, i2);
-        this.sink.writeByte(b & 255);
         this.sink.writeByte(b2 & 255);
+        this.sink.writeByte(b3 & 255);
         this.sink.writeInt(Integer.MAX_VALUE & i);
     }
 
@@ -226,16 +227,16 @@ final class Http2Writer implements Closeable {
 
     void headers(boolean z, int i, List<Header> list) throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         this.hpackWriter.writeHeaders(list);
         long size = this.hpackBuffer.size();
         int min = (int) Math.min(this.maxFrameSize, size);
-        byte b = size == ((long) min) ? (byte) 4 : (byte) 0;
+        byte b2 = size == ((long) min) ? (byte) 4 : (byte) 0;
         if (z) {
-            b = (byte) (b | 1);
+            b2 = (byte) (b2 | 1);
         }
-        frameHeader(i, min, (byte) 1, b);
+        frameHeader(i, min, (byte) 1, b2);
         this.sink.write(this.hpackBuffer, min);
         if (size > min) {
             writeContinuationFrames(i, size - min);

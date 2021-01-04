@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class MusicData extends MusicBaseBean implements Serializable {
     public static final int CATEGORY_RECOMMEND = 1;
     public static final int CATEGORY_SEARCH = 2;
@@ -45,7 +45,6 @@ public class MusicData extends MusicBaseBean implements Serializable {
 
     public static MusicData parse(String str) {
         MusicData musicData;
-        Exception e;
         JSONObject jSONObject;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -53,9 +52,9 @@ public class MusicData extends MusicBaseBean implements Serializable {
         try {
             jSONObject = new JSONObject(str);
             musicData = new MusicData();
-        } catch (Exception e2) {
+        } catch (Exception e) {
+            e = e;
             musicData = null;
-            e = e2;
         }
         try {
             musicData.id = jSONObject.optString("music_id");
@@ -78,8 +77,8 @@ public class MusicData extends MusicBaseBean implements Serializable {
             musicData.collectStatus = jSONObject.optString("collect_status");
             musicData.mProgress = jSONObject.optInt("progress");
             return musicData;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             e.printStackTrace();
             return musicData;
         }

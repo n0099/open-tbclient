@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.live.tbadk.core.data.ConstantData;
-import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -33,7 +32,7 @@ public class ay {
             builder.cdn_src_active = jSONObject.optString("cdn_src_active");
             builder.count = Integer.valueOf(jSONObject.optInt("count"));
             builder.during_time = Integer.valueOf(jSONObject.optInt("during_time"));
-            builder.dynamic = jSONObject.optString(PraiseUBCHelper.SOURCE_DYNAMIC);
+            builder.dynamic = jSONObject.optString("dynamic");
             builder.e_type = Integer.valueOf(jSONObject.optInt("e_type"));
             JSONObject optJSONObject = jSONObject.optJSONObject("graffiti_info");
             if (optJSONObject != null) {

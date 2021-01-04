@@ -2,24 +2,24 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import java.util.List;
 import tbclient.UnreadTip.DataRes;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class e {
-    public int jUB;
-    public List<String> jUC;
-    public long jUD;
-    public String jUE;
+    public int khM;
+    public List<String> khN;
+    public long khO;
+    public String khP;
     public int mThreadCount;
 
-    public boolean cQn() {
-        return this.jUB > 0;
+    public boolean cTt() {
+        return this.khM > 0;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.jUB = dataRes.user_count.intValue();
-            this.jUC = dataRes.portrait_list;
-            this.jUD = dataRes.hide_unix.longValue() * 1000;
-            this.jUE = dataRes.show_tip;
+            this.khM = dataRes.user_count.intValue();
+            this.khN = dataRes.portrait_list;
+            this.khO = dataRes.hide_unix.longValue() * 1000;
+            this.khP = dataRes.show_tip;
             this.mThreadCount = dataRes.thread_count.intValue();
         }
     }

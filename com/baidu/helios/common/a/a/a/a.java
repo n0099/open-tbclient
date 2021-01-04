@@ -3,9 +3,9 @@ package com.baidu.helios.common.a.a.a;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class a {
-    public static final SecureRandom aex = new SecureRandom();
+    public static final SecureRandom afc = new SecureRandom();
 
     public static int a(BigInteger bigInteger) {
         return (bigInteger.bitLength() + 7) >> 3;
@@ -39,7 +39,7 @@ public final class a {
     }
 
     public static byte[] a(byte[] bArr, com.baidu.helios.common.a.b.a aVar) {
-        return a(bArr, aVar.zK(), aVar.zJ());
+        return a(bArr, aVar.zb(), aVar.za());
     }
 
     private static byte[] a(byte[] bArr, BigInteger bigInteger, BigInteger bigInteger2) {

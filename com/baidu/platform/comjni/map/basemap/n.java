@@ -4,12 +4,14 @@ import android.os.Bundle;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ long f3182a;
-    final /* synthetic */ long b;
+    final /* synthetic */ long f4748a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ long f4749b;
     final /* synthetic */ boolean c;
     final /* synthetic */ Bundle d;
     final /* synthetic */ NABaseMap e;
@@ -17,57 +19,48 @@ public class n implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(NABaseMap nABaseMap, long j, long j2, boolean z, Bundle bundle) {
         this.e = nABaseMap;
-        this.f3182a = j;
-        this.b = j2;
+        this.f4748a = j;
+        this.f4749b = j2;
         this.c = z;
         this.d = bundle;
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE, INVOKE, INVOKE] complete} */
     @Override // java.lang.Runnable
     public void run() {
         ReadWriteLock readWriteLock;
-        boolean z;
-        Throwable th;
         ReadWriteLock readWriteLock2;
         ReadWriteLock readWriteLock3;
+        ReadWriteLock readWriteLock4;
         boolean a2;
         long j;
-        ReadWriteLock readWriteLock4;
+        boolean z = false;
         try {
-            try {
-                readWriteLock3 = this.e.c;
-                boolean tryLock = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
-                if (tryLock) {
-                    try {
-                        a2 = this.e.a(this.f3182a);
-                        if (!a2) {
-                            NABaseMap nABaseMap = this.e;
-                            j = this.e.b;
-                            nABaseMap.nativeSetFocus(j, this.f3182a, this.b, this.c, this.d);
-                        }
-                    } catch (Throwable th2) {
-                        z = tryLock;
-                        th = th2;
-                        if (z) {
-                            readWriteLock2 = this.e.c;
-                            readWriteLock2.readLock().unlock();
-                        }
-                        throw th;
-                    }
+            readWriteLock3 = this.e.c;
+            z = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
+            if (z) {
+                a2 = this.e.a(this.f4748a);
+                if (!a2) {
+                    NABaseMap nABaseMap = this.e;
+                    j = this.e.f4723b;
+                    nABaseMap.nativeSetFocus(j, this.f4748a, this.f4749b, this.c, this.d);
                 }
-                if (tryLock) {
-                    readWriteLock4 = this.e.c;
-                    readWriteLock4.readLock().unlock();
-                }
-            } catch (Throwable th3) {
-                z = false;
-                th = th3;
+            }
+            if (z) {
+                readWriteLock4 = this.e.c;
+                readWriteLock4.readLock().unlock();
             }
         } catch (Exception e) {
-            if (0 != 0) {
+            if (z) {
+                readWriteLock2 = this.e.c;
+                readWriteLock2.readLock().unlock();
+            }
+        } catch (Throwable th) {
+            if (z) {
                 readWriteLock = this.e.c;
                 readWriteLock.readLock().unlock();
             }
+            throw th;
         }
     }
 }

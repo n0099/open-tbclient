@@ -1,5 +1,5 @@
 package com.baidu.ar.ability;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public enum AbilityType {
     TRACK_2D("ability_image_track"),
     TRACK_3D("ability_3d_track"),

@@ -26,7 +26,7 @@ public class n extends k {
             canvas.drawBitmap(bitmap, this.mRect, this.mBounds, this.mPaint);
         } else {
             this.mRect.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.Sy.drawImageTo(canvas, this.mRect, this.mBounds, this.mPaint);
+            dVar.SB.drawImageTo(canvas, this.mRect, this.mBounds, this.mPaint);
         }
         canvas.restore();
     }

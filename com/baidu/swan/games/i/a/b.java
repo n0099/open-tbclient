@@ -1,21 +1,21 @@
 package com.baidu.swan.games.i.a;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
-    private int eay;
-    private int eaz;
+    private int ejv;
+    private int ejw;
     @V8JavascriptField
     public String errMsg;
 
     public b() {
-        this.eay = 0;
-        int i = this.eay;
-        this.eay = i + 1;
-        this.eaz = i;
+        this.ejv = 0;
+        int i = this.ejv;
+        this.ejv = i + 1;
+        this.ejw = i;
     }
 
     public String toString() {
-        return "FileSystemJsCallBack" + this.eaz;
+        return "FileSystemJsCallBack" + this.ejw;
     }
 }

@@ -27,10 +27,9 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class Http2Codec implements HttpCodec {
     private static final String CONNECTION = "connection";
-    private static final String HOST = "host";
     private static final String PROXY_CONNECTION = "proxy-connection";
     private static final String TRANSFER_ENCODING = "transfer-encoding";
     private static final String UPGRADE = "upgrade";
@@ -39,11 +38,12 @@ public final class Http2Codec implements HttpCodec {
     private final Protocol protocol;
     private Http2Stream stream;
     final StreamAllocation streamAllocation;
+    private static final String HOST = "host";
     private static final String KEEP_ALIVE = "keep-alive";
     private static final String TE = "te";
     private static final String ENCODING = "encoding";
-    private static final List<String> HTTP_2_SKIPPED_REQUEST_HEADERS = Util.immutableList("connection", "host", KEEP_ALIVE, "proxy-connection", TE, "transfer-encoding", ENCODING, "upgrade", Header.TARGET_METHOD_UTF8, Header.TARGET_PATH_UTF8, Header.TARGET_SCHEME_UTF8, Header.TARGET_AUTHORITY_UTF8);
-    private static final List<String> HTTP_2_SKIPPED_RESPONSE_HEADERS = Util.immutableList("connection", "host", KEEP_ALIVE, "proxy-connection", TE, "transfer-encoding", ENCODING, "upgrade");
+    private static final List<String> HTTP_2_SKIPPED_REQUEST_HEADERS = Util.immutableList("connection", HOST, KEEP_ALIVE, "proxy-connection", TE, "transfer-encoding", ENCODING, "upgrade", Header.TARGET_METHOD_UTF8, Header.TARGET_PATH_UTF8, Header.TARGET_SCHEME_UTF8, Header.TARGET_AUTHORITY_UTF8);
+    private static final List<String> HTTP_2_SKIPPED_RESPONSE_HEADERS = Util.immutableList("connection", HOST, KEEP_ALIVE, "proxy-connection", TE, "transfer-encoding", ENCODING, "upgrade");
 
     public Http2Codec(OkHttpClient okHttpClient, Interceptor.Chain chain, StreamAllocation streamAllocation, Http2Connection http2Connection) {
         this.chain = chain;
@@ -106,9 +106,9 @@ public final class Http2Codec implements HttpCodec {
     }
 
     public static Response.Builder readHttp2HeadersList(Headers headers, Protocol protocol) throws IOException {
+        StatusLine statusLine = null;
         Headers.Builder builder = new Headers.Builder();
         int size = headers.size();
-        StatusLine statusLine = null;
         for (int i = 0; i < size; i++) {
             String name = headers.name(i);
             String value = headers.value(i);
@@ -137,7 +137,7 @@ public final class Http2Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     class StreamFinishingSource extends ForwardingSource {
         long bytesRead;
         boolean completed;

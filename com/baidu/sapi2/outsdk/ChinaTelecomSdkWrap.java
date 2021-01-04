@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import cn.com.chinatelecom.account.api.CtAuth;
 import cn.com.chinatelecom.account.api.CtSetting;
 import cn.com.chinatelecom.account.api.ResultListener;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -17,17 +18,19 @@ import com.baidu.sapi2.utils.SapiStatUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ChinaTelecomSdkWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f3478a = 30000;
-    private static final int b = 15000;
+    private static final int f5269a = 30000;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final int f5270b = 15000;
     private static final int c = 15000;
     private static String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public interface PreLoginCallback {
         void onError(int i);
 
@@ -36,7 +39,7 @@ public class ChinaTelecomSdkWrap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(SapiConfiguration sapiConfiguration, String str, String str2, int i, OneKeyLoginCallback oneKeyLoginCallback) {
-        Log.i(OneKeyLoginSdkCall.f3486a, "in china telecom login pre get phone info");
+        Log.i(OneKeyLoginSdkCall.f5285a, "in china telecom login pre get phone info");
         CtAuth.getInstance().init(sapiConfiguration.context, sapiConfiguration.chinaTelecomAppKey, sapiConfiguration.chinaTelecomAppSecret, null);
         d = str2;
         a(str, str2, i, (PreLoginCallback) null, oneKeyLoginCallback);
@@ -74,7 +77,7 @@ public class ChinaTelecomSdkWrap {
     private void a(final String str, final String str2, final int i, final PreLoginCallback preLoginCallback, final OneKeyLoginCallback oneKeyLoginCallback) {
         CtSetting ctSetting;
         if (i == 0) {
-            ctSetting = new CtSetting(15000, 15000, 30000);
+            ctSetting = new CtSetting(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL, BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL, 30000);
         } else {
             ctSetting = new CtSetting(i, i, i);
         }
@@ -83,21 +86,21 @@ public class ChinaTelecomSdkWrap {
             /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [154=4] */
             @Override // cn.com.chinatelecom.account.api.ResultListener
             public void onResult(String str3) {
+                String str4;
                 int i2 = 0;
-                Log.i(OneKeyLoginSdkCall.f3486a, "requestPreLogin result = " + str3);
-                String str4 = "-1";
+                Log.i(OneKeyLoginSdkCall.f5285a, "requestPreLogin result = " + str3);
                 try {
                     try {
                         JSONObject jSONObject = new JSONObject(str3);
                         int optInt = jSONObject.optInt("result");
-                        String str5 = optInt + "";
+                        str4 = optInt + "";
                         try {
                             if (optInt != 0) {
                                 if (preLoginCallback != null) {
                                     preLoginCallback.onError(optInt);
                                 }
                                 new OneKeyLoginSdkCall().b(oneKeyLoginCallback, -101, null);
-                                SapiStatUtil.statPreGetPhoneInfo(0, str5, "CT", str, str2);
+                                SapiStatUtil.statPreGetPhoneInfo(0, str4, "CT", str, str2);
                                 return;
                             }
                             JSONObject optJSONObject = jSONObject.optJSONObject("data");
@@ -106,7 +109,7 @@ public class ChinaTelecomSdkWrap {
                                     preLoginCallback.onError(-202);
                                 }
                                 new OneKeyLoginSdkCall().b(oneKeyLoginCallback, -101, null);
-                                SapiStatUtil.statPreGetPhoneInfo(0, str5, "CT", str, str2);
+                                SapiStatUtil.statPreGetPhoneInfo(0, str4, "CT", str, str2);
                                 return;
                             }
                             OneKeyLoginSdkCall.q = optJSONObject.optString("accessCode");
@@ -127,20 +130,19 @@ public class ChinaTelecomSdkWrap {
                                 if (preLoginCallback != null) {
                                     preLoginCallback.onSuccess();
                                 }
-                                SapiStatUtil.statPreGetPhoneInfo(i3, str5, "CT", str, str2);
+                                SapiStatUtil.statPreGetPhoneInfo(i3, str4, "CT", str, str2);
                             } catch (Throwable th) {
                                 th = th;
                                 i2 = i3;
-                                str4 = str5;
                                 SapiStatUtil.statPreGetPhoneInfo(i2, str4, "CT", str, str2);
                                 throw th;
                             }
                         } catch (Throwable th2) {
                             th = th2;
-                            str4 = str5;
                         }
                     } catch (Throwable th3) {
                         th = th3;
+                        str4 = "-1";
                     }
                 } catch (Exception e) {
                     Log.e(e);
@@ -152,7 +154,7 @@ public class ChinaTelecomSdkWrap {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final SapiConfiguration sapiConfiguration, String str, final OneKeyLoginSdkCall.TokenListener tokenListener) {
-        CtAuth.getInstance().requestLogin(str, new CtSetting(15000, 15000, 30000), new ResultListener() { // from class: com.baidu.sapi2.outsdk.ChinaTelecomSdkWrap.3
+        CtAuth.getInstance().requestLogin(str, new CtSetting(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL, BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL, 30000), new ResultListener() { // from class: com.baidu.sapi2.outsdk.ChinaTelecomSdkWrap.3
             @Override // cn.com.chinatelecom.account.api.ResultListener
             public void onResult(String str2) {
                 JSONObject jSONObject = new JSONObject();
@@ -165,7 +167,7 @@ public class ChinaTelecomSdkWrap {
                     }
                     jSONObject.put("code", jSONObject2.optInt("result"));
                     SapiContext.getInstance().put("china_telecom_expired_time", 0L);
-                    Log.i(OneKeyLoginSdkCall.f3486a, "in china telecom get token: " + jSONObject.toString());
+                    Log.i(OneKeyLoginSdkCall.f5285a, "in china telecom get token: " + jSONObject.toString());
                 } catch (Exception e) {
                     Log.e(e);
                 }

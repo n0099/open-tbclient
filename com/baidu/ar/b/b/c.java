@@ -1,16 +1,16 @@
 package com.baidu.ar.b.b;
 
 import com.baidu.ar.arplay.core.pixel.FramePixels;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public abstract class c<T> extends com.baidu.ar.c.a {
     private int cI;
 
     /* renamed from: cn  reason: collision with root package name */
-    FramePixels f1193cn;
+    FramePixels f1484cn;
 
     public c(int i, FramePixels framePixels) {
         this.cI = i;
-        this.f1193cn = framePixels;
+        this.f1484cn = framePixels;
     }
 
     @Override // com.baidu.ar.c.a
@@ -18,7 +18,7 @@ public abstract class c<T> extends com.baidu.ar.c.a {
         if (com.baidu.ar.b.a.as().c(this.cI)) {
             try {
                 com.baidu.ar.b.a.as().a(this.cI, true);
-                return e(this.f1193cn);
+                return e(this.f1484cn);
             } finally {
                 com.baidu.ar.b.a.as().a(this.cI, false);
             }

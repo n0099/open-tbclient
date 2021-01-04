@@ -3,58 +3,58 @@ package com.baidu.tieba.frs;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.core.view.PullRefreshFrameLayout;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class o {
-    private View iVl;
-    private int iVm = -1;
-    private int iVn = -1;
+    private View jhx;
+    private int jhy = -1;
+    private int jhz = -1;
 
     public o(View view) {
-        this.iVl = view;
+        this.jhx = view;
     }
 
     public int getOriginHeight() {
-        return this.iVm;
+        return this.jhy;
     }
 
     public void setOriginHeight(int i) {
-        this.iVm = i;
+        this.jhy = i;
     }
 
-    public void zL(int i) {
-        this.iVn = i;
+    public void zY(int i) {
+        this.jhz = i;
     }
 
     public void setHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.iVl != null && (layoutParams = this.iVl.getLayoutParams()) != null) {
+        if (this.jhx != null && (layoutParams = this.jhx.getLayoutParams()) != null) {
             layoutParams.height = i;
-            this.iVn = i;
-            this.iVl.setLayoutParams(layoutParams);
+            this.jhz = i;
+            this.jhx.setLayoutParams(layoutParams);
         }
     }
 
-    public void C(double d) {
-        if (this.iVl != null) {
-            int i = (int) (this.iVm + (PullRefreshFrameLayout.fbv * d));
-            ViewGroup.LayoutParams layoutParams = this.iVl.getLayoutParams();
+    public void B(double d) {
+        if (this.jhx != null) {
+            int i = (int) (this.jhy + (PullRefreshFrameLayout.fle * d));
+            ViewGroup.LayoutParams layoutParams = this.jhx.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
-                this.iVn = layoutParams.height;
-                this.iVl.setLayoutParams(layoutParams);
+                this.jhz = layoutParams.height;
+                this.jhx.setLayoutParams(layoutParams);
             }
         }
     }
 
     public int getHeight() {
         ViewGroup.LayoutParams layoutParams;
-        if (this.iVl == null || (layoutParams = this.iVl.getLayoutParams()) == null) {
+        if (this.jhx == null || (layoutParams = this.jhx.getLayoutParams()) == null) {
             return 0;
         }
         return layoutParams.height;
     }
 
-    public int cCX() {
-        return this.iVn;
+    public int cFR() {
+        return this.jhz;
     }
 }

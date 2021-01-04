@@ -4,8 +4,8 @@ import android.os.Build;
 import android.webkit.WebView;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h5power.DescriptionTableInfo;
 import java.util.ArrayList;
@@ -14,10 +14,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private ArrayList<a> noo = new ArrayList<>();
+    private ArrayList<a> ntZ = new ArrayList<>();
 
     public void a(a aVar) {
-        this.noo.add(aVar);
+        this.ntZ.add(aVar);
     }
 
     public c a(e eVar, c cVar) {
@@ -25,32 +25,32 @@ public class f {
             cVar = new c();
         }
         if (ActionJsonData.TAG_NOTIFICATION.equals(eVar.getModule()) && "addObserver".equals(eVar.getAction())) {
-            Iterator<a> it = this.noo.iterator();
+            Iterator<a> it = this.ntZ.iterator();
             while (true) {
                 if (it.hasNext()) {
-                    cVar = it.next().addObserver(eVar.dPS(), cVar, true);
-                    if (cVar.dPN()) {
+                    cVar = it.next().addObserver(eVar.dPO(), cVar, true);
+                    if (cVar.dPJ()) {
                         break;
                     }
-                } else if (!cVar.dPN()) {
-                    cVar.Ld(202);
-                    cVar.TK(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
+                } else if (!cVar.dPJ()) {
+                    cVar.KZ(202);
+                    cVar.Tu(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
                 }
             }
         } else {
             String module = eVar.getModule();
-            if (!au.isEmpty(module) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(module)) {
-                cVar.Ld(201);
+            if (!at.isEmpty(module) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(module)) {
+                cVar.KZ(201);
             } else {
-                Iterator<a> it2 = this.noo.iterator();
+                Iterator<a> it2 = this.ntZ.iterator();
                 while (true) {
                     if (it2.hasNext()) {
                         cVar = it2.next().dispatch(eVar, cVar);
-                        if (cVar.dPM()) {
+                        if (cVar.dPI()) {
                             break;
                         }
-                    } else if (!cVar.dPM()) {
-                        cVar.Ld(202);
+                    } else if (!cVar.dPI()) {
+                        cVar.KZ(202);
                     }
                 }
             }
@@ -59,23 +59,23 @@ public class f {
     }
 
     public void a(WebView webView, c cVar) {
-        if (webView != null && cVar != null && cVar.dPP()) {
-            callJsMethod(webView, cVar.getMethodName(), cVar.dPQ());
+        if (webView != null && cVar != null && cVar.dPL()) {
+            callJsMethod(webView, cVar.cxa(), cVar.dPM());
         }
     }
 
     public void a(WebView webView, List<c> list) {
-        if (webView != null && !y.isEmpty(list)) {
+        if (webView != null && !x.isEmpty(list)) {
             for (c cVar : list) {
-                if (cVar != null && cVar.dPP()) {
-                    callJsMethod(webView, cVar.getMethodName(), cVar.dPQ());
+                if (cVar != null && cVar.dPL()) {
+                    callJsMethod(webView, cVar.cxa(), cVar.dPM());
                 }
             }
         }
     }
 
     private void callJsMethod(WebView webView, String str, String str2) {
-        if (webView != null && !au.isEmpty(str) && !au.isEmpty(str2)) {
+        if (webView != null && !at.isEmpty(str) && !at.isEmpty(str2)) {
             if (Build.VERSION.SDK_INT >= 19) {
                 webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
             } else {
@@ -86,11 +86,11 @@ public class f {
 
     public List<c> f(String str, HashMap hashMap) {
         List<c> list = null;
-        if (!au.isEmpty(str)) {
-            Iterator<a> it = this.noo.iterator();
+        if (!at.isEmpty(str)) {
+            Iterator<a> it = this.ntZ.iterator();
             while (it.hasNext()) {
                 list = it.next().processNotification(str, hashMap);
-                if (!y.isEmpty(list)) {
+                if (!x.isEmpty(list)) {
                     break;
                 }
             }

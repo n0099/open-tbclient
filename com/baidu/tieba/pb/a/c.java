@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private View lCA;
-    private a lCz;
+    private a lHF;
+    private View lHG;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,16 +20,16 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.lCz = aVar;
+        this.lHF = aVar;
     }
 
     public void ad(View view) {
-        this.lCA = view;
+        this.lHG = view;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.lCA = view;
+        this.lHG = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -64,24 +64,24 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.lCz != null) {
-            return this.lCz.onDoubleTap(this.lCA, motionEvent);
+        if (this.lHF != null) {
+            return this.lHF.onDoubleTap(this.lHG, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.lCz != null) {
-            return this.lCz.onDoubleTapEvent(this.lCA, motionEvent);
+        if (this.lHF != null) {
+            return this.lHF.onDoubleTapEvent(this.lHG, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.lCz != null) {
-            return this.lCz.onSingleTapConfirmed(this.lCA, motionEvent);
+        if (this.lHF != null) {
+            return this.lHF.onSingleTapConfirmed(this.lHG, motionEvent);
         }
         return false;
     }

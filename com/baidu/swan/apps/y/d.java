@@ -5,42 +5,42 @@ import android.graphics.Rect;
 import android.util.Log;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
-    Rect bHi;
-    boolean cpz;
-    long dlS;
-    private WeakReference<Bitmap> dlU;
-    boolean dlV;
+    boolean cwE;
+    long dqR;
+    private WeakReference<Bitmap> dqT;
+    boolean dqU;
     String id;
+    Rect rect;
     String url;
-    int dlT = 0;
+    int dqS = 0;
     long startTime = System.currentTimeMillis();
-    int dlR = 0;
+    int dqQ = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, String str2, long j, boolean z) {
         this.id = str;
         this.url = str2;
-        this.dlS = j;
-        this.dlV = z;
+        this.dqR = j;
+        this.dqU = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aEO() {
-        if (this.dlS > 0) {
-            this.dlS -= System.currentTimeMillis() - this.startTime;
+    public long aGi() {
+        if (this.dqR > 0) {
+            this.dqR -= System.currentTimeMillis() - this.startTime;
         }
-        return this.dlS;
+        return this.dqR;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void pause() {
-        if (this.dlS > 0) {
-            this.dlS -= System.currentTimeMillis() - this.startTime;
+        if (this.dqR > 0) {
+            this.dqR -= System.currentTimeMillis() - this.startTime;
             if (DEBUG) {
-                Log.d("SwanAppPageMonitor", "pause, left " + this.dlS + "ms");
+                Log.d("SwanAppPageMonitor", "pause, left " + this.dqR + "ms");
             }
         }
     }
@@ -51,22 +51,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aEP() {
-        this.dlR = 1;
+    public void aGj() {
+        this.dqQ = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aEQ() {
-        this.dlR = 2;
+    public void aGk() {
+        this.dqQ = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isChecked() {
-        return this.dlR == 2;
+        return this.dqQ == 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void p(Bitmap bitmap) {
-        this.dlU = new WeakReference<>(bitmap);
+    public void q(Bitmap bitmap) {
+        this.dqT = new WeakReference<>(bitmap);
     }
 }

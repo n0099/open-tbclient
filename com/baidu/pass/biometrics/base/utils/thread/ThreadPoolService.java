@@ -4,25 +4,27 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class ThreadPoolService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f2720a = Runtime.getRuntime().availableProcessors();
-    private static final ThreadFactory b = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
+    private static final int f4023a = Runtime.getRuntime().availableProcessors();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final ThreadFactory f4024b = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
 
         /* renamed from: a  reason: collision with root package name */
-        private final AtomicInteger f2721a = new AtomicInteger(1);
+        private final AtomicInteger f4025a = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "pass_face_thread # " + this.f2721a.getAndIncrement());
+            return new Thread(runnable, "pass_face_thread # " + this.f4025a.getAndIncrement());
         }
     };
     private static final int c = 0;
@@ -30,7 +32,7 @@ public class ThreadPoolService {
     private ThreadPoolExecutor e;
     private Handler f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     private static class SingletonContainer {
         public static ThreadPoolService mSingleInstance = new ThreadPoolService();
 
@@ -62,7 +64,7 @@ public class ThreadPoolService {
                 }
             }
         };
-        this.e = new ThreadPoolExecutor(Math.max(2, Math.min(f2720a - 1, 4)), (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), b);
+        this.e = new ThreadPoolExecutor(Math.max(2, Math.min(f4023a - 1, 4)), (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f4024b);
         if (Build.VERSION.SDK_INT >= 9) {
             this.e.allowCoreThreadTimeOut(true);
         }

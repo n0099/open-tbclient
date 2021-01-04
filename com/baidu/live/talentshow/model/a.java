@@ -1,7 +1,7 @@
 package com.baidu.live.talentshow.model;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends HttpMessage {
     public a() {
         super(1021222);
@@ -19,7 +19,7 @@ public class a extends HttpMessage {
         addParam("im_uk", j);
     }
 
-    public void iR(String str) {
+    public void iG(String str) {
         addParam("subapp_type", str);
     }
 

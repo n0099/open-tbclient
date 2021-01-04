@@ -6,12 +6,12 @@ import com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AlaRecentHistoryActivity extends AbsTabActivity {
-    private AbsTabPagerAdapter gwf = new AlaRecentHistoryAdapter(getSupportFragmentManager());
+    private AbsTabPagerAdapter gHi = new AlaRecentHistoryAdapter(getSupportFragmentManager());
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
     }
@@ -47,7 +47,7 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     protected AbsTabPagerAdapter getAdapter() {
-        return this.gwf;
+        return this.gHi;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

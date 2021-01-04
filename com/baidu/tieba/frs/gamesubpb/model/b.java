@@ -1,19 +1,19 @@
 package com.baidu.tieba.frs.gamesubpb.model;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.ar.gesture.GestureAR;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
-public class b implements q {
-    public static final BdUniqueId jnH = BdUniqueId.gen();
+/* loaded from: classes2.dex */
+public class b implements n {
+    public static final BdUniqueId jAf = BdUniqueId.gen();
     public String content;
     public String createTime;
     public String forumId;
     public String id;
-    public String jnI;
-    public int jnJ;
-    public boolean jnK;
+    public String jAg;
+    public int jAh;
+    public boolean jAi;
     public String portrait;
     public String score;
     public String userId;
@@ -26,17 +26,17 @@ public class b implements q {
             this.forumId = jSONObject.optString("forum_id");
             this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             this.createTime = jSONObject.optString("create_time");
-            this.jnI = jSONObject.optString("time_passed");
+            this.jAg = jSONObject.optString("time_passed");
             this.content = jSONObject.optString("content");
-            this.jnJ = jSONObject.optInt("zan_num");
-            this.jnK = jSONObject.optInt("is_zan", 0) == 1;
+            this.jAh = jSONObject.optInt("zan_num");
+            this.jAi = jSONObject.optInt("is_zan", 0) == 1;
             this.userName = jSONObject.optString("user_name");
             this.portrait = jSONObject.optString("portrait");
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jnH;
+        return jAf;
     }
 }

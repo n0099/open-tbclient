@@ -1,0 +1,54 @@
+package com.kwad.sdk.draw.b;
+
+import android.widget.TextView;
+import com.kwad.sdk.R;
+import com.kwad.sdk.contentalliance.detail.video.e;
+import com.kwad.sdk.contentalliance.detail.video.f;
+/* loaded from: classes5.dex */
+public class c extends com.kwad.sdk.draw.a.a {
+
+    /* renamed from: b  reason: collision with root package name */
+    private TextView f10002b;
+    private e c = new f() { // from class: com.kwad.sdk.draw.b.c.1
+        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+        public void a(int i, int i2) {
+            c.this.f10002b.setVisibility(0);
+        }
+
+        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+        public void b() {
+            c.this.f10002b.setVisibility(8);
+        }
+
+        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+        public void d() {
+            c.this.f10002b.setVisibility(8);
+        }
+    };
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
+    public void a() {
+        super.a();
+        if (com.ksad.download.d.b.a(o())) {
+            this.f10002b.setVisibility(8);
+        } else {
+            this.f10002b.setVisibility(0);
+        }
+        this.f9972a.e.a(this.c);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.kwad.sdk.mvp.Presenter
+    public void b_() {
+        super.b_();
+        this.f9972a.e.b(this.c);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.kwad.sdk.mvp.Presenter
+    public void c() {
+        super.c();
+        this.f10002b = (TextView) b(R.id.ksad_video_fail_tip);
+    }
+}

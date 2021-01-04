@@ -4,56 +4,56 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c mGt;
-    private HashMap<String, com.baidu.tieba.quickWebView.data.a> mGq = new HashMap<>();
-    private com.baidu.tieba.quickWebView.data.b mGr = null;
-    private boolean mGs = false;
+    private static c mLK;
+    private HashMap<String, com.baidu.tieba.quickWebView.data.a> mLH = new HashMap<>();
+    private com.baidu.tieba.quickWebView.data.b mLI = null;
+    private boolean mLJ = false;
 
-    public static c dEI() {
-        if (mGt == null) {
+    public static c dEx() {
+        if (mLK == null) {
             synchronized (c.class) {
-                if (mGt == null) {
-                    mGt = new c();
+                if (mLK == null) {
+                    mLK = new c();
                 }
             }
         }
-        return mGt;
+        return mLK;
     }
 
     private c() {
     }
 
-    public com.baidu.tieba.quickWebView.data.a RO(String str) {
-        if (this.mGq == null || !this.mGs) {
+    public com.baidu.tieba.quickWebView.data.a Ru(String str) {
+        if (this.mLH == null || !this.mLJ) {
             return null;
         }
-        return this.mGq.get(str);
+        return this.mLH.get(str);
     }
 
-    public List<String> RP(String str) {
-        if (this.mGr == null || this.mGr.mGx == null || !this.mGs) {
+    public List<String> Rv(String str) {
+        if (this.mLI == null || this.mLI.mLO == null || !this.mLJ) {
             return null;
         }
-        return this.mGr.mGx.get(str);
+        return this.mLI.mLO.get(str);
     }
 
-    public void G(HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
-        this.mGq = hashMap;
+    public void F(HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
+        this.mLH = hashMap;
     }
 
-    public HashMap<String, com.baidu.tieba.quickWebView.data.a> dEJ() {
-        return this.mGq;
+    public HashMap<String, com.baidu.tieba.quickWebView.data.a> dEy() {
+        return this.mLH;
     }
 
     public void a(com.baidu.tieba.quickWebView.data.b bVar) {
-        this.mGr = bVar;
+        this.mLI = bVar;
     }
 
-    public boolean dEK() {
-        return this.mGs;
+    public boolean dEz() {
+        return this.mLJ;
     }
 
-    public void xj(boolean z) {
-        this.mGs = z;
+    public void xk(boolean z) {
+        this.mLJ = z;
     }
 }

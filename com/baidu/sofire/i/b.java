@@ -4,10 +4,10 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class b {
     public static void a(Context context, int i, boolean z) {
         long j = 600000;

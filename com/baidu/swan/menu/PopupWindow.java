@@ -13,55 +13,55 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import com.baidu.swan.menu.g;
+import com.baidu.swan.menu.f;
 import java.lang.ref.WeakReference;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PopupWindow {
-    private static final int[] ABOVE_ANCHOR_STATE_SET = {16842922};
-    private a elA;
-    private boolean mAboveAnchor;
-    private Drawable mAboveAnchorBackgroundDrawable;
-    private boolean mAllowScrollingAnchorParent;
-    private WeakReference<View> mAnchor;
-    private int mAnchorXoff;
-    private int mAnchorYoff;
-    private int mAnimationStyle;
+    private static final int[] eve = {16842922};
+    private boolean epJ;
+    private boolean euF;
+    private View euG;
+    private int euH;
+    private boolean euI;
+    private boolean euJ;
+    private int euK;
+    private boolean euL;
+    private boolean euM;
+    private boolean euN;
+    private boolean euO;
+    private boolean euP;
+    private View.OnTouchListener euQ;
+    private int euR;
+    private int euS;
+    private int euT;
+    private int euU;
+    private int[] euV;
+    private int[] euW;
+    private Drawable euX;
+    private Drawable euY;
+    private boolean euZ;
+    private int eva;
+    private a evb;
+    private boolean evc;
+    private int evd;
+    private WeakReference<View> evf;
+    private ViewTreeObserver.OnScrollChangedListener evg;
+    private int evh;
+    private int evi;
     private Drawable mBackground;
-    private Drawable mBelowAnchorBackgroundDrawable;
-    private boolean mClipToScreen;
-    private boolean mClippingEnabled;
     private View mContentView;
     private Context mContext;
-    private int[] mDrawingLocation;
     private boolean mFocusable;
     private int mHeight;
     private int mHeightMode;
-    private boolean mIgnoreCheekPress;
-    private int mInputMethodMode;
-    private boolean mIsDropdown;
-    private boolean mIsShowing;
-    private int mLastHeight;
-    private int mLastWidth;
-    private boolean mLayoutInScreen;
-    private boolean mLayoutInsetDecor;
-    private boolean mNotTouchModal;
-    private ViewTreeObserver.OnScrollChangedListener mOnScrollChangedListener;
     private boolean mOutsideTouchable;
-    private int mPopupHeight;
-    private View mPopupView;
-    private int mPopupWidth;
-    private int[] mScreenLocation;
     private int mSoftInputMode;
-    private int mSplitTouchEnabled;
     private Rect mTempRect;
-    private View.OnTouchListener mTouchInterceptor;
-    private boolean mTouchable;
     private int mWidth;
     private int mWidthMode;
-    private int mWindowLayoutType;
     private WindowManager mWindowManager;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void onDismiss();
     }
@@ -79,42 +79,42 @@ public class PopupWindow {
     }
 
     public PopupWindow(Context context, AttributeSet attributeSet, int i, int i2) {
-        this.mInputMethodMode = 0;
+        this.euH = 0;
         this.mSoftInputMode = 1;
-        this.mTouchable = true;
+        this.euI = true;
         this.mOutsideTouchable = false;
-        this.mClippingEnabled = true;
-        this.mSplitTouchEnabled = -1;
-        this.mAllowScrollingAnchorParent = true;
-        this.mLayoutInsetDecor = false;
-        this.mDrawingLocation = new int[2];
-        this.mScreenLocation = new int[2];
+        this.euJ = true;
+        this.euK = -1;
+        this.euN = true;
+        this.euO = false;
+        this.euV = new int[2];
+        this.euW = new int[2];
         this.mTempRect = new Rect();
-        this.mWindowLayoutType = 1000;
-        this.mIgnoreCheekPress = false;
-        this.mAnimationStyle = -1;
-        this.mOnScrollChangedListener = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.swan.menu.PopupWindow.1
+        this.eva = 1000;
+        this.evc = false;
+        this.evd = -1;
+        this.evg = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.swan.menu.PopupWindow.1
             @Override // android.view.ViewTreeObserver.OnScrollChangedListener
             public void onScrollChanged() {
                 View view;
-                if (PopupWindow.this.mAnchor != null) {
-                    view = (View) PopupWindow.this.mAnchor.get();
+                if (PopupWindow.this.evf != null) {
+                    view = (View) PopupWindow.this.evf.get();
                 } else {
                     view = null;
                 }
-                if (view != null && PopupWindow.this.mPopupView != null) {
-                    WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) PopupWindow.this.mPopupView.getLayoutParams();
-                    PopupWindow.this.updateAboveAnchor(PopupWindow.this.findDropDownPosition(view, layoutParams, PopupWindow.this.mAnchorXoff, PopupWindow.this.mAnchorYoff));
+                if (view != null && PopupWindow.this.euG != null) {
+                    WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) PopupWindow.this.euG.getLayoutParams();
+                    PopupWindow.this.iB(PopupWindow.this.b(view, layoutParams, PopupWindow.this.evh, PopupWindow.this.evi));
                     PopupWindow.this.update(layoutParams.x, layoutParams.y, -1, -1, true);
                 }
             }
         };
         this.mContext = context;
         this.mWindowManager = (WindowManager) context.getSystemService("window");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g.h.PopupWindow, i, i2);
-        this.mBackground = obtainStyledAttributes.getDrawable(g.h.PopupWindow_popupBackground);
-        int resourceId = obtainStyledAttributes.getResourceId(g.h.PopupWindow_popupAnimationStyle, -1);
-        this.mAnimationStyle = resourceId == 16973824 ? -1 : resourceId;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, f.h.PopupWindow, i, i2);
+        this.mBackground = obtainStyledAttributes.getDrawable(f.h.PopupWindow_popupBackground);
+        int resourceId = obtainStyledAttributes.getResourceId(f.h.PopupWindow_popupAnimationStyle, -1);
+        this.evd = resourceId == 16973824 ? -1 : resourceId;
         obtainStyledAttributes.recycle();
     }
 
@@ -127,32 +127,32 @@ public class PopupWindow {
     }
 
     public PopupWindow(View view, int i, int i2, boolean z) {
-        this.mInputMethodMode = 0;
+        this.euH = 0;
         this.mSoftInputMode = 1;
-        this.mTouchable = true;
+        this.euI = true;
         this.mOutsideTouchable = false;
-        this.mClippingEnabled = true;
-        this.mSplitTouchEnabled = -1;
-        this.mAllowScrollingAnchorParent = true;
-        this.mLayoutInsetDecor = false;
-        this.mDrawingLocation = new int[2];
-        this.mScreenLocation = new int[2];
+        this.euJ = true;
+        this.euK = -1;
+        this.euN = true;
+        this.euO = false;
+        this.euV = new int[2];
+        this.euW = new int[2];
         this.mTempRect = new Rect();
-        this.mWindowLayoutType = 1000;
-        this.mIgnoreCheekPress = false;
-        this.mAnimationStyle = -1;
-        this.mOnScrollChangedListener = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.swan.menu.PopupWindow.1
+        this.eva = 1000;
+        this.evc = false;
+        this.evd = -1;
+        this.evg = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.swan.menu.PopupWindow.1
             @Override // android.view.ViewTreeObserver.OnScrollChangedListener
             public void onScrollChanged() {
                 View view2;
-                if (PopupWindow.this.mAnchor != null) {
-                    view2 = (View) PopupWindow.this.mAnchor.get();
+                if (PopupWindow.this.evf != null) {
+                    view2 = (View) PopupWindow.this.evf.get();
                 } else {
                     view2 = null;
                 }
-                if (view2 != null && PopupWindow.this.mPopupView != null) {
-                    WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) PopupWindow.this.mPopupView.getLayoutParams();
-                    PopupWindow.this.updateAboveAnchor(PopupWindow.this.findDropDownPosition(view2, layoutParams, PopupWindow.this.mAnchorXoff, PopupWindow.this.mAnchorYoff));
+                if (view2 != null && PopupWindow.this.euG != null) {
+                    WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) PopupWindow.this.euG.getLayoutParams();
+                    PopupWindow.this.iB(PopupWindow.this.b(view2, layoutParams, PopupWindow.this.evh, PopupWindow.this.evi));
                     PopupWindow.this.update(layoutParams.x, layoutParams.y, -1, -1, true);
                 }
             }
@@ -172,7 +172,7 @@ public class PopupWindow {
     }
 
     public void setAnimationStyle(int i) {
-        this.mAnimationStyle = i;
+        this.evd = i;
     }
 
     public View getContentView() {
@@ -199,16 +199,16 @@ public class PopupWindow {
         this.mSoftInputMode = i;
     }
 
-    public void setOutsideTouchable(boolean z) {
+    public void eh(boolean z) {
         this.mOutsideTouchable = z;
     }
 
-    public void setClippingEnabled(boolean z) {
-        this.mClippingEnabled = z;
+    public void ei(boolean z) {
+        this.euJ = z;
     }
 
-    public boolean isSplitTouchEnabled() {
-        return (this.mSplitTouchEnabled >= 0 || this.mContext == null) ? this.mSplitTouchEnabled == 1 : this.mContext.getApplicationInfo().targetSdkVersion >= 11;
+    public boolean agb() {
+        return (this.euK >= 0 || this.mContext == null) ? this.euK == 1 : this.mContext.getApplicationInfo().targetSdkVersion >= 11;
     }
 
     public void setHeight(int i) {
@@ -220,88 +220,88 @@ public class PopupWindow {
     }
 
     public boolean isShowing() {
-        return this.mIsShowing;
+        return this.epJ;
     }
 
     public void showAtLocation(View view, int i, int i2, int i3) {
-        doShowAtLocation(view.getWindowToken(), i, i2, i3);
+        b(view.getWindowToken(), i, i2, i3);
     }
 
-    public void doShowAtLocation(IBinder iBinder, int i, int i2, int i3) {
+    public void b(IBinder iBinder, int i, int i2, int i3) {
         if (iBinder != null && !isShowing() && this.mContentView != null) {
-            unregisterForScrollChanged();
-            this.mIsShowing = true;
-            this.mIsDropdown = false;
-            WindowManager.LayoutParams createPopupLayout = createPopupLayout(iBinder);
-            createPopupLayout.windowAnimations = computeAnimationResource();
-            preparePopup(createPopupLayout);
+            bfk();
+            this.epJ = true;
+            this.euF = false;
+            WindowManager.LayoutParams d = d(iBinder);
+            d.windowAnimations = bfj();
+            c(d);
             if (i == 0) {
                 i = 51;
             }
-            createPopupLayout.gravity = i;
-            createPopupLayout.x = i2;
-            createPopupLayout.y = i3;
+            d.gravity = i;
+            d.x = i2;
+            d.y = i3;
             if (this.mHeightMode < 0) {
                 int i4 = this.mHeightMode;
-                this.mLastHeight = i4;
-                createPopupLayout.height = i4;
+                this.euS = i4;
+                d.height = i4;
             }
             if (this.mWidthMode < 0) {
                 int i5 = this.mWidthMode;
-                this.mLastWidth = i5;
-                createPopupLayout.width = i5;
+                this.euR = i5;
+                d.width = i5;
             }
-            invokePopup(createPopupLayout);
+            d(d);
         }
     }
 
     public void showAsDropDown(View view, int i, int i2) {
-        doShowAsDropDown(view, i, i2);
+        h(view, i, i2);
     }
 
-    public void doShowAsDropDown(View view, int i, int i2) {
+    public void h(View view, int i, int i2) {
         if (!isShowing() && this.mContentView != null) {
-            registerForScrollChanged(view, i, i2);
-            this.mIsShowing = true;
-            this.mIsDropdown = true;
-            WindowManager.LayoutParams createPopupLayout = createPopupLayout(view.getWindowToken());
-            preparePopup(createPopupLayout);
-            updateAboveAnchor(findDropDownPosition(view, createPopupLayout, i, i2));
+            i(view, i, i2);
+            this.epJ = true;
+            this.euF = true;
+            WindowManager.LayoutParams d = d(view.getWindowToken());
+            c(d);
+            iB(b(view, d, i, i2));
             if (this.mHeightMode < 0) {
                 int i3 = this.mHeightMode;
-                this.mLastHeight = i3;
-                createPopupLayout.height = i3;
+                this.euS = i3;
+                d.height = i3;
             }
             if (this.mWidthMode < 0) {
                 int i4 = this.mWidthMode;
-                this.mLastWidth = i4;
-                createPopupLayout.width = i4;
+                this.euR = i4;
+                d.width = i4;
             }
-            createPopupLayout.windowAnimations = computeAnimationResource();
-            invokePopup(createPopupLayout);
+            d.windowAnimations = bfj();
+            d(d);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateAboveAnchor(boolean z) {
-        if (z != this.mAboveAnchor) {
-            this.mAboveAnchor = z;
+    public void iB(boolean z) {
+        if (z != this.euZ) {
+            this.euZ = z;
             if (this.mBackground != null) {
-                if (this.mAboveAnchorBackgroundDrawable != null) {
-                    if (this.mAboveAnchor) {
-                        this.mPopupView.setBackgroundDrawable(this.mAboveAnchorBackgroundDrawable);
+                if (this.euX != null) {
+                    if (this.euZ) {
+                        this.euG.setBackgroundDrawable(this.euX);
                         return;
                     } else {
-                        this.mPopupView.setBackgroundDrawable(this.mBelowAnchorBackgroundDrawable);
+                        this.euG.setBackgroundDrawable(this.euY);
                         return;
                     }
                 }
-                this.mPopupView.refreshDrawableState();
+                this.euG.refreshDrawableState();
             }
         }
     }
 
-    private void preparePopup(WindowManager.LayoutParams layoutParams) {
+    private void c(WindowManager.LayoutParams layoutParams) {
         int i = -2;
         if (this.mContentView == null || this.mContext == null || this.mWindowManager == null) {
             throw new IllegalStateException("You must specify a valid content view by calling setContentView() before attempting to show the popup.");
@@ -315,120 +315,120 @@ public class PopupWindow {
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, i);
             bVar.setBackgroundDrawable(this.mBackground);
             bVar.addView(this.mContentView, layoutParams3);
-            this.mPopupView = bVar;
+            this.euG = bVar;
         } else {
-            this.mPopupView = this.mContentView;
+            this.euG = this.mContentView;
         }
-        this.mPopupWidth = layoutParams.width;
-        this.mPopupHeight = layoutParams.height;
+        this.euT = layoutParams.width;
+        this.euU = layoutParams.height;
     }
 
-    private void invokePopup(WindowManager.LayoutParams layoutParams) {
+    private void d(WindowManager.LayoutParams layoutParams) {
         if (this.mContext != null) {
             layoutParams.packageName = this.mContext.getPackageName();
         }
-        this.mWindowManager.addView(this.mPopupView, layoutParams);
+        this.mWindowManager.addView(this.euG, layoutParams);
     }
 
-    private WindowManager.LayoutParams createPopupLayout(IBinder iBinder) {
+    private WindowManager.LayoutParams d(IBinder iBinder) {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.gravity = 51;
         int i = this.mWidth;
-        this.mLastWidth = i;
+        this.euR = i;
         layoutParams.width = i;
         int i2 = this.mHeight;
-        this.mLastHeight = i2;
+        this.euS = i2;
         layoutParams.height = i2;
         if (this.mBackground != null) {
             layoutParams.format = this.mBackground.getOpacity();
         } else {
             layoutParams.format = -3;
         }
-        layoutParams.flags = computeFlags(layoutParams.flags);
-        layoutParams.type = this.mWindowLayoutType;
+        layoutParams.flags = nf(layoutParams.flags);
+        layoutParams.type = this.eva;
         layoutParams.token = iBinder;
         layoutParams.softInputMode = this.mSoftInputMode;
         layoutParams.setTitle("PopupWindow:" + Integer.toHexString(hashCode()));
         return layoutParams;
     }
 
-    private int computeFlags(int i) {
+    private int nf(int i) {
         int i2 = (-8815129) & i;
-        if (this.mIgnoreCheekPress) {
+        if (this.evc) {
             i2 |= 32768;
         }
         if (!this.mFocusable) {
             i2 |= 8;
-            if (this.mInputMethodMode == 1) {
+            if (this.euH == 1) {
                 i2 |= 131072;
             }
-        } else if (this.mInputMethodMode == 2) {
+        } else if (this.euH == 2) {
             i2 |= 131072;
         }
-        if (!this.mTouchable) {
+        if (!this.euI) {
             i2 |= 16;
         }
         if (this.mOutsideTouchable) {
             i2 |= 262144;
         }
-        if (!this.mClippingEnabled) {
+        if (!this.euJ) {
             i2 |= 512;
         }
-        if (isSplitTouchEnabled()) {
+        if (agb()) {
             i2 |= 8388608;
         }
-        if (this.mLayoutInScreen) {
+        if (this.euL) {
             i2 |= 256;
         }
-        if (this.mLayoutInsetDecor) {
+        if (this.euO) {
             i2 |= 65536;
         }
-        if (this.mNotTouchModal) {
+        if (this.euP) {
             return i2 | 32;
         }
         return i2;
     }
 
-    private int computeAnimationResource() {
-        if (this.mAnimationStyle == -1) {
-            if (this.mIsDropdown) {
-                return this.mAboveAnchor ? g.C0567g.PopupWindow_DropDownUp : g.C0567g.PopupWindow_DropDownDown;
+    private int bfj() {
+        if (this.evd == -1) {
+            if (this.euF) {
+                return this.euZ ? f.g.PopupWindow_DropDownUp : f.g.PopupWindow_DropDownDown;
             }
             return 0;
         }
-        return this.mAnimationStyle;
+        return this.evd;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean findDropDownPosition(View view, WindowManager.LayoutParams layoutParams, int i, int i2) {
+    public boolean b(View view, WindowManager.LayoutParams layoutParams, int i, int i2) {
         int height = view.getHeight();
-        view.getLocationInWindow(this.mDrawingLocation);
-        layoutParams.x = this.mDrawingLocation[0] + i;
-        layoutParams.y = this.mDrawingLocation[1] + height + i2;
+        view.getLocationInWindow(this.euV);
+        layoutParams.x = this.euV[0] + i;
+        layoutParams.y = this.euV[1] + height + i2;
         layoutParams.gravity = 51;
-        view.getLocationOnScreen(this.mScreenLocation);
+        view.getLocationOnScreen(this.euW);
         Rect rect = new Rect();
         view.getWindowVisibleDisplayFrame(rect);
         View rootView = view.getRootView();
-        if (height + this.mScreenLocation[1] + i2 + this.mPopupHeight > rect.bottom || (layoutParams.x + this.mPopupWidth) - rootView.getWidth() > 0) {
-            if (this.mAllowScrollingAnchorParent) {
+        if (height + this.euW[1] + i2 + this.euU > rect.bottom || (layoutParams.x + this.euT) - rootView.getWidth() > 0) {
+            if (this.euN) {
                 int scrollX = view.getScrollX();
                 int scrollY = view.getScrollY();
-                view.requestRectangleOnScreen(new Rect(scrollX, scrollY, this.mPopupWidth + scrollX + i, this.mPopupHeight + scrollY + view.getHeight() + i2), true);
+                view.requestRectangleOnScreen(new Rect(scrollX, scrollY, this.euT + scrollX + i, this.euU + scrollY + view.getHeight() + i2), true);
             }
-            view.getLocationInWindow(this.mDrawingLocation);
-            layoutParams.x = this.mDrawingLocation[0] + i;
-            layoutParams.y = this.mDrawingLocation[1] + view.getHeight() + i2;
-            view.getLocationOnScreen(this.mScreenLocation);
-            r0 = ((rect.bottom - this.mScreenLocation[1]) - view.getHeight()) - i2 < (this.mScreenLocation[1] - i2) - rect.top;
+            view.getLocationInWindow(this.euV);
+            layoutParams.x = this.euV[0] + i;
+            layoutParams.y = this.euV[1] + view.getHeight() + i2;
+            view.getLocationOnScreen(this.euW);
+            r0 = ((rect.bottom - this.euW[1]) - view.getHeight()) - i2 < (this.euW[1] - i2) - rect.top;
             if (r0) {
                 layoutParams.gravity = 83;
-                layoutParams.y = (rootView.getHeight() - this.mDrawingLocation[1]) + i2;
+                layoutParams.y = (rootView.getHeight() - this.euV[1]) + i2;
             } else {
-                layoutParams.y = this.mDrawingLocation[1] + view.getHeight() + i2;
+                layoutParams.y = this.euV[1] + view.getHeight() + i2;
             }
         }
-        if (this.mClipToScreen) {
+        if (this.euM) {
             int i3 = rect.right - rect.left;
             int i4 = layoutParams.x + layoutParams.width;
             if (i4 > i3) {
@@ -439,7 +439,7 @@ public class PopupWindow {
                 layoutParams.width = Math.min(layoutParams.width, i3);
             }
             if (r0) {
-                int i5 = (this.mScreenLocation[1] + i2) - this.mPopupHeight;
+                int i5 = (this.euW[1] + i2) - this.euU;
                 if (i5 < 0) {
                     layoutParams.y = i5 + layoutParams.y;
                 }
@@ -453,33 +453,33 @@ public class PopupWindow {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, IGET]}, finally: {[IGET, IGET, IGET, INVOKE, IF, IPUT, IGET, IGET, CHECK_CAST, IGET, INVOKE, IGET, INVOKE, IF, IPUT, IGET, IF, IGET, INSTANCE_OF, IGET, INVOKE, IF, IPUT, IGET, IF] complete} */
     public void dismiss() {
-        if (isShowing() && this.mPopupView != null) {
-            this.mIsShowing = false;
-            unregisterForScrollChanged();
+        if (isShowing() && this.euG != null) {
+            this.epJ = false;
+            bfk();
             try {
-                this.mWindowManager.removeView(this.mPopupView);
-                if (this.mPopupView != this.mContentView && (this.mPopupView instanceof ViewGroup)) {
-                    ((ViewGroup) this.mPopupView).removeView(this.mContentView);
+                this.mWindowManager.removeView(this.euG);
+                if (this.euG != this.mContentView && (this.euG instanceof ViewGroup)) {
+                    ((ViewGroup) this.euG).removeView(this.mContentView);
                 }
-                this.mPopupView = null;
-                if (this.elA != null) {
-                    this.elA.onDismiss();
+                this.euG = null;
+                if (this.evb != null) {
+                    this.evb.onDismiss();
                 }
             } catch (IllegalArgumentException e) {
-                if (this.mPopupView != this.mContentView && (this.mPopupView instanceof ViewGroup)) {
-                    ((ViewGroup) this.mPopupView).removeView(this.mContentView);
+                if (this.euG != this.mContentView && (this.euG instanceof ViewGroup)) {
+                    ((ViewGroup) this.euG).removeView(this.mContentView);
                 }
-                this.mPopupView = null;
-                if (this.elA != null) {
-                    this.elA.onDismiss();
+                this.euG = null;
+                if (this.evb != null) {
+                    this.evb.onDismiss();
                 }
             } catch (Throwable th) {
-                if (this.mPopupView != this.mContentView && (this.mPopupView instanceof ViewGroup)) {
-                    ((ViewGroup) this.mPopupView).removeView(this.mContentView);
+                if (this.euG != this.mContentView && (this.euG instanceof ViewGroup)) {
+                    ((ViewGroup) this.euG).removeView(this.mContentView);
                 }
-                this.mPopupView = null;
-                if (this.elA != null) {
-                    this.elA.onDismiss();
+                this.euG = null;
+                if (this.evb != null) {
+                    this.evb.onDismiss();
                 }
                 throw th;
             }
@@ -487,27 +487,27 @@ public class PopupWindow {
     }
 
     public void a(a aVar) {
-        this.elA = aVar;
+        this.evb = aVar;
     }
 
     public void update() {
         boolean z = true;
         if (isShowing() && this.mContentView != null) {
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.mPopupView.getLayoutParams();
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.euG.getLayoutParams();
             boolean z2 = false;
-            int computeAnimationResource = computeAnimationResource();
-            if (computeAnimationResource != layoutParams.windowAnimations) {
-                layoutParams.windowAnimations = computeAnimationResource;
+            int bfj = bfj();
+            if (bfj != layoutParams.windowAnimations) {
+                layoutParams.windowAnimations = bfj;
                 z2 = true;
             }
-            int computeFlags = computeFlags(layoutParams.flags);
-            if (computeFlags != layoutParams.flags) {
-                layoutParams.flags = computeFlags;
+            int nf = nf(layoutParams.flags);
+            if (nf != layoutParams.flags) {
+                layoutParams.flags = nf;
             } else {
                 z = z2;
             }
             if (z) {
-                this.mWindowManager.updateViewLayout(this.mPopupView, layoutParams);
+                this.mWindowManager.updateViewLayout(this.euG, layoutParams);
             }
         }
     }
@@ -515,24 +515,24 @@ public class PopupWindow {
     public void update(int i, int i2, int i3, int i4, boolean z) {
         boolean z2 = true;
         if (i3 != -1) {
-            this.mLastWidth = i3;
+            this.euR = i3;
             setWidth(i3);
         }
         if (i4 != -1) {
-            this.mLastHeight = i4;
+            this.euS = i4;
             setHeight(i4);
         }
         if (isShowing() && this.mContentView != null) {
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.mPopupView.getLayoutParams();
-            int i5 = this.mWidthMode < 0 ? this.mWidthMode : this.mLastWidth;
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.euG.getLayoutParams();
+            int i5 = this.mWidthMode < 0 ? this.mWidthMode : this.euR;
             if (i3 != -1 && layoutParams.width != i5) {
-                this.mLastWidth = i5;
+                this.euR = i5;
                 layoutParams.width = i5;
                 z = true;
             }
-            int i6 = this.mHeightMode < 0 ? this.mHeightMode : this.mLastHeight;
+            int i6 = this.mHeightMode < 0 ? this.mHeightMode : this.euS;
             if (i4 != -1 && layoutParams.height != i6) {
-                this.mLastHeight = i6;
+                this.euS = i6;
                 layoutParams.height = i6;
                 z = true;
             }
@@ -544,45 +544,45 @@ public class PopupWindow {
                 layoutParams.y = i2;
                 z = true;
             }
-            int computeAnimationResource = computeAnimationResource();
-            if (computeAnimationResource != layoutParams.windowAnimations) {
-                layoutParams.windowAnimations = computeAnimationResource;
+            int bfj = bfj();
+            if (bfj != layoutParams.windowAnimations) {
+                layoutParams.windowAnimations = bfj;
                 z = true;
             }
-            int computeFlags = computeFlags(layoutParams.flags);
-            if (computeFlags != layoutParams.flags) {
-                layoutParams.flags = computeFlags;
+            int nf = nf(layoutParams.flags);
+            if (nf != layoutParams.flags) {
+                layoutParams.flags = nf;
             } else {
                 z2 = z;
             }
             if (z2) {
-                this.mWindowManager.updateViewLayout(this.mPopupView, layoutParams);
+                this.mWindowManager.updateViewLayout(this.euG, layoutParams);
             }
         }
     }
 
-    private void unregisterForScrollChanged() {
-        WeakReference<View> weakReference = this.mAnchor;
+    private void bfk() {
+        WeakReference<View> weakReference = this.evf;
         View view = weakReference != null ? weakReference.get() : null;
         if (view != null) {
-            view.getViewTreeObserver().removeOnScrollChangedListener(this.mOnScrollChangedListener);
+            view.getViewTreeObserver().removeOnScrollChangedListener(this.evg);
         }
-        this.mAnchor = null;
+        this.evf = null;
     }
 
-    private void registerForScrollChanged(View view, int i, int i2) {
-        unregisterForScrollChanged();
-        this.mAnchor = new WeakReference<>(view);
+    private void i(View view, int i, int i2) {
+        bfk();
+        this.evf = new WeakReference<>(view);
         ViewTreeObserver viewTreeObserver = view.getViewTreeObserver();
         if (viewTreeObserver != null) {
-            viewTreeObserver.addOnScrollChangedListener(this.mOnScrollChangedListener);
+            viewTreeObserver.addOnScrollChangedListener(this.evg);
         }
-        this.mAnchorXoff = i;
-        this.mAnchorYoff = i2;
+        this.evh = i;
+        this.evi = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class b extends FrameLayout {
         public b(Context context) {
             super(context);
@@ -590,9 +590,9 @@ public class PopupWindow {
 
         @Override // android.view.ViewGroup, android.view.View
         protected int[] onCreateDrawableState(int i) {
-            if (PopupWindow.this.mAboveAnchor) {
+            if (PopupWindow.this.euZ) {
                 int[] onCreateDrawableState = super.onCreateDrawableState(i + 1);
-                View.mergeDrawableStates(onCreateDrawableState, PopupWindow.ABOVE_ANCHOR_STATE_SET);
+                View.mergeDrawableStates(onCreateDrawableState, PopupWindow.eve);
                 return onCreateDrawableState;
             }
             return super.onCreateDrawableState(i);
@@ -624,7 +624,7 @@ public class PopupWindow {
 
         @Override // android.view.ViewGroup, android.view.View
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-            if (PopupWindow.this.mTouchInterceptor == null || !PopupWindow.this.mTouchInterceptor.onTouch(this, motionEvent)) {
+            if (PopupWindow.this.euQ == null || !PopupWindow.this.euQ.onTouch(this, motionEvent)) {
                 return super.dispatchTouchEvent(motionEvent);
             }
             return true;

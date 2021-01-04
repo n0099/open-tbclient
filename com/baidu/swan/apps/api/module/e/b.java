@@ -1,23 +1,23 @@
 package com.baidu.swan.apps.api.module.e;
 
 import android.content.DialogInterface;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.api.a.d;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.swan.apps.api.a.d {
     public b(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lp(String str) {
+    public com.baidu.swan.apps.api.c.b li(String str) {
         if (DEBUG) {
             Log.d("Api-Modal", "start show modal");
         }
@@ -26,7 +26,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.api.module.e.b$1  reason: invalid class name */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public class AnonymousClass1 implements d.a {
         AnonymousClass1() {
         }
@@ -40,11 +40,11 @@ public class b extends com.baidu.swan.apps.api.a.d {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.b.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (eVar.aJO() != null && !eVar.aJO().isFinishing() && !eVar.aJO().isDestroyed()) {
+                    if (eVar.aMe() != null && !eVar.aMe().isFinishing() && !eVar.aMe().isDestroyed()) {
                         g.a aVar = new g.a(b.this.getContext());
-                        aVar.f(jSONObject.optString("title")).st(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).gJ(false);
+                        aVar.f(jSONObject.optString("title")).sp(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).gV(false);
                         if (jSONObject.optBoolean("showCancel", true)) {
-                            aVar.W(jSONObject.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
+                            aVar.Y(jSONObject.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
                             String optString2 = jSONObject.optString("cancelText");
                             if (TextUtils.isEmpty(optString2)) {
                                 optString2 = b.this.getContext().getString(a.h.aiapps_cancel);
@@ -65,7 +65,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                                 }
                             });
                         }
-                        aVar.V(jSONObject.optString("confirmColor"), a.c.aiapps_modal_confirm_color);
+                        aVar.X(jSONObject.optString("confirmColor"), a.c.aiapps_modal_confirm_color);
                         aVar.a(optString, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.api.module.e.b.1.1.2
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -81,7 +81,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                                 }
                             }
                         });
-                        aVar.aJB();
+                        aVar.aLx();
                     }
                 }
             });

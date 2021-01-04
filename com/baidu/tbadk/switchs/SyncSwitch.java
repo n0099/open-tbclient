@@ -104,5 +104,6 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(UseHttpAutoRetrySwitch.class);
         SwitchManager.getInstance().registerSwitch(OpenJsSdkSwitch.class);
         SwitchManager.getInstance().registerSwitch(LimitLowQualityPicUploadSwitch.class);
+        SwitchManager.getInstance().registerSwitch(PicReqSwitch.class);
     }
 }

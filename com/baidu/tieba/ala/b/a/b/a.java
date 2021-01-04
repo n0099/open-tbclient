@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.b.a.b;
 
 import java.lang.reflect.Array;
-/* loaded from: classes4.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static Object b(Class cls, Object[] objArr, Object obj) {
         Object newInstance = Array.newInstance(cls, objArr.length + 1);
@@ -12,11 +12,11 @@ public class a {
         return newInstance;
     }
 
-    public static <T> boolean b(T[] tArr, T t) {
-        return c(tArr, t) != -1;
+    public static <T> boolean c(T[] tArr, T t) {
+        return d(tArr, t) != -1;
     }
 
-    public static <T> int c(T[] tArr, T t) {
+    public static <T> int d(T[] tArr, T t) {
         if (tArr == null) {
             return -1;
         }

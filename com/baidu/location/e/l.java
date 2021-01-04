@@ -9,12 +9,14 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Process;
 import android.provider.Settings;
-import android.support.v7.widget.ActivityChooserView;
 import android.util.Base64;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
+import com.fun.ad.sdk.FunAdConfig;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,13 +37,15 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class l {
     public static double[] aI;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1959a = false;
-    public static boolean b = false;
+    public static boolean f2733a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f2734b = false;
     public static boolean c = false;
     public static int d = 0;
     private static String aM = "http://loc.map.baidu.com/sdk.php";
@@ -106,7 +110,7 @@ public class l {
     public static int ae = 300;
     public static int af = 1000;
     public static int ag = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public static long ah = 900000;
+    public static long ah = FunAdConfig.Builder.AD_EXPIRED_INTERVAL;
     public static long ai = 420000;
     public static long aj = 180000;
     public static long ak = 0;
@@ -283,7 +287,7 @@ public class l {
 
     public static String a(byte[] bArr, boolean z2) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.reset();
             messageDigest.update(bArr);
             return a(messageDigest.digest(), "", z2);
@@ -392,15 +396,14 @@ public class l {
                         int i2 = 0;
                         while (true) {
                             int i3 = i2;
-                            String str2 = str;
                             if (i3 >= address.length) {
-                                return str2;
+                                return str;
                             }
                             String hexString = Integer.toHexString(address[i3] & 255);
                             if (hexString.length() == 1) {
                                 hexString = '0' + hexString;
                             }
-                            str = str2 + hexString;
+                            str = str + hexString;
                             i2 = i3 + 1;
                         }
                     }

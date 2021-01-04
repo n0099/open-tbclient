@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class SelectForumActivity extends SuspendedActivity {
-    private CustomMessageListener fXw = new CustomMessageListener(2921503) { // from class: com.baidu.tieba.SelectForumActivity.1
+    f ghc;
+    private CustomMessageListener ghd = new CustomMessageListener(2921503) { // from class: com.baidu.tieba.SelectForumActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -18,30 +20,46 @@ public class SelectForumActivity extends SuspendedActivity {
             }
         }
     };
-    private CustomMessageListener fXx = new CustomMessageListener(2921507) { // from class: com.baidu.tieba.SelectForumActivity.2
+    private CustomMessageListener ghe = new CustomMessageListener(2921507) { // from class: com.baidu.tieba.SelectForumActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                Toast.makeText(SelectForumActivity.this, (String) customResponsedMessage.getData(), 1).show();
+                String str = (String) customResponsedMessage.getData();
+                if (TextUtils.isEmpty(str)) {
+                    str = SelectForumActivity.this.getString(R.string.activity_select_forum_error);
+                }
+                l.showToast(SelectForumActivity.this, str);
             }
         }
     };
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.fXw);
-        registerListener(this.fXx);
+        registerListener(this.ghd);
+        registerListener(this.ghe);
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     protected com.baidu.tbadk.suspended.a a(LinearLayout linearLayout, NavigationBar navigationBar) {
-        return new f(getPageContext(), linearLayout, navigationBar);
+        if (this.ghc == null) {
+            this.ghc = new f(getPageContext(), linearLayout, navigationBar);
+        }
+        return this.ghc;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bFR() {
+    protected void bIm() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.ghc != null) {
+            this.ghc.onDestroy();
+        }
     }
 }

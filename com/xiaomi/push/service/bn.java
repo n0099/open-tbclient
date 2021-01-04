@@ -1,17 +1,17 @@
 package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 class bn extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f4857a;
+    final /* synthetic */ XMPushService f14578a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bn(XMPushService xMPushService, int i) {
         super(i);
-        this.f4857a = xMPushService;
+        this.f14578a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -21,9 +21,9 @@ class bn extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (this.f4857a.f802a != null) {
-            this.f4857a.f802a.b(15, (Exception) null);
-            this.f4857a.f802a = null;
+        if (this.f14578a.f880a != null) {
+            this.f14578a.f880a.b(15, (Exception) null);
+            this.f14578a.f880a = null;
         }
     }
 }

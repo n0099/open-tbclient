@@ -8,9 +8,9 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.util.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class EmojiconTextView extends TextView {
-    private int oSR;
+    private int oYW;
 
     public EmojiconTextView(Context context) {
         super(context);
@@ -29,10 +29,10 @@ public class EmojiconTextView extends TextView {
 
     private void a(AttributeSet attributeSet, Context context) {
         if (attributeSet == null) {
-            this.oSR = (int) (getTextSize() + f.dip2px(context, 2.0f));
+            this.oYW = (int) (getTextSize() + f.dip2px(context, 2.0f));
         } else {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.Emojicon);
-            this.oSR = (int) obtainStyledAttributes.getDimension(a.j.Emojicon_emojiconSize, getTextSize() + f.dip2px(context, 2.0f));
+            this.oYW = (int) obtainStyledAttributes.getDimension(a.j.Emojicon_emojiconSize, getTextSize() + f.dip2px(context, 2.0f));
             obtainStyledAttributes.recycle();
         }
         setText(getText());
@@ -46,11 +46,11 @@ public class EmojiconTextView extends TextView {
             return;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
-        b.a(getContext(), spannableStringBuilder, this.oSR);
+        b.a(getContext(), spannableStringBuilder, this.oYW);
         super.setText(spannableStringBuilder, bufferType);
     }
 
     public void setEmojiconSize(int i) {
-        this.oSR = i;
+        this.oYW = i;
     }
 }

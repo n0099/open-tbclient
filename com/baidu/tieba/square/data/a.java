@@ -1,17 +1,16 @@
 package com.baidu.tieba.square.data;
 
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Date;
 import org.json.JSONObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public abstract class a {
     private int errorCode;
     private String errorMsg;
-    private Date neX;
+    private Date nkD;
 
-    protected abstract void ev(JSONObject jSONObject) throws Exception;
+    protected abstract void eJ(JSONObject jSONObject) throws Exception;
 
     public int getErrorCode() {
         return this.errorCode;
@@ -42,7 +41,7 @@ public abstract class a {
         try {
             this.errorCode = jSONObject.optInt("error_code", 0);
             if (this.errorCode != 0) {
-                setErrorMsg(jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "网络不给力呀"));
+                setErrorMsg(jSONObject.optString("error_msg", "网络不给力呀"));
                 return;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
@@ -55,9 +54,9 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.neX = new Date(optLong * 1000);
+                this.nkD = new Date(optLong * 1000);
             }
-            ev(jSONObject);
+            eJ(jSONObject);
         } catch (Exception e) {
             setErrorMsg("网络不给力呀");
             e.printStackTrace();

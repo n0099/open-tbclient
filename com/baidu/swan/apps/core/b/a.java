@@ -1,25 +1,25 @@
 package com.baidu.swan.apps.core.b;
 
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import java.util.ArrayList;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     /* renamed from: com.baidu.swan.apps.core.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public static class C0429a {
+    /* loaded from: classes9.dex */
+    public static class C0421a {
         public int maxCount;
         public int sizeLimit;
     }
 
     @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting by(String str, @NonNull String str2) {
+    public static V8EngineConfiguration.CodeCacheSetting bx(String str, @NonNull String str2) {
         V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
         codeCacheSetting.id = str;
         codeCacheSetting.pathList = new ArrayList<>();
@@ -35,9 +35,9 @@ public final class a {
         }
         switch (c) {
             case 0:
-                C0429a aqb = b.aqb();
-                codeCacheSetting.maxCount = aqb.maxCount;
-                codeCacheSetting.sizeLimit = aqb.sizeLimit;
+                C0421a arn = b.arn();
+                codeCacheSetting.maxCount = arn.maxCount;
+                codeCacheSetting.sizeLimit = arn.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;
@@ -65,76 +65,76 @@ public final class a {
         return 0;
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private static int cOi = -1;
-        private static int cOj = -1;
-        private static int cOk = -1;
-        private static int cOl = -1;
+        private static int cTd = -1;
+        private static int cTe = -1;
+        private static int cTf = -1;
+        private static int cTg = -1;
 
-        public static String apY() {
+        public static String ark() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_app_v8_code_cache", "ab");
         }
 
-        private static boolean in(int i) {
+        private static boolean ih(int i) {
             switch (i) {
                 case 0:
-                    return apZ();
+                    return arl();
                 case 1:
-                    return aqa();
+                    return arm();
                 default:
-                    return apZ();
+                    return arl();
             }
         }
 
-        private static boolean apZ() {
-            boolean aHa = com.baidu.swan.apps.ad.a.a.aHa();
-            if (aHa) {
-                cOi = 1;
+        private static boolean arl() {
+            boolean aIt = com.baidu.swan.apps.ad.a.a.aIt();
+            if (aIt) {
+                cTd = 1;
             }
-            if (cOi < 0) {
-                cOi = com.baidu.swan.apps.t.a.azd().getSwitch("swan_app_v8_code_cache", 1);
+            if (cTd < 0) {
+                cTd = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_app_v8_code_cache", 1);
             }
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getSwanAppCodeCacheAbSwitch() switcher: " + cOi + (aHa ? " forceAb" : ""));
+                Log.d("CodeCacheSwitcher", "getSwanAppCodeCacheAbSwitch() switcher: " + cTd + (aIt ? " forceAb" : ""));
             }
-            return cOi == 1;
+            return cTd == 1;
         }
 
-        private static boolean aqa() {
-            boolean aHa = com.baidu.swan.apps.ad.a.a.aHa();
-            if (aHa) {
-                cOj = 1;
+        private static boolean arm() {
+            boolean aIt = com.baidu.swan.apps.ad.a.a.aIt();
+            if (aIt) {
+                cTe = 1;
             }
-            if (cOj < 0) {
-                cOj = com.baidu.swan.apps.t.a.azd().getSwitch("swan_game_v8_code_cache", 2);
+            if (cTe < 0) {
+                cTe = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_game_v8_code_cache", 2);
             }
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getSwanGameCodeCacheAbSwitch() switcher: " + cOj + (aHa ? " forceAb" : ""));
+                Log.d("CodeCacheSwitcher", "getSwanGameCodeCacheAbSwitch() switcher: " + cTe + (aIt ? " forceAb" : ""));
             }
-            return cOj == 1;
+            return cTe == 1;
         }
 
-        public static boolean hM(int i) {
+        public static boolean hG(int i) {
             if (DEBUG) {
-                String apY = apY();
+                String ark = ark();
                 char c = 65535;
-                switch (apY.hashCode()) {
+                switch (ark.hashCode()) {
                     case 3105:
-                        if (apY.equals("ab")) {
+                        if (ark.equals("ab")) {
                             c = 2;
                             break;
                         }
                         break;
                     case 143821548:
-                        if (apY.equals("enable_code_cache")) {
+                        if (ark.equals("enable_code_cache")) {
                             c = 0;
                             break;
                         }
                         break;
                     case 2081401959:
-                        if (apY.equals("disable_code_cache")) {
+                        if (ark.equals("disable_code_cache")) {
                             c = 1;
                             break;
                         }
@@ -146,34 +146,34 @@ public final class a {
                     case 1:
                         return false;
                     case 2:
-                        return in(i);
+                        return ih(i);
                 }
             }
-            return in(i);
+            return ih(i);
         }
 
-        public static C0429a aqb() {
-            C0429a c0429a = new C0429a();
-            c0429a.maxCount = aqc();
-            c0429a.sizeLimit = aqd();
+        public static C0421a arn() {
+            C0421a c0421a = new C0421a();
+            c0421a.maxCount = aro();
+            c0421a.sizeLimit = arp();
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0429a.maxCount + " ,sizeLimit: " + c0429a.sizeLimit);
+                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0421a.maxCount + " ,sizeLimit: " + c0421a.sizeLimit);
             }
-            return c0429a;
+            return c0421a;
         }
 
-        private static int aqc() {
-            if (cOk < 0) {
-                cOk = com.baidu.swan.apps.t.a.azd().getSwitch("swan_code_cache_max_count", 5);
+        private static int aro() {
+            if (cTf < 0) {
+                cTf = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_code_cache_max_count", 5);
             }
-            return cOk;
+            return cTf;
         }
 
-        private static int aqd() {
-            if (cOl < 0) {
-                cOl = com.baidu.swan.apps.t.a.azd().getSwitch("swan_code_cache_size_limit", 100);
+        private static int arp() {
+            if (cTg < 0) {
+                cTg = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_code_cache_size_limit", 100);
             }
-            return cOl * 1024;
+            return cTg * 1024;
         }
     }
 }

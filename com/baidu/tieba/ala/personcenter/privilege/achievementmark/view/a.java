@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.e.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.ala.data.AlaLiveMarkData;
@@ -17,7 +18,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -25,91 +26,91 @@ import com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.c;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private View dlk;
-    private TbPageContext<BaseFragmentActivity> eNx;
-    private TextView gZy;
-    private HeadImageView guk;
-    private InterfaceC0713a hPA;
-    private List<AlaLiveMarkData> hPB = new ArrayList();
-    private b.a hPC = new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a.2
+    private View dqj;
+    private TbPageContext<BaseFragmentActivity> eXu;
+    private HeadImageView gFj;
+    private TextView hln;
+    private BdListView ibL;
+    private b ibM;
+    private TextView ibN;
+    private TbImageView ibO;
+    private RelativeLayout ibP;
+    private ImageView ibQ;
+    private LinearLayout ibR;
+    private AlaNetRefreshView ibS;
+    private RelativeLayout ibT;
+    private TextView ibU;
+    private InterfaceC0705a ibV;
+    private List<AlaLiveMarkData> ibW = new ArrayList();
+    private b.a ibX = new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a.2
         @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.a
         public void a(com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b bVar) {
-            if (a.this.hPA != null) {
-                a.this.hPA.a(bVar);
+            if (a.this.ibV != null) {
+                a.this.ibV.a(bVar);
             }
         }
     };
-    private BdListView hPq;
-    private b hPr;
-    private TextView hPs;
-    private TbImageView hPt;
-    private RelativeLayout hPu;
-    private ImageView hPv;
-    private LinearLayout hPw;
-    private AlaNetRefreshView hPx;
-    private RelativeLayout hPy;
-    private TextView hPz;
     private TextView mName;
     private View mRootView;
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0713a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0705a {
         void a(com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b bVar);
     }
 
-    public a(TbPageContext<BaseFragmentActivity> tbPageContext, InterfaceC0713a interfaceC0713a) {
-        this.eNx = tbPageContext;
-        this.hPA = interfaceC0713a;
+    public a(TbPageContext<BaseFragmentActivity> tbPageContext, InterfaceC0705a interfaceC0705a) {
+        this.eXu = tbPageContext;
+        this.ibV = interfaceC0705a;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.ala_achievement_mark_fragment_layout, (ViewGroup) null);
-        this.mRootView.setPadding(0, (int) this.eNx.getResources().getDimension(R.dimen.ds80), 0, 0);
-        this.guk = (HeadImageView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_iv);
+        this.mRootView = LayoutInflater.from(this.eXu.getPageActivity()).inflate(R.layout.ala_achievement_mark_fragment_layout, (ViewGroup) null);
+        this.mRootView.setPadding(0, (int) this.eXu.getResources().getDimension(R.dimen.ds80), 0, 0);
+        this.gFj = (HeadImageView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_iv);
         this.mName = (TextView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_name_tv);
-        this.hPs = (TextView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_desc_tv);
-        this.hPt = (TbImageView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_container_bg);
-        this.hPy = (RelativeLayout) this.mRootView.findViewById(R.id.ala_person_center_privilege_mark_list_container);
-        this.hPw = (LinearLayout) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_has_wears);
-        this.hPz = (TextView) this.mRootView.findViewById(R.id.ala_person_center_privilege_jump_rule_text);
-        this.hPv = (ImageView) this.mRootView.findViewById(R.id.empty_image);
-        this.gZy = (TextView) this.mRootView.findViewById(R.id.empty_text);
-        this.dlk = this.mRootView.findViewById(R.id.ala_person_center_privilege_mask);
-        this.hPq = (BdListView) this.mRootView.findViewById(R.id.ala_person_center_privilege_mark_list);
-        this.hPr = new b(this.eNx, this.hPC);
-        this.hPq.setAdapter((ListAdapter) this.hPr);
-        this.hPu = (RelativeLayout) this.mRootView.findViewById(R.id.emptyview);
-        this.hPq.setEmptyView(this.hPu);
-        this.guk.setIsRound(true);
-        this.guk.setDefaultBgResource(R.color.transparent);
-        this.guk.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.hPt.setDefaultBgResource(R.color.transparent);
-        this.hPt.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.ibN = (TextView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_desc_tv);
+        this.ibO = (TbImageView) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_container_bg);
+        this.ibT = (RelativeLayout) this.mRootView.findViewById(R.id.ala_person_center_privilege_mark_list_container);
+        this.ibR = (LinearLayout) this.mRootView.findViewById(R.id.ala_person_center_privilege_header_has_wears);
+        this.ibU = (TextView) this.mRootView.findViewById(R.id.ala_person_center_privilege_jump_rule_text);
+        this.ibQ = (ImageView) this.mRootView.findViewById(R.id.empty_image);
+        this.hln = (TextView) this.mRootView.findViewById(R.id.empty_text);
+        this.dqj = this.mRootView.findViewById(R.id.ala_person_center_privilege_mask);
+        this.ibL = (BdListView) this.mRootView.findViewById(R.id.ala_person_center_privilege_mark_list);
+        this.ibM = new b(this.eXu, this.ibX);
+        this.ibL.setAdapter((ListAdapter) this.ibM);
+        this.ibP = (RelativeLayout) this.mRootView.findViewById(R.id.emptyview);
+        this.ibL.setEmptyView(this.ibP);
+        this.gFj.setIsRound(true);
+        this.gFj.setDefaultBgResource(R.color.transparent);
+        this.gFj.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.ibO.setDefaultBgResource(R.color.transparent);
+        this.ibO.setScaleType(ImageView.ScaleType.CENTER_CROP);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        ap.setViewTextColor(this.mName, (int) R.color.common_color_10310);
-        ap.setViewTextColor(this.hPs, (int) R.color.white_alpha70);
-        ap.setViewTextColor(this.hPz, (int) R.color.CAM_X0109);
-        ap.setViewTextColor(this.gZy, (int) R.color.CAM_X0106);
+        ao.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+        ao.setViewTextColor(this.mName, R.color.common_color_10310);
+        ao.setViewTextColor(this.ibN, R.color.white_alpha70);
+        ao.setViewTextColor(this.ibU, R.color.CAM_X0109);
+        ao.setViewTextColor(this.hln, R.color.CAM_X0106);
         if (TbadkApplication.getInst().getSkinType() == 1) {
-            this.hPv.setAlpha(0.4f);
-            this.dlk.setBackgroundColor(this.eNx.getResources().getColor(R.color.black_alpha60));
+            this.ibQ.setAlpha(0.4f);
+            this.dqj.setBackgroundColor(this.eXu.getResources().getColor(R.color.black_alpha60));
             return;
         }
-        this.hPv.setAlpha(1.0f);
-        this.dlk.setBackgroundColor(this.eNx.getResources().getColor(R.color.black_alpha30));
+        this.ibQ.setAlpha(1.0f);
+        this.dqj.setBackgroundColor(this.eXu.getResources().getColor(R.color.black_alpha30));
     }
 
     public void a(AlaUserInfoData alaUserInfoData, List<c> list) {
-        if (this.hPr != null && list != null) {
-            this.hPr.setData(list);
+        if (this.ibM != null && list != null) {
+            this.ibM.setData(list);
         }
         a(alaUserInfoData);
     }
@@ -124,27 +125,27 @@ public class a {
             }
             String currentPortrait = alaUserInfoData.portrait == null ? TbadkApplication.getCurrentPortrait() : alaUserInfoData.portrait;
             if (alaUserInfoData.mark_count == null) {
-                format = String.format(this.eNx.getString(R.string.ala_achievement_mark_get_text), 0);
+                format = String.format(this.eXu.getString(R.string.ala_achievement_mark_get_text), 0);
             } else {
-                format = String.format(this.eNx.getString(R.string.ala_achievement_mark_get_text), Long.valueOf(alaUserInfoData.mark_count.user_mark_count));
+                format = String.format(this.eXu.getString(R.string.ala_achievement_mark_get_text), Long.valueOf(alaUserInfoData.mark_count.user_mark_count));
             }
-            ay(currentPortrait, str, format);
-            int dimension = (int) this.eNx.getResources().getDimension(R.dimen.ds32);
-            if (this.hPB != null && this.hPB.size() > 0) {
-                this.hPB.clear();
+            aB(currentPortrait, str, format);
+            int dimension = (int) this.eXu.getResources().getDimension(R.dimen.ds32);
+            if (this.ibW != null && this.ibW.size() > 0) {
+                this.ibW.clear();
             }
-            if (this.hPw != null) {
-                this.hPw.removeAllViews();
-                this.hPB = alaUserInfoData.live_mark_info_new;
-                if (this.hPB != null) {
-                    for (int i = 0; i < this.hPB.size(); i++) {
-                        TbImageView tbImageView = new TbImageView(this.eNx.getPageActivity());
+            if (this.ibR != null) {
+                this.ibR.removeAllViews();
+                this.ibW = alaUserInfoData.live_mark_info_new;
+                if (this.ibW != null) {
+                    for (int i = 0; i < this.ibW.size(); i++) {
+                        TbImageView tbImageView = new TbImageView(this.eXu.getPageActivity());
                         tbImageView.setDefaultBgResource(R.color.transparent);
-                        tbImageView.startLoad(this.hPB.get(i).mark_pic, 21, false);
+                        tbImageView.startLoad(this.ibW.get(i).mark_pic, 21, false);
                         tbImageView.setLayoutParams(new LinearLayout.LayoutParams(dimension, dimension));
                         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                        ((LinearLayout.LayoutParams) tbImageView.getLayoutParams()).rightMargin = (int) this.eNx.getResources().getDimension(R.dimen.ds12);
-                        this.hPw.addView(tbImageView);
+                        ((LinearLayout.LayoutParams) tbImageView.getLayoutParams()).rightMargin = (int) this.eXu.getResources().getDimension(R.dimen.ds12);
+                        this.ibR.addView(tbImageView);
                     }
                     return;
                 }
@@ -152,33 +153,33 @@ public class a {
             }
             return;
         }
-        ay(TbadkApplication.getCurrentPortrait(), TbadkApplication.getCurrentAccountNameShow(), String.format(this.eNx.getString(R.string.ala_achievement_mark_get_text), 0));
-        if (this.hPB != null && this.hPB.size() > 0) {
-            this.hPB.clear();
+        aB(TbadkApplication.getCurrentPortrait(), TbadkApplication.getCurrentAccountNameShow(), String.format(this.eXu.getString(R.string.ala_achievement_mark_get_text), 0));
+        if (this.ibW != null && this.ibW.size() > 0) {
+            this.ibW.clear();
         }
-        if (this.hPw != null) {
-            this.hPw.removeAllViews();
+        if (this.ibR != null) {
+            this.ibR.removeAllViews();
         }
     }
 
-    private void ay(String str, String str2, String str3) {
+    private void aB(String str, String str2, String str3) {
         if (!StringUtils.isNull(str)) {
-            this.guk.startLoad(str, 25, false);
-            com.baidu.adp.lib.e.c.mS().a(str, 25, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a.1
+            this.gFj.startLoad(str, 25, false);
+            d.mx().a(str, 25, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.e.b
+                @Override // com.baidu.adp.lib.e.c
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str4, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str4, i);
                     if (aVar != null && aVar.getRawBitmap() != null) {
-                        a.this.hPt.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                        a.this.hPt.setImageBitmap(BitmapHelper.fastblur(aVar.getRawBitmap(), 15, 0.75f));
+                        a.this.ibO.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        a.this.ibO.setImageBitmap(BitmapHelper.fastblur(aVar.getRawBitmap(), 15, 0.75f));
                     }
                 }
             }, null);
         } else {
-            this.guk.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
-            this.hPt.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
+            this.gFj.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
+            this.ibO.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
         }
         if (!StringUtils.isNull(str2)) {
             this.mName.setText(str2);
@@ -186,9 +187,9 @@ public class a {
             this.mName.setText("");
         }
         if (!StringUtils.isNull(str3)) {
-            this.hPs.setText(str3);
+            this.ibN.setText(str3);
         } else {
-            this.hPs.setText("");
+            this.ibN.setText("");
         }
     }
 
@@ -197,24 +198,24 @@ public class a {
     }
 
     public void a(int i, int i2, boolean z, View.OnClickListener onClickListener) {
-        if (this.eNx != null) {
-            if (this.hPx == null) {
-                this.hPx = new AlaNetRefreshView(this.eNx.getPageActivity());
+        if (this.eXu != null) {
+            if (this.ibS == null) {
+                this.ibS = new AlaNetRefreshView(this.eXu.getPageActivity());
             }
-            this.hPx.setImageResource(i);
-            this.hPx.setNetFailTipText(this.eNx.getString(i2));
-            this.hPx.onChangeSkinType();
-            this.hPx.setIsShowRefreshButton(z);
+            this.ibS.setImageResource(i);
+            this.ibS.setNetFailTipText(this.eXu.getString(i2));
+            this.ibS.onChangeSkinType();
+            this.ibS.setIsShowRefreshButton(z);
             if (z) {
-                this.hPx.setOnRefreshClickListener(onClickListener);
+                this.ibS.setOnRefreshClickListener(onClickListener);
             }
-            this.hPx.attachView(this.hPy);
+            this.ibS.attachView(this.ibT);
         }
     }
 
-    public void Yb() {
-        if (this.hPx != null) {
-            this.hPx.dettachView(this.hPy);
+    public void Zi() {
+        if (this.ibS != null) {
+            this.ibS.dettachView(this.ibT);
         }
     }
 }

@@ -10,37 +10,39 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    private static bb f4844a;
+    private static bb f14564a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f878a = null;
+    private static String f956a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f879a;
+    private Context f957a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f882a;
-    private Messenger b;
+    private boolean f960a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Messenger f14565b;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<Message> f881a = new ArrayList();
+    private List<Message> f959a = new ArrayList();
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f883b = false;
+    private boolean f961b = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private Messenger f880a = new Messenger(new bc(this, Looper.getMainLooper()));
+    private Messenger f958a = new Messenger(new bc(this, Looper.getMainLooper()));
 
     private bb(Context context) {
-        this.f882a = false;
-        this.f879a = context.getApplicationContext();
+        this.f960a = false;
+        this.f957a = context.getApplicationContext();
         if (a()) {
             com.xiaomi.channel.commonutils.logger.b.c("use miui push service");
-            this.f882a = true;
+            this.f960a = true;
         }
     }
 
@@ -52,34 +54,34 @@ public class bb {
     }
 
     public static bb a(Context context) {
-        if (f4844a == null) {
-            f4844a = new bb(context);
+        if (f14564a == null) {
+            f14564a = new bb(context);
         }
-        return f4844a;
+        return f14564a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private synchronized void m550a(Intent intent) {
-        if (this.f883b) {
+    private synchronized void m576a(Intent intent) {
+        if (this.f961b) {
             Message a2 = a(intent);
-            if (this.f881a.size() >= 50) {
-                this.f881a.remove(0);
+            if (this.f959a.size() >= 50) {
+                this.f959a.remove(0);
             }
-            this.f881a.add(a2);
-        } else if (this.b == null) {
-            Context context = this.f879a;
+            this.f959a.add(a2);
+        } else if (this.f14565b == null) {
+            Context context = this.f957a;
             bd bdVar = new bd(this);
-            Context context2 = this.f879a;
+            Context context2 = this.f957a;
             context.bindService(intent, bdVar, 1);
-            this.f883b = true;
-            this.f881a.clear();
-            this.f881a.add(a(intent));
+            this.f961b = true;
+            this.f959a.clear();
+            this.f959a.add(a(intent));
         } else {
             try {
-                this.b.send(a(intent));
+                this.f14565b.send(a(intent));
             } catch (RemoteException e) {
-                this.b = null;
-                this.f883b = false;
+                this.f14565b = null;
+                this.f961b = false;
             }
         }
     }
@@ -89,7 +91,7 @@ public class bb {
             return false;
         }
         try {
-            PackageInfo packageInfo = this.f879a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
+            PackageInfo packageInfo = this.f957a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
             if (packageInfo != null) {
                 return packageInfo.versionCode >= 104;
             }
@@ -100,12 +102,12 @@ public class bb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m551a(Intent intent) {
+    public boolean m577a(Intent intent) {
         try {
-            if (com.xiaomi.push.l.m493a() || Build.VERSION.SDK_INT < 26) {
-                this.f879a.startService(intent);
+            if (com.xiaomi.push.l.m519a() || Build.VERSION.SDK_INT < 26) {
+                this.f957a.startService(intent);
             } else {
-                m550a(intent);
+                m576a(intent);
             }
             return true;
         } catch (Exception e) {

@@ -1,13 +1,15 @@
 package com.baidu.ar.http;
 
+import android.app.blob.BlobStoreManager;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IProgressCallback;
+import com.baidu.live.adp.lib.util.Base64;
+import java.io.Closeable;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 class c implements l {
     private Object mLock;
     private com.baidu.ar.ihttp.a qF;
@@ -47,22 +49,24 @@ class c implements l {
         return this.qM;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0084 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0085 */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.lang.Object[] */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: android.app.blob.BlobStoreManager$Session */
+    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.baidu.live.adp.lib.util.Base64$InputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0079 A[Catch: all -> 0x0084, TryCatch #1 {all -> 0x0084, blocks: (B:57:0x00fe, B:19:0x0075, B:21:0x0079, B:22:0x007e, B:23:0x0083), top: B:77:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x007a A[Catch: all -> 0x0085, TryCatch #2 {all -> 0x0085, blocks: (B:57:0x00fb, B:19:0x0076, B:21:0x007a, B:22:0x007f, B:23:0x0084), top: B:77:0x000c }] */
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r1v1, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r1v24 */
-    /* JADX WARN: Type inference failed for: r1v26 */
-    /* JADX WARN: Type inference failed for: r1v5 */
+    /* JADX WARN: Type inference failed for: r1v19, types: [java.io.InputStream[]] */
+    /* JADX WARN: Type inference failed for: r1v2 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public i eJ() {
         OutputStream outputStream;
-        InputStream[] inputStreamArr = null;
-        ?? r1 = this.mLock;
-        synchronized (r1) {
+        Closeable[] closeableArr;
+        OutputStream outputStream2;
+        Object[] objArr = this.mLock;
+        synchronized (objArr) {
             if (this.qH) {
                 return null;
             }
@@ -79,23 +83,24 @@ class c implements l {
                         }
                     }
                     if (!"POST".equals(this.qK.method) || this.qK.re == null) {
-                        outputStream = null;
+                        closeableArr = null;
+                        outputStream2 = null;
                     } else {
                         int size = this.qK.re.getSize();
-                        InputStream[] eI = this.qK.re.eI();
-                        if (eI != null) {
+                        objArr = this.qK.re.eI();
+                        if (objArr != 0) {
                             try {
-                                if (eI.length > 0) {
+                                if (objArr.length > 0) {
                                     this.qL.setDoOutput(true);
-                                    OutputStream outputStream2 = this.qL.getOutputStream();
+                                    OutputStream outputStream3 = this.qL.getOutputStream();
                                     try {
                                         byte[] bArr = new byte[1024];
                                         int i = 0;
-                                        for (InputStream inputStream : eI) {
+                                        for (Base64.InputStream inputStream : objArr) {
                                             while (true) {
                                                 int read = inputStream.read(bArr);
                                                 if (read != -1) {
-                                                    outputStream2.write(bArr, 0, read);
+                                                    outputStream3.write(bArr, 0, read);
                                                     if (this.qN != null) {
                                                         i += read;
                                                         this.qN.onProgress(i, size);
@@ -103,9 +108,9 @@ class c implements l {
                                                 }
                                             }
                                         }
-                                        outputStream2.flush();
-                                        outputStream = outputStream2;
-                                        inputStreamArr = eI;
+                                        outputStream3.flush();
+                                        outputStream2 = outputStream3;
+                                        closeableArr = objArr;
                                     } catch (IOException e) {
                                         e = e;
                                         if (this.qL != null) {
@@ -113,14 +118,13 @@ class c implements l {
                                         throw new HttpException(e);
                                     } catch (Throwable th) {
                                         th = th;
-                                        r1 = outputStream2;
-                                        inputStreamArr = eI;
-                                        if (r1 != 0) {
-                                            j.closeQuietly(r1);
+                                        outputStream = outputStream3;
+                                        if (outputStream != null) {
+                                            j.closeQuietly(outputStream);
                                         }
-                                        if (inputStreamArr != null) {
-                                            for (InputStream inputStream2 : inputStreamArr) {
-                                                j.closeQuietly(inputStream2);
+                                        if (objArr != 0) {
+                                            for (BlobStoreManager.Session session : objArr) {
+                                                j.closeQuietly(session);
                                             }
                                         }
                                         throw th;
@@ -130,22 +134,21 @@ class c implements l {
                                 e = e2;
                             } catch (Throwable th2) {
                                 th = th2;
-                                r1 = 0;
-                                inputStreamArr = eI;
+                                outputStream = null;
                             }
                         }
-                        outputStream = null;
-                        inputStreamArr = eI;
+                        outputStream2 = null;
+                        closeableArr = objArr;
                     }
                     try {
                         this.qM = new i(this.qL, this.qK.rb);
                         i iVar = this.qM;
-                        if (outputStream != null) {
-                            j.closeQuietly(outputStream);
+                        if (outputStream2 != null) {
+                            j.closeQuietly(outputStream2);
                         }
-                        if (inputStreamArr != null) {
-                            for (InputStream inputStream3 : inputStreamArr) {
-                                j.closeQuietly(inputStream3);
+                        if (closeableArr != null) {
+                            for (Closeable closeable : closeableArr) {
+                                j.closeQuietly(closeable);
                             }
                             return iVar;
                         }
@@ -161,7 +164,8 @@ class c implements l {
                     e = e4;
                 } catch (Throwable th3) {
                     th = th3;
-                    r1 = 0;
+                    objArr = 0;
+                    outputStream = null;
                 }
             } catch (Throwable th4) {
                 th = th4;
@@ -172,6 +176,7 @@ class c implements l {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, IF] complete} */
     @Override // java.lang.Runnable
     public void run() {
+        boolean z;
         try {
             try {
                 i eJ = eJ();
@@ -179,8 +184,8 @@ class c implements l {
                     try {
                         synchronized (this.mLock) {
                             try {
-                                boolean z = this.qH;
-                                if (!z && this.qF != null) {
+                                boolean z2 = this.qH;
+                                if (!z2 && this.qF != null) {
                                     this.qF.a(eJ);
                                 }
                             } catch (Throwable th) {
@@ -190,7 +195,8 @@ class c implements l {
                         }
                     } catch (HttpException e) {
                         e = e;
-                        if (0 == 0 && 0 == 0 && this.qF != null) {
+                        z = false;
+                        if (0 == 0 && !z && this.qF != null) {
                             this.qF.a(e);
                         }
                         if (this.qL != null) {
@@ -202,6 +208,7 @@ class c implements l {
                 }
             } catch (HttpException e2) {
                 e = e2;
+                z = false;
             }
         } finally {
             if (this.qL != null) {

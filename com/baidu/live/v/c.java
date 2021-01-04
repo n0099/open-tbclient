@@ -1,7 +1,4 @@
 package com.baidu.live.v;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface c {
-    void Qy();
-
-    void release();
 }

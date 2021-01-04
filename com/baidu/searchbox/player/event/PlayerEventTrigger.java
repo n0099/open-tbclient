@@ -1,10 +1,10 @@
 package com.baidu.searchbox.player.event;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class PlayerEventTrigger extends AbsEventTrigger {
     private ArrayList<Integer> mAttentionEventArray = new ArrayList<>(9);
 
@@ -73,7 +73,7 @@ public class PlayerEventTrigger extends AbsEventTrigger {
     private void initAttentionArray() {
         this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL));
         this.mAttentionEventArray.add(701);
-        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BUFFERING_END));
+        this.mAttentionEventArray.add(702);
         this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_EXTEND_VIDEO_CACHE_PROGRESS));
         this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_EXTEND_VIDEO_DOWNLOAD_SPEED));
         this.mAttentionEventArray.add(5000);

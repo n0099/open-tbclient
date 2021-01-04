@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.webkit.CookieManager;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,6 +16,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -26,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     private String mContentType;
     private Context mContext;
@@ -55,25 +56,24 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         int i2;
         String str3;
         HashMap hashMap;
-        int i3;
         HashMap hashMap2;
-        String str4;
         String string;
-        String str5 = null;
-        String str6 = new String(bArr);
-        LogUtils.d("IMGenBosObjectUrlRequest", str6);
+        int i3;
+        String string2;
+        String str4 = new String(bArr);
+        LogUtils.d("IMGenBosObjectUrlRequest", str4);
         try {
-            JSONObject jSONObject = new JSONObject(str6);
+            JSONObject jSONObject = new JSONObject(str4);
             if (jSONObject.has("response_params")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                int i4 = jSONObject2.getInt("error_code");
-                String string2 = jSONObject2.getString("authorization");
+                i3 = jSONObject2.getInt("error_code");
+                String string3 = jSONObject2.getString("authorization");
                 try {
-                    string = jSONObject2.getString("date");
+                    string2 = jSONObject2.getString("date");
                 } catch (JSONException e) {
                     e = e;
                     str = null;
-                    str2 = string2;
+                    str2 = string3;
                 }
                 try {
                     hashMap2 = new HashMap();
@@ -88,14 +88,13 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                     if (jSONObject2.has("thumb_height")) {
                         hashMap2.put("thumb_height", jSONObject2.getString("thumb_height"));
                     }
-                    str5 = string;
-                    str4 = string2;
-                    str3 = Constants.ERROR_MSG_SUCCESS;
-                    i3 = i4;
+                    str = string2;
+                    str2 = string3;
+                    string = Constants.ERROR_MSG_SUCCESS;
                 } catch (JSONException e2) {
                     e = e2;
-                    str = string;
-                    str2 = string2;
+                    str = string2;
+                    str2 = string3;
                     LogUtils.e("IMGenBosObjectUrlRequest", e.getMessage(), e);
                     i2 = 1010;
                     str3 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
@@ -104,17 +103,16 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                     ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i2, str3, str2, str, hashMap);
                 }
             } else {
-                int i5 = jSONObject.getInt("error_code");
-                str3 = jSONObject.getString(AlaRecorderLog.KEY_ERROR_MSG);
-                i3 = i5;
+                int i4 = jSONObject.getInt("error_code");
                 hashMap2 = null;
-                str4 = null;
+                str = null;
+                str2 = null;
+                string = jSONObject.getString("error_msg");
+                i3 = i4;
             }
             hashMap = hashMap2;
-            str = str5;
-            String str7 = str4;
+            str3 = string;
             i2 = i3;
-            str2 = str7;
         } catch (JSONException e3) {
             e = e3;
             str = null;
@@ -250,18 +248,18 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
     }
 
     public String getMd5(String str) throws NoSuchAlgorithmException {
-        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         messageDigest.update(str.getBytes());
         return Utility.byte2Hex(messageDigest.digest());
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getConnectTimeout() {
-        return 15000;
+        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getReadTimeout() {
-        return 15000;
+        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class DuzhanUpMsgCreator {
     private static final String TAG = "DuzhanUpMsgCreateor";
     private static int REQ_TYPE_BOX = 0;
@@ -51,8 +51,7 @@ public class DuzhanUpMsgCreator {
     }
 
     private static String generateExtJson(ChatMsg chatMsg) {
-        String str;
-        Exception e;
+        String str = "";
         try {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
@@ -70,18 +69,12 @@ public class DuzhanUpMsgCreator {
             jSONObject2.put("msg", jSONObject3);
             jSONObject.put("text", jSONObject2.toString());
             str = jSONObject.toString();
-        } catch (Exception e2) {
-            str = "";
-            e = e2;
-        }
-        try {
             LogUtils.d(TAG, "generateExtJson :" + str);
-        } catch (Exception e3) {
-            e = e3;
+            return str;
+        } catch (Exception e) {
             LogUtils.e(TAG, "generateExtJson :" + e);
             return str;
         }
-        return str;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:12:0x0026 -> B:7:0x0015). Please submit an issue!!! */

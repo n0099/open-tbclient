@@ -1,17 +1,27 @@
 package com.baidu.tieba.l;
 /* loaded from: classes.dex */
 public interface e {
+    void OS(String str);
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void Gd(int i);
+    void OT(String str);
 
-        void onChange(boolean z);
+    boolean OU(String str);
 
-        void tP(boolean z);
-    }
+    boolean OV(String str);
 
-    void a(a aVar);
+    void e(String str, int i, int i2, String str2);
 
-    void diK();
+    void fO(String str, String str2);
+
+    void fP(String str, String str2);
+
+    void p(String str, int i, String str2);
+
+    void q(String str, int i, String str2);
+
+    void r(String str, int i, String str2);
+
+    void report(String str);
+
+    void s(String str, int i, String str2);
 }

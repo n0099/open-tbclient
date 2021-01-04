@@ -2,13 +2,13 @@ package com.baidu.tbadk.core.view.viewpager;
 
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
@@ -24,15 +24,15 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         this.mFragmentManager = fragmentManager;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public void startUpdate(ViewGroup viewGroup) {
     }
 
-    public final ArrayList<Fragment> bwz() {
+    public final ArrayList<Fragment> byS() {
         return this.mFragments;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         Fragment.SavedState savedState;
         Fragment fragment;
@@ -59,7 +59,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         return fragment;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         Fragment fragment = (Fragment) obj;
         if (this.mCurTransaction == null) {
@@ -85,7 +85,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         }
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         Fragment fragment = (Fragment) obj;
         if (fragment != this.mCurrentPrimaryItem) {
@@ -101,7 +101,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         }
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public void finishUpdate(ViewGroup viewGroup) {
         if (this.mCurTransaction != null) {
             this.mCurTransaction.commitAllowingStateLoss();
@@ -110,12 +110,12 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         }
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
         return ((Fragment) obj).getView() == view;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public Parcelable saveState() {
         Bundle bundle = null;
         if (this.mSavedState.size() > 0) {
@@ -137,7 +137,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         return bundle2;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
         if (parcelable != null) {
             Bundle bundle = (Bundle) parcelable;

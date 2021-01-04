@@ -3,9 +3,9 @@ package com.baidu.android.imsdk.chatuser;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.LongSparseArray;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.Filter;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -26,12 +26,12 @@ import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
-import com.baidu.h.a;
+import com.baidu.i.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class ChatUserManagerImpl {
     private static final String TAG = ChatUserManagerImpl.class.getSimpleName();
     private static Context mContext;
@@ -304,7 +304,7 @@ public class ChatUserManagerImpl {
             bundle.putSerializable(Constants.EXTRA_UIDS, arrayList);
             creatMethodIntent.putExtras(bundle);
             try {
-                a.aq(mContext).e(mContext, creatMethodIntent);
+                a.ap(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
                 onGetUsersStatusResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
@@ -388,7 +388,7 @@ public class ChatUserManagerImpl {
             creatMethodIntent.putExtras(bundle);
             creatMethodIntent.putExtra(Constants.EXTRA_SAVE_TO_DB, i);
             try {
-                a.aq(mContext).e(mContext, creatMethodIntent);
+                a.ap(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
                 onGetUserIpResult(mContext, i, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, arrayList, null);

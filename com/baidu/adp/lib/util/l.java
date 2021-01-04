@@ -26,13 +26,13 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class l {
-    private static String Qr;
+    private static String Qu;
     private static float displayMetricsDensity;
     static int displayMetricsHeightPixels;
     static int displayMetricsWidthPixels;
     public static boolean deviceDataInited = false;
     private static Toast mToast = null;
-    private static a Qq = null;
+    private static a Qt = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
@@ -47,7 +47,7 @@ public class l {
     public interface a {
         View getToastContentView();
 
-        void oo();
+        void nP();
 
         void setToastString(String str);
     }
@@ -103,10 +103,10 @@ public class l {
                 if (mToast != null) {
                     mToast.cancel();
                 }
-                if (Qq != null) {
-                    Qq.oo();
+                if (Qt != null) {
+                    Qt.nP();
                 }
-                if (Qq == null || Qq.getToastContentView() == null) {
+                if (Qt == null || Qt.getToastContentView() == null) {
                     if (i == 3500) {
                         mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
                         w.b(mToast);
@@ -123,20 +123,20 @@ public class l {
                     } else {
                         mToast.setDuration(0);
                     }
-                    Qq.setToastString(str);
-                    mToast.setView(Qq.getToastContentView());
+                    Qt.setToastString(str);
+                    mToast.setView(Qt.getToastContentView());
                 }
                 mToast.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (Qq != null) {
-                    Qq.oo();
+                if (Qt != null) {
+                    Qt.nP();
                 }
-                if (!str.equals(Qr)) {
-                    if (Qq == null || Qq.getToastContentView() == null) {
+                if (!str.equals(Qu)) {
+                    if (Qt == null || Qt.getToastContentView() == null) {
                         mToast.setText(str);
                     } else {
-                        Qq.setToastString(str);
-                        mToast.setView(Qq.getToastContentView());
+                        Qt.setToastString(str);
+                        mToast.setView(Qt.getToastContentView());
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -150,7 +150,7 @@ public class l {
                 }
                 mToast.setGravity(17, 0, dip2px);
             }
-            Qr = str;
+            Qu = str;
             mHandler.postDelayed(mRunnable, i);
             mToast.show();
         }
@@ -273,19 +273,18 @@ public class l {
 
     public static DisplayMetrics getScreenSize(Activity activity) {
         DisplayMetrics displayMetrics;
-        Exception e;
         try {
             displayMetrics = new DisplayMetrics();
             try {
                 activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 BdLog.e(e.toString());
                 return displayMetrics;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             displayMetrics = null;
-            e = e3;
         }
         return displayMetrics;
     }
@@ -305,16 +304,14 @@ public class l {
 
     public static int getTextWidth(Paint paint, String str) {
         float[] fArr;
+        if (str == null || str.length() <= 0) {
+            return 0;
+        }
+        int length = str.length();
+        paint.getTextWidths(str, new float[length]);
         int i = 0;
-        if (str != null && str.length() > 0) {
-            int length = str.length();
-            paint.getTextWidths(str, new float[length]);
-            int i2 = 0;
-            while (i2 < length) {
-                int ceil = ((int) Math.ceil(fArr[i2])) + i;
-                i2++;
-                i = ceil;
-            }
+        for (int i2 = 0; i2 < length; i2++) {
+            i += (int) Math.ceil(fArr[i2]);
         }
         return i;
     }
@@ -427,7 +424,6 @@ public class l {
 
     public static String getLocalDns() {
         BufferedReader bufferedReader;
-        Throwable th;
         String str = null;
         try {
             try {
@@ -441,17 +437,17 @@ public class l {
                     n.close((Reader) bufferedReader);
                     return str;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 n.close((Reader) bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
             e = e2;
             bufferedReader = null;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             bufferedReader = null;
-            th = th3;
             n.close((Reader) bufferedReader);
             throw th;
         }
@@ -460,7 +456,6 @@ public class l {
 
     public static String getLocalDnsBak() {
         BufferedReader bufferedReader;
-        Throwable th;
         String str = null;
         try {
             try {
@@ -474,17 +469,17 @@ public class l {
                     n.close((Reader) bufferedReader);
                     return str;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 n.close((Reader) bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
             e = e2;
             bufferedReader = null;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             bufferedReader = null;
-            th = th3;
             n.close((Reader) bufferedReader);
             throw th;
         }
@@ -514,11 +509,11 @@ public class l {
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a on() {
-        return Qq;
+    public static a nO() {
+        return Qt;
     }
 
     public static void a(a aVar) {
-        Qq = aVar;
+        Qt = aVar;
     }
 }

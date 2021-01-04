@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.controller.HttpResponsedRule;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.im.message.ALAGroupCommitHttpResponsedMessage;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends HttpResponsedRule {
     public a(int i) {
         super(i);
@@ -12,12 +12,12 @@ public class a extends HttpResponsedRule {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.live.adp.framework.controller.ResponsedMessageRule
-    /* renamed from: f */
+    /* renamed from: h */
     public HttpResponsedMessage process(HttpResponsedMessage httpResponsedMessage) {
         if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-            com.baidu.tieba.sdk.login.a dHA = com.baidu.tieba.sdk.login.a.dHA();
+            com.baidu.tieba.sdk.login.a dHq = com.baidu.tieba.sdk.login.a.dHq();
             if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1 && !(httpResponsedMessage instanceof ALAGroupCommitHttpResponsedMessage)) {
-                dHA.dfy();
+                dHq.dfk();
                 return null;
             }
             return httpResponsedMessage;

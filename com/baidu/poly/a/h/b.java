@@ -6,19 +6,19 @@ import com.baidu.poly.util.f;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class b {
     private String action;
-    private long chv = System.currentTimeMillis();
-    private String chw = f.getNetworkType();
-    private JSONObject chx;
+    private JSONObject coA;
     private String content;
+    private long coy = System.currentTimeMillis();
+    private String coz = f.getNetworkType();
 
     public b(String str) {
         this.action = str;
     }
 
-    public JSONObject adG() {
+    public JSONObject afB() {
         if (TextUtils.isEmpty(this.action)) {
             com.baidu.poly.util.d.a("statistics action can not null");
             return null;
@@ -26,10 +26,10 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("a", this.action);
-            jSONObject.put("t", this.chv);
-            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.chw);
-            if (this.chx != null) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.chx);
+            jSONObject.put("t", this.coy);
+            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.coz);
+            if (this.coA != null) {
+                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.coA);
             } else if (!TextUtils.isEmpty(this.content)) {
                 try {
                     jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.content));
@@ -39,7 +39,7 @@ public class b {
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (com.baidu.poly.util.d.ciw) {
+            if (com.baidu.poly.util.d.cpz) {
                 e2.printStackTrace();
                 return jSONObject;
             }
@@ -47,12 +47,12 @@ public class b {
         }
     }
 
-    public b ap(JSONObject jSONObject) {
-        this.chx = jSONObject;
+    public b ax(JSONObject jSONObject) {
+        this.coA = jSONObject;
         return this;
     }
 
-    public b kb(String str) {
+    public b jX(String str) {
         this.content = str;
         return this;
     }

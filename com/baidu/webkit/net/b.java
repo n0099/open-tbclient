@@ -6,7 +6,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class b implements HostnameVerifier {
     @Override // javax.net.ssl.HostnameVerifier
     public final boolean verify(String str, SSLSession sSLSession) {

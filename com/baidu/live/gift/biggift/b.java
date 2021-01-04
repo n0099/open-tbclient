@@ -1,9 +1,11 @@
 package com.baidu.live.gift.biggift;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    void eq(int i);
+    void a(int i, String str, com.baidu.live.gift.a.c cVar);
 
-    void l(com.baidu.live.gift.a.c cVar);
+    void eo(int i);
 
     void m(com.baidu.live.gift.a.c cVar);
+
+    void n(com.baidu.live.gift.a.c cVar);
 }

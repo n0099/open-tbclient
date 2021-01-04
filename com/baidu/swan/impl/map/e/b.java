@@ -2,9 +2,9 @@ package com.baidu.swan.impl.map.e;
 
 import android.graphics.Color;
 import com.baidu.mapapi.map.BaiduMap;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b extends a {
-    private static final int ekL = Color.parseColor("#26c56c");
+    private static final int etQ = Color.parseColor("#26c56c");
 
     public b(BaiduMap baiduMap) {
         super(baiduMap);
@@ -12,6 +12,6 @@ public class b extends a {
 
     @Override // com.baidu.swan.impl.map.e.a
     public int getLineColor() {
-        return ekL;
+        return etQ;
     }
 }

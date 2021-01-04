@@ -6,23 +6,22 @@ import android.util.JsonToken;
 import android.util.Log;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class c {
-    public static com.airbnb.lottie.model.a.l e(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
-        com.airbnb.lottie.model.a.e eVar2;
+    public static com.airbnb.lottie.model.a.l e(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
+        com.airbnb.lottie.model.a.e eVar;
         com.airbnb.lottie.model.a.g gVar;
-        com.airbnb.lottie.model.a.e eVar3;
-        com.airbnb.lottie.model.a.e eVar4 = null;
-        com.airbnb.lottie.model.a.m<PointF, PointF> mVar = null;
-        com.airbnb.lottie.model.a.g gVar2 = null;
-        com.airbnb.lottie.model.a.b bVar = null;
-        com.airbnb.lottie.model.a.d dVar = null;
-        com.airbnb.lottie.model.a.b bVar2 = null;
-        com.airbnb.lottie.model.a.b bVar3 = null;
         boolean z = jsonReader.peek() == JsonToken.BEGIN_OBJECT;
         if (z) {
             jsonReader.beginObject();
         }
+        com.airbnb.lottie.model.a.b bVar = null;
+        com.airbnb.lottie.model.a.b bVar2 = null;
+        com.airbnb.lottie.model.a.d dVar2 = null;
+        com.airbnb.lottie.model.a.b bVar3 = null;
+        com.airbnb.lottie.model.a.g gVar2 = null;
+        com.airbnb.lottie.model.a.m<PointF, PointF> mVar = null;
+        com.airbnb.lottie.model.a.e eVar2 = null;
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
             char c = 65535;
@@ -79,86 +78,68 @@ public class c {
             switch (c) {
                 case 0:
                     jsonReader.beginObject();
-                    com.airbnb.lottie.model.a.e eVar5 = eVar4;
                     while (jsonReader.hasNext()) {
                         if (jsonReader.nextName().equals("k")) {
-                            eVar5 = a.a(jsonReader, eVar);
+                            eVar2 = a.a(jsonReader, dVar);
                         } else {
                             jsonReader.skipValue();
                         }
                     }
                     jsonReader.endObject();
-                    com.airbnb.lottie.model.a.g gVar3 = gVar2;
-                    eVar3 = eVar5;
-                    gVar = gVar3;
+                    gVar = gVar2;
                     continue;
-                    eVar4 = eVar3;
                     gVar2 = gVar;
                 case 1:
-                    mVar = a.b(jsonReader, eVar);
+                    mVar = a.b(jsonReader, dVar);
                     gVar = gVar2;
-                    eVar3 = eVar4;
                     continue;
-                    eVar4 = eVar3;
                     gVar2 = gVar;
                 case 2:
-                    gVar = d.i(jsonReader, eVar);
-                    eVar3 = eVar4;
+                    gVar = d.i(jsonReader, dVar);
                     continue;
-                    eVar4 = eVar3;
                     gVar2 = gVar;
                 case 3:
-                    eVar.bf("Lottie doesn't support 3D layers.");
+                    dVar.bc("Lottie doesn't support 3D layers.");
                     break;
                 case 4:
                     break;
                 case 5:
-                    dVar = d.g(jsonReader, eVar);
+                    dVar2 = d.g(jsonReader, dVar);
                     gVar = gVar2;
-                    eVar3 = eVar4;
                     continue;
-                    eVar4 = eVar3;
                     gVar2 = gVar;
                 case 6:
-                    bVar2 = d.a(jsonReader, eVar, false);
+                    bVar2 = d.a(jsonReader, dVar, false);
                     gVar = gVar2;
-                    eVar3 = eVar4;
                     continue;
-                    eVar4 = eVar3;
                     gVar2 = gVar;
                 case 7:
-                    bVar3 = d.a(jsonReader, eVar, false);
+                    bVar = d.a(jsonReader, dVar, false);
                     gVar = gVar2;
-                    eVar3 = eVar4;
                     continue;
-                    eVar4 = eVar3;
                     gVar2 = gVar;
                 default:
                     jsonReader.skipValue();
                     gVar = gVar2;
-                    eVar3 = eVar4;
                     continue;
-                    eVar4 = eVar3;
                     gVar2 = gVar;
             }
-            bVar = d.a(jsonReader, eVar, false);
+            bVar3 = d.a(jsonReader, dVar, false);
             gVar = gVar2;
-            eVar3 = eVar4;
-            eVar4 = eVar3;
             gVar2 = gVar;
         }
         if (z) {
             jsonReader.endObject();
         }
-        if (eVar4 == null) {
+        if (eVar2 == null) {
             Log.w("LOTTIE", "Layer has no transform property. You may be using an unsupported layer type such as a camera.");
-            eVar2 = new com.airbnb.lottie.model.a.e();
+            eVar = new com.airbnb.lottie.model.a.e();
         } else {
-            eVar2 = eVar4;
+            eVar = eVar2;
         }
         if (gVar2 == null) {
             gVar2 = new com.airbnb.lottie.model.a.g(new com.airbnb.lottie.e.d(1.0f, 1.0f));
         }
-        return new com.airbnb.lottie.model.a.l(eVar2, mVar, gVar2, bVar, dVar == null ? new com.airbnb.lottie.model.a.d() : dVar, bVar2, bVar3);
+        return new com.airbnb.lottie.model.a.l(eVar, mVar, gVar2, bVar3, dVar2 == null ? new com.airbnb.lottie.model.a.d() : dVar2, bVar2, bVar);
     }
 }

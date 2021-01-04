@@ -1,0 +1,50 @@
+package com.bytedance.sdk.openadsdk.preload.geckox.d.b.b;
+
+import android.util.Pair;
+import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
+import com.bytedance.sdk.openadsdk.preload.geckox.utils.BsPatch;
+import java.io.File;
+/* loaded from: classes4.dex */
+public class d extends com.bytedance.sdk.openadsdk.preload.a.d<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>, Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>> {
+    private com.bytedance.sdk.openadsdk.preload.geckox.b d;
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.bytedance.sdk.openadsdk.preload.a.d
+    public void a(Object... objArr) {
+        super.a(objArr);
+        this.d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bytedance.sdk.openadsdk.preload.a.d
+    /* renamed from: a */
+    public Object a_(com.bytedance.sdk.openadsdk.preload.a.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>> bVar, Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage> pair) throws Throwable {
+        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "start merge patch zip file, channel:", ((UpdatePackage) pair.second).getChannel());
+        com.bytedance.sdk.openadsdk.preload.geckox.buffer.a aVar = (com.bytedance.sdk.openadsdk.preload.geckox.buffer.a) pair.first;
+        File f = aVar.f();
+        aVar.a();
+        aVar.e();
+        File parentFile = f.getParentFile().getParentFile();
+        UpdatePackage updatePackage = (UpdatePackage) pair.second;
+        File file = new File(parentFile, updatePackage.getLocalVersion() + File.separator + "res.zip");
+        File file2 = new File(f.getParentFile(), "res.zip");
+        com.bytedance.sdk.openadsdk.preload.geckox.utils.d.a(file2);
+        try {
+            try {
+                BsPatch.a(file, f, file2.getParentFile(), file2.getName());
+                com.bytedance.sdk.openadsdk.preload.geckox.utils.d.a(f);
+                com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.d.a(), file2, file2.length());
+                try {
+                    return bVar.a((com.bytedance.sdk.openadsdk.preload.a.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>>) new Pair<>(a2, updatePackage));
+                } finally {
+                    a2.e();
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("merged patch zip file failed, channel：" + updatePackage.getChannel() + ", pkg id:" + updatePackage.getPatch().getId() + ", caused by:" + e.getMessage(), e);
+            }
+        } catch (Throwable th) {
+            com.bytedance.sdk.openadsdk.preload.geckox.utils.d.a(f);
+            throw th;
+        }
+    }
+}

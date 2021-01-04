@@ -4,38 +4,39 @@ import com.baidu.live.gift.g;
 import com.baidu.live.gift.l;
 import com.baidu.live.gift.r;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c implements Cloneable {
-    public long aWT;
-    public List<l> aXs;
+    public List<l> aYX;
+    public long aYz;
     public String appId;
-    public boolean bcM;
-    public g bcN;
-    public String bcO;
-    public int bcP;
-    public long bcQ;
-    public long bcR;
-    public boolean bcS;
-    public JSONObject bcT;
-    public long bcU;
-    public long bcV;
-    private long bcW;
-    public boolean bcX;
-    public String bcY;
-    private boolean bcZ;
-    public boolean bda;
-    public boolean bdb;
-    public boolean bdc;
-    public r bdd;
-    public boolean bde;
-    public String bdf;
+    public boolean beA;
+    public JSONObject beB;
+    public long beC;
+    public long beD;
+    private long beE;
+    public boolean beF;
+    public String beG;
+    private boolean beH;
+    public boolean beI;
+    public boolean beJ;
+    public boolean beK;
+    public r beL;
+    public boolean beM;
+    public String beN;
+    public boolean bew;
+    public g bex;
+    public String bey;
+    public int bez;
     public String chatMCastId;
     public String description;
     public String ensureMCastId;
+    public long fansCount;
+    public long followCount;
     public String giftId;
     public String groupId;
     public String liveId;
@@ -49,63 +50,63 @@ public class c implements Cloneable {
     public int userStatus;
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2, boolean z2, JSONObject jSONObject) {
-        this.bcM = false;
-        this.bcO = "";
-        this.bcQ = 0L;
-        this.bcR = 0L;
+        this.bew = false;
+        this.bey = "";
+        this.followCount = 0L;
+        this.fansCount = 0L;
         this.location = "";
         this.priority = 1;
-        this.bcV = 0L;
-        this.bcZ = true;
-        this.bda = false;
-        this.bdb = false;
-        this.bdc = false;
-        this.bde = false;
+        this.beD = 0L;
+        this.beH = true;
+        this.beI = false;
+        this.beJ = false;
+        this.beK = false;
+        this.beM = false;
         this.giftId = str;
-        this.bcU = j;
-        this.bcN = gVar;
+        this.beC = j;
+        this.bex = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
         this.liveId = str5;
         this.groupId = str6;
-        this.bcX = z;
-        this.bcY = str7;
+        this.beF = z;
+        this.beG = str7;
         this.appId = str8;
         this.msgId = j2;
-        this.bcS = z2;
-        this.bcT = jSONObject;
-        this.aXs = new ArrayList();
-        this.bdd = new r();
+        this.beA = z2;
+        this.beB = jSONObject;
+        this.aYX = new ArrayList();
+        this.beL = new r();
         if (jSONObject != null) {
-            this.bdd.parserJson(jSONObject);
-            this.bdc = jSONObject.optString("content_type").equals("tying_gift") && this.bdd.aXI == 1;
+            this.beL.parserJson(jSONObject);
+            this.beK = jSONObject.optString("content_type").equals(UbcStatConstant.ContentType.UBC_TYPE_TYING_GIFT) && this.beL.aZn == 1;
         }
-        JJ();
+        Jl();
     }
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2) {
         this(str, j, gVar, str2, str3, str4, str5, str6, z, str7, str8, j2, false, null);
     }
 
-    public void aQ(long j) {
-        this.bcW = j;
+    public void aP(long j) {
+        this.beE = j;
     }
 
-    public long JI() {
-        return this.bcW;
+    public long Jk() {
+        return this.beE;
     }
 
-    private void JJ() {
-        this.bcO = this.userId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.giftId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.userName;
+    private void Jl() {
+        this.bey = this.userId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.giftId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.userName;
     }
 
-    public String JK() {
-        return this.bcO;
+    public String Jm() {
+        return this.bey;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: JL */
+    /* renamed from: Jn */
     public c clone() {
         try {
             return (c) super.clone();
@@ -115,15 +116,15 @@ public class c implements Cloneable {
         }
     }
 
-    public boolean JM() {
-        return this.bcZ;
+    public boolean Jo() {
+        return this.beH;
     }
 
-    public void bY(boolean z) {
-        this.bcZ = z;
+    public void bW(boolean z) {
+        this.beH = z;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Comparator<c> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -136,10 +137,10 @@ public class c implements Cloneable {
                 if (cVar.priority < cVar2.priority) {
                     return -1;
                 }
-                if (cVar.bcN != null && cVar2.bcN != null) {
+                if (cVar.bex != null && cVar2.bex != null) {
                     try {
-                        long parseLong = Long.parseLong(cVar.bcN.getPrice());
-                        long parseLong2 = Long.parseLong(cVar2.bcN.getPrice());
+                        long parseLong = Long.parseLong(cVar.bex.getPrice());
+                        long parseLong2 = Long.parseLong(cVar2.bex.getPrice());
                         if (parseLong <= parseLong2) {
                             return parseLong < parseLong2 ? -1 : 0;
                         }

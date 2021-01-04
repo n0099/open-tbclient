@@ -4,16 +4,16 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes4.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f986a = {"android.permission.READ_PHONE_STATE"};
+    public static String[] f1125a = {"android.permission.READ_PHONE_STATE"};
 
     public static boolean a(Context context) {
         if (Build.VERSION.SDK_INT >= 23) {
             try {
-                if (a(context, f986a)) {
+                if (a(context, f1125a)) {
                     return false;
                 }
             } catch (Exception e) {

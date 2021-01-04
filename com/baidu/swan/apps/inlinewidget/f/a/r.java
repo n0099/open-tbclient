@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.inlinewidget.f.a;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class r extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.f.c.a> {
-    private int dbZ = 1;
-    private int dca = 3;
+    private int dgU = 1;
+    private int dgV = 3;
 
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String aya() {
+    public String azr() {
         return "setZeusVideoExt";
     }
 
@@ -31,19 +31,19 @@ public class r extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
             JSONObject jSONObject = new JSONObject((String) obj);
             String optString = jSONObject.optString("firstPlayStatus");
             if (!TextUtils.isEmpty(optString)) {
-                aVar.pt(optString);
+                aVar.pm(optString);
             }
-            this.dbZ = jSONObject.optInt("min-cache", this.dbZ);
-            this.dca = jSONObject.optInt("max-cache", this.dca);
-            if (this.dbZ <= this.dca) {
+            this.dgU = jSONObject.optInt("min-cache", this.dgU);
+            this.dgV = jSONObject.optInt("max-cache", this.dgV);
+            if (this.dgU <= this.dgV) {
                 if (jSONObject.has("min-cache")) {
-                    aVar.jr(this.dbZ);
+                    aVar.jm(this.dgU);
                 }
                 if (jSONObject.has("max-cache")) {
-                    aVar.js(this.dca);
+                    aVar.jn(this.dgV);
                 }
             } else if (DEBUG) {
-                Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.dbZ + " > maxCache " + this.dca);
+                Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.dgU + " > maxCache " + this.dgV);
             }
         } catch (Exception e) {
         }

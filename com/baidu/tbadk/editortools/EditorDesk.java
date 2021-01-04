@@ -6,55 +6,55 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.editortools.noConflictPanel.widget.KPSwitchFSPanelFrameLayout;
 import com.baidu.tieba.R;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class EditorDesk extends KPSwitchFSPanelFrameLayout {
-    private LinkedList<h> fuc;
-    private LinkedList<n> fud;
-    private n fue;
-    private boolean fuf;
-    private boolean fug;
-    private EditorTools fuh;
-    private Runnable fui;
+    private LinkedList<h> fDI;
+    private LinkedList<n> fDJ;
+    private n fDK;
+    private boolean fDL;
+    private boolean fDM;
+    private EditorTools fDN;
+    private Runnable fDO;
     private int mBgColor;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public EditorDesk(Context context, EditorTools editorTools) {
         super(context);
         this.mBgColor = R.color.CAM_X0206;
-        this.fue = null;
-        this.fuf = true;
-        this.fug = false;
-        this.fui = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
+        this.fDK = null;
+        this.fDL = true;
+        this.fDM = false;
+        this.fDO = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorDesk.1
             @Override // java.lang.Runnable
             public void run() {
-                if (EditorDesk.this.fue != null) {
-                    EditorDesk.this.fue.su();
+                if (EditorDesk.this.fDK != null) {
+                    EditorDesk.this.fDK.rV();
                 }
             }
         };
-        this.fuc = new LinkedList<>();
-        this.fud = new LinkedList<>();
-        this.fuh = editorTools;
+        this.fDI = new LinkedList<>();
+        this.fDJ = new LinkedList<>();
+        this.fDN = editorTools;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(h hVar) {
-        this.fuc.add(hVar);
+        this.fDI.add(hVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(n nVar) {
-        this.fud.add(nVar);
+        this.fDJ.add(nVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void build() {
-        Iterator<n> it = this.fud.iterator();
+        Iterator<n> it = this.fDJ.iterator();
         while (it.hasNext()) {
             n next = it.next();
             if (next.getToolId() == 2) {
@@ -72,55 +72,55 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
 
     private void b(n nVar) {
         if (nVar instanceof MoreDeskView) {
-            ((MoreDeskView) nVar).g(this.fuc);
+            ((MoreDeskView) nVar).g(this.fDI);
             nVar.init();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void clear() {
-        this.fue = null;
-        this.fuc.clear();
-        this.fud.clear();
+        this.fDK = null;
+        this.fDI.clear();
+        this.fDJ.clear();
     }
 
-    protected void su() {
+    protected void rV() {
         setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hide() {
-        if (this.fue != null) {
-            this.fue.hide();
+        if (this.fDK != null) {
+            this.fDK.hide();
         }
-        this.fue = null;
+        this.fDK = null;
         setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bCp() {
-        if (this.fue != null) {
-            this.fue.hide();
+    public void bEK() {
+        if (this.fDK != null) {
+            this.fDK.hide();
         }
-        this.fue = null;
+        this.fDK = null;
     }
 
-    public void bCq() {
-        if (this.fue == null) {
+    public void bEL() {
+        if (this.fDK == null) {
             setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void se(int i) {
-        if (si(i)) {
-            if (bCs()) {
-                this.fuf = true;
+    public void sq(int i) {
+        if (su(i)) {
+            if (bEN()) {
+                this.fDL = true;
             } else {
-                this.fuf = false;
+                this.fDL = false;
             }
-            boolean z = this.fug;
-            Iterator<n> it = this.fud.iterator();
+            boolean z = this.fDM;
+            Iterator<n> it = this.fDJ.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (!z && TbadkCoreApplication.getInst().isKeyboardHeightCanUsed() && (next instanceof View)) {
@@ -128,31 +128,31 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
                     layoutParams.height = TbadkCoreApplication.getInst().getKeyboardHeight();
                     view.setLayoutParams(layoutParams);
-                    this.fug = true;
+                    this.fDM = true;
                 }
                 if (next.getToolId() == i) {
-                    this.fue = next;
-                    if (this.fuf) {
-                        next.su();
+                    this.fDK = next;
+                    if (this.fDL) {
+                        next.rV();
                     }
                 } else {
                     next.hide();
                 }
             }
-            if (!this.fuf && (getContext() instanceof Activity)) {
-                if (this.fuh != null) {
-                    this.fuh.bCw();
+            if (!this.fDL && (getContext() instanceof Activity)) {
+                if (this.fDN != null) {
+                    this.fDN.bER();
                 } else {
                     com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
-                com.baidu.adp.lib.f.e.mY().postDelayed(this.fui, 250L);
+                com.baidu.adp.lib.f.e.mB().postDelayed(this.fDO, 250L);
             }
-            su();
+            rV();
         }
     }
 
-    private boolean si(int i) {
-        Iterator<n> it = this.fud.iterator();
+    private boolean su(int i) {
+        Iterator<n> it = this.fDJ.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
                 return true;
@@ -162,7 +162,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     }
 
     public void setDeskLauncherEnabled(boolean z) {
-        Iterator<h> it = this.fuc.iterator();
+        Iterator<h> it = this.fDI.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next != null && (next instanceof View)) {
@@ -171,8 +171,8 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         }
     }
 
-    public boolean v(boolean z, int i) {
-        Iterator<h> it = this.fuc.iterator();
+    public boolean u(boolean z, int i) {
+        Iterator<h> it = this.fDI.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next instanceof View) {
@@ -186,8 +186,8 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         return false;
     }
 
-    public h sg(int i) {
-        Iterator<h> it = this.fuc.iterator();
+    public h ss(int i) {
+        Iterator<h> it = this.fDI.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next.getToolId() == i) {
@@ -199,13 +199,13 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
 
     public void onChangeSkinType(int i) {
         if (this.mBgColor > 0) {
-            ap.setBackgroundColor(this, this.mBgColor, i);
+            ao.setBackgroundColor(this, this.mBgColor, i);
         }
-        Iterator<h> it = this.fuc.iterator();
+        Iterator<h> it = this.fDI.iterator();
         while (it.hasNext()) {
             it.next().onChangeSkinType(i);
         }
-        Iterator<n> it2 = this.fud.iterator();
+        Iterator<n> it2 = this.fDJ.iterator();
         while (it2.hasNext()) {
             n next = it2.next();
             if (next != null) {
@@ -214,12 +214,12 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         }
     }
 
-    public boolean bCr() {
-        return getVisibility() == 0 && bCs();
+    public boolean bEM() {
+        return getVisibility() == 0 && bEN();
     }
 
-    private boolean bCs() {
-        Iterator<n> it = this.fud.iterator();
+    private boolean bEN() {
+        Iterator<n> it = this.fDJ.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {
                 return true;

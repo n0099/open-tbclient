@@ -3,13 +3,15 @@ package com.baidu.mapapi.search.core;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class PoiChildrenInfo implements Parcelable {
     public static final Parcelable.Creator<PoiChildrenInfo> CREATOR = new e();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2103a;
-    private String b;
+    private String f2960a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2961b;
     private String c;
     private String d;
     private LatLng e;
@@ -20,8 +22,8 @@ public class PoiChildrenInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiChildrenInfo(Parcel parcel) {
-        this.f2103a = parcel.readString();
-        this.b = parcel.readString();
+        this.f2960a = parcel.readString();
+        this.f2961b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readString();
         this.e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
@@ -42,7 +44,7 @@ public class PoiChildrenInfo implements Parcelable {
     }
 
     public String getName() {
-        return this.b;
+        return this.f2961b;
     }
 
     public String getShowName() {
@@ -54,7 +56,7 @@ public class PoiChildrenInfo implements Parcelable {
     }
 
     public String getUid() {
-        return this.f2103a;
+        return this.f2960a;
     }
 
     public void setAddress(String str) {
@@ -66,7 +68,7 @@ public class PoiChildrenInfo implements Parcelable {
     }
 
     public void setName(String str) {
-        this.b = str;
+        this.f2961b = str;
     }
 
     public void setShowName(String str) {
@@ -78,13 +80,13 @@ public class PoiChildrenInfo implements Parcelable {
     }
 
     public void setUid(String str) {
-        this.f2103a = str;
+        this.f2960a = str;
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("PoiChildrenInfo: ");
-        stringBuffer.append("uid = ").append(this.f2103a);
-        stringBuffer.append("; name = ").append(this.b);
+        stringBuffer.append("uid = ").append(this.f2960a);
+        stringBuffer.append("; name = ").append(this.f2961b);
         stringBuffer.append("; showName = ").append(this.c);
         stringBuffer.append("; tag = ").append(this.d);
         stringBuffer.append("; location = ");
@@ -99,8 +101,8 @@ public class PoiChildrenInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2103a);
-        parcel.writeString(this.b);
+        parcel.writeString(this.f2960a);
+        parcel.writeString(this.f2961b);
         parcel.writeString(this.c);
         parcel.writeString(this.d);
         parcel.writeParcelable(this.e, i);

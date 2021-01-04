@@ -7,21 +7,21 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.hardware.Camera;
 import android.util.Log;
+import com.baidu.ala.adp.lib.util.BdLog;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.ala.recorder.video.LogReport;
 import com.baidu.ala.recorder.video.RecorderHandler;
 import com.baidu.ala.recorder.video.listener.CameraListener;
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
-import com.baidu.live.tbadk.util.ScreenHelper;
+import com.baidu.ala.tbadk.core.TbadkCoreApplicationProxy;
+import com.baidu.ala.tbadk.util.ScreenHelper;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(16)
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaCameraManager implements ICameraStatusHandler {
     private static final int CAMERA_FLUSHLIGHT_OFF = 2;
     private static final int CAMERA_FLUSHLIGHT_ON = 1;
@@ -135,7 +135,7 @@ public class AlaCameraManager implements ICameraStatusHandler {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void doStartCamera() {
-        this.mIsBackCamera = SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount(SP_CAMERA_FACING), false);
+        this.mIsBackCamera = TbadkCoreApplicationProxy.getInst().getIsBackCamera();
         boolean openCamera = openCamera();
         if (this.mMainHandler != null) {
             this.mMainHandler.sendVideoCollectionStart(openCamera, this.mPreviewHeight, this.mPreviewWidth);
@@ -237,6 +237,7 @@ public class AlaCameraManager implements ICameraStatusHandler {
             this.mPreviewWidth = previewSize.width;
             this.mPreviewHeight = previewSize.height;
             this.mDisplayRotate = CameraUtils.getCameraDisplayOrientation(this.mActivity, cameraInfo, this.mCameraId);
+            Log.e("qlc", "mDisplayRotate  " + this.mDisplayRotate + " mVideoConfig.isLandscape() " + this.mVideoConfig.isLandscape());
             this.mCamera.setDisplayOrientation(this.mDisplayRotate);
             this.mCurInfo.params = defaultCameras;
             this.mCurInfo.previewWidth = this.mPreviewWidth;
@@ -450,7 +451,7 @@ public class AlaCameraManager implements ICameraStatusHandler {
     public void switchCamera() {
         releaseCamera(false);
         this.mIsBackCamera = !this.mIsBackCamera;
-        SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount(SP_CAMERA_FACING), this.mIsBackCamera);
+        TbadkCoreApplicationProxy.getInst().setIsBackCamera(this.mIsBackCamera);
         openCamera();
         if (this.mMainHandler != null) {
             this.mMainHandler.sendSwitchCarema(this.mIsBackCamera ? false : true);

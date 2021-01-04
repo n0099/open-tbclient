@@ -1,61 +1,88 @@
 package com.baidu.tieba.personExtra;
 
+import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.k;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes24.dex */
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.R;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SmartApp;
+/* loaded from: classes8.dex */
 public class i {
-    private a mph;
-    private boolean isLoading = false;
-    private com.baidu.adp.framework.listener.a ewJ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638) { // from class: com.baidu.tieba.personExtra.i.1
-        @Override // com.baidu.adp.framework.listener.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            i.this.isLoading = false;
-            if (responsedMessage == null || responsedMessage.getError() != 0) {
-                i.this.b(false, null);
-            } else if (responsedMessage instanceof SmartAppBrowseHistorySocketResponsedMessage) {
-                i.this.b(true, ((SmartAppBrowseHistorySocketResponsedMessage) responsedMessage).getData());
-            } else if (responsedMessage instanceof SmartAppBrowseHistoryHttpResponsedMessage) {
-                i.this.b(true, ((SmartAppBrowseHistoryHttpResponsedMessage) responsedMessage).getData());
+    private k iyk;
+    private com.baidu.tbadk.core.dialog.g kNZ;
+    private Context mContext;
+    private TbPageContext mPageContext;
+    private SmartApp mut;
+    private com.baidu.tbadk.core.dialog.i muw;
+    private a mux;
+    private k.b muy = new k.b() { // from class: com.baidu.tieba.personExtra.i.1
+        @Override // com.baidu.tbadk.core.dialog.k.b
+        public void onClick() {
+            if (i.this.mut != null) {
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
+                httpMessage.addParam("swan_app_key", i.this.mut.id);
+                MessageManager.getInstance().sendMessage(httpMessage);
+                if (i.this.mux != null) {
+                    i.this.mux.QL(i.this.mut.id);
+                }
+                aq aqVar = new aq("c13436");
+                aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
+                aqVar.w("obj_id", i.this.mut.swan_app_id.longValue());
+                aqVar.dX("obj_name", i.this.mut.name);
+                TiebaStatic.log(aqVar);
+                if (i.this.muw != null) {
+                    i.this.muw.dismiss();
+                }
             }
         }
     };
+    private List<com.baidu.tbadk.core.dialog.g> eBG = new ArrayList();
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void a(boolean z, com.baidu.tieba.personExtra.a aVar);
+        void QL(String str);
     }
 
-    public i() {
-        registerTask();
-        registerListener();
+    static {
+        MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_DEL_BROWSE_HISTORY));
     }
 
-    private void registerTask() {
-        com.baidu.tieba.tbadkCore.a.a.c(309638, SmartAppBrowseHistorySocketResponsedMessage.class, false);
-        com.baidu.tieba.tbadkCore.a.a.a(309638, CmdConfigHttp.CMD_HISTORY_SWAN, TbConfig.URL_HISTORY_SWAN, SmartAppBrowseHistoryHttpResponsedMessage.class, false, false, true, false);
+    public i(TbPageContext tbPageContext) {
+        this.mPageContext = tbPageContext;
+        this.mContext = tbPageContext.getPageActivity();
+        this.iyk = new k(this.mContext);
     }
 
-    private void registerListener() {
-        MessageManager.getInstance().registerListener(this.ewJ);
-    }
-
-    public void bFR() {
-        if (!this.isLoading) {
-            this.isLoading = true;
-            MessageManager.getInstance().sendMessage(new SmartAppBrowseHistoryRequestMessage());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(boolean z, com.baidu.tieba.personExtra.a aVar) {
-        if (this.mph != null) {
-            this.mph.a(z, aVar);
+    public void create() {
+        if (this.muw == null) {
+            this.kNZ = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.iyk);
+            this.kNZ.a(this.muy);
+            this.eBG.add(this.kNZ);
+            this.iyk.bB(this.eBG);
+            this.muw = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.iyk);
         }
     }
 
     public void a(a aVar) {
-        this.mph = aVar;
+        this.mux = aVar;
+    }
+
+    public void b(SmartApp smartApp) {
+        this.mut = smartApp;
+    }
+
+    public void show() {
+        if (this.muw != null) {
+            this.muw.SY();
+        }
     }
 }

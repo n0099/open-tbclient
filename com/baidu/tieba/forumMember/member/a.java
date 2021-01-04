@@ -8,15 +8,15 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
-public class a extends com.baidu.adp.widget.ListView.a<b, c> {
+/* loaded from: classes8.dex */
+public class a extends com.baidu.adp.widget.ListView.a<b, ComplaintBarlordViewHolder> {
     private View.OnClickListener mClickListener;
     private int mSkinType;
 
-    public a(com.baidu.adp.base.e eVar) {
-        super(eVar.getPageActivity(), b.iOU, eVar.getUniqueId());
+    public a(com.baidu.adp.base.f fVar) {
+        super(fVar.getPageActivity(), b.jbg, fVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -36,36 +36,36 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
-    public c c(ViewGroup viewGroup) {
-        return new c(LayoutInflater.from(this.mContext).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false));
+    /* renamed from: bm */
+    public ComplaintBarlordViewHolder e(ViewGroup viewGroup) {
+        return new ComplaintBarlordViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
-        if (bVar != null && cVar != null) {
-            a(cVar);
-            a(cVar, bVar);
+    public View a(int i, View view, ViewGroup viewGroup, b bVar, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        if (bVar != null && complaintBarlordViewHolder != null) {
+            a(complaintBarlordViewHolder);
+            a(complaintBarlordViewHolder, bVar);
         }
         return view;
     }
 
-    private void a(c cVar) {
+    private void a(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        if (cVar.mSkinType != this.mSkinType) {
-            cVar.mSkinType = this.mSkinType;
-            ap.setBackgroundResource(cVar.bIq, R.drawable.frs_member_manito_bg);
-            ap.setBackgroundColor(cVar.mLineView, R.color.CAM_X0204);
-            ap.setViewTextColor(cVar.mTitleView, R.color.CAM_X0105, 1);
-            ap.setImageResource(cVar.hRa, R.drawable.icon_arrow12_gray66_right);
+        if (complaintBarlordViewHolder.mSkinType != this.mSkinType) {
+            complaintBarlordViewHolder.mSkinType = this.mSkinType;
+            ao.setBackgroundResource(complaintBarlordViewHolder.bNf, R.drawable.frs_member_manito_bg);
+            ao.setBackgroundColor(complaintBarlordViewHolder.mLineView, R.color.CAM_X0204);
+            ao.setViewTextColor(complaintBarlordViewHolder.mTitleView, R.color.CAM_X0105, 1);
+            ao.setImageResource(complaintBarlordViewHolder.idA, R.drawable.icon_arrow12_gray66_right);
         }
     }
 
-    private void a(c cVar, b bVar) {
-        cVar.mTitleView.setText(bVar.iOV);
-        cVar.bIq.setTag(bVar.mUrl);
-        cVar.bIq.setOnClickListener(this.mClickListener);
+    private void a(ComplaintBarlordViewHolder complaintBarlordViewHolder, b bVar) {
+        complaintBarlordViewHolder.mTitleView.setText(bVar.jbh);
+        complaintBarlordViewHolder.bNf.setTag(bVar.mUrl);
+        complaintBarlordViewHolder.bNf.setOnClickListener(this.mClickListener);
     }
 }

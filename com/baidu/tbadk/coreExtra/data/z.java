@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 /* loaded from: classes.dex */
 public class z {
     private int FrsMaxCache;

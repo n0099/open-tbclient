@@ -1,10 +1,11 @@
 package com.alibaba.fastjson.serializer;
 
 import com.alibaba.fastjson.JSONObject;
+import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Date;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class JSONLibDataFormatSerializer implements ObjectSerializer {
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
@@ -15,7 +16,7 @@ public class JSONLibDataFormatSerializer implements ObjectSerializer {
         Date date = (Date) obj;
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("date", (Object) Integer.valueOf(date.getDate()));
-        jSONObject.put("day", (Object) Integer.valueOf(date.getDay()));
+        jSONObject.put(Config.TRACE_VISIT_RECENT_DAY, (Object) Integer.valueOf(date.getDay()));
         jSONObject.put("hours", (Object) Integer.valueOf(date.getHours()));
         jSONObject.put("minutes", (Object) Integer.valueOf(date.getMinutes()));
         jSONObject.put("month", (Object) Integer.valueOf(date.getMonth()));

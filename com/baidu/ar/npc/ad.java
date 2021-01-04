@@ -4,25 +4,27 @@ import android.util.Log;
 import android.view.MotionEvent;
 import com.baidu.ar.npc.BaiduArView;
 import java.util.Calendar;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class ad implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MotionEvent f1214a;
-    final /* synthetic */ aa b;
+    final /* synthetic */ MotionEvent f1519a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ aa f1520b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(aa aaVar, MotionEvent motionEvent) {
-        this.b = aaVar;
-        this.f1214a = motionEvent;
+        this.f1520b = aaVar;
+        this.f1519a = motionEvent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Log.d(BaiduArView.b, "touch onLongPress " + this.f1214a);
+        Log.d(BaiduArView.f1495b, "touch onLongPress " + this.f1519a);
         long timeInMillis = Calendar.getInstance().getTimeInMillis();
-        if (!this.b.f1211a.x && !this.b.f1211a.D) {
-            ArBridge.getInstance().a(BaiduArView.i.ELongPress.ordinal(), this.f1214a.getPointerId(0), this.f1214a.getX(), this.f1214a.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, timeInMillis);
+        if (!this.f1520b.f1514a.x && !this.f1520b.f1514a.D) {
+            ArBridge.getInstance().a(BaiduArView.i.ELongPress.ordinal(), this.f1519a.getPointerId(0), this.f1519a.getX(), this.f1519a.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, timeInMillis);
         }
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.live.tbadk.util.WebviewHelper;
 import com.baidu.live.tieba.f.a.a;
 import com.baidu.tieba.live.tbean.message.GetYinJiHttpResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BuyTBeanActivityInitialize {
     static {
         if (Build.VERSION.SDK_INT == 26) {

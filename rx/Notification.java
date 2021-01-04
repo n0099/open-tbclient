@@ -1,38 +1,38 @@
 package rx;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class Notification<T> {
-    private static final Notification<Void> pPe = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind pPc;
-    private final Throwable pPd;
+    private static final Notification<Void> qqG = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind qqE;
+    private final Throwable qqF;
     private final T value;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public enum Kind {
         OnNext,
         OnError,
         OnCompleted
     }
 
-    public static <T> Notification<T> bT(T t) {
+    public static <T> Notification<T> bV(T t) {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
-    public static <T> Notification<T> Q(Throwable th) {
+    public static <T> Notification<T> V(Throwable th) {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> eFj() {
-        return (Notification<T>) pPe;
+    public static <T> Notification<T> eNr() {
+        return (Notification<T>) qqG;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.pPd = th;
-        this.pPc = kind;
+        this.qqF = th;
+        this.qqE = kind;
     }
 
-    public Throwable eFk() {
-        return this.pPd;
+    public Throwable eNs() {
+        return this.qqF;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return eFo() && this.value != null;
+        return eNw() && this.value != null;
     }
 
-    public boolean eFl() {
-        return eCT() && this.pPd != null;
+    public boolean eNt() {
+        return eLb() && this.qqF != null;
     }
 
-    public Kind eFm() {
-        return this.pPc;
+    public Kind eNu() {
+        return this.qqE;
     }
 
-    public boolean eCT() {
-        return eFm() == Kind.OnError;
+    public boolean eLb() {
+        return eNu() == Kind.OnError;
     }
 
-    public boolean eFn() {
-        return eFm() == Kind.OnCompleted;
+    public boolean eNv() {
+        return eNu() == Kind.OnCompleted;
     }
 
-    public boolean eFo() {
-        return eFm() == Kind.OnNext;
+    public boolean eNw() {
+        return eNu() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(eFm());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(eNu());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (eFl()) {
-            append.append(' ').append(eFk().getMessage());
+        if (eNt()) {
+            append.append(' ').append(eNs().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = eFm().hashCode();
+        int hashCode = eNu().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (eFl()) {
-            return (hashCode * 31) + eFk().hashCode();
+        if (eNt()) {
+            return (hashCode * 31) + eNs().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.eFm() != eFm() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.pPd != notification.pPd && (this.pPd == null || !this.pPd.equals(notification.pPd))))) {
+            if (notification.eNu() != eNu() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.qqF != notification.qqF && (this.qqF == null || !this.qqF.equals(notification.qqF))))) {
                 z = false;
             }
             return z;

@@ -3,10 +3,10 @@ package com.baidu.tieba.ala.alaar.sticker.view;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
@@ -26,132 +26,132 @@ import com.tencent.open.SocialConstants;
 import java.util.LinkedList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c extends Dialog {
-    private HttpMessageListener glI;
-    private AlaStickerTabHost glV;
-    private com.baidu.tieba.ala.alaar.sticker.view.a glW;
-    private com.baidu.tieba.ala.alaar.sticker.view.a glX;
-    private com.baidu.tieba.ala.alaar.sticker.view.a glY;
-    private LinkedList<com.baidu.live.view.tabhost.a> glZ;
-    private b glm;
-    private BdUniqueId gma;
-    private BdUniqueId gmb;
-    a gmc;
-    private HttpMessageListener gmd;
+    private b gvK;
+    a gwA;
+    private HttpMessageListener gwB;
+    private HttpMessageListener gwg;
+    private AlaStickerTabHost gwt;
+    private com.baidu.tieba.ala.alaar.sticker.view.a gwu;
+    private com.baidu.tieba.ala.alaar.sticker.view.a gwv;
+    private com.baidu.tieba.ala.alaar.sticker.view.a gww;
+    private LinkedList<com.baidu.live.view.tabhost.a> gwx;
+    private BdUniqueId gwy;
+    private BdUniqueId gwz;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void bRd();
+        void bTB();
 
-        void bRe();
+        void bTC();
 
-        void bRf();
+        void bTD();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void a(FuFaceItem fuFaceItem, String str);
 
-        boolean bQV();
+        boolean bTt();
 
-        void bQW();
+        void bTu();
 
         void onCompleted();
     }
 
     public c(@NonNull Context context, b bVar) {
         super(context);
-        this.glZ = new LinkedList<>();
-        this.gmc = new a() { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.2
+        this.gwx = new LinkedList<>();
+        this.gwA = new a() { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.2
             @Override // com.baidu.tieba.ala.alaar.sticker.view.c.a
-            public void bRd() {
-                com.baidu.tieba.ala.alaar.sticker.a.g.a(c.this.gmb, "text", 1, 50);
+            public void bTB() {
+                com.baidu.tieba.ala.alaar.sticker.a.g.a(c.this.gwz, "text", 1, 50);
             }
 
             @Override // com.baidu.tieba.ala.alaar.sticker.view.c.a
-            public void bRe() {
-                com.baidu.tieba.ala.alaar.sticker.a.g.a(c.this.gma, SocialConstants.PARAM_AVATAR_URI, 1, 50);
+            public void bTC() {
+                com.baidu.tieba.ala.alaar.sticker.a.g.a(c.this.gwy, SocialConstants.PARAM_AVATAR_URI, 1, 50);
             }
 
             @Override // com.baidu.tieba.ala.alaar.sticker.view.c.a
-            public void bRf() {
-                com.baidu.tieba.ala.alaar.sticker.a.g.RV();
+            public void bTD() {
+                com.baidu.tieba.ala.alaar.sticker.a.g.SZ();
             }
         };
-        this.glI = new HttpMessageListener(1021155) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.3
+        this.gwg = new HttpMessageListener(1021155) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (!(httpResponsedMessage instanceof GetArStickerListHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    if (c.this.glY != null) {
-                        c.this.glY.setDatas(null);
+                    if (c.this.gww != null) {
+                        c.this.gww.setDatas(null);
                         return;
                     }
                     return;
                 }
                 GetArStickerListHttpResponseMessage getArStickerListHttpResponseMessage = (GetArStickerListHttpResponseMessage) httpResponsedMessage;
-                if (c.this.glY != null) {
-                    c.this.glY.setDatas(getArStickerListHttpResponseMessage.gjW);
+                if (c.this.gww != null) {
+                    c.this.gww.setDatas(getArStickerListHttpResponseMessage.guv);
                 }
             }
         };
-        this.gmd = new HttpMessageListener(1021156) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.4
+        this.gwB = new HttpMessageListener(1021156) { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (!(httpResponsedMessage instanceof GetPicTxtStickerListHttpResponseMessage) || httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    if (c.this.glW != null) {
-                        c.this.glW.setDatas(null);
+                    if (c.this.gwu != null) {
+                        c.this.gwu.setDatas(null);
                     }
-                    if (c.this.glX != null) {
-                        c.this.glX.setDatas(null);
+                    if (c.this.gwv != null) {
+                        c.this.gwv.setDatas(null);
                         return;
                     }
                     return;
                 }
                 GetPicTxtStickerListHttpResponseMessage getPicTxtStickerListHttpResponseMessage = (GetPicTxtStickerListHttpResponseMessage) httpResponsedMessage;
-                if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.gma && c.this.glW != null) {
-                    c.this.glW.setDatas(getPicTxtStickerListHttpResponseMessage.gjY);
+                if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.gwy && c.this.gwu != null) {
+                    c.this.gwu.setDatas(getPicTxtStickerListHttpResponseMessage.gux);
                 }
-                if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.gmb && c.this.glX != null) {
-                    c.this.glX.setDatas(getPicTxtStickerListHttpResponseMessage.gjY);
+                if (getPicTxtStickerListHttpResponseMessage.getOrginalMessage() != null && getPicTxtStickerListHttpResponseMessage.getOrginalMessage().getTag() == c.this.gwz && c.this.gwv != null) {
+                    c.this.gwv.setDatas(getPicTxtStickerListHttpResponseMessage.gux);
                 }
             }
         };
-        this.glm = bVar;
+        this.gvK = bVar;
         getContext().setTheme(a.i.theme_operation_portrait_dialog);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        bRb();
+        bTz();
         setContentView(a.g.ala_master_sticker_layout);
         ViewGroup.LayoutParams layoutParams = findViewById(a.f.ala_master_sticker_root_view).getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = BdUtilHelper.getScreenDimensions(getContext())[0];
         }
-        this.glV = (AlaStickerTabHost) findViewById(a.f.ala_master_sticker_view_pager);
-        bRc();
-        MessageManager.getInstance().registerListener(this.gmd);
-        MessageManager.getInstance().registerListener(this.glI);
+        this.gwt = (AlaStickerTabHost) findViewById(a.f.ala_master_sticker_view_pager);
+        bTA();
+        MessageManager.getInstance().registerListener(this.gwB);
+        MessageManager.getInstance().registerListener(this.gwg);
     }
 
     @Override // android.app.Dialog
     public void show() {
         super.show();
-        if (!ListUtils.isEmpty(this.glZ)) {
+        if (!ListUtils.isEmpty(this.gwx)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.glZ.size()) {
-                    com.baidu.live.view.tabhost.a aVar = this.glZ.get(i2);
-                    if (this.glX == aVar) {
-                        GC("texttab_show");
-                    } else if (this.glW == aVar) {
-                        GC("pictab_show");
-                    } else if (this.glY == aVar) {
-                        GC("arstab_show");
+                if (i2 < this.gwx.size()) {
+                    com.baidu.live.view.tabhost.a aVar = this.gwx.get(i2);
+                    if (this.gwv == aVar) {
+                        GA("texttab_show");
+                    } else if (this.gwu == aVar) {
+                        GA("pictab_show");
+                    } else if (this.gww == aVar) {
+                        GA("arstab_show");
                     }
                     i = i2 + 1;
                 } else {
@@ -163,13 +163,13 @@ public class c extends Dialog {
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
-        if (this.glm != null) {
-            this.glm.onCompleted();
+        if (this.gvK != null) {
+            this.gvK.onCompleted();
         }
         super.dismiss();
     }
 
-    private void GC(String str) {
+    private void GA(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "sticker");
@@ -179,17 +179,17 @@ public class c extends Dialog {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "author_liveroom", str).setContentExt(jSONObject));
     }
 
-    public void bRa() {
-        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gma, SocialConstants.PARAM_AVATAR_URI, 1, 50);
-        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gmb, "text", 1, 50);
+    public void bTy() {
+        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gwy, SocialConstants.PARAM_AVATAR_URI, 1, 50);
+        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gwz, "text", 1, 50);
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.gmd);
-        MessageManager.getInstance().unRegisterListener(this.glI);
+        MessageManager.getInstance().unRegisterListener(this.gwB);
+        MessageManager.getInstance().unRegisterListener(this.gwg);
     }
 
-    private void bRb() {
+    private void bTz() {
         Window window = getWindow();
         if (window != null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -198,25 +198,25 @@ public class c extends Dialog {
         }
     }
 
-    private void bRc() {
-        this.glW = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 1, this.glm, this.gmc);
-        this.glZ.add(this.glW);
-        this.glX = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 2, this.glm, this.gmc);
-        this.glZ.add(this.glX);
-        if (com.baidu.live.ae.a.RB().bxq != null && com.baidu.live.ae.a.RB().bxq.aQK != null && com.baidu.live.ae.a.RB().bxq.aQK.FR()) {
-            this.glY = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 3, this.glm, this.gmc);
-            this.glZ.add(this.glY);
-            com.baidu.tieba.ala.alaar.sticker.a.g.RV();
+    private void bTA() {
+        this.gwu = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 1, this.gvK, this.gwA);
+        this.gwx.add(this.gwu);
+        this.gwv = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 2, this.gvK, this.gwA);
+        this.gwx.add(this.gwv);
+        if (com.baidu.live.af.a.SE().bCb != null && com.baidu.live.af.a.SE().bCb.aRz != null && com.baidu.live.af.a.SE().bCb.aRz.Fh()) {
+            this.gww = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 3, this.gvK, this.gwA);
+            this.gwx.add(this.gww);
+            com.baidu.tieba.ala.alaar.sticker.a.g.SZ();
         }
-        this.glV.setData(this.glZ);
-        this.glV.setPageSelectedListener(new AlaStickerTabHost.b() { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.1
+        this.gwt.setData(this.gwx);
+        this.gwt.setPageSelectedListener(new AlaStickerTabHost.b() { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.1
             @Override // com.baidu.tieba.ala.alaar.sticker.view.AlaStickerTabHost.b
             public void onPageSelected(int i) {
             }
         });
-        this.gma = BdUniqueId.gen();
-        this.gmb = BdUniqueId.gen();
-        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gma, SocialConstants.PARAM_AVATAR_URI, 1, 50);
-        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gmb, "text", 1, 50);
+        this.gwy = BdUniqueId.gen();
+        this.gwz = BdUniqueId.gen();
+        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gwy, SocialConstants.PARAM_AVATAR_URI, 1, 50);
+        com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gwz, "text", 1, 50);
     }
 }

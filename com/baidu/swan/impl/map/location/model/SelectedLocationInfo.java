@@ -5,20 +5,20 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class SelectedLocationInfo implements Parcelable {
     private static final String ADDRESS = "address";
     public static final Parcelable.Creator<SelectedLocationInfo> CREATOR = new Parcelable.Creator<SelectedLocationInfo>() { // from class: com.baidu.swan.impl.map.location.model.SelectedLocationInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: D */
+        /* renamed from: E */
         public SelectedLocationInfo createFromParcel(Parcel parcel) {
             return new SelectedLocationInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mS */
+        /* renamed from: na */
         public SelectedLocationInfo[] newArray(int i) {
             return new SelectedLocationInfo[i];
         }

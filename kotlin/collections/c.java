@@ -1,11 +1,11 @@
 package kotlin.collections;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final /* synthetic */ class c {
-    public static final /* synthetic */ int[] pzX = new int[State.values().length];
+    public static final /* synthetic */ int[] pSE = new int[State.values().length];
 
     static {
-        pzX[State.Done.ordinal()] = 1;
-        pzX[State.Ready.ordinal()] = 2;
+        pSE[State.Done.ordinal()] = 1;
+        pSE[State.Ready.ordinal()] = 2;
     }
 }

@@ -3,30 +3,21 @@ package com.baidu.tieba.im.c.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
-/* loaded from: classes26.dex */
+import com.baidu.adp.lib.cache.l;
+import com.baidu.adp.lib.util.r;
+import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
+import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
+import java.util.List;
+/* loaded from: classes8.dex */
 public class p implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null || !(customMessage instanceof GroupsByUidLocalMessage)) {
+        if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
             return null;
         }
-        String str = "";
-        if (TbadkApplication.getCurrentAccountObj() != null) {
-            str = TbadkApplication.getCurrentAccountObj().getID();
-        }
-        byte[] bArr = com.baidu.tbadk.core.c.a.brq().Bn("tb.im_entergroup").get("p_group_info" + str);
-        ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
-        if (bArr != null) {
-            try {
-                responseGroupsByUidLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_REQUEST_GROUP_BY_UID_LOCAL, bArr);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return responseGroupsByUidLocalMessage;
+        List<l.b<String>> b2 = r.b(com.baidu.tbadk.core.c.a.btS().Bn("tb.im_group_search_history"));
+        ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage();
+        responseSearchGroupLocalMessage.setCacheList(b2);
+        return responseSearchGroupLocalMessage;
     }
 }

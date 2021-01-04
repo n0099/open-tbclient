@@ -1,100 +1,51 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.live.tbadk.log.LogConfig;
-import com.baidu.tbadk.BdToken.f;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bf;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes22.dex */
-public class ag {
-    public int aLC;
-
-    public ag(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.adapter.PbNoDataItemViewHolder;
+/* loaded from: classes2.dex */
+public class ag extends l<com.baidu.tieba.pb.data.l, PbNoDataItemViewHolder> {
+    public ag(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
+        super(bVar, bdUniqueId);
     }
 
-    private void LH(String str) {
-        if (str.startsWith("//")) {
-            str = str.substring(2);
-        }
-        Map<String, String> paramPair = bf.getParamPair(str);
-        if (paramPair != null) {
-            this.aLC = 5;
-            com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar("c10320");
-            arVar.dY("obj_locate", paramPair.get("obj_locate"));
-            arVar.al("obj_type", 1);
-            arVar.dY("tid", paramPair.get("tid"));
-            arVar.dY("obj_source", paramPair.get("obj_source"));
-            arVar.dY(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
-            arVar.al(TiebaInitialize.Params.OBJ_TO, 3);
-            arVar.dY("obj_id", paramPair.get("bdid"));
-            if (!com.baidu.tbadk.core.util.au.isEmpty(paramPair.get(LogConfig.LOG_EXT_LOG))) {
-                try {
-                    JSONObject jSONObject = new JSONObject(paramPair.get(LogConfig.LOG_EXT_LOG));
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        arVar.dY(next, jSONObject.getString(next));
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            TiebaStatic.log(arVar);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: cy */
+    public PbNoDataItemViewHolder e(ViewGroup viewGroup) {
+        return new PbNoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
 
-    public void a(Intent intent, f.a aVar) {
-        if (intent != null && intent.getParcelableExtra(IntentConfig.KEY_URI) != null) {
-            Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
-            String uri2 = uri.toString();
-            if (!StringUtils.isNull(uri2) && uri2.startsWith("tbpb://")) {
-                String decode = Uri.decode(uri.getEncodedPath());
-                if (!StringUtils.isNull(decode)) {
-                    LH(decode);
-                    HashMap<String, Object> Qo = Qo(decode);
-                    String str = (String) Qo.get("tid");
-                    if ("mpush".equals((String) Qo.get("fr")) && !StringUtils.isNull(str)) {
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11895").dY("tid", str));
-                    }
-                    HttpMessage httpMessage = new HttpMessage(1003393);
-                    httpMessage.addParam("call_url", uri2);
-                    MessageManager.getInstance().sendMessage(httpMessage);
-                    aVar.onCallBack(Qo);
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, PbNoDataItemViewHolder pbNoDataItemViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) lVar, (com.baidu.tieba.pb.data.l) pbNoDataItemViewHolder);
+        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
+        pbNoDataItemViewHolder.mTextView.setText(lVar.lHb);
+        if (lVar.lHa != 0) {
+            com.baidu.tbadk.core.util.ao.setImageResource(pbNoDataItemViewHolder.mImageView, lVar.lHa);
+        } else {
+            com.baidu.tbadk.core.util.ao.setImageResource(pbNoDataItemViewHolder.mImageView, R.drawable.new_pic_emotion_06);
         }
-    }
-
-    public HashMap<String, Object> Qo(String str) {
-        if (StringUtils.isNull(str)) {
-            return null;
+        com.baidu.tbadk.core.util.ao.setViewTextColor(pbNoDataItemViewHolder.mTextView, R.color.CAM_X0109);
+        if (lVar.gCu != 0 && view.getLayoutParams() != null) {
+            view.getLayoutParams().height = lVar.gCu;
         }
-        if (str.startsWith("//")) {
-            str = str.substring(2);
+        if (lVar.lHc != 0) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.mImageView.getLayoutParams();
+            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.lHc, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
         }
-        HashMap<String, Object> hashMap = new HashMap<>();
-        String[] split = str.split("[&]");
-        if (split.length != 0) {
-            for (String str2 : split) {
-                String[] split2 = str2.split("[=]");
-                if (split2.length > 1) {
-                    hashMap.put(split2[0], split2[1]);
-                }
-            }
-            return hashMap;
+        if (lVar.lHd != 0) {
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.mTextView.getLayoutParams();
+            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.lHd);
         }
-        return null;
+        pbNoDataItemViewHolder.mImageView.setVisibility(lVar.lHe);
+        return view;
     }
 }

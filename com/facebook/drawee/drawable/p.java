@@ -4,31 +4,31 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class p {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface b {
-        public static final b pgt = j.pgC;
-        public static final b pgu = i.pgC;
-        public static final b pgv = g.pgC;
-        public static final b pgw = h.pgC;
-        public static final b pgx = c.pgC;
-        public static final b pgy = e.pgC;
-        public static final b pgz = d.pgC;
-        public static final b pgA = k.pgC;
-        public static final b pgB = f.pgC;
+        public static final b pxB = j.pxK;
+        public static final b pxC = i.pxK;
+        public static final b pxD = g.pxK;
+        public static final b pxE = h.pxK;
+        public static final b pxF = c.pxK;
+        public static final b pxG = e.pxK;
+        public static final b pxH = d.pxK;
+        public static final b pxI = k.pxK;
+        public static final b pxJ = f.pxK;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface l {
         Object getState();
     }
 
     @Nullable
-    public static o r(Drawable drawable) {
+    public static o z(Drawable drawable) {
         if (drawable == null) {
             return null;
         }
@@ -36,22 +36,22 @@ public class p {
             return (o) drawable;
         }
         if (drawable instanceof com.facebook.drawee.drawable.c) {
-            return r(((com.facebook.drawee.drawable.c) drawable).getDrawable());
+            return z(((com.facebook.drawee.drawable.c) drawable).getDrawable());
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
-            int erA = aVar.erA();
-            for (int i2 = 0; i2 < erA; i2++) {
-                o r = r(aVar.getDrawable(i2));
-                if (r != null) {
-                    return r;
+            int evC = aVar.evC();
+            for (int i2 = 0; i2 < evC; i2++) {
+                o z = z(aVar.getDrawable(i2));
+                if (z != null) {
+                    return z;
                 }
             }
         }
         return null;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public static abstract class a implements b {
         public abstract void a(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4);
 
@@ -62,9 +62,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     private static class j extends a {
-        public static final b pgC = new j();
+        public static final b pxK = new j();
 
         private j() {
         }
@@ -80,9 +80,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     private static class i extends a {
-        public static final b pgC = new i();
+        public static final b pxK = new i();
 
         private i() {
         }
@@ -99,9 +99,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     private static class f extends a {
-        public static final b pgC = new f();
+        public static final b pxK = new f();
 
         private f() {
         }
@@ -118,9 +118,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     private static class g extends a {
-        public static final b pgC = new g();
+        public static final b pxK = new g();
 
         private g() {
         }
@@ -138,9 +138,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     private static class h extends a {
-        public static final b pgC = new h();
+        public static final b pxK = new h();
 
         private h() {
         }
@@ -158,9 +158,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     private static class c extends a {
-        public static final b pgC = new c();
+        public static final b pxK = new c();
 
         private c() {
         }
@@ -175,9 +175,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     private static class e extends a {
-        public static final b pgC = new e();
+        public static final b pxK = new e();
 
         private e() {
         }
@@ -195,9 +195,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     private static class d extends a {
-        public static final b pgC = new d();
+        public static final b pxK = new d();
 
         private d() {
         }
@@ -223,9 +223,9 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     private static class k extends a {
-        public static final b pgC = new k();
+        public static final b pxK = new k();
 
         private k() {
         }

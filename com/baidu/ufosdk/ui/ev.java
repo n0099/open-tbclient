@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.baidu.ufosdk.R;
@@ -29,12 +30,14 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class ev extends Dialog implements DialogInterface.OnDismissListener, TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f3870a;
-    public EditText b;
+    public View f5860a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public EditText f5861b;
     public Button c;
     public String d;
     public int e;
@@ -83,16 +86,16 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         inflate.findViewById(R.id.btn_dialog_close).setOnClickListener(this);
         inflate.findViewById(R.id.header_transparent).setOnClickListener(this);
         window.setContentView(inflate);
-        this.f3870a = com.baidu.ufosdk.f.i.b(this.g, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_NEW_SO));
+        this.f5860a = com.baidu.ufosdk.f.i.b(this.g, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_NEW_SO));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        this.f3870a.setVisibility(8);
-        ((RelativeLayout) inflate.findViewById(R.id.rl_root)).addView(this.f3870a, layoutParams);
+        this.f5860a.setVisibility(8);
+        ((RelativeLayout) inflate.findViewById(R.id.rl_root)).addView(this.f5860a, layoutParams);
         window.setLayout(-1, -2);
         this.c = (Button) inflate.findViewById(R.id.btn_sumbit_evaluate);
         this.c.setOnClickListener(this);
-        this.b = (EditText) inflate.findViewById(R.id.et_input);
-        this.b.setOnClickListener(this);
+        this.f5861b = (EditText) inflate.findViewById(R.id.et_input);
+        this.f5861b.setOnClickListener(this);
         if (this.l != null && this.l.length() > 0) {
             this.h = 0;
             inflate.findViewById(R.id.ll_checkboxs).setVisibility(0);
@@ -141,13 +144,13 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         this.i = 0;
         RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(R.id.rl_input);
         relativeLayout.setVisibility(0);
-        this.b.setHint(this.j);
-        this.b.clearFocus();
-        this.b.setFocusable(false);
+        this.f5861b.setHint(this.j);
+        this.f5861b.clearFocus();
+        this.f5861b.setFocusable(false);
         relativeLayout.setBackgroundResource(R.drawable.dialog_checkbox_bg_normal);
-        this.b.setOnClickListener(this);
-        this.b.addTextChangedListener(this);
-        this.b.setOnFocusChangeListener(new ew(this, relativeLayout));
+        this.f5861b.setOnClickListener(this);
+        this.f5861b.addTextChangedListener(this);
+        this.f5861b.setOnFocusChangeListener(new ew(this, relativeLayout));
         if (this.k == 0) {
             this.c.setBackgroundResource(R.drawable.dialog_btn_selector);
             this.c.setTextColor(-1);
@@ -163,6 +166,7 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(ev evVar, String str, JSONArray jSONArray) {
+        Exception e;
         int i = 1;
         com.baidu.ufosdk.f.c.a("getEvaluateConfig url: https://ufosdk.baidu.com/?m=Index&a=recordDiscontent");
         HashMap hashMap = new HashMap();
@@ -172,10 +176,10 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         hashMap.put(Constants.PHONE_BRAND, Build.MANUFACTURER);
         hashMap.put("model", Build.MODEL);
         hashMap.put("sdkvn", "2.9.10");
-        hashMap.put("os", "android");
+        hashMap.put("os", HttpConstants.OS_TYPE_VALUE);
         hashMap.put("appvn", com.baidu.ufosdk.b.e.b());
         hashMap.put("uid", com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.b);
+        hashMap.put("username", com.baidu.ufosdk.b.f5638b);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
         hashMap.put("osvn", Build.VERSION.RELEASE);
         hashMap.put("extra", com.baidu.ufosdk.b.f);
@@ -204,35 +208,35 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
                         if (jSONArray != null) {
                             ((Map) evVar.o.get(evVar.e)).put("discontent_labels", jSONArray);
                         }
-                    } catch (Exception e) {
+                    } catch (Exception e2) {
+                        e = e2;
                         i = optInt;
-                        e = e;
                         com.baidu.ufosdk.f.c.a("Evaluatioin error!", e);
                         evVar.n.obtainMessage(11, Integer.valueOf(i)).sendToTarget();
                     }
                 }
                 i = optInt;
             }
-        } catch (Exception e2) {
-            e = e2;
+        } catch (Exception e3) {
+            e = e3;
         }
         evVar.n.obtainMessage(11, Integer.valueOf(i)).sendToTarget();
     }
 
     private void b() {
-        this.f3870a.setVisibility(0);
-        this.f3870a.bringToFront();
+        this.f5860a.setVisibility(0);
+        this.f5860a.bringToFront();
         this.c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
         this.c.setTextColor(872415231);
         this.c.setClickable(false);
-        this.b.clearFocus();
-        this.b.setFocusable(false);
+        this.f5861b.clearFocus();
+        this.f5861b.setFocusable(false);
         new Thread(new ex(this)).start();
     }
 
     public final void a() {
         this.m.clear();
-        this.b.setText("");
+        this.f5861b.setText("");
         a(this.p);
         a(this.q);
         a(this.r);
@@ -242,15 +246,15 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
 
     @Override // android.text.TextWatcher
     public final void afterTextChanged(Editable editable) {
-        if (this.b.getText().toString().trim().length() > com.baidu.ufosdk.b.aa) {
-            String substring = this.b.getText().toString().substring(0, com.baidu.ufosdk.b.aa);
-            this.b.setText(substring);
-            this.b.setSelection(substring.length());
+        if (this.f5861b.getText().toString().trim().length() > com.baidu.ufosdk.b.aa) {
+            String substring = this.f5861b.getText().toString().substring(0, com.baidu.ufosdk.b.aa);
+            this.f5861b.setText(substring);
+            this.f5861b.setSelection(substring.length());
             Toast.makeText(this.g, com.baidu.ufosdk.f.s.a(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_START_WAP), 0).show();
         }
-        if (this.b.getText().toString().trim().length() >= 4) {
+        if (this.f5861b.getText().toString().trim().length() >= 4) {
             this.i = 2;
-        } else if (this.b.getText().toString().trim().length() > 0) {
+        } else if (this.f5861b.getText().toString().trim().length() > 0) {
             this.i = 1;
         } else {
             this.i = 0;
@@ -320,13 +324,13 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
             dismiss();
         }
         if (view.getId() != R.id.et_input) {
-            this.b.clearFocus();
-            this.b.setFocusable(false);
+            this.f5861b.clearFocus();
+            this.f5861b.setFocusable(false);
         } else {
             this.n.obtainMessage(18, "focus true").sendToTarget();
-            this.b.setFocusable(true);
-            this.b.setFocusableInTouchMode(true);
-            this.b.requestFocus();
+            this.f5861b.setFocusable(true);
+            this.f5861b.setFocusableInTouchMode(true);
+            this.f5861b.requestFocus();
         }
         if (view.getId() == R.id.btn_sumbit_evaluate) {
             if (this.h == -1) {

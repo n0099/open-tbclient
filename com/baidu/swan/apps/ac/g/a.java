@@ -2,7 +2,7 @@ package com.baidu.swan.apps.ac.g;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.ap.n;
+import com.baidu.swan.apps.ao.n;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.pms.model.h;
 import com.tencent.open.SocialOperation;
@@ -14,7 +14,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static boolean a(String str, String str2, h hVar) {
         int length;
@@ -35,7 +35,7 @@ public class a {
                         arrayList.add(optString);
                     }
                 }
-                return com.baidu.swan.apps.ag.a.b.f(new URI(str2).getHost(), arrayList);
+                return com.baidu.swan.apps.af.a.b.f(new URI(str2).getHost(), arrayList);
             }
             return false;
         } catch (URISyntaxException | JSONException e) {
@@ -64,9 +64,9 @@ public class a {
 
     private static String d(String str, long j, String str2) {
         String str3 = "";
-        e aJU = e.aJU();
-        if (aJU != null) {
-            str3 = com.baidu.swan.apps.f.a.mC(aJU.getAppKey());
+        e aMk = e.aMk();
+        if (aMk != null) {
+            str3 = com.baidu.swan.apps.f.a.mv(aMk.getAppKey());
         }
         String[] strArr = {str3, str, String.valueOf(j), str2};
         Arrays.sort(strArr);
@@ -74,6 +74,6 @@ public class a {
         for (String str4 : strArr) {
             sb.append(str4);
         }
-        return n.encrypt("SHA-1", sb.toString().getBytes(), false);
+        return n.b("SHA-1", sb.toString().getBytes(), false);
     }
 }

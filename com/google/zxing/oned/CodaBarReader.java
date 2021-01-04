@@ -1,6 +1,6 @@
 package com.google.zxing.oned;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
@@ -9,7 +9,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class CodaBarReader extends OneDReader {
     private static final float MAX_ACCEPTABLE = 2.0f;
     private static final int MIN_CHARACTER_LENGTH = 3;
@@ -66,18 +66,15 @@ public final class CodaBarReader extends OneDReader {
             this.decodeRowResult.deleteCharAt(0);
         }
         int i7 = 0;
-        int i8 = 0;
-        while (i7 < findStartPattern) {
-            int i9 = this.counters[i7] + i8;
-            i7++;
-            i8 = i9;
+        for (int i8 = 0; i8 < findStartPattern; i8++) {
+            i7 += this.counters[i8];
         }
-        float f = i8;
+        float f = i7;
         while (findStartPattern < i2 - 1) {
-            i8 += this.counters[findStartPattern];
+            i7 += this.counters[findStartPattern];
             findStartPattern++;
         }
-        return new Result(this.decodeRowResult.toString(), null, new ResultPoint[]{new ResultPoint(f, i), new ResultPoint(i8, i)}, BarcodeFormat.CODABAR);
+        return new Result(this.decodeRowResult.toString(), null, new ResultPoint[]{new ResultPoint(f, i), new ResultPoint(i7, i)}, BarcodeFormat.CODABAR);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x00b9, code lost:
@@ -141,15 +138,15 @@ public final class CodaBarReader extends OneDReader {
         if (nextUnset >= size) {
             throw NotFoundException.getNotFoundInstance();
         }
-        boolean z = true;
         int i = 0;
+        boolean z = true;
         for (int i2 = nextUnset; i2 < size; i2++) {
             if (bitArray.get(i2) ^ z) {
                 i++;
             } else {
                 counterAppend(i);
-                z = !z;
                 i = 1;
+                z = !z;
             }
         }
         counterAppend(i);

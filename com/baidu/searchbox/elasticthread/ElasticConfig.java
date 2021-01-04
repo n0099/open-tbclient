@@ -2,9 +2,9 @@ package com.baidu.searchbox.elasticthread;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.mobstat.Config;
 import java.io.BufferedReader;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class ElasticConfig {
     public static final boolean DEBUG = false;
     private static final String ELASTIC_CONFIG_FILE_DIR = "elastic_config";
@@ -84,47 +84,48 @@ public final class ElasticConfig {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [232=4] */
     private static void updateFromConfigFile(Context context) {
+        Throwable th;
         BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
         File file = new File(context.getFilesDir().getAbsolutePath() + File.separator + ELASTIC_CONFIG_FILE_DIR + File.separator + ELASTIC_CONFIG_FILE_NAME);
         if (!file.exists()) {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        BufferedReader bufferedReader2 = null;
         try {
-            bufferedReader = new BufferedReader(new FileReader(file));
+            bufferedReader2 = new BufferedReader(new FileReader(file));
             while (true) {
                 try {
-                    String readLine = bufferedReader.readLine();
+                    String readLine = bufferedReader2.readLine();
                     if (readLine == null) {
                         break;
                     }
                     sb.append(readLine);
                 } catch (IOException e) {
-                    if (bufferedReader != null) {
+                    if (bufferedReader2 != null) {
                         try {
-                            bufferedReader.close();
+                            bufferedReader2.close();
                             return;
                         } catch (IOException e2) {
                             return;
                         }
                     }
                     return;
-                } catch (Throwable th) {
-                    bufferedReader2 = bufferedReader;
-                    th = th;
-                    if (bufferedReader2 != null) {
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedReader = bufferedReader2;
+                    if (bufferedReader != null) {
                         try {
-                            bufferedReader2.close();
+                            bufferedReader.close();
                         } catch (IOException e3) {
                         }
                     }
                     throw th;
                 }
             }
-            if (bufferedReader != null) {
+            if (bufferedReader2 != null) {
                 try {
-                    bufferedReader.close();
+                    bufferedReader2.close();
                 } catch (IOException e4) {
                 }
             }
@@ -133,9 +134,10 @@ public final class ElasticConfig {
             } catch (JSONException e5) {
             }
         } catch (IOException e6) {
+            bufferedReader2 = null;
+        } catch (Throwable th3) {
+            th = th3;
             bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 
@@ -196,7 +198,9 @@ public final class ElasticConfig {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [459=4] */
     public static void saveConfigFile(String str) {
         Context appContext;
+        Throwable th;
         FileWriter fileWriter;
+        FileWriter fileWriter2;
         if (AppContextHolder.getAppContext() == null) {
             Log.w(TAG, "saveConfigFile is called while sAppContext is null. Just return");
         } else if (TextUtils.isEmpty(str)) {
@@ -211,36 +215,36 @@ public final class ElasticConfig {
                 if (file2.exists()) {
                     file2.delete();
                 }
-                FileWriter fileWriter2 = null;
                 try {
                     file2.createNewFile();
-                    fileWriter = new FileWriter(file2);
+                    fileWriter2 = new FileWriter(file2);
                 } catch (IOException e) {
+                    fileWriter2 = null;
+                } catch (Throwable th2) {
+                    th = th2;
                     fileWriter = null;
-                } catch (Throwable th) {
-                    th = th;
                 }
                 try {
-                    fileWriter.write(str);
-                    if (fileWriter != null) {
+                    fileWriter2.write(str);
+                    if (fileWriter2 != null) {
                         try {
-                            fileWriter.close();
+                            fileWriter2.close();
                         } catch (IOException e2) {
                         }
                     }
                 } catch (IOException e3) {
-                    if (fileWriter != null) {
-                        try {
-                            fileWriter.close();
-                        } catch (IOException e4) {
-                        }
-                    }
-                } catch (Throwable th2) {
-                    fileWriter2 = fileWriter;
-                    th = th2;
                     if (fileWriter2 != null) {
                         try {
                             fileWriter2.close();
+                        } catch (IOException e4) {
+                        }
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileWriter = fileWriter2;
+                    if (fileWriter != null) {
+                        try {
+                            fileWriter.close();
                         } catch (IOException e5) {
                         }
                     }

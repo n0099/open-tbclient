@@ -13,28 +13,28 @@ import com.baidu.media.extractor.b;
 import com.baidu.mobstat.Config;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class DuMediaExtractor implements b {
-    private a ccA;
-    private b.a ccz;
+    private b.a cje;
+    private a cjf;
     @Keep
     private long mNativeDuMediaExtractor;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes15.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final WeakReference<DuMediaExtractor> f2266a;
+        private final WeakReference<DuMediaExtractor> f3249a;
 
         public a(DuMediaExtractor duMediaExtractor, Looper looper) {
             super(looper);
-            this.f2266a = new WeakReference<>(duMediaExtractor);
+            this.f3249a = new WeakReference<>(duMediaExtractor);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            DuMediaExtractor duMediaExtractor = this.f2266a.get();
+            DuMediaExtractor duMediaExtractor = this.f3249a.get();
             if (duMediaExtractor == null || duMediaExtractor.mNativeDuMediaExtractor == 0) {
                 CyberLog.w("DuMediaExtractor", "IjkMediaPlayer went away with unhandled events");
             } else {
@@ -51,14 +51,14 @@ public class DuMediaExtractor implements b {
     private void c() {
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
-            this.ccA = new a(this, myLooper);
+            this.cjf = new a(this, myLooper);
             return;
         }
         Looper mainLooper = Looper.getMainLooper();
         if (mainLooper != null) {
-            this.ccA = new a(this, mainLooper);
+            this.cjf = new a(this, mainLooper);
         } else {
-            this.ccA = null;
+            this.cjf = null;
         }
     }
 
@@ -87,8 +87,8 @@ public class DuMediaExtractor implements b {
     public void a() {
         synchronized (this) {
             nativeRelease();
-            this.ccz = null;
-            this.ccA = null;
+            this.cje = null;
+            this.cjf = null;
             this.mNativeDuMediaExtractor = 0L;
         }
     }

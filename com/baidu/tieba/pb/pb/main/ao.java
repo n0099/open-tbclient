@@ -1,143 +1,104 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.content.Context;
+import android.content.Intent;
+import android.text.Layout;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.af;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.bh;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
-public class ao extends af.a {
-    View.OnClickListener aGQ;
-    private TbPageContext eNx;
-    public LinearLayout lNE;
-    public View lNF;
-    public RelativeLayout lNG;
-    public TbImageView lNH;
-    public TextView lNI;
-    public TextView lNJ;
-    public TextView lNK;
-    public LinearLayout lNL;
-    public ImageView lNM;
-    public TextView lNN;
-    public LinearLayout lNO;
-    public ImageView lNP;
-    public TextView lNQ;
-    public View lNR;
-    private com.baidu.tbadk.core.data.ba lNS;
-    private com.baidu.tbadk.core.data.ba lNT;
-    private com.baidu.tbadk.core.data.ba lNU;
-    private am lNV;
-    private a lNW;
-    private int mSkinType;
+import java.util.Random;
+/* loaded from: classes2.dex */
+public class ao {
+    private static TextView fPT;
+    private static final int[] lUn = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
 
-    /* loaded from: classes22.dex */
-    public interface a {
-        void b(am amVar);
+    public static Intent aT(Context context, String str) {
+        if (TextUtils.isEmpty(str) || context == null) {
+            return null;
+        }
+        Intent intent = new Intent(context, DealIntentService.class);
+        intent.putExtra(DealIntentService.KEY_CLASS, 1);
+        intent.putExtra("id", str);
+        intent.putExtra("from", "nas");
+        intent.putExtra("key_start_from", 5);
+        return intent;
     }
 
-    public ao(TbPageContext tbPageContext, View view, a aVar) {
-        super(view);
-        this.mSkinType = 3;
-        this.aGQ = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ao.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (bh.checkUpIsLogin(ao.this.eNx.getPageActivity()) && com.baidu.adp.lib.util.l.isNetOk()) {
-                    if (ao.this.lNW != null) {
-                        ao.this.lNW.b(ao.this.lNV);
-                    }
-                    if (view2 == ao.this.lNG) {
-                        if (ao.this.lNS != null && !TextUtils.isEmpty(ao.this.lNS.eHo)) {
-                            bf.bua().b((TbPageContext) com.baidu.adp.base.i.J(ao.this.eNx.getPageActivity()), new String[]{ao.this.lNS.eHo});
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11410").dY("obj_source", ao.this.lNS.eHo));
-                        }
-                    } else if (view2 == ao.this.lNL) {
-                        BdLog.e("link: " + ao.this.lNT.eHo);
-                        if (ao.this.lNT != null && !TextUtils.isEmpty(ao.this.lNT.eHo)) {
-                            bf.bua().b((TbPageContext) com.baidu.adp.base.i.J(ao.this.eNx.getPageActivity()), new String[]{ao.this.lNT.eHo});
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11409").dY("obj_source", ao.this.lNT.eHo));
-                        }
-                    } else if (view2 == ao.this.lNO && ao.this.lNU != null && !TextUtils.isEmpty(ao.this.lNU.eHo)) {
-                        bf.bua().b((TbPageContext) com.baidu.adp.base.i.J(ao.this.eNx.getPageActivity()), new String[]{ao.this.lNU.eHo});
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11408").dY("obj_source", ao.this.lNU.eHo));
-                    }
-                }
-            }
-        };
-        this.eNx = tbPageContext;
-        this.lNW = aVar;
-        this.lNE = (LinearLayout) view.findViewById(R.id.pb_news_info_layout);
-        this.lNF = view.findViewById(R.id.pb_list_item_top_line);
-        this.lNG = (RelativeLayout) view.findViewById(R.id.pb_top_code);
-        this.lNH = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.lNI = (TextView) view.findViewById(R.id.top_code_get_btn);
-        this.lNJ = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.lNK = (TextView) view.findViewById(R.id.top_code_detail_subtitle_text);
-        this.lNL = (LinearLayout) view.findViewById(R.id.news_info);
-        this.lNM = (ImageView) view.findViewById(R.id.news_info_img);
-        this.lNN = (TextView) view.findViewById(R.id.news_info_text);
-        this.lNO = (LinearLayout) view.findViewById(R.id.game_info);
-        this.lNP = (ImageView) view.findViewById(R.id.game_info_img);
-        this.lNQ = (TextView) view.findViewById(R.id.game_info_text);
-        this.lNR = view.findViewById(R.id.pb_news_info_divider);
-        setOnClickListener(this.aGQ);
+    public static String getString(int i, Object... objArr) {
+        return TbadkCoreApplication.getInst().getString(i, objArr);
     }
 
-    public void a(am amVar) {
-        if (amVar != null) {
-            this.lNV = amVar;
-            this.lNS = amVar.lNB;
-            this.lNT = amVar.lNC;
-            this.lNU = amVar.lND;
-            if (this.lNS != null) {
-                this.lNH.startLoad(this.lNS.eHp, 10, false);
-                this.lNJ.setText(this.lNS.summary);
-                this.lNK.setText(this.lNS.subtitle);
-                this.lNI.setText(this.lNS.buttonText);
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lNI, R.drawable.selector_star_btn_like);
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNI, R.drawable.news_text_color_selector);
-            } else {
-                this.lNG.setVisibility(8);
+    public static int drG() {
+        return lUn[new Random().nextInt(lUn.length)];
+    }
+
+    public static String PW(String str) {
+        return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
+    }
+
+    public static SpannableString aM(bz bzVar) {
+        if (bzVar == null) {
+            return null;
+        }
+        String str = "";
+        if (bzVar.btq() == 1) {
+            str = TbadkCoreApplication.getInst().getString(R.string.yuanchuang);
+        } else if (bzVar.btq() == 2) {
+            str = TbadkCoreApplication.getInst().getString(R.string.shoufa);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        SpannableString spannableString = new SpannableString(new StringBuilder(str).toString());
+        spannableString.setSpan(new com.baidu.tbadk.core.view.a.a(R.color.CAM_X0204, UtilHelper.getDimenPixelSize(R.dimen.tbds5), UtilHelper.getDimenPixelSize(R.dimen.tbds26), R.color.CAM_X0105, UtilHelper.getDimenPixelSize(R.dimen.tbds8), UtilHelper.getDimenPixelSize(R.dimen.tbds9), UtilHelper.getDimenPixelSize(R.dimen.tbds13)), 0, spannableString.length(), 17);
+        return spannableString;
+    }
+
+    public static Layout f(SpannableStringBuilder spannableStringBuilder) {
+        Context context = TbadkCoreApplication.getInst().getContext();
+        int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(context) - (com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds44) * 2);
+        int contentSize = TbConfig.getContentSize();
+        try {
+            if (fPT == null) {
+                fPT = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            if (this.lNT != null) {
-                this.lNN.setText(this.lNT.summary);
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lNM, R.drawable.icon_frs_news);
-            } else {
-                this.lNL.setVisibility(8);
-                this.lNN.setVisibility(8);
-                this.lNM.setVisibility(8);
+            TextView textView = fPT;
+            if (textView.getLayoutParams() == null) {
+                textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }
-            if (this.lNU != null) {
-                this.lNQ.setText(this.lNU.summary);
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lNP, R.drawable.icon_frs_game);
-            } else {
-                this.lNO.setVisibility(8);
-                this.lNQ.setVisibility(8);
-                this.lNQ.setVisibility(8);
-            }
-            this.lNE.setTag(amVar);
+            textView.setText(spannableStringBuilder);
+            textView.setTextSize(0, contentSize);
+            textView.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
+            textView.getPaint().setFakeBoldText(true);
+            textView.measure(View.MeasureSpec.makeMeasureSpec(equipmentWidth, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+            return textView.getLayout();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            this.eNx.getLayoutMode().setNightMode(i == 1);
-            this.eNx.getLayoutMode().onModeChanged(getView());
-            this.mSkinType = i;
-        }
+    public static int drH() {
+        return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.lNG.setOnClickListener(onClickListener);
-        this.lNL.setOnClickListener(onClickListener);
-        this.lNO.setOnClickListener(onClickListener);
+    public static int r(com.baidu.tieba.pb.data.f fVar) {
+        if (fVar == null || fVar.dmE() == null) {
+            return 0;
+        }
+        if (fVar.dmE().bsQ()) {
+            return (com.baidu.tbadk.core.util.x.isEmpty(fVar.dnb()) && (fVar.dmD() == null || StringUtils.isNull(fVar.dmD().getForumName()))) ? 0 : 2;
+        }
+        return 1;
     }
 }

@@ -3,15 +3,15 @@ package com.baidu.platform.comapi.walknavi.g.c;
 import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class g implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f3035a;
+    final /* synthetic */ c f4523a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.f3035a = cVar;
+        this.f4523a = cVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,15 +25,15 @@ public class g implements Animation.AnimationListener {
         RelativeLayout relativeLayout3;
         RelativeLayout relativeLayout4;
         RelativeLayout relativeLayout5;
-        relativeLayout = this.f3035a.y;
+        relativeLayout = this.f4523a.y;
         relativeLayout.clearAnimation();
-        relativeLayout2 = this.f3035a.y;
+        relativeLayout2 = this.f4523a.y;
         relativeLayout2.setVisibility(8);
-        relativeLayout3 = this.f3035a.I;
+        relativeLayout3 = this.f4523a.I;
         relativeLayout3.clearAnimation();
-        relativeLayout4 = this.f3035a.I;
+        relativeLayout4 = this.f4523a.I;
         relativeLayout4.setVisibility(8);
-        relativeLayout5 = this.f3035a.J;
+        relativeLayout5 = this.f4523a.J;
         relativeLayout5.setVisibility(0);
     }
 

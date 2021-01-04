@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.api.d;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @NonNull
-    public static Pair<com.baidu.swan.apps.api.c.b, JSONObject> bp(String str, String str2) {
+    public static Pair<com.baidu.swan.apps.api.c.b, JSONObject> bo(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             str = "Api-Utils";
         }

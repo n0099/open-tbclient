@@ -5,7 +5,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public class BaseNCodecInputStream extends FilterInputStream {
     private final BaseNCodec baseNCodec;
     private final BaseNCodec.Context context;
@@ -42,8 +42,8 @@ public class BaseNCodecInputStream extends FilterInputStream {
             read = read(this.singleByte, 0, 1);
         }
         if (read > 0) {
-            byte b = this.singleByte[0];
-            return b < 0 ? b + GDiffPatcher.EOF : b;
+            byte b2 = this.singleByte[0];
+            return b2 < 0 ? b2 + GDiffPatcher.EOF : b2;
         }
         return -1;
     }

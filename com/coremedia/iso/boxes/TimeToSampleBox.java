@@ -15,13 +15,13 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TimeToSampleBox extends AbstractFullBox {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "stts";
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_2 = null;
     static Map<List<Entry>, SoftReference<long[]>> cache;
     List<Entry> entries;
 
@@ -83,7 +83,7 @@ public class TimeToSampleBox extends AbstractFullBox {
         return "TimeToSampleBox[entryCount=" + this.entries.size() + "]";
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         long count;
         long delta;
@@ -129,15 +129,13 @@ public class TimeToSampleBox extends AbstractFullBox {
                 long[] jArr2 = new long[(int) j];
                 int i = 0;
                 for (Entry entry2 : list) {
-                    int i2 = i;
-                    int i3 = 0;
-                    while (i3 < entry2.getCount()) {
-                        int i4 = i2 + 1;
-                        jArr2[i2] = entry2.getDelta();
-                        i3++;
-                        i2 = i4;
+                    int i2 = 0;
+                    while (i2 < entry2.getCount()) {
+                        int i3 = i + 1;
+                        jArr2[i] = entry2.getDelta();
+                        i2++;
+                        i = i3;
                     }
-                    i = i2;
                 }
                 cache.put(list, new SoftReference<>(jArr2));
                 jArr = jArr2;

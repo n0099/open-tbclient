@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public final /* synthetic */ class Predicate_CC {
     /* JADX DEBUG: Incorrect args count in method signature: (Lorg/webrtc/Predicate<-TT;>;)Lorg/webrtc/Predicate<TT;>; */
     public static Predicate $default$and(final Predicate predicate, final Predicate predicate2) {
@@ -7,7 +7,7 @@ public final /* synthetic */ class Predicate_CC {
         /*  JADX ERROR: Method code generation error
             jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x0005: RETURN  
               (wrap: org.webrtc.Predicate<T> : 0x0002: CONSTRUCTOR  (r0v0 org.webrtc.Predicate<T> A[REMOVE]) = (r1v0 'predicate' org.webrtc.Predicate A[DONT_INLINE]), (r2v0 'predicate2' org.webrtc.Predicate A[DONT_INLINE]) call: org.webrtc.Predicate.2.<init>(org.webrtc.Predicate, org.webrtc.Predicate):void type: CONSTRUCTOR)
-             in method: org.webrtc.Predicate_CC.$default$and(org.webrtc.Predicate, org.webrtc.Predicate):org.webrtc.Predicate, file: classes12.dex
+             in method: org.webrtc.Predicate_CC.$default$and(org.webrtc.Predicate, org.webrtc.Predicate):org.webrtc.Predicate, file: classes10.dex
             	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:287)
             	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:250)
             	at jadx.core.codegen.RegionGen.makeSimpleBlock(RegionGen.java:91)
@@ -49,7 +49,7 @@ public final /* synthetic */ class Predicate_CC {
         /*  JADX ERROR: Method code generation error
             jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x0005: RETURN  
               (wrap: org.webrtc.Predicate<T> : 0x0002: CONSTRUCTOR  (r0v0 org.webrtc.Predicate<T> A[REMOVE]) = (r1v0 'predicate' org.webrtc.Predicate A[DONT_INLINE]) call: org.webrtc.Predicate.3.<init>(org.webrtc.Predicate):void type: CONSTRUCTOR)
-             in method: org.webrtc.Predicate_CC.$default$negate(org.webrtc.Predicate):org.webrtc.Predicate, file: classes12.dex
+             in method: org.webrtc.Predicate_CC.$default$negate(org.webrtc.Predicate):org.webrtc.Predicate, file: classes10.dex
             	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:287)
             	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:250)
             	at jadx.core.codegen.RegionGen.makeSimpleBlock(RegionGen.java:91)
@@ -91,7 +91,7 @@ public final /* synthetic */ class Predicate_CC {
         /*  JADX ERROR: Method code generation error
             jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x0005: RETURN  
               (wrap: org.webrtc.Predicate<T> : 0x0002: CONSTRUCTOR  (r0v0 org.webrtc.Predicate<T> A[REMOVE]) = (r1v0 'predicate' org.webrtc.Predicate A[DONT_INLINE]), (r2v0 'predicate2' org.webrtc.Predicate A[DONT_INLINE]) call: org.webrtc.Predicate.1.<init>(org.webrtc.Predicate, org.webrtc.Predicate):void type: CONSTRUCTOR)
-             in method: org.webrtc.Predicate_CC.$default$or(org.webrtc.Predicate, org.webrtc.Predicate):org.webrtc.Predicate, file: classes12.dex
+             in method: org.webrtc.Predicate_CC.$default$or(org.webrtc.Predicate, org.webrtc.Predicate):org.webrtc.Predicate, file: classes10.dex
             	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:287)
             	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:250)
             	at jadx.core.codegen.RegionGen.makeSimpleBlock(RegionGen.java:91)

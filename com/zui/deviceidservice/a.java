@@ -4,22 +4,22 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.zui.deviceidservice.a$a  reason: collision with other inner class name */
-    /* loaded from: classes18.dex */
-    public static abstract class AbstractBinderC1038a extends Binder implements a {
+    /* loaded from: classes6.dex */
+    public static abstract class AbstractBinderC1256a extends Binder implements a {
 
         /* renamed from: com.zui.deviceidservice.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes18.dex */
-        private static class C1039a implements a {
+        /* loaded from: classes6.dex */
+        private static class C1257a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f4900a;
+            private IBinder f14693a;
 
-            C1039a(IBinder iBinder) {
-                this.f4900a = iBinder;
+            C1257a(IBinder iBinder) {
+                this.f14693a = iBinder;
             }
 
             @Override // com.zui.deviceidservice.a
@@ -28,7 +28,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                    this.f4900a.transact(1, obtain, obtain2, 0);
+                    this.f14693a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -44,7 +44,7 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
                     obtain.writeString(str);
-                    this.f4900a.transact(4, obtain, obtain2, 0);
+                    this.f14693a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -55,7 +55,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f4900a;
+                return this.f14693a;
             }
 
             @Override // com.zui.deviceidservice.a
@@ -64,7 +64,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                    this.f4900a.transact(2, obtain, obtain2, 0);
+                    this.f14693a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -80,7 +80,7 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
                     obtain.writeString(str);
-                    this.f4900a.transact(5, obtain, obtain2, 0);
+                    this.f14693a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -95,7 +95,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                    this.f4900a.transact(3, obtain, obtain2, 0);
+                    this.f14693a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -105,7 +105,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC1038a() {
+        public AbstractBinderC1256a() {
             attachInterface(this, "com.zui.deviceidservice.IDeviceidInterface");
         }
 
@@ -114,7 +114,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.zui.deviceidservice.IDeviceidInterface");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1039a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1257a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder
@@ -128,9 +128,9 @@ public interface a extends IInterface {
                     return true;
                 case 2:
                     parcel.enforceInterface("com.zui.deviceidservice.IDeviceidInterface");
-                    String b = b();
+                    String b2 = b();
                     parcel2.writeNoException();
-                    parcel2.writeString(b);
+                    parcel2.writeString(b2);
                     return true;
                 case 3:
                     parcel.enforceInterface("com.zui.deviceidservice.IDeviceidInterface");
@@ -146,9 +146,9 @@ public interface a extends IInterface {
                     return true;
                 case 5:
                     parcel.enforceInterface("com.zui.deviceidservice.IDeviceidInterface");
-                    String b2 = b(parcel.readString());
+                    String b3 = b(parcel.readString());
                     parcel2.writeNoException();
-                    parcel2.writeString(b2);
+                    parcel2.writeString(b3);
                     return true;
                 case 1598968902:
                     parcel2.writeString("com.zui.deviceidservice.IDeviceidInterface");

@@ -13,28 +13,31 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b implements a.a.a.b.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f955a;
+    public final String f1036a;
     public volatile int c;
     public volatile long d;
     public final a.InterfaceC0000a zm;
 
     public b(String str, a.InterfaceC0000a interfaceC0000a) {
-        this.f955a = str;
+        this.f1036a = str;
         this.zm = interfaceC0000a;
     }
 
     public final void a() {
+        Throwable th;
+        IOException e;
+        ProtocolException e2;
         HttpURLConnection httpURLConnection = null;
         Log.d("RtcDownSo", "execute connnection");
         this.d = System.currentTimeMillis();
         try {
             try {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f955a).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f1036a).openConnection();
                     try {
                         httpURLConnection2.setConnectTimeout(4000);
                         httpURLConnection2.setReadTimeout(4000);
@@ -50,34 +53,34 @@ public class b implements a.a.a.b.a.a {
                             a(httpURLConnection2, true);
                         }
                         httpURLConnection2.disconnect();
-                    } catch (ProtocolException e) {
-                        e = e;
-                        e.printStackTrace();
-                        throw new DownloadException(108, "Protocol error", e);
-                    } catch (IOException e2) {
-                        e = e2;
+                    } catch (ProtocolException e3) {
+                        e2 = e3;
+                        e2.printStackTrace();
+                        throw new DownloadException(108, "Protocol error", e2);
+                    } catch (IOException e4) {
+                        e = e4;
                         e.printStackTrace();
                         throw new DownloadException(108, "IO error", e);
-                    } catch (Throwable th) {
-                        th = th;
+                    } catch (Throwable th2) {
+                        th = th2;
                         httpURLConnection = httpURLConnection2;
                         if (httpURLConnection != null) {
                             httpURLConnection.disconnect();
                         }
                         throw th;
                     }
-                } catch (ProtocolException e3) {
-                    e = e3;
-                } catch (IOException e4) {
-                    e = e4;
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (ProtocolException e5) {
+                    e2 = e5;
+                } catch (IOException e6) {
+                    e = e6;
+                } catch (Throwable th3) {
+                    th = th3;
                 }
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Throwable th4) {
+                th = th4;
             }
-        } catch (MalformedURLException e5) {
-            throw new DownloadException(108, "Bad url.", e5);
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 

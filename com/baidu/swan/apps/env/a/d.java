@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.env.a;
 
-import android.support.annotation.Nullable;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d implements a {
     @Override // com.baidu.swan.apps.env.a.a
     @Nullable
-    public List<String> aH(@Nullable List<String> list) {
+    public List<String> aL(@Nullable List<String> list) {
         if (list == null || list.size() == 0) {
             return null;
         }

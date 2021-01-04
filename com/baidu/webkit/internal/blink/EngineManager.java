@@ -11,7 +11,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class EngineManager implements INoProGuard {
     private static final String DIFF_FILE_SUBFIX = ".diff";
     public static final String LOG_TAG = "webkitUpdate";
@@ -84,9 +84,9 @@ public class EngineManager implements INoProGuard {
                 return;
             }
             Log.i(LOG_TAG, "BlinkEngineInstaller.installAsync");
-            if (cVar.b == null || WebKitFactory.getContext() == null) {
-                if (cVar.f3929a != null) {
-                    cVar.f3929a.onInstallFinish(13, null);
+            if (cVar.f5949b == null || WebKitFactory.getContext() == null) {
+                if (cVar.f5948a != null) {
+                    cVar.f5948a.onInstallFinish(13, null);
                     return;
                 }
                 return;

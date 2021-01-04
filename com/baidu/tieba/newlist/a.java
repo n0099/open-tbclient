@@ -1,16 +1,16 @@
 package com.baidu.tieba.newlist;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
-/* loaded from: classes21.dex */
+import com.baidu.tbadk.core.util.aq;
+/* loaded from: classes8.dex */
 public class a {
     public static void c(String str, Object obj, int i) {
         if (obj instanceof com.baidu.tieba.newlist.b.b) {
-            ar arVar = new ar(str);
-            arVar.al("obj_locate", i);
-            arVar.w("topic_id", ((com.baidu.tieba.newlist.b.b) obj).topicId);
-            arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
-            arVar.btT();
+            aq aqVar = new aq(str);
+            aqVar.an("obj_locate", i);
+            aqVar.w("topic_id", ((com.baidu.tieba.newlist.b.b) obj).topicId);
+            aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
+            aqVar.bwn();
         }
     }
 }

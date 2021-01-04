@@ -26,9 +26,10 @@ import com.baidu.down.utils.URLRegUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidubce.http.Headers;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class BinaryReqTask extends AbstractTask {
     private static final boolean DEBUG = false;
     private static final String TAG = "BinaryReqTask";
@@ -305,13 +306,13 @@ public class BinaryReqTask extends AbstractTask {
             if (new File(this.mFilePath).exists()) {
                 this.mProgressInfo.addSegment(0L, this.mTotalLength);
                 this.mProgressInfo.updateProgress(0L, j);
-                this.mTotalLength = query.getLong(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES));
+                this.mTotalLength = query.getLong(query.getColumnIndex("total_bytes"));
             }
             query.close();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public class BinaryTaskHandler extends BinaryHttpResponseHandler {
         public BinaryTaskHandler() {
         }
@@ -442,7 +443,7 @@ public class BinaryReqTask extends AbstractTask {
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("status", Integer.valueOf(BinaryReqTask.this.mStatus));
                         if (BinaryReqTask.this.mTotalLength <= 0) {
-                            contentValues.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, Long.valueOf(j));
+                            contentValues.put("total_bytes", Long.valueOf(j));
                         }
                         TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(BinaryReqTask.this.mDownloadId)});
                     }
@@ -510,7 +511,7 @@ public class BinaryReqTask extends AbstractTask {
             } else if (!lowerCase.contains(IXAdRequestInfo.GPS)) {
                 return 0L;
             } else {
-                return 1073741824L;
+                return KsMediaMeta.AV_CH_STEREO_RIGHT;
             }
         } catch (Exception e) {
             return 0L;

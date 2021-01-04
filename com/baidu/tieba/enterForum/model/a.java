@@ -2,28 +2,28 @@ package com.baidu.tieba.enterForum.model;
 
 import android.content.Context;
 import android.view.WindowManager;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static a iyc;
+    private static a iKp;
     private boolean mHasInited;
     private int mStatusBarHeight;
     private WindowManager mWindowManager;
 
-    public static a cwk() {
-        if (iyc == null) {
+    public static a czd() {
+        if (iKp == null) {
             synchronized (a.class) {
-                if (iyc == null) {
-                    iyc = new a();
+                if (iKp == null) {
+                    iKp = new a();
                 }
             }
         }
-        return iyc;
+        return iKp;
     }
 
     private a() {
     }
 
-    public void v(Context context, int i) {
+    public void w(Context context, int i) {
         this.mHasInited = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
@@ -34,6 +34,6 @@ public class a {
 
     public void destroy() {
         this.mHasInited = false;
-        iyc = null;
+        iKp = null;
     }
 }

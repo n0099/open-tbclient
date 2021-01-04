@@ -3,66 +3,68 @@ package com.baidu.helios.a.a;
 import android.os.Bundle;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class c<T> implements com.baidu.helios.c<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f1785a = false;
-    private final CountDownLatch awQ = new CountDownLatch(1);
-    private b<T> awR = null;
-    private a awS = null;
+    private volatile boolean f2441a = false;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: b  reason: collision with root package name */
+    private final CountDownLatch f2442b = new CountDownLatch(1);
+    private b<T> axl = null;
+    private a axm = null;
+
+    /* loaded from: classes4.dex */
     public static class a {
-        public boolean awT;
-        public Throwable awU;
-        public Bundle awV;
+        public boolean axn;
+        public Throwable axo;
+        public Bundle axp;
         public int errorCode;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b<T> {
-        public Bundle awV;
+        public Bundle axp;
         public T result;
     }
 
     @Override // com.baidu.helios.c
     public void a(int i, Throwable th, Bundle bundle) {
-        this.awS = new a();
-        this.awS.errorCode = i;
-        this.awS.awU = th;
-        this.awS.awV = bundle;
-        this.f1785a = false;
-        this.awQ.countDown();
+        this.axm = new a();
+        this.axm.errorCode = i;
+        this.axm.axo = th;
+        this.axm.axp = bundle;
+        this.f2441a = false;
+        this.f2442b.countDown();
     }
 
     @Override // com.baidu.helios.c
     public void a(T t, Bundle bundle) {
-        this.awR = new b<>();
-        this.awR.result = t;
-        this.awR.awV = bundle;
-        this.f1785a = true;
-        this.awQ.countDown();
+        this.axl = new b<>();
+        this.axl.result = t;
+        this.axl.axp = bundle;
+        this.f2441a = true;
+        this.f2442b.countDown();
     }
 
     public boolean a(int i) {
         try {
-            this.awQ.await(i, TimeUnit.MILLISECONDS);
-            if (this.awS == null) {
-                this.awS = new a();
-                this.awS.awT = true;
+            this.f2442b.await(i, TimeUnit.MILLISECONDS);
+            if (this.axm == null) {
+                this.axm = new a();
+                this.axm.axn = true;
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return this.f1785a;
+        return this.f2441a;
     }
 
-    public b<T> zC() {
-        return this.awR;
+    public b<T> yT() {
+        return this.axl;
     }
 
-    public a zD() {
-        return this.awS;
+    public a yU() {
+        return this.axm;
     }
 }

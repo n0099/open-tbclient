@@ -1,69 +1,96 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.ArrayList;
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import androidx.annotation.RequiresApi;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
 /* loaded from: classes.dex */
 public class f {
-    public static String[] bGo() {
-        String string = com.baidu.tbadk.core.sharedPref.b.bsO().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
-        if (StringUtils.isNull(string)) {
-            return new String[0];
-        }
-        String[] split = string.split("\\^");
-        if (split != null && split.length > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (String str : split) {
-                a EH = a.EH(str);
-                if (EH != null && !StringUtils.isNull(EH.forumName)) {
-                    arrayList.add(EH.forumName);
-                }
-            }
-            return (String[]) arrayList.toArray(new String[arrayList.size()]);
-        }
-        return null;
+    private f() {
+    }
+
+    public static f bIJ() {
+        return a.fOY;
     }
 
     /* loaded from: classes.dex */
-    public static class a {
-        public String forumName;
-        public int level;
+    private static class a {
+        private static f fOY = new f();
+    }
 
-        public a() {
+    public String getLocalMacAddress(Context context) {
+        String str = null;
+        if (context == null) {
+            return null;
         }
-
-        public a(String str, int i) {
-            this.forumName = str;
-            this.level = i;
-        }
-
-        public String toString() {
-            if (StringUtils.isNull(this.forumName)) {
-                return null;
+        try {
+            if (Build.VERSION.SDK_INT < 23) {
+                WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
+                if (connectionInfo == null) {
+                    return null;
+                }
+                return connectionInfo.getMacAddress();
             }
-            return this.forumName + "#" + this.level;
-        }
-
-        public static a EH(String str) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            a aVar = new a();
-            if (str.contains("#")) {
-                String[] split = str.split("#");
-                if (split.length == 1) {
-                    aVar.forumName = split[0];
-                    return aVar;
-                } else if (split.length == 2) {
-                    aVar.forumName = split[0];
-                    aVar.level = com.baidu.adp.lib.f.b.toInt(split[1], -1);
-                    return aVar;
-                } else {
-                    return aVar;
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            while (networkInterfaces.hasMoreElements()) {
+                NetworkInterface nextElement = networkInterfaces.nextElement();
+                byte[] hardwareAddress = nextElement.getHardwareAddress();
+                if (hardwareAddress != null && hardwareAddress.length != 0) {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    int length = hardwareAddress.length;
+                    for (int i = 0; i < length; i++) {
+                        stringBuffer.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+                    }
+                    if (stringBuffer.length() > 0) {
+                        stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+                    }
+                    str = stringBuffer.toString();
+                    if ("wlan0".equals(nextElement.getName())) {
+                        return str;
+                    }
                 }
             }
-            aVar.forumName = str;
-            return aVar;
+            return str;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
         }
+    }
+
+    public String bIK() {
+        return Build.MODEL;
+    }
+
+    public String bIL() {
+        return Build.DEVICE;
+    }
+
+    public String getDeviceBrand() {
+        return Build.BRAND;
+    }
+
+    @RequiresApi(api = 17)
+    public String fA(Context context) {
+        return String.valueOf(getDisplayMetrics(context).widthPixels);
+    }
+
+    @RequiresApi(api = 17)
+    public String fB(Context context) {
+        return String.valueOf(getDisplayMetrics(context).heightPixels);
+    }
+
+    @RequiresApi(api = 17)
+    private DisplayMetrics getDisplayMetrics(Context context) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        if (context == null) {
+            return displayMetrics;
+        }
+        ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRealMetrics(displayMetrics);
+        return displayMetrics;
     }
 }

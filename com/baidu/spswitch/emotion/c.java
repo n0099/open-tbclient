@@ -9,31 +9,31 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import com.baidu.spswitch.b.a;
 import com.baidu.spswitch.emotion.view.BDEmotionBagLayout;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private static c cyA;
+    private static c cDs;
     private static Context mAppContext;
-    private boolean cyB;
-    private Runnable cyC = new Runnable() { // from class: com.baidu.spswitch.emotion.c.1
+    private EditText cDt;
+    private boolean cDu;
+    private Runnable cDv = new Runnable() { // from class: com.baidu.spswitch.emotion.c.1
         @Override // java.lang.Runnable
         public void run() {
-            c.this.mEditText.dispatchKeyEvent(new KeyEvent(0, 67));
-            c.this.mEditText.postDelayed(c.this.cyC, 60L);
+            c.this.cDt.dispatchKeyEvent(new KeyEvent(0, 67));
+            c.this.cDt.postDelayed(c.this.cDv, 60L);
         }
     };
-    private a.InterfaceC0375a cyD;
-    private EditText mEditText;
+    private a.InterfaceC0368a cDw;
 
-    public static c bM(Context context) {
+    public static c bV(Context context) {
         mAppContext = context;
-        if (cyA == null) {
+        if (cDs == null) {
             synchronized (c.class) {
-                if (cyA == null) {
-                    cyA = new c();
+                if (cDs == null) {
+                    cDs = new c();
                 }
             }
         }
-        return cyA;
+        return cDs;
     }
 
     public AdapterView.OnItemClickListener a(final EmotionType emotionType, final int i) {
@@ -43,26 +43,26 @@ public class c {
                 Object adapter = adapterView.getAdapter();
                 if (adapter instanceof BDEmotionBagLayout.a) {
                     BDEmotionBagLayout.a aVar = (BDEmotionBagLayout.a) adapter;
-                    if (c.this.mEditText != null) {
+                    if (c.this.cDt != null) {
                         if (i2 == aVar.getCount() - 1) {
-                            if (c.this.cyB) {
-                                c.this.mEditText.removeCallbacks(c.this.cyC);
-                                c.this.cyB = false;
+                            if (c.this.cDu) {
+                                c.this.cDt.removeCallbacks(c.this.cDv);
+                                c.this.cDu = false;
                                 return;
                             }
-                            c.this.mEditText.dispatchKeyEvent(new KeyEvent(0, 67));
-                            if (c.this.cyD != null) {
-                                c.this.cyD.a(emotionType, i, "", "[delete]");
+                            c.this.cDt.dispatchKeyEvent(new KeyEvent(0, 67));
+                            if (c.this.cDw != null) {
+                                c.this.cDw.a(emotionType, i, "", "[delete]");
                                 return;
                             }
                             return;
                         }
                         String item = aVar.getItem(i2);
                         if (!TextUtils.isEmpty(item)) {
-                            c.this.mEditText.getEditableText().insert(c.this.mEditText.getSelectionStart(), a.ahS().a(EmotionType.EMOTION_CLASSIC_TYPE, c.mAppContext, item, c.this.mEditText));
+                            c.this.cDt.getEditableText().insert(c.this.cDt.getSelectionStart(), a.ajb().a(EmotionType.EMOTION_CLASSIC_TYPE, c.mAppContext, item, c.this.cDt));
                         }
-                        if (c.this.cyD != null) {
-                            c.this.cyD.a(emotionType, i, b.bJ(c.mAppContext).b(emotionType, item), item);
+                        if (c.this.cDw != null) {
+                            c.this.cDw.a(emotionType, i, b.bS(c.mAppContext).b(emotionType, item), item);
                         }
                     }
                 }
@@ -76,9 +76,9 @@ public class c {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
                 Object adapter = adapterView.getAdapter();
                 if ((adapter instanceof BDEmotionBagLayout.a) && i == ((BDEmotionBagLayout.a) adapter).getCount() - 1) {
-                    c.this.cyB = true;
-                    if (c.this.mEditText != null) {
-                        c.this.mEditText.post(c.this.cyC);
+                    c.this.cDu = true;
+                    if (c.this.cDt != null) {
+                        c.this.cDt.post(c.this.cDv);
                         return false;
                     }
                     return false;
@@ -93,7 +93,7 @@ public class c {
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 1) {
-                    c.this.ahV();
+                    c.this.aje();
                     return false;
                 }
                 return false;
@@ -101,9 +101,9 @@ public class c {
         };
     }
 
-    public void ahV() {
-        if (this.mEditText != null) {
-            this.mEditText.removeCallbacks(this.cyC);
+    public void aje() {
+        if (this.cDt != null) {
+            this.cDt.removeCallbacks(this.cDv);
         }
     }
 }

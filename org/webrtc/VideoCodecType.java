@@ -1,11 +1,11 @@
 package org.webrtc;
 
 import com.baidu.fsg.face.liveness.video.f;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 enum VideoCodecType {
     VP8("video/x-vnd.on2.vp8"),
     VP9("video/x-vnd.on2.vp9"),
-    H264(f.b);
+    H264(f.f2362b);
     
     private final String mimeType;
 

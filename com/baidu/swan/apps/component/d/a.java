@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.component.d;
 
-import android.support.annotation.IntRange;
+import androidx.annotation.IntRange;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int cKh = 5;
-    private int[] cKi;
+    private static int cPc = 5;
+    private int[] cPd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.cKi = new int[id(i - 1) + 1];
-        int length = this.cKi.length;
+        this.cPd = new int[hX(i - 1) + 1];
+        int length = this.cPd.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.cKi[i2] = -1;
+                this.cPd[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.cKi.length << cKh) - 1;
+        int length = (this.cPd.length << cPc) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.cKi;
-        int id = id(i);
-        iArr[id] = iArr[id] | (1 << i);
+        int[] iArr = this.cPd;
+        int hX = hX(i);
+        iArr[hX] = iArr[hX] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.cKi.length << cKh) - 1;
+        int length = (this.cPd.length << cPc) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.cKi[id(i)] & (1 << i)) != 0;
+        return (this.cPd[hX(i)] & (1 << i)) != 0;
     }
 
-    private int id(int i) {
-        return i >> cKh;
+    private int hX(int i) {
+        return i >> cPc;
     }
 }

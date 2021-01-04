@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class GuardClubJoinListHttpResponseMessage extends JsonHttpResponsedMessage {
     public int count;
-    public int gQA;
-    public List<d> gQz;
     public boolean hasMore;
+    public List<d> hcm;
+    public int hcn;
 
     public GuardClubJoinListHttpResponseMessage() {
         super(1021139);
@@ -22,17 +22,17 @@ public class GuardClubJoinListHttpResponseMessage extends JsonHttpResponsedMessa
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gQA = optJSONObject.optInt(Config.PACKAGE_NAME);
+            this.hcn = optJSONObject.optInt(Config.PACKAGE_NAME);
             this.hasMore = optJSONObject.optInt("has_more") == 1;
             this.count = optJSONObject.optInt("count");
             JSONArray optJSONArray = optJSONObject.optJSONArray("guard_club_lists");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.gQz = new ArrayList();
+                this.hcm = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     d dVar = new d();
                     dVar.parseJson(optJSONObject2);
-                    this.gQz.add(dVar);
+                    this.hcm.add(dVar);
                 }
             }
         }

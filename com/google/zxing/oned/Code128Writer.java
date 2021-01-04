@@ -8,7 +8,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Code128Writer extends OneDimensionalCodeWriter {
     private static final int CODE_CODE_B = 100;
     private static final int CODE_CODE_C = 99;
@@ -25,7 +25,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
     private static final char ESCAPE_FNC_4 = 244;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public enum CType {
         UNCODABLE,
         ONE_DIGIT,
@@ -104,24 +104,19 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                 i = 105;
             }
             arrayList.add(Code128Reader.CODE_PATTERNS[i]);
-            int i8 = i7 + (i * i6);
-            i6 = i4 != 0 ? i6 + 1 : i6;
-            i7 = i8;
+            i7 += i * i6;
             i5 = chooseCode;
+            i6 = i4 != 0 ? i6 + 1 : i6;
         }
         arrayList.add(Code128Reader.CODE_PATTERNS[i7 % 103]);
         arrayList.add(Code128Reader.CODE_PATTERNS[106]);
-        int i9 = 0;
+        int i8 = 0;
         for (int[] iArr : arrayList) {
-            int length2 = iArr.length;
-            int i10 = 0;
-            while (i10 < length2) {
-                int i11 = iArr[i10] + i9;
-                i10++;
-                i9 = i11;
+            for (int i9 : iArr) {
+                i8 += i9;
             }
         }
-        boolean[] zArr = new boolean[i9];
+        boolean[] zArr = new boolean[i8];
         for (int[] iArr2 : arrayList) {
             i2 += appendPattern(zArr, i2, iArr2, true);
         }

@@ -2,7 +2,7 @@ package com.baidubce.internal;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public abstract class RestartableInputStream extends InputStream {
     public abstract void restart();
 

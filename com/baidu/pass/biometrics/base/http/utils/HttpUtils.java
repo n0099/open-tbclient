@@ -1,8 +1,9 @@
 package com.baidu.pass.biometrics.base.http.utils;
 
 import android.content.Context;
-import android.support.v4.view.InputDeviceCompat;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.pass.biometrics.base.restnet.RestNameValuePair;
 import com.baidu.pass.biometrics.base.utils.Crypto;
 import java.nio.charset.Charset;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class HttpUtils {
     public static String getNonce(Context context, List<RestNameValuePair> list) {
         String str;
@@ -37,7 +38,7 @@ public class HttpUtils {
         restNameValuePair.setValue(str);
         arrayList.add(restNameValuePair);
         try {
-            messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         } catch (NoSuchAlgorithmException e2) {
             e2.printStackTrace();
             messageDigest = null;
@@ -65,8 +66,8 @@ public class HttpUtils {
         }
         byte[] digest = messageDigest.digest();
         StringBuilder sb2 = new StringBuilder();
-        for (byte b : digest) {
-            sb2.append(Integer.toHexString((b & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
+        for (byte b2 : digest) {
+            sb2.append(Integer.toHexString((b2 & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
         }
         return sb2.toString();
     }

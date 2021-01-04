@@ -1,28 +1,28 @@
 package com.baidu.tieba.ala.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes10.dex */
 public abstract class g {
-    private h gCz;
+    private h gOl;
 
     public abstract float getProgress();
 
-    public abstract boolean ik();
+    public abstract boolean isCompleted();
 
     protected abstract void onAttach();
 
     protected abstract void onDetach();
 
     public void a(h hVar) {
-        this.gCz = hVar;
+        this.gOl = hVar;
         onAttach();
     }
 
     public void detach() {
-        this.gCz = null;
+        this.gOl = null;
         onDetach();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public h bTI() {
-        return this.gCz;
+    public h bWn() {
+        return this.gOl;
     }
 }

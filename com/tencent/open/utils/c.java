@@ -1,7 +1,7 @@
 package com.tencent.open.utils;
 
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public interface c {
     void a(int i, String str);
 

@@ -8,22 +8,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 @JNINamespace
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class AndroidCertVerifyResult {
+    private final List<X509Certificate> mCertificateChain;
+    private final boolean mIsIssuedByKnownRoot;
     private final int mStatus;
-    private final boolean oBU;
-    private final List<X509Certificate> oBV;
 
     public AndroidCertVerifyResult(int i, boolean z, List<X509Certificate> list) {
         this.mStatus = i;
-        this.oBU = z;
-        this.oBV = new ArrayList(list);
+        this.mIsIssuedByKnownRoot = z;
+        this.mCertificateChain = new ArrayList(list);
     }
 
     public AndroidCertVerifyResult(int i) {
         this.mStatus = i;
-        this.oBU = false;
-        this.oBV = Collections.emptyList();
+        this.mIsIssuedByKnownRoot = false;
+        this.mCertificateChain = Collections.emptyList();
     }
 
     @CalledByNative
@@ -33,15 +33,15 @@ public class AndroidCertVerifyResult {
 
     @CalledByNative
     public boolean isIssuedByKnownRoot() {
-        return this.oBU;
+        return this.mIsIssuedByKnownRoot;
     }
 
     @CalledByNative
     public byte[][] getCertificateChainEncoded() {
-        byte[][] bArr = new byte[this.oBV.size()];
-        for (int i = 0; i < this.oBV.size(); i++) {
+        byte[][] bArr = new byte[this.mCertificateChain.size()];
+        for (int i = 0; i < this.mCertificateChain.size(); i++) {
             try {
-                bArr[i] = this.oBV.get(i).getEncoded();
+                bArr[i] = this.mCertificateChain.get(i).getEncoded();
             } catch (CertificateEncodingException e) {
                 return new byte[0];
             }

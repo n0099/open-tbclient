@@ -1,13 +1,13 @@
 package com.baidu.tieba.aiapps.apps.h;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.bdprivate.extensions.a.g;
 import com.baidu.swan.bdprivate.extensions.a.i;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c implements com.baidu.swan.facade.a.b {
     @Override // com.baidu.swan.facade.a.d
     public void a(j jVar) {

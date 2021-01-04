@@ -1,11 +1,11 @@
 package com.baidu.swan.veloce;
 
 import android.os.Bundle;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    void bgS();
+    void bjp();
 
     Bundle g(String str, Bundle bundle);
 
-    void zQ(String str);
+    void zP(String str);
 }

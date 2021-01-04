@@ -5,11 +5,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LoadingDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f1768a;
+    private TextView f2414a;
 
     public LoadingDialog(Context context) {
         super(context, R.style.BeautyDialog);
@@ -29,14 +29,14 @@ public class LoadingDialog extends Dialog {
     private void a() {
         setContentView(R.layout.layout_sapi_liveness_dialog_loading);
         setCanceledOnTouchOutside(false);
-        this.f1768a = (TextView) findViewById(R.id.msg_text);
+        this.f2414a = (TextView) findViewById(R.id.msg_text);
     }
 
     public void setMessage(String str) {
-        this.f1768a.setText(str);
+        this.f2414a.setText(str);
     }
 
     public void setMessage(int i) {
-        this.f1768a.setText(i);
+        this.f2414a.setText(i);
     }
 }

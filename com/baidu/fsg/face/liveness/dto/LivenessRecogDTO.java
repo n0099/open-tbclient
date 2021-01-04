@@ -9,7 +9,7 @@ import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LivenessRecogDTO extends SapiBiometricDto {
     private static final int IMAGE_FLAG_CUTIMAGE = 1;
     private static final int IMAGE_FLAG_ORIGINIMAGE = 2;

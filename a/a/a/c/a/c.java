@@ -4,7 +4,7 @@ import android.os.Build;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static Object a(Class<?> cls, Class<?>[] clsArr, Object[] objArr) {
         try {
@@ -48,7 +48,20 @@ public class c {
         }
     }
 
-    public static <T> boolean a(T[] tArr, T t) {
+    public static Object b(Object obj, String str) {
+        Field a2 = a(obj, str);
+        if (a2 != null) {
+            a2.setAccessible(true);
+            try {
+                return a2.get(obj);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public static <T> boolean b(T[] tArr, T t) {
         int i;
         if (tArr != null) {
             i = 0;
@@ -62,19 +75,6 @@ public class c {
         }
         i = -1;
         return i != -1;
-    }
-
-    public static Object c(Object obj, String str) {
-        Field a2 = a(obj, str);
-        if (a2 != null) {
-            a2.setAccessible(true);
-            try {
-                return a2.get(obj);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
     }
 
     public static b hq() {

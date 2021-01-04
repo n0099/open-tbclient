@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import org.webrtc.VideoEncoder;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class LibvpxVp8Encoder extends WrappedNativeVideoEncoder {
     static native long nativeCreateEncoder();
 

@@ -1,7 +1,8 @@
 package com.baidu.tieba.recapp.report;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -12,44 +13,44 @@ import tbclient.Abstract;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private static b mNc;
-    private ConcurrentHashMap<String, List<JSONObject>> mNd = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<String, Integer> mNe = new ConcurrentHashMap<>();
+    private static b mSl;
+    private ConcurrentHashMap<String, List<JSONObject>> mSm = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, Integer> mSn = new ConcurrentHashMap<>();
 
     private b() {
     }
 
-    public static b dGf() {
-        if (mNc == null) {
+    public static b dFU() {
+        if (mSl == null) {
             synchronized (b.class) {
-                if (mNc == null) {
-                    mNc = new b();
+                if (mSl == null) {
+                    mSl = new b();
                 }
             }
         }
-        return mNc;
+        return mSl;
     }
 
     public void q(String str, List<JSONObject> list) {
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list);
-        this.mNd.put(str, arrayList);
+        this.mSm.put(str, arrayList);
     }
 
-    public String Sm(String str) {
-        return fO(this.mNd.get(str));
+    public String RU(String str) {
+        return fO(this.mSm.get(str));
     }
 
-    public void Sn(String str) {
-        this.mNd.put(str, new ArrayList());
+    public void RV(String str) {
+        this.mSm.put(str, new ArrayList());
     }
 
-    public void bG(String str, int i) {
-        this.mNe.put(str, Integer.valueOf(i));
+    public void bN(String str, int i) {
+        this.mSn.put(str, Integer.valueOf(i));
     }
 
-    public int So(String str) {
-        Integer num = this.mNe.get(str);
+    public int RW(String str) {
+        Integer num = this.mSn.get(str);
         if (num == null) {
             return 0;
         }
@@ -84,7 +85,7 @@ public class b {
                 if (i2 >= list.size()) {
                     break;
                 }
-                Abstract r0 = (Abstract) com.baidu.tieba.lego.card.d.a.l(list, i2);
+                Abstract r0 = (Abstract) com.baidu.tieba.lego.card.c.a.l(list, i2);
                 if (r0 != null && r0.type.intValue() == 0) {
                     sb.append(r0.text);
                 }
@@ -106,7 +107,7 @@ public class b {
             jSONObject.put("fname", str);
             jSONObject.put("abstract", sb2);
             jSONObject.put("author_id", str5);
-            jSONObject.put("video_duration", str2);
+            jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, str2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -115,7 +116,7 @@ public class b {
 
     private String fO(List<JSONObject> list) {
         try {
-            if (y.isEmpty(list)) {
+            if (x.isEmpty(list)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();

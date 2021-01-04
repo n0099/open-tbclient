@@ -12,9 +12,9 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 /* loaded from: classes.dex */
 public class c {
-    private static OkHttpClient mzk;
-    private static TurbonetContext mzl;
-    private static long mzm = 0;
+    private static OkHttpClient mEA;
+    private static TurbonetContext mEB;
+    private static long mEC = 0;
     private static boolean sInited = false;
 
     public static void init() {
@@ -29,34 +29,34 @@ public class c {
     }
 
     public static OkHttpClient getOkHttpClient() {
-        if (mzk == null) {
-            mzk = build();
+        if (mEA == null) {
+            mEA = build();
         }
-        return mzk;
+        return mEA;
     }
 
     private static OkHttpClient build() {
-        mzl = dCr();
-        OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(mzl);
+        mEB = dCg();
+        OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(mEB);
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
         return builder.build();
     }
 
-    private static TurbonetContext dCr() {
-        TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), dCs());
-        mzl = turbonetContext;
+    private static TurbonetContext dCg() {
+        TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), dCh());
+        mEB = turbonetContext;
         return turbonetContext;
     }
 
-    private static TurbonetConfig dCs() {
+    private static TurbonetConfig dCh() {
         TurbonetConfig turbonetConfig = new TurbonetConfig();
         turbonetConfig.setRequestTimeout(15);
-        turbonetConfig.Af(true);
-        turbonetConfig.Ai(true);
-        turbonetConfig.Ah(true);
-        turbonetConfig.Xq("http://tb-video.bdstatic.com|2");
         turbonetConfig.Ag(true);
+        turbonetConfig.Aj(true);
+        turbonetConfig.Ai(true);
+        turbonetConfig.WZ("http://tb-video.bdstatic.com|2");
+        turbonetConfig.Ah(true);
         turbonetConfig.e("bdns", "bce_http_dns_account_id", "119799");
         turbonetConfig.e("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
         turbonetConfig.e("bdbus", "min_trigger_interval", 180);
@@ -70,8 +70,8 @@ public class c {
         } else {
             file.mkdirs();
         }
-        turbonetConfig.Xp(file.getAbsolutePath());
-        turbonetConfig.C(3, 10485760L);
+        turbonetConfig.WY(file.getAbsolutePath());
+        turbonetConfig.B(3, 10485760L);
         turbonetConfig.e(TbConfig.TMP_LOG_DIR_NAME, "lite_log_in_response_header", true);
         turbonetConfig.e("app", "app_package_name", "com.baidu.tieba");
         turbonetConfig.e("nq", "network_quality_enabled", true);
@@ -93,11 +93,11 @@ public class c {
         return turbonetConfig;
     }
 
-    public static long dCt() {
-        if (mzl != null && mzm == 0) {
-            mzm = mzl.ehQ();
+    public static long dCi() {
+        if (mEB != null && mEC == 0) {
+            mEC = mEB.eif();
         }
-        return mzm;
+        return mEC;
     }
 
     public static String getCachePath() {

@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
@@ -20,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
 import com.baidu.fsg.base.utils.LogUtil;
@@ -36,12 +36,14 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LivenessVideoGuidActivity extends LivenessBaseActivity {
 
     /* renamed from: a  reason: collision with root package name */
-    private Button f1697a;
-    private ImageView b;
+    private Button f2295a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private ImageView f2296b;
     private ImageView c;
     private View d;
     private View e;
@@ -105,8 +107,8 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                 LivenessVideoGuidActivity.this.j.setCurrentItem(1);
             }
         });
-        this.b = (ImageView) findViewById(R.id.sapi_bio_title_btn_left);
-        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.4
+        this.f2296b = (ImageView) findViewById(R.id.sapi_bio_title_btn_left);
+        this.f2296b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LivenessVideoGuidActivity.this.onBackPressed();
@@ -115,11 +117,11 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         this.j = (ViewPager) findViewById(R.id.rim_face_video_guide_vp);
         this.j.setAdapter(new ViewPagerAdapter(this.k));
         this.j.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.5
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
             }
 
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
                 if (LivenessVideoGuidActivity.this.m.get()) {
                     RimStatisticsUtil.onEvent(d.K);
@@ -141,7 +143,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                 }
             }
 
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
             }
         });
@@ -260,36 +262,38 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         RimStatisticsUtil.getInstance().triggerSending();
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public class ViewPagerAdapter extends PagerAdapter {
-        private List<View> b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private List<View> f2309b;
 
         public ViewPagerAdapter(List<View> list) {
-            this.b = list;
+            this.f2309b = list;
         }
 
-        @Override // android.support.v4.view.PagerAdapter
+        @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            if (this.b == null) {
+            if (this.f2309b == null) {
                 return 0;
             }
-            return this.b.size();
+            return this.f2309b.size();
         }
 
-        @Override // android.support.v4.view.PagerAdapter
+        @Override // androidx.viewpager.widget.PagerAdapter
         public boolean isViewFromObject(View view, Object obj) {
             return view == obj;
         }
 
-        @Override // android.support.v4.view.PagerAdapter
+        @Override // androidx.viewpager.widget.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            viewGroup.addView(this.b.get(i));
-            return this.b.get(i);
+            viewGroup.addView(this.f2309b.get(i));
+            return this.f2309b.get(i);
         }
 
-        @Override // android.support.v4.view.PagerAdapter
+        @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-            viewGroup.removeView(this.b.get(i));
+            viewGroup.removeView(this.f2309b.get(i));
         }
     }
 
@@ -312,33 +316,35 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         imageView.setLayoutParams(layoutParams);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public class a extends Scroller {
-        private int b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private int f2311b;
 
         public a(Context context) {
             super(context);
-            this.b = 300;
+            this.f2311b = 300;
         }
 
         public a(Context context, Interpolator interpolator) {
             super(context, interpolator);
-            this.b = 300;
+            this.f2311b = 300;
         }
 
         public a(Context context, Interpolator interpolator, boolean z) {
             super(context, interpolator, z);
-            this.b = 300;
+            this.f2311b = 300;
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4, int i5) {
-            super.startScroll(i, i2, i3, i4, this.b);
+            super.startScroll(i, i2, i3, i4, this.f2311b);
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4) {
-            super.startScroll(i, i2, i3, i4, this.b);
+            super.startScroll(i, i2, i3, i4, this.f2311b);
         }
     }
 }

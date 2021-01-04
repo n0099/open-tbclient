@@ -1,5 +1,5 @@
 package com.baidu.ala;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class AlaCmdConfigCustom {
     public static final int CMD_ALA_ALL_GAME_LIVE_ENTRY = 2913032;
     public static final int CMD_ALA_ALL_LIVE_SIMPLE = 2913033;

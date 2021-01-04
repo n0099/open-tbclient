@@ -5,19 +5,21 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class RouterManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1482a = "MaApplication";
-    private static RouterManager b = new RouterManager();
+    private static final String f1971a = "MaApplication";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static RouterManager f1972b = new RouterManager();
     private ArrayList<ApplicationLogicWrapper> c = new ArrayList<>();
 
     private RouterManager() {
     }
 
     public static RouterManager getInstance() {
-        return b;
+        return f1972b;
     }
 
     public void init(Context context, HashMap<String, Object> hashMap) {
@@ -28,10 +30,10 @@ public class RouterManager {
         if (applicationContext == null) {
             throw new RuntimeException("Router manager init with applciation context null");
         }
-        LogUtil.d(f1482a, "Application onCreate start: " + System.currentTimeMillis());
+        LogUtil.d(f1971a, "Application onCreate start: " + System.currentTimeMillis());
         LocalRouter.init(applicationContext);
         a(applicationContext, hashMap);
-        LogUtil.d(f1482a, "Application onCreate end: " + System.currentTimeMillis());
+        LogUtil.d(f1971a, "Application onCreate end: " + System.currentTimeMillis());
     }
 
     private void a(Context context, HashMap<String, Object> hashMap) {

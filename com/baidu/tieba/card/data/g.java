@@ -1,5 +1,5 @@
 package com.baidu.tieba.card.data;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class g implements com.baidu.tieba.horizonalList.widget.c {
     public String forumAvatar;
     public long forumId;

@@ -6,7 +6,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class d implements b<String> {
     private Context mContext;
 
@@ -24,17 +24,17 @@ public class d implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aOW */
+    /* renamed from: aRn */
     public String get() {
-        return bgN();
+        return bjk();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean bgL() {
+    public boolean bji() {
         return false;
     }
 
-    private String bgN() {
+    private String bjk() {
         String str = null;
         List<ResolveInfo> queryBroadcastReceivers = this.mContext.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.UUID"), 0);
         if (queryBroadcastReceivers == null || queryBroadcastReceivers.size() <= 0) {
@@ -43,11 +43,11 @@ public class d implements b<String> {
         for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
             if (resolveInfo.activityInfo != null && resolveInfo.activityInfo.applicationInfo != null && !this.mContext.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                 File file = new File(new File(resolveInfo.activityInfo.applicationInfo.dataDir, com.baidu.fsg.face.base.b.c.g), "libuuid.so");
-                String s = file.exists() ? com.baidu.swan.uuid.b.a.s(file) : str;
-                if (!TextUtils.isEmpty(s)) {
-                    return s;
+                String w = file.exists() ? com.baidu.swan.uuid.b.a.w(file) : str;
+                if (!TextUtils.isEmpty(w)) {
+                    return w;
                 }
-                str = s;
+                str = w;
             }
         }
         return str;

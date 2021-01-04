@@ -7,6 +7,7 @@ import tbclient.GetMyPost.GetMyPostReqIdl;
 /* loaded from: classes.dex */
 public class RequestGetMyPostNetMessage extends NetMessage {
     private String bFrom;
+    private int callFrom;
     private boolean hideErrorToast;
     private long mForumId;
     private long mPostId;
@@ -51,6 +52,10 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         return !this.hideErrorToast;
     }
 
+    public void setCallFrom(int i) {
+        this.callFrom = i;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
@@ -62,6 +67,7 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         builder.scr_dip = Double.valueOf(this.mScrDip);
         builder.q_type = Integer.valueOf(this.mQType);
         builder.bfrom = this.bFrom;
+        builder.call_from = Integer.valueOf(this.callFrom);
         GetMyPostReqIdl.Builder builder2 = new GetMyPostReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

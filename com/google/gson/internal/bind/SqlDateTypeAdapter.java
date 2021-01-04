@@ -12,28 +12,28 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 /* loaded from: classes5.dex */
 public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
-    public static final TypeAdapterFactory puF = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.SqlDateTypeAdapter.1
+    public static final TypeAdapterFactory pLE = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.SqlDateTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.eyW() == Date.class) {
+            if (aVar.eCI() == Date.class) {
                 return new SqlDateTypeAdapter();
             }
             return null;
         }
     };
-    private final DateFormat pvh = new SimpleDateFormat("MMM d, yyyy");
+    private final DateFormat pMg = new SimpleDateFormat("MMM d, yyyy");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     /* renamed from: d */
     public synchronized Date read(com.google.gson.stream.a aVar) throws IOException {
         Date date;
-        if (aVar.eyz() == JsonToken.NULL) {
-            aVar.eyF();
+        if (aVar.eCl() == JsonToken.NULL) {
+            aVar.eCr();
             date = null;
         } else {
             try {
-                date = new Date(this.pvh.parse(aVar.eyD()).getTime());
+                date = new Date(this.pMg.parse(aVar.eCp()).getTime());
             } catch (ParseException e) {
                 throw new JsonSyntaxException(e);
             }
@@ -45,6 +45,6 @@ public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     /* renamed from: a */
     public synchronized void write(com.google.gson.stream.b bVar, Date date) throws IOException {
-        bVar.ZG(date == null ? null : this.pvh.format((java.util.Date) date));
+        bVar.ZQ(date == null ? null : this.pMg.format((java.util.Date) date));
     }
 }

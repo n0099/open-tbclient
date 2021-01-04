@@ -1,7 +1,7 @@
 package com.google.zxing;
 
 import com.google.zxing.common.detector.MathUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class ResultPoint {
     private final float x;
     private final float y;
@@ -39,6 +39,8 @@ public class ResultPoint {
         ResultPoint resultPoint;
         ResultPoint resultPoint2;
         ResultPoint resultPoint3;
+        ResultPoint resultPoint4;
+        ResultPoint resultPoint5;
         float distance = distance(resultPointArr[0], resultPointArr[1]);
         float distance2 = distance(resultPointArr[1], resultPointArr[2]);
         float distance3 = distance(resultPointArr[0], resultPointArr[2]);
@@ -55,14 +57,16 @@ public class ResultPoint {
             resultPoint2 = resultPointArr[0];
             resultPoint3 = resultPointArr[1];
         }
-        if (crossProductZ(resultPoint2, resultPoint, resultPoint3) >= 0.0f) {
-            ResultPoint resultPoint4 = resultPoint3;
-            resultPoint3 = resultPoint2;
-            resultPoint2 = resultPoint4;
+        if (crossProductZ(resultPoint2, resultPoint, resultPoint3) < 0.0f) {
+            resultPoint4 = resultPoint2;
+            resultPoint5 = resultPoint3;
+        } else {
+            resultPoint4 = resultPoint3;
+            resultPoint5 = resultPoint2;
         }
-        resultPointArr[0] = resultPoint3;
+        resultPointArr[0] = resultPoint5;
         resultPointArr[1] = resultPoint;
-        resultPointArr[2] = resultPoint2;
+        resultPointArr[2] = resultPoint4;
     }
 
     public static float distance(ResultPoint resultPoint, ResultPoint resultPoint2) {

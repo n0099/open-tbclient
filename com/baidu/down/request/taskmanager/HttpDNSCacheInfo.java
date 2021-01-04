@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TreeSet;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class HttpDNSCacheInfo {
     private static final boolean DEBUG = false;
     private static final String TAG = "HttpDNSCacheInfo";
@@ -52,29 +52,27 @@ public class HttpDNSCacheInfo {
 
     public String getRetryStrategyUrlUseIp(String str, int i) {
         String str2;
-        MalformedURLException malformedURLException;
         if (this.mIpList != null && this.mIpList.size() - 1 < i) {
             return null;
         }
         try {
-            String replace = str.replace(new URL(str).getHost(), this.mIpList.get(i));
+            str2 = str.replace(new URL(str).getHost(), this.mIpList.get(i));
             try {
                 if (URLUtil.isHttpsUrl(str)) {
-                    replace = replace.replaceFirst(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "http://");
+                    str2 = str2.replaceFirst(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "http://");
                 }
-                if (Utils.isUrlContainsQ(replace)) {
-                    return replace + "&xcode=" + this.mXCode;
+                if (Utils.isUrlContainsQ(str2)) {
+                    return str2 + "&xcode=" + this.mXCode;
                 }
-                return replace + "?xcode=" + this.mXCode;
+                return str2 + "?xcode=" + this.mXCode;
             } catch (MalformedURLException e) {
-                str2 = replace;
-                malformedURLException = e;
-                malformedURLException.printStackTrace();
+                e = e;
+                e.printStackTrace();
                 return str2;
             }
         } catch (MalformedURLException e2) {
+            e = e2;
             str2 = null;
-            malformedURLException = e2;
         }
     }
 

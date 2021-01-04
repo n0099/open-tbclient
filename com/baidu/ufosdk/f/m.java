@@ -7,19 +7,18 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.StateListDrawable;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class m {
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0047 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0046 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static Bitmap a(Context context, String str) {
         InputStream inputStream;
-        Throwable th;
         Bitmap bitmap = null;
         try {
+            inputStream = context.getAssets().open("ufo_res/" + str);
             try {
-                inputStream = context.getAssets().open("ufo_res/" + str);
                 try {
                     byte[] a2 = i.a(inputStream);
                     bitmap = BitmapFactory.decodeByteArray(a2, 0, a2.length, null);
@@ -42,8 +41,8 @@ public final class m {
                     }
                     return bitmap;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 if (inputStream != null) {
                     try {
                         inputStream.close();
@@ -56,9 +55,9 @@ public final class m {
         } catch (IOException e5) {
             e = e5;
             inputStream = null;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             inputStream = null;
-            th = th3;
             if (inputStream != null) {
             }
             throw th;
@@ -87,13 +86,12 @@ public final class m {
         return stateListDrawable;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0033 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0032 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static byte[] a(Context context) {
         InputStream inputStream;
-        Throwable th;
         byte[] bArr = null;
         try {
             try {
@@ -119,8 +117,8 @@ public final class m {
                     }
                     return bArr;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 if (inputStream != null) {
                     try {
                         inputStream.close();
@@ -133,9 +131,9 @@ public final class m {
         } catch (IOException e5) {
             e = e5;
             inputStream = null;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             inputStream = null;
-            th = th3;
             if (inputStream != null) {
             }
             throw th;
@@ -143,13 +141,12 @@ public final class m {
         return bArr;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0033 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0032 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static byte[] b(Context context) {
         InputStream inputStream;
-        Throwable th;
         byte[] bArr = null;
         try {
             try {
@@ -175,8 +172,8 @@ public final class m {
                     }
                     return bArr;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 if (inputStream != null) {
                     try {
                         inputStream.close();
@@ -189,9 +186,9 @@ public final class m {
         } catch (IOException e5) {
             e = e5;
             inputStream = null;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             inputStream = null;
-            th = th3;
             if (inputStream != null) {
             }
             throw th;
@@ -200,6 +197,7 @@ public final class m {
     }
 
     public static Bitmap c(Context context) {
+        Throwable th;
         InputStream inputStream;
         Bitmap bitmap = null;
         try {
@@ -233,9 +231,9 @@ public final class m {
             } catch (IOException e4) {
                 e = e4;
                 inputStream = null;
-            } catch (Throwable th) {
+            } catch (Throwable th2) {
+                th = th2;
                 inputStream = null;
-                th = th;
                 if (inputStream != null) {
                     try {
                         inputStream.close();
@@ -246,8 +244,8 @@ public final class m {
                 throw th;
             }
             return bitmap;
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 }

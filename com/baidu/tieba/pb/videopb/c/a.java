@@ -1,40 +1,40 @@
 package com.baidu.tieba.pb.videopb.c;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import tbclient.AlaLiveInfo;
 import tbclient.Promotion;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a extends BaseCardInfo {
-    public static final BdUniqueId mcF = BdUniqueId.gen();
+    public static final BdUniqueId mhR = BdUniqueId.gen();
     private Long appear_time;
     private String image;
     public boolean isChushou;
     private String link;
     private String link_text;
-    private long mcH;
+    private long mhT;
     public String routeType;
     private String sub_title;
     public String thirdLiveType;
     public String thirdRoomId;
     private String title;
     public long userId;
-    private boolean mcG = false;
-    public boolean mcI = false;
+    private boolean mhS = false;
+    public boolean mhU = false;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mcF;
+        return mhR;
     }
 
     public String getTitle() {
         return this.title;
     }
 
-    public String dwT() {
+    public String dwI() {
         return this.sub_title;
     }
 
@@ -46,20 +46,20 @@ public class a extends BaseCardInfo {
         return this.link;
     }
 
-    public String dwU() {
+    public String dwJ() {
         return this.link_text;
     }
 
-    public Long dwV() {
+    public Long dwK() {
         return this.appear_time;
     }
 
-    public boolean dwW() {
-        return this.mcG;
+    public boolean dwL() {
+        return this.mhS;
     }
 
-    public long dwX() {
-        return this.mcH;
+    public long dwM() {
+        return this.mhT;
     }
 
     public void a(Promotion promotion) {
@@ -69,15 +69,15 @@ public class a extends BaseCardInfo {
         this.link = promotion.link;
         this.link_text = promotion.link_text;
         this.appear_time = promotion.appear_time;
-        this.mcG = false;
-        this.mcI = false;
+        this.mhS = false;
+        this.mhU = false;
     }
 
     public void parserProtoBuf(@NonNull AlaLiveInfo alaLiveInfo) {
         this.title = alaLiveInfo.first_headline;
         this.sub_title = alaLiveInfo.second_headline;
         this.image = alaLiveInfo.cover;
-        this.mcH = alaLiveInfo.live_id.longValue();
+        this.mhT = alaLiveInfo.live_id.longValue();
         this.userId = alaLiveInfo.user_info != null ? alaLiveInfo.user_info.user_id.longValue() : 0L;
         this.isChushou = alaLiveInfo.live_from.intValue() == 1;
         this.thirdLiveType = alaLiveInfo.third_live_type;
@@ -86,7 +86,7 @@ public class a extends BaseCardInfo {
         this.link = "";
         this.link_text = TbadkCoreApplication.getInst().getString(R.string.pb_ala_enter);
         this.appear_time = 1L;
-        this.mcG = true;
-        this.mcI = false;
+        this.mhS = true;
+        this.mhU = false;
     }
 }

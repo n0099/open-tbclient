@@ -1,11 +1,11 @@
 package com.idlefish.flutterboost;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import io.flutter.embedding.engine.systemchannels.KeyEventChannel;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public class XAndroidKeyProcessor {
     private int combiningCharacter;
     @NonNull

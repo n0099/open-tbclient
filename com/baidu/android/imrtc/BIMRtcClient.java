@@ -1,7 +1,7 @@
 package com.baidu.android.imrtc;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.msg.BIMRtcListener;
 import com.baidu.android.imrtc.request.BIMRtcTokenListener;
 import com.baidu.android.imrtc.send.BIMAnswerRtcInfo;
@@ -11,7 +11,7 @@ import com.baidu.android.imrtc.send.BIMInviteRtcInfo;
 import com.baidu.android.imrtc.send.BIMKickRequestRtcInfo;
 import com.baidu.android.imrtc.utils.IStatusListener;
 import com.baidu.android.imrtc.utils.RtcConstants;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class BIMRtcClient {
     public static void createRoom(@NonNull Context context, String str, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         BIMRtcManager.getInstance(context).createRoom(str, bIMRtcTokenListener);

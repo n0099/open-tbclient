@@ -2,7 +2,7 @@ package com.baidu.cyberplayer.sdk.rtc;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class RTCConst {
     public static final int RTC_ROOM_EVENTS_DISBAND_ROOM = 112;
     public static final int RTC_ROOM_EVENTS_LIVE_INTERRUPT = 118;

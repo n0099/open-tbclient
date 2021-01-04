@@ -2,160 +2,189 @@ package com.baidu.adp.widget.ListView;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
-import java.security.InvalidParameterException;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.R;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public abstract class d implements BdSwipeRefreshLayout.b {
-    protected a WD;
-    private Context mContext;
-    private View mView = null;
-    private boolean mEnable = true;
-    private int mHeadContentHeight = 0;
-    private int mHeadContentWidth = 0;
-    private boolean WE = false;
+public class d {
+    public a WC = null;
+    public ArrayList<c> mFooterViewInfos;
+    public ArrayList<c> mHeaderViewInfos;
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(d dVar, int i, int i2, int i3, int i4);
+        void onPreLoad();
     }
 
-    public abstract View createView();
-
-    public abstract void done(boolean z);
-
-    public abstract void onCompletePullRefresh();
-
-    public abstract void onRefresh(boolean z);
-
-    public abstract void pullToRefresh(boolean z);
-
-    public abstract void refreshing();
-
-    public abstract void releaseToRefresh();
-
-    public d(Context context) {
-        this.mContext = null;
-        if (context == null) {
-            throw new InvalidParameterException("BdIListPullView context is null");
-        }
-        this.mContext = context;
-    }
-
-    public Context getContext() {
-        return this.mContext;
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public final View getView() {
-        if (this.mView == null) {
-            this.mView = createView();
-            if (this.mView == null) {
-                throw new IllegalStateException("BdIListPullView getView is null");
-            }
-            measureView(this.mView);
-            this.mHeadContentHeight = this.mView.getMeasuredHeight();
-            this.mHeadContentWidth = this.mView.getMeasuredWidth();
-        }
-        return this.mView;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean qS() {
-        return this.WE;
-    }
-
-    public void pause() {
-        this.WE = true;
-    }
-
-    public void resume() {
-        this.WE = false;
-    }
-
-    public void setPadding(int i, int i2, int i3, int i4) {
-        if (this.mView != null && !this.WE) {
-            this.mView.setPadding(i, i2, i3, i4);
-            if (this.WD != null) {
-                this.WD.a(this, i, i3, i2 + getHeadContentHeight(), i4);
-            }
-        }
-    }
-
-    public boolean isEnable() {
-        return this.mEnable;
-    }
-
-    public void setEnable(boolean z) {
-        this.mEnable = z;
-    }
-
-    private void measureView(View view) {
-        int makeMeasureSpec;
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(-1, -2);
-        }
-        int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
-        int i = layoutParams.height;
-        if (i > 0) {
-            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i, 1073741824);
-        } else {
-            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        }
-        view.measure(childMeasureSpec, makeMeasureSpec);
-    }
-
-    public int getHeadContentHeight() {
-        return this.mHeadContentHeight;
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void onPullToRefresh() {
-        if (!this.WE) {
-            pullToRefresh(false);
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void onReleaseToRefresh() {
-        if (!this.WE) {
-            releaseToRefresh();
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void onRefreshing() {
-        if (!this.WE) {
-            refreshing();
-            onRefresh(true);
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void onCompleteRefresh() {
-        if (!this.WE) {
-            onCompletePullRefresh();
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void onFinish() {
-        if (!this.WE) {
-            done(true);
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void onPullPercentChange(float f, float f2) {
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public long getCompleteAnimTime() {
-        return 0L;
+    public d() {
+        this.mHeaderViewInfos = null;
+        this.mFooterViewInfos = null;
+        this.mHeaderViewInfos = new ArrayList<>();
+        this.mFooterViewInfos = new ArrayList<>();
     }
 
     public void a(a aVar) {
-        this.WD = aVar;
+        this.WC = aVar;
+    }
+
+    public int z(View view) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.mHeaderViewInfos.size()) {
+                c cVar = this.mHeaderViewInfos.get(i2);
+                if (cVar == null || cVar.WE == null || cVar.WE.itemView != view) {
+                    i = i2 + 1;
+                } else {
+                    return i2;
+                }
+            } else {
+                return -1;
+            }
+        }
+    }
+
+    public int A(View view) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.mFooterViewInfos.size()) {
+                c cVar = this.mFooterViewInfos.get(i2);
+                if (cVar == null || cVar.WE == null || cVar.WE.itemView != view) {
+                    i = i2 + 1;
+                } else {
+                    return i2;
+                }
+            } else {
+                return -1;
+            }
+        }
+    }
+
+    public int getHeadersCount() {
+        return this.mHeaderViewInfos.size();
+    }
+
+    public int getFootersCount() {
+        return this.mFooterViewInfos.size();
+    }
+
+    public void a(View view, Object obj, boolean z, boolean z2, int i) {
+        if (view != null) {
+            c cVar = new c();
+            cVar.WE = new TypeAdapter.ViewHolder(view);
+            cVar.data = obj;
+            cVar.isSelectable = z;
+            cVar.WF = z2;
+            cVar.type = BdUniqueId.gen().getId();
+            cVar.id = cVar.type;
+            view.setTag("HEADER");
+            if (i < 0 || i > this.mHeaderViewInfos.size()) {
+                this.mHeaderViewInfos.add(cVar);
+            } else {
+                this.mHeaderViewInfos.add(i, cVar);
+            }
+        }
+    }
+
+    public void b(View view, Object obj, boolean z, boolean z2, int i) {
+        if (view != null) {
+            c cVar = new c();
+            cVar.WE = new TypeAdapter.ViewHolder(view);
+            cVar.data = obj;
+            cVar.isSelectable = z;
+            cVar.WF = z2;
+            cVar.type = BdUniqueId.gen().getId();
+            cVar.id = cVar.type;
+            view.setTag("FOOTER");
+            if (i < 0 || i > this.mFooterViewInfos.size()) {
+                this.mFooterViewInfos.add(cVar);
+            } else {
+                this.mFooterViewInfos.add(i, cVar);
+            }
+        }
+    }
+
+    public boolean removeHeader(View view) {
+        if (view == null) {
+            return false;
+        }
+        for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
+            c cVar = this.mHeaderViewInfos.get(i);
+            if (cVar != null && cVar.WE != null && cVar.WE.itemView == view) {
+                this.mHeaderViewInfos.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean removeFooter(View view) {
+        if (view == null) {
+            return false;
+        }
+        for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
+            c cVar = this.mFooterViewInfos.get(i);
+            if (cVar != null && cVar.WE != null && cVar.WE.itemView == view) {
+                this.mFooterViewInfos.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public c aS(int i) {
+        Iterator<c> it = this.mHeaderViewInfos.iterator();
+        while (it.hasNext()) {
+            c next = it.next();
+            if (next != null && i == next.type) {
+                return next;
+            }
+        }
+        return null;
+    }
+
+    public c aT(int i) {
+        Iterator<c> it = this.mFooterViewInfos.iterator();
+        while (it.hasNext()) {
+            c next = it.next();
+            if (next != null && i == next.type) {
+                return next;
+            }
+        }
+        return null;
+    }
+
+    public TypeAdapter.ViewHolder M(Context context) {
+        TextView textView = new TextView(context);
+        textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
+        int dip2px = com.baidu.adp.lib.util.l.dip2px(context, 15.0f);
+        textView.setPadding(dip2px, dip2px, dip2px, dip2px);
+        textView.setHeight(0);
+        return new b(textView);
+    }
+
+    /* loaded from: classes.dex */
+    class b extends TypeAdapter.ViewHolder {
+        public b(View view) {
+            super(view);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c {
+        public TypeAdapter.ViewHolder WE;
+        public boolean WF;
+        public Object data;
+        public long id;
+        public boolean isSelectable;
+        public int type;
+
+        public c() {
+        }
     }
 }

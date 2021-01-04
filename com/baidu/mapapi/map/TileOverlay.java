@@ -8,20 +8,22 @@ import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class TileOverlay {
-    private static final String b = TileOverlay.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f2886b = TileOverlay.class.getSimpleName();
     private static int f = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    BaiduMap f2052a;
+    BaiduMap f2887a;
     private TileProvider g;
     private HashMap<String, Tile> d = new HashMap<>();
     private HashSet<String> e = new HashSet<>();
     private ExecutorService c = Executors.newFixedThreadPool(1);
 
     public TileOverlay(BaiduMap baiduMap, TileProvider tileProvider) {
-        this.f2052a = baiduMap;
+        this.f2887a = baiduMap;
         this.g = tileProvider;
     }
 
@@ -56,9 +58,9 @@ public final class TileOverlay {
         if (a2 != null) {
             return a2;
         }
-        if (this.f2052a != null && f == 0) {
-            MapStatus mapStatus = this.f2052a.getMapStatus();
-            f = (((mapStatus.f2024a.j.bottom - mapStatus.f2024a.j.top) / 256) + 2) * (((mapStatus.f2024a.j.right - mapStatus.f2024a.j.left) / 256) + 2);
+        if (this.f2887a != null && f == 0) {
+            MapStatus mapStatus = this.f2887a.getMapStatus();
+            f = (((mapStatus.f2838a.j.bottom - mapStatus.f2838a.j.top) / 256) + 2) * (((mapStatus.f2838a.j.right - mapStatus.f2838a.j.left) / 256) + 2);
         }
         if (this.d.size() > f) {
             a();
@@ -68,16 +70,16 @@ public final class TileOverlay {
                 c(str);
                 this.c.execute(new ac(this, i, i2, i3, str));
             } catch (RejectedExecutionException e) {
-                Log.e(b, "ThreadPool excepiton");
+                Log.e(f2886b, "ThreadPool excepiton");
             } catch (Exception e2) {
-                Log.e(b, "fileDir is not legal");
+                Log.e(f2886b, "fileDir is not legal");
             }
         }
         return null;
     }
 
     synchronized void a() {
-        Logger.logE(b, "clearTaskSet");
+        Logger.logE(f2886b, "clearTaskSet");
         this.e.clear();
         this.d.clear();
     }
@@ -88,16 +90,16 @@ public final class TileOverlay {
     }
 
     public boolean clearTileCache() {
-        if (this.f2052a == null) {
+        if (this.f2887a == null) {
             return false;
         }
-        return this.f2052a.b();
+        return this.f2887a.b();
     }
 
     public void removeTileOverlay() {
-        if (this.f2052a == null) {
+        if (this.f2887a == null) {
             return;
         }
-        this.f2052a.a(this);
+        this.f2887a.a(this);
     }
 }

@@ -6,20 +6,20 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f4501a;
+    private a f14083a;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<BaseService> f4502a;
+        private WeakReference<BaseService> f14084a;
 
         public a(WeakReference<BaseService> weakReference) {
-            this.f4502a = weakReference;
+            this.f14084a = weakReference;
         }
 
         public void a() {
@@ -34,11 +34,11 @@ public abstract class BaseService extends Service {
             BaseService baseService;
             switch (message.what) {
                 case 1001:
-                    if (this.f4502a == null || (baseService = this.f4502a.get()) == null) {
+                    if (this.f14084a == null || (baseService = this.f14084a.get()) == null) {
                         return;
                     }
                     com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler" + baseService.toString() + "  kill self");
-                    if (!baseService.mo65a()) {
+                    if (!baseService.mo91a()) {
                         baseService.stopSelf();
                         return;
                     }
@@ -52,7 +52,7 @@ public abstract class BaseService extends Service {
     }
 
     /* renamed from: a */
-    protected abstract boolean mo65a();
+    protected abstract boolean mo91a();
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -62,9 +62,9 @@ public abstract class BaseService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.f4501a == null) {
-            this.f4501a = new a(new WeakReference(this));
+        if (this.f14083a == null) {
+            this.f14083a = new a(new WeakReference(this));
         }
-        this.f4501a.a();
+        this.f14083a.a();
     }
 }

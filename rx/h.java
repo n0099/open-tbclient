@@ -4,22 +4,22 @@ import java.util.concurrent.TimeUnit;
 import rx.d;
 import rx.functions.Actions;
 import rx.g;
+import rx.internal.operators.q;
 import rx.internal.operators.r;
-import rx.internal.operators.s;
+import rx.internal.operators.u;
 import rx.internal.operators.v;
-import rx.internal.operators.w;
 import rx.schedulers.Schedulers;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class h<T> {
-    final a<T> pPh;
+    final a<T> qqJ;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public interface a<T> extends rx.functions.b<i<? super T>> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(a<T> aVar) {
-        this.pPh = rx.c.c.b(aVar);
+        this.qqJ = rx.c.c.b(aVar);
     }
 
     public static <T> h<T> a(a<T> aVar) {
@@ -27,11 +27,11 @@ public class h<T> {
     }
 
     private static <T> d<T> a(h<T> hVar) {
-        return d.a((d.a) new w(hVar.pPh));
+        return d.a((d.a) new v(hVar.qqJ));
     }
 
-    public static <T> h<T> bV(T t) {
-        return rx.internal.util.h.cd(t);
+    public static <T> h<T> bX(T t) {
+        return rx.internal.util.h.cf(t);
     }
 
     public final h<T> e(g gVar) {
@@ -41,11 +41,11 @@ public class h<T> {
         if (gVar == null) {
             throw new NullPointerException("scheduler is null");
         }
-        return a(new v(this.pPh, gVar));
+        return a(new u(this.qqJ, gVar));
     }
 
-    public final k eFi() {
-        return a(Actions.eFD(), Actions.eFE());
+    public final k eNq() {
+        return a(Actions.eNL(), Actions.eNM());
     }
 
     public final k a(final rx.functions.b<? super T> bVar, final rx.functions.b<Throwable> bVar2) {
@@ -81,17 +81,17 @@ public class h<T> {
             throw new IllegalArgumentException("te is null");
         }
         try {
-            rx.c.c.a(this, this.pPh).call(iVar);
+            rx.c.c.a(this, this.qqJ).call(iVar);
             return rx.c.c.c(iVar);
         } catch (Throwable th) {
-            rx.exceptions.a.J(th);
+            rx.exceptions.a.O(th);
             try {
-                iVar.onError(rx.c.c.Z(th));
-                return rx.subscriptions.e.eHa();
+                iVar.onError(rx.c.c.ae(th));
+                return rx.subscriptions.e.ePi();
             } catch (Throwable th2) {
-                rx.exceptions.a.J(th2);
+                rx.exceptions.a.O(th2);
                 RuntimeException runtimeException = new RuntimeException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
-                rx.c.c.Z(runtimeException);
+                rx.c.c.ae(runtimeException);
                 throw runtimeException;
             }
         }
@@ -135,7 +135,7 @@ public class h<T> {
         });
     }
 
-    public final d<T> eFu() {
+    public final d<T> eNC() {
         return a(this);
     }
 
@@ -143,7 +143,7 @@ public class h<T> {
         if (bVar == null) {
             throw new IllegalArgumentException("onError is null");
         }
-        return a(new s(this, Actions.eFD(), new rx.functions.b<Throwable>() { // from class: rx.h.3
+        return a(new r(this, Actions.eNL(), new rx.functions.b<Throwable>() { // from class: rx.h.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(Throwable th) {
@@ -156,14 +156,14 @@ public class h<T> {
         if (bVar == null) {
             throw new IllegalArgumentException("onSuccess is null");
         }
-        return a(new s(this, bVar, Actions.eFD()));
+        return a(new r(this, bVar, Actions.eNL()));
     }
 
-    public final h<T> c(long j, TimeUnit timeUnit, g gVar) {
-        return a(new r(this.pPh, j, timeUnit, gVar));
+    public final h<T> b(long j, TimeUnit timeUnit, g gVar) {
+        return a(new q(this.qqJ, j, timeUnit, gVar));
     }
 
-    public final h<T> d(long j, TimeUnit timeUnit) {
-        return c(j, timeUnit, Schedulers.computation());
+    public final h<T> i(long j, TimeUnit timeUnit) {
+        return b(j, timeUnit, Schedulers.computation());
     }
 }

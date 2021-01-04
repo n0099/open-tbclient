@@ -1,13 +1,13 @@
 package com.baidu.searchbox.logsystem.basic.eventhandler;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class VssOOMEventSceneSceneHandler extends OOMEventSceneSceneHandler {
     private static final String CWA = "android.database.CursorWindowAllocationException: Cursor window allocation";
     private static final String PC = "pthread_create";

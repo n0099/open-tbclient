@@ -3,7 +3,6 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.os.Messenger;
 import android.text.TextUtils;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.push.df;
 import com.xiaomi.push.fl;
@@ -20,7 +19,7 @@ import com.xiaomi.push.jc;
 import com.xiaomi.push.service.ap;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class w {
     static fl a(XMPushService xMPushService, byte[] bArr) {
         ii iiVar = new ii();
@@ -37,15 +36,15 @@ public final class w {
         try {
             fl flVar = new fl();
             flVar.a(5);
-            flVar.c(kVar.f916a);
+            flVar.c(kVar.f994a);
             flVar.b(a(iiVar));
             flVar.a("SECMSG", "message");
-            String str = kVar.f916a;
-            iiVar.f601a.f528a = str.substring(0, str.indexOf(UgcConstant.AT_RULE_TAG));
-            iiVar.f601a.f532c = str.substring(str.indexOf("/") + 1);
+            String str = kVar.f994a;
+            iiVar.f679a.f606a = str.substring(0, str.indexOf("@"));
+            iiVar.f679a.f610c = str.substring(str.indexOf("/") + 1);
             flVar.a(iw.a(iiVar), kVar.c);
             flVar.a((short) 1);
-            com.xiaomi.channel.commonutils.logger.b.m47a("try send mi push message. packagename:" + iiVar.f606b + " action:" + iiVar.f599a);
+            com.xiaomi.channel.commonutils.logger.b.m73a("try send mi push message. packagename:" + iiVar.f684b + " action:" + iiVar.f677a);
             return flVar;
         } catch (NullPointerException e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -68,8 +67,8 @@ public final class w {
         byte[] a2 = iw.a(t);
         ii iiVar = new ii();
         ib ibVar = new ib();
-        ibVar.f527a = 5L;
-        ibVar.f528a = "fakeid";
+        ibVar.f605a = 5L;
+        ibVar.f606a = "fakeid";
         iiVar.a(ibVar);
         iiVar.a(ByteBuffer.wrap(a2));
         iiVar.a(hmVar);
@@ -81,13 +80,13 @@ public final class w {
     }
 
     private static String a(ii iiVar) {
-        if (iiVar.f600a != null && iiVar.f600a.f516b != null) {
-            String str = iiVar.f600a.f516b.get("ext_traffic_source_pkg");
+        if (iiVar.f678a != null && iiVar.f678a.f594b != null) {
+            String str = iiVar.f678a.f594b.get("ext_traffic_source_pkg");
             if (!TextUtils.isEmpty(str)) {
                 return str;
             }
         }
-        return iiVar.f606b;
+        return iiVar.f684b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -110,16 +109,16 @@ public final class w {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(XMPushService xMPushService, ii iiVar) {
         df.a(iiVar.b(), xMPushService.getApplicationContext(), iiVar, -1);
-        fs m512a = xMPushService.m512a();
-        if (m512a == null) {
+        fs m538a = xMPushService.m538a();
+        if (m538a == null) {
             throw new gd("try send msg while connection is null.");
         }
-        if (!m512a.m288a()) {
+        if (!m538a.m314a()) {
             throw new gd("Don't support XMPP connection.");
         }
         fl a2 = a(l.a((Context) xMPushService), xMPushService, iiVar);
         if (a2 != null) {
-            m512a.b(a2);
+            m538a.b(a2);
         }
     }
 
@@ -136,16 +135,16 @@ public final class w {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(XMPushService xMPushService, String str, byte[] bArr) {
         df.a(str, xMPushService.getApplicationContext(), bArr);
-        fs m512a = xMPushService.m512a();
-        if (m512a == null) {
+        fs m538a = xMPushService.m538a();
+        if (m538a == null) {
             throw new gd("try send msg while connection is null.");
         }
-        if (!m512a.m288a()) {
+        if (!m538a.m314a()) {
             throw new gd("Don't support XMPP connection.");
         }
         fl a2 = a(xMPushService, bArr);
         if (a2 != null) {
-            m512a.b(a2);
+            m538a.b(a2);
         } else {
             o.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
         }

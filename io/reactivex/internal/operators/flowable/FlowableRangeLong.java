@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.g;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableRangeLong extends g<Long> {
     final long end;
     final long start;
@@ -17,7 +17,7 @@ public final class FlowableRangeLong extends g<Long> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static abstract class BaseRangeSubscription extends BasicQueueSubscription<Long> {
         private static final long serialVersionUID = -2252972430506210021L;
         volatile boolean cancelled;
@@ -76,7 +76,7 @@ public final class FlowableRangeLong extends g<Long> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class RangeSubscription extends BaseRangeSubscription {
         private static final long serialVersionUID = 2587302975077663557L;
         final org.a.c<? super Long> actual;
@@ -140,7 +140,7 @@ public final class FlowableRangeLong extends g<Long> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class RangeConditionalSubscription extends BaseRangeSubscription {
         private static final long serialVersionUID = 2587302975077663557L;
         final io.reactivex.internal.a.a<? super Long> actual;
@@ -171,19 +171,18 @@ public final class FlowableRangeLong extends g<Long> {
             long j2 = this.end;
             long j3 = this.index;
             io.reactivex.internal.a.a<? super Long> aVar = this.actual;
-            long j4 = j3;
-            long j5 = 0;
+            long j4 = 0;
             while (true) {
-                if (j5 != j && j4 != j2) {
+                if (j4 != j && j3 != j2) {
                     if (!this.cancelled) {
-                        if (aVar.tryOnNext(Long.valueOf(j4))) {
-                            j5++;
+                        if (aVar.tryOnNext(Long.valueOf(j3))) {
+                            j4++;
                         }
-                        j4++;
+                        j3++;
                     } else {
                         return;
                     }
-                } else if (j4 == j2) {
+                } else if (j3 == j2) {
                     if (!this.cancelled) {
                         aVar.onComplete();
                         return;
@@ -191,13 +190,13 @@ public final class FlowableRangeLong extends g<Long> {
                     return;
                 } else {
                     j = get();
-                    if (j5 == j) {
-                        this.index = j4;
-                        j = addAndGet(-j5);
+                    if (j4 == j) {
+                        this.index = j3;
+                        j = addAndGet(-j4);
                         if (j == 0) {
                             return;
                         }
-                        j5 = 0;
+                        j4 = 0;
                     } else {
                         continue;
                     }

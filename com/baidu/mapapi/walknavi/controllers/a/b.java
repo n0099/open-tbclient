@@ -2,26 +2,28 @@ package com.baidu.mapapi.walknavi.controllers.a;
 
 import com.baidu.mapapi.walknavi.adapter.IWEngineInitListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class b implements com.baidu.platform.comapi.walknavi.c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IWEngineInitListener f2174a;
-    final /* synthetic */ a b;
+    final /* synthetic */ IWEngineInitListener f3086a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ a f3087b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, IWEngineInitListener iWEngineInitListener) {
-        this.b = aVar;
-        this.f2174a = iWEngineInitListener;
+        this.f3087b = aVar;
+        this.f3086a = iWEngineInitListener;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.c.a
     public void a() {
-        this.f2174a.engineInitSuccess();
+        this.f3086a.engineInitSuccess();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.c.a
     public void b() {
-        this.f2174a.engineInitFail();
+        this.f3086a.engineInitFail();
     }
 }

@@ -1,0 +1,68 @@
+package com.kwad.sdk.core.view;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes5.dex */
+public abstract class b extends FrameLayout {
+
+    /* renamed from: a  reason: collision with root package name */
+    private final AtomicBoolean f9824a;
+
+    public b(@NonNull Context context) {
+        super(context);
+        this.f9824a = new AtomicBoolean(true);
+    }
+
+    public b(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f9824a = new AtomicBoolean(true);
+    }
+
+    private void c() {
+        if (this.f9824a.getAndSet(false)) {
+            com.kwad.sdk.core.d.a.b("BasePvView", "onViewAttached");
+            a();
+        }
+    }
+
+    private void d() {
+        if (this.f9824a.getAndSet(true)) {
+            return;
+        }
+        com.kwad.sdk.core.d.a.b("BasePvView", "onViewDetached");
+        b();
+    }
+
+    protected abstract void a();
+
+    protected abstract void b();
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        c();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        d();
+    }
+
+    @Override // android.view.View
+    public void onFinishTemporaryDetach() {
+        super.onFinishTemporaryDetach();
+        c();
+    }
+
+    @Override // android.view.View
+    public void onStartTemporaryDetach() {
+        super.onStartTemporaryDetach();
+        d();
+    }
+}

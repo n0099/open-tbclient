@@ -2,12 +2,14 @@ package com.baidu.fsg.base.restnet.rest;
 
 import android.util.Log;
 import com.baidu.fsg.base.restnet.http.HttpStatus;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class f<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1478a = f.class.getSimpleName();
-    private final Class<T> b;
+    private static final String f1964a = f.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private final Class<T> f1965b;
     private final com.baidu.fsg.base.restnet.a.a<?> c;
 
     public f(Class<T> cls, com.baidu.fsg.base.restnet.a.a<?> aVar) {
@@ -17,7 +19,7 @@ public class f<T> {
         if (aVar == null) {
             throw new IllegalArgumentException("'messageConverters' must not be empty");
         }
-        this.b = cls;
+        this.f1965b = cls;
         this.c = aVar;
     }
 
@@ -25,10 +27,10 @@ public class f<T> {
         if (!b(eVar)) {
             return null;
         }
-        if (eVar.d().i() == null && Log.isLoggable(f1478a, 3)) {
-            Log.d(f1478a, "No Content-Type header found, defaulting to application/octet-stream");
+        if (eVar.d().i() == null && Log.isLoggable(f1964a, 3)) {
+            Log.d(f1964a, "No Content-Type header found, defaulting to application/octet-stream");
         }
-        return (T) this.c.a(this.b, eVar);
+        return (T) this.c.a(this.f1965b, eVar);
     }
 
     private boolean b(e eVar) throws Exception {

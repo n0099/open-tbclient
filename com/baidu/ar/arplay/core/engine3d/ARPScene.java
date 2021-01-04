@@ -5,7 +5,7 @@ import com.baidu.ar.arplay.core.engine.engine3d.IARPCamera;
 import com.baidu.ar.arplay.core.engine.engine3d.IARPNode;
 import com.baidu.ar.arplay.core.engine.engine3d.IARPScene;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class ARPScene implements IARPScene {
     private HashMap<String, ARPNode> fL;
     private long fN = -1;

@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.i;
 
 import android.os.Bundle;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public interface a {
     void a(Bundle bundle);
 

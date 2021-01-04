@@ -4,7 +4,7 @@ import org.apache.http.cookie.CookieSpec;
 import org.apache.http.cookie.CookieSpecFactory;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class RFC2109SpecFactory implements CookieSpecFactory {
     public RFC2109SpecFactory() {
         throw new RuntimeException("Stub!");

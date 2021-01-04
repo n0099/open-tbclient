@@ -3,24 +3,24 @@ package com.baidu.swan.apps.console;
 import android.text.TextUtils;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.storage.c.g;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public static void eQ(boolean z) {
-        e aJU = e.aJU();
-        if (aJU != null) {
-            a.anW().putBoolean(mT(aJU.getAppKey()), z);
+    public static void eZ(boolean z) {
+        e aMk = e.aMk();
+        if (aMk != null) {
+            a.aph().putBoolean(mM(aMk.getAppKey()), z);
         }
     }
 
-    public static boolean mS(String str) {
-        return !TextUtils.isEmpty(str) && a.anW().getBoolean(mT(str), false);
+    public static boolean mL(String str) {
+        return !TextUtils.isEmpty(str) && a.aph().getBoolean(mM(str), false);
     }
 
-    private static String mT(String str) {
+    private static String mM(String str) {
         return "consoleSwitch" + str;
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static class a extends g {
         private a() {
             super("searchbox_sconsole_sp");
@@ -28,13 +28,13 @@ public class b {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.swan.apps.console.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes25.dex */
-        public static final class C0420a {
-            private static final a cKp = new a();
+        /* loaded from: classes9.dex */
+        public static final class C0412a {
+            private static final a cPk = new a();
         }
 
-        public static a anW() {
-            return C0420a.cKp;
+        public static a aph() {
+            return C0412a.cPk;
         }
     }
 }

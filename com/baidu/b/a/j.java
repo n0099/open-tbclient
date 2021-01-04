@@ -1,9 +1,9 @@
 package com.baidu.b.a;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 final class j extends g {
     public j(int i, int i2) {
-        this.f1245a = 4294967295L;
-        this.b = 4;
+        this.f1567a = 4294967295L;
+        this.f1568b = 4;
         this.c = 32;
         this.d = i;
         this.e = i2;

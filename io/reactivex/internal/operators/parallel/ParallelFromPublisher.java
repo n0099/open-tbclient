@@ -11,15 +11,15 @@ import java.util.concurrent.atomic.AtomicLongArray;
 import org.a.b;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
-    final int pHj;
     final int prefetch;
+    final int qiM;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int eDe() {
-        return this.pHj;
+    public int eLm() {
+        return this.qiM;
     }
 
     @Override // io.reactivex.parallel.a
@@ -29,7 +29,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ParallelDispatcher<T> extends AtomicInteger implements j<T> {
         private static final long serialVersionUID = -4470634016609963609L;
         volatile boolean cancelled;
@@ -95,7 +95,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         public final class a implements d {
             final int j;
             final int m;
@@ -116,7 +116,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                         } else {
                             return;
                         }
-                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.N(j2, j)));
+                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.S(j2, j)));
                     if (ParallelDispatcher.this.subscriberCount.get() == this.m) {
                         ParallelDispatcher.this.drain();
                     }
@@ -176,9 +176,8 @@ public final class ParallelFromPublisher<T> extends a<T> {
             int i3 = this.index;
             int i4 = this.produced;
             while (true) {
-                int i5 = i3;
+                int i5 = 0;
                 int i6 = i4;
-                int i7 = 0;
                 while (!this.cancelled) {
                     boolean z = this.done;
                     if (z && (th = this.error) != null) {
@@ -197,31 +196,27 @@ public final class ParallelFromPublisher<T> extends a<T> {
                     }
                     if (isEmpty) {
                         i4 = i6;
-                        i3 = i5;
                     } else {
-                        long j = atomicLongArray.get(i5);
-                        long j2 = jArr[i5];
-                        if (j != j2 && atomicLongArray.get(length + i5) == 0) {
+                        long j = atomicLongArray.get(i3);
+                        long j2 = jArr[i3];
+                        if (j != j2 && atomicLongArray.get(length + i3) == 0) {
                             try {
                                 T poll = fVar.poll();
                                 if (poll == null) {
                                     i4 = i6;
-                                    i3 = i5;
                                 } else {
-                                    cVarArr[i5].onNext(poll);
-                                    jArr[i5] = 1 + j2;
-                                    int i8 = i6 + 1;
-                                    if (i8 == this.limit) {
-                                        i = 0;
-                                        this.s.request(i8);
-                                    } else {
-                                        i = i8;
+                                    cVarArr[i3].onNext(poll);
+                                    jArr[i3] = 1 + j2;
+                                    int i7 = i6 + 1;
+                                    if (i7 == this.limit) {
+                                        this.s.request(i7);
+                                        i7 = 0;
                                     }
-                                    i6 = i;
-                                    i7 = 0;
+                                    i = 0;
+                                    i6 = i7;
                                 }
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.J(th2);
+                                io.reactivex.exceptions.a.O(th2);
                                 this.s.cancel();
                                 for (c<? super T> cVar3 : cVarArr) {
                                     cVar3.onError(th2);
@@ -229,20 +224,20 @@ public final class ParallelFromPublisher<T> extends a<T> {
                                 return;
                             }
                         } else {
-                            i7++;
+                            i = i5 + 1;
                         }
-                        i5++;
-                        if (i5 == length) {
-                            i5 = 0;
-                            continue;
+                        i3++;
+                        if (i3 == length) {
+                            i3 = 0;
                         }
-                        if (i7 == length) {
+                        if (i == length) {
                             i4 = i6;
-                            i3 = i5;
+                        } else {
+                            i5 = i;
                         }
                     }
-                    int i9 = get();
-                    if (i9 == i2) {
+                    int i8 = get();
+                    if (i8 == i2) {
                         this.index = i3;
                         this.produced = i4;
                         i2 = addAndGet(-i2);
@@ -250,7 +245,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                             return;
                         }
                     } else {
-                        i2 = i9;
+                        i2 = i8;
                     }
                 }
                 fVar.clear();
@@ -258,28 +253,6 @@ public final class ParallelFromPublisher<T> extends a<T> {
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:31:0x0086, code lost:
-            r4 = get();
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:32:0x008a, code lost:
-            if (r4 != r3) goto L23;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:33:0x008c, code lost:
-            r18.index = r2;
-            r3 = addAndGet(-r3);
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:34:0x0097, code lost:
-            if (r3 != 0) goto L33;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:38:0x00a1, code lost:
-            r3 = r4;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:54:?, code lost:
-            return;
-         */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
         void drainSync() {
             int i = 1;
             f<T> fVar = this.queue;
@@ -290,52 +263,58 @@ public final class ParallelFromPublisher<T> extends a<T> {
             int i2 = this.index;
             while (true) {
                 int i3 = 0;
-                while (true) {
-                    int i4 = i2;
-                    int i5 = i3;
-                    if (this.cancelled) {
-                        fVar.clear();
-                        return;
-                    } else if (!fVar.isEmpty()) {
-                        long j = atomicLongArray.get(i4);
-                        long j2 = jArr[i4];
-                        if (j != j2 && atomicLongArray.get(length + i4) == 0) {
-                            try {
-                                T poll = fVar.poll();
-                                if (poll == null) {
-                                    for (c<? super T> cVar : cVarArr) {
-                                        cVar.onComplete();
-                                    }
-                                    return;
-                                }
-                                cVarArr[i4].onNext(poll);
-                                jArr[i4] = 1 + j2;
-                                i3 = 0;
-                            } catch (Throwable th) {
-                                io.reactivex.exceptions.a.J(th);
-                                this.s.cancel();
-                                for (c<? super T> cVar2 : cVarArr) {
-                                    cVar2.onError(th);
-                                }
-                                return;
-                            }
-                        } else {
-                            i3 = i5 + 1;
-                        }
-                        i2 = i4 + 1;
-                        if (i2 == length) {
-                            i2 = 0;
-                        }
-                        if (i3 == length) {
-                            break;
-                        }
-                    } else {
-                        for (c<? super T> cVar3 : cVarArr) {
-                            cVar3.onComplete();
+                while (!this.cancelled) {
+                    if (fVar.isEmpty()) {
+                        for (c<? super T> cVar : cVarArr) {
+                            cVar.onComplete();
                         }
                         return;
                     }
+                    long j = atomicLongArray.get(i2);
+                    long j2 = jArr[i2];
+                    if (j != j2 && atomicLongArray.get(length + i2) == 0) {
+                        try {
+                            T poll = fVar.poll();
+                            if (poll == null) {
+                                for (c<? super T> cVar2 : cVarArr) {
+                                    cVar2.onComplete();
+                                }
+                                return;
+                            }
+                            cVarArr[i2].onNext(poll);
+                            jArr[i2] = 1 + j2;
+                            i3 = 0;
+                        } catch (Throwable th) {
+                            io.reactivex.exceptions.a.O(th);
+                            this.s.cancel();
+                            for (c<? super T> cVar3 : cVarArr) {
+                                cVar3.onError(th);
+                            }
+                            return;
+                        }
+                    } else {
+                        i3++;
+                    }
+                    i2++;
+                    if (i2 == length) {
+                        i2 = 0;
+                        continue;
+                    }
+                    if (i3 == length) {
+                        int i4 = get();
+                        if (i4 == i) {
+                            this.index = i2;
+                            i = addAndGet(-i);
+                            if (i == 0) {
+                                return;
+                            }
+                        } else {
+                            i = i4;
+                        }
+                    }
                 }
+                fVar.clear();
+                return;
             }
         }
 

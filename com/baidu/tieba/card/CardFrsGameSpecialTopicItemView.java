@@ -1,7 +1,6 @@
 package com.baidu.tieba.card;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,22 +8,23 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
-    private RelativeLayout iiH;
-    private TbImageView iiI;
-    private TextView iiJ;
-    private TextView iiK;
-    private TextView iiL;
-    private View iih;
-    private View iii;
+    private View iuC;
+    private View iuD;
+    private RelativeLayout ivc;
+    private TbImageView ivd;
+    private TextView ive;
+    private TextView ivf;
+    private TextView ivg;
     private String mForumId;
     public int mSkinType;
 
@@ -48,18 +48,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-        this.iiH = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
-        this.iiI = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
-        this.iiJ = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
-        this.iiK = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
-        this.iiL = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
-        this.iih = findViewById(R.id.divider_line_1);
-        this.iii = findViewById(R.id.divider_line_2);
+        this.ivc = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
+        this.ivd = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
+        this.ive = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
+        this.ivf = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
+        this.ivg = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
+        this.iuC = findViewById(R.id.divider_line_1);
+        this.iuD = findViewById(R.id.divider_line_2);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iiH.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ivc.getLayoutParams();
         layoutParams.width = (dimensionPixelSize * 21) / 9;
         layoutParams.height = dimensionPixelSize;
-        this.iiH.setLayoutParams(layoutParams);
+        this.ivc.setLayoutParams(layoutParams);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -68,8 +68,8 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new ar("c13047").al("obj_locate", 5).dY("fid", CardFrsGameSpecialTopicItemView.this.mForumId));
-                    bf.bua().a((TbPageContext) com.baidu.adp.base.i.J(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+                    TiebaStatic.log(new aq("c13047").an("obj_locate", 5).dX("fid", CardFrsGameSpecialTopicItemView.this.mForumId));
+                    be.bwu().a((TbPageContext) com.baidu.adp.base.j.K(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
                 }
             }
         });
@@ -80,29 +80,29 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     }
 
     public TbImageView getSpecialTopicPicView() {
-        return this.iiI;
+        return this.ivd;
     }
 
     public TextView getSpecialTopicNameView() {
-        return this.iiJ;
+        return this.ive;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
-        return this.iiL;
+        return this.ivg;
     }
 
     public TextView getSpecialTopicDscView() {
-        return this.iiK;
+        return this.ivf;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            ap.setBackgroundResource(this.iih, R.color.CAM_X0205);
-            ap.setBackgroundResource(this.iii, R.color.CAM_X0205);
-            ap.setViewTextColor(this.iiJ, R.color.CAM_X0101, 1);
-            ap.setViewTextColor(this.iiK, R.color.CAM_X0101, 1);
-            ap.setViewTextColor(this.iiL, R.color.CAM_X0101, 1);
+            ao.setBackgroundResource(this.iuC, R.color.CAM_X0205);
+            ao.setBackgroundResource(this.iuD, R.color.CAM_X0205);
+            ao.setViewTextColor(this.ive, R.color.CAM_X0101, 1);
+            ao.setViewTextColor(this.ivf, R.color.CAM_X0101, 1);
+            ao.setViewTextColor(this.ivg, R.color.CAM_X0101, 1);
         }
     }
 }

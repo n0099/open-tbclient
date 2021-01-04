@@ -1,16 +1,16 @@
 package com.baidu.sofire.i;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.ugc.model.PublishType;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f3645a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", PublishType.TYPE_VIDEO_SHARE, "a", com.baidu.pass.biometrics.face.liveness.d.b.f2755a, "c", "d", "e", "f"};
+    private static final String[] f5556a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", com.baidu.pass.biometrics.face.liveness.d.b.f4080a, "c", "d", "e", "f"};
 
     private static String c(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
@@ -18,7 +18,7 @@ public final class p {
             if (i < 0) {
                 i += 256;
             }
-            stringBuffer.append(f3645a[i / 16] + f3645a[i % 16]);
+            stringBuffer.append(f5556a[i / 16] + f5556a[i % 16]);
         }
         return stringBuffer.toString();
     }
@@ -34,7 +34,7 @@ public final class p {
         } catch (Throwable th) {
         }
         try {
-            return c(MessageDigest.getInstance("MD5").digest(str2.getBytes()));
+            return c(MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str2.getBytes()));
         } catch (Throwable th2) {
             str3 = str2;
             e.a();
@@ -47,7 +47,7 @@ public final class p {
             return null;
         }
         try {
-            return c(MessageDigest.getInstance("MD5").digest(bArr));
+            return c(MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(bArr));
         } catch (Throwable th) {
             e.a();
             return null;
@@ -56,43 +56,51 @@ public final class p {
 
     public static String a(File file) {
         FileInputStream fileInputStream;
-        MessageDigest messageDigest;
         String str = null;
         if (file != null && file.exists()) {
             try {
-                messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 fileInputStream = new FileInputStream(file);
-            } catch (Throwable th) {
-                fileInputStream = null;
-            }
-            try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-                str = d(messageDigest.digest());
                 try {
-                    fileInputStream.close();
-                } catch (IOException e) {
-                    e.a();
-                }
-            } catch (Throwable th2) {
-                try {
-                    e.a();
-                    return str;
-                } finally {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e2) {
-                            e.a();
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read == -1) {
+                            break;
                         }
+                        messageDigest.update(bArr, 0, read);
+                    }
+                    str = d(messageDigest.digest());
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e) {
+                        e.a();
+                    }
+                } catch (Throwable th) {
+                    try {
+                        e.a();
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e2) {
+                                e.a();
+                            }
+                        }
+                        return str;
+                    } catch (Throwable th2) {
+                        FileInputStream fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 != null) {
+                            try {
+                                fileInputStream2.close();
+                            } catch (IOException e3) {
+                                e.a();
+                            }
+                        }
+                        throw th2;
                     }
                 }
+            } catch (Throwable th3) {
+                fileInputStream = null;
             }
         }
         return str;
@@ -102,9 +110,9 @@ public final class p {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         char[] cArr2 = new char[bArr.length * 2];
         for (int i = 0; i < bArr.length; i++) {
-            byte b = bArr[i];
-            cArr2[i * 2] = cArr[(b >>> 4) & 15];
-            cArr2[(i * 2) + 1] = cArr[b & 15];
+            byte b2 = bArr[i];
+            cArr2[i * 2] = cArr[(b2 >>> 4) & 15];
+            cArr2[(i * 2) + 1] = cArr[b2 & 15];
         }
         return new String(cArr2);
     }
@@ -114,7 +122,7 @@ public final class p {
             return null;
         }
         try {
-            return MessageDigest.getInstance("MD5").digest(bArr);
+            return MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(bArr);
         } catch (Throwable th) {
             e.a();
             return null;

@@ -1,17 +1,17 @@
 package com.baidu.tieba.yuyinala.liveroom.ranklist;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class RankListView extends LinearLayout {
-    private TextView akV;
-    private ImageView oak;
+    private TextView aly;
+    private ImageView ocy;
 
     public RankListView(Context context) {
         super(context);
@@ -25,16 +25,16 @@ public class RankListView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_ala_liveroom_ranklist_layout, this);
-        this.oak = (ImageView) findViewById(a.f.iv_icon);
-        this.akV = (TextView) findViewById(a.f.tv_text);
+        this.ocy = (ImageView) findViewById(a.f.iv_icon);
+        this.aly = (TextView) findViewById(a.f.tv_text);
     }
 
     public void setmTvText(int i) {
-        if (this.akV != null) {
+        if (this.aly != null) {
             if (i > 0) {
-                this.akV.setText("交友房第" + i + "名");
+                this.aly.setText("交友房第" + i + "名");
             } else {
-                this.akV.setText("交友房未上榜");
+                this.aly.setText("交友房未上榜");
             }
         }
     }

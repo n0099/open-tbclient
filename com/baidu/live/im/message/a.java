@@ -2,27 +2,33 @@ package com.baidu.live.im.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.util.TbEnum;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends HttpMessage {
     private String appId;
     private com.baidu.live.im.data.d barrageCardInfo;
     private String barrageId;
     private int barrageType;
-    private int bpg;
-    private boolean bph;
+    private int bqN;
+    private boolean bqO;
     private String content;
     private String customRoomId;
     private int groupId;
     private String[] imEffect;
+    private boolean isOut;
+    private boolean isQuickBarrage;
     private String liveId;
     private short msgType;
     private String otherParams;
     private long price;
     private String roomId;
+    private String text;
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
-        this.bph = false;
+        this.bqO = false;
+        this.isOut = false;
+        this.isQuickBarrage = false;
+        this.text = "";
         this.content = str;
         this.msgType = s;
         this.groupId = i;
@@ -37,7 +43,7 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short Oi() {
+    public short NK() {
         return this.msgType;
     }
 
@@ -49,7 +55,7 @@ public class a extends HttpMessage {
         this.roomId = str;
     }
 
-    public String Oj() {
+    public String NL() {
         return this.otherParams;
     }
 
@@ -57,31 +63,31 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long Ok() {
+    public long NM() {
         return this.price;
     }
 
-    public void aW(long j) {
+    public void aV(long j) {
         this.price = j;
     }
 
-    public int NY() {
+    public int NA() {
         return this.barrageType;
     }
 
-    public void fe(int i) {
+    public void fc(int i) {
         this.barrageType = i;
     }
 
-    public String NZ() {
+    public String NB() {
         return this.barrageId;
     }
 
-    public void ii(String str) {
+    public void hT(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.d Oa() {
+    public com.baidu.live.im.data.d NC() {
         return this.barrageCardInfo;
     }
 
@@ -89,7 +95,7 @@ public class a extends HttpMessage {
         this.barrageCardInfo = dVar;
     }
 
-    public String[] Ob() {
+    public String[] ND() {
         return this.imEffect;
     }
 
@@ -98,19 +104,43 @@ public class a extends HttpMessage {
     }
 
     public void cm(boolean z) {
-        this.bph = z;
+        this.bqO = z;
     }
 
-    public boolean Ol() {
-        return this.bph;
+    public boolean NN() {
+        return this.bqO;
     }
 
-    public void ff(int i) {
-        this.bpg = i;
+    public void cn(boolean z) {
+        this.isOut = z;
     }
 
-    public boolean Om() {
-        return this.bpg == 1;
+    public boolean NO() {
+        return this.isOut;
+    }
+
+    public void co(boolean z) {
+        this.isQuickBarrage = z;
+    }
+
+    public boolean NP() {
+        return this.isQuickBarrage;
+    }
+
+    public void setText(String str) {
+        this.text = str;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void fd(int i) {
+        this.bqN = i;
+    }
+
+    public boolean NQ() {
+        return this.bqN == 1;
     }
 
     public String getCustomRoomId() {

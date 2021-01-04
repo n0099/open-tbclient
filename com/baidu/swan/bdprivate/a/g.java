@@ -1,9 +1,9 @@
 package com.baidu.swan.bdprivate.a;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class g extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull Bundle bundle) {
@@ -11,12 +11,12 @@ public class g extends com.baidu.swan.apps.process.a.a.a {
         if (stringArray == null || stringArray.length < 1) {
             finish();
         } else {
-            a.b(AppRuntime.getAppContext(), new com.baidu.swan.apps.ap.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.a.g.1
+            a.b(AppRuntime.getAppContext(), new com.baidu.swan.apps.ao.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.a.g.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.ap.e.b
+                @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: B */
-                public void M(Bundle bundle2) {
-                    g.this.dqB.putBundle("key_result_stokent", bundle2);
+                public void L(Bundle bundle2) {
+                    g.this.dvA.putBundle("key_result_stokent", bundle2);
                     g.this.finish();
                 }
             }, stringArray);

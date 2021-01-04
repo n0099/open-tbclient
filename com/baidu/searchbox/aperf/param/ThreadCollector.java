@@ -3,7 +3,7 @@ package com.baidu.searchbox.aperf.param;
 import android.os.Looper;
 import android.util.Log;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes6.dex */
 public class ThreadCollector {
     public static String getThreadInfo(Thread thread) {
         StringBuilder sb = new StringBuilder();

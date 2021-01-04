@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.ala;
 import com.baidu.live.adp.lib.util.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaLastLiveroomInfo {
     public static final String KEY_LAST_ANCHOR_ID = "key_last_anchor_id";
     public static final String KEY_LAST_ANCHOR_NAME = "key_last_anchor_name";

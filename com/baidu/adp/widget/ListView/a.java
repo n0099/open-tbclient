@@ -1,24 +1,24 @@
 package com.baidu.adp.widget.ListView;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.af;
-import com.baidu.adp.widget.ListView.af.a;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 /* loaded from: classes.dex */
-public abstract class a<T, V extends af.a> {
-    protected ab Wt;
-    protected ac Wu;
-    protected BdUniqueId Wv;
-    private u<q> Ww;
-    protected V Wx;
-    private com.baidu.adp.widget.a.a Wy = new com.baidu.adp.widget.a.a();
+public abstract class a<T, V extends TypeAdapter.ViewHolder> {
+    protected w Wq;
+    protected x Wr;
+    protected BdUniqueId Ws;
+    private r<n> Wt;
+    protected V Wu;
+    private com.baidu.adp.widget.a.a Wv = new com.baidu.adp.widget.a.a();
     protected Context mContext;
     protected BdUniqueId mPageId;
 
@@ -26,43 +26,43 @@ public abstract class a<T, V extends af.a> {
     public abstract View a(int i, View view, ViewGroup viewGroup, T t, V v);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract V c(ViewGroup viewGroup);
+    public abstract V e(ViewGroup viewGroup);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.Wv = bdUniqueId;
+        this.Ws = bdUniqueId;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         this.mContext = context;
-        this.Wv = bdUniqueId;
+        this.Ws = bdUniqueId;
         this.mPageId = bdUniqueId2;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.af$a> */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder> */
     /* JADX WARN: Multi-variable type inference failed */
     public View getView(int i, View view, ViewGroup viewGroup, T t) {
         View view2;
         if (needCreateNewHolder(view)) {
-            this.Wx = (V) a(viewGroup, t);
-            view2 = this.Wx.getView();
+            this.Wu = (V) a(viewGroup, t);
+            view2 = this.Wu.getView();
             if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.i("convertView is creating" + this.Wx.getClass().getName());
+                BdLog.i("convertView is creating" + this.Wu.getClass().getName());
             }
         } else {
             view2 = view;
         }
-        return a(i, view2, viewGroup, t, (af.a) view2.getTag());
+        return a(i, view2, viewGroup, t, (TypeAdapter.ViewHolder) view2.getTag());
     }
 
     private boolean needCreateNewHolder(View view) {
-        return view == null || view.getTag() == null || this.Wx == null || !this.Wx.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.Wx.getClass());
+        return view == null || view.getTag() == null || this.Wu == null || !this.Wu.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.Wu.getClass());
     }
 
     public V a(ViewGroup viewGroup, T t) {
-        return c(viewGroup);
+        return e(viewGroup);
     }
 
     public V b(ViewGroup viewGroup, T t) {
@@ -101,40 +101,40 @@ public abstract class a<T, V extends af.a> {
         a(i, v.getView(), viewGroup, t, v);
     }
 
-    public BdUniqueId qL() {
+    public BdUniqueId qn() {
         return null;
     }
 
-    public BdUniqueId qM() {
+    public BdUniqueId qo() {
         return null;
     }
 
-    public BdUniqueId qN() {
+    public BdUniqueId qp() {
         return null;
     }
 
-    public BdUniqueId qO() {
+    public BdUniqueId qq() {
         return null;
     }
 
-    public void a(ab abVar) {
-        this.Wt = abVar;
+    public void a(w wVar) {
+        this.Wq = wVar;
     }
 
-    public ab qP() {
-        return this.Wt;
+    public w qr() {
+        return this.Wq;
     }
 
-    public void a(ac acVar) {
-        this.Wu = acVar;
+    public void a(x xVar) {
+        this.Wr = xVar;
     }
 
-    public ac qQ() {
-        return this.Wu;
+    public x qs() {
+        return this.Wr;
     }
 
     public BdUniqueId getType() {
-        return this.Wv;
+        return this.Ws;
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
@@ -142,28 +142,28 @@ public abstract class a<T, V extends af.a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(u<q> uVar) {
-        this.Ww = uVar;
+    public void a(r<n> rVar) {
+        this.Wt = rVar;
     }
 
     public void notifyDataSetChanged() {
-        if (this.Ww != null) {
-            this.Ww.notifyDataSetChanged();
+        if (this.Wt != null) {
+            this.Wt.notifyDataSetChanged();
         }
     }
 
-    public q getItem(int i) {
-        if (this.Ww != null) {
-            return this.Ww.getItem(i);
+    public n getItem(int i) {
+        if (this.Wt != null) {
+            return this.Wt.getItem(i);
         }
         return null;
     }
 
     public int getPositionByType(int i) {
-        if (this.Ww == null || this.Wv == null) {
+        if (this.Wt == null || this.Ws == null) {
             return -1;
         }
-        return this.Ww.getPositionByType(i, this.Wv.getId());
+        return this.Wt.getPositionByType(i, this.Ws.getId());
     }
 
     public ViewGroup.LayoutParams generateLayoutParamsByParent(ViewGroup viewGroup) {
@@ -177,10 +177,10 @@ public abstract class a<T, V extends af.a> {
     }
 
     public boolean h(int i, int i2, int i3) {
-        return this.Wy.h(i, i2, i3);
+        return this.Wv.h(i, i2, i3);
     }
 
-    public boolean aN(int i) {
-        return this.Wy.aN(i);
+    public boolean aO(int i) {
+        return this.Wv.aO(i);
     }
 }

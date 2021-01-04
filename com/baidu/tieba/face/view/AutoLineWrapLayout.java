@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class AutoLineWrapLayout extends ViewGroup {
-    private int iFk;
+    private int iRw;
 
     public AutoLineWrapLayout(Context context) {
         super(context);
@@ -26,7 +26,7 @@ public class AutoLineWrapLayout extends ViewGroup {
     }
 
     private void init() {
-        this.iFk = l.getDimens(getContext(), R.dimen.ds20);
+        this.iRw = l.getDimens(getContext(), R.dimen.ds20);
     }
 
     @Override // android.view.View
@@ -40,29 +40,27 @@ public class AutoLineWrapLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5;
-        int i6;
         int childCount = getChildCount();
-        int i7 = i;
-        int i8 = 0;
-        for (int i9 = 0; i9 < childCount; i9++) {
-            View childAt = getChildAt(i9);
+        int i6 = i;
+        int i7 = 0;
+        for (int i8 = 0; i8 < childCount; i8++) {
+            View childAt = getChildAt(i8);
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
-            if (i9 == 0) {
-                i5 = i7 + measuredWidth;
+            if (i8 == 0) {
+                i5 = i6 + measuredWidth;
             } else {
-                i5 = this.iFk + measuredWidth + i7;
+                i5 = this.iRw + measuredWidth + i6;
             }
-            int i10 = ((this.iFk + measuredHeight) * i8) + this.iFk + measuredHeight + i2;
+            int i9 = ((this.iRw + measuredHeight) * i7) + this.iRw + measuredHeight + i2;
             if (i5 > i3) {
-                i7 = measuredWidth + i;
-                i8++;
-                i6 = ((this.iFk + measuredHeight) * i8) + this.iFk + measuredHeight + i2;
+                i6 = measuredWidth + i;
+                i7++;
+                i9 = ((this.iRw + measuredHeight) * i7) + this.iRw + measuredHeight + i2;
             } else {
-                i7 = i5;
-                i6 = i10;
+                i6 = i5;
             }
-            childAt.layout(i7 - measuredWidth, i6 - measuredHeight, i7, i6);
+            childAt.layout(i6 - measuredWidth, i9 - measuredHeight, i6, i9);
         }
     }
 }

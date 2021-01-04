@@ -6,20 +6,20 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Process;
-import android.support.multidex.MultiDex;
+import androidx.multidex.MultiDex;
 import com.baidu.turbonet.base.BuildConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class a {
-    public static void gl(Context context) {
+    public static void gE(Context context) {
         if (BuildConfig.isMultidexEnabled()) {
-            if (Build.VERSION.SDK_INT < 21 && !gT(context)) {
-                com.baidu.turbonet.base.a.f("base_multidex", "Skipping multidex installation: not needed for process.", new Object[0]);
+            if (Build.VERSION.SDK_INT < 21 && !hk(context)) {
+                com.baidu.turbonet.base.a.i("base_multidex", "Skipping multidex installation: not needed for process.", new Object[0]);
                 return;
             }
             MultiDex.install(context);
-            com.baidu.turbonet.base.a.f("base_multidex", "Completed multidex installation.", new Object[0]);
+            com.baidu.turbonet.base.a.i("base_multidex", "Completed multidex installation.", new Object[0]);
         }
     }
 
@@ -37,7 +37,7 @@ public class a {
         }
     }
 
-    private static boolean gT(Context context) {
+    private static boolean hk(Context context) {
         try {
             Object invoke = Process.class.getMethod("isIsolated", new Class[0]).invoke(null, new Object[0]);
             if (invoke != null && (invoke instanceof Boolean)) {

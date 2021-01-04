@@ -1,16 +1,16 @@
 package com.baidu.swan.apps.core.pms.f;
 
 import android.os.Bundle;
-import android.support.annotation.AnyThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.am.e;
-import com.baidu.swan.apps.ap.ae;
-import com.baidu.swan.apps.ap.p;
-import com.baidu.swan.apps.ap.v;
+import com.baidu.swan.apps.al.e;
+import com.baidu.swan.apps.ao.ae;
+import com.baidu.swan.apps.ao.p;
+import com.baidu.swan.apps.ao.v;
 import com.baidu.swan.apps.r.a.a;
 import com.baidu.swan.apps.r.d;
 import com.baidu.swan.apps.statistic.f;
@@ -21,188 +21,188 @@ import com.baidu.swan.pms.model.g;
 import java.io.File;
 import java.io.IOException;
 import java.nio.channels.ReadableByteChannel;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static boolean cTn = false;
+    private static boolean cYk = false;
 
     /* renamed from: com.baidu.swan.apps.core.pms.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public static class C0439a {
-        public int cTp = 0;
-        public boolean cTq = false;
-        public String cTr = "";
+    /* loaded from: classes9.dex */
+    public static class C0431a {
+        public int cYm = 0;
+        public boolean cYn = false;
+        public String cYo = "";
     }
 
-    public static String ati() {
-        return d.C0474d.ayU().getPath();
+    public static String auz() {
+        return d.C0466d.aAl().getPath();
     }
 
-    public static String atj() {
-        return a.c.ayU().getPath();
+    public static String auA() {
+        return a.c.aAl().getPath();
     }
 
-    public static String atk() {
-        return d.C0474d.ayU().getPath();
+    public static String auB() {
+        return d.C0466d.aAl().getPath();
     }
 
-    public static String atc() {
-        return d.C0474d.ayU().getPath();
+    public static String aut() {
+        return d.C0466d.aAl().getPath();
     }
 
-    public static String atl() {
-        return a.c.ayU().getPath();
+    public static String auC() {
+        return a.c.aAl().getPath();
     }
 
-    public static String atm() {
-        return a.c.ayU().getPath();
+    public static String auD() {
+        return a.c.aAl().getPath();
     }
 
     public static com.baidu.swan.games.t.a.a k(String str, long j) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return com.baidu.swan.games.t.a.a.xW(com.baidu.swan.c.d.readFileData(new File(a.c.bT(str, String.valueOf(j)), "game.json")));
+        return com.baidu.swan.games.t.a.a.xV(com.baidu.swan.c.d.readFileData(new File(a.c.bS(str, String.valueOf(j)), "game.json")));
     }
 
-    public static com.baidu.swan.apps.am.a a(ReadableByteChannel readableByteChannel, String str, com.baidu.swan.pms.a.d dVar) throws IOException {
+    public static com.baidu.swan.apps.al.a a(ReadableByteChannel readableByteChannel, String str, com.baidu.swan.pms.a.d dVar) throws IOException {
         if (readableByteChannel == null) {
-            com.baidu.swan.apps.am.a uC = new com.baidu.swan.apps.am.a().cU(11L).cV(2300L).uC("empty source");
-            e.aOs().j(uC);
+            com.baidu.swan.apps.al.a uz = new com.baidu.swan.apps.al.a().cV(11L).cW(2300L).uz("empty source");
+            e.aQJ().j(uz);
             if (DEBUG) {
-                Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + uC);
-                return uC;
+                Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + uz);
+                return uz;
             }
-            return uC;
+            return uz;
         }
-        dVar.bx("670", "aiapp_aps_check_sign_start_timestamp");
-        dVar.bx("770", "na_pms_start_check_sign");
-        if (ae.a(readableByteChannel, str, new com.baidu.swan.apps.ap.a.c())) {
-            dVar.bx("670", "aiapp_aps_check_sign_end_timestamp");
-            dVar.bx("770", "na_pms_end_check_sign");
+        dVar.bw("670", "aiapp_aps_check_sign_start_timestamp");
+        dVar.bw("770", "na_pms_start_check_sign");
+        if (ae.a(readableByteChannel, str, new com.baidu.swan.apps.ao.a.c())) {
+            dVar.bw("670", "aiapp_aps_check_sign_end_timestamp");
+            dVar.bw("770", "na_pms_end_check_sign");
             return null;
         }
-        com.baidu.swan.apps.am.a uC2 = new com.baidu.swan.apps.am.a().cU(11L).cV(2300L).uC("check zip file sign fail.");
-        e.aOs().j(uC2);
+        com.baidu.swan.apps.al.a uz2 = new com.baidu.swan.apps.al.a().cV(11L).cW(2300L).uz("check zip file sign fail.");
+        e.aQJ().j(uz2);
         if (DEBUG) {
-            Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + uC2);
-            return uC2;
+            Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + uz2);
+            return uz2;
         }
-        return uC2;
+        return uz2;
     }
 
-    public static com.baidu.swan.apps.am.a a(com.baidu.swan.pms.model.e eVar, com.baidu.swan.pms.a.d dVar) {
-        File bT;
+    public static com.baidu.swan.apps.al.a a(com.baidu.swan.pms.model.e eVar, com.baidu.swan.pms.a.d dVar) {
+        File bS;
         if (eVar == null) {
-            com.baidu.swan.apps.am.a uC = new com.baidu.swan.apps.am.a().cU(11L).cV(2320L).uC("pkg info is empty");
-            e.aOs().j(uC);
-            return uC;
+            com.baidu.swan.apps.al.a uz = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("pkg info is empty");
+            e.aQJ().j(uz);
+            return uz;
         }
         File file = new File(eVar.filePath);
         if (eVar.category == 1) {
-            bT = a.c.bT(eVar.emZ, String.valueOf(eVar.versionCode));
+            bS = a.c.bS(eVar.ewI, String.valueOf(eVar.versionCode));
         } else if (eVar.category == 0) {
-            bT = d.C0474d.bT(eVar.emZ, String.valueOf(eVar.versionCode));
+            bS = d.C0466d.bS(eVar.ewI, String.valueOf(eVar.versionCode));
         } else {
-            com.baidu.swan.apps.am.a uC2 = new com.baidu.swan.apps.am.a().cU(11L).cV(2320L).uC("pkh category illegal");
-            e.aOs().j(uC2);
-            return uC2;
+            com.baidu.swan.apps.al.a uz2 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("pkh category illegal");
+            e.aQJ().j(uz2);
+            return uz2;
         }
         if (!file.exists()) {
-            com.baidu.swan.apps.am.a uC3 = new com.baidu.swan.apps.am.a().cU(11L).cV(2320L).uC("解压失败：包不存在");
-            e.aOs().j(uC3);
-            return uC3;
-        } else if (bT.isFile() && !bT.delete()) {
+            com.baidu.swan.apps.al.a uz3 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("解压失败：包不存在");
+            e.aQJ().j(uz3);
+            return uz3;
+        } else if (bS.isFile() && !bS.delete()) {
             if (DEBUG) {
                 Log.e("PkgDownloadUtil", "解压失败：解压目录被文件占用，且无法删除");
             }
-            com.baidu.swan.apps.am.a uC4 = new com.baidu.swan.apps.am.a().cU(11L).cV(2320L).uC("解压失败：解压目录被文件占用，且无法删除");
-            e.aOs().j(uC4);
-            return uC4;
-        } else if (!bT.exists() && !bT.mkdirs()) {
+            com.baidu.swan.apps.al.a uz4 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("解压失败：解压目录被文件占用，且无法删除");
+            e.aQJ().j(uz4);
+            return uz4;
+        } else if (!bS.exists() && !bS.mkdirs()) {
             if (DEBUG) {
-                Log.e("PkgDownloadUtil", "解压失败：解压文件夹创建失败 " + bT.getAbsolutePath());
+                Log.e("PkgDownloadUtil", "解压失败：解压文件夹创建失败 " + bS.getAbsolutePath());
             }
-            com.baidu.swan.apps.am.a uC5 = new com.baidu.swan.apps.am.a().cU(11L).cV(2320L).uC("解压失败：解压文件夹创建失败");
-            e.aOs().j(uC5);
-            return uC5;
+            com.baidu.swan.apps.al.a uz5 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("解压失败：解压文件夹创建失败");
+            e.aQJ().j(uz5);
+            return uz5;
         } else {
             if (DEBUG) {
-                Log.i("PkgDownloadUtil", "开始执行解压操作, bundle:" + file.getPath() + " , folder:" + bT.getPath());
+                Log.i("PkgDownloadUtil", "开始执行解压操作, bundle:" + file.getPath() + " , folder:" + bS.getPath());
             }
-            if (a(file, bT, dVar).cTq) {
+            if (a(file, bS, dVar).cYn) {
                 return null;
             }
-            C0439a a2 = a(file, bT, dVar);
-            if (a2.cTq) {
+            C0431a a2 = a(file, bS, dVar);
+            if (a2.cYn) {
                 f.a(dVar, eVar.category, true);
                 return null;
             }
             f.a(dVar, eVar.category, false);
-            com.baidu.swan.c.d.safeDeleteFile(bT);
-            com.baidu.swan.apps.am.a aVar = new com.baidu.swan.apps.am.a();
-            switch (a2.cTp) {
+            com.baidu.swan.c.d.safeDeleteFile(bS);
+            com.baidu.swan.apps.al.a aVar = new com.baidu.swan.apps.al.a();
+            switch (a2.cYm) {
                 case 0:
-                    aVar.cU(11L).cV(2320L).uC("unzip failed");
+                    aVar.cV(11L).cW(2320L).uz("unzip failed");
                     break;
                 case 1:
                 case 2:
-                    aVar.cU(11L).cV(2330L).uC("decryt failed:" + a2.cTr + ", PkgType=" + a2.cTp);
+                    aVar.cV(11L).cW(2330L).uz("decryt failed:" + a2.cYo + ", PkgType=" + a2.cYm);
                     break;
                 default:
-                    aVar.cU(4L).cV(7L).uC("Unkown bundle type");
+                    aVar.cV(4L).cW(7L).uz("Unkown bundle type");
                     break;
             }
-            e.aOs().j(aVar);
+            e.aQJ().j(aVar);
             return aVar;
         }
     }
 
     @NonNull
-    private static C0439a a(@NonNull File file, @NonNull File file2, @NonNull com.baidu.swan.pms.a.d dVar) {
+    private static C0431a a(@NonNull File file, @NonNull File file2, @NonNull com.baidu.swan.pms.a.d dVar) {
         int i;
-        C0439a c0439a = new C0439a();
+        C0431a c0431a = new C0431a();
         long currentTimeMillis = System.currentTimeMillis();
-        a.b A = com.baidu.swan.apps.r.a.a.A(file);
-        if (A.type != -1) {
-            dVar.bx("670", "package_start_decrypt");
-            dVar.bx("770", "na_package_start_decrypt");
-            a.C0473a a2 = com.baidu.swan.apps.r.a.a.a(A.dcK, file2, A.type);
-            dVar.bx("670", "package_end_decrypt");
-            dVar.bx("770", "na_package_end_decrypt");
-            c0439a.cTq = a2.isSuccess;
-            c0439a.cTr = a2.cTr;
-            c0439a.cTp = A.type;
-            i = A.type;
+        a.b D = com.baidu.swan.apps.r.a.a.D(file);
+        if (D.type != -1) {
+            dVar.bw("670", "package_start_decrypt");
+            dVar.bw("770", "na_package_start_decrypt");
+            a.C0465a a2 = com.baidu.swan.apps.r.a.a.a(D.dhD, file2, D.type);
+            dVar.bw("670", "package_end_decrypt");
+            dVar.bw("770", "na_package_end_decrypt");
+            c0431a.cYn = a2.isSuccess;
+            c0431a.cYo = a2.cYo;
+            c0431a.cYm = D.type;
+            i = D.type;
         } else {
-            c0439a.cTp = 0;
-            dVar.bx("670", "package_start_unzip");
-            dVar.bx("770", "na_package_start_unzip");
-            c0439a.cTq = com.baidu.swan.c.d.unzipFile(file.getPath(), file2.getPath());
-            dVar.bx("670", "package_end_unzip");
-            dVar.bx("770", "na_package_end_unzip");
+            c0431a.cYm = 0;
+            dVar.bw("670", "package_start_unzip");
+            dVar.bw("770", "na_package_start_unzip");
+            c0431a.cYn = com.baidu.swan.c.d.unzipFile(file.getPath(), file2.getPath());
+            dVar.bw("670", "package_end_unzip");
+            dVar.bw("770", "na_package_end_unzip");
             i = 0;
         }
         long currentTimeMillis2 = System.currentTimeMillis();
         if (DEBUG) {
-            com.baidu.swan.apps.r.a.a.jt((int) (currentTimeMillis2 - currentTimeMillis));
+            com.baidu.swan.apps.r.a.a.jo((int) (currentTimeMillis2 - currentTimeMillis));
         }
         Bundle bundle = new Bundle();
         bundle.putInt("download_package_type_id", i);
         h.a(dVar, bundle, "event_download_package_type");
-        return c0439a;
+        return c0431a;
     }
 
     public static void g(@Nullable PMSAppInfo pMSAppInfo) {
         if (pMSAppInfo != null) {
             if (!TextUtils.isEmpty(pMSAppInfo.webViewDomains)) {
-                com.baidu.swan.apps.ag.a.c.a(pMSAppInfo.appId, "", v.uQ(pMSAppInfo.webViewDomains));
+                com.baidu.swan.apps.af.a.c.a(pMSAppInfo.appId, "", v.uP(pMSAppInfo.webViewDomains));
             }
             if (!TextUtils.isEmpty(pMSAppInfo.webAction)) {
-                com.baidu.swan.apps.ag.a.c.a("", v.uQ(pMSAppInfo.webAction));
+                com.baidu.swan.apps.af.a.c.b("", v.uP(pMSAppInfo.webAction));
             }
             if (!TextUtils.isEmpty(pMSAppInfo.domains)) {
-                com.baidu.swan.apps.ag.a.c.i(pMSAppInfo.appId, v.parseString(pMSAppInfo.domains));
+                com.baidu.swan.apps.af.a.c.j(pMSAppInfo.appId, v.parseString(pMSAppInfo.domains));
             }
         }
     }
@@ -211,8 +211,8 @@ public final class a {
         com.baidu.swan.games.t.a.a k;
         if (pMSAppInfo != null && fVar != null) {
             pMSAppInfo.h(fVar);
-            if (fVar.category == 1 && (k = k(fVar.emZ, fVar.versionCode)) != null) {
-                pMSAppInfo.setOrientation(k.edA);
+            if (fVar.category == 1 && (k = k(fVar.ewI, fVar.versionCode)) != null) {
+                pMSAppInfo.setOrientation(k.emx);
             } else {
                 pMSAppInfo.setOrientation(0);
             }
@@ -237,14 +237,14 @@ public final class a {
     }
 
     @AnyThread
-    public static void atn() {
-        if (!cTn) {
+    public static void auE() {
+        if (!cYk) {
             synchronized (a.class) {
-                if (!cTn) {
-                    cTn = true;
+                if (!cYk) {
+                    cYk = true;
                     final File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_zip");
                     if (file.exists()) {
-                        p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.core.pms.f.a.1
+                        p.a(new Runnable() { // from class: com.baidu.swan.apps.core.pms.f.a.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.c.d.safeDeleteFile(file);

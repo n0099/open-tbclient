@@ -5,16 +5,16 @@ import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.support.v4.view.ViewCompat;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import androidx.core.view.ViewCompat;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdErrorInfo;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ResourcesWrapper extends Resources {
     private static final ColorStateList EMPTY_COLORSTATELIST = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
     private Resources innerResources;

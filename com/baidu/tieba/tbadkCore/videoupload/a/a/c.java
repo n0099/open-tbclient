@@ -24,17 +24,17 @@ public class c extends a {
             Iterator<Integer> it = arrayList.iterator();
             while (true) {
                 int i3 = i2;
-                d dVar2 = dVar;
-                if (!it.hasNext()) {
-                    return dVar2;
-                }
-                i2 = i3 + 1;
-                dVar = a(randomAccessFile, it.next().intValue(), i, str);
-                if (dVar == null) {
-                    return null;
-                }
-                Lm((int) (30.0f + ((50.0f * i2) / size)));
-                if (!StringUtils.isNull(dVar.videoUrl) || dVar.errorNo != 0) {
+                if (it.hasNext()) {
+                    i2 = i3 + 1;
+                    dVar = a(randomAccessFile, it.next().intValue(), i, str);
+                    if (dVar == null) {
+                        return null;
+                    }
+                    Li((int) (30.0f + ((50.0f * i2) / size)));
+                    if (!StringUtils.isNull(dVar.videoUrl) || dVar.errorNo != 0) {
+                        return dVar;
+                    }
+                } else {
                     return dVar;
                 }
             }

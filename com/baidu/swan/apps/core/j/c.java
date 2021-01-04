@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.core.j;
 
 import android.text.TextUtils;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.swan.pms.model.f {
-    public String cTX;
+    public String cYT;
 
     @Override // com.baidu.swan.pms.model.e
-    public boolean atE() {
-        return super.atE() && !TextUtils.isEmpty(this.cTX);
+    public boolean auV() {
+        return super.auV() && !TextUtils.isEmpty(this.cYT);
     }
 }

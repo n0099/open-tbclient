@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.RecomVideo.DataRes;
 import tbclient.RecomVideo.RecomVideoResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class VideoTabSocketResMessage extends SocketResponsedMessage {
     public DataRes mResultData;
 

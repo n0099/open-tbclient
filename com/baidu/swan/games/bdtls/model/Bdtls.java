@@ -15,14 +15,14 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class Bdtls {
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a extends MessageLiteOrBuilder {
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static final class Random extends GeneratedMessageLite implements d {
         public static final int GMTUNIXTIME_FIELD_NUMBER = 1;
         public static final int RANDOMBYTES_FIELD_NUMBER = 2;
@@ -137,9 +137,9 @@ public final class Bdtls {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasGMTUnixTime()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -223,7 +223,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.aWa();
+            return a.aYu();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -242,7 +242,7 @@ public final class Bdtls {
             return newBuilder(this);
         }
 
-        /* loaded from: classes25.dex */
+        /* loaded from: classes9.dex */
         public static final class a extends GeneratedMessageLite.Builder<Random, a> implements d {
             private int bitField0_;
             private int gMTUnixTime_;
@@ -256,13 +256,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a aWa() {
+            public static a aYu() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aWb */
+            /* renamed from: aYv */
             public a clear() {
                 super.clear();
                 this.gMTUnixTime_ = 0;
@@ -274,9 +274,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aWc */
+            /* renamed from: aYw */
             public a clone() {
-                return aWa().mergeFrom(buildPartial());
+                return aYu().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -287,7 +287,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aWd */
+            /* renamed from: aYx */
             public Random build() {
                 Random buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -298,7 +298,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aWe */
+            /* renamed from: aYy */
             public Random buildPartial() {
                 Random random = new Random(this);
                 int i = this.bitField0_;
@@ -318,7 +318,7 @@ public final class Bdtls {
             public a mergeFrom(Random random) {
                 if (random != Random.getDefaultInstance()) {
                     if (random.hasGMTUnixTime()) {
-                        ms(random.getGMTUnixTime());
+                        mA(random.getGMTUnixTime());
                     }
                     if (random.hasRandomBytes()) {
                         i(random.getRandomBytes());
@@ -333,15 +333,14 @@ public final class Bdtls {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: K */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Random random;
-                Throwable th;
+                Random random = null;
                 try {
                     try {
                         Random parsePartialFrom = Random.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -349,9 +348,8 @@ public final class Bdtls {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        random = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (random != null) {
                             mergeFrom(random);
                         }
@@ -361,9 +359,9 @@ public final class Bdtls {
                     Random random2 = (Random) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         random = random2;
-                        th = th3;
                         if (random != null) {
                         }
                         throw th;
@@ -375,7 +373,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a ms(int i) {
+            public a mA(int i) {
                 this.bitField0_ |= 1;
                 this.gMTUnixTime_ = i;
                 return this;
@@ -396,7 +394,7 @@ public final class Bdtls {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static final class Extension extends GeneratedMessageLite implements a {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int TYPE_FIELD_NUMBER = 1;
@@ -511,9 +509,9 @@ public final class Bdtls {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasType()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -597,7 +595,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.aVU();
+            return a.aYo();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -616,7 +614,7 @@ public final class Bdtls {
             return newBuilder(this);
         }
 
-        /* loaded from: classes25.dex */
+        /* loaded from: classes9.dex */
         public static final class a extends GeneratedMessageLite.Builder<Extension, a> implements a {
             private int bitField0_;
             private ByteString data_ = ByteString.EMPTY;
@@ -630,13 +628,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a aVU() {
+            public static a aYo() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVV */
+            /* renamed from: aYp */
             public a clear() {
                 super.clear();
                 this.type_ = 0;
@@ -648,9 +646,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVW */
+            /* renamed from: aYq */
             public a clone() {
-                return aVU().mergeFrom(buildPartial());
+                return aYo().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -661,7 +659,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVX */
+            /* renamed from: aYr */
             public Extension build() {
                 Extension buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -672,7 +670,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVY */
+            /* renamed from: aYs */
             public Extension buildPartial() {
                 Extension extension = new Extension(this);
                 int i = this.bitField0_;
@@ -692,7 +690,7 @@ public final class Bdtls {
             public a mergeFrom(Extension extension) {
                 if (extension != Extension.getDefaultInstance()) {
                     if (extension.hasType()) {
-                        mr(extension.getType());
+                        mz(extension.getType());
                     }
                     if (extension.hasData()) {
                         h(extension.getData());
@@ -707,15 +705,14 @@ public final class Bdtls {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: I */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Extension extension;
-                Throwable th;
+                Extension extension = null;
                 try {
                     try {
                         Extension parsePartialFrom = Extension.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -723,9 +720,8 @@ public final class Bdtls {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        extension = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (extension != null) {
                             mergeFrom(extension);
                         }
@@ -735,9 +731,9 @@ public final class Bdtls {
                     Extension extension2 = (Extension) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         extension = extension2;
-                        th = th3;
                         if (extension != null) {
                         }
                         throw th;
@@ -749,7 +745,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a mr(int i) {
+            public a mz(int i) {
                 this.bitField0_ |= 1;
                 this.type_ = i;
                 return this;
@@ -770,7 +766,7 @@ public final class Bdtls {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static final class ClientHello extends GeneratedMessageLite implements c {
         public static final int CIPHERSUITES_FIELD_NUMBER = 2;
         public static final int EXTENSIONS_FIELD_NUMBER = 3;
@@ -815,128 +811,89 @@ public final class Bdtls {
             return defaultInstance;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: java.util.List<com.baidu.swan.games.bdtls.model.Bdtls$Extension> */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v18, resolved type: java.util.List<com.baidu.swan.games.bdtls.model.Bdtls$Extension> */
         /* JADX WARN: Multi-variable type inference failed */
         private ClientHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             boolean z;
-            boolean z2;
-            boolean z3;
-            boolean z4;
             Random.a aVar;
-            boolean z5 = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             initFields();
-            boolean z6 = false;
-            while (!z5) {
+            boolean z2 = false;
+            boolean z3 = false;
+            while (!z2) {
                 try {
                     try {
-                        int readTag = codedInputStream.readTag();
-                        switch (readTag) {
-                            case 0:
-                                z3 = true;
-                                z2 = z6;
-                                continue;
-                                z6 = z2;
-                                z5 = z3;
-                            case 10:
-                                if ((this.bitField0_ & 1) != 1) {
-                                    aVar = null;
-                                } else {
-                                    aVar = this.random_.toBuilder();
-                                }
-                                this.random_ = (Random) codedInputStream.readMessage(Random.PARSER, extensionRegistryLite);
-                                if (aVar != null) {
-                                    aVar.mergeFrom(this.random_);
-                                    this.random_ = aVar.buildPartial();
-                                }
-                                this.bitField0_ |= 1;
-                                z3 = z5;
-                                z2 = z6;
-                                continue;
-                                z6 = z2;
-                                z5 = z3;
-                            case 18:
-                                if (!(z6 & true)) {
-                                    this.cipherSuites_ = new ArrayList();
-                                    z4 = z6 | true;
-                                } else {
-                                    z4 = z6;
-                                }
-                                try {
+                        try {
+                            int readTag = codedInputStream.readTag();
+                            switch (readTag) {
+                                case 0:
+                                    z = true;
+                                    continue;
+                                    z2 = z;
+                                case 10:
+                                    if ((this.bitField0_ & 1) != 1) {
+                                        aVar = null;
+                                    } else {
+                                        aVar = this.random_.toBuilder();
+                                    }
+                                    this.random_ = (Random) codedInputStream.readMessage(Random.PARSER, extensionRegistryLite);
+                                    if (aVar != null) {
+                                        aVar.mergeFrom(this.random_);
+                                        this.random_ = aVar.buildPartial();
+                                    }
+                                    this.bitField0_ |= 1;
+                                    z = z2;
+                                    continue;
+                                    z2 = z;
+                                case 18:
+                                    if (!(z3 & true)) {
+                                        this.cipherSuites_ = new ArrayList();
+                                        z3 |= true;
+                                    }
                                     this.cipherSuites_.add(codedInputStream.readBytes());
-                                    boolean z7 = z5;
-                                    z2 = z4;
-                                    z3 = z7;
+                                    z = z2;
                                     continue;
-                                    z6 = z2;
-                                    z5 = z3;
-                                } catch (InvalidProtocolBufferException e) {
-                                    e = e;
-                                    throw e.setUnfinishedMessage(this);
-                                } catch (IOException e2) {
-                                    e = e2;
-                                    throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
-                                } catch (Throwable th) {
-                                    z6 = z4;
-                                    th = th;
-                                    if (z6 & true) {
-                                        this.cipherSuites_ = Collections.unmodifiableList(this.cipherSuites_);
+                                    z2 = z;
+                                case 26:
+                                    if (!(z3 & true)) {
+                                        this.extensions_ = new ArrayList();
+                                        z3 |= true;
                                     }
-                                    if (z6 & true) {
-                                        this.extensions_ = Collections.unmodifiableList(this.extensions_);
-                                    }
-                                    makeExtensionsImmutable();
-                                    throw th;
-                                }
-                            case 26:
-                                if (!(z6 & true)) {
-                                    this.extensions_ = new ArrayList();
-                                    z = z6 | true;
-                                } else {
-                                    z = z6;
-                                }
-                                this.extensions_.add(codedInputStream.readMessage(Extension.PARSER, extensionRegistryLite));
-                                boolean z8 = z5;
-                                z2 = z;
-                                z3 = z8;
-                                continue;
-                                z6 = z2;
-                                z5 = z3;
-                            case 34:
-                                this.bitField0_ |= 2;
-                                this.sKR_ = codedInputStream.readBytes();
-                                break;
-                            default:
-                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                    z3 = true;
-                                    z2 = z6;
+                                    this.extensions_.add(codedInputStream.readMessage(Extension.PARSER, extensionRegistryLite));
+                                    z = z2;
                                     continue;
-                                    z6 = z2;
-                                    z5 = z3;
-                                }
-                                break;
+                                    z2 = z;
+                                case 34:
+                                    this.bitField0_ |= 2;
+                                    this.sKR_ = codedInputStream.readBytes();
+                                    break;
+                                default:
+                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                        z = true;
+                                        continue;
+                                        z2 = z;
+                                    }
+                                    break;
+                            }
+                            z = z2;
+                            z2 = z;
+                        } catch (IOException e) {
+                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                         }
-                        z3 = z5;
-                        z2 = z6;
-                        z6 = z2;
-                        z5 = z3;
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (InvalidProtocolBufferException e2) {
+                        throw e2.setUnfinishedMessage(this);
                     }
-                } catch (InvalidProtocolBufferException e3) {
-                    e = e3;
-                } catch (IOException e4) {
-                    e = e4;
+                } finally {
+                    if (z3 & true) {
+                        this.cipherSuites_ = Collections.unmodifiableList(this.cipherSuites_);
+                    }
+                    if (z3 & true) {
+                        this.extensions_ = Collections.unmodifiableList(this.extensions_);
+                    }
+                    makeExtensionsImmutable();
                 }
             }
-            if (z6 & true) {
-                this.cipherSuites_ = Collections.unmodifiableList(this.cipherSuites_);
-            }
-            if (z6 & true) {
-                this.extensions_ = Collections.unmodifiableList(this.extensions_);
-            }
-            makeExtensionsImmutable();
         }
 
         static {
@@ -1005,9 +962,9 @@ public final class Bdtls {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasRandom()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -1117,7 +1074,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.aVN();
+            return a.aYh();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1136,7 +1093,7 @@ public final class Bdtls {
             return newBuilder(this);
         }
 
-        /* loaded from: classes25.dex */
+        /* loaded from: classes9.dex */
         public static final class a extends GeneratedMessageLite.Builder<ClientHello, a> implements c {
             private int bitField0_;
             private Random random_ = Random.getDefaultInstance();
@@ -1152,13 +1109,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a aVN() {
+            public static a aYh() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVO */
+            /* renamed from: aYi */
             public a clear() {
                 super.clear();
                 this.random_ = Random.getDefaultInstance();
@@ -1174,9 +1131,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVP */
+            /* renamed from: aYj */
             public a clone() {
-                return aVN().mergeFrom(buildPartial());
+                return aYh().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1187,7 +1144,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVQ */
+            /* renamed from: aYk */
             public ClientHello build() {
                 ClientHello buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1198,7 +1155,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVR */
+            /* renamed from: aYl */
             public ClientHello buildPartial() {
                 ClientHello clientHello = new ClientHello(this);
                 int i = this.bitField0_;
@@ -1235,7 +1192,7 @@ public final class Bdtls {
                             this.cipherSuites_ = clientHello.cipherSuites_;
                             this.bitField0_ &= -3;
                         } else {
-                            aVS();
+                            aYm();
                             this.cipherSuites_.addAll(clientHello.cipherSuites_);
                         }
                     }
@@ -1269,15 +1226,14 @@ public final class Bdtls {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: G */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                ClientHello clientHello;
-                Throwable th;
+                ClientHello clientHello = null;
                 try {
                     try {
                         ClientHello parsePartialFrom = ClientHello.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -1285,9 +1241,8 @@ public final class Bdtls {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        clientHello = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (clientHello != null) {
                             mergeFrom(clientHello);
                         }
@@ -1297,9 +1252,9 @@ public final class Bdtls {
                     ClientHello clientHello2 = (ClientHello) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         clientHello = clientHello2;
-                        th = th3;
                         if (clientHello != null) {
                         }
                         throw th;
@@ -1334,7 +1289,7 @@ public final class Bdtls {
                 return this;
             }
 
-            private void aVS() {
+            private void aYm() {
                 if ((this.bitField0_ & 2) != 2) {
                     this.cipherSuites_ = new ArrayList(this.cipherSuites_);
                     this.bitField0_ |= 2;
@@ -1345,7 +1300,7 @@ public final class Bdtls {
                 if (byteString == null) {
                     throw new NullPointerException();
                 }
-                aVS();
+                aYm();
                 this.cipherSuites_.add(byteString);
                 return this;
             }
@@ -1385,7 +1340,7 @@ public final class Bdtls {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static final class ServerHello extends GeneratedMessageLite implements e {
         public static final int CIPHERSUITE_FIELD_NUMBER = 2;
         public static final int EXTENSIONS_FIELD_NUMBER = 5;
@@ -1432,27 +1387,25 @@ public final class Bdtls {
             return defaultInstance;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: java.util.List<com.baidu.swan.games.bdtls.model.Bdtls$Extension> */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: java.util.List<com.baidu.swan.games.bdtls.model.Bdtls$Extension> */
         /* JADX WARN: Multi-variable type inference failed */
         private ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             boolean z;
-            boolean z2;
-            boolean z3;
             Random.a aVar;
-            boolean z4 = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             initFields();
-            boolean z5 = false;
-            while (!z4) {
+            boolean z2 = false;
+            boolean z3 = false;
+            while (!z2) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
                         switch (readTag) {
                             case 0:
-                                z3 = true;
-                                z2 = z5;
-                                break;
+                                z = true;
+                                continue;
+                                z2 = z;
                             case 10:
                                 if ((this.bitField0_ & 1) != 1) {
                                     aVar = null;
@@ -1465,81 +1418,56 @@ public final class Bdtls {
                                     this.random_ = aVar.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z3 = z4;
-                                z2 = z5;
-                                break;
+                                z = z2;
+                                continue;
+                                z2 = z;
                             case 18:
                                 this.bitField0_ |= 2;
                                 this.cipherSuite_ = codedInputStream.readBytes();
-                                z3 = z4;
-                                z2 = z5;
-                                break;
+                                z = z2;
+                                continue;
+                                z2 = z;
                             case 24:
                                 this.bitField0_ |= 4;
                                 this.lifeTime_ = codedInputStream.readUInt32();
-                                z3 = z4;
-                                z2 = z5;
-                                break;
+                                z = z2;
+                                continue;
+                                z2 = z;
                             case 34:
                                 this.bitField0_ |= 8;
                                 this.sKR_ = codedInputStream.readBytes();
-                                z3 = z4;
-                                z2 = z5;
-                                break;
+                                z = z2;
+                                continue;
+                                z2 = z;
                             case 42:
-                                if (!(z5 & true)) {
+                                if (!(z3 & true)) {
                                     this.extensions_ = new ArrayList();
-                                    z = z5 | true;
-                                } else {
-                                    z = z5;
+                                    z3 |= true;
                                 }
-                                try {
-                                    this.extensions_.add(codedInputStream.readMessage(Extension.PARSER, extensionRegistryLite));
-                                    boolean z6 = z4;
-                                    z2 = z;
-                                    z3 = z6;
-                                    break;
-                                } catch (InvalidProtocolBufferException e) {
-                                    e = e;
-                                    throw e.setUnfinishedMessage(this);
-                                } catch (IOException e2) {
-                                    e = e2;
-                                    throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
-                                } catch (Throwable th) {
-                                    z5 = z;
-                                    th = th;
-                                    if (z5 & true) {
-                                        this.extensions_ = Collections.unmodifiableList(this.extensions_);
-                                    }
-                                    makeExtensionsImmutable();
-                                    throw th;
-                                }
+                                this.extensions_.add(codedInputStream.readMessage(Extension.PARSER, extensionRegistryLite));
+                                break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                    z3 = true;
-                                    z2 = z5;
-                                    break;
-                                } else {
-                                    z3 = z4;
-                                    z2 = z5;
-                                    break;
+                                    z = true;
+                                    continue;
+                                    z2 = z;
                                 }
+                                break;
                         }
-                        z5 = z2;
-                        z4 = z3;
-                    } catch (Throwable th2) {
-                        th = th2;
+                        z = z2;
+                        z2 = z;
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
-                } catch (InvalidProtocolBufferException e3) {
-                    e = e3;
-                } catch (IOException e4) {
-                    e = e4;
+                } finally {
+                    if (z3 & true) {
+                        this.extensions_ = Collections.unmodifiableList(this.extensions_);
+                    }
+                    makeExtensionsImmutable();
                 }
             }
-            if (z5 & true) {
-                this.extensions_ = Collections.unmodifiableList(this.extensions_);
-            }
-            makeExtensionsImmutable();
         }
 
         static {
@@ -1613,9 +1541,9 @@ public final class Bdtls {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasRandom()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -1745,7 +1673,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.aWg();
+            return a.aYA();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1764,7 +1692,7 @@ public final class Bdtls {
             return newBuilder(this);
         }
 
-        /* loaded from: classes25.dex */
+        /* loaded from: classes9.dex */
         public static final class a extends GeneratedMessageLite.Builder<ServerHello, a> implements e {
             private int bitField0_;
             private int lifeTime_;
@@ -1781,13 +1709,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a aWg() {
+            public static a aYA() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aWh */
+            /* renamed from: aYB */
             public a clear() {
                 super.clear();
                 this.random_ = Random.getDefaultInstance();
@@ -1805,9 +1733,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aWi */
+            /* renamed from: aYC */
             public a clone() {
-                return aWg().mergeFrom(buildPartial());
+                return aYA().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1818,7 +1746,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aWj */
+            /* renamed from: aYD */
             public ServerHello build() {
                 ServerHello buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1829,7 +1757,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aWk */
+            /* renamed from: aYE */
             public ServerHello buildPartial() {
                 ServerHello serverHello = new ServerHello(this);
                 int i = this.bitField0_;
@@ -1868,7 +1796,7 @@ public final class Bdtls {
                         j(serverHello.getCipherSuite());
                     }
                     if (serverHello.hasLifeTime()) {
-                        mt(serverHello.getLifeTime());
+                        mB(serverHello.getLifeTime());
                     }
                     if (serverHello.hasSKR()) {
                         k(serverHello.getSKR());
@@ -1900,15 +1828,14 @@ public final class Bdtls {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: M */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                ServerHello serverHello;
-                Throwable th;
+                ServerHello serverHello = null;
                 try {
                     try {
                         ServerHello parsePartialFrom = ServerHello.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -1916,9 +1843,8 @@ public final class Bdtls {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        serverHello = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (serverHello != null) {
                             mergeFrom(serverHello);
                         }
@@ -1928,9 +1854,9 @@ public final class Bdtls {
                     ServerHello serverHello2 = (ServerHello) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         serverHello = serverHello2;
-                        th = th3;
                         if (serverHello != null) {
                         }
                         throw th;
@@ -1973,7 +1899,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 4) == 4;
             }
 
-            public a mt(int i) {
+            public a mB(int i) {
                 this.bitField0_ |= 4;
                 this.lifeTime_ = i;
                 return this;
@@ -2009,7 +1935,7 @@ public final class Bdtls {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static final class ApplicationData extends GeneratedMessageLite implements b {
         public static final int SKR_FIELD_NUMBER = 1;
         private static final long serialVersionUID = 0;
@@ -2109,9 +2035,9 @@ public final class Bdtls {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasSKR()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -2186,7 +2112,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.aVH();
+            return a.aYb();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2205,7 +2131,7 @@ public final class Bdtls {
             return newBuilder(this);
         }
 
-        /* loaded from: classes25.dex */
+        /* loaded from: classes9.dex */
         public static final class a extends GeneratedMessageLite.Builder<ApplicationData, a> implements b {
             private int bitField0_;
             private ByteString sKR_ = ByteString.EMPTY;
@@ -2218,13 +2144,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a aVH() {
+            public static a aYb() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVI */
+            /* renamed from: aYc */
             public a clear() {
                 super.clear();
                 this.sKR_ = ByteString.EMPTY;
@@ -2234,9 +2160,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVJ */
+            /* renamed from: aYd */
             public a clone() {
-                return aVH().mergeFrom(buildPartial());
+                return aYb().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2247,7 +2173,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVK */
+            /* renamed from: aYe */
             public ApplicationData build() {
                 ApplicationData buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -2258,7 +2184,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVL */
+            /* renamed from: aYf */
             public ApplicationData buildPartial() {
                 ApplicationData applicationData = new ApplicationData(this);
                 int i = (this.bitField0_ & 1) != 1 ? 0 : 1;
@@ -2283,15 +2209,14 @@ public final class Bdtls {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: E */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                ApplicationData applicationData;
-                Throwable th;
+                ApplicationData applicationData = null;
                 try {
                     try {
                         ApplicationData parsePartialFrom = ApplicationData.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -2299,9 +2224,8 @@ public final class Bdtls {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        applicationData = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (applicationData != null) {
                             mergeFrom(applicationData);
                         }
@@ -2311,9 +2235,9 @@ public final class Bdtls {
                     ApplicationData applicationData2 = (ApplicationData) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         applicationData = applicationData2;
-                        th = th3;
                         if (applicationData != null) {
                         }
                         throw th;
@@ -2336,7 +2260,7 @@ public final class Bdtls {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static final class Alert extends GeneratedMessageLite implements com.baidu.swan.games.bdtls.model.a {
         public static final int DESCRIPTION_FIELD_NUMBER = 2;
         public static final int LEVEL_FIELD_NUMBER = 1;
@@ -2451,9 +2375,9 @@ public final class Bdtls {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasLevel()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -2537,7 +2461,7 @@ public final class Bdtls {
         }
 
         public static a newBuilder() {
-            return a.aVB();
+            return a.aXV();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2556,7 +2480,7 @@ public final class Bdtls {
             return newBuilder(this);
         }
 
-        /* loaded from: classes25.dex */
+        /* loaded from: classes9.dex */
         public static final class a extends GeneratedMessageLite.Builder<Alert, a> implements com.baidu.swan.games.bdtls.model.a {
             private int bitField0_;
             private ByteString description_ = ByteString.EMPTY;
@@ -2570,13 +2494,13 @@ public final class Bdtls {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a aVB() {
+            public static a aXV() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVC */
+            /* renamed from: aXW */
             public a clear() {
                 super.clear();
                 this.level_ = 0;
@@ -2588,9 +2512,9 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVD */
+            /* renamed from: aXX */
             public a clone() {
-                return aVB().mergeFrom(buildPartial());
+                return aXV().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2601,7 +2525,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVE */
+            /* renamed from: aXY */
             public Alert build() {
                 Alert buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -2612,7 +2536,7 @@ public final class Bdtls {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: aVF */
+            /* renamed from: aXZ */
             public Alert buildPartial() {
                 Alert alert = new Alert(this);
                 int i = this.bitField0_;
@@ -2632,7 +2556,7 @@ public final class Bdtls {
             public a mergeFrom(Alert alert) {
                 if (alert != Alert.getDefaultInstance()) {
                     if (alert.hasLevel()) {
-                        mq(alert.getLevel());
+                        my(alert.getLevel());
                     }
                     if (alert.hasDescription()) {
                         d(alert.getDescription());
@@ -2647,15 +2571,14 @@ public final class Bdtls {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: C */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Alert alert;
-                Throwable th;
+                Alert alert = null;
                 try {
                     try {
                         Alert parsePartialFrom = Alert.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -2663,9 +2586,8 @@ public final class Bdtls {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        alert = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (alert != null) {
                             mergeFrom(alert);
                         }
@@ -2675,9 +2597,9 @@ public final class Bdtls {
                     Alert alert2 = (Alert) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         alert = alert2;
-                        th = th3;
                         if (alert != null) {
                         }
                         throw th;
@@ -2689,7 +2611,7 @@ public final class Bdtls {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a mq(int i) {
+            public a my(int i) {
                 this.bitField0_ |= 1;
                 this.level_ = i;
                 return this;

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader {
     private static final int MAX_DEPTH = 4;
     private static final int MIN_DIMENSION_TO_RECUR = 100;
@@ -41,7 +41,6 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
         float f;
         float f2;
         float f3;
-        float f4;
         if (i3 <= 4) {
             try {
                 Result decode = this.delegate.decode(binaryBitmap, map);
@@ -62,46 +61,48 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
                 if (resultPoints != null && resultPoints.length != 0) {
                     int width = binaryBitmap.getWidth();
                     int height = binaryBitmap.getHeight();
-                    float f5 = width;
-                    float f6 = height;
+                    float f4 = width;
+                    float f5 = height;
+                    float f6 = 0.0f;
                     float f7 = 0.0f;
-                    float f8 = 0.0f;
                     int length = resultPoints.length;
                     int i4 = 0;
                     while (i4 < length) {
                         ResultPoint resultPoint = resultPoints[i4];
                         if (resultPoint != null) {
-                            float x = resultPoint.getX();
+                            f2 = resultPoint.getX();
                             f = resultPoint.getY();
-                            f3 = x < f5 ? x : f5;
-                            f2 = f < f6 ? f : f6;
-                            f4 = x > f7 ? x : f7;
-                            if (f <= f8) {
-                                f = f8;
+                            if (f2 < f4) {
+                                f4 = f2;
+                            }
+                            f3 = f < f5 ? f : f5;
+                            if (f2 <= f6) {
+                                f2 = f6;
+                            }
+                            if (f <= f7) {
+                                f = f7;
                             }
                         } else {
-                            f = f8;
+                            f = f7;
                             f2 = f6;
                             f3 = f5;
-                            f4 = f7;
                         }
                         i4++;
-                        f8 = f;
-                        f7 = f4;
+                        f7 = f;
                         f6 = f2;
                         f5 = f3;
                     }
+                    if (f4 > 100.0f) {
+                        doDecodeMultiple(binaryBitmap.crop(0, 0, (int) f4, height), map, list, i, i2, i3 + 1);
+                    }
                     if (f5 > 100.0f) {
-                        doDecodeMultiple(binaryBitmap.crop(0, 0, (int) f5, height), map, list, i, i2, i3 + 1);
+                        doDecodeMultiple(binaryBitmap.crop(0, 0, width, (int) f5), map, list, i, i2, i3 + 1);
                     }
-                    if (f6 > 100.0f) {
-                        doDecodeMultiple(binaryBitmap.crop(0, 0, width, (int) f6), map, list, i, i2, i3 + 1);
+                    if (f6 < width - 100) {
+                        doDecodeMultiple(binaryBitmap.crop((int) f6, 0, width - ((int) f6), height), map, list, i + ((int) f6), i2, i3 + 1);
                     }
-                    if (f7 < width - 100) {
-                        doDecodeMultiple(binaryBitmap.crop((int) f7, 0, width - ((int) f7), height), map, list, i + ((int) f7), i2, i3 + 1);
-                    }
-                    if (f8 < height - 100) {
-                        doDecodeMultiple(binaryBitmap.crop(0, (int) f8, width, height - ((int) f8)), map, list, i, i2 + ((int) f8), i3 + 1);
+                    if (f7 < height - 100) {
+                        doDecodeMultiple(binaryBitmap.crop(0, (int) f7, width, height - ((int) f7)), map, list, i, i2 + ((int) f7), i3 + 1);
                     }
                 }
             } catch (ReaderException e) {

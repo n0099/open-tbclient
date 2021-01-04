@@ -3,15 +3,17 @@ package com.sdk.base.framework.a.c;
 import android.os.Process;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public final class d extends h<Params, Result> {
-    private /* synthetic */ c b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private /* synthetic */ c f13079b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar) {
         super((byte) 0);
-        this.b = cVar;
+        this.f13079b = cVar;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [java.lang.Object, Result] */
@@ -19,10 +21,10 @@ public final class d extends h<Params, Result> {
     public final Result call() {
         AtomicBoolean atomicBoolean;
         ?? a2;
-        atomicBoolean = this.b.g;
+        atomicBoolean = this.f13079b.g;
         atomicBoolean.set(true);
         Process.setThreadPriority(10);
-        a2 = this.b.a((c) this.b.b(this.f4237a));
+        a2 = this.f13079b.a((c) this.f13079b.b(this.f13083a));
         return a2;
     }
 }

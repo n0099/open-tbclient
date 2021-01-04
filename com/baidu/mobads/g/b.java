@@ -6,6 +6,7 @@ import android.os.Build;
 import android.util.Base64;
 import android.util.Log;
 import com.baidu.android.common.security.RSAUtil;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
@@ -20,13 +21,15 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class b extends File {
     private static DexClassLoader f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private e f2335a;
-    private Class<?> b;
+    private e f3363a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Class<?> f3364b;
     private Context c;
     private PublicKey d;
     private IXAdLogger e;
@@ -37,11 +40,11 @@ public class b extends File {
 
     public b(String str, Context context, e eVar) {
         super(str);
-        this.b = null;
+        this.f3364b = null;
         this.c = null;
         this.e = XAdSDKFoundationFacade.getInstance().getAdLogger();
         this.c = context;
-        this.f2335a = eVar;
+        this.f3363a = eVar;
         if (eVar != null) {
             try {
                 this.d = c("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBcp8gg3O7bjdnz+pSxg+JH/mbcKfm7dEjcRqVNAFwG7bTpLwDQh40bZJzrcBKQWbD6kArR6TPuQUCMQ09/y55Vk1P2Kq7vJGGisFpjlqv2qlg8drLdhXkLQUt/SeZVJgT+CNxVbuzxAF61EEf8M0MHi1I2dm6n6lOA6fomiCD9wIDAQAB");
@@ -53,11 +56,11 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        if (this.f2335a != null) {
+        if (this.f3363a != null) {
             String a2 = a(new File(getAbsolutePath()));
-            String b = b(this.f2335a.d());
-            if (!b.equalsIgnoreCase(a2)) {
-                throw new g.a("doCheckApkIntegrity failed, md5sum: " + a2 + ", checksum in json info: " + b);
+            String b2 = b(this.f3363a.d());
+            if (!b2.equalsIgnoreCase(a2)) {
+                throw new g.a("doCheckApkIntegrity failed, md5sum: " + a2 + ", checksum in json info: " + b2);
             }
             return;
         }
@@ -66,15 +69,15 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Class<?> b() {
-        if (this.b == null) {
+        if (this.f3364b == null) {
             File file = new File(getAbsolutePath());
             try {
-                this.b = b(file);
+                this.f3364b = b(file);
             } catch (Exception e) {
                 file.delete();
             }
         }
-        return this.b;
+        return this.f3364b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -84,10 +87,10 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public double c() {
-        if (this.f2335a == null) {
+        if (this.f3363a == null) {
             return 0.0d;
         }
-        return this.f2335a.b();
+        return this.f3363a.b();
     }
 
     private String b(String str) {
@@ -116,7 +119,7 @@ public class b extends File {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0076 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -129,15 +132,12 @@ public class b extends File {
             fileInputStream = new FileInputStream(file);
             try {
                 try {
-                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                     do {
                     } while (new DigestInputStream(fileInputStream, messageDigest).read(new byte[4096]) != -1);
                     byte[] digest = messageDigest.digest();
-                    int i = 0;
-                    while (i < digest.length) {
-                        String str2 = str + Integer.toString((digest[i] & 255) + 256, 16).substring(1);
-                        i++;
-                        str = str2;
+                    for (int i = 0; i < digest.length; i++) {
+                        str = str + Integer.toString((digest[i] & 255) + 256, 16).substring(1);
                     }
                     if (fileInputStream != null) {
                         try {

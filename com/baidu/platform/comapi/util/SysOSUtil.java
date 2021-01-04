@@ -1,13 +1,15 @@
 package com.baidu.platform.comapi.util;
 
 import com.baidu.vi.VIContext;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class SysOSUtil {
     private static SysOSUtil g = new SysOSUtil();
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.platform.comapi.util.a.b f2942a = null;
-    private com.baidu.platform.comapi.util.a.a b = null;
+    private com.baidu.platform.comapi.util.a.b f4376a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private com.baidu.platform.comapi.util.a.a f4377b = null;
     private boolean c = false;
     private String d = "";
     private String e = "";
@@ -21,15 +23,15 @@ public class SysOSUtil {
     }
 
     public float getDensity() {
-        if (this.b != null) {
-            return this.b.c();
+        if (this.f4377b != null) {
+            return this.f4377b.c();
         }
         return 1.0f;
     }
 
     public int getDensityDPI() {
-        if (this.b != null) {
-            return this.b.d();
+        if (this.f4377b != null) {
+            return this.f4377b.d();
         }
         return 1;
     }
@@ -47,45 +49,45 @@ public class SysOSUtil {
     }
 
     public String getOutputCache() {
-        return this.f2942a != null ? this.f2942a.c() : "";
+        return this.f4376a != null ? this.f4376a.c() : "";
     }
 
     public String getOutputDirPath() {
-        return this.f2942a != null ? this.f2942a.a() : "";
+        return this.f4376a != null ? this.f4376a.a() : "";
     }
 
     public int getScreenHeight() {
-        if (this.b != null) {
-            return this.b.b();
+        if (this.f4377b != null) {
+            return this.f4377b.b();
         }
         return 0;
     }
 
     public int getScreenWidth() {
-        if (this.b != null) {
-            return this.b.a();
+        if (this.f4377b != null) {
+            return this.f4377b.a();
         }
         return 0;
     }
 
     public String getSdcardPath() {
-        return this.f2942a != null ? this.f2942a.b() : "";
+        return this.f4376a != null ? this.f4376a.b() : "";
     }
 
     public void init(com.baidu.platform.comapi.util.a.b bVar, com.baidu.platform.comapi.util.a.a aVar) {
         if (this.c) {
             return;
         }
-        this.f2942a = bVar;
-        this.b = aVar;
-        if (this.f2942a == null) {
-            this.f2942a = new com.baidu.platform.comapi.util.a.b();
+        this.f4376a = bVar;
+        this.f4377b = aVar;
+        if (this.f4376a == null) {
+            this.f4376a = new com.baidu.platform.comapi.util.a.b();
         }
-        if (this.b == null) {
-            this.b = new com.baidu.platform.comapi.util.a.a();
+        if (this.f4377b == null) {
+            this.f4377b = new com.baidu.platform.comapi.util.a.a();
         }
-        this.f2942a.a(VIContext.getContext());
-        this.b.a(VIContext.getContext());
+        this.f4376a.a(VIContext.getContext());
+        this.f4377b.a(VIContext.getContext());
         this.d = NetworkUtil.getCurrentNetMode(VIContext.getContext());
         this.c = true;
     }

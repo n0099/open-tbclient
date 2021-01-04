@@ -8,14 +8,14 @@ import android.util.AttributeSet;
 import android.widget.CheckBox;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.c;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
-    private GradientDrawable fWb;
-    private GradientDrawable fWc;
-    private StateListDrawable fWe;
+    private GradientDrawable gfH;
+    private GradientDrawable gfI;
+    private StateListDrawable gfK;
     private Context mContext;
 
     public AdCloseReasonCheckBox(Context context) {
@@ -41,7 +41,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
 
     private void init(Context context) {
         f(R.string.J_X07, l.getDimens(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304);
-        ap.b(this, R.color.CAM_X0105, R.color.CAM_X0304, R.color.CAM_X0105);
+        ao.b(this, R.color.CAM_X0105, R.color.CAM_X0304, R.color.CAM_X0105);
         int dimens = l.getDimens(context, R.dimen.ds24);
         setPadding(dimens, 0, dimens, 0);
         setGravity(17);
@@ -50,17 +50,17 @@ public class AdCloseReasonCheckBox extends CheckBox {
 
     private void f(int i, int i2, int i3, int i4) {
         int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i).split(",")[0]);
-        this.fWb = new GradientDrawable();
-        this.fWb.setShape(0);
-        this.fWb.setCornerRadius(parseInt);
-        this.fWb.setStroke(i2, ap.getColor(i3));
-        this.fWc = new GradientDrawable();
-        this.fWc.setShape(0);
-        this.fWc.setCornerRadius(parseInt);
-        this.fWc.setStroke(i2, c.m(ap.getColor(i4), 0.5f));
-        this.fWe = new StateListDrawable();
-        this.fWe.addState(new int[]{-16842912}, this.fWb);
-        this.fWe.addState(new int[]{16842912}, this.fWc);
-        setBackgroundDrawable(this.fWe);
+        this.gfH = new GradientDrawable();
+        this.gfH.setShape(0);
+        this.gfH.setCornerRadius(parseInt);
+        this.gfH.setStroke(i2, ao.getColor(i3));
+        this.gfI = new GradientDrawable();
+        this.gfI.setShape(0);
+        this.gfI.setCornerRadius(parseInt);
+        this.gfI.setStroke(i2, c.m(ao.getColor(i4), 0.5f));
+        this.gfK = new StateListDrawable();
+        this.gfK.addState(new int[]{-16842912}, this.gfH);
+        this.gfK.addState(new int[]{16842912}, this.gfI);
+        setBackgroundDrawable(this.gfK);
     }
 }

@@ -23,7 +23,7 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
 @SuppressLint({"TrulyRandom"})
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class HttpHelper {
     public static final String CONTENT_FORM = "application/x-www-form-urlencoded";
     public static final String CONTENT_JSON = "application/json";
@@ -35,7 +35,7 @@ public class HttpHelper {
     public static final String TAG = HttpHelper.class.getSimpleName();
     private static Context mContext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public interface Request {
         int getConnectTimeout();
 
@@ -54,14 +54,14 @@ public class HttpHelper {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public interface ResponseHandler {
         void onFailure(int i, byte[] bArr, Throwable th);
 
         void onSuccess(int i, byte[] bArr);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     protected class Result {
         int errorCode;
         InputStream inputStream = null;
@@ -72,7 +72,7 @@ public class HttpHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public static class ResponseResult {
         protected int mErrorCode;
         protected String mErrorMsg;
@@ -133,7 +133,8 @@ public class HttpHelper {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [176=4] */
     public static void executor(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         HttpURLConnection httpURLConnection;
-        InputStream inputStream = null;
+        InputStream inputStream;
+        InputStream inputStream2 = null;
         try {
             httpURLConnection = createConnection(i, str, bArr, map, i2, i3);
             try {
@@ -145,7 +146,7 @@ public class HttpHelper {
                     LogUtils.d(TAG, "createConnection responsecode:" + responseCode);
                     responseHandler.onFailure(responseCode, "http response error".getBytes(), null);
                     if (0 != 0) {
-                        inputStream.close();
+                        inputStream2.close();
                     }
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
@@ -153,27 +154,34 @@ public class HttpHelper {
                     }
                     return;
                 }
-                InputStream inputStream2 = httpURLConnection.getInputStream();
-                dealResonsResult(responseCode, inputStream2, responseHandler);
-                if (inputStream2 != null) {
-                    inputStream2.close();
+                InputStream inputStream3 = httpURLConnection.getInputStream();
+                try {
+                    dealResonsResult(responseCode, inputStream3, responseHandler);
+                    if (inputStream3 != null) {
+                        inputStream3.close();
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream = inputStream3;
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    throw th;
                 }
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (0 != 0) {
-                    inputStream.close();
-                }
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                throw th;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = null;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
+            th = th3;
             httpURLConnection = null;
+            inputStream = null;
         }
     }
 

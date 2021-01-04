@@ -10,7 +10,7 @@ import com.baidu.ar.arplay.representation.Vector3f;
 import com.baidu.ar.arrender.l;
 import com.baidu.ar.arrender.m;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class g implements d {
     private int mPreviewHeight;
     private int mPreviewWidth;
@@ -73,9 +73,9 @@ public class g implements d {
             return;
         }
         if (bVar.za) {
-            int[] b = b(bVar.x, bVar.y);
-            f = b[1];
-            f2 = b[0];
+            int[] b2 = b(bVar.x, bVar.y);
+            f = b2[1];
+            f2 = b2[0];
         } else {
             float f3 = bVar.x;
             f = bVar.y;

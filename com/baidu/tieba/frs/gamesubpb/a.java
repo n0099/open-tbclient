@@ -5,15 +5,15 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.gamesubpb.model.d;
-import com.baidu.tieba.frs.gamesubpb.view.b;
-/* loaded from: classes22.dex */
-public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
-    private TbPageContext jnp;
-    private InterfaceC0747a jnq;
+import com.baidu.tieba.frs.gamesubpb.view.GameSubCommentView;
+/* loaded from: classes2.dex */
+public class a extends com.baidu.adp.widget.ListView.a<d, GameSubCommentView.GameSubCommentViewHolder> {
+    private TbPageContext jzN;
+    private InterfaceC0740a jzO;
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public interface InterfaceC0747a {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0740a {
         void a(d dVar);
 
         void b(d dVar);
@@ -24,30 +24,30 @@ public class a extends com.baidu.adp.widget.ListView.a<d, b.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.jnp = tbPageContext;
+        this.jzN = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: by */
-    public b.a c(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.gamesubpb.view.b bVar = new com.baidu.tieba.frs.gamesubpb.view.b(this.jnp);
-        bVar.setClickListener(this.jnq);
-        return new b.a(bVar);
+    /* renamed from: bK */
+    public GameSubCommentView.GameSubCommentViewHolder e(ViewGroup viewGroup) {
+        GameSubCommentView gameSubCommentView = new GameSubCommentView(this.jzN);
+        gameSubCommentView.setClickListener(this.jzO);
+        return new GameSubCommentView.GameSubCommentViewHolder(gameSubCommentView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, d dVar, b.a aVar) {
+    public View a(int i, View view, ViewGroup viewGroup, d dVar, GameSubCommentView.GameSubCommentViewHolder gameSubCommentViewHolder) {
         if (dVar != null) {
-            aVar.f(dVar);
+            gameSubCommentViewHolder.f(dVar);
         }
-        return aVar.getView();
+        return gameSubCommentViewHolder.getView();
     }
 
-    public void setClickListener(InterfaceC0747a interfaceC0747a) {
-        this.jnq = interfaceC0747a;
+    public void setClickListener(InterfaceC0740a interfaceC0740a) {
+        this.jzO = interfaceC0740a;
     }
 }

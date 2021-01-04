@@ -1,13 +1,14 @@
 package com.baidu.tbadk.widget.richText;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import java.io.Serializable;
 import java.util.List;
 import tbclient.Item;
 /* loaded from: classes.dex */
-public class TbRichTextEvaluateItemInfo extends OrmObject {
-    private String fPU;
+public class TbRichTextEvaluateItemInfo extends OrmObject implements Serializable {
     private double mIconSize;
     private String mIconUrl;
+    private String mItemID;
     private double mScore;
     private int mStar;
     private List<String> mTags;
@@ -17,7 +18,7 @@ public class TbRichTextEvaluateItemInfo extends OrmObject {
     }
 
     public TbRichTextEvaluateItemInfo(Item item) {
-        this.fPU = String.valueOf(item.item_id.intValue());
+        this.mItemID = String.valueOf(item.item_id.intValue());
         this.mIconUrl = item.icon_url;
         this.mTitle = item.item_name;
         this.mTags = item.tags;
@@ -50,11 +51,11 @@ public class TbRichTextEvaluateItemInfo extends OrmObject {
         this.mTags = list;
     }
 
-    public double bIS() {
+    public double getScore() {
         return this.mScore;
     }
 
-    public void y(double d) {
+    public void setScore(double d) {
         this.mScore = d;
     }
 
@@ -74,11 +75,11 @@ public class TbRichTextEvaluateItemInfo extends OrmObject {
         this.mIconSize = d;
     }
 
-    public String bIT() {
-        return this.fPU;
+    public String getItemID() {
+        return this.mItemID;
     }
 
-    public void ET(String str) {
-        this.fPU = str;
+    public void setItemID(String str) {
+        this.mItemID = str;
     }
 }

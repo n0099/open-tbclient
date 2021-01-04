@@ -4,17 +4,19 @@ import com.baidu.location.b.ac;
 import com.baidu.location.b.o;
 import com.baidu.location.b.x;
 import com.baidu.location.c.i;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ boolean f1942a;
-    final /* synthetic */ i.a b;
+    final /* synthetic */ boolean f2702a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ i.a f2703b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i.a aVar, boolean z) {
-        this.b = aVar;
-        this.f1942a = z;
+        this.f2703b = aVar;
+        this.f2702a = z;
     }
 
     @Override // java.lang.Runnable
@@ -22,7 +24,7 @@ class j implements Runnable {
         boolean z;
         z = i.this.k;
         if (!z) {
-            i.this.k = this.f1942a;
+            i.this.k = this.f2702a;
         }
         i.this.q();
         o.c().i();

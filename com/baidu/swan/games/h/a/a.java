@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/debugGameExtensionCore");
@@ -22,11 +22,11 @@ public class a extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         if (DEBUG) {
-            JSONObject b = b(unitedSchemeEntity, "params");
-            if (b == null) {
+            JSONObject b2 = b(unitedSchemeEntity, "params");
+            if (b2 == null) {
                 Toast.makeText(context, a.h.aiapps_debug_swan_core_params_empty, 1).show();
             } else {
-                String optString = b.optString("downloadurl");
+                String optString = b2.optString("downloadurl");
                 if (TextUtils.isEmpty(optString)) {
                     Toast.makeText(context, a.h.aiapps_debug_swan_core_url_empty, 1).show();
                 } else {
@@ -37,9 +37,9 @@ public class a extends aa {
 
                         @Override // com.baidu.swan.apps.r.d.b
                         public void onSuccess() {
-                            File awH = b.awH();
-                            File awF = b.awF();
-                            if (awH.exists() && com.baidu.swan.c.d.unzipFile(awH.getPath(), awF.getPath())) {
+                            File axZ = b.axZ();
+                            File axX = b.axX();
+                            if (axZ.exists() && com.baidu.swan.c.d.unzipFile(axZ.getPath(), axX.getPath())) {
                                 Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_extension_download_success, 1).show();
                             } else {
                                 Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_extension_download_failed, 1).show();

@@ -1,5 +1,5 @@
 package com.baidu.ar.marker;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class MarkerFrameInfo {
     private int tc;
     private int td;

@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public List<a> mCH = new ArrayList();
-    public ax iNS = new ax();
+    public List<a> mHY = new ArrayList();
+    public ax jad = new ax();
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public String content;
         public String fname;
         public int is_floor;
-        public int mCI;
+        public int mHZ;
         public String name;
         public String name_show;
         public long pid;
@@ -26,21 +26,21 @@ public class b {
         public String title;
     }
 
-    public boolean cZL() {
-        return (this.mCH == null || this.mCH.size() == 0) ? false : true;
+    public boolean cZx() {
+        return (this.mHY == null || this.mHY.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.iNS != null && this.iNS.bnF() == 1;
+        return this.jad != null && this.jad.bqf() == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.iNS.parserJson(jSONObject.getJSONObject("page"));
+                this.jad.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.mCH.clear();
+                    this.mHY.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -65,11 +65,11 @@ public class b {
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
                                 aVar.is_floor = optInt;
-                                aVar.mCI = optInt2;
+                                aVar.mHZ = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.mCH.add(aVar);
+                                this.mHY.add(aVar);
                             }
                         }
                     }

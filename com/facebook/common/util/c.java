@@ -3,9 +3,9 @@ package com.facebook.common.util;
 import com.facebook.common.internal.g;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class c {
-    public static long a(InputStream inputStream, long j) throws IOException {
+    public static long b(InputStream inputStream, long j) throws IOException {
         g.checkNotNull(inputStream);
         g.checkArgument(j >= 0);
         long j2 = j;

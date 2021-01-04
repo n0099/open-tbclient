@@ -8,26 +8,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class ad implements aj<com.airbnb.lottie.model.content.h> {
-    public static final ad HS = new ad();
+    public static final ad HB = new ad();
 
     private ad() {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.c.aj
-    /* renamed from: m */
-    public com.airbnb.lottie.model.content.h b(JsonReader jsonReader, float f) throws IOException {
-        List<PointF> f2;
+    /* renamed from: r */
+    public com.airbnb.lottie.model.content.h g(JsonReader jsonReader, float f) throws IOException {
+        List<PointF> k;
         List<PointF> list;
         List<PointF> list2;
         boolean z;
-        List<PointF> list3 = null;
         if (jsonReader.peek() == JsonToken.BEGIN_ARRAY) {
             jsonReader.beginArray();
         }
         jsonReader.beginObject();
+        List<PointF> list3 = null;
         List<PointF> list4 = null;
         List<PointF> list5 = null;
         boolean z2 = false;
@@ -62,37 +62,37 @@ public class ad implements aj<com.airbnb.lottie.model.content.h> {
             }
             switch (c) {
                 case 0:
+                    z = jsonReader.nextBoolean();
+                    k = list3;
                     list = list4;
                     list2 = list5;
-                    z = jsonReader.nextBoolean();
-                    f2 = list3;
                     break;
                 case 1:
+                    list2 = p.k(jsonReader, f);
+                    k = list3;
                     list = list4;
-                    list2 = p.f(jsonReader, f);
                     z = z2;
-                    f2 = list3;
                     break;
                 case 2:
-                    list = p.f(jsonReader, f);
+                    list = p.k(jsonReader, f);
+                    k = list3;
                     list2 = list5;
                     z = z2;
-                    f2 = list3;
                     break;
                 case 3:
-                    f2 = p.f(jsonReader, f);
+                    k = p.k(jsonReader, f);
                     list = list4;
                     list2 = list5;
                     z = z2;
                     break;
                 default:
-                    f2 = list3;
+                    k = list3;
                     list = list4;
                     list2 = list5;
                     z = z2;
                     break;
             }
-            list3 = f2;
+            list3 = k;
             list4 = list;
             list5 = list2;
             z2 = z;
@@ -112,11 +112,11 @@ public class ad implements aj<com.airbnb.lottie.model.content.h> {
         ArrayList arrayList = new ArrayList(size);
         for (int i = 1; i < size; i++) {
             PointF pointF2 = list5.get(i);
-            arrayList.add(new com.airbnb.lottie.model.a(com.airbnb.lottie.d.e.a(list5.get(i - 1), list3.get(i - 1)), com.airbnb.lottie.d.e.a(pointF2, list4.get(i)), pointF2));
+            arrayList.add(new com.airbnb.lottie.model.a(com.airbnb.lottie.d.e.b(list5.get(i - 1), list3.get(i - 1)), com.airbnb.lottie.d.e.b(pointF2, list4.get(i)), pointF2));
         }
         if (z2) {
             PointF pointF3 = list5.get(0);
-            arrayList.add(new com.airbnb.lottie.model.a(com.airbnb.lottie.d.e.a(list5.get(size - 1), list3.get(size - 1)), com.airbnb.lottie.d.e.a(pointF3, list4.get(0)), pointF3));
+            arrayList.add(new com.airbnb.lottie.model.a(com.airbnb.lottie.d.e.b(list5.get(size - 1), list3.get(size - 1)), com.airbnb.lottie.d.e.b(pointF3, list4.get(0)), pointF3));
         }
         return new com.airbnb.lottie.model.content.h(pointF, z2, arrayList);
     }

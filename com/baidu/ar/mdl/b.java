@@ -13,24 +13,23 @@ import java.io.InputStreamReader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class b {
     private SparseArray<a> cD = new SparseArray<>();
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: java.lang.String */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x003c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r0v0, types: [java.io.BufferedReader] */
     /* JADX WARN: Type inference failed for: r0v10 */
     /* JADX WARN: Type inference failed for: r0v11 */
-    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v7 */
     /* JADX WARN: Type inference failed for: r0v8 */
     /* JADX WARN: Type inference failed for: r0v9 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static String a(File file) {
-        Throwable th;
         BufferedReader bufferedReader;
         String str = 0;
         str = 0;
@@ -70,8 +69,8 @@ public class b {
                     }
                     return str;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 if (0 != 0) {
                     try {
                         str.close();
@@ -84,8 +83,8 @@ public class b {
         } catch (Exception e5) {
             e = e5;
             bufferedReader = null;
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th2) {
+            th = th2;
             if (0 != 0) {
             }
             throw th;
@@ -107,7 +106,7 @@ public class b {
                 int length2 = jSONArray2.length();
                 a aVar = new a();
                 aVar.type = i2;
-                aVar.f1195tv = z;
+                aVar.f1486tv = z;
                 aVar.tw = new String[length2];
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i3);

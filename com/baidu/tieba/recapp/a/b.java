@@ -2,58 +2,57 @@ package com.baidu.tieba.recapp.a;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.adp.base.d;
 import com.baidu.tbadk.b.e;
 import com.baidu.tbadk.b.f;
 import java.util.HashMap;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class b implements e {
-    private final HashMap<String, f> kRf;
+    private final HashMap<String, f> kWK;
 
     private b() {
-        this.kRf = new HashMap<>();
+        this.kWK = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
-    public static class C0853b {
-        private static b mHH = new b();
+    /* loaded from: classes8.dex */
+    public static class C0836b {
+        private static b mMX = new b();
     }
 
-    public static b dFh() {
-        return C0853b.mHH;
+    public static b dEW() {
+        return C0836b.mMX;
     }
 
-    public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
+    public void a(Object obj, String str, HashMap<String, String> hashMap, com.baidu.adp.base.e eVar) {
         if (str != null) {
-            a RV = a.RV(str);
-            f fVar = this.kRf.get(RV.getKey());
-            if (fVar != null && RV.isValid()) {
+            a RB = a.RB(str);
+            f fVar = this.kWK.get(RB.getKey());
+            if (fVar != null && RB.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    RV.getParams().putAll(hashMap);
+                    RB.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, RV.getParams(), str, dVar);
+                fVar.a(obj, RB.getParams(), str, eVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.kRf.put(str, fVar);
+        this.kWK.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.b.a aVar) {
         a(aVar.key(), aVar);
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        private boolean eGJ;
-        HashMap<String, String> eSd;
+        private boolean eQz;
+        HashMap<String, String> fbY;
         String key;
 
         public boolean isValid() {
-            return this.eGJ;
+            return this.eQz;
         }
 
         public String getKey() {
@@ -61,26 +60,26 @@ public class b implements e {
         }
 
         public HashMap<String, String> getParams() {
-            return this.eSd;
+            return this.fbY;
         }
 
         private a(String str) {
-            this.eGJ = false;
+            this.eQz = false;
             Uri parse = Uri.parse(str);
-            this.eGJ = TextUtils.isEmpty(parse.getScheme()) ? false : true;
-            if (this.eGJ) {
+            this.eQz = TextUtils.isEmpty(parse.getScheme()) ? false : true;
+            if (this.eQz) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.eSd = new HashMap<>();
+                this.fbY = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.eSd.put(str2, parse.getQueryParameter(str2));
+                    this.fbY.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.eSd = new HashMap<>();
+            this.fbY = new HashMap<>();
         }
 
-        public static a RV(String str) {
+        public static a RB(String str) {
             return new a(str);
         }
     }

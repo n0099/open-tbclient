@@ -3,12 +3,12 @@ package kotlin.collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State pKb = State.NotReady;
-    private T pKc;
+    private State qlE = State.NotReady;
+    private T qlF;
 
-    protected abstract void eDG();
+    protected abstract void eLO();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.l(this.pKb, State.Failed)) {
-            switch (this.pKb) {
+        if (!kotlin.jvm.internal.p.l(this.qlE, State.Failed)) {
+            switch (this.qlE) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return eDF();
+                    return eLN();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.pKb = State.NotReady;
-            return this.pKc;
+            this.qlE = State.NotReady;
+            return this.qlF;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean eDF() {
-        this.pKb = State.Failed;
-        eDG();
-        return kotlin.jvm.internal.p.l(this.pKb, State.Ready);
+    private final boolean eLN() {
+        this.qlE = State.Failed;
+        eLO();
+        return kotlin.jvm.internal.p.l(this.qlE, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bO(T t) {
-        this.pKc = t;
-        this.pKb = State.Ready;
+    public final void bQ(T t) {
+        this.qlF = t;
+        this.qlE = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.pKb = State.Done;
+        this.qlE = State.Done;
     }
 }

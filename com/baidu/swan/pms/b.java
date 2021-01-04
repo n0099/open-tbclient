@@ -15,31 +15,31 @@ public interface b {
 
     void a(String str, String str2, String str3, int i, JSONObject jSONObject);
 
-    String aAh();
+    String aBA();
 
-    String aAi();
+    String aBB();
 
-    String aAj();
+    String aBC();
 
-    String aAk();
+    String aBD();
 
-    String aAl();
+    String aBE();
 
-    String aAm();
+    String aBF();
 
-    String aAn();
+    String aBG();
 
-    String aAo();
+    String aBH();
 
-    String aAp();
+    CookieManager aBI();
 
-    String aAq();
+    String aBJ();
 
-    CookieManager aAr();
+    com.baidu.swan.pms.c.f aBK();
 
-    String aAs();
+    String aBy();
 
-    com.baidu.swan.pms.c.f aAt();
+    String aBz();
 
     void b(JSONArray jSONArray, String str, String str2);
 

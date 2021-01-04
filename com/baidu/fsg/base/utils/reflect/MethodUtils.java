@@ -8,11 +8,11 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class MethodUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, Method> f1533a = new HashMap();
+    private static Map<String, Method> f2055a = new HashMap();
 
     private static String a(Class<?> cls, String str, Class<?>... clsArr) {
         StringBuilder sb = new StringBuilder();
@@ -80,8 +80,8 @@ public class MethodUtils {
     public static Method getAccessibleMethod(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException {
         Method method;
         String a2 = a(cls, str, clsArr);
-        synchronized (f1533a) {
-            method = f1533a.get(a2);
+        synchronized (f2055a) {
+            method = f2055a.get(a2);
         }
         if (method != null) {
             if (!method.isAccessible()) {
@@ -89,8 +89,8 @@ public class MethodUtils {
             }
         } else {
             method = a(cls.getMethod(str, clsArr));
-            synchronized (f1533a) {
-                f1533a.put(a2, method);
+            synchronized (f2055a) {
+                f2055a.put(a2, method);
             }
         }
         return method;
@@ -101,8 +101,8 @@ public class MethodUtils {
         Method[] methods;
         Method a2;
         String a3 = a(cls, str, clsArr);
-        synchronized (f1533a) {
-            method = f1533a.get(a3);
+        synchronized (f2055a) {
+            method = f2055a.get(a3);
         }
         if (method != null) {
             if (!method.isAccessible()) {
@@ -112,8 +112,8 @@ public class MethodUtils {
             try {
                 method = cls.getMethod(str, clsArr);
                 MemberUtils.a((AccessibleObject) method);
-                synchronized (f1533a) {
-                    f1533a.put(a3, method);
+                synchronized (f2055a) {
+                    f2055a.put(a3, method);
                 }
             } catch (NoSuchMethodException e) {
                 method = null;
@@ -125,8 +125,8 @@ public class MethodUtils {
                 if (method != null) {
                     MemberUtils.a((AccessibleObject) method);
                 }
-                synchronized (f1533a) {
-                    f1533a.put(a3, method);
+                synchronized (f2055a) {
+                    f2055a.put(a3, method);
                 }
             }
         }
@@ -135,46 +135,46 @@ public class MethodUtils {
 
     public static Object invokeMethod(Object obj, String str, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         Class<?>[] a2 = Utils.a(clsArr);
-        Object[] b = Utils.b(objArr);
+        Object[] b2 = Utils.b(objArr);
         Method d = d(obj.getClass(), str, a2);
         if (d == null) {
             throw new NoSuchMethodException("No such accessible method: " + str + "() on object: " + obj.getClass().getName());
         }
-        return d.invoke(obj, b);
+        return d.invoke(obj, b2);
     }
 
     public static Object invokeStaticMethod(Class cls, String str, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         Class<?>[] a2 = Utils.a(clsArr);
-        Object[] b = Utils.b(objArr);
+        Object[] b2 = Utils.b(objArr);
         Method d = d(cls, str, a2);
         if (d == null) {
             throw new NoSuchMethodException("No such accessible method: " + str + "() on object: " + cls.getName());
         }
-        return d.invoke(null, b);
+        return d.invoke(null, b2);
     }
 
     public static Object invokeStaticMethod(Class cls, String str, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        Object[] b = Utils.b(objArr);
-        return invokeStaticMethod(cls, str, b, Utils.a(b));
+        Object[] b2 = Utils.b(objArr);
+        return invokeStaticMethod(cls, str, b2, Utils.a(b2));
     }
 
     public static Object invokeMethod(Object obj, String str, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        Object[] b = Utils.b(objArr);
-        return invokeMethod(obj, str, b, Utils.a(b));
+        Object[] b2 = Utils.b(objArr);
+        return invokeMethod(obj, str, b2, Utils.a(b2));
     }
 
     public static <T> T invokeConstructor(Class<T> cls, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        Object[] b = Utils.b(objArr);
-        return (T) invokeConstructor(cls, b, Utils.a(b));
+        Object[] b2 = Utils.b(objArr);
+        return (T) invokeConstructor(cls, b2, Utils.a(b2));
     }
 
     public static <T> T invokeConstructor(Class<T> cls, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        Object[] b = Utils.b(objArr);
+        Object[] b2 = Utils.b(objArr);
         Constructor matchingAccessibleConstructor = getMatchingAccessibleConstructor(cls, Utils.a(clsArr));
         if (matchingAccessibleConstructor == null) {
             throw new NoSuchMethodException("No such accessible constructor on object: " + cls.getName());
         }
-        return (T) matchingAccessibleConstructor.newInstance(b);
+        return (T) matchingAccessibleConstructor.newInstance(b2);
     }
 
     public static <T> Constructor<T> getMatchingAccessibleConstructor(Class<T> cls, Class<?>... clsArr) {

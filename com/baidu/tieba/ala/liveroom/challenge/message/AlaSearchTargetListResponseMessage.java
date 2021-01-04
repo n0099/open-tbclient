@@ -9,10 +9,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage {
-    private b hjS;
-    private List<d> hjT;
+    private b hvN;
+    private List<d> hvO;
 
     public AlaSearchTargetListResponseMessage() {
         super(1021182);
@@ -25,24 +25,24 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("page");
             if (optJSONObject2 != null) {
-                this.hjS = new b();
-                this.hjS.parseJson(optJSONObject2);
+                this.hvN = new b();
+                this.hvN.parseJson(optJSONObject2);
             }
             String optString = optJSONObject.optString("query_words");
             JSONArray optJSONArray = optJSONObject.optJSONArray("user_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.hjT = new ArrayList();
+                this.hvO = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     d dVar = new d();
                     dVar.parseJson(optJSONArray.optJSONObject(i2));
-                    dVar.userName = ex(optString, dVar.userName);
-                    this.hjT.add(dVar);
+                    dVar.userName = ew(optString, dVar.userName);
+                    this.hvO.add(dVar);
                 }
             }
         }
     }
 
-    private static String ex(String str, String str2) {
+    private static String ew(String str, String str2) {
         Matcher matcher = Pattern.compile(str, 2).matcher(str2);
         StringBuffer stringBuffer = new StringBuffer();
         while (matcher.find()) {
@@ -52,11 +52,11 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
         return stringBuffer.toString();
     }
 
-    public b cdi() {
-        return this.hjS;
+    public b cfY() {
+        return this.hvN;
     }
 
-    public List<d> cdj() {
-        return this.hjT;
+    public List<d> cfZ() {
+        return this.hvO;
     }
 }

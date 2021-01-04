@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.view.spanGroup;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.View;
@@ -9,17 +8,18 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import android.widget.TextView;
-import com.baidu.adp.base.h;
+import androidx.appcompat.widget.AppCompatEditText;
+import com.baidu.adp.base.i;
 import com.baidu.tbadk.core.data.u;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tbadk.core.view.spanGroup.a;
 import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SpanGroupEditText extends AppCompatEditText {
-    private EDIT_TEXT_TYPE fgJ;
-    private View.OnKeyListener fgK;
+    private EDIT_TEXT_TYPE fqs;
+    private View.OnKeyListener fqt;
     private long mForumId;
     private SpanGroupManager mSpanGroupManager;
 
@@ -30,7 +30,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public EDIT_TEXT_TYPE getType() {
-        return this.fgJ;
+        return this.fqs;
     }
 
     public SpanGroupEditText(Context context) {
@@ -43,13 +43,13 @@ public class SpanGroupEditText extends AppCompatEditText {
 
     public SpanGroupEditText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fgJ = EDIT_TEXT_TYPE.TYPE_DEFAULT;
+        this.fqs = EDIT_TEXT_TYPE.TYPE_DEFAULT;
         this.mForumId = 0L;
-        this.mSpanGroupManager = new SpanGroupManager(this, context instanceof h ? ((h) context).getUniqueId() : null);
+        this.mSpanGroupManager = new SpanGroupManager(this, context instanceof i ? ((i) context).getUniqueId() : null);
     }
 
     public void setType(EDIT_TEXT_TYPE edit_text_type) {
-        this.fgJ = edit_text_type;
+        this.fqs = edit_text_type;
     }
 
     public void p(CharSequence charSequence) {
@@ -61,25 +61,25 @@ public class SpanGroupEditText extends AppCompatEditText {
     @Override // android.widget.EditText, android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
         if (this.mSpanGroupManager != null) {
-            this.mSpanGroupManager.bwk();
+            this.mSpanGroupManager.byD();
         }
         super.setText(charSequence, bufferType);
     }
 
-    public void m(List<com.baidu.tieba.j.a> list, List<String> list2) {
-        if (!y.isEmpty(list)) {
+    public void o(List<com.baidu.tieba.j.a> list, List<String> list2) {
+        if (!x.isEmpty(list)) {
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
                     com.baidu.tieba.j.a aVar = list.get(i2);
                     String str = list2.get(i2);
-                    if (!this.mSpanGroupManager.CF(aVar.cMV())) {
+                    if (!this.mSpanGroupManager.CD(aVar.cQi())) {
                         TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                         tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
                         u a2 = u.a(tbLinkSpanGroup, aVar);
-                        a2.eFv = str;
-                        tbLinkSpanGroup.CG(a2.mContent);
+                        a2.ePl = str;
+                        tbLinkSpanGroup.CE(a2.mContent);
                         tbLinkSpanGroup.build();
                         this.mSpanGroupManager.a(tbLinkSpanGroup);
                     }
@@ -91,27 +91,27 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void rn(int i) {
-        com.baidu.tbadk.core.view.spanGroup.a rp = this.mSpanGroupManager.rp(i);
-        if (rp != null && getText() != null) {
-            this.mSpanGroupManager.be(rp.getStart(), rp.getEnd());
+    public void rz(int i) {
+        com.baidu.tbadk.core.view.spanGroup.a rB = this.mSpanGroupManager.rB(i);
+        if (rB != null && getText() != null) {
+            this.mSpanGroupManager.bc(rB.getStart(), rB.getEnd());
         }
     }
 
-    public void bwg() {
+    public void byz() {
         if (this.mSpanGroupManager != null) {
-            this.mSpanGroupManager.bwg();
+            this.mSpanGroupManager.byz();
         }
     }
 
-    public void bwh() {
+    public void byA() {
         if (this.mSpanGroupManager != null) {
-            this.mSpanGroupManager.bwh();
+            this.mSpanGroupManager.byA();
         }
     }
 
-    public void setOnSpanGroupChangedListener(a.InterfaceC0594a interfaceC0594a) {
-        this.mSpanGroupManager.b(interfaceC0594a);
+    public void setOnSpanGroupChangedListener(a.InterfaceC0585a interfaceC0585a) {
+        this.mSpanGroupManager.b(interfaceC0585a);
     }
 
     public long getForumId() {
@@ -122,7 +122,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         this.mForumId = j;
     }
 
-    @Override // android.support.v7.widget.AppCompatEditText, android.widget.TextView, android.view.View
+    @Override // androidx.appcompat.widget.AppCompatEditText, android.widget.TextView, android.view.View
     public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
         return new a(super.onCreateInputConnection(editorInfo), true);
     }
@@ -136,7 +136,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void setSoftKeyListener(View.OnKeyListener onKeyListener) {
-        this.fgK = onKeyListener;
+        this.fqt = onKeyListener;
     }
 
     /* loaded from: classes.dex */
@@ -147,7 +147,7 @@ public class SpanGroupEditText extends AppCompatEditText {
 
         @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
         public boolean sendKeyEvent(KeyEvent keyEvent) {
-            if (SpanGroupEditText.this.fgK == null || !SpanGroupEditText.this.fgK.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
+            if (SpanGroupEditText.this.fqt == null || !SpanGroupEditText.this.fqt.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
                 return super.sendKeyEvent(keyEvent);
             }
             return true;

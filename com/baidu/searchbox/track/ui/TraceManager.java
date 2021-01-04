@@ -7,13 +7,15 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.appframework.BdBoxActivityManager;
 import com.baidu.searchbox.appframework.GlobalActivityLifecycle;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
-import com.baidu.searchbox.ugc.model.UgcConstant;
+import com.xiaomi.mipush.sdk.MiPushClient;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TraceManager {
     private static final String TO_BACKGROUND = "To background";
     private static final String TO_FOREGROUND = "To foreground";
@@ -87,7 +89,7 @@ public class TraceManager {
                     if (this.mTraceActivityCallbacks != null) {
                         this.mTraceActivityCallbacks.registerTraceFragment(activity);
                     }
-                    saveTraceInfo(activity, null, null, "register");
+                    saveTraceInfo(activity, null, null, MiPushClient.COMMAND_REGISTER);
                     return;
                 }
                 return;
@@ -100,7 +102,7 @@ public class TraceManager {
         return this.mIsRegistered;
     }
 
-    public void saveTraceInfo(Activity activity, Object obj, String str, String str2, String str3, String str4) {
+    public void saveTraceInfo(@NonNull Activity activity, @Nullable Object obj, @Nullable String str, @Nullable String str2, @Nullable String str3, @NonNull String str4) {
         TrackUI createTraceInfo;
         if (this.mIsRegistered && (createTraceInfo = createTraceInfo(activity, null, obj, str, str2, str3, str4)) != null) {
             Track.getInstance().addTrackUI(createTraceInfo);
@@ -124,7 +126,7 @@ public class TraceManager {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void saveTraceInfo(Activity activity, boolean z) {
+    public void saveTraceInfo(@NonNull Activity activity, boolean z) {
         if (this.mIsRegistered) {
             TrackUI createTraceInfo = createTraceInfo(activity, null, null, z ? TO_FOREGROUND : TO_BACKGROUND);
             if (createTraceInfo != null) {
@@ -137,11 +139,11 @@ public class TraceManager {
         }
     }
 
-    private TrackUI createTraceInfo(Activity activity, String str, Object obj, String str2) {
+    private TrackUI createTraceInfo(@NonNull Activity activity, @Nullable String str, @Nullable Object obj, @NonNull String str2) {
         return createTraceInfo(activity, str, obj, null, null, "native", str2);
     }
 
-    private TrackUI createTraceInfo(Activity activity, String str, Object obj, String str2, String str3, String str4, String str5) {
+    private TrackUI createTraceInfo(@NonNull Activity activity, @Nullable String str, @Nullable Object obj, @Nullable String str2, @Nullable String str3, @Nullable String str4, @NonNull String str5) {
         StringBuilder sb;
         String simpleName;
         Intent intent;
@@ -150,7 +152,7 @@ public class TraceManager {
         }
         long currentTimeMillis = System.currentTimeMillis();
         String name = activity.getClass().getName();
-        StringBuilder sb2 = new StringBuilder(UgcConstant.AT_RULE_TAG + Integer.toHexString(hashCode()));
+        StringBuilder sb2 = new StringBuilder("@" + Integer.toHexString(hashCode()));
         String activityToken = getActivityToken(activity);
         if (!TextUtils.isEmpty(activityToken)) {
             sb2.append("[token:").append(activityToken).append("]").toString();
@@ -166,7 +168,7 @@ public class TraceManager {
             sb = null;
         } else {
             str6 = obj.getClass().getName();
-            StringBuilder sb3 = new StringBuilder(UgcConstant.AT_RULE_TAG + Integer.toHexString(obj.hashCode()));
+            StringBuilder sb3 = new StringBuilder("@" + Integer.toHexString(obj.hashCode()));
             if (this.mOnFragmentListener != null) {
                 String onTrace = this.mOnFragmentListener.onTrace(obj);
                 if (!TextUtils.isEmpty(onTrace)) {
@@ -178,7 +180,7 @@ public class TraceManager {
         return new TrackUI(name, sb2.toString(), str6, sb == null ? null : sb.toString(), str2, str3, str4, currentTimeMillis, str5);
     }
 
-    public void setOnFragmentListener(OnFragmentTraceListener onFragmentTraceListener) {
+    public void setOnFragmentListener(@Nullable OnFragmentTraceListener onFragmentTraceListener) {
         this.mOnFragmentListener = onFragmentTraceListener;
     }
 }

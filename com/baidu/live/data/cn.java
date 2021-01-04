@@ -1,5 +1,9 @@
 package com.baidu.live.data;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class cn {
-    public int aTw;
+    public String webUrl;
+
+    public cn(String str) {
+        this.webUrl = str;
+    }
 }

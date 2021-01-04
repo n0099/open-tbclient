@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.app.NotificationManagerCompat;
+import androidx.core.app.NotificationManagerCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -15,84 +15,84 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MissionCustomDialogActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.be;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-    private ActiveCenterData exP;
-    private boolean exQ;
-    private boolean exR;
-    private boolean exS;
-    private final e exT;
-    private final f exU;
-    private final h exV;
-    private final a exW;
-    private final g exX;
-    private final c exY;
-    private final b exZ;
+    private ActiveCenterData eHe;
+    private boolean eHf;
+    private boolean eHg;
+    private boolean eHh;
+    private final e eHi;
+    private final f eHj;
+    private final h eHk;
+    private final a eHl;
+    private final g eHm;
+    private final c eHn;
+    private final b eHo;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class i {
-        private static q eyi = new q();
+        private static q eHw = new q();
     }
 
-    public static q bjk() {
-        return i.eyi;
+    public static q blA() {
+        return i.eHw;
     }
 
     private q() {
-        this.exQ = false;
-        this.exR = true;
-        this.exS = false;
-        this.exT = new e(12);
-        this.exU = new f(6);
-        this.exV = new h(10);
-        this.exW = new a(7);
-        this.exX = new g(5);
-        this.exY = new c(9);
-        this.exZ = new b(13);
-        if (com.baidu.tbadk.BdToken.c.biD().biK()) {
-            this.exR = com.baidu.tbadk.core.sharedPref.b.bsO().getBoolean("key_delete_mission_home_entrance", true);
+        this.eHf = false;
+        this.eHg = true;
+        this.eHh = false;
+        this.eHi = new e(12);
+        this.eHj = new f(6);
+        this.eHk = new h(10);
+        this.eHl = new a(7);
+        this.eHm = new g(5);
+        this.eHn = new c(9);
+        this.eHo = new b(13);
+        if (com.baidu.tbadk.BdToken.c.bkT().bla()) {
+            this.eHg = com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_delete_mission_home_entrance", true);
             return;
         }
-        this.exR = true;
-        com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("key_delete_mission_home_entrance", true);
+        this.eHg = true;
+        com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_delete_mission_home_entrance", true);
     }
 
-    public void bjl() {
-        if (!this.exS && com.baidu.tbadk.BdToken.c.biD().biG()) {
-            this.exS = true;
+    public void blB() {
+        if (!this.eHh && com.baidu.tbadk.BdToken.c.bkT().bkW()) {
+            this.eHh = true;
         }
     }
 
     public void a(ActiveCenterData activeCenterData) {
         if (activeCenterData != null) {
-            this.exP = activeCenterData;
-            Activity currentActivity = com.baidu.adp.base.a.lg().currentActivity();
+            this.eHe = activeCenterData;
+            Activity currentActivity = com.baidu.adp.base.b.kC().currentActivity();
             if (currentActivity != null && "MainTabActivity".equals(currentActivity.getClass().getSimpleName())) {
-                ex(currentActivity);
+                eQ(currentActivity);
             }
         }
     }
 
-    public void iF(boolean z) {
-        this.exQ = z;
+    public void ja(boolean z) {
+        this.eHf = z;
     }
 
-    public boolean bjm() {
-        return this.exR;
+    public boolean blC() {
+        return this.eHg;
     }
 
-    public ActiveCenterData bjn() {
-        return this.exP;
+    public ActiveCenterData blD() {
+        return this.eHe;
     }
 
-    public void bjo() {
-        if (this.exP != null && this.exP.mission != null) {
-            ActiveCenterData.ActiveCenterMissionData activeCenterMissionData = this.exP.mission;
+    public void blE() {
+        if (this.eHe != null && this.eHe.mission != null) {
+            ActiveCenterData.ActiveCenterMissionData activeCenterMissionData = this.eHe.mission;
             int i2 = activeCenterMissionData.active_id;
             int i3 = activeCenterMissionData.mission_id;
             JSONObject jSONObject = new JSONObject();
@@ -108,121 +108,121 @@ public class q {
         }
     }
 
-    public boolean bjp() {
-        return this.exP != null && this.exP.is_new_window;
+    public boolean blF() {
+        return this.eHe != null && this.eHe.is_new_window;
     }
 
-    public void ex(Context context) {
+    public void eQ(Context context) {
         if (isValid()) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MissionCustomDialogActivityConfig(context)));
-            bjr();
-            com.baidu.tbadk.core.sharedPref.b.bsO().putLong("pref_key_last_popup_time", System.currentTimeMillis());
-            TiebaStatic.log(new ar("c13742").al("obj_source", com.baidu.tbadk.BdToken.c.biD().biI() ? 2 : 1).al("obj_type", 1));
+            blH();
+            com.baidu.tbadk.core.sharedPref.b.bvq().putLong("pref_key_last_popup_time", System.currentTimeMillis());
+            TiebaStatic.log(new aq("c13742").an("obj_source", com.baidu.tbadk.BdToken.c.bkT().bkY() ? 2 : 1).an("obj_type", 1));
         }
     }
 
     private boolean isValid() {
-        return (this.exP == null || this.exP.mission == null || !bjp() || bjq() || this.exQ) ? false : true;
+        return (this.eHe == null || this.eHe.mission == null || !blF() || blG() || this.eHf) ? false : true;
     }
 
-    private boolean bjq() {
+    private boolean blG() {
         int i2;
-        if (bjn() != null && (i2 = bjn().win_jump_time) > 0) {
-            if (com.baidu.tbadk.BdToken.c.biD().biL()) {
-                return com.baidu.tbadk.core.sharedPref.b.bsO().getLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L) >= ((long) i2);
+        if (blD() != null && (i2 = blD().win_jump_time) > 0) {
+            if (com.baidu.tbadk.BdToken.c.bkT().blb()) {
+                return com.baidu.tbadk.core.sharedPref.b.bvq().getLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L) >= ((long) i2);
             }
-            com.baidu.tbadk.core.sharedPref.b.bsO().putLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L);
+            com.baidu.tbadk.core.sharedPref.b.bvq().putLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L);
             return false;
         }
         return true;
     }
 
-    private void bjr() {
-        com.baidu.tbadk.core.sharedPref.b.bsO().putLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, com.baidu.tbadk.core.sharedPref.b.bsO().getLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L) + 1);
+    private void blH() {
+        com.baidu.tbadk.core.sharedPref.b.bvq().putLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, com.baidu.tbadk.core.sharedPref.b.bvq().getLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L) + 1);
     }
 
-    public e bjs() {
-        return this.exT;
+    public e blI() {
+        return this.eHi;
     }
 
-    public f bjt() {
-        return this.exU;
+    public f blJ() {
+        return this.eHj;
     }
 
-    public h bju() {
-        return this.exV;
+    public h blK() {
+        return this.eHk;
     }
 
-    public a bjv() {
-        return this.exW;
+    public a blL() {
+        return this.eHl;
     }
 
-    public g bjw() {
-        return this.exX;
+    public g blM() {
+        return this.eHm;
     }
 
-    public c bjx() {
-        return this.exY;
+    public c blN() {
+        return this.eHn;
     }
 
-    public b bjy() {
-        return this.exZ;
+    public b blO() {
+        return this.eHo;
     }
 
     public void c(TbPageContext<?> tbPageContext) {
-        if (this.exP != null) {
-            int curTaskType = this.exP.getCurTaskType();
+        if (this.eHe != null) {
+            int curTaskType = this.eHe.getCurTaskType();
             if (curTaskType == 12) {
-                bjs().e(tbPageContext);
-                bjs().bjz();
+                blI().e(tbPageContext);
+                blI().blP();
             } else if (curTaskType == 6) {
-                bjt().e(tbPageContext);
+                blJ().e(tbPageContext);
             } else if (curTaskType == 10) {
-                bju().e(tbPageContext);
-                bju().bjz();
+                blK().e(tbPageContext);
+                blK().blP();
             } else if (curTaskType == 7) {
-                bjv().e(tbPageContext);
+                blL().e(tbPageContext);
             } else if (curTaskType == 5) {
-                bjw().e(tbPageContext);
+                blM().e(tbPageContext);
             } else if (curTaskType == 9) {
-                bjx().e(tbPageContext);
+                blN().e(tbPageContext);
             } else if (curTaskType == 13) {
-                bjy().e(tbPageContext);
+                blO().e(tbPageContext);
             }
         }
     }
 
     /* loaded from: classes.dex */
     public class e extends d {
-        private s eyf;
+        private s eHt;
 
         public e(int i) {
             super(i);
-            this.eyf = new s();
+            this.eHt = new s();
         }
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (this.eyf != null && q.this.exP != null) {
-                bf.bua().b(tbPageContext, new String[]{q.this.exP.mission.final_reward_url});
+            if (this.eHt != null && q.this.eHe != null) {
+                be.bwu().b(tbPageContext, new String[]{q.this.eHe.mission.final_reward_url});
             }
         }
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void complete() {
-            if (this.eyf != null && q.this.exP != null) {
-                this.eyf.bjD();
+            if (this.eHt != null && q.this.eHe != null) {
+                this.eHt.blT();
             }
         }
     }
 
     /* loaded from: classes.dex */
     public class f extends d {
-        private boolean eyg;
+        private boolean eHu;
 
         public f(int i) {
             super(i);
-            this.eyg = false;
+            this.eHu = false;
         }
 
         public boolean areNotificationsEnabled() {
@@ -246,9 +246,9 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         public void complete() {
-            if (areNotificationsEnabled() && !this.eyg) {
-                q.this.bjo();
-                this.eyg = true;
+            if (areNotificationsEnabled() && !this.eHu) {
+                q.this.blE();
+                this.eHu = true;
             }
         }
     }
@@ -261,17 +261,17 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(final TbPageContext<?> tbPageContext) {
-            com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tbadk.BdToken.q.h.1
+            com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tbadk.BdToken.q.h.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.tbadk.core.e.b.A(tbPageContext.getPageActivity(), 1);
+                    com.baidu.tbadk.core.e.b.B(tbPageContext.getPageActivity(), 1);
                 }
             }, 100L);
         }
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void complete() {
-            q.this.bjo();
+            q.this.blE();
         }
     }
 
@@ -283,8 +283,8 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (q.this.exP != null && q.this.exP.mission != null) {
-                bf.bua().b(tbPageContext, new String[]{q.this.exP.mission.final_reward_url});
+            if (q.this.eHe != null && q.this.eHe.mission != null) {
+                be.bwu().b(tbPageContext, new String[]{q.this.eHe.mission.final_reward_url});
             }
         }
 
@@ -301,8 +301,8 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (q.this.exP != null && q.this.exP.mission != null) {
-                bf.bua().b(tbPageContext, new String[]{q.this.exP.mission.final_reward_url});
+            if (q.this.eHe != null && q.this.eHe.mission != null) {
+                be.bwu().b(tbPageContext, new String[]{q.this.eHe.mission.final_reward_url});
             }
         }
 
@@ -319,10 +319,10 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(final TbPageContext<?> tbPageContext) {
-            com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tbadk.BdToken.q.c.1
+            com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tbadk.BdToken.q.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.tbadk.core.e.b.A(tbPageContext.getPageActivity(), 1);
+                    com.baidu.tbadk.core.e.b.B(tbPageContext.getPageActivity(), 1);
                 }
             }, 100L);
         }
@@ -340,8 +340,8 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (q.this.exP != null && q.this.exP.mission != null) {
-                bf.bua().b(tbPageContext, new String[]{q.this.exP.mission.final_reward_url});
+            if (q.this.eHe != null && q.this.eHe.mission != null) {
+                be.bwu().b(tbPageContext, new String[]{q.this.eHe.mission.final_reward_url});
             }
         }
 
@@ -352,30 +352,30 @@ public class q {
 
     /* loaded from: classes.dex */
     public abstract class d {
-        private int eyd;
+        private int eHs;
 
         protected abstract void complete();
 
         protected abstract void d(TbPageContext<?> tbPageContext);
 
         public d(int i) {
-            this.eyd = i;
+            this.eHs = i;
         }
 
         public void e(TbPageContext<?> tbPageContext) {
-            if (bjA()) {
+            if (blQ()) {
                 d(tbPageContext);
             }
         }
 
-        public void bjz() {
-            if (bjA()) {
+        public void blP() {
+            if (blQ()) {
                 complete();
             }
         }
 
-        protected boolean bjA() {
-            return (q.this.exP == null || q.this.exP.mission == null || q.this.exP.getCurTaskType() != this.eyd) ? false : true;
+        protected boolean blQ() {
+            return (q.this.eHe == null || q.this.eHe.mission == null || q.this.eHe.getCurTaskType() != this.eHs) ? false : true;
         }
     }
 }

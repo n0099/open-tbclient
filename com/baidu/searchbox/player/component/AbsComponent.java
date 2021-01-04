@@ -2,12 +2,12 @@ package com.baidu.searchbox.player.component;
 
 import android.content.Context;
 import android.os.Message;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.layer.ComponentLayer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsComponent implements IComponent {
     protected ComponentLayer mParent;
 

@@ -10,41 +10,46 @@ import com.sdk.base.framework.a.i;
 import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.h.g;
-/* loaded from: classes9.dex */
+import com.tencent.connect.common.Constants;
+/* loaded from: classes15.dex */
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4285a = a.class.getName();
-    private static Boolean b = Boolean.valueOf(f.b);
+    private static final String f13170a = a.class.getName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static Boolean f13171b = Boolean.valueOf(f.f13118b);
     private CallBack<T> c;
     private Context d;
     private a<T>.e e;
     private com.sdk.base.framework.a.f f;
     private int g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public final class e implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Handler f4293a = new Handler(Looper.getMainLooper());
-        private long b;
+        private Handler f13184a = new Handler(Looper.getMainLooper());
+
+        /* renamed from: b  reason: collision with root package name */
+        private long f13185b;
 
         e(long j) {
-            this.b = j;
+            this.f13185b = j;
         }
 
         public final void a() {
-            this.f4293a.postDelayed(this, this.b);
+            this.f13184a.postDelayed(this, this.f13185b);
         }
 
         public final void b() {
-            this.f4293a.removeCallbacks(this);
+            this.f13184a.removeCallbacks(this);
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             if (a.this.f != null) {
-                com.sdk.base.framework.a.a.c.c(a.f4285a, "超时，已取消请求", a.b);
+                com.sdk.base.framework.a.a.c.c(a.f13170a, "超时，已取消请求", a.f13171b);
                 a.this.f.a();
             }
             a.this.a(1, PayHelper.STATUS_TIMEOUT_DESC, 101005, null, com.sdk.base.framework.f.g.a.b().a());
@@ -91,7 +96,7 @@ public class a<T> {
     }
 
     public final void a(int i) {
-        String b2 = com.sdk.base.framework.a.a.a.b(this.d, i, g.b.a());
+        String b2 = com.sdk.base.framework.a.a.a.b(this.d, i, g.f13148b.a());
         if (com.sdk.base.framework.a.a.c.b(b2).booleanValue()) {
             a(0, "成功", 100, com.sdk.base.framework.a.a.a.a(b2), com.sdk.base.framework.a.a.a.b(b2));
         } else if (!com.sdk.base.framework.f.j.b.a(this.d)) {
@@ -102,8 +107,8 @@ public class a<T> {
             DataInfo dataInfo = new DataInfo();
             dataInfo.putData("serviceType", Integer.valueOf(i));
             dataInfo.putData("privateIp", com.sdk.base.framework.f.a.a.a());
-            dataInfo.putData("newVersion", "10");
-            this.f = aVar.a(aVar.b, "/dro/netm/v1.0/qc", dataInfo, aVar.a(), 0, i.b);
+            dataInfo.putData("newVersion", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+            this.f = aVar.a(aVar.f13122b, "/dro/netm/v1.0/qc", dataInfo, aVar.a(), 0, i.f13101b);
         }
     }
 

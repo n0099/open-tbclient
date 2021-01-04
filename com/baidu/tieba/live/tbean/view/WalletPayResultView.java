@@ -3,7 +3,6 @@ package com.baidu.tieba.live.tbean.view;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.annotation.Nullable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
@@ -13,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.sdk.a;
@@ -22,7 +22,7 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tbadk.widget.VCenterTextSpan;
 import com.baidu.tieba.live.tbean.BuyTBeanStringUlti;
 import com.baidu.tieba.live.tbean.data.CustomData;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class WalletPayResultView extends LinearLayout {
     private Context mContext;
     private TextView mIconInfoTv;

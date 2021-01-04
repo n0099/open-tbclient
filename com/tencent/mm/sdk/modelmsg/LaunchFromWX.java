@@ -3,10 +3,10 @@ package com.tencent.mm.sdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class LaunchFromWX {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class Req extends BaseReq {
         public Req() {
         }
@@ -26,7 +26,7 @@ public class LaunchFromWX {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class Resp extends BaseResp {
         public Resp() {
         }

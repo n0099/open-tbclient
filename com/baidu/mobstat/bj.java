@@ -13,8 +13,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -31,6 +29,9 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.au;
 import com.baidu.mobstat.bt;
@@ -44,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class bj {
     public static View a(Activity activity) {
         Window window;
@@ -140,7 +141,7 @@ public class bj {
             if (!"android.widget".equals(a2) && !"android.view".equals(a2)) {
                 Class<?> cls = null;
                 try {
-                    cls = Class.forName("android.support.v7.widget.RecyclerView");
+                    cls = Class.forName("androidx.recyclerview.widget.RecyclerView");
                 } catch (Exception e) {
                 }
                 if (cls != null && cls.isAssignableFrom(view.getClass())) {
@@ -184,6 +185,8 @@ public class bj {
     }
 
     public static String a(View view, View view2) {
+        int i;
+        int i2 = 0;
         if (view == null) {
             return String.valueOf(0);
         }
@@ -198,21 +201,27 @@ public class bj {
         if (cls == null) {
             return String.valueOf(0);
         }
-        String b = b(cls);
-        if (TextUtils.isEmpty(b)) {
+        String b2 = b(cls);
+        if (TextUtils.isEmpty(b2)) {
             return String.valueOf(0);
         }
         ViewGroup viewGroup = (ViewGroup) parent;
-        int i = 0;
-        for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-            View childAt = viewGroup.getChildAt(i2);
+        int i3 = 0;
+        while (true) {
+            i = i2;
+            if (i3 >= viewGroup.getChildCount()) {
+                break;
+            }
+            View childAt = viewGroup.getChildAt(i3);
             if (childAt != null) {
                 if (childAt == view) {
                     break;
-                } else if (childAt.getClass() != null && b.equals(b(childAt.getClass()))) {
+                } else if (childAt.getClass() != null && b2.equals(b(childAt.getClass()))) {
                     i++;
                 }
             }
+            i2 = i;
+            i3++;
         }
         return String.valueOf(i);
     }
@@ -258,7 +267,6 @@ public class bj {
     public static String c(View view) {
         ViewParent parent;
         String str;
-        int i = 0;
         if (view == null || (parent = view.getParent()) == null || !(parent instanceof ViewGroup)) {
             return "";
         }
@@ -269,7 +277,7 @@ public class bj {
         ViewGroup viewGroup = (ViewGroup) parent;
         Class<?> cls = null;
         try {
-            cls = Class.forName("android.support.v4.view.ViewPager");
+            cls = Class.forName("androidx.viewpager.widget.ViewPager");
         } catch (ClassNotFoundException e) {
         }
         if (cls == null || !cls.isAssignableFrom(viewGroup.getClass())) {
@@ -279,6 +287,7 @@ public class bj {
             ViewPager viewPager = (ViewPager) viewGroup;
             ArrayList arrayList = new ArrayList();
             int childCount = viewPager.getChildCount();
+            int i = 0;
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = viewPager.getChildAt(i2);
                 arrayList.add(childAt);
@@ -328,31 +337,33 @@ public class bj {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [480=4] */
     private static byte[] c(Bitmap bitmap) {
-        ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;
+        ByteArrayOutputStream byteArrayOutputStream;
+        ByteArrayOutputStream byteArrayOutputStream2;
         byte[] bArr = null;
         if (bitmap != null) {
             try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
+                byteArrayOutputStream2 = new ByteArrayOutputStream();
                 try {
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                    bArr = byteArrayOutputStream.toByteArray();
-                    if (byteArrayOutputStream != null) {
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream2);
+                    bArr = byteArrayOutputStream2.toByteArray();
+                    if (byteArrayOutputStream2 != null) {
                         try {
-                            byteArrayOutputStream.close();
+                            byteArrayOutputStream2.close();
                         } catch (Exception e) {
                         }
                     }
                 } catch (Exception e2) {
-                    if (byteArrayOutputStream != null) {
+                    if (byteArrayOutputStream2 != null) {
                         try {
-                            byteArrayOutputStream.close();
+                            byteArrayOutputStream2.close();
                         } catch (Exception e3) {
                         }
                     }
                     return bArr;
                 } catch (Throwable th2) {
                     th = th2;
+                    byteArrayOutputStream = byteArrayOutputStream2;
                     if (byteArrayOutputStream != null) {
                         try {
                             byteArrayOutputStream.close();
@@ -362,10 +373,10 @@ public class bj {
                     throw th;
                 }
             } catch (Exception e5) {
-                byteArrayOutputStream = null;
+                byteArrayOutputStream2 = null;
             } catch (Throwable th3) {
-                byteArrayOutputStream = null;
                 th = th3;
+                byteArrayOutputStream = null;
             }
         }
         return bArr;
@@ -656,7 +667,7 @@ public class bj {
     private static String b(String str) {
         String a2 = ay.a().a(str);
         if (TextUtils.isEmpty(a2)) {
-            a2 = au.a().a(str, au.a.f2565a);
+            a2 = au.a().a(str, au.a.f3750a);
         }
         if (a2 == null) {
             return "";
@@ -665,7 +676,7 @@ public class bj {
     }
 
     public static String a(String str) {
-        String a2 = au.a().a(str, au.a.b);
+        String a2 = au.a().a(str, au.a.f3751b);
         if (a2 == null) {
             return "";
         }
@@ -738,7 +749,7 @@ public class bj {
         if (!"android.widget".equals(a2) && !"android.view".equals(a2)) {
             Class<?> cls = null;
             try {
-                cls = Class.forName("android.support.v7.widget.RecyclerView");
+                cls = Class.forName("androidx.recyclerview.widget.RecyclerView");
             } catch (Exception e) {
             }
             if (cls != null && cls.isAssignableFrom(view.getClass())) {
@@ -836,7 +847,7 @@ public class bj {
         }
         Class<?> cls = null;
         try {
-            cls = Class.forName("android.support.v7.widget.RecyclerView");
+            cls = Class.forName("androidx.recyclerview.widget.RecyclerView");
         } catch (Exception e) {
         }
         if (cls == null || !cls.isAssignableFrom(view.getClass())) {
@@ -885,8 +896,8 @@ public class bj {
         return height;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0032  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0089  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0036  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0090  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -894,7 +905,10 @@ public class bj {
         int i;
         int i2;
         int i3;
+        RecyclerView recyclerView;
         int i4;
+        int i5;
+        int i6;
         ArrayList<Integer> arrayList = new ArrayList<>();
         if (view == null) {
             arrayList.add(0);
@@ -904,58 +918,61 @@ public class bj {
         int width = view.getWidth();
         int height = view.getHeight();
         if (view instanceof WebView) {
-            i2 = view.getScrollX();
-            i3 = view.getScrollY();
+            int scrollX = view.getScrollX();
+            i2 = view.getScrollY();
+            i3 = scrollX;
         } else if (view instanceof ScrollView) {
             ScrollView scrollView = (ScrollView) view;
             if (scrollView.getChildCount() > 0) {
-                i2 = scrollView.getScrollX();
-                i3 = scrollView.getScrollY();
+                i5 = scrollView.getScrollX();
+                i4 = scrollView.getScrollY();
+            } else {
+                i4 = 0;
+                i5 = 0;
             }
-            i3 = 0;
-            i2 = 0;
+            i2 = i4;
+            i3 = i5;
         } else if (view instanceof ListView) {
-            i3 = b((ListView) view);
-            i2 = 0;
-        } else if (view instanceof GridView) {
-            i3 = b((GridView) view);
-            i2 = 0;
-        } else {
-            if (q(view)) {
-                try {
-                    RecyclerView recyclerView = (RecyclerView) view;
-                    i = recyclerView.computeHorizontalScrollOffset();
-                    try {
-                        i2 = i;
-                        i3 = recyclerView.computeVerticalScrollOffset();
-                    } catch (Exception e) {
-                        i2 = i;
-                        i3 = 0;
-                        i4 = i2 + width;
-                        int i5 = i3 + height;
-                        if (i4 <= 0) {
-                        }
-                        if (i5 > 0) {
-                        }
-                        arrayList.add(Integer.valueOf(i4));
-                        arrayList.add(Integer.valueOf(r1));
-                        return arrayList;
-                    }
-                } catch (Exception e2) {
-                    i = 0;
-                }
-            }
+            i2 = b((ListView) view);
             i3 = 0;
+        } else if (view instanceof GridView) {
+            i2 = b((GridView) view);
+            i3 = 0;
+        } else if (q(view)) {
+            try {
+                recyclerView = (RecyclerView) view;
+                i = recyclerView.computeHorizontalScrollOffset();
+            } catch (Exception e) {
+                i = 0;
+            }
+            try {
+                i2 = recyclerView.computeVerticalScrollOffset();
+                i3 = i;
+            } catch (Exception e2) {
+                i2 = 0;
+                i3 = i;
+                i6 = width + i3;
+                int i7 = height + i2;
+                if (i6 <= 0) {
+                }
+                if (i7 > 0) {
+                }
+                arrayList.add(Integer.valueOf(i6));
+                arrayList.add(Integer.valueOf(r1));
+                return arrayList;
+            }
+        } else {
             i2 = 0;
+            i3 = 0;
         }
-        i4 = i2 + width;
-        int i52 = i3 + height;
-        if (i4 <= 0) {
-            i4 = 0;
+        i6 = width + i3;
+        int i72 = height + i2;
+        if (i6 <= 0) {
+            i6 = 0;
         }
-        int i6 = i52 > 0 ? i52 : 0;
-        arrayList.add(Integer.valueOf(i4));
+        int i8 = i72 > 0 ? i72 : 0;
         arrayList.add(Integer.valueOf(i6));
+        arrayList.add(Integer.valueOf(i8));
         return arrayList;
     }
 
@@ -1158,7 +1175,7 @@ public class bj {
             return "";
         }
         String str = activityInfo.packageName;
-        if ("android".equals(str)) {
+        if (HttpConstants.OS_TYPE_VALUE.equals(str)) {
             return "";
         }
         if (TextUtils.isEmpty(str)) {

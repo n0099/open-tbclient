@@ -1,20 +1,22 @@
 package com.baidu.mapsdkplatform.comapi.commonutils.a;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2210a;
-    private int b;
+    private int f3144a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f3145b;
     private int c;
 
     public a(int i, int i2, int i3) {
-        this.f2210a = i;
-        this.b = i2;
+        this.f3144a = i;
+        this.f3145b = i2;
         this.c = i3;
     }
 
     public int a() {
-        return this.b;
+        return this.f3145b;
     }
 
     public void a(int i) {
@@ -26,6 +28,6 @@ public class a {
     }
 
     public String toString() {
-        return "DownloadThreadInfo{id=" + this.f2210a + ", start=" + this.b + ", end=" + this.c + '}';
+        return "DownloadThreadInfo{id=" + this.f3144a + ", start=" + this.f3145b + ", end=" + this.c + '}';
     }
 }

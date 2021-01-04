@@ -3,13 +3,15 @@ package com.baidu.ala.utils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.kwad.sdk.collector.AppStatusRules;
+import com.kwad.sdk.core.response.model.SdkConfigData;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class AlaStringHelper {
     public static String numFormatOverWanNaForAudienceNum(long j) {
         if (j > 99990000) {
@@ -63,7 +65,7 @@ public class AlaStringHelper {
         }
         int i2 = i % 60;
         int i3 = (i / 60) % 60;
-        int i4 = i / 3600;
+        int i4 = i / SdkConfigData.DEFAULT_REQUEST_INTERVAL;
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb, Locale.getDefault());
         sb.setLength(0);
@@ -117,13 +119,13 @@ public class AlaStringHelper {
 
     public static String getGiftTimeLimitDesc(long j, long j2) {
         long j3 = j2 - j;
-        if (j3 < 60000) {
+        if (j3 < AppStatusRules.DEFAULT_GRANULARITY) {
             return TbadkCoreApplication.getInst().getResources().getString(R.string.ala_time_limited_gift_last_one_minute);
         }
         StringBuilder sb = new StringBuilder(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_left_prefix));
-        long j4 = 60 * 60000;
+        long j4 = 60 * AppStatusRules.DEFAULT_GRANULARITY;
         if (j3 < j4) {
-            return sb.append((int) (j3 / 60000)).append(TbadkCoreApplication.getInst().getResources().getString(R.string.time_minute)).toString();
+            return sb.append((int) (j3 / AppStatusRules.DEFAULT_GRANULARITY)).append(TbadkCoreApplication.getInst().getResources().getString(R.string.time_minute)).toString();
         } else if (j3 < j4 * 24) {
             return sb.append(j3 / j4).append(TbadkCoreApplication.getInst().getResources().getString(R.string.time_hour)).toString();
         } else {
@@ -156,7 +158,7 @@ public class AlaStringHelper {
         } else {
             String string3 = TbadkCoreApplication.getInst().getResources().getString(R.string.day);
             sb.append((int) (j / 86400)).append(string3);
-            int i3 = ((int) (j % 86400)) / 3600;
+            int i3 = ((int) (j % 86400)) / SdkConfigData.DEFAULT_REQUEST_INTERVAL;
             if (i3 > 0) {
                 sb.append(i3).append(TbadkCoreApplication.getInst().getResources().getString(R.string.time_hour));
             }

@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.a.ae;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements d.a<T>, rx.e<T>, rx.k {
     static final PublishProducer<?>[] EMPTY = new PublishProducer[0];
     static final PublishProducer<?>[] TERMINATED = new PublishProducer[0];
@@ -34,7 +34,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
         this.prefetch = i;
         this.delayError = z;
-        if (ae.eGo()) {
+        if (ae.eOw()) {
             this.queue = new rx.internal.util.a.q(i);
         } else {
             this.queue = new rx.internal.util.atomic.c(i);
@@ -100,8 +100,8 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                 PublishProducer<T>[] publishProducerArr = this.subscribers;
                 int length = publishProducerArr.length;
                 int length2 = publishProducerArr.length;
-                long j = Long.MAX_VALUE;
                 int i2 = 0;
+                long j = Long.MAX_VALUE;
                 while (i2 < length2) {
                     i2++;
                     j = Math.min(j, publishProducerArr[i2].get());
@@ -263,32 +263,32 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class a<T> extends rx.j<T> {
-        final OnSubscribePublishMulticast<T> pQB;
+        final OnSubscribePublishMulticast<T> qsd;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.pQB = onSubscribePublishMulticast;
+            this.qsd = onSubscribePublishMulticast;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.pQB.onNext(t);
+            this.qsd.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.pQB.onError(th);
+            this.qsd.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.pQB.onCompleted();
+            this.qsd.onCompleted();
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.pQB.setProducer(fVar);
+            this.qsd.setProducer(fVar);
         }
     }
 
@@ -307,7 +307,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class PublishProducer<T> extends AtomicLong implements rx.f, rx.k {
         private static final long serialVersionUID = 960704844171597367L;
         final rx.j<? super T> actual;

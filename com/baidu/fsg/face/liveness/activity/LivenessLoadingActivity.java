@@ -24,14 +24,16 @@ import com.baidu.sapi2.biometrics.liveness.R;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LivenessLoadingActivity extends LivenessBaseActivity {
     public static final String CLOSE_LOADING_ACTION = "com.baidu.sapi2.biometrics.liveness.close.loading";
     public static final String TAG = "LivenessLoadingActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    private LoadingDialog f1610a;
-    private i b;
+    private LoadingDialog f2178a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private i f2179b;
     private g c;
     private LivenessRecogDTO d;
     private boolean e;
@@ -57,8 +59,8 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
             finish();
         }
         if (this.d.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
-            this.b.execBean();
-            RimStatisticsUtil.onEventStart(d.b);
+            this.f2179b.execBean();
+            RimStatisticsUtil.onEventStart(d.f2351b);
             LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态开始  ");
             return;
         }
@@ -84,7 +86,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
         int optInt;
         switch (i) {
             case 1:
-                RimStatisticsUtil.onEventEndWithValue(d.b, 0, this.livenessRecogDTO != null ? this.livenessRecogDTO.getSpno() : "");
+                RimStatisticsUtil.onEventEndWithValue(d.f2351b, 0, this.livenessRecogDTO != null ? this.livenessRecogDTO.getSpno() : "");
                 LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态结束  0");
                 if (!TextUtils.isEmpty(str)) {
                     try {
@@ -152,7 +154,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
         switch (i) {
             case 1:
                 c();
-                RimStatisticsUtil.onEventEndWithValue(d.b, i2, this.livenessRecogDTO != null ? this.livenessRecogDTO.getSpno() : "");
+                RimStatisticsUtil.onEventEndWithValue(d.f2351b, i2, this.livenessRecogDTO != null ? this.livenessRecogDTO.getSpno() : "");
                 LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态结束  " + i2);
                 LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                 livenessRecogResult.setResultCode(i2);
@@ -184,8 +186,8 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     }
 
     private void a() {
-        this.b = new i(this);
-        this.b.setResponseCallback(this);
+        this.f2179b = new i(this);
+        this.f2179b.setResponseCallback(this);
         this.c = new g(this);
         this.c.setResponseCallback(this);
         this.d = (LivenessRecogDTO) c.a().a("request_data");
@@ -197,19 +199,19 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     }
 
     private void a(Context context) {
-        if (this.f1610a == null) {
-            this.f1610a = new LoadingDialog(context);
-            this.f1610a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-            this.f1610a.setCancelable(false);
+        if (this.f2178a == null) {
+            this.f2178a = new LoadingDialog(context);
+            this.f2178a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
+            this.f2178a.setCancelable(false);
         }
-        if ((context instanceof Activity) && isUseable((Activity) context) && !this.f1610a.isShowing()) {
-            this.f1610a.show();
+        if ((context instanceof Activity) && isUseable((Activity) context) && !this.f2178a.isShowing()) {
+            this.f2178a.show();
         }
     }
 
     private void c() {
-        if (isUseable(this) && this.f1610a.isShowing()) {
-            this.f1610a.dismiss();
+        if (isUseable(this) && this.f2178a.isShowing()) {
+            this.f2178a.dismiss();
             finish();
         }
     }

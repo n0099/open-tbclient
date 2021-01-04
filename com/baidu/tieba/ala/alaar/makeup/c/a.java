@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.alaar.makeup.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends c<Integer> {
     public a() {
     }
@@ -11,8 +11,8 @@ public class a extends c<Integer> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.alaar.makeup.c.b
-    /* renamed from: bQk */
-    public Integer bQl() {
-        return Integer.valueOf(super.aC(getKey(), bQm().intValue()));
+    /* renamed from: bSK */
+    public Integer bSL() {
+        return Integer.valueOf(super.aE(getKey(), getDefaultValue().intValue()));
     }
 }

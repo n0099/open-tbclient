@@ -5,20 +5,22 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.text.TextUtils;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class i implements BaseNotifyDataAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Resources f4471a;
-    private String b;
+    private Resources f13985a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f13986b;
     private String c;
     private String d;
 
     @Override // com.vivo.push.util.BaseNotifyDataAdapter
     public final void init(Context context) {
         String replace;
-        this.b = context.getPackageName();
-        this.f4471a = context.getResources();
+        this.f13986b = context.getPackageName();
+        this.f13985a = context.getResources();
         this.c = k.a();
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
@@ -43,7 +45,7 @@ public final class i implements BaseNotifyDataAdapter {
                 break;
             } else {
                 String str2 = "vivo_push_ard" + str + "_notifyicon";
-                int identifier = this.f4471a.getIdentifier(str2, "drawable", this.b);
+                int identifier = this.f13985a.getIdentifier(str2, "drawable", this.f13986b);
                 if (identifier > 0) {
                     p.d("DefaultNotifyDataAdapter", "get notify icon : " + str2);
                     i = identifier;
@@ -70,7 +72,7 @@ public final class i implements BaseNotifyDataAdapter {
                 break;
             } else {
                 String str2 = "vivo_push_ard" + str + "_icon";
-                int identifier = this.f4471a.getIdentifier(str2, "drawable", this.b);
+                int identifier = this.f13985a.getIdentifier(str2, "drawable", this.f13986b);
                 if (identifier > 0) {
                     p.d("DefaultNotifyDataAdapter", "get small icon : " + str2);
                     i = identifier;
@@ -85,24 +87,24 @@ public final class i implements BaseNotifyDataAdapter {
 
     private int a(String str) {
         while (!TextUtils.isEmpty(str)) {
-            int identifier = this.f4471a.getIdentifier("vivo_push_rom" + str + "_notifyicon", "drawable", this.b);
+            int identifier = this.f13985a.getIdentifier("vivo_push_rom" + str + "_notifyicon", "drawable", this.f13986b);
             if (identifier > 0) {
                 return identifier;
             }
             str = str.substring(0, str.length() - 1);
         }
-        return this.f4471a.getIdentifier("vivo_push_notifyicon", "drawable", this.b);
+        return this.f13985a.getIdentifier("vivo_push_notifyicon", "drawable", this.f13986b);
     }
 
     private int b(String str) {
         while (!TextUtils.isEmpty(str)) {
-            int identifier = this.f4471a.getIdentifier("vivo_push_rom" + str + "_icon", "drawable", this.b);
+            int identifier = this.f13985a.getIdentifier("vivo_push_rom" + str + "_icon", "drawable", this.f13986b);
             if (identifier > 0) {
                 return identifier;
             }
             str = str.substring(0, str.length() - 1);
         }
-        return this.f4471a.getIdentifier("vivo_push_icon", "drawable", this.b);
+        return this.f13985a.getIdentifier("vivo_push_icon", "drawable", this.f13986b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyDataAdapter

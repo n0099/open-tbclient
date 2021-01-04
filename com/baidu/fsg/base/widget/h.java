@@ -1,22 +1,22 @@
 package com.baidu.fsg.base.widget;
 
 import android.text.Editable;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SafeKeyBoardPopupWindow f1556a;
+    final /* synthetic */ SafeKeyBoardPopupWindow f2091a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
-        this.f1556a = safeKeyBoardPopupWindow;
+        this.f2091a = safeKeyBoardPopupWindow;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        int selectionStart = this.f1556a.mySafeEditText.getSelectionStart();
-        int selectionEnd = this.f1556a.mySafeEditText.getSelectionEnd();
-        Editable text = this.f1556a.mySafeEditText.getText();
+        int selectionStart = this.f2091a.mySafeEditText.getSelectionStart();
+        int selectionEnd = this.f2091a.mySafeEditText.getSelectionEnd();
+        Editable text = this.f2091a.mySafeEditText.getText();
         if (selectionStart >= 0) {
             if (selectionStart < selectionEnd) {
                 text.replace(selectionStart, selectionEnd, "", 0, 0);

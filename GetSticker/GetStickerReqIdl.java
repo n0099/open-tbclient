@@ -2,7 +2,7 @@ package GetSticker;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public final class GetStickerReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
@@ -16,7 +16,7 @@ public final class GetStickerReqIdl extends Message {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<GetStickerReqIdl> {
         public DataReq data;
 

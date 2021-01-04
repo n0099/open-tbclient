@@ -3,55 +3,55 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a eQL = null;
-    public static int eQM = 0;
+    private static a faK = null;
+    public static int faL = 0;
 
-    public static void A(Context context, int i) {
-        if (eQL != null) {
-            eQL.A(context, i);
+    public static void B(Context context, int i) {
+        if (faK != null) {
+            faK.B(context, i);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (eQL != null) {
-            eQL.c(context, i, z);
+        if (faK != null) {
+            faK.c(context, i, z);
         }
     }
 
-    public static void eD(Context context) {
-        if (eQL != null) {
-            eQL.eD(context);
+    public static void eW(Context context) {
+        if (faK != null) {
+            faK.eW(context);
         }
     }
 
     public static void d(Context context, int i, boolean z) {
-        if (eQL != null) {
-            eQL.d(context, i, z);
+        if (faK != null) {
+            faK.d(context, i, z);
         }
     }
 
-    public static Class<?> bsE() {
-        if (eQL == null) {
+    public static Class<?> bvg() {
+        if (faK == null) {
             return null;
         }
-        return eQL.bsE();
+        return faK.bvg();
     }
 
-    public static String bsF() {
-        if (eQL == null) {
+    public static String bvh() {
+        if (faK == null) {
             return null;
         }
-        return eQL.bsF();
+        return faK.bvh();
     }
 
     public static void a(a aVar) {
-        eQL = aVar;
+        faK = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (eQL == null) {
+        if (faK == null) {
             return -1;
         }
-        return eQL.getCurrentTabType();
+        return faK.getCurrentTabType();
     }
 }

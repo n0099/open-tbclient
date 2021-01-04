@@ -1,111 +1,210 @@
 package com.baidu.live.utils;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.ViewConfiguration;
-import android.view.WindowManager;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.tbadk.extraparams.interfaces.IExtraParams;
-import com.baidu.live.tbadk.widget.TbImageView;
-import java.lang.reflect.Method;
-import org.apache.http.HttpHost;
-/* loaded from: classes4.dex */
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.adp.framework.message.Message;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.liveroom.messages.AlaMGetLiveStatusHttpResponseMessage;
+import com.baidu.live.tbadk.core.util.ListUtils;
+import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
 public class l {
-    private static boolean hasNavBar(Context context) {
-        Resources resources = context.getResources();
-        int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
-        if (identifier != 0) {
-            boolean z = resources.getBoolean(identifier);
-            String navBarOverride = getNavBarOverride();
-            if ("1".equals(navBarOverride)) {
-                return false;
-            }
-            if ("0".equals(navBarOverride)) {
-                return true;
-            }
-            return z;
-        }
-        return ViewConfiguration.get(context).hasPermanentMenuKey() ? false : true;
-    }
-
-    private static String getNavBarOverride() {
+    public static void c(int i, long j, long j2) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_SCROLL_SWITCH, UbcStatConstant.ContentType.UBC_TYPE_SCROLL_PAGE, "liveroom", UbcStatConstant.Value.EFFECT_SWITCH_ROOM);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
         try {
-            Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
-            declaredMethod.setAccessible(true);
-            return (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
-        } catch (Throwable th) {
-            return null;
-        }
-    }
-
-    public static int getNavigationBarHeight(Context context) {
-        Resources resources;
-        int identifier;
-        if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier("navigation_bar_height", "dimen", "android")) <= 0) {
-            return 0;
-        }
-        return resources.getDimensionPixelSize(identifier);
-    }
-
-    public static int getVirtualBarHeight(Context context) {
-        WindowManager windowManager = (WindowManager) context.getSystemService("window");
-        Display defaultDisplay = windowManager.getDefaultDisplay();
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        try {
-            Class.forName("android.view.Display").getMethod("getRealMetrics", DisplayMetrics.class).invoke(defaultDisplay, displayMetrics);
-            return displayMetrics.heightPixels - windowManager.getDefaultDisplay().getHeight();
-        } catch (Exception e) {
+            jSONObject2.put("select_pos", i);
+            jSONObject2.put("room_id", j);
+            jSONObject2.put("live_id", j2);
+            jSONObject.put("result", jSONObject2);
+        } catch (JSONException e) {
             e.printStackTrace();
-            return 0;
         }
+        ubcStatisticItem.setContentExt(jSONObject);
+        UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
     }
 
-    public static void a(TbImageView tbImageView, String str, boolean z, boolean z2) {
-        if (tbImageView != null && !TextUtils.isEmpty(str)) {
-            if (str.toLowerCase().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                tbImageView.startLoad(str, 10, false);
-            } else if (z) {
-                tbImageView.startLoad(str, 25, false);
-            } else {
-                tbImageView.startLoad(str, 12, false);
+    public static void iS(String str) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_SCROLL_SWITCH, UbcStatConstant.ContentType.UBC_TYPE_SCROLL_PAGE, "liveroom", UbcStatConstant.Value.EFFECT_SWITCH_ROOM_EXCEP);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put("exception", str);
+            jSONObject.put("result", jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ubcStatisticItem.setContentExt(jSONObject);
+        UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
+    }
+
+    public static void e(HttpResponsedMessage httpResponsedMessage) {
+        UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_SCROLL_SWITCH, UbcStatConstant.ContentType.UBC_TYPE_SCROLL_PAGE, "liveroom", UbcStatConstant.Value.EFFECT_GET_LIVES_ERROR), httpResponsedMessage, true);
+    }
+
+    public static void f(HttpResponsedMessage httpResponsedMessage) {
+        List<Long> ids;
+        Message<?> orginalMessage = httpResponsedMessage.getOrginalMessage();
+        if ((orginalMessage instanceof com.baidu.live.liveroom.messages.a) && (ids = ((com.baidu.live.liveroom.messages.a) orginalMessage).getIds()) != null && ids.size() > 1 && (httpResponsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage)) {
+            List<Long> closedIds = ((AlaMGetLiveStatusHttpResponseMessage) httpResponsedMessage).getClosedIds();
+            if (!ListUtils.isEmpty(closedIds) && closedIds.size() > ids.size() / 2) {
+                UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_SCROLL_SWITCH, UbcStatConstant.ContentType.UBC_TYPE_GET_LIVE_STATUS, "liveroom", UbcStatConstant.Value.EFFECT_GET_LIVE_STATUS_EXCEP), httpResponsedMessage, true);
             }
         }
     }
 
-    public static boolean jd(String str) {
-        if (str.contains("·") || str.contains("•")) {
-            if (str.matches("^[\\u4e00-\\u9fa5]+[·•][\\u4e00-\\u9fa5]+$")) {
-                return true;
-            }
-        } else if (str.matches("^[\\u4e00-\\u9fa5]+$")) {
-            return true;
+    public static void a(String str, String str2, long j, boolean z) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_SHOW, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SHOW, z ? "author_liveroom" : "liveroom", UbcStatConstant.Value.GIFT_DELETE);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put(LogConfig.LOG_GIFT_ID, str);
+            jSONObject2.put(DpStatConstants.KEY_USER_ID, str2);
+            jSONObject2.put("msg_id", j);
+            jSONObject.put(UbcStatConstant.DebugContentValue.GIFT, jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return false;
+        ubcStatisticItem.setContentExt(jSONObject);
+        UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
     }
 
-    public static boolean Ww() {
-        if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
-            return !ExtraParamsManager.getSaveFlowStatus();
+    public static void a(int i, String str, String str2, String str3, long j, boolean z) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_SHOW, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SHOW, z ? "author_liveroom" : "liveroom", UbcStatConstant.Value.BIG_GIFT_PLAY_ERROR);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put(LogConfig.LOG_GIFT_ID, str2);
+            jSONObject2.put("send_userid", str3);
+            jSONObject2.put("msg_id", j);
+            jSONObject2.put("error_code", i);
+            jSONObject2.put("error_msg", str);
+            jSONObject.put(UbcStatConstant.DebugContentValue.GIFT, jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        IExtraParams buildParamsExtra = ExtraParamsManager.getInstance().buildParamsExtra();
-        if (buildParamsExtra != null) {
-            return buildParamsExtra.isShouldShowNotWifiToastByAudience();
-        }
-        return true;
+        ubcStatisticItem.setContentExt(jSONObject);
+        UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
     }
 
-    public static boolean Wx() {
-        if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
-            return !ExtraParamsManager.getSaveFlowStatus();
+    public static void b(String str, String str2, long j, boolean z) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_SHOW, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SHOW, z ? "author_liveroom" : "liveroom", UbcStatConstant.Value.BIG_GIFT_TO_SMALL_GIFT);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put(LogConfig.LOG_GIFT_ID, str);
+            jSONObject2.put("send_userid", str2);
+            jSONObject2.put("msg_id", j);
+            jSONObject.put(UbcStatConstant.DebugContentValue.GIFT, jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        IExtraParams buildParamsExtra = ExtraParamsManager.getInstance().buildParamsExtra();
-        if (buildParamsExtra != null) {
-            return buildParamsExtra.isShouldShowNotWifiToastByMaster();
+        ubcStatisticItem.setContentExt(jSONObject);
+        UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
+    }
+
+    public static void c(String str, String str2, long j, boolean z) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_SHOW, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SHOW, z ? "author_liveroom" : "liveroom", UbcStatConstant.Value.BIG_GIFT_SHOWING);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put(LogConfig.LOG_GIFT_ID, str);
+            jSONObject2.put("send_userid", str2);
+            jSONObject2.put("msg_id", j);
+            jSONObject.put(UbcStatConstant.DebugContentValue.GIFT, jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return true;
+        ubcStatisticItem.setContentExt(jSONObject);
+        UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
+    }
+
+    public static void d(String str, String str2, long j, boolean z) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_SHOW, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SHOW, z ? "author_liveroom" : "liveroom", UbcStatConstant.Value.BIG_GIFT_DATA_ERROR);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put(LogConfig.LOG_GIFT_ID, str);
+            jSONObject2.put("send_userid", str2);
+            jSONObject2.put("msg_id", j);
+            jSONObject.put(UbcStatConstant.DebugContentValue.GIFT, jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ubcStatisticItem.setContentExt(jSONObject);
+        UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
+    }
+
+    public static void d(String str, String str2, long j) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_SHOW, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SHOW, "liveroom", UbcStatConstant.Value.BIG_GIFT_DOWNLOADING);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put(LogConfig.LOG_GIFT_ID, str);
+            jSONObject2.put("send_userid", str2);
+            jSONObject2.put("msg_id", j);
+            jSONObject.put(UbcStatConstant.DebugContentValue.GIFT, jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ubcStatisticItem.setContentExt(jSONObject);
+        UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
+    }
+
+    public static void a(String str, long j, long j2, long j3) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_SHOW, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SHOW, "liveroom", UbcStatConstant.Value.BIG_GIFT_SPIT);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put(LogConfig.LOG_GIFT_ID, str);
+            jSONObject2.put("gift_count", j);
+            jSONObject2.put("send_userid", j2);
+            jSONObject2.put("msg_id", j3);
+            jSONObject.put(UbcStatConstant.DebugContentValue.GIFT, jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ubcStatisticItem.setContentExt(jSONObject);
+        UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
+    }
+
+    public static void F(String str, String str2, String str3) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_ENTER_EFFECT, UbcStatConstant.ContentType.UBC_TYPE_ENTER_EFFECT, "liveroom", UbcStatConstant.Value.EFFECT_ARCHIVE_ERROR);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put("identifier", str);
+            jSONObject2.put("down_url", str2);
+            jSONObject2.put(BdStatsConstant.StatsType.ERROR, str3);
+            jSONObject.put(UbcStatConstant.ContentType.UBC_TYPE_ENTER_EFFECT, jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ubcStatisticItem.setContentExt(jSONObject);
+        UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
+    }
+
+    public static void G(String str, String str2, String str3) {
+        UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_ENTER_EFFECT, UbcStatConstant.ContentType.UBC_TYPE_ENTER_EFFECT, "liveroom", UbcStatConstant.Value.EFFECT_FILE_ERROR);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put("identifier", str);
+            jSONObject2.put("down_url", str2);
+            jSONObject2.put(BdStatsConstant.StatsType.ERROR, str3);
+            jSONObject.put(UbcStatConstant.ContentType.UBC_TYPE_ENTER_EFFECT, jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ubcStatisticItem.setContentExt(jSONObject);
+        UbcStatisticManager.getInstance().logEvent(ubcStatisticItem);
     }
 }

@@ -2,9 +2,9 @@ package kotlin.jvm.internal;
 
 import java.util.Iterator;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class h {
-    public static final <T> Iterator<T> R(T[] tArr) {
+    public static final <T> Iterator<T> V(T[] tArr) {
         p.o(tArr, com.baidu.fsg.base.statistics.b.j);
         return new g(tArr);
     }

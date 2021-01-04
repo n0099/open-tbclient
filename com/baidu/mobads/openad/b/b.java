@@ -23,12 +23,14 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class b implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private static NotificationManager f2377a;
-    private static int b = 10091;
+    private static NotificationManager f3435a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static int f3436b = 10091;
     private static HashMap<String, b> g = new HashMap<>();
     private com.baidu.mobads.command.a c;
     private Context d;
@@ -67,8 +69,8 @@ public class b implements Observer {
         synchronized (b.class) {
             b bVar = g.get(str);
             if (bVar == null || bVar.a() == null) {
-                i = b;
-                b = i + 1;
+                i = f3436b;
+                f3436b = i + 1;
             } else {
                 i = bVar.a().f;
             }
@@ -79,8 +81,8 @@ public class b implements Observer {
     public b(Context context, com.baidu.mobads.command.a aVar) {
         this.c = null;
         XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdApkDownloaderObserver", "observer created");
-        if (f2377a == null) {
-            f2377a = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        if (f3435a == null) {
+            f3435a = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         }
         this.d = context.getApplicationContext();
         this.c = aVar;
@@ -93,8 +95,8 @@ public class b implements Observer {
         IOAdDownloader iOAdDownloader = (IOAdDownloader) observable;
         this.c.g = iOAdDownloader.getState();
         String fileName = XAdSDKFoundationFacade.getInstance().getURIUitls().getFileName(iOAdDownloader.getOutputPath());
-        if (!this.c.b.equals(fileName)) {
-            this.c.b = fileName;
+        if (!this.c.f3350b.equals(fileName)) {
+            this.c.f3350b = fileName;
         }
         if (this.c.g == IOAdDownloader.DownloadStatus.DOWNLOADING) {
             if (this.c.d < 0) {
@@ -121,7 +123,7 @@ public class b implements Observer {
             boolean z = this.c.l;
             if (z) {
                 XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdApkDownloaderObserver", "launch installing .............");
-                String str = this.c.c + this.c.b;
+                String str = this.c.c + this.c.f3350b;
                 if (!this.c.i.contains(".")) {
                     this.c.i = XAdSDKFoundationFacade.getInstance().getPackageUtils().getLocalApkFileInfo(this.d, str).packageName;
                 }
@@ -164,21 +166,20 @@ public class b implements Observer {
     public Notification b(IOAdDownloader iOAdDownloader) {
         String str;
         int i = 17301634;
-        String str2 = this.c.f2326a;
-        String str3 = "正在下载 " + this.c.f2326a;
+        String str2 = this.c.f3349a;
+        String str3 = "正在下载 " + this.c.f3349a;
         String str4 = "";
         if (this.c.g == IOAdDownloader.DownloadStatus.COMPLETED) {
             str2 = this.c.g.getMessage() + ": " + str2;
             str4 = " 点击这里安装应用";
         } else if (this.c.g == IOAdDownloader.DownloadStatus.PAUSED) {
-            String str5 = this.c.g.getMessage() + ": " + str2;
+            str2 = this.c.g.getMessage() + ": " + str2;
+            str3 = "已为您暂停下载， 点击通知栏继续下载";
             if (!iOAdDownloader.isPausedManually()) {
                 str = "目前不在wifi网络下， 点击这里继续下载";
             } else {
                 str = "点击这里继续下载";
             }
-            str2 = str5;
-            str3 = "已为您暂停下载， 点击通知栏继续下载";
             str4 = str;
         } else if (this.c.g == IOAdDownloader.DownloadStatus.ERROR) {
             str2 = this.c.g.getMessage() + ": " + str2;
@@ -199,7 +200,7 @@ public class b implements Observer {
         intent.putExtra("pausedManually", iOAdDownloader.isPausedManually());
         intent.putExtra("status", this.c.g.getCode());
         intent.putExtra("pk", this.c.i);
-        intent.putExtra("localApkPath", this.c.c + this.c.b);
+        intent.putExtra("localApkPath", this.c.c + this.c.f3350b);
         intent.putExtra("title", str2);
         intent.addFlags(268435456);
         intent.setAction(Long.toString(System.currentTimeMillis()));

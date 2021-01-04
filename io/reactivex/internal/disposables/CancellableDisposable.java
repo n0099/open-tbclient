@@ -1,7 +1,7 @@
 package io.reactivex.internal.disposables;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class CancellableDisposable extends AtomicReference<io.reactivex.b.f> implements io.reactivex.disposables.b {
     private static final long serialVersionUID = 5718521705281392066L;
 
@@ -21,7 +21,7 @@ public final class CancellableDisposable extends AtomicReference<io.reactivex.b.
             try {
                 andSet.cancel();
             } catch (Exception e) {
-                io.reactivex.exceptions.a.J(e);
+                io.reactivex.exceptions.a.O(e);
                 io.reactivex.d.a.onError(e);
             }
         }

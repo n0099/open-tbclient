@@ -1,10 +1,10 @@
 package com.baidu.tieba.videoplay.verticalviewpager.transforms;
 
-import android.support.v4.view.ViewPager;
 import android.view.View;
-/* loaded from: classes24.dex */
+import androidx.viewpager.widget.ViewPager;
+/* loaded from: classes8.dex */
 public class DefaultTransformer implements ViewPager.PageTransformer {
-    @Override // android.support.v4.view.ViewPager.PageTransformer
+    @Override // androidx.viewpager.widget.ViewPager.PageTransformer
     public void transformPage(View view, float f) {
         float f2 = 0.0f;
         if (0.0f <= f && f <= 1.0f) {

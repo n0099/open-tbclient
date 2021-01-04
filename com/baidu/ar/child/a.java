@@ -4,11 +4,11 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a {
     private CropAlgo lL;
     private Handler lN;
-    private InterfaceC0084a lO;
+    private InterfaceC0076a lO;
     private boolean lQ;
     private d lR;
     private int mInputHeight;
@@ -17,12 +17,12 @@ public class a {
     private HandlerThread lM = new HandlerThread("ChildAlgoController");
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0084a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0076a {
         void a(long j, byte[] bArr, int i);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     private static class b extends Handler {
         private c lS;
 
@@ -39,12 +39,12 @@ public class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     private interface c {
         void handleMessage(Message message);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     class d implements c {
         d() {
         }
@@ -145,8 +145,8 @@ public class a {
         return this.lL.nativeWriteCameraDataToHandel(j, bArr, i, i2, f);
     }
 
-    public void a(InterfaceC0084a interfaceC0084a) {
-        this.lO = interfaceC0084a;
+    public void a(InterfaceC0076a interfaceC0076a) {
+        this.lO = interfaceC0076a;
     }
 
     public void a(com.baidu.ar.child.b bVar) {

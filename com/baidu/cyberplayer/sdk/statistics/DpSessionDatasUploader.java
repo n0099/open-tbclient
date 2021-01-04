@@ -14,22 +14,24 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class DpSessionDatasUploader {
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    private static DpSessionDatasUploader f1429a;
-    private d b = new d();
+    private static DpSessionDatasUploader f1875a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private d f1876b = new d();
     private d c = new d("live_show_session");
 
     private DpSessionDatasUploader() {
     }
 
     private void a() {
-        if (this.b != null) {
-            this.b.a();
+        if (this.f1876b != null) {
+            this.f1876b.a();
         }
         if (this.c != null) {
             this.c.a();
@@ -60,8 +62,8 @@ public final class DpSessionDatasUploader {
             if (this.c != null) {
                 this.c.a(bArr);
             }
-        } else if (this.b != null) {
-            this.b.a(bArr);
+        } else if (this.f1876b != null) {
+            this.f1876b.a(bArr);
         }
     }
 
@@ -81,10 +83,10 @@ public final class DpSessionDatasUploader {
     public static synchronized DpSessionDatasUploader getInstance() {
         DpSessionDatasUploader dpSessionDatasUploader;
         synchronized (DpSessionDatasUploader.class) {
-            if (f1429a == null) {
-                f1429a = new DpSessionDatasUploader();
+            if (f1875a == null) {
+                f1875a = new DpSessionDatasUploader();
             }
-            dpSessionDatasUploader = f1429a;
+            dpSessionDatasUploader = f1875a;
         }
         return dpSessionDatasUploader;
     }
@@ -99,156 +101,179 @@ public final class DpSessionDatasUploader {
     }
 
     public void a(Context context) {
-        if (context == null || this.b == null || this.c == null) {
+        if (context == null || this.f1876b == null || this.c == null) {
             return;
         }
-        this.b.a(context);
+        this.f1876b.a(context);
         this.c.a(context);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x009d  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0113  */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0105 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x010a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00cc */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:87:0x0031 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x009e  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x011d  */
+    /* JADX WARN: Type inference failed for: r4v1, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r4v12 */
+    /* JADX WARN: Type inference failed for: r4v16 */
+    /* JADX WARN: Type inference failed for: r4v17 */
+    /* JADX WARN: Type inference failed for: r4v4 */
+    /* JADX WARN: Type inference failed for: r4v5 */
+    /* JADX WARN: Type inference failed for: r4v8 */
+    /* JADX WARN: Type inference failed for: r4v9, types: [java.io.OutputStream] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean a(byte[] bArr, String str, boolean z) {
-        HttpURLConnection httpURLConnection;
+        Throwable th;
         OutputStream outputStream;
+        HttpURLConnection httpURLConnection;
+        Exception e;
+        Error e2;
         OutputStream outputStream2;
-        OutputStream outputStream3 = null;
-        outputStream3 = null;
-        outputStream3 = null;
-        HttpURLConnection httpURLConnection2 = null;
+        int responseCode;
         int i = -1;
         if (TextUtils.isEmpty(str)) {
             return false;
         }
+        OutputStream outputStream3 = " isGzipCompressed:";
         CyberLog.d("SessionDatasUploader", "sendStatisticsDataToServer called uploadUrl:" + str + " isGzipCompressed:" + z);
         try {
-            HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL(str).openConnection();
             try {
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
                 try {
-                    httpURLConnection3.setUseCaches(false);
-                    httpURLConnection3.setDoOutput(true);
-                    httpURLConnection3.setRequestMethod("POST");
-                    httpURLConnection3.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                    httpURLConnection3.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
+                    httpURLConnection2.setUseCaches(false);
+                    httpURLConnection2.setDoOutput(true);
+                    httpURLConnection2.setRequestMethod("POST");
+                    httpURLConnection2.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                    httpURLConnection2.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
                     if (z) {
-                        httpURLConnection3.setRequestProperty("Content-Type", "application/x-gzip");
+                        httpURLConnection2.setRequestProperty("Content-Type", "application/x-gzip");
                     }
-                    outputStream2 = httpURLConnection3.getOutputStream();
-                } catch (Exception e) {
+                    outputStream2 = httpURLConnection2.getOutputStream();
+                    try {
+                        try {
+                            outputStream2.write(bArr);
+                            outputStream2.flush();
+                            responseCode = httpURLConnection2.getResponseCode();
+                        } catch (Throwable th2) {
+                            th = th2;
+                            httpURLConnection = httpURLConnection2;
+                            outputStream = outputStream2;
+                            if (outputStream != null) {
+                                try {
+                                    outputStream.close();
+                                } catch (Exception e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            if (httpURLConnection != null) {
+                                try {
+                                    httpURLConnection.disconnect();
+                                } catch (Exception e4) {
+                                }
+                            }
+                            throw th;
+                        }
+                    } catch (Error e5) {
+                        e2 = e5;
+                        httpURLConnection = httpURLConnection2;
+                        outputStream3 = outputStream2;
+                    } catch (Exception e6) {
+                        e = e6;
+                        httpURLConnection = httpURLConnection2;
+                        outputStream3 = outputStream2;
+                    }
+                } catch (Error e7) {
+                    e2 = e7;
+                    outputStream3 = 0;
+                    httpURLConnection = httpURLConnection2;
+                } catch (Exception e8) {
+                    e = e8;
+                    outputStream3 = null;
+                    httpURLConnection = httpURLConnection2;
+                } catch (Throwable th3) {
+                    th = th3;
                     outputStream = null;
-                    httpURLConnection2 = httpURLConnection3;
-                    e = e;
+                    httpURLConnection = httpURLConnection2;
                 }
                 try {
-                    outputStream2.write(bArr);
-                    outputStream2.flush();
-                    i = httpURLConnection3.getResponseCode();
-                    CyberLog.d("SessionDatasUploader", "upload response : " + i);
+                    CyberLog.d("SessionDatasUploader", "upload response : " + responseCode);
                     if (outputStream2 != null) {
                         try {
                             outputStream2.close();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e9) {
+                            e9.printStackTrace();
                         }
                     }
-                    if (httpURLConnection3 != null) {
+                    if (httpURLConnection2 != null) {
                         try {
-                            httpURLConnection3.disconnect();
-                        } catch (Exception e3) {
+                            httpURLConnection2.disconnect();
+                            i = responseCode;
+                        } catch (Exception e10) {
+                            i = responseCode;
                         }
+                    } else {
+                        i = responseCode;
                     }
-                } catch (Exception e4) {
-                    outputStream = outputStream2;
-                    httpURLConnection2 = httpURLConnection3;
-                    e = e4;
-                    try {
-                        CyberLog.e("SessionDatasUploader", "upload error " + e);
-                        if (outputStream != null) {
-                            try {
-                                outputStream.close();
-                            } catch (Exception e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        if (httpURLConnection2 != null) {
-                            try {
-                                httpURLConnection2.disconnect();
-                            } catch (Exception e6) {
-                            }
-                        }
-                        if (i == 200) {
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        OutputStream outputStream4 = outputStream;
-                        httpURLConnection = httpURLConnection2;
-                        outputStream3 = outputStream4;
-                        if (outputStream3 != null) {
-                        }
-                        if (httpURLConnection != null) {
-                        }
-                        throw th;
-                    }
-                }
-            } catch (Error e7) {
-                httpURLConnection = httpURLConnection3;
-                e = e7;
-                try {
-                    CyberLog.e("SessionDatasUploader", "upload error " + e);
-                    if (0 != 0) {
+                } catch (Error e11) {
+                    e2 = e11;
+                    httpURLConnection = httpURLConnection2;
+                    i = responseCode;
+                    outputStream3 = outputStream2;
+                    CyberLog.e("SessionDatasUploader", "upload error " + e2);
+                    if (outputStream3 != 0) {
                         try {
                             outputStream3.close();
-                        } catch (Exception e8) {
-                            e8.printStackTrace();
+                        } catch (Exception e12) {
+                            e12.printStackTrace();
                         }
                     }
                     if (httpURLConnection != null) {
                         try {
                             httpURLConnection.disconnect();
-                        } catch (Exception e9) {
+                        } catch (Exception e13) {
                         }
                     }
                     if (i == 200) {
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Exception e14) {
+                    e = e14;
+                    httpURLConnection = httpURLConnection2;
+                    i = responseCode;
+                    outputStream3 = outputStream2;
+                    CyberLog.e("SessionDatasUploader", "upload error " + e);
                     if (outputStream3 != null) {
                         try {
                             outputStream3.close();
-                        } catch (Exception e10) {
-                            e10.printStackTrace();
+                        } catch (Exception e15) {
+                            e15.printStackTrace();
                         }
                     }
                     if (httpURLConnection != null) {
                         try {
                             httpURLConnection.disconnect();
-                        } catch (Exception e11) {
+                        } catch (Exception e16) {
                         }
                     }
-                    throw th;
+                    if (i == 200) {
+                    }
                 }
-            } catch (Throwable th3) {
-                httpURLConnection = httpURLConnection3;
-                th = th3;
-                if (outputStream3 != null) {
-                }
-                if (httpURLConnection != null) {
-                }
-                throw th;
+            } catch (Throwable th4) {
+                th = th4;
+                outputStream = outputStream3;
             }
-        } catch (Error e12) {
-            e = e12;
+        } catch (Error e17) {
+            e2 = e17;
+            outputStream3 = 0;
             httpURLConnection = null;
-        } catch (Exception e13) {
-            e = e13;
+        } catch (Exception e18) {
+            e = e18;
+            outputStream3 = null;
+            httpURLConnection = null;
+        } catch (Throwable th5) {
+            th = th5;
             outputStream = null;
-        } catch (Throwable th4) {
-            th = th4;
             httpURLConnection = null;
         }
         return i == 200;

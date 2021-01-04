@@ -2,21 +2,23 @@ package com.xiaomi.push;
 
 import android.os.Bundle;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class cj {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4608a;
+    public int f14210a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f164a;
+    public long f242a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f165a;
-    public int b;
+    private String f243a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f14211b;
 
     /* renamed from: b  reason: collision with other field name */
-    public long f166b;
+    public long f244b;
     public int c;
     public int d;
     public int e;
@@ -26,43 +28,43 @@ public class cj {
     }
 
     public cj(cj cjVar) {
-        this.f164a = cjVar.f164a;
-        this.f4608a = cjVar.f4608a;
+        this.f242a = cjVar.f242a;
+        this.f14210a = cjVar.f14210a;
         this.h = cjVar.h;
-        this.b = cjVar.b;
+        this.f14211b = cjVar.f14211b;
         this.c = cjVar.c;
-        this.f166b = cjVar.f166b;
+        this.f244b = cjVar.f244b;
         this.d = cjVar.d;
-        this.f165a = cjVar.f165a;
+        this.f243a = cjVar.f243a;
         this.e = cjVar.e;
     }
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putLong("id", this.f164a);
-        bundle.putInt("showType", this.f4608a);
-        bundle.putInt("nonsense", this.b);
+        bundle.putLong("id", this.f242a);
+        bundle.putInt("showType", this.f14210a);
+        bundle.putInt("nonsense", this.f14211b);
         bundle.putInt("receiveUpperBound", this.c);
-        bundle.putLong("lastShowTime", this.f166b);
+        bundle.putLong("lastShowTime", this.f244b);
         bundle.putInt("multi", this.e);
         return bundle;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m194a() {
-        return this.f165a;
+    public String m220a() {
+        return this.f243a;
     }
 
     public void a(String str) {
-        this.f165a = str;
+        this.f243a = str;
     }
 
     public void a(JSONObject jSONObject) {
-        this.f164a = jSONObject.optLong("id");
-        this.f4608a = jSONObject.optInt("showType");
-        this.b = jSONObject.optInt("nonsense");
+        this.f242a = jSONObject.optLong("id");
+        this.f14210a = jSONObject.optInt("showType");
+        this.f14211b = jSONObject.optInt("nonsense");
         this.c = jSONObject.optInt("receiveUpperBound");
-        this.f166b = jSONObject.optLong("lastShowTime");
+        this.f244b = jSONObject.optLong("lastShowTime");
         this.e = jSONObject.optInt("multi");
     }
 

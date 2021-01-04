@@ -7,14 +7,14 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private String iQL;
+    private String jcX;
     private LayoutInflater mInflater;
     private final List<d> mList = new ArrayList();
 
@@ -23,7 +23,7 @@ public class b extends BaseAdapter {
     }
 
     public void j(String str, List<d> list) {
-        this.iQL = str;
+        this.jcX = str;
         this.mList.clear();
         if (list != null) {
             this.mList.addAll(list);
@@ -47,7 +47,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: DG */
+    /* renamed from: DU */
     public d getItem(int i) {
         return this.mList.get(i);
     }
@@ -65,41 +65,41 @@ public class b extends BaseAdapter {
             if (view == null || !(view.getTag() instanceof a)) {
                 view = this.mInflater.inflate(R.layout.hot_suggest_item, (ViewGroup) null);
                 a aVar2 = new a();
-                aVar2.egV = (TextView) view.findViewById(R.id.name);
-                aVar2.kii = view.findViewById(R.id.divider_line_top);
-                aVar2.kij = view.findViewById(R.id.divider_line_bottom);
+                aVar2.epX = (TextView) view.findViewById(R.id.name);
+                aVar2.kvs = view.findViewById(R.id.divider_line_top);
+                aVar2.kvt = view.findViewById(R.id.divider_line_bottom);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.kii.setVisibility(i == 0 ? 0 : 8);
-            aVar.egV.setText(au.highLightText(com.baidu.tbadk.plugins.b.Ez(au.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.iQL, R.color.CAM_X0302));
+            aVar.kvs.setVisibility(i == 0 ? 0 : 8);
+            aVar.epX.setText(at.highLightText(com.baidu.tbadk.plugins.b.Ew(at.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.jcX, R.color.CAM_X0302));
             a(aVar, view, TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes21.dex */
+    /* loaded from: classes8.dex */
     public class a {
-        int aku;
-        TextView egV;
-        View kii;
-        View kij;
+        int akW;
+        TextView epX;
+        View kvs;
+        View kvt;
 
         private a() {
-            this.aku = 3;
+            this.akW = 3;
         }
     }
 
     private void a(a aVar, View view, int i) {
-        if (aVar != null && aVar.aku != i) {
-            ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-            ap.setBackgroundColor(aVar.kij, R.color.CAM_X0204);
-            ap.setBackgroundColor(aVar.kii, R.color.CAM_X0204);
-            ap.setViewTextColor(aVar.egV, R.color.CAM_X0105, 1);
-            aVar.aku = i;
+        if (aVar != null && aVar.akW != i) {
+            ao.setBackgroundResource(view, R.drawable.addresslist_item_bg);
+            ao.setBackgroundColor(aVar.kvt, R.color.CAM_X0204);
+            ao.setBackgroundColor(aVar.kvs, R.color.CAM_X0204);
+            ao.setViewTextColor(aVar.epX, R.color.CAM_X0105, 1);
+            aVar.akW = i;
         }
     }
 }

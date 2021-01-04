@@ -3,7 +3,7 @@ package com.baidu.swan.apps.canvas.a.a;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import org.json.JSONArray;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class m extends a {
     private Rect mRect;
 
@@ -11,9 +11,9 @@ public class m extends a {
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 4) {
-                int M = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(0));
-                int M2 = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(1));
-                this.mRect = new Rect(M, M2, com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(2)) + M, com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(3)) + M2);
+                int O = com.baidu.swan.apps.ao.ah.O((float) jSONArray.optDouble(0));
+                int O2 = com.baidu.swan.apps.ao.ah.O((float) jSONArray.optDouble(1));
+                this.mRect = new Rect(O, O2, com.baidu.swan.apps.ao.ah.O((float) jSONArray.optDouble(2)) + O, com.baidu.swan.apps.ao.ah.O((float) jSONArray.optDouble(3)) + O2);
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -26,7 +26,7 @@ public class m extends a {
     public void a(b bVar, Canvas canvas) {
         if (this.mRect != null) {
             int alpha = bVar.mFillPaint.getAlpha();
-            bVar.a(bVar.mFillPaint);
+            bVar.b(bVar.mFillPaint);
             canvas.drawRect(this.mRect, bVar.mFillPaint);
             bVar.mFillPaint.setAlpha(alpha);
         }

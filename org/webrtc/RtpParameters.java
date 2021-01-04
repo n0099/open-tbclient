@@ -1,10 +1,10 @@
 package org.webrtc;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class RtpParameters {
     public final List<Codec> codecs;
     public final List<Encoding> encodings;
@@ -12,7 +12,7 @@ public class RtpParameters {
     private final Rtcp rtcp;
     public final String transactionId;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class Codec {
         public Integer clockRate;
         MediaStreamTrack.MediaType kind;
@@ -62,7 +62,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class Encoding {
         public boolean active;
         @Nullable
@@ -91,26 +91,26 @@ public class RtpParameters {
             return this.active;
         }
 
-        @CalledByNative("Encoding")
         @Nullable
+        @CalledByNative("Encoding")
         Integer getMaxBitrateBps() {
             return this.maxBitrateBps;
         }
 
-        @CalledByNative("Encoding")
         @Nullable
+        @CalledByNative("Encoding")
         Integer getMaxFramerate() {
             return this.maxFramerate;
         }
 
-        @CalledByNative("Encoding")
         @Nullable
+        @CalledByNative("Encoding")
         Integer getMinBitrateBps() {
             return this.minBitrateBps;
         }
 
-        @CalledByNative("Encoding")
         @Nullable
+        @CalledByNative("Encoding")
         Integer getNumTemporalLayers() {
             return this.numTemporalLayers;
         }
@@ -121,7 +121,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class HeaderExtension {
         private final boolean encrypted;
         private final int id;
@@ -150,7 +150,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class Rtcp {
         private final String cname;
         private final boolean reducedSize;

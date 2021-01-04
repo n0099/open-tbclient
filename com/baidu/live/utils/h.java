@@ -5,47 +5,47 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class h {
-    public static final int bKe = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds32);
+    public static final int bOR = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds32);
 
-    public static int bg(Context context) {
-        int bl = bl(context);
+    public static int bm(Context context) {
+        int br = br(context);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            return bl + UtilHelper.getStatusBarHeight();
+            return br + UtilHelper.getStatusBarHeight();
         }
-        return bl;
+        return br;
     }
 
-    public static int bh(Context context) {
-        int bi = bi(context);
+    public static int bn(Context context) {
+        int bo = bo(context);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            return bi + UtilHelper.getStatusBarHeight();
+            return bo + UtilHelper.getStatusBarHeight();
         }
-        return bi;
+        return bo;
     }
 
-    public static int bi(Context context) {
-        return bl(context) + bKe;
+    public static int bo(Context context) {
+        return br(context) + bOR;
     }
 
-    public static int bj(Context context) {
-        return gC(BdUtilHelper.getScreenDimensions(context)[0] / 2);
+    public static int bp(Context context) {
+        return gD(BdUtilHelper.getScreenDimensions(context)[0] / 2);
     }
 
-    public static int bk(Context context) {
+    public static int bq(Context context) {
         return BdUtilHelper.getScreenDimensions(context)[0] / 2;
     }
 
-    public static int gC(int i) {
+    public static int gD(int i) {
         return (i * 16) / 10;
     }
 
     public static int o(Context context, boolean z) {
-        return bj(context) + bh(context);
+        return bp(context) + bn(context);
     }
 
-    private static int bl(Context context) {
+    private static int br(Context context) {
         if (context == null) {
             context = TbadkCoreApplication.getInst().getContext();
         }

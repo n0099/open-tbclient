@@ -1,7 +1,7 @@
 package com.baidu.tieba.yuyinala.data;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class HourRankItemData implements Serializable {
     public String loc;
     public int position;

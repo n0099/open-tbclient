@@ -10,12 +10,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Iterator;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class BaseChromiumApplication extends Application {
-    private final boolean oBd;
-    private com.baidu.turbonet.base.b<b> oBe;
+    private final boolean oIR;
+    private com.baidu.turbonet.base.b<b> oIS;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void m(Activity activity, boolean z);
     }
@@ -25,23 +25,23 @@ public class BaseChromiumApplication extends Application {
     }
 
     protected BaseChromiumApplication(boolean z) {
-        this.oBe = new com.baidu.turbonet.base.b<>();
-        this.oBd = z;
+        this.oIS = new com.baidu.turbonet.base.b<>();
+        this.oIR = z;
     }
 
     @Override // android.content.ContextWrapper
     protected void attachBaseContext(Context context) {
         super.attachBaseContext(context);
-        com.baidu.turbonet.base.a.a.gl(this);
+        com.baidu.turbonet.base.a.a.gE(this);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     private class a implements InvocationHandler {
         private final Activity mActivity;
-        private final Window.Callback oBg;
+        private final Window.Callback oIU;
 
         public a(Activity activity, Window.Callback callback) {
-            this.oBg = callback;
+            this.oIU = callback;
             this.mActivity = activity;
         }
 
@@ -52,7 +52,7 @@ public class BaseChromiumApplication extends Application {
                 return null;
             }
             try {
-                return method.invoke(this.oBg, objArr);
+                return method.invoke(this.oIU, objArr);
             } catch (InvocationTargetException e) {
                 if (e.getCause() instanceof AbstractMethodError) {
                     throw e.getCause();
@@ -62,8 +62,8 @@ public class BaseChromiumApplication extends Application {
         }
 
         public void onWindowFocusChanged(boolean z) {
-            this.oBg.onWindowFocusChanged(z);
-            Iterator it = BaseChromiumApplication.this.oBe.iterator();
+            this.oIU.onWindowFocusChanged(z);
+            Iterator it = BaseChromiumApplication.this.oIS.iterator();
             while (it.hasNext()) {
                 ((b) it.next()).m(this.mActivity, z);
             }
@@ -73,16 +73,16 @@ public class BaseChromiumApplication extends Application {
     @Override // android.app.Application
     public void onCreate() {
         super.onCreate();
-        if (this.oBd) {
-            egJ();
+        if (this.oIR) {
+            eho();
         }
     }
 
     public void a(b bVar) {
-        this.oBe.aT(bVar);
+        this.oIS.addObserver(bVar);
     }
 
-    private void egJ() {
+    private void eho() {
         ApplicationStatus.a(this);
         registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.baidu.turbonet.base.BaseChromiumApplication.1
             @Override // android.app.Application.ActivityLifecycleCallbacks

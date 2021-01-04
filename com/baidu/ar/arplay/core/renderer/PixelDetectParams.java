@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.renderer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class PixelDetectParams extends DetectParams {
     private int mTextureId = -1;
 

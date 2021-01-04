@@ -2,20 +2,20 @@ package com.baidu.tieba.ala.liveroom.v;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    int dMd;
+    int bsA;
     String date;
     String uid;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a dP(JSONObject jSONObject) {
+    public a dY(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         this.uid = jSONObject.optString("uid");
         this.date = jSONObject.optString("date");
-        this.dMd = jSONObject.optInt("times");
+        this.bsA = jSONObject.optInt("times");
         return this;
     }
 
@@ -25,7 +25,7 @@ public class a {
         try {
             jSONObject.put("uid", this.uid);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.dMd);
+            jSONObject.put("times", this.bsA);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

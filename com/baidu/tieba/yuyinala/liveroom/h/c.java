@@ -1,6 +1,26 @@
 package com.baidu.tieba.yuyinala.liveroom.h;
-/* loaded from: classes4.dex */
-public class c {
-    public long boX;
-    public long liveId;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
+class c {
+    boolean hFa = false;
+    String date = "";
+    int bsA = 0;
+    int oqj = 0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String toJsonString() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("hasShowMax", this.hFa);
+            jSONObject.put("date", this.date);
+            jSONObject.put("times", this.bsA);
+            jSONObject.put("clickTimes", this.oqj);
+            return jSONObject.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
 }

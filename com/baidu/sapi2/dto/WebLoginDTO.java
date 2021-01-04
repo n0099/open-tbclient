@@ -8,7 +8,7 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class WebLoginDTO extends SapiWebDTO {
     public static final String EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT = "extra_join_login_without_third_account";
     public static final String EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT = "extra_join_login_with_third_account";
@@ -30,7 +30,7 @@ public class WebLoginDTO extends SapiWebDTO {
     public boolean shareV2Disable = false;
     public int businessType = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class Config {
         public List<FastLoginFeature> fastLoginFeatureList;
         public boolean supportTouchGuide = true;

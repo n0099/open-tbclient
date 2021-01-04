@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public int jFO;
+    public int jTg;
     public List<AlaRecommendLiveData> list;
     public int total_count;
     public int type;
 
     public void parserJson(JSONObject jSONObject) {
         this.total_count = jSONObject.optInt("total_count");
-        this.jFO = jSONObject.optInt("has_more");
+        this.jTg = jSONObject.optInt("has_more");
         this.list = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("list");
         if (optJSONArray != null) {

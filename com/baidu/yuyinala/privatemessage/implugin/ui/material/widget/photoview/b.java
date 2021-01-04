@@ -4,35 +4,35 @@ import android.graphics.RectF;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.ImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b implements GestureDetector.OnDoubleTapListener {
-    private d oTu;
+    private d oZz;
 
     public b(d dVar) {
         a(dVar);
     }
 
     public void a(d dVar) {
-        this.oTu = dVar;
+        this.oZz = dVar;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
         RectF displayRect;
-        if (this.oTu == null) {
+        if (this.oZz == null) {
             return false;
         }
-        ImageView emX = this.oTu.emX();
-        if (this.oTu.getOnPhotoTapListener() != null && (displayRect = this.oTu.getDisplayRect()) != null) {
+        ImageView emZ = this.oZz.emZ();
+        if (this.oZz.getOnPhotoTapListener() != null && (displayRect = this.oZz.getDisplayRect()) != null) {
             float x = motionEvent.getX();
             float y = motionEvent.getY();
             if (displayRect.width() > 0.0f && displayRect.height() > 0.0f && displayRect.contains(x, y)) {
-                this.oTu.getOnPhotoTapListener().d(emX, (x - displayRect.left) / displayRect.width(), (y - displayRect.top) / displayRect.height());
+                this.oZz.getOnPhotoTapListener().d(emZ, (x - displayRect.left) / displayRect.width(), (y - displayRect.top) / displayRect.height());
                 return true;
             }
         }
-        if (this.oTu.getOnViewTapListener() != null) {
-            this.oTu.getOnViewTapListener().e(emX, motionEvent.getX(), motionEvent.getY());
+        if (this.oZz.getOnViewTapListener() != null) {
+            this.oZz.getOnViewTapListener().e(emZ, motionEvent.getX(), motionEvent.getY());
             return false;
         }
         return false;
@@ -40,19 +40,19 @@ public class b implements GestureDetector.OnDoubleTapListener {
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.oTu == null) {
+        if (this.oZz == null) {
             return false;
         }
         try {
-            float scale = this.oTu.getScale();
+            float scale = this.oZz.getScale();
             float x = motionEvent.getX();
             float y = motionEvent.getY();
-            if (scale < this.oTu.getMediumScale()) {
-                this.oTu.setScale(this.oTu.getMediumScale(), x, y, true);
-            } else if (scale >= this.oTu.getMediumScale() && scale < this.oTu.getMaximumScale()) {
-                this.oTu.setScale(this.oTu.getMaximumScale(), x, y, true);
+            if (scale < this.oZz.getMediumScale()) {
+                this.oZz.setScale(this.oZz.getMediumScale(), x, y, true);
+            } else if (scale >= this.oZz.getMediumScale() && scale < this.oZz.getMaximumScale()) {
+                this.oZz.setScale(this.oZz.getMaximumScale(), x, y, true);
             } else {
-                this.oTu.setScale(this.oTu.getMinimumScale(), x, y, true);
+                this.oZz.setScale(this.oZz.getMinimumScale(), x, y, true);
             }
             return true;
         } catch (ArrayIndexOutOfBoundsException e) {

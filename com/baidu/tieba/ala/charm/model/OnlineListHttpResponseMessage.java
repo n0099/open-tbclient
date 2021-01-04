@@ -1,14 +1,14 @@
 package com.baidu.tieba.ala.charm.model;
 
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.q;
+import com.baidu.live.data.r;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private AlaLiveUserInfoData aJV;
-    private q gEW;
-    private long gEX;
+    private AlaLiveUserInfoData aKu;
+    private r gQH;
+    private long gQI;
     private long mAudienceCount;
 
     public OnlineListHttpResponseMessage() {
@@ -22,31 +22,31 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("audience_count");
             if (optJSONObject.optJSONArray("initmacy_rank") != null) {
-                this.gEW = new q();
-                this.gEW.parserJson(optJSONObject);
+                this.gQH = new r();
+                this.gQH.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_user_info");
             if (optJSONObject2 != null) {
-                this.aJV = new AlaLiveUserInfoData();
-                this.aJV.parserJson(optJSONObject2);
+                this.aKu = new AlaLiveUserInfoData();
+                this.aKu.parserJson(optJSONObject2);
             }
-            this.gEX = optJSONObject.optLong("live_total_price");
+            this.gQI = optJSONObject.optLong("live_total_price");
         }
     }
 
-    public long bUt() {
+    public long bWX() {
         return this.mAudienceCount;
     }
 
-    public q bUu() {
-        return this.gEW;
+    public r bWY() {
+        return this.gQH;
     }
 
-    public AlaLiveUserInfoData bUv() {
-        return this.aJV;
+    public AlaLiveUserInfoData bWZ() {
+        return this.aKu;
     }
 
-    public long bUw() {
-        return this.gEX;
+    public long bXa() {
+        return this.gQI;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.util;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.n.a;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class PermissionUtil {
     public static boolean checkLocation(Context context) {
         return checkLocationForGoogle(context);
@@ -19,7 +19,7 @@ public class PermissionUtil {
     public static boolean checkLocationForBaiduLocation(Context context) {
         boolean z;
         boolean z2;
-        if (a.adp()) {
+        if (a.afl()) {
             if (context == null) {
                 return false;
             }
@@ -44,7 +44,7 @@ public class PermissionUtil {
     }
 
     public static boolean checkLocationForGoogle(Context context) {
-        if (a.adp()) {
+        if (a.afl()) {
             if (context != null) {
                 try {
                     if (!com.baidu.n.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -71,7 +71,7 @@ public class PermissionUtil {
     */
     public static boolean checkFineLocation(Context context) {
         boolean z = false;
-        if (a.adp()) {
+        if (a.afl()) {
             try {
                 if (!com.baidu.n.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
                 }
@@ -85,7 +85,7 @@ public class PermissionUtil {
     }
 
     public static boolean checkCamera(Context context) {
-        if (!a.adp()) {
+        if (!a.afl()) {
             return true;
         }
         if (context != null) {
@@ -100,7 +100,7 @@ public class PermissionUtil {
     }
 
     public static boolean checkRecodeAudio(Context context) {
-        if (!a.adp()) {
+        if (!a.afl()) {
             return true;
         }
         if (context != null) {
@@ -120,7 +120,7 @@ public class PermissionUtil {
             return true;
         }
         try {
-            if (a.adp() && com.baidu.n.a.a.M(providerContext, PermissionRequest.RESOURCE_AUDIO_CAPTURE)) {
+            if (a.afl() && com.baidu.n.a.a.T(providerContext, PermissionRequest.RESOURCE_AUDIO_CAPTURE)) {
                 BdUtilHelper.showToast(providerContext, a.h.sdk_record_audio_permission_denied_fun_disable);
                 return true;
             }
@@ -131,7 +131,7 @@ public class PermissionUtil {
     }
 
     public static boolean checkReadPhoneState(Context context) {
-        if (!com.baidu.n.a.adp()) {
+        if (!com.baidu.n.a.afl()) {
             return true;
         }
         if (context != null) {
@@ -146,7 +146,7 @@ public class PermissionUtil {
     }
 
     public static boolean checkWriteExternalStorage(Context context) {
-        if (!com.baidu.n.a.adp()) {
+        if (!com.baidu.n.a.afl()) {
             return true;
         }
         if (context != null) {
@@ -166,7 +166,7 @@ public class PermissionUtil {
             return true;
         }
         try {
-            if (com.baidu.n.a.adp() && com.baidu.n.a.a.M(providerContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+            if (com.baidu.n.a.afl() && com.baidu.n.a.a.T(providerContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                 BdUtilHelper.showToast(providerContext, a.h.sdk_write_external_storage_permission_denied_fun_disable);
                 return true;
             }

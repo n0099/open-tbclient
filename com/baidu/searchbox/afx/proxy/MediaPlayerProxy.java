@@ -12,7 +12,7 @@ import com.baidu.searchbox.afx.proxy.PlayerProxy;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class MediaPlayerProxy extends PlayerProxy {
     private static final String TAG = "MediaPlayerProxy";
     private GLTextureView mGLTextureView;

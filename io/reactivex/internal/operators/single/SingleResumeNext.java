@@ -8,7 +8,7 @@ import io.reactivex.internal.observers.d;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class SingleResumeNext<T> extends w<T> {
     final h<? super Throwable, ? extends aa<? extends T>> nextFunction;
     final aa<? extends T> source;
@@ -18,7 +18,7 @@ public final class SingleResumeNext<T> extends w<T> {
         this.source.a(new ResumeMainSingleObserver(yVar, this.nextFunction));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ResumeMainSingleObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -5314538511045349925L;
         final y<? super T> actual;
@@ -46,7 +46,7 @@ public final class SingleResumeNext<T> extends w<T> {
             try {
                 ((aa) io.reactivex.internal.functions.a.m(this.nextFunction.apply(th), "The nextFunction returned a null SingleSource.")).a(new d(this, this.actual));
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.J(th2);
+                io.reactivex.exceptions.a.O(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }

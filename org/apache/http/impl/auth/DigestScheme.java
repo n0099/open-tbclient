@@ -6,7 +6,7 @@ import org.apache.http.auth.AuthenticationException;
 import org.apache.http.auth.Credentials;
 import org.apache.http.auth.MalformedChallengeException;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class DigestScheme extends RFC2617Scheme {
     public DigestScheme() {
         throw new RuntimeException("Stub!");

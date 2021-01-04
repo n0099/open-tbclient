@@ -11,10 +11,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class LoadingLayout extends LinearLayout {
-    private ImageView dKW;
-    private TextView dKX;
+    private ImageView dTN;
+    private TextView dTO;
 
     public LoadingLayout(Context context) {
         super(context);
@@ -33,17 +33,17 @@ public class LoadingLayout extends LinearLayout {
     private void initView() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.swanapp_album_loadding_layout, (ViewGroup) null);
         inflate.setBackgroundResource(a.c.aiapps_white);
-        this.dKW = (ImageView) inflate.findViewById(a.f.album_loadding_img);
-        this.dKX = (TextView) inflate.findViewById(a.f.album_loadding_tv);
+        this.dTN = (ImageView) inflate.findViewById(a.f.album_loadding_img);
+        this.dTO = (TextView) inflate.findViewById(a.f.album_loadding_tv);
         addView(inflate);
     }
 
-    public void hq(boolean z) {
+    public void hI(boolean z) {
         if (z) {
             setVisibility(0);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0379a.swanapp_album_rotate_loading);
-            this.dKW.setImageResource(a.e.swanapp_album_progress_icon);
-            this.dKW.startAnimation(loadAnimation);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0372a.swanapp_album_rotate_loading);
+            this.dTN.setImageResource(a.e.swanapp_album_progress_icon);
+            this.dTN.startAnimation(loadAnimation);
             return;
         }
         setVisibility(8);

@@ -7,8 +7,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.c.f;
 import java.net.Inet4Address;
@@ -19,12 +20,14 @@ import java.security.MessageDigest;
 import java.util.Enumeration;
 import java.util.Stack;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4262a = a.class.getName();
-    private static boolean b = f.b;
+    private static final String f13128a = a.class.getName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static boolean f13129b = f.f13118b;
 
     static {
         new Stack();
@@ -58,7 +61,7 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return null;
         } catch (Exception e) {
-            c.b(f4262a, e.getMessage(), Boolean.valueOf(b));
+            c.b(f13128a, e.getMessage(), Boolean.valueOf(f13129b));
             return null;
         }
     }
@@ -73,7 +76,7 @@ public class a extends com.sdk.base.framework.f.a {
         try {
             return Build.VERSION.SDK_INT;
         } catch (Exception e) {
-            c.b(f4262a, e.getMessage(), Boolean.valueOf(b));
+            c.b(f13128a, e.getMessage(), Boolean.valueOf(f13129b));
             return -1;
         }
     }
@@ -89,7 +92,7 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return -1;
         } catch (Exception e) {
-            c.b(f4262a, e.getMessage(), Boolean.valueOf(b));
+            c.b(f13128a, e.getMessage(), Boolean.valueOf(f13129b));
             return -1;
         }
     }
@@ -106,20 +109,20 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return (T) bundle.get(str);
         } catch (Exception e) {
-            c.a(f4262a, e.getMessage(), Boolean.valueOf(b));
+            c.a(f13128a, e.getMessage(), Boolean.valueOf(f13129b));
             return null;
         }
     }
 
     public static String c(Context context) {
         if (context == null) {
-            c.c(f4262a, "mContext 为空", Boolean.valueOf(b));
+            c.c(f13128a, "mContext 为空", Boolean.valueOf(f13129b));
             return null;
         }
         try {
             return context.getPackageName();
         } catch (Exception e) {
-            c.b(f4262a, e.getMessage(), Boolean.valueOf(b));
+            c.b(f13128a, e.getMessage(), Boolean.valueOf(f13129b));
             return null;
         }
     }
@@ -130,49 +133,47 @@ public class a extends com.sdk.base.framework.f.a {
 
     public static String d(Context context) {
         if (context == null) {
-            a(f4262a, "getAppLable", "mContext 为空", b);
+            a(f13128a, "getAppLable", "mContext 为空", f13129b);
             return null;
         }
         try {
             PackageManager packageManager = context.getPackageManager();
             return packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 128)).toString();
         } catch (Exception e) {
-            c.b(f4262a, e.getMessage(), Boolean.valueOf(b));
+            c.b(f13128a, e.getMessage(), Boolean.valueOf(f13129b));
             return null;
         }
     }
 
     public static String e(Context context) {
         PackageInfo packageInfo;
-        int i = 0;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
         } catch (PackageManager.NameNotFoundException e) {
-            c.b(f4262a, e.getMessage(), Boolean.valueOf(b));
+            c.b(f13128a, e.getMessage(), Boolean.valueOf(f13129b));
             packageInfo = null;
         }
         if (packageInfo != null) {
-            int i2 = packageInfo.applicationInfo.flags;
+            int i = packageInfo.applicationInfo.flags;
             try {
                 byte[] byteArray = packageInfo.signatures[0].toByteArray();
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 messageDigest.update(byteArray);
                 byte[] digest = messageDigest.digest();
                 String str = "";
-                while (i < digest.length) {
-                    if (i != 0) {
+                for (int i2 = 0; i2 < digest.length; i2++) {
+                    if (i2 != 0) {
                         str = str + ":";
                     }
-                    String hexString = Integer.toHexString(digest[i] & 255);
+                    String hexString = Integer.toHexString(digest[i2] & 255);
                     if (hexString.length() == 1) {
                         str = str + "0";
                     }
-                    i++;
                     str = str + hexString;
                 }
                 return str;
             } catch (Exception e2) {
-                c.b(f4262a, e2.getMessage(), Boolean.valueOf(b));
+                c.b(f13128a, e2.getMessage(), Boolean.valueOf(f13129b));
             }
         }
         return null;

@@ -1,27 +1,57 @@
 package com.baidu.swan.apps.ao;
 
-import com.baidu.swan.apps.ap.i;
-import com.baidu.swan.apps.b;
-import com.baidu.swan.games.i.k;
-import com.baidu.swan.games.utils.so.e;
-/* loaded from: classes25.dex */
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.view.View;
+import android.widget.AbsoluteLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.swan.apps.a;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+/* loaded from: classes9.dex */
 public class a {
-    private static final boolean DEBUG = b.DEBUG;
-    private static int dIA = 0;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void av(int i, int i2) {
-        com.baidu.swan.apps.extcore.cores.a.awC().ao(i, i2);
-        i.aOT();
-        if (i == 0) {
-            dIA = 2;
-        } else if (i2 > i) {
-            dIA = 1;
-            k.aXI();
-            e.a.bat();
+    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
+        AbsoluteLayout webView;
+        Drawable drawable = com.baidu.swan.support.v4.a.a.getDrawable(bdSailorWebView.getContext(), a.e.common_scrollbar_vertical);
+        Drawable drawable2 = com.baidu.swan.support.v4.a.a.getDrawable(bdSailorWebView.getContext(), a.e.common_scrollbar_horizontal);
+        if (BdZeusUtil.isWebkitLoaded()) {
+            webView = bdSailorWebView.getCurrentWebView();
+        } else {
+            webView = bdSailorWebView.getCurrentWebView().getWebView();
         }
+        if (Build.VERSION.SDK_INT >= 29) {
+            webView.setVerticalScrollbarThumbDrawable(drawable);
+            webView.setHorizontalScrollbarThumbDrawable(drawable2);
+            return;
+        }
+        a(webView, drawable, drawable2);
     }
 
-    public static int aOx() {
-        return dIA;
+    private static void a(@Nullable View view, Drawable drawable, Drawable drawable2) {
+        if (view != null) {
+            try {
+                Field declaredField = View.class.getDeclaredField("mScrollCache");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(view);
+                Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
+                declaredField2.setAccessible(true);
+                Object obj2 = declaredField2.get(obj);
+                Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(obj2, drawable);
+                Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
+                declaredMethod2.setAccessible(true);
+                declaredMethod2.invoke(obj2, drawable2);
+            } catch (Throwable th) {
+                if (DEBUG) {
+                    th.printStackTrace();
+                }
+            }
+        }
     }
 }

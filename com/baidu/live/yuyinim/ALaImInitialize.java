@@ -9,7 +9,7 @@ import com.baidu.live.im.k;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.view.b;
 import com.baidu.live.yuyinim.view.ALALiveTextView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ALaImInitialize {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2501044, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.yuyinim.ALaImInitialize.1
@@ -23,7 +23,7 @@ public class ALaImInitialize {
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2501045, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.yuyinim.ALaImInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<k> run(CustomMessage<TbPageContext> customMessage) {
-                return new CustomResponsedMessage<>(2501045, new com.baidu.live.yuyinim.b.a(customMessage.getData()));
+                return new CustomResponsedMessage<>(2501045, new com.baidu.live.yuyinim.controller.a(customMessage.getData()));
             }
         });
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -32,7 +32,7 @@ public class ALaImInitialize {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                b.bON.clear();
+                b.bTR.clear();
             }
         });
     }

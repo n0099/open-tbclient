@@ -1,10 +1,11 @@
 package io.flutter.embedding.engine.plugins.contentprovider;
 
 import android.content.ContentProvider;
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public interface ContentProviderControlSurface {
-    void attachToContentProvider(ContentProvider contentProvider, Lifecycle lifecycle);
+    void attachToContentProvider(@NonNull ContentProvider contentProvider, @NonNull Lifecycle lifecycle);
 
     void detachFromContentProvider();
 }

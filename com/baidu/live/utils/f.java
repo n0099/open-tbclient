@@ -1,9 +1,6 @@
 package com.baidu.live.utils;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.ugc.model.PublishType;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.tbadk.pay.PayConfig;
 import com.tencent.connect.common.Constants;
 import java.text.ParseException;
@@ -12,7 +9,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Hashtable;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class f {
     /* JADX WARN: Code restructure failed: missing block: B:25:0x0199, code lost:
         if ((r8.getTime().getTime() - r9.parse(r10).getTime()) < 0) goto L58;
@@ -20,12 +17,13 @@ public class f {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String iX(String str) {
+    public static String iM(String str) {
         String substring;
         String substring2;
-        int i = 0;
-        String[] strArr = {"1", "0", "X", PublishType.TYPE_VIDEO_SHARE, "8", "7", "6", "5", "4", "3", "2"};
-        String[] strArr2 = {"7", PublishType.TYPE_VIDEO_SHARE, "10", "5", "8", "4", "2", "1", "6", "3", "7", PublishType.TYPE_VIDEO_SHARE, "10", "5", "8", "4", "2"};
+        int i;
+        int i2 = 0;
+        String[] strArr = {"1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"};
+        String[] strArr2 = {"7", "9", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "5", "8", "4", "2", "1", "6", "3", "7", "9", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "5", "8", "4", "2"};
         String str2 = "";
         if (str.length() != 15 && str.length() != 18) {
             return "身份证号错误";
@@ -35,17 +33,17 @@ public class f {
         } else if (str.length() == 15) {
             str2 = str.substring(0, 6) + Constants.VIA_ACT_TYPE_NINETEEN + str.substring(6, 15);
         }
-        if (!iY(str2)) {
+        if (!iN(str2)) {
             return "身份证号错误";
         }
         String substring3 = str2.substring(6, 10);
         substring = str2.substring(10, 12);
         substring2 = str2.substring(12, 14);
-        if (!iZ(substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2)) {
+        if (!iO(substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2)) {
             return "身份证号错误";
         }
         GregorianCalendar gregorianCalendar = new GregorianCalendar();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
             String str3 = substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2;
             if (gregorianCalendar.get(1) - Integer.parseInt(substring3) <= 150) {
@@ -62,28 +60,34 @@ public class f {
         if (Integer.parseInt(substring2) > 31 || Integer.parseInt(substring2) == 0) {
             return "身份证号错误";
         }
-        if (Wt().get(str2.substring(0, 2)) == null) {
+        if (Xx().get(str2.substring(0, 2)) == null) {
             return "身份证号错误";
         }
-        for (int i2 = 0; i2 < 17; i2++) {
-            i += Integer.parseInt(String.valueOf(str2.charAt(i2))) * Integer.parseInt(strArr2[i2]);
+        int i3 = 0;
+        while (true) {
+            i = i2;
+            if (i3 >= 17) {
+                break;
+            }
+            i2 = (Integer.parseInt(String.valueOf(str2.charAt(i3))) * Integer.parseInt(strArr2[i3])) + i;
+            i3++;
         }
         String str4 = str2 + strArr[i % 11];
         if (str.length() == 18 && !str4.equalsIgnoreCase(str)) {
             return "身份证号错误";
         }
-        if (!ja(str)) {
+        if (!iP(str)) {
             return "未满18岁哦";
         }
         return "Success";
     }
 
-    private static Hashtable Wt() {
+    private static Hashtable Xx() {
         Hashtable hashtable = new Hashtable();
-        hashtable.put("11", "北京");
-        hashtable.put("12", "天津");
+        hashtable.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "北京");
+        hashtable.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "天津");
         hashtable.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, "河北");
-        hashtable.put("14", "山西");
+        hashtable.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "山西");
         hashtable.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "内蒙古");
         hashtable.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "辽宁");
         hashtable.put(Constants.VIA_REPORT_TYPE_DATALINE, "吉林");
@@ -111,22 +115,22 @@ public class f {
         hashtable.put("63", "青海");
         hashtable.put("64", "宁夏");
         hashtable.put("65", "新疆");
-        hashtable.put(UgcUBCUtils.LAND_PAGE_PV, "台湾");
+        hashtable.put("71", "台湾");
         hashtable.put("81", "香港");
         hashtable.put("82", "澳门");
         hashtable.put("91", "国外");
         return hashtable;
     }
 
-    private static boolean iY(String str) {
+    public static boolean iN(String str) {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
-    public static boolean iZ(String str) {
+    public static boolean iO(String str) {
         return Pattern.compile("^((\\d{2}(([02468][048])|([13579][26]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))(\\s(((0?[0-9])|([1-2][0-3]))\\:([0-5]?[0-9])((\\s)|(\\:([0-5]?[0-9])))))?$").matcher(str).matches();
     }
 
-    public static boolean ja(String str) {
+    public static boolean iP(String str) {
         if (TextUtils.isEmpty(str) || str.length() < 15) {
             return false;
         }

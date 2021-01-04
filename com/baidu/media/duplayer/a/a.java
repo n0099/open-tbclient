@@ -1,7 +1,7 @@
 package com.baidu.media.duplayer.a;
 
 import java.lang.reflect.Method;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class a {
     public static Method a(Class cls, String str, Class... clsArr) {
         Method declaredMethod = cls.getDeclaredMethod(str, clsArr);

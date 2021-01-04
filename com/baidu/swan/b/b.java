@@ -1,22 +1,22 @@
 package com.baidu.swan.b;
 
 import com.baidu.swan.c.i;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class b extends i {
-    private static volatile b est;
+    private static volatile b eCd;
 
     public b() {
         super("aiapp_open_stat");
     }
 
-    public static b bgH() {
-        if (est == null) {
+    public static b bje() {
+        if (eCd == null) {
             synchronized (b.class) {
-                if (est == null) {
-                    est = new b();
+                if (eCd == null) {
+                    eCd = new b();
                 }
             }
         }
-        return est;
+        return eCd;
     }
 }

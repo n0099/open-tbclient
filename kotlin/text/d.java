@@ -7,32 +7,32 @@ import kotlin.Pair;
 import kotlin.TypeCastException;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class d implements kotlin.sequences.c<kotlin.b.h> {
-    private final int bJV;
+    private final int bOI;
     private final int limit;
-    private final CharSequence pLs;
-    private final kotlin.jvm.a.c<CharSequence, Integer, Pair<Integer, Integer>> pLt;
+    private final CharSequence qmV;
+    private final kotlin.jvm.a.c<CharSequence, Integer, Pair<Integer, Integer>> qmW;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.c<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
     /* JADX WARN: Multi-variable type inference failed */
     public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.c<? super CharSequence, ? super Integer, Pair<Integer, Integer>> cVar) {
         kotlin.jvm.internal.p.o(charSequence, Config.INPUT_PART);
         kotlin.jvm.internal.p.o(cVar, "getNextMatch");
-        this.pLs = charSequence;
-        this.bJV = i;
+        this.qmV = charSequence;
+        this.bOI = i;
         this.limit = i2;
-        this.pLt = cVar;
+        this.qmW = cVar;
     }
 
     @kotlin.e
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements Iterator<kotlin.b.h> {
-        private int pLh = -1;
-        private int pLu;
-        private int pLv;
-        private kotlin.b.h pLw;
-        private int pLx;
+        private int qmK = -1;
+        private int qmX;
+        private int qmY;
+        private kotlin.b.h qmZ;
+        private int qna;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -41,70 +41,70 @@ public final class d implements kotlin.sequences.c<kotlin.b.h> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.pLu = kotlin.b.l.an(d.this.bJV, 0, d.this.pLs.length());
-            this.pLv = this.pLu;
+            this.qmX = kotlin.b.l.ap(d.this.bOI, 0, d.this.qmV.length());
+            this.qmY = this.qmX;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0025, code lost:
-            if (r7.pLx < r7.pLy.limit) goto L13;
+            if (r7.qna < r7.qnb.limit) goto L13;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private final void eEq() {
-            if (this.pLv >= 0) {
+        private final void eMy() {
+            if (this.qmY >= 0) {
                 if (d.this.limit > 0) {
-                    this.pLx++;
+                    this.qna++;
                 }
-                if (this.pLv <= d.this.pLs.length()) {
-                    Pair pair = (Pair) d.this.pLt.invoke(d.this.pLs, Integer.valueOf(this.pLv));
+                if (this.qmY <= d.this.qmV.length()) {
+                    Pair pair = (Pair) d.this.qmW.invoke(d.this.qmV, Integer.valueOf(this.qmY));
                     if (pair == null) {
-                        this.pLw = new kotlin.b.h(this.pLu, l.B(d.this.pLs));
-                        this.pLv = -1;
+                        this.qmZ = new kotlin.b.h(this.qmX, l.B(d.this.qmV));
+                        this.qmY = -1;
                     } else {
                         int intValue = ((Number) pair.component1()).intValue();
                         int intValue2 = ((Number) pair.component2()).intValue();
-                        this.pLw = new kotlin.b.h(this.pLu, intValue - 1);
-                        this.pLu = intValue + intValue2;
-                        this.pLv = (intValue2 == 0 ? 1 : 0) + this.pLu;
+                        this.qmZ = new kotlin.b.h(this.qmX, intValue - 1);
+                        this.qmX = intValue + intValue2;
+                        this.qmY = (intValue2 == 0 ? 1 : 0) + this.qmX;
                     }
-                    this.pLh = 1;
+                    this.qmK = 1;
                     return;
                 }
-                this.pLw = new kotlin.b.h(this.pLu, l.B(d.this.pLs));
-                this.pLv = -1;
-                this.pLh = 1;
+                this.qmZ = new kotlin.b.h(this.qmX, l.B(d.this.qmV));
+                this.qmY = -1;
+                this.qmK = 1;
                 return;
             }
-            this.pLh = 0;
-            this.pLw = null;
+            this.qmK = 0;
+            this.qmZ = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: eEr */
+        /* renamed from: eMz */
         public kotlin.b.h next() {
-            if (this.pLh == -1) {
-                eEq();
+            if (this.qmK == -1) {
+                eMy();
             }
-            if (this.pLh == 0) {
+            if (this.qmK == 0) {
                 throw new NoSuchElementException();
             }
-            kotlin.b.h hVar = this.pLw;
+            kotlin.b.h hVar = this.qmZ;
             if (hVar == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.ranges.IntRange");
             }
-            this.pLw = null;
-            this.pLh = -1;
+            this.qmZ = null;
+            this.qmK = -1;
             return hVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.pLh == -1) {
-                eEq();
+            if (this.qmK == -1) {
+                eMy();
             }
-            return this.pLh == 1;
+            return this.qmK == 1;
         }
     }
 

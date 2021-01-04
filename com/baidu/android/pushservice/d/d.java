@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class d extends c {
     protected boolean d;
 
@@ -23,21 +23,21 @@ public class d extends c {
                 String optString = optJSONObject.optString(SharedPrefConfig.CHANNEL_ID);
                 String optString2 = optJSONObject.optString("new_channel_id");
                 String optString3 = com.baidu.android.pushservice.h.f() ? optJSONObject.optString("rsa_channel_token") : optJSONObject.optString("channel_token");
-                this.b.f = optJSONObject.optString("user_id");
-                this.b.e = optJSONObject.optString("appid");
-                com.baidu.android.pushservice.j.a(this.f1056a).a(optString, optString3, optString2, optJSONObject.optString("new_channel_token"));
+                this.f1258b.f = optJSONObject.optString("user_id");
+                this.f1258b.e = optJSONObject.optString("appid");
+                com.baidu.android.pushservice.j.a(this.f1257a).a(optString, optString3, optString2, optJSONObject.optString("new_channel_token"));
             }
         } catch (Exception e) {
-            new b.c(this.f1056a).a(Log.getStackTraceString(e)).a();
+            new b.c(this.f1257a).a(Log.getStackTraceString(e)).a();
         }
-        if (!com.baidu.android.pushservice.b.d.q(this.f1056a) || com.baidu.android.pushservice.b.d.c(this.f1056a)) {
+        if (!com.baidu.android.pushservice.b.d.q(this.f1257a) || com.baidu.android.pushservice.b.d.c(this.f1257a)) {
             com.baidu.android.pushservice.a.e eVar = new com.baidu.android.pushservice.a.e();
-            eVar.b(this.b.d);
-            eVar.a(this.b.e);
-            eVar.d = this.b.f;
-            eVar.a(this.b.h);
+            eVar.b(this.f1258b.d);
+            eVar.a(this.f1258b.e);
+            eVar.d = this.f1258b.f;
+            eVar.a(this.f1258b.h);
             eVar.a(com.baidu.android.pushservice.a.a());
-            com.baidu.android.pushservice.a.b.a(this.f1056a).a("r_v2", com.baidu.android.pushservice.a.b.a(this.f1056a).a(eVar, this.d));
+            com.baidu.android.pushservice.a.b.a(this.f1257a).a("r_v2", com.baidu.android.pushservice.a.b.a(this.f1257a).a(eVar, this.d));
         }
         return str;
     }

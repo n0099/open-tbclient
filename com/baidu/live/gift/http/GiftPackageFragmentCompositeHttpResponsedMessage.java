@@ -2,7 +2,7 @@ package com.baidu.live.gift.http;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class GiftPackageFragmentCompositeHttpResponsedMessage extends JsonHttpResponsedMessage {
     public GiftPackageFragmentCompositeHttpResponsedMessage() {
         super(1021232);

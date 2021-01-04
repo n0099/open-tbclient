@@ -1,25 +1,26 @@
 package com.baidu.ar.h;
 
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class l {
     private static char[] ye = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     private static MessageDigest yf;
 
     static {
         try {
-            yf = MessageDigest.getInstance("MD5");
+            yf = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         } catch (NoSuchAlgorithmException e) {
             System.err.println(l.class.getName() + "初始化失败，MessageDigest不支持MD5Util。");
             e.printStackTrace();
         }
     }
 
-    private static void a(byte b, StringBuffer stringBuffer) {
-        char c = ye[(b & 240) >> 4];
-        char c2 = ye[b & 15];
+    private static void a(byte b2, StringBuffer stringBuffer) {
+        char c = ye[(b2 & 240) >> 4];
+        char c2 = ye[b2 & 15];
         stringBuffer.append(c);
         stringBuffer.append(c2);
     }
@@ -34,7 +35,7 @@ public class l {
 
     public static String aU(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             char[] charArray = str.toCharArray();
             byte[] bArr = new byte[charArray.length];
             for (int i = 0; i < charArray.length; i++) {
@@ -42,8 +43,8 @@ public class l {
             }
             byte[] digest = messageDigest.digest(bArr);
             StringBuffer stringBuffer = new StringBuffer();
-            for (byte b : digest) {
-                int i2 = b & 255;
+            for (byte b2 : digest) {
+                int i2 = b2 & 255;
                 if (i2 < 16) {
                     stringBuffer.append("0");
                 }

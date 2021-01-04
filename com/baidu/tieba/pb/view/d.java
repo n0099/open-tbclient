@@ -10,88 +10,88 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.share.f;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private ImageView mfl;
-    private boolean fbE = false;
-    private Runnable mfm = new Runnable() { // from class: com.baidu.tieba.pb.view.d.1
+    private ImageView mky;
+    private boolean fln = false;
+    private Runnable mkz = new Runnable() { // from class: com.baidu.tieba.pb.view.d.1
         @Override // java.lang.Runnable
         public void run() {
-            d.this.fbE = true;
-            int bAp = f.bAp();
-            if (bAp > 0) {
-                ViewGroup.LayoutParams layoutParams = d.this.mfl.getLayoutParams();
-                int dimens = l.getDimens(d.this.mfl.getContext(), R.dimen.tbds62);
+            d.this.fln = true;
+            int bCJ = f.bCJ();
+            if (bCJ > 0) {
+                ViewGroup.LayoutParams layoutParams = d.this.mky.getLayoutParams();
+                int dimens = l.getDimens(d.this.mky.getContext(), R.dimen.tbds62);
                 layoutParams.height = dimens;
                 layoutParams.width = dimens;
-                d.this.mfl.setLayoutParams(layoutParams);
-                SvgManager.btW().a(d.this.mfl, bAp, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                if (d.this.fLN != null) {
-                    d.this.fLN.start();
+                d.this.mky.setLayoutParams(layoutParams);
+                SvgManager.bwq().a(d.this.mky, bCJ, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                if (d.this.valueAnimator != null) {
+                    d.this.valueAnimator.start();
                 }
             }
         }
     };
-    private ValueAnimator fLN = new ValueAnimator();
+    private ValueAnimator valueAnimator = new ValueAnimator();
 
     public d(ImageView imageView) {
-        this.mfl = imageView;
-        this.fLN.setDuration(4000L);
-        this.fLN.setFloatValues(0.0f, 1.0f);
-        this.fLN.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.pb.view.d.2
+        this.mky = imageView;
+        this.valueAnimator.setDuration(4000L);
+        this.valueAnimator.setFloatValues(0.0f, 1.0f);
+        this.valueAnimator.setInterpolator(new Interpolator() { // from class: com.baidu.tieba.pb.view.d.2
             @Override // android.animation.TimeInterpolator
             public float getInterpolation(float f) {
                 return (float) (1.075d + (0.075d * Math.sin((18.84955592153876d * f) - 1.5707963267948966d)));
             }
         });
-        this.fLN.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.view.d.3
+        this.valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.view.d.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (d.this.mfl != null) {
-                    d.this.mfl.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    d.this.mfl.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (d.this.mky != null) {
+                    d.this.mky.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    d.this.mky.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
     }
 
-    public void dxq() {
-        if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bxG()) {
-            com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mfm);
-            long bxH = TbSingleton.getInstance().getSharePanelConfData().bxH() * 1000;
-            if (bxH <= 0) {
-                bxH = IMConnection.RETRY_DELAY_TIMES;
+    public void dxf() {
+        if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bAa()) {
+            com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mkz);
+            long bAb = TbSingleton.getInstance().getSharePanelConfData().bAb() * 1000;
+            if (bAb <= 0) {
+                bAb = IMConnection.RETRY_DELAY_TIMES;
             }
-            com.baidu.adp.lib.f.e.mY().postDelayed(this.mfm, bxH);
+            com.baidu.adp.lib.f.e.mB().postDelayed(this.mkz, bAb);
         }
     }
 
     public void setEnable(boolean z) {
-        this.fbE = z;
+        this.fln = z;
     }
 
     public boolean isEnable() {
-        return this.fbE;
+        return this.fln;
     }
 
     public void onDestroy() {
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mfm);
-        if (this.fLN != null) {
-            this.fLN.removeAllListeners();
-            this.fLN.removeAllUpdateListeners();
-            this.fLN.cancel();
+        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mkz);
+        if (this.valueAnimator != null) {
+            this.valueAnimator.removeAllListeners();
+            this.valueAnimator.removeAllUpdateListeners();
+            this.valueAnimator.cancel();
         }
     }
 
     public void onChangeSkinType() {
-        int bAp;
-        if (this.fbE && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bxG() && (bAp = f.bAp()) > 0) {
-            ViewGroup.LayoutParams layoutParams = this.mfl.getLayoutParams();
-            int dimens = l.getDimens(this.mfl.getContext(), R.dimen.tbds62);
+        int bCJ;
+        if (this.fln && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().bAa() && (bCJ = f.bCJ()) > 0) {
+            ViewGroup.LayoutParams layoutParams = this.mky.getLayoutParams();
+            int dimens = l.getDimens(this.mky.getContext(), R.dimen.tbds62);
             layoutParams.height = dimens;
             layoutParams.width = dimens;
-            this.mfl.setLayoutParams(layoutParams);
-            SvgManager.btW().a(this.mfl, bAp, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.mky.setLayoutParams(layoutParams);
+            SvgManager.bwq().a(this.mky, bCJ, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 }

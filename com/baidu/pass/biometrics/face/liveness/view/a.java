@@ -1,19 +1,21 @@
 package com.baidu.pass.biometrics.face.liveness.view;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatDialog;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
+import androidx.appcompat.app.AppCompatDialog;
 import com.baidu.pass.biometrics.face.R;
 import com.baidu.pass.utils.CommonViewUtility;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class a extends AppCompatDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f2759a;
-    private TextView b;
+    private ViewSwitcher f4088a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private TextView f4089b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -30,8 +32,8 @@ public class a extends AppCompatDialog {
     private void a() {
         setContentView(R.layout.layout_pass_liveness_alert_dialog);
         setCanceledOnTouchOutside(false);
-        this.f2759a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.b = (TextView) findViewById(R.id.dialog_title);
+        this.f4088a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f4089b = (TextView) findViewById(R.id.dialog_title);
         this.c = (TextView) findViewById(R.id.dialog_msg);
         this.d = (TextView) findViewById(R.id.msg_text);
         this.e = (TextView) findViewById(R.id.positive_btn);
@@ -49,7 +51,7 @@ public class a extends AppCompatDialog {
     }
 
     public void c(String str) {
-        this.b.setText(str);
+        this.f4089b.setText(str);
     }
 
     public void c(int i) {
@@ -77,17 +79,17 @@ public class a extends AppCompatDialog {
 
     public void a(boolean z) {
         if (z) {
-            this.b.setVisibility(0);
+            this.f4089b.setVisibility(0);
         } else {
-            this.b.setVisibility(8);
+            this.f4089b.setVisibility(8);
         }
     }
 
     public void a(int i) {
         if ((i < 1 ? 1 : Math.min(i, 2)) == 2) {
-            this.f2759a.setDisplayedChild(0);
+            this.f4088a.setDisplayedChild(0);
         } else {
-            this.f2759a.setDisplayedChild(1);
+            this.f4088a.setDisplayedChild(1);
         }
     }
 

@@ -3,55 +3,54 @@ package com.baidu.ubs.analytics.d;
 import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class b {
-    private static boolean oHK;
-    private static boolean oIE;
-    private static StringBuffer oIF = new StringBuffer();
+    private static boolean oNT;
+    private static boolean oOL;
+    private static StringBuffer oOM = new StringBuffer();
 
     static {
-        if (com.baidu.ubs.analytics.d.ejo() != null) {
-            oHK = !a.ejI();
-            oIE = true;
-            oIF.append("ABsdkLog-");
-            oIF.append(new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date()));
-            oIF.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        if (com.baidu.ubs.analytics.d.ejy() != null) {
+            oNT = !a.ejN();
+            oOL = true;
+            oOM.append("ABsdkLog-");
+            oOM.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            oOM.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             try {
-                oIF.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.ejo().getContext()).getBytes("UTF-8")));
+                oOM.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.ejy().getContext()).getBytes("UTF-8")));
             } catch (UnsupportedEncodingException e) {
                 j.a(e);
             } catch (Exception e2) {
                 j.a(e2);
             }
-            oIF.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
+            oOM.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
         }
     }
 
-    public static String ejK() {
-        return oIF.toString();
+    public static String ejP() {
+        return oOM.toString();
     }
 
-    public static void Ye(String str) {
-        if (oHK) {
+    public static void XN(String str) {
+        if (oNT) {
             Log.w("BaiDuUbs", str);
         }
         a("w", "BaiDuUbs", str);
     }
 
     public static void I(String str) {
-        if (oHK) {
+        if (oNT) {
             Log.e("BaiDuUbs", str);
         }
         a("e", "BaiDuUbs", str);
     }
 
     private static void a(final String str, final String str2, final String str3) {
-        if (oIE) {
+        if (oOL) {
             c.a(new d() { // from class: com.baidu.ubs.analytics.d.b.1
                 @Override // com.baidu.ubs.analytics.d.d
                 protected final void a() {
@@ -65,7 +64,7 @@ public final class b {
                     stringBuffer.append(str2);
                     stringBuffer.append("\t");
                     stringBuffer.append(str3);
-                    g.b(stringBuffer.toString(), a.aR, b.oIF.toString());
+                    g.b(stringBuffer.toString(), a.aR, b.oOM.toString());
                 }
             });
         }
@@ -76,8 +75,8 @@ public final class b {
         if (bArr == null || bArr.length <= 0) {
             return null;
         }
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() < 2) {
                 sb.append(0);
             }

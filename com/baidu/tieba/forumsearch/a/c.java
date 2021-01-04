@@ -4,9 +4,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes24.dex */
-public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsearch.b.b, com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.d>> {
-    private View.OnClickListener iQF;
+import com.baidu.tieba.card.holder.CardViewHolder;
+/* loaded from: classes8.dex */
+public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsearch.b.b, CardViewHolder<com.baidu.tieba.forumsearch.c.d>> {
+    private View.OnClickListener jcR;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -14,25 +15,25 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsear
         this.mPageContext = tbPageContext;
     }
 
-    public void z(View.OnClickListener onClickListener) {
-        this.iQF = onClickListener;
+    public void A(View.OnClickListener onClickListener) {
+        this.jcR = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.d> c(ViewGroup viewGroup) {
+    /* renamed from: aX */
+    public CardViewHolder<com.baidu.tieba.forumsearch.c.d> e(ViewGroup viewGroup) {
         com.baidu.tieba.forumsearch.c.d dVar = new com.baidu.tieba.forumsearch.c.d(this.mPageContext);
-        dVar.z(this.iQF);
-        return new com.baidu.tieba.card.a.a<>(dVar);
+        dVar.A(this.jcR);
+        return new CardViewHolder<>(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.forumsearch.b.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.d> aVar) {
-        aVar.csN().a(bVar);
-        return aVar.getView();
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.forumsearch.b.b bVar, CardViewHolder<com.baidu.tieba.forumsearch.c.d> cardViewHolder) {
+        cardViewHolder.cvG().a(bVar);
+        return cardViewHolder.getView();
     }
 }

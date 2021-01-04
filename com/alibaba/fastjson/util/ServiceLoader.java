@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ServiceLoader {
     private static final String PREFIX = "META-INF/services/";
     private static final Set<String> loadedUrls = new HashSet();
@@ -43,11 +43,11 @@ public class ServiceLoader {
 
     public static void load(URL url, Set<String> set) throws IOException {
         BufferedReader bufferedReader;
-        InputStream inputStream = null;
+        InputStream inputStream;
         try {
-            InputStream openStream = url.openStream();
+            inputStream = url.openStream();
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(openStream, "utf-8"));
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
                 while (true) {
                     try {
                         String readLine = bufferedReader.readLine();
@@ -62,12 +62,11 @@ public class ServiceLoader {
                             }
                         } else {
                             IOUtils.close(bufferedReader);
-                            IOUtils.close(openStream);
+                            IOUtils.close(inputStream);
                             return;
                         }
                     } catch (Throwable th) {
                         th = th;
-                        inputStream = openStream;
                         IOUtils.close(bufferedReader);
                         IOUtils.close(inputStream);
                         throw th;
@@ -76,11 +75,11 @@ public class ServiceLoader {
             } catch (Throwable th2) {
                 th = th2;
                 bufferedReader = null;
-                inputStream = openStream;
             }
         } catch (Throwable th3) {
             th = th3;
             bufferedReader = null;
+            inputStream = null;
         }
     }
 }

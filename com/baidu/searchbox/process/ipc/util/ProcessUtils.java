@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public final class ProcessUtils {
     private static final String AI_APPS_PROCESS_SUFFIX = ":swan";
     private static final String CMD_LINE_NAME = "/proc/self/cmdline";
@@ -64,31 +64,32 @@ public final class ProcessUtils {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [138=4] */
     private static String getProcessNameFromFile() {
-        FileInputStream fileInputStream;
         Throwable th;
+        FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         String str = null;
         try {
-            fileInputStream = new FileInputStream(new File(CMD_LINE_NAME));
+            fileInputStream2 = new FileInputStream(new File(CMD_LINE_NAME));
         } catch (Exception e) {
-            fileInputStream = null;
+            fileInputStream2 = null;
         } catch (Throwable th2) {
-            fileInputStream = null;
             th = th2;
+            fileInputStream = null;
         }
         try {
             byte[] bArr = new byte[500];
-            str = new String(bArr, 0, fileInputStream.read(bArr)).trim();
-            if (fileInputStream != null) {
+            str = new String(bArr, 0, fileInputStream2.read(bArr)).trim();
+            if (fileInputStream2 != null) {
                 try {
-                    fileInputStream.close();
+                    fileInputStream2.close();
                 } catch (IOException e2) {
                     e2.printStackTrace();
                 }
             }
         } catch (Exception e3) {
-            if (fileInputStream != null) {
+            if (fileInputStream2 != null) {
                 try {
-                    fileInputStream.close();
+                    fileInputStream2.close();
                 } catch (IOException e4) {
                     e4.printStackTrace();
                 }
@@ -96,6 +97,7 @@ public final class ProcessUtils {
             return str;
         } catch (Throwable th3) {
             th = th3;
+            fileInputStream = fileInputStream2;
             if (fileInputStream != null) {
                 try {
                     fileInputStream.close();

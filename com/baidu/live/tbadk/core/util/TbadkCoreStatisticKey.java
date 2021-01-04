@@ -1,6 +1,6 @@
 package com.baidu.live.tbadk.core.util;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class TbadkCoreStatisticKey {
     public static final String ALA_FOLLOW_LIVE_LIVE_ITEM_CLICK = "c12677";
     public static final String ALA_FOLLOW_LIVE_LIVE_ITEM_SHOW = "c12676";
@@ -97,7 +97,7 @@ public class TbadkCoreStatisticKey {
     public static final String YULE_GAME_EAST_EGG_PB_CLICK = "c10854";
     public static final String YULE_GAME_EAST_EGG_VIEW = "c10852";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class AntiLocateValue {
         public static int LOCATE_WRITE = 1;
         public static int LOCATE_REPLY = 2;

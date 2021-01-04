@@ -1,43 +1,29 @@
 package com.baidu.swan.games.view.recommend.popview;
 
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.StateListDrawable;
-import android.util.StateSet;
 import android.view.View;
-/* loaded from: classes25.dex */
-public class d extends StateListDrawable {
-    private a ehw;
-    private View mView = null;
+import com.baidu.swan.games.view.recommend.popview.c;
+/* loaded from: classes9.dex */
+public class d {
+    public static void be(View view) {
+        if (view != null) {
+            c cVar = new c();
+            cVar.setView(view);
+            cVar.a(new c.a() { // from class: com.baidu.swan.games.view.recommend.popview.d.1
+                @Override // com.baidu.swan.games.view.recommend.popview.c.a
+                public void bc(View view2) {
+                    if (view2 != null) {
+                        view2.setAlpha(0.2f);
+                    }
+                }
 
-    /* loaded from: classes25.dex */
-    public interface a {
-        void aT(View view);
-
-        void aU(View view);
-    }
-
-    public d() {
-        addState(new int[]{16842919}, new ColorDrawable(0));
-        addState(new int[0], new ColorDrawable(0));
-    }
-
-    public void setView(View view) {
-        this.mView = view;
-    }
-
-    public void a(a aVar) {
-        this.ehw = aVar;
-    }
-
-    @Override // android.graphics.drawable.StateListDrawable, android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    protected boolean onStateChange(int[] iArr) {
-        if (this.mView != null && this.ehw != null) {
-            if (StateSet.stateSetMatches(new int[]{16842919}, iArr)) {
-                this.ehw.aT(this.mView);
-            } else {
-                this.ehw.aU(this.mView);
-            }
+                @Override // com.baidu.swan.games.view.recommend.popview.c.a
+                public void bd(View view2) {
+                    if (view2 != null) {
+                        view2.setAlpha(1.0f);
+                    }
+                }
+            });
+            view.setBackground(cVar);
         }
-        return super.onStateChange(iArr);
     }
 }

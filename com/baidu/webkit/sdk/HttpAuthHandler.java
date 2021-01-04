@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import android.os.Handler;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class HttpAuthHandler extends Handler {
     public void cancel() {
     }

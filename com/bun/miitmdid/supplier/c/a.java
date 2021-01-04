@@ -1,5 +1,5 @@
 package com.bun.miitmdid.supplier.c;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public interface a {
     void a();
 

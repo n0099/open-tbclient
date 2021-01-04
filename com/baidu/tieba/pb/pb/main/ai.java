@@ -1,97 +1,52 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.List;
-/* loaded from: classes22.dex */
-public class ai {
-    private PbModel lDS;
-    private a lIB;
-    protected final com.baidu.adp.framework.listener.a lMR = new com.baidu.adp.framework.listener.a(1001603, CmdConfigSocket.CMD_SOCKET_GOD_REPLY_LOOKMORE) { // from class: com.baidu.tieba.pb.pb.main.ai.1
-        @Override // com.baidu.adp.framework.listener.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage != null) {
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == ai.this.lMQ) {
-                    if (responsedMessage instanceof LookMoreHttpResMessage) {
-                        LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
-                        List<PostData> data = lookMoreHttpResMessage.getData();
-                        String errorString = lookMoreHttpResMessage.getErrorString();
-                        int error = lookMoreHttpResMessage.getError();
-                        if (error != 0) {
-                            ai.this.lIB.p(error, errorString, "");
-                        } else if (!com.baidu.tbadk.core.util.y.isEmpty(data)) {
-                            ai.this.lIB.ah(data);
-                        }
-                    } else if (responsedMessage instanceof LookMoreSocketResMessage) {
-                        LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
-                        List<PostData> data2 = lookMoreSocketResMessage.getData();
-                        String errorString2 = lookMoreSocketResMessage.getErrorString();
-                        int error2 = lookMoreSocketResMessage.getError();
-                        if (error2 != 0) {
-                            ai.this.lIB.p(error2, errorString2, "");
-                        } else if (data2 != null) {
-                            ai.this.lIB.ah(data2);
-                        }
-                    }
+import com.baidu.tbadk.core.data.bb;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
+/* loaded from: classes2.dex */
+public class ai extends l<bb, PbRecommendNovelHolder> {
+    private com.baidu.tieba.pb.data.f lJI;
+    private PbRecommendNovelHolder.a lTm;
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ai(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
+        this.lTm = new PbRecommendNovelHolder.a() { // from class: com.baidu.tieba.pb.pb.main.ai.1
+            @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.a
+            public void a(bb bbVar) {
+                if (bbVar != null) {
+                    com.baidu.tieba.pb.c.a.a(ai.this.lJI, bbVar, bbVar.locate, 6);
                 }
             }
+        };
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: cA */
+    public PbRecommendNovelHolder e(ViewGroup viewGroup) {
+        return new PbRecommendNovelHolder(this.lIO.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.lTm);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, bb bbVar, PbRecommendNovelHolder pbRecommendNovelHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) bbVar, (bb) pbRecommendNovelHolder);
+        if (bbVar != null) {
+            bbVar.locate = i + 1;
+            com.baidu.tieba.pb.c.a.a(this.lIO.getUniqueId(), this.lJI, bbVar, bbVar.locate, 6);
+            pbRecommendNovelHolder.b(bbVar);
         }
-    };
-    private final BdUniqueId lMQ = BdUniqueId.gen();
-
-    /* loaded from: classes22.dex */
-    public interface a {
-        void ah(List<PostData> list);
-
-        void p(int i, String str, String str2);
+        return view;
     }
 
-    public ai(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
-        this.lDS = pbModel;
-        registerTask();
-        this.lMR.setTag(baseFragmentActivity.getUniqueId());
-        MessageManager.getInstance().registerListener(this.lMR);
-        this.lIB = null;
-    }
-
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.lMR);
-    }
-
-    public void b(a aVar) {
-        this.lIB = aVar;
-    }
-
-    private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001603, com.baidu.tieba.tbadkCore.a.a.bN(TbConfig.PB_MORE_GOD_REPLY_URL, CmdConfigSocket.CMD_SOCKET_GOD_REPLY_LOOKMORE));
-        tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_SOCKET_GOD_REPLY_LOOKMORE, LookMoreSocketResMessage.class, false);
-    }
-
-    public void fo(List<Long> list) {
-        if (this.lDS != null && this.lDS.getPbData() != null) {
-            int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-            int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
-            LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.f.b.toLong(this.lDS.lLj, 0L)));
-            lookMoreReqMessage.setPost_id(list);
-            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.f.b.toInt(this.lDS.mStType, 0));
-            lookMoreReqMessage.setWith_floor(1);
-            lookMoreReqMessage.setScr_w(equipmentWidth);
-            lookMoreReqMessage.setScr_h(equipmentHeight);
-            lookMoreReqMessage.setTag(this.lMQ);
-            MessageManager.getInstance().sendMessage(lookMoreReqMessage);
-        }
+    public void setData(com.baidu.tieba.pb.data.f fVar) {
+        this.lJI = fVar;
     }
 }

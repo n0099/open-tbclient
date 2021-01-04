@@ -8,25 +8,25 @@ import android.view.View;
 import android.widget.PopupWindow;
 /* loaded from: classes.dex */
 public class g {
-    public static final boolean a(Dialog dialog, com.baidu.adp.base.e<?> eVar) {
-        if (eVar == null || eVar.getPageActivity() == null) {
+    public static final boolean a(Dialog dialog, com.baidu.adp.base.f<?> fVar) {
+        if (fVar == null || fVar.getPageActivity() == null) {
             return false;
         }
-        return showDialog(dialog, eVar.getPageActivity());
+        return showDialog(dialog, fVar.getPageActivity());
     }
 
-    public static final boolean b(Dialog dialog, com.baidu.adp.base.e<?> eVar) {
-        if (eVar == null || eVar.getPageActivity() == null) {
+    public static final boolean b(Dialog dialog, com.baidu.adp.base.f<?> fVar) {
+        if (fVar == null || fVar.getPageActivity() == null) {
             return false;
         }
-        return dismissDialog(dialog, eVar.getPageActivity());
+        return dismissDialog(dialog, fVar.getPageActivity());
     }
 
-    public static final boolean a(com.baidu.adp.base.e<?> eVar) {
-        if (eVar == null) {
+    public static final boolean a(com.baidu.adp.base.f<?> fVar) {
+        if (fVar == null) {
             return false;
         }
-        return isActivityCanShowDialogOrPopupWindow(eVar.getPageActivity());
+        return isActivityCanShowDialogOrPopupWindow(fVar.getPageActivity());
     }
 
     public static final boolean showDialog(Dialog dialog, Activity activity) {

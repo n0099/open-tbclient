@@ -13,7 +13,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.flex.FlexAdapter;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class FlexLayout extends ViewGroup {
     static final String BUNDLE_KEY_SELECTS = "selects";
     static final String BUNDLE_KEY_STATE = "savedInstance";
@@ -28,12 +28,12 @@ public class FlexLayout extends ViewGroup {
     private float mVerticalSpacing;
     public int realHeight;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnItemClickListener {
         void onItemClick(FlexLayout flexLayout, View view, int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnStateChangedListener {
         void onMaxNumSelected();
 
@@ -151,34 +151,31 @@ public class FlexLayout extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        int i3;
         int resolveSize = resolveSize(0, i);
         int childCount = getChildCount();
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
+        int i3 = 0;
         int i4 = 0;
-        int i5 = 0;
-        while (i4 < childCount) {
-            View childAt = getChildAt(i4);
+        while (i3 < childCount) {
+            View childAt = getChildAt(i3);
             ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
             childAt.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), layoutParams.width), getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), layoutParams.height));
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
-            int max = Math.max(i5, measuredHeight);
+            int max = Math.max(i4, measuredHeight);
             if (paddingLeft + measuredWidth + getPaddingRight() > resolveSize) {
                 paddingLeft = getPaddingLeft();
-                i3 = (int) (max + this.mVerticalSpacing + paddingTop);
+                paddingTop = (int) (max + this.mVerticalSpacing + paddingTop);
             } else {
                 measuredHeight = max;
-                i3 = paddingTop;
             }
             paddingLeft = (int) (paddingLeft + this.mHorizontalSpacing + measuredWidth);
-            i4++;
-            paddingTop = i3;
-            i5 = measuredHeight;
+            i3++;
+            i4 = measuredHeight;
         }
-        this.realHeight = paddingTop + i5 + getPaddingBottom();
-        setMeasuredDimension(resolveSize, resolveSize(paddingTop + i5 + getPaddingBottom(), i2));
+        this.realHeight = paddingTop + i4 + getPaddingBottom();
+        setMeasuredDimension(resolveSize, resolveSize(paddingTop + i4 + getPaddingBottom(), i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View

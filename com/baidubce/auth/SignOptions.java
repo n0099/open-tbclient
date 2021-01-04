@@ -2,7 +2,7 @@ package com.baidubce.auth;
 
 import java.util.Date;
 import java.util.Set;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class SignOptions {
     public static final SignOptions DEFAULT = new SignOptions();
     public static final int DEFAULT_EXPIRATION_IN_SECONDS = 1800;

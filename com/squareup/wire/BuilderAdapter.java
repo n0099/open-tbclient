@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public final class BuilderAdapter<B extends Message.Builder> {
     private final List<Field> requiredFields = new ArrayList();
     private static final int SUFFIX_LENGTH = "$Builder".length();
@@ -40,7 +40,7 @@ public final class BuilderAdapter<B extends Message.Builder> {
         }
     }
 
-    public <B extends Message.Builder> void checkRequiredFields(B b) {
+    public <B extends Message.Builder> void checkRequiredFields(B b2) {
         StringBuilder sb = null;
         String str = "";
         try {
@@ -48,7 +48,7 @@ public final class BuilderAdapter<B extends Message.Builder> {
             int i = 0;
             while (i < size) {
                 Field field = this.requiredFields.get(i);
-                if (field.get(b) == null) {
+                if (field.get(b2) == null) {
                     if (sb == null) {
                         sb = new StringBuilder();
                     } else {
@@ -58,7 +58,6 @@ public final class BuilderAdapter<B extends Message.Builder> {
                     sb.append(field.getName());
                 }
                 i++;
-                sb = sb;
                 str = str;
             }
             if (sb != null) {

@@ -2,10 +2,10 @@ package com.baidu.swan.apps.jsbridge;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.Keep;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
+import androidx.annotation.Keep;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
@@ -15,7 +15,7 @@ import com.baidu.swan.apps.event.a.d;
 import com.baidu.swan.apps.performance.h;
 import com.baidu.swan.apps.v.f;
 @Keep
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class SwanAppJsBridge extends a {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_aiapps_jsbridge";
     private static final String TAG = "SwanAppJsBridge";
@@ -36,7 +36,7 @@ public class SwanAppJsBridge extends a {
         } else {
             d dVar = new d(str, str2);
             h.D("postMessage", "PostMsg setData start");
-            f.aCp().a(dVar, false);
+            f.aDG().a(dVar, false);
             h.D("postMessage", "PostMsg setData end");
         }
         return UnitedSchemeUtility.wrapCallbackParams(i).toString();

@@ -15,33 +15,33 @@ import com.google.zxing.aztec.detector.Detector;
 import com.google.zxing.common.DecoderResult;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class AztecReader implements Reader {
     @Override // com.google.zxing.Reader
     public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, FormatException {
         return decode(binaryBitmap, null);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0036  */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0044 A[LOOP:0: B:14:0x0042->B:15:0x0044, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x007f  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x008a  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0096  */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x0021  */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0037  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0045 A[LOOP:0: B:14:0x0043->B:15:0x0045, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0080  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x008b  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0097  */
+    /* JADX WARN: Removed duplicated region for block: B:7:0x0022  */
     @Override // com.google.zxing.Reader
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException {
         ResultPoint[] resultPointArr;
-        ResultPoint[] resultPointArr2;
-        NotFoundException notFoundException;
         DecoderResult decoderResult;
+        ResultPoint[] resultPointArr2;
+        FormatException formatException;
+        NotFoundException notFoundException;
         DecoderResult decoderResult2;
         List<byte[]> byteSegments;
         String eCLevel;
         ResultPointCallback resultPointCallback;
-        FormatException formatException = null;
         Detector detector = new Detector(binaryBitmap.getBlackMatrix());
         try {
             AztecDetectorResult detect = detector.detect(false);
@@ -49,14 +49,14 @@ public final class AztecReader implements Reader {
             try {
                 decoderResult = new Decoder().decode(detect);
                 resultPointArr2 = resultPointArr;
+                formatException = null;
                 notFoundException = null;
             } catch (FormatException e) {
                 e = e;
-                resultPointArr2 = resultPointArr;
-                notFoundException = null;
-                FormatException formatException2 = e;
                 decoderResult = null;
-                formatException = formatException2;
+                resultPointArr2 = resultPointArr;
+                formatException = e;
+                notFoundException = null;
                 if (decoderResult == null) {
                 }
                 if (map != null) {
@@ -73,9 +73,10 @@ public final class AztecReader implements Reader {
                 return result;
             } catch (NotFoundException e2) {
                 e = e2;
-                resultPointArr2 = resultPointArr;
-                notFoundException = e;
                 decoderResult = null;
+                resultPointArr2 = resultPointArr;
+                formatException = null;
+                notFoundException = e;
                 if (decoderResult == null) {
                 }
                 if (map != null) {

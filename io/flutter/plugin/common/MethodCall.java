@@ -1,8 +1,9 @@
 package io.flutter.plugin.common;
 
+import androidx.annotation.Nullable;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public final class MethodCall {
     public final Object arguments;
     public final String method;
@@ -16,6 +17,7 @@ public final class MethodCall {
         return (T) this.arguments;
     }
 
+    @Nullable
     public <T> T argument(String str) {
         if (this.arguments == null) {
             return null;

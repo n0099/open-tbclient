@@ -2,19 +2,19 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class ab implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f4513a;
+    final /* synthetic */ Context f14096a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(Context context) {
-        this.f4513a = context;
+        this.f14096a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        MessageHandleService.c(this.f4513a);
+        MessageHandleService.c(this.f14096a);
     }
 }

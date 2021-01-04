@@ -2,7 +2,6 @@ package com.baidu.sapi2.utils;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
@@ -23,14 +22,16 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class SapiDeviceInfo implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f3532a = 11;
+    private static final int f5368a = 11;
     private static final String c = "android";
-    private static final String b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f5369b = Character.toString(1);
+    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, "O", "K", "T", "T", "Q", "G", "L", "w", "8", "h", "P"});
 
     static String a() {
         return String.format("%02d", Integer.valueOf(new Random().nextInt(100))) + (System.currentTimeMillis() / 1000) + String.format("%03d", 11) + "0";
@@ -123,7 +124,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static String getDeviceInfo(String str) {
         List<String> buildDeviceTokens = buildDeviceTokens(str);
         a.a(buildDeviceTokens);
-        return a(TextUtils.join(b, buildDeviceTokens));
+        return a(TextUtils.join(f5369b, buildDeviceTokens));
     }
 
     public static String getDiCookieInfo(List<String> list) {
@@ -132,10 +133,10 @@ public class SapiDeviceInfo implements NoProguard {
 
     public static String getDiCookieInfo(List<String> list, boolean z) {
         JSONObject jSONObject = new JSONObject();
-        if (!a.f3533a.isEmpty() && list != null) {
+        if (!a.f5370a.isEmpty() && list != null) {
             for (String str : list) {
                 try {
-                    jSONObject.put(str, a.f3533a.get(str));
+                    jSONObject.put(str, a.f5370a.get(str));
                 } catch (JSONException e) {
                     Log.e(e);
                 }
@@ -172,11 +173,11 @@ public class SapiDeviceInfo implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static Map<String, String> f3533a = new HashMap();
+        static Map<String, String> f5370a = new HashMap();
 
         a() {
         }
@@ -226,7 +227,7 @@ public class SapiDeviceInfo implements NoProguard {
         static void a(List<String> list) {
             List<String> a2 = a();
             for (int i = 0; i < a2.size() && i < list.size(); i++) {
-                f3533a.put(a2.get(i), list.get(i));
+                f5370a.put(a2.get(i), list.get(i));
             }
         }
     }

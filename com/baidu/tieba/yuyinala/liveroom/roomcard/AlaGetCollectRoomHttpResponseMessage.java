@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.roomcard;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaGetCollectRoomHttpResponseMessage extends JsonHttpResponsedMessage {
     public AlaGetCollectRoomHttpResponseMessage() {
         super(1031018);

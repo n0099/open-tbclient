@@ -1,0 +1,51 @@
+package com.kwad.sdk.core.config;
+
+import android.text.TextUtils;
+import java.net.URI;
+/* loaded from: classes5.dex */
+public class a {
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String[] f9342a = {"gifshow.com", "kuaishou.com", "static.yximgs.com"};
+
+    public static boolean a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            String host = new URI(str).getHost();
+            if (!b(host)) {
+                if (!c(host)) {
+                    return false;
+                }
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private static boolean b(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        for (String str2 : f9342a) {
+            if (str.contains(str2)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean c(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        for (String str2 : c.w()) {
+            if (str.contains(str2)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

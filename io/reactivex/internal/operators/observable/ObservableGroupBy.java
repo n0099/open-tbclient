@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.operators.observable.a<T, io.reactivex.c.b<K, V>> {
     final int bufferSize;
     final boolean delayError;
@@ -23,7 +23,7 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
         this.source.subscribe(new GroupByObserver(uVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class GroupByObserver<T, K, V> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         static final Object NULL_KEY = new Object();
         private static final long serialVersionUID = -3688291656102519502L;
@@ -74,12 +74,12 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
                 try {
                     aVar.onNext(io.reactivex.internal.functions.a.m(this.valueSelector.apply(t), "The value supplied is null"));
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.J(th);
+                    io.reactivex.exceptions.a.O(th);
                     this.s.dispose();
                     onError(th);
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.J(th2);
+                io.reactivex.exceptions.a.O(th2);
                 this.s.dispose();
                 onError(th2);
             }
@@ -129,9 +129,9 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class a<K, T> extends io.reactivex.c.b<K, T> {
-        final State<T, K> pGG;
+        final State<T, K> qij;
 
         public static <T, K> a<K, T> a(K k, int i, GroupByObserver<?, K, T> groupByObserver, boolean z) {
             return new a<>(k, new State(i, groupByObserver, k, z));
@@ -139,29 +139,29 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.pGG = state;
+            this.qij = state;
         }
 
         @Override // io.reactivex.q
         protected void a(u<? super T> uVar) {
-            this.pGG.subscribe(uVar);
+            this.qij.subscribe(uVar);
         }
 
         public void onNext(T t) {
-            this.pGG.onNext(t);
+            this.qij.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.pGG.onError(th);
+            this.qij.onError(th);
         }
 
         public void onComplete() {
-            this.pGG.onComplete();
+            this.qij.onComplete();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class State<T, K> extends AtomicInteger implements io.reactivex.disposables.b, t<T> {
         private static final long serialVersionUID = -3852313036005250360L;
         final boolean delayError;

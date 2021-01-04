@@ -1,176 +1,146 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.R;
-import java.util.ArrayList;
-/* loaded from: classes26.dex */
-public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private ArrayList<com.baidu.tbadk.mvc.b.a> ajO = new ArrayList<>();
-    private c kmp;
-    private TbPageContext<?> mPageContext;
-
-    /* loaded from: classes26.dex */
-    public interface c {
-        void a(View view, Object obj, int i, long j);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(TbPageContext<?> tbPageContext, c cVar) {
-        this.mPageContext = tbPageContext;
-        this.kmp = cVar;
-    }
-
-    public void setData(ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList) {
-        if (arrayList != null) {
-            this.ajO.clear();
-            this.ajO.addAll(arrayList);
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    @NonNull
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new b(this.mPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.official_bar_feed_header_item, (ViewGroup) null));
-    }
-
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        if (this.ajO != null && this.ajO.size() > 0) {
-            com.baidu.tbadk.mvc.b.a aVar = this.ajO.get(i);
-            if ((viewHolder instanceof b) && (aVar instanceof a)) {
-                ((b) viewHolder).b(aVar);
+import android.widget.BaseAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.OfficialHistoryImageActivityConfig;
+import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class d extends BaseAdapter {
+    private View.OnClickListener kzs = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            int intValue = ((Integer) view.getTag()).intValue();
+            if (intValue >= 0 && intValue < d.this.mList.size()) {
+                ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) d.this.mList.get(intValue);
+                String aS = com.baidu.tieba.im.util.c.aS("[" + aVar.content + "]", true);
+                if (aS != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialHistoryImageActivityConfig(d.this.mContext, aS, String.valueOf(aVar.id))));
+                }
             }
         }
+    };
+    BaseActivity mActivity;
+    Context mContext;
+    private List<ResponseHistoryMessage.a> mList;
+
+    public d(BaseActivity baseActivity, Context context) {
+        this.mContext = context;
+        this.mActivity = baseActivity;
     }
 
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    public int getItemViewType(int i) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.mList == null) {
+            return 0;
+        }
+        return this.mList.size();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        if (this.mList == null || i >= getCount()) {
+            return null;
+        }
+        return this.mList.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        if (this.mList == null || i >= this.mList.size()) {
+            return 0L;
+        }
         return i;
     }
 
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        if (this.ajO == null) {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        if (this.mList == null || i >= this.mList.size()) {
             return 0;
         }
-        return this.ajO.size();
-    }
-
-    /* loaded from: classes26.dex */
-    class b extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView jAy;
-        private BarImageView kmr;
-        private View kms;
-        private a kmt;
-
-        b(View view) {
-            super(view);
-            this.kmr = (BarImageView) view.findViewById(R.id.official_bar_image);
-            this.jAy = (TextView) view.findViewById(R.id.official_bar_name);
-            this.kms = view.findViewById(R.id.official_bar_feed_red_dot);
-            this.kmr.setShowOval(true);
-            this.kmr.setPlaceHolder(2);
-            this.kmr.setShowOuterBorder(false);
-            this.kmr.setShowInnerBorder(true);
-            this.kmr.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        }
-
-        void b(com.baidu.tbadk.mvc.b.a aVar) {
-            this.kmt = (a) aVar;
-            ap.setViewTextColor(this.jAy, R.color.CAM_X0105);
-            ap.setBackgroundResource(this.kms, R.drawable.icon_official_bar_red_dot);
-            this.kmr.setStrokeColorResId(R.color.CAM_X0401);
-            this.kmr.startLoad(this.kmt.cTY(), 10, false);
-            if (au.getChineseAndEnglishLength(this.kmt.cNV()) <= 10) {
-                this.jAy.setText(this.kmt.cNV());
-            } else {
-                this.jAy.setText(au.cutChineseAndEnglishWithSuffix(this.kmt.cNV(), 8, StringHelper.STRING_MORE));
-            }
-            this.kmr.setOnClickListener(this);
-            if (this.kmt.getUnReadCount() > 0 && (this.kmt.cTZ() <= 0 || System.currentTimeMillis() - this.kmt.cTZ() < 864000000)) {
-                this.kms.setVisibility(0);
-            } else {
-                this.kms.setVisibility(8);
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            this.kms.setVisibility(8);
-            if (d.this.kmp != null) {
-                d.this.kmp.a(view, this.kmt, getAdapterPosition(), getItemId());
-            }
+        switch (this.mList.get(i).type) {
+            case 1:
+                return 0;
+            case 2:
+                return 1;
+            case 7:
+                return 2;
+            default:
+                return 0;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
-    public static class a implements com.baidu.tbadk.mvc.b.a {
-        private long cWM;
-        private long groupId;
-        private String jLy;
-        private String kmq;
-        private int unReadCount;
-        private int userType;
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 3;
+    }
 
-        String cTY() {
-            return this.kmq;
-        }
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return d(i, view, viewGroup);
+    }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public String cNV() {
-            return this.jLy;
+    private View d(int i, View view, ViewGroup viewGroup) {
+        ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) getItem(i);
+        if (aVar != null && aVar.content != null) {
+            switch (getItemViewType(i)) {
+                case 0:
+                    View historyItemView = view == null ? new HistoryItemView(this.mContext) : view;
+                    HistoryItemView historyItemView2 = (HistoryItemView) historyItemView;
+                    historyItemView2.setClickable(false);
+                    historyItemView2.setTime(aVar.time);
+                    ChatMessage chatMessage = new ChatMessage(CmdConfigSocket.CMD_CHAT_FAKE_SYSTEM_MESSAGE) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter$2
+                        @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
+                        protected Object encode() {
+                            return null;
+                        }
+                    };
+                    chatMessage.setContent(aVar.content);
+                    chatMessage.setMsgType(aVar.type);
+                    com.baidu.tieba.im.chat.h.a(this.mContext, historyItemView2.getRichTextView(), chatMessage, "official_history_adapter", 0);
+                    return historyItemView;
+                case 1:
+                    View historyItemView3 = view == null ? new HistoryItemView(this.mContext) : view;
+                    HistoryItemView historyItemView4 = (HistoryItemView) historyItemView3;
+                    historyItemView4.setClickable(false);
+                    historyItemView4.setTime(aVar.time);
+                    ChatMessage chatMessage2 = new ChatMessage(CmdConfigSocket.CMD_CHAT_FAKE_SYSTEM_MESSAGE) { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryAdapter$3
+                        @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
+                        protected Object encode() {
+                            return null;
+                        }
+                    };
+                    chatMessage2.setContent("[" + aVar.content + "]");
+                    chatMessage2.setMsgType(aVar.type);
+                    com.baidu.tieba.im.chat.h.a(this.mContext, historyItemView3, historyItemView4.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                    historyItemView4.getImageView().setTag(Integer.valueOf(i));
+                    historyItemView4.getImageView().setOnClickListener(this.kzs);
+                    return historyItemView3;
+                case 2:
+                    View historyItemView5 = view == null ? new HistoryItemView(this.mContext) : view;
+                    MultiContentView multiContentView = new MultiContentView(this.mContext);
+                    multiContentView.setNeedNightMode(true);
+                    multiContentView.setTime(aVar.time);
+                    multiContentView.setData(this.mActivity.getPageContext(), com.baidu.tieba.im.message.chat.a.c(aVar.content, "", 0L, 0L), viewGroup);
+                    ((HistoryItemView) historyItemView5).dn(multiContentView);
+                    return historyItemView5;
+                default:
+                    return view;
+            }
         }
+        return view;
+    }
 
-        int getUnReadCount() {
-            return this.unReadCount;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void MM(String str) {
-            this.kmq = str;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void MN(String str) {
-            this.jLy = str;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void setUnReadCount(int i) {
-            this.unReadCount = i;
-        }
-
-        public void setGroupId(long j) {
-            this.groupId = j;
-        }
-
-        public void setUserType(int i) {
-            this.userType = i;
-        }
-
-        public long getGroupId() {
-            return this.groupId;
-        }
-
-        public long cTZ() {
-            return this.cWM;
-        }
-
-        public void gM(long j) {
-            this.cWM = j;
-        }
+    public void setData(List<ResponseHistoryMessage.a> list) {
+        this.mList = list;
+        notifyDataSetChanged();
     }
 }

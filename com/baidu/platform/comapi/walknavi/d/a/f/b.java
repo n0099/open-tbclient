@@ -17,22 +17,24 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class b extends AsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2988a;
-    private int b;
+    private String f4451a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f4452b;
     private a<String> c;
     private boolean d = false;
     private boolean e;
     private String f;
 
     public b(String str, int i, boolean z, a<String> aVar) {
-        this.f2988a = "";
-        this.b = 0;
-        this.f2988a = str;
-        this.b = i;
+        this.f4451a = "";
+        this.f4452b = 0;
+        this.f4451a = str;
+        this.f4452b = i;
         this.c = aVar;
         this.e = z;
     }
@@ -51,13 +53,13 @@ public class b extends AsyncTask<String, Integer, String> {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [212=4, 213=4, 215=4, 216=4, 218=4] */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:140:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:139:?, code lost:
+        return null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:142:?, code lost:
         return null;
      */
     /* JADX WARN: Code restructure failed: missing block: B:143:?, code lost:
-        return null;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:144:?, code lost:
         return null;
      */
     /* JADX WARN: Code restructure failed: missing block: B:63:0x01cc, code lost:
@@ -81,12 +83,12 @@ public class b extends AsyncTask<String, Integer, String> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String doInBackground(String... strArr) {
-        BufferedInputStream bufferedInputStream;
         Throwable th;
         RandomAccessFile randomAccessFile;
+        BufferedInputStream bufferedInputStream;
+        RandomAccessFile randomAccessFile2;
         BufferedInputStream bufferedInputStream2;
         int i = 0;
-        RandomAccessFile randomAccessFile2 = null;
         if (strArr == null || strArr.length <= 0) {
             return null;
         }
@@ -95,7 +97,7 @@ public class b extends AsyncTask<String, Integer, String> {
             return null;
         }
         this.f = str;
-        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f2988a, this.b);
+        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f4451a, this.f4452b);
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
@@ -108,7 +110,7 @@ public class b extends AsyncTask<String, Integer, String> {
         if (file2.exists()) {
             try {
                 new ZipFile(str2);
-                if (com.baidu.platform.comapi.walknavi.d.a.b.f2969a) {
+                if (com.baidu.platform.comapi.walknavi.d.a.b.f4422a) {
                     return c(str2);
                 }
                 if (this.c != null) {
@@ -117,14 +119,14 @@ public class b extends AsyncTask<String, Integer, String> {
                 return "false";
             } catch (Exception e) {
                 file2.delete();
-                if (!com.baidu.platform.comapi.walknavi.d.a.b.f2969a) {
+                if (!com.baidu.platform.comapi.walknavi.d.a.b.f4422a) {
                     if (this.c != null) {
                         this.c.a(true, b(str));
                     }
                     return "true";
                 }
             }
-        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f2969a) {
+        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f4422a) {
             if (this.c != null) {
                 this.c.a(true, b(str));
             }
@@ -140,28 +142,28 @@ public class b extends AsyncTask<String, Integer, String> {
                 return null;
             }
         }
-        int b = b(str);
-        com.baidu.platform.comapi.walknavi.d.a.g.a.a("download length = " + b);
-        if (b == 0) {
+        int b2 = b(str);
+        com.baidu.platform.comapi.walknavi.d.a.g.a.a("download length = " + b2);
+        if (b2 == 0) {
             return null;
         }
         try {
             URLConnection openConnection = new URL(str).openConnection();
             openConnection.setConnectTimeout(10000);
-            openConnection.setRequestProperty(Headers.RANGE, "bytes=0-" + b);
-            randomAccessFile = new RandomAccessFile(str2, "rw");
+            openConnection.setRequestProperty(Headers.RANGE, "bytes=0-" + b2);
+            randomAccessFile2 = new RandomAccessFile(str2, "rw");
             try {
-                randomAccessFile.seek(0L);
+                randomAccessFile2.seek(0L);
                 byte[] bArr = new byte[8192];
-                bufferedInputStream = new BufferedInputStream(openConnection.getInputStream(), 8192);
+                bufferedInputStream2 = new BufferedInputStream(openConnection.getInputStream(), 8192);
                 while (true) {
                     try {
-                        int read = bufferedInputStream.read(bArr, 0, 8192);
+                        int read = bufferedInputStream2.read(bArr, 0, 8192);
                         if (read != -1) {
                             com.baidu.platform.comapi.walknavi.d.a.g.a.a("one while read start n =" + read);
-                            randomAccessFile.write(bArr, 0, read);
+                            randomAccessFile2.write(bArr, 0, read);
                             i += read;
-                            int i2 = (int) ((100.0f * i) / b);
+                            int i2 = (int) ((100.0f * i) / b2);
                             com.baidu.platform.comapi.walknavi.d.a.g.a.a("percentProgress = " + i2);
                             publishProgress(Integer.valueOf(i2));
                             while (this.d) {
@@ -177,20 +179,18 @@ public class b extends AsyncTask<String, Integer, String> {
                             }
                             com.baidu.platform.comapi.walknavi.d.a.g.a.a("one while read end count = " + i);
                         } else {
-                            if (bufferedInputStream != null) {
+                            if (bufferedInputStream2 != null) {
                                 try {
-                                    bufferedInputStream.close();
+                                    bufferedInputStream2.close();
                                 } catch (IOException e4) {
                                     return c(str2);
                                 }
                             }
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
+                            if (randomAccessFile2 != null) {
+                                randomAccessFile2.close();
                             }
                         }
                     } catch (IOException e5) {
-                        randomAccessFile2 = randomAccessFile;
-                        bufferedInputStream2 = bufferedInputStream;
                         if (bufferedInputStream2 != null) {
                             try {
                                 bufferedInputStream2.close();
@@ -204,6 +204,8 @@ public class b extends AsyncTask<String, Integer, String> {
                         return c(str2);
                     } catch (Throwable th2) {
                         th = th2;
+                        randomAccessFile = randomAccessFile2;
+                        bufferedInputStream = bufferedInputStream2;
                         if (bufferedInputStream != null) {
                             try {
                                 bufferedInputStream.close();
@@ -219,17 +221,18 @@ public class b extends AsyncTask<String, Integer, String> {
                 }
             } catch (IOException e8) {
                 bufferedInputStream2 = null;
-                randomAccessFile2 = randomAccessFile;
             } catch (Throwable th3) {
-                bufferedInputStream = null;
                 th = th3;
+                randomAccessFile = randomAccessFile2;
+                bufferedInputStream = null;
             }
         } catch (IOException e9) {
+            randomAccessFile2 = null;
             bufferedInputStream2 = null;
         } catch (Throwable th4) {
-            bufferedInputStream = null;
             th = th4;
             randomAccessFile = null;
+            bufferedInputStream = null;
         }
     }
 
@@ -247,12 +250,12 @@ public class b extends AsyncTask<String, Integer, String> {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [348=5, 350=4, 351=4, 356=4, 358=4, 359=4, 364=4, 366=4, 367=4] */
     private String c(String str) {
+        Throwable th;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
         ZipFile zipFile;
         BufferedOutputStream bufferedOutputStream2;
         BufferedInputStream bufferedInputStream2;
-        ZipFile zipFile2;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -307,10 +310,9 @@ public class b extends AsyncTask<String, Integer, String> {
                                         i += read;
                                     } catch (ZipException e) {
                                         bufferedInputStream2 = bufferedInputStream3;
-                                        zipFile2 = zipFile;
-                                        if (zipFile2 != null) {
+                                        if (zipFile != null) {
                                             try {
-                                                zipFile2.close();
+                                                zipFile.close();
                                             } catch (IOException e2) {
                                             }
                                         }
@@ -349,10 +351,10 @@ public class b extends AsyncTask<String, Integer, String> {
                                             }
                                         }
                                         return null;
-                                    } catch (Throwable th) {
+                                    } catch (Throwable th2) {
+                                        th = th2;
                                         bufferedOutputStream = bufferedOutputStream2;
                                         bufferedInputStream = bufferedInputStream3;
-                                        th = th;
                                         if (zipFile != null) {
                                             try {
                                                 zipFile.close();
@@ -380,21 +382,19 @@ public class b extends AsyncTask<String, Integer, String> {
                             } catch (ZipException e12) {
                                 bufferedOutputStream2 = bufferedOutputStream;
                                 bufferedInputStream2 = bufferedInputStream3;
-                                zipFile2 = zipFile;
                             } catch (IOException e13) {
                                 bufferedInputStream = bufferedInputStream3;
-                            } catch (Throwable th2) {
-                                th = th2;
+                            } catch (Throwable th3) {
+                                th = th3;
                                 bufferedInputStream = bufferedInputStream3;
                             }
                         }
                     } catch (ZipException e14) {
                         bufferedOutputStream2 = bufferedOutputStream;
                         bufferedInputStream2 = bufferedInputStream;
-                        zipFile2 = zipFile;
                     } catch (IOException e15) {
-                    } catch (Throwable th3) {
-                        th = th3;
+                    } catch (Throwable th4) {
+                        th = th4;
                     }
                 }
                 if (zipFile != null) {
@@ -422,25 +422,24 @@ public class b extends AsyncTask<String, Integer, String> {
             } catch (ZipException e19) {
                 bufferedOutputStream2 = null;
                 bufferedInputStream2 = null;
-                zipFile2 = zipFile;
             } catch (IOException e20) {
                 bufferedOutputStream = null;
                 bufferedInputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
+            } catch (Throwable th5) {
+                th = th5;
                 bufferedOutputStream = null;
                 bufferedInputStream = null;
             }
         } catch (ZipException e21) {
             bufferedOutputStream2 = null;
             bufferedInputStream2 = null;
-            zipFile2 = null;
+            zipFile = null;
         } catch (IOException e22) {
             bufferedOutputStream = null;
             bufferedInputStream = null;
             zipFile = null;
-        } catch (Throwable th5) {
-            th = th5;
+        } catch (Throwable th6) {
+            th = th6;
             bufferedOutputStream = null;
             bufferedInputStream = null;
             zipFile = null;

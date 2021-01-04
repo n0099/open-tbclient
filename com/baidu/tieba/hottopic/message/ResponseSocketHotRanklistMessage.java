@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.hottopic.data.j;
 import com.squareup.wire.Wire;
 import tbclient.TopicList.TopicListResIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
     private j ranklistData;
 

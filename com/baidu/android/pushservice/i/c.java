@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f1148a = new Object();
-    private long b = System.currentTimeMillis();
+    private static final Object f1415a = new Object();
+
+    /* renamed from: b  reason: collision with root package name */
+    private long f1416b = System.currentTimeMillis();
     private a c;
     private Context d;
     private Intent e;
@@ -25,7 +27,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long a() {
-        return this.b;
+        return this.f1416b;
     }
 
     public void a(Intent intent) {
@@ -33,13 +35,13 @@ public class c {
             this.c.a(0, intent);
         }
         this.g = intent;
-        synchronized (f1148a) {
-            f1148a.notifyAll();
+        synchronized (f1415a) {
+            f1415a.notifyAll();
         }
     }
 
     public com.baidu.android.pushservice.message.g b() {
-        this.e.putExtra("bd.cross.request.ID", this.b);
+        this.e.putExtra("bd.cross.request.ID", this.f1416b);
         this.e.putExtra("bd.cross.request.NEED_CALLBACK", true);
         this.e.putExtra("bd.cross.request.SOURCE_PACKAGE", this.d.getPackageName());
         this.e.putExtra("bd.cross.request.SENDING", true);
@@ -49,13 +51,13 @@ public class c {
         } catch (Exception e) {
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-        com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("timeOutRunnable-" + this.b, (short) 50) { // from class: com.baidu.android.pushservice.i.c.1
+        com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("timeOutRunnable-" + this.f1416b, (short) 50) { // from class: com.baidu.android.pushservice.i.c.1
             @Override // com.baidu.android.pushservice.g.c
             public void a() {
                 try {
                     Thread.sleep(1000L);
-                    synchronized (c.f1148a) {
-                        c.f1148a.notifyAll();
+                    synchronized (c.f1415a) {
+                        c.f1415a.notifyAll();
                     }
                 } catch (InterruptedException e2) {
                     new b.c(c.this.d).a(Log.getStackTraceString(e2)).a();
@@ -63,9 +65,9 @@ public class c {
             }
         });
         if (this.c == null) {
-            synchronized (f1148a) {
+            synchronized (f1415a) {
                 try {
-                    f1148a.wait();
+                    f1415a.wait();
                 } catch (Exception e2) {
                     new b.c(this.d).a(Log.getStackTraceString(e2)).a();
                 }
@@ -89,6 +91,6 @@ public class c {
     synchronized void c() {
         this.c = null;
         this.d = null;
-        b.a(this.b);
+        b.a(this.f1416b);
     }
 }

@@ -13,34 +13,36 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class x {
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static class a extends RuntimeException {
         public a(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4552a;
+        public String f14141a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f87a;
-        public String b;
+        public boolean f165a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f14142b;
 
         /* renamed from: b  reason: collision with other field name */
-        public boolean f88b;
+        public boolean f166b;
 
         public b(String str, boolean z, boolean z2, String str2) {
-            this.f4552a = str;
-            this.f87a = z;
-            this.f88b = z2;
-            this.b = str2;
+            this.f14141a = str;
+            this.f165a = z;
+            this.f166b = z2;
+            this.f14142b = str2;
         }
     }
 
@@ -234,9 +236,9 @@ public class x {
             for (ServiceInfo serviceInfo : packageInfo.services) {
                 if (!TextUtils.isEmpty(serviceInfo.name) && hashMap2.containsKey(serviceInfo.name)) {
                     b bVar = (b) hashMap2.remove(serviceInfo.name);
-                    boolean z = bVar.f87a;
-                    boolean z2 = bVar.f88b;
-                    String str = bVar.b;
+                    boolean z = bVar.f165a;
+                    boolean z2 = bVar.f166b;
+                    String str = bVar.f14142b;
                     if (z != serviceInfo.enabled) {
                         throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));
                     }

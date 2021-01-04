@@ -1,5 +1,8 @@
 package io.flutter.embedding.android;
-/* loaded from: classes9.dex */
+
+import androidx.annotation.Nullable;
+/* loaded from: classes6.dex */
 public interface SplashScreenProvider {
+    @Nullable
     SplashScreen provideSplashScreen();
 }

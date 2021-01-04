@@ -24,12 +24,14 @@ import java.util.TimerTask;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class LogSender {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LogSender f2501a = new LogSender();
-    private boolean b = false;
+    private static LogSender f3642a = new LogSender();
+
+    /* renamed from: b  reason: collision with root package name */
+    private boolean f3643b = false;
     private int c = 0;
     private int d = 1;
     private SendStrategyEnum e = SendStrategyEnum.APP_START;
@@ -37,7 +39,7 @@ public class LogSender {
     private Handler g;
 
     public static LogSender instance() {
-        return f2501a;
+        return f3642a;
     }
 
     private LogSender() {
@@ -67,8 +69,8 @@ public class LogSender {
                 bq.a().b(context, 24);
             }
         }
-        this.b = z;
-        bq.a().a(context, this.b);
+        this.f3643b = z;
+        bq.a().a(context, this.f3643b);
     }
 
     public void onSend(final Context context) {
@@ -85,7 +87,7 @@ public class LogSender {
                     }
                     LogSender.this.e = SendStrategyEnum.values()[bq.a().b(context)];
                     LogSender.this.d = bq.a().c(context);
-                    LogSender.this.b = bq.a().d(context);
+                    LogSender.this.f3643b = bq.a().d(context);
                     if (!LogSender.this.e.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
                         if (LogSender.this.e.equals(SendStrategyEnum.ONCE_A_DAY)) {
                             LogSender.this.setSendingLogTimer(context);
@@ -127,63 +129,66 @@ public class LogSender {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [181=4] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x004f A[LOOP:0: B:3:0x0012->B:24:0x004f, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x002e A[EDGE_INSN: B:48:0x002e->B:12:0x002e ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x004e A[LOOP:0: B:3:0x000f->B:25:0x004e, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x002b A[EDGE_INSN: B:49:0x002b->B:12:0x002b ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(Context context, long j, String str) {
+        Throwable th;
         FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         ArrayList<String> a2 = a(context, str);
         long j2 = 0;
-        FileInputStream fileInputStream2 = null;
         int size = a2.size() - 1;
+        FileInputStream fileInputStream3 = null;
         while (size >= 0) {
             try {
-                fileInputStream = context.openFileInput(a2.get(size));
+                fileInputStream2 = context.openFileInput(a2.get(size));
                 try {
-                    j2 += fileInputStream.available();
+                    j2 += fileInputStream2.available();
                 } catch (Exception e) {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e2) {
-                        }
-                        fileInputStream2 = null;
-                        if (j2 <= j) {
-                        }
-                    }
-                    fileInputStream2 = fileInputStream;
-                    if (j2 <= j) {
-                    }
-                } catch (Throwable th) {
-                    fileInputStream2 = fileInputStream;
-                    th = th;
                     if (fileInputStream2 != null) {
                         try {
                             fileInputStream2.close();
+                        } catch (Exception e2) {
+                        }
+                        fileInputStream3 = null;
+                        if (j2 <= j) {
+                        }
+                    }
+                    fileInputStream3 = fileInputStream2;
+                    if (j2 <= j) {
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
                         } catch (Exception e3) {
                         }
                     }
                     throw th;
                 }
             } catch (Exception e4) {
-                fileInputStream = fileInputStream2;
-            } catch (Throwable th2) {
-                th = th2;
+                fileInputStream2 = fileInputStream3;
+            } catch (Throwable th3) {
+                th = th3;
+                fileInputStream = fileInputStream3;
             }
-            if (fileInputStream != null) {
+            if (fileInputStream2 != null) {
                 try {
-                    fileInputStream.close();
+                    fileInputStream2.close();
                 } catch (Exception e5) {
                 }
-                fileInputStream2 = null;
+                fileInputStream3 = null;
                 if (j2 <= j) {
                     break;
                 }
                 size--;
             }
-            fileInputStream2 = fileInputStream;
+            fileInputStream3 = fileInputStream2;
             if (j2 <= j) {
             }
         }
@@ -230,7 +235,7 @@ public class LogSender {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context) {
-        if (!this.b || bw.q(context)) {
+        if (!this.f3643b || bw.q(context)) {
             this.g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.5
                 @Override // java.lang.Runnable
                 public void run() {
@@ -335,7 +340,7 @@ public class LogSender {
         if (!z) {
             bc.c().a("Start send log \n" + str);
         }
-        if (this.b && !bw.q(context)) {
+        if (this.f3643b && !bw.q(context)) {
             bc.c().a("[WARNING] wifi not available, log will be cached, next time will try to resend");
             return false;
         }
@@ -404,10 +409,10 @@ public class LogSender {
         d.setUseCaches(false);
         d.setRequestProperty("Content-Type", "gzip");
         byte[] a2 = bm.a.a();
-        byte[] b = bm.a.b();
+        byte[] b2 = bm.a.b();
         d.setRequestProperty("key", bv.a(a2));
-        d.setRequestProperty("iv", bv.a(b));
-        byte[] a3 = bm.a.a(a2, b, str2.getBytes("utf-8"));
+        d.setRequestProperty("iv", bv.a(b2));
+        byte[] a3 = bm.a.a(a2, b2, str2.getBytes("utf-8"));
         d.connect();
         try {
             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(d.getOutputStream());

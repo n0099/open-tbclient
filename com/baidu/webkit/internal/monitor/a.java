@@ -4,41 +4,43 @@ import com.baidu.webkit.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    C0953a f3943a;
+    C0929a f5971a;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public class C0953a {
+    /* loaded from: classes4.dex */
+    public class C0929a {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f3944a;
-        boolean b;
+        boolean f5972a;
+
+        /* renamed from: b  reason: collision with root package name */
+        boolean f5973b;
         long c;
         long d;
         boolean e;
         boolean f;
         Map<String, Long> g;
 
-        private C0953a() {
-            this.b = true;
+        private C0929a() {
+            this.f5973b = true;
             this.c = -1L;
             this.d = -1L;
             this.g = new HashMap();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ C0953a(a aVar, byte b) {
+        public /* synthetic */ C0929a(a aVar, byte b2) {
             this();
         }
 
         public final void a() {
-            this.f3944a = false;
-            this.b = true;
+            this.f5972a = false;
+            this.f5973b = true;
             this.c = -1L;
             this.d = -1L;
             this.e = false;
@@ -50,23 +52,23 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: protected */
     public final JSONObject a() {
         try {
-            if (this.f3943a != null && this.f3943a.f) {
+            if (this.f5971a != null && this.f5971a.f) {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("coldbootfirst", this.f3943a.f3944a);
-                jSONObject.put("loadasycsearch", this.f3943a.b);
-                jSONObject.put("starttosearch", this.f3943a.c);
-                jSONObject.put("starttofragment", this.f3943a.d);
-                jSONObject.put("state50", this.f3943a.e);
-                for (String str : this.f3943a.g.keySet()) {
-                    jSONObject.put(str, this.f3943a.g.get(str));
+                jSONObject.put("coldbootfirst", this.f5971a.f5972a);
+                jSONObject.put("loadasycsearch", this.f5971a.f5973b);
+                jSONObject.put("starttosearch", this.f5971a.c);
+                jSONObject.put("starttofragment", this.f5971a.d);
+                jSONObject.put("state50", this.f5971a.e);
+                for (String str : this.f5971a.g.keySet()) {
+                    jSONObject.put(str, this.f5971a.g.get(str));
                 }
-                this.f3943a.a();
+                this.f5971a.a();
                 return jSONObject;
             }
             return null;
         } catch (Throwable th) {
             Log.printStackTrace(th);
-            this.f3943a.a();
+            this.f5971a.a();
             return null;
         }
     }

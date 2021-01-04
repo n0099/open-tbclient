@@ -1,51 +1,51 @@
 package com.baidu.swan.apps.res.ui.wheelview3d.d;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import java.util.TimerTask;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class c extends TimerTask {
-    private final WheelView3d dwF;
+    private final WheelView3d dDu;
+    private int dDy = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private int dDz = 0;
     private int offset;
-    private int realTotalOffset = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private int realOffset = 0;
 
     public c(WheelView3d wheelView3d, int i) {
-        this.dwF = wheelView3d;
+        this.dDu = wheelView3d;
         this.offset = i;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
-        if (this.realTotalOffset == Integer.MAX_VALUE) {
-            this.realTotalOffset = this.offset;
+        if (this.dDy == Integer.MAX_VALUE) {
+            this.dDy = this.offset;
         }
-        this.realOffset = (int) (this.realTotalOffset * 0.1f);
-        if (this.realOffset == 0) {
-            if (this.realTotalOffset < 0) {
-                this.realOffset = -1;
+        this.dDz = (int) (this.dDy * 0.1f);
+        if (this.dDz == 0) {
+            if (this.dDy < 0) {
+                this.dDz = -1;
             } else {
-                this.realOffset = 1;
+                this.dDz = 1;
             }
         }
-        if (Math.abs(this.realTotalOffset) <= 1) {
-            this.dwF.cancelFuture();
-            this.dwF.getHandler().sendEmptyMessage(3000);
+        if (Math.abs(this.dDy) <= 1) {
+            this.dDu.aLd();
+            this.dDu.getHandler().sendEmptyMessage(3000);
             return;
         }
-        this.dwF.setTotalScrollY(this.dwF.getTotalScrollY() + this.realOffset);
-        if (!this.dwF.isLoop()) {
-            float itemHeight = this.dwF.getItemHeight();
-            float f = (-this.dwF.getInitPosition()) * itemHeight;
-            float itemsCount = itemHeight * ((this.dwF.getItemsCount() - 1) - this.dwF.getInitPosition());
-            if (this.dwF.getTotalScrollY() <= f || this.dwF.getTotalScrollY() >= itemsCount) {
-                this.dwF.setTotalScrollY(this.dwF.getTotalScrollY() - this.realOffset);
-                this.dwF.cancelFuture();
-                this.dwF.getHandler().sendEmptyMessage(3000);
+        this.dDu.setTotalScrollY(this.dDu.getTotalScrollY() + this.dDz);
+        if (!this.dDu.aLf()) {
+            float itemHeight = this.dDu.getItemHeight();
+            float f = (-this.dDu.getInitPosition()) * itemHeight;
+            float itemsCount = itemHeight * ((this.dDu.getItemsCount() - 1) - this.dDu.getInitPosition());
+            if (this.dDu.getTotalScrollY() <= f || this.dDu.getTotalScrollY() >= itemsCount) {
+                this.dDu.setTotalScrollY(this.dDu.getTotalScrollY() - this.dDz);
+                this.dDu.aLd();
+                this.dDu.getHandler().sendEmptyMessage(3000);
                 return;
             }
         }
-        this.dwF.getHandler().sendEmptyMessage(1000);
-        this.realTotalOffset -= this.realOffset;
+        this.dDu.getHandler().sendEmptyMessage(1000);
+        this.dDy -= this.dDz;
     }
 }

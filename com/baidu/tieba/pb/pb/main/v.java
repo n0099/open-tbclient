@@ -1,139 +1,96 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.view.View;
-import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-/* loaded from: classes22.dex */
-public class v {
-    private RelativeLayout bIq;
-    private com.baidu.tieba.pb.data.f lEP;
-    private com.baidu.tbadk.editortools.pb.h lHj;
-    private PbFakeFloorModel lHk;
-    private String lHl;
-    private String lHm;
-    private NewWriteModel.d lHn;
-    private View.OnClickListener lHo;
-    private TbPageContext mPageContext;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.MetaData;
+import java.util.HashMap;
+import java.util.List;
+import tbclient.AlaLiveInfo;
+import tbclient.DislikeInfo;
+/* loaded from: classes2.dex */
+public class v implements com.baidu.adp.widget.ListView.n {
+    public static final BdUniqueId lPB = BdUniqueId.gen();
+    public String cover;
+    public String description;
+    public MetaData eTY;
+    public boolean isChushou;
+    public int lPC;
+    public com.baidu.tbadk.core.data.at lPF;
+    public long liveId;
+    public int liveStatus;
+    public String routeType;
+    public String thirdLiveType;
+    public String thirdRoomId;
+    private HashMap<String, MetaData> userMap;
+    public String userName;
+    private boolean eQz = false;
+    public boolean lPD = false;
+    public boolean lPE = false;
 
-    public v(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
-        this.mPageContext = tbPageContext;
-        this.bIq = relativeLayout;
-        this.lHk = pbFakeFloorModel;
-    }
-
-    public void doS() {
-        if (this.lHj != null) {
-            this.lHj.bDv();
-            if (StringUtils.isNull(this.lHl)) {
-                this.lHj.onDestory();
+    public void a(AlaLiveInfo alaLiveInfo) {
+        MetaData metaData;
+        if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.live_status.intValue() == 1 && alaLiveInfo.pb_display_type.intValue() == 1) {
+            this.userName = alaLiveInfo.user_info.user_name;
+            this.description = alaLiveInfo.description;
+            this.cover = alaLiveInfo.cover;
+            this.lPC = alaLiveInfo.audience_count.intValue();
+            this.liveStatus = alaLiveInfo.live_status.intValue();
+            this.liveId = alaLiveInfo.live_id.longValue();
+            this.isChushou = alaLiveInfo.live_from.intValue() == 1;
+            this.thirdLiveType = alaLiveInfo.third_live_type;
+            this.thirdRoomId = alaLiveInfo.third_room_id;
+            this.routeType = alaLiveInfo.router_type;
+            if (alaLiveInfo.user_info.user_id != null && alaLiveInfo.user_info.user_id.longValue() > 0 && this.userMap != null && (metaData = this.userMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
+                this.eTY = metaData;
+                this.eTY.setIsLike(this.eTY.hadConcerned());
             }
-            this.lHj.bCn().bCA();
-        }
-    }
-
-    public void setPbData(com.baidu.tieba.pb.data.f fVar) {
-        this.lEP = fVar;
-    }
-
-    public void doT() {
-        if (this.lHj != null && this.lHj.bCn() != null) {
-            this.lHj.bCn().bAK();
-        }
-    }
-
-    public boolean doU() {
-        if (this.lHj == null || this.lHj.bCn() == null) {
-            return false;
-        }
-        return this.lHj.bCn().bCr();
-    }
-
-    private void aX(String str, boolean z) {
-        if (this.bIq != null && this.lHj == null) {
-            com.baidu.tbadk.editortools.pb.i iVar = new com.baidu.tbadk.editortools.pb.i(z);
-            iVar.setHintText(str);
-            this.lHj = (com.baidu.tbadk.editortools.pb.h) iVar.eN(this.mPageContext.getPageActivity());
-            this.lHj.a(this.mPageContext);
-            this.lHj.b(this.lHk);
-            this.lHj.setFrom(1);
-            if (this.lEP != null) {
-                this.lHj.setThreadData(this.lEP.dmU());
+            List<DislikeInfo> list = alaLiveInfo.dislike_info;
+            if (com.baidu.tbadk.core.util.x.getCount(list) > 0) {
+                SparseArray<String> sparseArray = new SparseArray<>();
+                SparseArray<String> sparseArray2 = new SparseArray<>();
+                for (DislikeInfo dislikeInfo : list) {
+                    if (dislikeInfo != null) {
+                        sparseArray.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.dislike_reason);
+                        sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
+                    }
+                }
+                this.lPF = new com.baidu.tbadk.core.data.at();
+                this.lPF.setFeedBackReasonMap(sparseArray);
+                this.lPF.eQN = sparseArray2;
+            } else {
+                this.lPF = null;
             }
-            this.lHj.bCn().ks(true);
-            this.lHj.bCn().setOnCancelClickListener(this.lHo);
-            this.lHj.j(this.mPageContext);
-            doV();
-            this.lHj.b(this.lHn);
+            this.eQz = true;
         }
     }
 
-    public void h(String str, String str2, String str3, boolean z) {
-        this.lHl = str2;
-        if (this.lHj == null) {
-            aX(str3, z);
-        } else {
-            this.lHj.b(this.lHk);
-            if (StringUtils.isNull(this.lHl)) {
-                this.lHj.j(this.mPageContext);
-            }
-        }
-        this.lHj.setReplyId(str);
-        this.lHj.Ec(str2);
-        this.lHj.Ed(this.lHm);
-        if (this.lHj.bDj()) {
-            this.lHj.a((PostWriteCallBackData) null);
-        }
+    public boolean isValid() {
+        return this.eQz;
     }
 
-    private void doV() {
-        if (this.bIq != null && this.lHj != null && this.lHj.bCn() != null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.addRule(12);
-            this.bIq.addView(this.lHj.bCn(), layoutParams);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        }
+    public void reset() {
+        this.userName = null;
+        this.lPC = 0;
+        this.description = null;
+        this.cover = null;
+        this.liveStatus = 0;
+        this.liveId = 0L;
+        this.eTY = null;
+        this.userMap = null;
+        this.isChushou = false;
+        this.thirdLiveType = null;
+        this.thirdRoomId = null;
+        this.routeType = null;
+        this.lPE = false;
+        this.eQz = false;
     }
 
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.lHj != null) {
-            this.lHj.onActivityResult(i, i2, intent);
-        }
+    public void setUserMap(HashMap<String, MetaData> hashMap) {
+        this.userMap = hashMap;
     }
 
-    public void onStop() {
-        if (this.lHj != null) {
-            this.lHj.onStop();
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.lHj != null && this.lHj.bCn() != null) {
-            this.lHj.bCn().onChangeSkinType(i);
-        }
-    }
-
-    public void a(NewWriteModel.d dVar) {
-        this.lHn = dVar;
-        if (this.lHj != null) {
-            this.lHj.b(dVar);
-        }
-    }
-
-    public com.baidu.tbadk.editortools.pb.h doW() {
-        return this.lHj;
-    }
-
-    public void Qb(String str) {
-        this.lHm = str;
-    }
-
-    public void T(View.OnClickListener onClickListener) {
-        this.lHo = onClickListener;
+    @Override // com.baidu.adp.widget.ListView.n
+    public BdUniqueId getType() {
+        return lPB;
     }
 }

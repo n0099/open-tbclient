@@ -4,25 +4,25 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.FrameLayout;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class a extends Animation {
-    private View lmG;
-    private int lmH;
+    private View lrY;
+    private int lrZ;
     private FrameLayout.LayoutParams mLayoutParams;
     private int mType;
 
     public a(View view, int i, int i2) {
         if (view != null) {
-            this.lmG = view;
-            if (this.lmG.getVisibility() == 8 && i2 > 0) {
-                this.lmH = i2;
+            this.lrY = view;
+            if (this.lrY.getVisibility() == 8 && i2 > 0) {
+                this.lrZ = i2;
             } else {
-                this.lmH = this.lmG.getMeasuredHeight();
+                this.lrZ = this.lrY.getMeasuredHeight();
             }
             this.mLayoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
             this.mType = i;
             if (this.mType == 0) {
-                this.mLayoutParams.bottomMargin = -this.lmH;
+                this.mLayoutParams.bottomMargin = -this.lrZ;
                 return;
             }
             this.mLayoutParams.bottomMargin = 0;
@@ -34,19 +34,19 @@ public class a extends Animation {
         super.applyTransformation(f, transformation);
         if (f < 1.0f) {
             if (this.mType == 0) {
-                this.mLayoutParams.bottomMargin = (-this.lmH) + ((int) (this.lmH * f));
+                this.mLayoutParams.bottomMargin = (-this.lrZ) + ((int) (this.lrZ * f));
             } else {
-                this.mLayoutParams.bottomMargin = -((int) (this.lmH * f));
+                this.mLayoutParams.bottomMargin = -((int) (this.lrZ * f));
             }
-            this.lmG.requestLayout();
+            this.lrY.requestLayout();
         } else if (this.mType == 0) {
             this.mLayoutParams.bottomMargin = 0;
-            this.lmG.requestLayout();
-            this.lmH = this.lmG.getMeasuredHeight();
+            this.lrY.requestLayout();
+            this.lrZ = this.lrY.getMeasuredHeight();
         } else {
-            this.mLayoutParams.bottomMargin = -this.lmH;
-            this.lmG.setVisibility(8);
-            this.lmG.requestLayout();
+            this.mLayoutParams.bottomMargin = -this.lrZ;
+            this.lrY.setVisibility(8);
+            this.lrY.requestLayout();
         }
     }
 }

@@ -4,8 +4,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes22.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCenter.c.d, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.a>> {
+import com.baidu.tieba.card.holder.CardViewHolder;
+/* loaded from: classes2.dex */
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCenter.c.d, CardViewHolder<com.baidu.tieba.personCenter.view.a>> {
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -16,20 +17,20 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.a> c(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personCenter.view.a(this.mPageContext));
+    /* renamed from: aX */
+    public CardViewHolder<com.baidu.tieba.personCenter.view.a> e(ViewGroup viewGroup) {
+        return new CardViewHolder<>(new com.baidu.tieba.personCenter.view.a(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.c.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.a> aVar) {
-        aVar.csN().a(dVar);
-        return aVar.getView();
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.c.d dVar, CardViewHolder<com.baidu.tieba.personCenter.view.a> cardViewHolder) {
+        cardViewHolder.cvG().a(dVar);
+        return cardViewHolder.getView();
     }
 
-    public void dyr() {
+    public void dyg() {
     }
 
     public void destroy() {

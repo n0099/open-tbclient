@@ -1,14 +1,14 @@
 package com.baidu.tieba.tbadkCore.e.a;
 
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private String OV;
+    private String OY;
     private String mAction;
     private JSONObject mParams;
-    private String nom;
-    private String non;
+    private String ntX;
+    private String ntY;
 
     public String getAction() {
         return this.mAction;
@@ -19,34 +19,34 @@ public class e {
     }
 
     public String getModule() {
-        return this.OV;
+        return this.OY;
     }
 
-    public void cd(String str) {
-        this.OV = str;
+    public void bW(String str) {
+        this.OY = str;
     }
 
-    public JSONObject dPR() {
+    public JSONObject dPN() {
         return this.mParams;
     }
 
-    public void ew(JSONObject jSONObject) {
+    public void eK(JSONObject jSONObject) {
         this.mParams = jSONObject;
     }
 
-    public String dPS() {
-        return this.nom;
+    public String dPO() {
+        return this.ntX;
     }
 
-    public void TL(String str) {
-        this.nom = str;
+    public void Tv(String str) {
+        this.ntX = str;
     }
 
-    public void TM(String str) {
-        this.non = str;
+    public void Tw(String str) {
+        this.ntY = str;
     }
 
-    public String dPT() {
-        return au.isEmpty(this.OV) ? this.mAction : this.OV + "/" + this.mAction;
+    public String dPP() {
+        return at.isEmpty(this.OY) ? this.mAction : this.OY + "/" + this.mAction;
     }
 }

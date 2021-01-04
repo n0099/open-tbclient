@@ -4,27 +4,27 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class c {
-    public static void decorateSrcATopMode(Context context, Drawable drawable) {
-        decorateSrcATopMode(context, drawable, 255);
+    public static void a(Context context, Drawable drawable) {
+        a(context, drawable, 255);
     }
 
-    public static void decorateSrcATopMode(Context context, Drawable drawable, int i) {
-        decorateSpecificMode(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
+    public static void a(Context context, Drawable drawable, int i) {
+        a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
     }
 
-    public static void decorateSpecificMode(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
         if (context != null && drawable != null) {
-            int uiCoverLayerColor = getUiCoverLayerColor(context);
+            int dd = dd(context);
             if (i >= 0 && i < 255) {
-                uiCoverLayerColor = Color.argb((Color.alpha(uiCoverLayerColor) * i) / 255, Color.red(uiCoverLayerColor), Color.green(uiCoverLayerColor), Color.blue(uiCoverLayerColor));
+                dd = Color.argb((Color.alpha(dd) * i) / 255, Color.red(dd), Color.green(dd), Color.blue(dd));
             }
-            drawable.setColorFilter(uiCoverLayerColor, mode);
+            drawable.setColorFilter(dd, mode);
         }
     }
 
-    public static int getUiCoverLayerColor(Context context) {
+    public static int dd(Context context) {
         return 0;
     }
 }

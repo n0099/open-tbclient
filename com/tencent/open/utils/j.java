@@ -18,6 +18,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.ETAG;
@@ -35,13 +36,15 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class j {
     private static String f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4391a = "";
-    private static String b = "";
+    private static String f13743a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f13744b = "";
     private static String c = "";
     private static String d = "";
     private static int e = -1;
@@ -111,19 +114,21 @@ public class j {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4392a;
-        public long b;
+        public String f13745a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public long f13746b;
         public long c;
 
         public a(String str, int i) {
-            this.f4392a = str;
-            this.b = i;
-            if (this.f4392a != null) {
-                this.c = this.f4392a.length();
+            this.f13745a = str;
+            this.f13746b = i;
+            if (this.f13745a != null) {
+                this.c = this.f13745a.length();
             }
         }
     }
@@ -175,7 +180,7 @@ public class j {
                 return false;
             }
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 messageDigest.update(signatureArr[0].toByteArray());
                 String a2 = a(messageDigest.digest());
                 messageDigest.reset();
@@ -245,7 +250,7 @@ public class j {
 
     public static String f(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.update(i(str));
             byte[] digest = messageDigest.digest();
             if (digest != null) {
@@ -314,8 +319,35 @@ public class j {
         return (str == null || (file = new File(str)) == null || !file.exists()) ? false : true;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0032, code lost:
+        r0 = r4.substring(0, r0);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x003b, code lost:
+        if (android.text.TextUtils.isEmpty(r7) != false) goto L24;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x003d, code lost:
+        r0 = r0 + r7;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0057, code lost:
+        com.tencent.open.a.f.e("openSDK_LOG.Util", "Util.subString has exception: " + r1.getMessage());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0076, code lost:
+        r1 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0077, code lost:
+        r4 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:?, code lost:
+        return r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:?, code lost:
+        return r4;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static final String a(String str, int i, String str2, String str3) {
-        String str4;
+        int i2 = 0;
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -323,31 +355,25 @@ public class j {
             str2 = "UTF-8";
         }
         try {
-            if (str.getBytes(str2).length > i) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < str.length(); i3++) {
-                    int length = str.substring(i3, i3 + 1).getBytes(str2).length;
-                    if (i2 + length > i) {
-                        String substring = str.substring(0, i3);
-                        try {
-                            if (!TextUtils.isEmpty(str3)) {
-                                substring = substring + str3;
-                            }
-                            return substring;
-                        } catch (Exception e2) {
-                            str = str4;
-                            e = e2;
-                            com.tencent.open.a.f.e("openSDK_LOG.Util", "Util.subString has exception: " + e.getMessage());
-                            return str;
-                        }
-                    }
-                    i2 += length;
-                }
+            if (str.getBytes(str2).length <= i) {
                 return str;
             }
-            return str;
-        } catch (Exception e3) {
-            e = e3;
+            int i3 = 0;
+            while (true) {
+                int i4 = i2;
+                if (i3 < str.length()) {
+                    int length = str.substring(i3, i3 + 1).getBytes(str2).length;
+                    if (i4 + length > i) {
+                        break;
+                    }
+                    i2 = length + i4;
+                    i3++;
+                } else {
+                    return str;
+                }
+            }
+        } catch (Exception e2) {
+            Exception e3 = e2;
         }
     }
 
@@ -437,9 +463,9 @@ public class j {
         if (context != null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
-                b = packageInfo.versionName;
-                f4391a = b.substring(0, b.lastIndexOf(46));
-                d = b.substring(b.lastIndexOf(46) + 1, b.length());
+                f13744b = packageInfo.versionName;
+                f13743a = f13744b.substring(0, f13744b.lastIndexOf(46));
+                d = f13744b.substring(f13744b.lastIndexOf(46) + 1, f13744b.length());
                 e = packageInfo.versionCode;
             } catch (PackageManager.NameNotFoundException e2) {
                 com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
@@ -454,7 +480,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return b;
+        return f13744b;
     }
 
     public static String d(Context context, String str) {
@@ -462,7 +488,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f4391a;
+        return f13743a;
     }
 
     public static String e(Context context, String str) {

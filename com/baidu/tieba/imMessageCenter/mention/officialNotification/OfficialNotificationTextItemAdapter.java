@@ -4,10 +4,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.im.chat.e;
+import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes22.dex */
-public class OfficialNotificationTextItemAdapter extends e<a> {
+/* loaded from: classes2.dex */
+public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a> {
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
 
@@ -19,21 +19,21 @@ public class OfficialNotificationTextItemAdapter extends e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bT */
-    public e.a<a> c(ViewGroup viewGroup) {
+    /* renamed from: ci */
+    public MsgCommonItemAdapter.MsgViewHolder<a> e(ViewGroup viewGroup) {
         a aVar = new a(this.mPageContext, viewGroup, this.mOnClickListener);
-        return new e.a<>(aVar.getView(), aVar);
+        return new MsgCommonItemAdapter.MsgViewHolder<>(aVar.getView(), aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<a> aVar) {
-        super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        a cTM = aVar.cTM();
-        cTM.onChangeSkinType();
-        if (cTM != null) {
-            cTM.setData(chatMessage);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<a> msgViewHolder) {
+        super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
+        a cWy = msgViewHolder.cWy();
+        cWy.onChangeSkinType();
+        if (cWy != null) {
+            cWy.setData(chatMessage);
         }
         return view;
     }

@@ -2,82 +2,82 @@ package com.baidu.mario.gldraw2d;
 
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.mario.gldraw2d.c.c;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private com.baidu.mario.gldraw2d.b.a bZM;
-    private c bZN;
-    private com.baidu.mario.gldraw2d.params.c bZO;
+    private com.baidu.mario.gldraw2d.b.a cgw;
+    private c cgx;
+    private com.baidu.mario.gldraw2d.params.c cgy;
 
     public b(com.baidu.mario.gldraw2d.params.c cVar) {
-        this.bZO = cVar;
-        this.bZM = new com.baidu.mario.gldraw2d.b.a(cVar.getEGLContext(), 1);
-        aar();
+        this.cgy = cVar;
+        this.cgw = new com.baidu.mario.gldraw2d.b.a(cVar.getEGLContext(), 1);
+        ace();
     }
 
-    public void aap() {
-        this.bZN = this.bZO.aaP();
-        b(this.bZN);
+    public void acc() {
+        this.cgx = this.cgy.acA();
+        b(this.cgx);
     }
 
-    public com.baidu.mario.gldraw2d.b.a aaq() {
-        return this.bZM;
+    public com.baidu.mario.gldraw2d.b.a acd() {
+        return this.cgw;
     }
 
     public void bE(long j) {
-        if (this.bZN != null && this.bZO != null) {
-            if (this.bZO.aaO()) {
-                aar();
+        if (this.cgx != null && this.cgy != null) {
+            if (this.cgy.acz()) {
+                ace();
             }
             if (j != 0) {
-                this.bZO.aaQ().setTimestamp(j);
+                this.cgy.acB().setTimestamp(j);
             }
-            this.bZN.c(this.bZO.aaM(), this.bZO.aaQ());
+            this.cgx.c(this.cgy.acx(), this.cgy.acB());
         }
     }
 
     public void a(c cVar) {
-        if (this.bZO != null) {
-            this.bZO.c(cVar);
+        if (this.cgy != null) {
+            this.cgy.c(cVar);
         }
-        this.bZN.release();
+        this.cgx.release();
         b(cVar);
     }
 
     public void release() {
-        if (this.bZN != null) {
-            this.bZN.release();
-            this.bZN = null;
+        if (this.cgx != null) {
+            this.cgx.release();
+            this.cgx = null;
         }
-        if (this.bZM != null) {
-            this.bZM.release();
-            this.bZM = null;
+        if (this.cgw != null) {
+            this.cgw.release();
+            this.cgw = null;
         }
     }
 
-    private void aar() {
-        float[] aaF = this.bZO.aaQ().aaF();
-        com.baidu.mario.gldraw2d.e.b.u(aaF);
-        com.baidu.mario.gldraw2d.params.a aaN = this.bZO.aaN();
-        com.baidu.mario.gldraw2d.e.b.a(aaF, aaN.getTranslateX(), aaN.getTranslateY());
-        com.baidu.mario.gldraw2d.e.b.a(aaF, aaN.aaz());
-        com.baidu.mario.gldraw2d.e.b.a(aaF, aaN.aaC());
-        if ((aaN.aaD() + EncoderTextureDrawer.X264_WIDTH) % 180 == 0) {
-            com.baidu.mario.gldraw2d.e.b.a(aaF, this.bZO.aaK(), this.bZO.aaL(), aaN.aaA(), aaN.aaB());
+    private void ace() {
+        float[] mVPMatrix = this.cgy.acB().getMVPMatrix();
+        com.baidu.mario.gldraw2d.e.b.u(mVPMatrix);
+        com.baidu.mario.gldraw2d.params.a acy = this.cgy.acy();
+        com.baidu.mario.gldraw2d.e.b.a(mVPMatrix, acy.getTranslateX(), acy.getTranslateY());
+        com.baidu.mario.gldraw2d.e.b.a(mVPMatrix, acy.acl());
+        com.baidu.mario.gldraw2d.e.b.a(mVPMatrix, acy.aco());
+        if ((acy.acp() + EncoderTextureDrawer.X264_WIDTH) % 180 == 0) {
+            com.baidu.mario.gldraw2d.e.b.a(mVPMatrix, this.cgy.acv(), this.cgy.acw(), acy.acm(), acy.acn());
             return;
         }
-        com.baidu.mario.gldraw2d.d.c clone = this.bZO.aaL().clone();
-        clone.setWidth(this.bZO.aaL().getHeight());
-        clone.setHeight(this.bZO.aaL().getWidth());
-        com.baidu.mario.gldraw2d.e.b.a(aaF, this.bZO.aaK(), clone, aaN.aaA(), aaN.aaB());
+        com.baidu.mario.gldraw2d.d.c clone = this.cgy.acw().clone();
+        clone.setWidth(this.cgy.acw().getHeight());
+        clone.setHeight(this.cgy.acw().getWidth());
+        com.baidu.mario.gldraw2d.e.b.a(mVPMatrix, this.cgy.acv(), clone, acy.acm(), acy.acn());
     }
 
     private void b(c cVar) {
         if (cVar == null) {
-            this.bZN = new com.baidu.mario.gldraw2d.c.b();
+            this.cgx = new com.baidu.mario.gldraw2d.c.b();
         } else {
-            this.bZN = cVar;
+            this.cgx = cVar;
         }
-        this.bZN.a(this.bZO.aaK(), this.bZO.aaL());
+        this.cgx.a(this.cgy.acv(), this.cgy.acw());
     }
 }

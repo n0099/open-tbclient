@@ -3,64 +3,64 @@ package kotlin.b;
 import com.baidu.android.common.others.IStringUtil;
 import kotlin.jvm.internal.o;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class a implements Iterable<Character> {
-    public static final C1053a pKK = new C1053a(null);
-    private final char pKI;
-    private final char pKJ;
+    public static final C1271a qmn = new C1271a(null);
+    private final char qml;
+    private final char qmm;
     private final int step;
 
     public a(char c, char c2, int i) {
         if (i == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.pKI = c;
-        this.pKJ = (char) kotlin.internal.d.al(c, c2, i);
+        this.qml = c;
+        this.qmm = (char) kotlin.internal.d.an(c, c2, i);
         this.step = i;
     }
 
-    public final char eEe() {
-        return this.pKI;
+    public final char eMm() {
+        return this.qml;
     }
 
-    public final char eEf() {
-        return this.pKJ;
+    public final char eMn() {
+        return this.qmm;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: eEg */
+    /* renamed from: eMo */
     public kotlin.collections.m iterator() {
-        return new b(this.pKI, this.pKJ, this.step);
+        return new b(this.qml, this.qmm, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.pKI > this.pKJ : this.pKI < this.pKJ;
+        return this.step > 0 ? this.qml > this.qmm : this.qml < this.qmm;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.pKI == ((a) obj).pKI && this.pKJ == ((a) obj).pKJ && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.qml == ((a) obj).qml && this.qmm == ((a) obj).qmm && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.pKI * 31) + this.pKJ) * 31) + this.step;
+        return (((this.qml * 31) + this.qmm) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? "" + this.pKI + IStringUtil.TOP_PATH + this.pKJ + " step " + this.step : "" + this.pKI + " downTo " + this.pKJ + " step " + (-this.step);
+        return this.step > 0 ? "" + this.qml + IStringUtil.TOP_PATH + this.qmm + " step " + this.step : "" + this.qml + " downTo " + this.qmm + " step " + (-this.step);
     }
 
     @kotlin.e
     /* renamed from: kotlin.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    public static final class C1053a {
-        private C1053a() {
+    /* loaded from: classes5.dex */
+    public static final class C1271a {
+        private C1271a() {
         }
 
-        public /* synthetic */ C1053a(o oVar) {
+        public /* synthetic */ C1271a(o oVar) {
             this();
         }
     }

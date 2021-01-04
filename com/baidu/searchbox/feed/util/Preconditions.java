@@ -1,8 +1,8 @@
 package com.baidu.searchbox.feed.util;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-/* loaded from: classes8.dex */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+/* loaded from: classes4.dex */
 public final class Preconditions {
     private Preconditions() {
     }

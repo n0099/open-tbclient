@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class e extends a<MessageV3> {
     public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -55,11 +55,11 @@ public class e extends a<MessageV3> {
         if (messageV3 == null || TextUtils.isEmpty(messageV3.getDeviceId()) || TextUtils.isEmpty(messageV3.getTaskId())) {
             return;
         }
-        String b = b(messageV3.getThroughMessage());
-        if (TextUtils.isEmpty(b)) {
+        String b2 = b(messageV3.getThroughMessage());
+        if (TextUtils.isEmpty(b2)) {
             com.meizu.cloud.pushsdk.util.d.d(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
         } else {
-            com.meizu.cloud.pushsdk.util.d.d(c(), b, messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+            com.meizu.cloud.pushsdk.util.d.d(c(), b2, messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
         }
     }
 

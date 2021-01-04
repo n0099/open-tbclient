@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class BlockingObservableIterable<T> implements Iterable<T> {
     final int bufferSize;
     final t<? extends T> source;
@@ -23,7 +23,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
         return blockingObservableIterator;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class BlockingObservableIterator<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T>, Iterator<T> {
         private static final long serialVersionUID = 6695226475494099826L;
         volatile boolean done;
@@ -44,7 +44,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
                 if (z) {
                     Throwable th = this.error;
                     if (th != null) {
-                        throw ExceptionHelper.L(th);
+                        throw ExceptionHelper.Q(th);
                     }
                     if (isEmpty) {
                         return false;
@@ -52,7 +52,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
                 }
                 if (isEmpty) {
                     try {
-                        c.eDr();
+                        c.eLz();
                         this.lock.lock();
                         while (!this.done && this.queue.isEmpty()) {
                             this.condition.await();
@@ -61,7 +61,7 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
                     } catch (InterruptedException e) {
                         DisposableHelper.dispose(this);
                         signalConsumer();
-                        throw ExceptionHelper.L(e);
+                        throw ExceptionHelper.Q(e);
                     }
                 } else {
                     return true;

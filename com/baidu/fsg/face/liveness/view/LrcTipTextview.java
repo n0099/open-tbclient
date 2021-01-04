@@ -4,25 +4,27 @@ import android.animation.IntEvaluator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Color;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.fsg.face.liveness.view.LrcView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LrcTipTextview extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1769a;
-    private TextView b;
+    private boolean f2415a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private TextView f2416b;
     private TextView c;
     private TextView d;
     private int e;
     private int f;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     interface a {
         void a();
     }
@@ -43,13 +45,13 @@ public class LrcTipTextview extends LinearLayout {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         this.e = getResources().getDimensionPixelSize(R.dimen.rim_text_size_16);
         this.f = getResources().getDimensionPixelSize(R.dimen.rim_text_size_24);
-        this.b = new TextView(getContext());
-        this.b.setTextColor(Color.rgb(255, 255, 255));
-        this.b.setTextSize(0, this.f);
-        this.b.setText(getContext().getString(R.string.rim_face_video_tips_start_resocrd));
+        this.f2416b = new TextView(getContext());
+        this.f2416b.setTextColor(Color.rgb(255, 255, 255));
+        this.f2416b.setTextSize(0, this.f);
+        this.f2416b.setText(getContext().getString(R.string.rim_face_video_tips_start_resocrd));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams2.setMargins(0, 0, 0, getContext().getResources().getDimensionPixelSize(R.dimen.liveness_video_lrc_tip_text01_gap));
-        this.b.setLayoutParams(layoutParams2);
+        this.f2416b.setLayoutParams(layoutParams2);
         this.c = new TextView(getContext());
         this.c.setTextColor(Color.rgb(255, 255, 255));
         this.c.setTextSize(0, this.e);
@@ -62,7 +64,7 @@ public class LrcTipTextview extends LinearLayout {
         this.d.setTextSize(0, this.e);
         this.d.setText(getContext().getString(R.string.rim_face_video_tips_keep_face_in_box));
         this.d.setLayoutParams(layoutParams);
-        addView(this.b);
+        addView(this.f2416b);
         addView(this.c);
         addView(this.d);
     }
@@ -71,7 +73,7 @@ public class LrcTipTextview extends LinearLayout {
         postDelayed(new Runnable() { // from class: com.baidu.fsg.face.liveness.view.LrcTipTextview.1
             @Override // java.lang.Runnable
             public void run() {
-                LrcTipTextview.this.b.setVisibility(8);
+                LrcTipTextview.this.f2416b.setVisibility(8);
                 final RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) LrcTipTextview.this.getLayoutParams();
                 final int top = LrcTipTextview.this.getTop() + LrcTipTextview.this.getPaddingTop();
                 final int dimensionPixelOffset = LrcTipTextview.this.getResources().getDimensionPixelOffset(R.dimen.liveness_video_lrc_tip_margintop_afteranim);

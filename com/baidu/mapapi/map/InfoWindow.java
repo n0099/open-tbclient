@@ -3,12 +3,14 @@ package com.baidu.mapapi.map;
 import android.view.View;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class InfoWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    BitmapDescriptor f2015a;
-    View b;
+    BitmapDescriptor f2824a;
+
+    /* renamed from: b  reason: collision with root package name */
+    View f2825b;
     LatLng c;
     OnInfoWindowClickListener d;
     a e;
@@ -20,13 +22,13 @@ public class InfoWindow {
     boolean k;
     private String l;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface OnInfoWindowClickListener {
         void onInfoWindowClick();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void a(InfoWindow infoWindow);
 
@@ -43,7 +45,7 @@ public class InfoWindow {
         if (view == null || latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: view and position can not be null");
         }
-        this.b = view;
+        this.f2825b = view;
         this.c = latLng;
         this.f = i;
         this.j = true;
@@ -59,7 +61,7 @@ public class InfoWindow {
         if (view == null || latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: view and position can not be null");
         }
-        this.b = view;
+        this.f2825b = view;
         this.c = latLng;
         this.f = i;
         this.g = z;
@@ -77,7 +79,7 @@ public class InfoWindow {
         if (bitmapDescriptor == null || latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: bitmapDescriptor and position can not be null");
         }
-        this.f2015a = bitmapDescriptor;
+        this.f2824a = bitmapDescriptor;
         this.c = latLng;
         this.d = onInfoWindowClickListener;
         this.f = i;
@@ -85,7 +87,7 @@ public class InfoWindow {
     }
 
     public BitmapDescriptor getBitmapDescriptor() {
-        return this.f2015a;
+        return this.f2824a;
     }
 
     public LatLng getPosition() {
@@ -97,7 +99,7 @@ public class InfoWindow {
     }
 
     public View getView() {
-        return this.b;
+        return this.f2825b;
     }
 
     public int getYOffset() {
@@ -108,7 +110,7 @@ public class InfoWindow {
         if (bitmapDescriptor == null) {
             return;
         }
-        this.f2015a = bitmapDescriptor;
+        this.f2824a = bitmapDescriptor;
         this.e.b(this);
     }
 
@@ -128,7 +130,7 @@ public class InfoWindow {
         if (view == null) {
             return;
         }
-        this.b = view;
+        this.f2825b = view;
         this.e.b(this);
     }
 

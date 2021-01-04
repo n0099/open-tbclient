@@ -5,7 +5,7 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 class MemberUtils {
     private static final int ACCESS_TEST = 7;
     private static final Class<?>[] ORDERED_PRIMITIVE_TYPES = {Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
@@ -181,20 +181,27 @@ class MemberUtils {
     }
 
     private static float getPrimitivePromotionCost(Class<?> cls, Class<?> cls2) {
+        Class<?> cls3;
         float f = 0.0f;
         if (!cls.isPrimitive()) {
             f = 0.0f + 0.1f;
             cls = wrapperToPrimitive(cls);
         }
+        int i = 0;
+        Class<?> cls4 = cls;
         float f2 = f;
-        Class<?> cls3 = cls;
-        for (int i = 0; cls3 != cls2 && i < ORDERED_PRIMITIVE_TYPES.length; i++) {
-            if (cls3 == ORDERED_PRIMITIVE_TYPES[i]) {
+        while (cls4 != cls2 && i < ORDERED_PRIMITIVE_TYPES.length) {
+            if (cls4 == ORDERED_PRIMITIVE_TYPES[i]) {
                 f2 += 0.1f;
                 if (i < ORDERED_PRIMITIVE_TYPES.length - 1) {
                     cls3 = ORDERED_PRIMITIVE_TYPES[i + 1];
+                    i++;
+                    cls4 = cls3;
                 }
             }
+            cls3 = cls4;
+            i++;
+            cls4 = cls3;
         }
         return f2;
     }

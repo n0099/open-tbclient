@@ -1,12 +1,11 @@
 package com.baidu.live.tbadk.core.data;
 
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ErrorData implements Serializable {
     private static final long serialVersionUID = -2582050549890612990L;
     public int error_code = -1;
@@ -51,7 +50,7 @@ public class ErrorData implements Serializable {
                 JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject == null) {
                     this.error_code = jSONObject.optInt("error_code", 0);
-                    this.error_msg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+                    this.error_msg = jSONObject.optString("error_msg");
                     this.error_data = jSONObject.optString("error_data");
                 } else {
                     this.error_code = optJSONObject.optInt(BaseJsonData.TAG_ERRNO, 0);

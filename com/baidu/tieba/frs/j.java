@@ -3,11 +3,13 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-/* loaded from: classes21.dex */
+import java.util.List;
+import tbclient.ForumToolPerm;
+/* loaded from: classes.dex */
 public class j {
     private static UserData mUserData;
 
-    public static UserData cBP() {
+    public static UserData cEI() {
         return mUserData;
     }
 
@@ -26,12 +28,12 @@ public class j {
         }
     }
 
-    public static void a(com.baidu.card.b bVar, FrsViewData frsViewData) {
-        if (bVar != null) {
-            if (frsViewData != null && a(a(frsViewData))) {
-                bVar.bs(4);
+    public static void a(com.baidu.card.a aVar, FrsViewData frsViewData) {
+        if (aVar != null) {
+            if (frsViewData != null && (a(a(frsViewData)) || cEL())) {
+                aVar.bs(4);
             } else {
-                bVar.bt(4);
+                aVar.bt(4);
             }
         }
     }
@@ -51,12 +53,12 @@ public class j {
         }
     }
 
-    public static boolean cBQ() {
-        UserData cBP = cBP();
-        if (cBP == null) {
+    public static boolean cEJ() {
+        UserData cEI = cEI();
+        if (cEI == null) {
             return false;
         }
-        switch (cBP.getIs_manager()) {
+        switch (cEI.getIs_manager()) {
             case 1:
                 return true;
             default:
@@ -64,8 +66,23 @@ public class j {
         }
     }
 
-    public static boolean cBR() {
-        UserData cBP = cBP();
-        return cBP != null && cBP.getIs_manager() == 3;
+    public static boolean cEK() {
+        UserData cEI = cEI();
+        return cEI != null && cEI.getIs_manager() == 3;
+    }
+
+    public static boolean cEL() {
+        List<ForumToolPerm> forumToolAuth;
+        UserData cEI = cEI();
+        if (cEI == null || (forumToolAuth = cEI.getForumToolAuth()) == null) {
+            return false;
+        }
+        for (int i = 0; i < forumToolAuth.size(); i++) {
+            ForumToolPerm forumToolPerm = forumToolAuth.get(i);
+            if (forumToolPerm != null && forumToolPerm.perm.longValue() == 1) {
+                return true;
+            }
+        }
+        return false;
     }
 }

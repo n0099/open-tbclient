@@ -3,9 +3,9 @@ package com.baidu.live.personmanager;
 import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class f {
-    public static String u(int i, String str) {
+    public static String w(int i, String str) {
         String str2;
         String str3;
         String str4 = null;

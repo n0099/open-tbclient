@@ -1,19 +1,19 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.BaseFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     private boolean isPrimary;
     private List<a> mFragments;
     private int mPrimaryPosition;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public Fragment fragment;
         public String title;
@@ -28,7 +28,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         }
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
+    @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null) {
             return null;
@@ -36,12 +36,12 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         return this.mFragments.get(i).fragment;
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
+    @Override // androidx.fragment.app.FragmentPagerAdapter
     public long getItemId(int i) {
         return (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null) ? super.getItemId(i) : this.mFragments.get(i).hashCode();
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         if (this.mFragments != null) {
             return this.mFragments.size();
@@ -49,7 +49,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         return 0;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
         if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null) {
             return null;
@@ -57,7 +57,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         return this.mFragments.get(i).title;
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
+    @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
         if (this.isPrimary && this.mPrimaryPosition != i) {

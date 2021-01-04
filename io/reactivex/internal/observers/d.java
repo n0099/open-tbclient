@@ -3,19 +3,19 @@ package io.reactivex.internal.observers;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class d<T> implements y<T> {
     final y<? super T> actual;
-    final AtomicReference<io.reactivex.disposables.b> pFa;
+    final AtomicReference<io.reactivex.disposables.b> qgC;
 
     public d(AtomicReference<io.reactivex.disposables.b> atomicReference, y<? super T> yVar) {
-        this.pFa = atomicReference;
+        this.qgC = atomicReference;
         this.actual = yVar;
     }
 
     @Override // io.reactivex.y
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        DisposableHelper.replace(this.pFa, bVar);
+        DisposableHelper.replace(this.qgC, bVar);
     }
 
     @Override // io.reactivex.y

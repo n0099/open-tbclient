@@ -9,23 +9,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class LoadSo {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f2695a = "3.0.0";
-    static final String[] b = {"bd_idl_pass_token", "idl_license", "FaceSDK"};
+    static final String f3979a = "3.0.0";
+
+    /* renamed from: b  reason: collision with root package name */
+    static final String[] f3980b = {"bd_idl_pass_token", "idl_license", "FaceSDK"};
     private Context c;
     private StatService d;
     private Bundle e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class StatService {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2696a = "sapi_bio_dynamic_load_so";
-        private static final String b = "host_version";
+        private static final String f3981a = "sapi_bio_dynamic_load_so";
+
+        /* renamed from: b  reason: collision with root package name */
+        private static final String f3982b = "host_version";
         private static final String c = "zip_version";
         private static final String d = "modle_name";
         private static final String e = "load_default_so";
@@ -80,7 +84,7 @@ public class LoadSo {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
-            com.baidu.pass.biometrics.base.utils.StatService.onEvent(LoadSo.this.c, f2696a, a());
+            com.baidu.pass.biometrics.base.utils.StatService.onEvent(LoadSo.this.c, f3981a, a());
         }
     }
 
@@ -123,7 +127,7 @@ public class LoadSo {
     }
 
     private void a() {
-        for (String str : b) {
+        for (String str : f3980b) {
             System.loadLibrary(str);
         }
         this.d.s = true;
@@ -133,7 +137,7 @@ public class LoadSo {
         String[] strArr;
         boolean z = true;
         try {
-            int length = b.length;
+            int length = f3980b.length;
             for (int i = 0; i < length; i++) {
                 System.load(LocalConfigOptions.getLoadSoPath(this.c) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
             }

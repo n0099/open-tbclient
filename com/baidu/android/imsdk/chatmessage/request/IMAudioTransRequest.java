@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.webkit.CookieManager;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,6 +14,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidubce.http.Headers;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -33,7 +33,7 @@ import java.util.UUID;
 import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     private static final String CHARSET = "utf-8";
     private static final String CONTENT_TYPE = "multipart/form-data";
@@ -72,7 +72,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                 str3 = jSONObject.optString("base64_file");
             } else {
                 i2 = jSONObject.getInt("error_code");
-                str2 = jSONObject.getString(AlaRecorderLog.KEY_ERROR_MSG);
+                str2 = jSONObject.getString("error_msg");
             }
         } catch (Exception e) {
             LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e);
@@ -146,7 +146,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     }
 
     public String getMd5(String str) throws NoSuchAlgorithmException {
-        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         messageDigest.update(str.getBytes());
         return Utility.byte2Hex(messageDigest.digest());
     }
@@ -154,24 +154,19 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     public void execute() {
         TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest.1
             /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [298=4, 299=4, 302=4, 303=4, 306=4, 307=4, 309=4, 310=4, 311=4] */
-            /* JADX WARN: Removed duplicated region for block: B:58:0x0324 A[Catch: Exception -> 0x036e, TryCatch #1 {Exception -> 0x036e, blocks: (B:56:0x031f, B:58:0x0324, B:60:0x0329), top: B:87:0x031f }] */
-            /* JADX WARN: Removed duplicated region for block: B:60:0x0329 A[Catch: Exception -> 0x036e, TRY_LEAVE, TryCatch #1 {Exception -> 0x036e, blocks: (B:56:0x031f, B:58:0x0324, B:60:0x0329), top: B:87:0x031f }] */
-            /* JADX WARN: Removed duplicated region for block: B:87:0x031f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+            /* JADX WARN: Removed duplicated region for block: B:57:0x0321 A[Catch: Exception -> 0x036b, TryCatch #1 {Exception -> 0x036b, blocks: (B:55:0x031c, B:57:0x0321, B:59:0x0326), top: B:86:0x031c }] */
+            /* JADX WARN: Removed duplicated region for block: B:59:0x0326 A[Catch: Exception -> 0x036b, TRY_LEAVE, TryCatch #1 {Exception -> 0x036b, blocks: (B:55:0x031c, B:57:0x0321, B:59:0x0326), top: B:86:0x031c }] */
+            /* JADX WARN: Removed duplicated region for block: B:86:0x031c A[EXC_TOP_SPLITTER, SYNTHETIC] */
             @Override // java.lang.Runnable
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public void run() {
+                FileInputStream fileInputStream;
                 DataOutputStream dataOutputStream;
                 OutputStream outputStream;
-                FileInputStream fileInputStream;
-                OutputStream outputStream2;
-                FileInputStream fileInputStream2 = null;
-                fileInputStream2 = null;
-                r3 = null;
-                fileInputStream2 = null;
-                DataOutputStream dataOutputStream2 = null;
-                OutputStream outputStream3 = null;
+                DataOutputStream dataOutputStream2;
+                OutputStream outputStream2 = null;
                 DataOutputStream dataOutputStream3 = null;
                 InputStream inputStream = null;
                 try {
@@ -179,7 +174,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                         IMAudioTransRequest.this.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
                         if (0 != 0) {
                             try {
-                                outputStream3.close();
+                                outputStream2.close();
                             } catch (Exception e) {
                                 LogUtils.d(IMAudioTransRequest.TAG, e.getMessage());
                                 new IMTrack.CrashBuilder(IMAudioTransRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -265,14 +260,13 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                 } catch (Exception e2) {
                                     e = e2;
                                     dataOutputStream2 = dataOutputStream;
-                                    outputStream2 = outputStream;
                                     try {
                                         LogUtils.d(IMAudioTransRequest.TAG, "Http Unknown exception");
                                         IMAudioTransRequest.this.onFailure(-1003, "Http Unknown exception".getBytes(), e);
                                         new IMTrack.CrashBuilder(IMAudioTransRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
-                                        if (outputStream2 != null) {
+                                        if (outputStream != null) {
                                             try {
-                                                outputStream2.close();
+                                                outputStream.close();
                                             } catch (Exception e3) {
                                                 LogUtils.d(IMAudioTransRequest.TAG, e3.getMessage());
                                                 new IMTrack.CrashBuilder(IMAudioTransRequest.this.mContext).exception(Log.getStackTraceString(e3)).build();
@@ -290,8 +284,6 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                     } catch (Throwable th) {
                                         th = th;
                                         dataOutputStream = dataOutputStream2;
-                                        outputStream = outputStream2;
-                                        fileInputStream2 = fileInputStream;
                                         if (outputStream != null) {
                                             try {
                                                 outputStream.close();
@@ -304,36 +296,36 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                         if (dataOutputStream != null) {
                                             dataOutputStream.close();
                                         }
-                                        if (fileInputStream2 != null) {
-                                            fileInputStream2.close();
+                                        if (fileInputStream != null) {
+                                            fileInputStream.close();
                                         }
                                         throw th;
                                     }
                                 } catch (Throwable th2) {
                                     th = th2;
-                                    fileInputStream2 = fileInputStream;
                                     if (outputStream != null) {
                                     }
                                     if (dataOutputStream != null) {
                                     }
-                                    if (fileInputStream2 != null) {
+                                    if (fileInputStream != null) {
                                     }
                                     throw th;
                                 }
                             } catch (Exception e5) {
                                 e = e5;
                                 fileInputStream = null;
-                                outputStream2 = outputStream;
                                 dataOutputStream2 = dataOutputStream;
                             } catch (Throwable th3) {
                                 th = th3;
+                                fileInputStream = null;
                             }
                         } catch (Exception e6) {
                             e = e6;
                             fileInputStream = null;
-                            outputStream2 = outputStream;
+                            dataOutputStream2 = null;
                         } catch (Throwable th4) {
                             th = th4;
+                            fileInputStream = null;
                             dataOutputStream = null;
                         }
                     } else {
@@ -359,9 +351,11 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                 } catch (Exception e8) {
                     e = e8;
                     fileInputStream = null;
-                    outputStream2 = null;
+                    dataOutputStream2 = null;
+                    outputStream = null;
                 } catch (Throwable th5) {
                     th = th5;
+                    fileInputStream = null;
                     dataOutputStream = null;
                     outputStream = null;
                 }

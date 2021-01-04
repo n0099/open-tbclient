@@ -6,7 +6,7 @@ import android.os.Vibrator;
 import com.baidu.platform.comapi.wnplatform.p.b.a;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class VibrateHelper {
     public static final int VIBRATE_DURATION_TIME = 500;
     private static boolean bStopVibration = false;

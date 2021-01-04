@@ -18,9 +18,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -33,18 +32,18 @@ public class c {
     private Resources pluginRes;
     private boolean isNightMode = false;
     Map<String, b> viewModeInfos = new HashMap();
-    public boolean eCw = false;
+    public boolean eMa = false;
 
     public void initModeInfos(String str, Context context, AttributeSet attributeSet) {
         int[] resID;
         int i;
-        boolean z = false;
         try {
             this.contextRes = context.getResources();
             this.pluginRes = this.contextRes;
             int attributeCount = attributeSet.getAttributeCount();
             b bVar = new b();
             bVar.setViewClassName(str);
+            boolean z = false;
             for (int i2 = 0; i2 < attributeCount; i2++) {
                 String attributeName = attributeSet.getAttributeName(i2);
                 String attributeValue = attributeSet.getAttributeValue(i2);
@@ -145,12 +144,10 @@ public class c {
     }
 
     public static int getNightResouce(Resources resources, Resources resources2, int i) {
-        String str;
         int i2;
         if (IS_SUPPORT_NIGHT) {
             String resourceName = resources.getResourceName(i);
             if (TextUtils.isEmpty(resourceName)) {
-                str = resourceName;
                 i2 = i;
             } else {
                 if (sPacknameLength == 0) {
@@ -160,19 +157,14 @@ public class c {
                 if (resourceName.length() > sPacknameLength && resourceName.charAt(sPacknameLength) != ':' && resourceName.startsWith(sPackagename)) {
                     resourceName = sPackagename + resourceName.substring(resourceName.indexOf(":"));
                 }
-                int identifier = resources2.getIdentifier(resourceName + "_1", null, null);
-                if (identifier <= 0) {
-                    String str2 = "com.baidu.tieba.pluginResource" + resourceName.substring(resourceName.indexOf(":"));
-                    i2 = resources2.getIdentifier(str2 + "_1", null, null);
-                    str = str2;
-                } else {
-                    String str3 = resourceName;
-                    i2 = identifier;
-                    str = str3;
+                i2 = resources2.getIdentifier(resourceName + "_1", null, null);
+                if (i2 <= 0) {
+                    resourceName = "com.baidu.tieba.pluginResource" + resourceName.substring(resourceName.indexOf(":"));
+                    i2 = resources2.getIdentifier(resourceName + "_1", null, null);
                 }
             }
             if (i2 == 0) {
-                BdLog.e(str + " 缺少夜间资源,使用了日间资源");
+                BdLog.e(resourceName + " 缺少夜间资源,使用了日间资源");
                 return i;
             }
             return i2;
@@ -202,7 +194,7 @@ public class c {
     }
 
     private void changeForViewGroup(ViewGroup viewGroup) {
-        String str = UgcConstant.AT_RULE_TAG + viewGroup.getId();
+        String str = "@" + viewGroup.getId();
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             b bVar = this.viewModeInfos.get(str);
             if (viewGroup instanceof AdapterView) {
@@ -238,7 +230,7 @@ public class c {
         Drawable drawable2;
         Drawable drawable3;
         int styleResID;
-        String str = UgcConstant.AT_RULE_TAG + view.getId();
+        String str = "@" + view.getId();
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             b bVar = this.viewModeInfos.get(str);
             if (view instanceof TextView) {
@@ -296,8 +288,8 @@ public class c {
 
     private Drawable getDrawable(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.eCw && skinType == 4)) {
-            return ap.getDrawable(i);
+        if (skinType == 2 || (!this.eMa && skinType == 4)) {
+            return ao.getDrawable(i);
         }
         if (!z) {
             try {
@@ -332,8 +324,8 @@ public class c {
 
     private int getColor(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.eCw && skinType == 4)) {
-            return ap.getColor(i);
+        if (skinType == 2 || (!this.eMa && skinType == 4)) {
+            return ao.getColor(i);
         }
         if (!z) {
             return this.contextRes.getColor(i);
@@ -354,8 +346,8 @@ public class c {
 
     private ColorStateList getColorList(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.eCw && skinType == 4)) {
-            return ap.getColorList(i);
+        if (skinType == 2 || (!this.eMa && skinType == 4)) {
+            return ao.getColorList(i);
         }
         if (!z) {
             return this.contextRes.getColorStateList(i);

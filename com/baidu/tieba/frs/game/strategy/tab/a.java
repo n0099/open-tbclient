@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs.game.strategy.tab;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public interface a {
-    e AO(int i);
+    e Ba(int i);
 
-    void cw(int i, int i2);
+    void ct(int i, int i2);
 
-    void cx(int i, int i2);
+    void cu(int i, int i2);
 
-    boolean cy(int i, int i2);
+    boolean cv(int i, int i2);
 
     String getForumId();
 }

@@ -4,63 +4,63 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.a;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.t;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes8.dex */
 public class CDNLogSyncData {
-    private boolean eFm;
-    private int eFn;
-    private int eFo;
-    private int eFp = 25;
-    private int eFq = 25;
-    private int eFr = 10;
+    private boolean ePc;
+    private int ePd;
+    private int ePe;
+    private int ePf = 25;
+    private int ePg = 25;
+    private int ePh = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.eFp;
+        return this.ePf;
     }
 
     public void setSuccRank(int i) {
-        this.eFp = i;
+        this.ePf = i;
     }
 
     public int getErrRank() {
-        return this.eFq;
+        return this.ePg;
     }
 
     public void setErrRank(int i) {
-        this.eFq = i;
+        this.ePg = i;
     }
 
     public int getSlowRank() {
-        return this.eFr;
+        return this.ePh;
     }
 
     public void setSlowRank(int i) {
-        this.eFr = i;
+        this.ePh = i;
     }
 
     public boolean ismSwitch() {
-        return this.eFm;
+        return this.ePc;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.eFm != z) {
-            a mT = u.mT();
-            mT.append("act", "fallback");
-            mT.append("result", z ? "1" : "0");
-            mT.append("type", "switch");
-            BdStatisticsManager.getInstance().debug("img", mT);
+        if (this.ePc != z) {
+            a pi = t.pi();
+            pi.append("act", "fallback");
+            pi.append("result", z ? "1" : "0");
+            pi.append("type", "switch");
+            BdStatisticsManager.getInstance().debug("img", pi);
         }
-        this.eFm = z;
+        this.ePc = z;
     }
 
     public int getSlowNumber() {
-        return this.eFn;
+        return this.ePd;
     }
 
     public void setSlowNumber(int i) {
-        this.eFn = i;
+        this.ePd = i;
     }
 
     public int getTime() {
@@ -72,11 +72,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.eFo;
+        return this.ePe;
     }
 
     public void setErrNumber(int i) {
-        this.eFo = i;
+        this.ePe = i;
     }
 
     public void parseJson(String str) {
@@ -85,7 +85,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.eFm = false;
+            this.ePc = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -94,30 +94,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.eFm = true;
+                    this.ePc = true;
                 } else {
-                    this.eFm = false;
+                    this.ePc = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.eFo = optJSONObject.optInt("num");
+                    this.ePe = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.eFn = optJSONObject2.optInt("num");
+                    this.ePd = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.eFp = optJSONObject3.optInt("succ");
-                    this.eFq = optJSONObject3.optInt("err");
-                    this.eFr = optJSONObject3.optInt("slow");
+                    this.ePf = optJSONObject3.optInt("succ");
+                    this.ePg = optJSONObject3.optInt("err");
+                    this.ePh = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.eFn <= 0 || this.eFo <= 0) {
-                    this.eFm = false;
+                if (this.time <= 0 || this.ePd <= 0 || this.ePe <= 0) {
+                    this.ePc = false;
                 }
             } catch (Exception e) {
-                this.eFm = false;
+                this.ePc = false;
                 BdLog.e(e.getMessage());
             }
         }

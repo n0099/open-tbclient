@@ -1,28 +1,28 @@
 package com.baidu.swan.apps.inlinewidget.rtcroom.c;
 
-import android.support.annotation.NonNull;
 import android.view.Surface;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes9.dex */
 public interface a extends c {
 
     /* renamed from: com.baidu.swan.apps.inlinewidget.rtcroom.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public interface InterfaceC0458a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0450a {
     }
 
-    void a(@NonNull InterfaceC0458a interfaceC0458a);
+    void a(@NonNull InterfaceC0450a interfaceC0450a);
 
     int getVideoHeight();
 
     int getVideoWidth();
 
-    void je(int i);
+    void iZ(int i);
+
+    void oZ(String str);
 
     void onFocus(int i, int i2, int i3, int i4);
 
     void onSurfaceChanged(int i, int i2);
-
-    void pg(String str);
 
     void setSurface(Surface surface);
 

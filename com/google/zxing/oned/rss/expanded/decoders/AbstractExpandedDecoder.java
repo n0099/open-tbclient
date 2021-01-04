@@ -5,7 +5,7 @@ import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractExpandedDecoder {
     private final GeneralAppIdDecoder generalDecoder;
     private final BitArray information;
@@ -49,9 +49,9 @@ public abstract class AbstractExpandedDecoder {
                     default:
                         switch (GeneralAppIdDecoder.extractNumericValueFromBitArray(bitArray, 1, 7)) {
                             case 56:
-                                return new AI013x0x1xDecoder(bitArray, "310", "11");
+                                return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
                             case 57:
-                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, "11");
+                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
                             case 58:
                                 return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_JOININ_GROUP);
                             case 59:
@@ -61,9 +61,9 @@ public abstract class AbstractExpandedDecoder {
                             case 61:
                                 return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_WPA_STATE);
                             case 62:
-                                return new AI013x0x1xDecoder(bitArray, "310", "17");
+                                return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_START_GROUP);
                             case 63:
-                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, "17");
+                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_START_GROUP);
                             default:
                                 throw new IllegalStateException("unknown decoder: " + bitArray);
                         }

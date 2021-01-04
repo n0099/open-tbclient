@@ -2,7 +2,7 @@ package com.baidu.mapapi.cloud;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public abstract class BaseSearchResult {
     public static final int STATUS_CODE_NETWORK_ERROR = -3;
     public static final int STATUS_CODE_NETWORK_TIME_OUT = -2;

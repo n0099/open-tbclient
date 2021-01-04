@@ -16,7 +16,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdListAdpter extends BaseAdapter implements IListAdapter {
     private DataSetObserver mAdapterDataSetObserver;
     private boolean mAreAllFixedViewsSelectable;
@@ -28,7 +28,7 @@ public class BdListAdpter extends BaseAdapter implements IListAdapter {
     private DataSetObserver mDataSetObserver = null;
     private BdListPreLoad mListPreLoad = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface BdListPreLoad {
         void onPreLoad();
     }
@@ -384,7 +384,7 @@ public class BdListAdpter extends BaseAdapter implements IListAdapter {
         return textView;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class FixedViewInfo {
         public Object data;
         public boolean isSelectable;

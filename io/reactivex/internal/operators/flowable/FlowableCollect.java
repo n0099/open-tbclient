@@ -6,21 +6,21 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.Callable;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableCollect<T, U> extends a<T, U> {
     final io.reactivex.b.b<? super U, ? super T> collector;
-    final Callable<? extends U> pFq;
+    final Callable<? extends U> qgS;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
         try {
-            this.pFi.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.m(this.pFq.call(), "The initial value supplied is null"), this.collector));
+            this.qgK.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.m(this.qgS.call(), "The initial value supplied is null"), this.collector));
         } catch (Throwable th) {
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class CollectSubscriber<T, U> extends DeferredScalarSubscription<U> implements j<T> {
         private static final long serialVersionUID = -3589550218733891694L;
         final io.reactivex.b.b<? super U, ? super T> collector;
@@ -50,7 +50,7 @@ public final class FlowableCollect<T, U> extends a<T, U> {
                 try {
                     this.collector.i((U) this.u, t);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.J(th);
+                    io.reactivex.exceptions.a.O(th);
                     this.s.cancel();
                     onError(th);
                 }

@@ -9,7 +9,7 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.util.Log;
 import android.view.Surface;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a {
     private static final String TAG = a.class.getSimpleName();
     private EGLConfig mEGLConfig;

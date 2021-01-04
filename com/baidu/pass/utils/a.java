@@ -3,15 +3,15 @@ package com.baidu.pass.utils;
 import android.os.Build;
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 class a implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ float f2805a;
+    final /* synthetic */ float f4155a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(float f) {
-        this.f2805a = f;
+        this.f4155a = f;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -24,7 +24,7 @@ class a implements View.OnTouchListener {
             }
             return false;
         } else if (Build.VERSION.SDK_INT >= 11) {
-            view.setAlpha(this.f2805a);
+            view.setAlpha(this.f4155a);
             return false;
         } else {
             return false;

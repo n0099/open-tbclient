@@ -3,7 +3,7 @@ package kotlin.collections;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import java.util.Collection;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public abstract class a<E> implements Collection<E> {
     @Override // java.util.Collection
     public boolean add(E e) {
@@ -70,9 +70,9 @@ public abstract class a<E> implements Collection<E> {
 
     @Override // java.util.Collection
     public Object[] toArray() {
-        Object[] r = kotlin.jvm.internal.n.r(this);
-        kotlin.jvm.internal.p.n(r, "kotlin.jvm.internal.Coll…Array.toArray(collection)");
-        return r;
+        Object[] q = kotlin.jvm.internal.n.q(this);
+        kotlin.jvm.internal.p.n(q, "kotlin.jvm.internal.Coll…Array.toArray(collection)");
+        return q;
     }
 
     @Override // java.util.Collection

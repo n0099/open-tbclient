@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.taskmanager.DatabaseMng;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class DownloadDatabaseHelper extends SQLiteOpenHelper {
     public DownloadDatabaseHelper(Context context) {
         super(context, DatabaseMng.DB_NAME, (SQLiteDatabase.CursorFactory) null, 1);
@@ -46,7 +46,7 @@ public class DownloadDatabaseHelper extends SQLiteOpenHelper {
     private void createDownloadsTable(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("DROP TABLE IF EXISTS downloads");
-            sQLiteDatabase.execSQL("CREATE TABLE downloads(_id INTEGER PRIMARY KEY AUTOINCREMENT,uri TEXT, name TEXT, path TEXT, data TEXT, mimetype TEXT, etag TEXT, tasktype INTEGER, status INTEGER DEFAULT 0, lastmodification BIGINT DEFAULT " + System.currentTimeMillis() + ", " + DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES + " BIGINT DEFAULT 0, " + DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES + " BIGINT DEFAULT 0, " + DownloadDataConstants.Columns.COLUMN_PROGRESS_MAP + " TEXT, " + DownloadDataConstants.Columns.COLUMN_RETRY_COUNT + " INTEGER DEFAULT 0);");
+            sQLiteDatabase.execSQL("CREATE TABLE downloads(_id INTEGER PRIMARY KEY AUTOINCREMENT,uri TEXT, name TEXT, path TEXT, data TEXT, mimetype TEXT, etag TEXT, tasktype INTEGER, status INTEGER DEFAULT 0, lastmodification BIGINT DEFAULT " + System.currentTimeMillis() + ", total_bytes BIGINT DEFAULT 0, " + DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES + " BIGINT DEFAULT 0, " + DownloadDataConstants.Columns.COLUMN_PROGRESS_MAP + " TEXT, " + DownloadDataConstants.Columns.COLUMN_RETRY_COUNT + " INTEGER DEFAULT 0);");
         } catch (SQLException e) {
             throw e;
         }

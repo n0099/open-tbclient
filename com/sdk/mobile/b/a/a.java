@@ -10,41 +10,45 @@ import com.sdk.base.framework.a.i;
 import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.h.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4286a = a.class.getName();
-    private static Boolean b = Boolean.valueOf(f.b);
+    private static final String f13172a = a.class.getName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static Boolean f13173b = Boolean.valueOf(f.f13118b);
     private a<T>.d c;
     private Context d;
     private com.sdk.base.framework.a.f e;
     private int f;
     private CallBack<T> g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public final class d implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Handler f4289a = new Handler(Looper.getMainLooper());
-        private long b;
+        private Handler f13178a = new Handler(Looper.getMainLooper());
+
+        /* renamed from: b  reason: collision with root package name */
+        private long f13179b;
 
         d(long j) {
-            this.b = j;
+            this.f13179b = j;
         }
 
         public final void a() {
-            this.f4289a.postDelayed(this, this.b);
+            this.f13178a.postDelayed(this, this.f13179b);
         }
 
         public final void b() {
-            this.f4289a.removeCallbacks(this);
+            this.f13178a.removeCallbacks(this);
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             if (a.this.e != null) {
-                com.sdk.base.framework.a.a.c.c(a.f4286a, "超时，已取消请求", a.b);
+                com.sdk.base.framework.a.a.c.c(a.f13172a, "超时，已取消请求", a.f13173b);
                 a.this.e.a();
             }
             a.this.a(1, PayHelper.STATUS_TIMEOUT_DESC, 101005, null, com.sdk.base.framework.f.g.a.b().a());
@@ -101,7 +105,7 @@ public class a<T> {
             com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.d, new b(this, i));
             DataInfo dataInfo = new DataInfo();
             dataInfo.putData("serviceType", Integer.valueOf(i));
-            this.e = aVar.a(aVar.b, "/dro/netm/v1.0/gctcbs", dataInfo, aVar.a(), 0, i.b);
+            this.e = aVar.a(aVar.f13122b, "/dro/netm/v1.0/gctcbs", dataInfo, aVar.a(), 0, i.f13101b);
         }
     }
 
@@ -112,6 +116,6 @@ public class a<T> {
         DataInfo dataInfo = new DataInfo();
         dataInfo.putData("accessCode", str);
         dataInfo.putData("mobile", str2);
-        this.e = aVar.a(aVar.b, "/dro/netm/v1.0/gmctc", dataInfo, aVar.a(), 0, i.b);
+        this.e = aVar.a(aVar.f13122b, "/dro/netm/v1.0/gmctc", dataInfo, aVar.a(), 0, i.f13101b);
     }
 }

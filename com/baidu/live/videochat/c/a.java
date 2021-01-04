@@ -3,40 +3,40 @@ package com.baidu.live.videochat.c;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.live.lottie.LottieAnimationView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.view.fresco.SimpleDraweeView;
 import com.facebook.drawee.generic.RoundingParams;
-import com.tb.airbnb.lottie.LottieAnimationView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private TextView bLA;
-    private InterfaceC0231a bLw;
-    private SimpleDraweeView bLx;
-    private TextView bLy;
-    private LottieAnimationView bLz;
-    private View byZ;
-    private TextView bza;
+    private View bDN;
+    private TextView bDO;
+    private InterfaceC0229a bQj;
+    private SimpleDraweeView bQk;
+    private TextView bQl;
+    private LottieAnimationView bQm;
+    private TextView bQn;
     private Context mContext;
     private TextView mTitle;
 
     /* renamed from: com.baidu.live.videochat.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0231a {
-        void SQ();
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0229a {
+        void TX();
 
-        void WX();
+        void Yd();
 
-        void WY();
+        void Ye();
 
-        void WZ();
+        void Yf();
     }
 
-    public void a(InterfaceC0231a interfaceC0231a) {
-        this.bLw = interfaceC0231a;
+    public void a(InterfaceC0229a interfaceC0229a) {
+        this.bQj = interfaceC0229a;
     }
 
     public a(@NonNull Context context) {
@@ -51,34 +51,34 @@ public class a extends Dialog implements View.OnClickListener {
         resize();
         setCanceledOnTouchOutside(false);
         setCancelable(false);
-        this.bLx = (SimpleDraweeView) findViewById(a.f.ala_link_mic_status_dialog_head_icon);
+        this.bQk = (SimpleDraweeView) findViewById(a.f.ala_link_mic_status_dialog_head_icon);
         this.mTitle = (TextView) findViewById(a.f.ala_link_mic_status_dialog_message);
-        this.bLy = (TextView) findViewById(a.f.ala_link_mic_status_dialog_inviter);
-        this.byZ = findViewById(a.f.ala_link_mic_status_dialog_btn_first);
-        this.bza = (TextView) findViewById(a.f.ala_link_mic_status_dialog_txt_first);
-        this.bLz = (LottieAnimationView) findViewById(a.f.ala_link_mic_status_dialog_loading);
-        this.bLz.setImageAssetsFolder("images/");
-        this.bLA = (TextView) findViewById(a.f.ala_link_mic_status_dialog_btn_second);
-        this.bLA.setVisibility(8);
-        this.bLx.setBackgroundResource(a.e.sdk_default_avatar);
-        RoundingParams erQ = this.bLx.getHierarchy().erQ();
-        RoundingParams roundingParams = erQ == null ? new RoundingParams() : erQ;
-        roundingParams.AU(true);
-        roundingParams.bw(6.0f);
-        roundingParams.Qo(-1);
-        this.bLx.getHierarchy().a(roundingParams);
-        this.bLx.setOnClickListener(this);
-        this.byZ.setOnClickListener(this);
-        this.bLA.setOnClickListener(this);
+        this.bQl = (TextView) findViewById(a.f.ala_link_mic_status_dialog_inviter);
+        this.bDN = findViewById(a.f.ala_link_mic_status_dialog_btn_first);
+        this.bDO = (TextView) findViewById(a.f.ala_link_mic_status_dialog_txt_first);
+        this.bQm = (LottieAnimationView) findViewById(a.f.ala_link_mic_status_dialog_loading);
+        this.bQm.setImageAssetsFolder("images/");
+        this.bQn = (TextView) findViewById(a.f.ala_link_mic_status_dialog_btn_second);
+        this.bQn.setVisibility(8);
+        this.bQk.setBackgroundResource(a.e.sdk_default_avatar);
+        RoundingParams evT = this.bQk.getHierarchy().evT();
+        RoundingParams roundingParams = evT == null ? new RoundingParams() : evT;
+        roundingParams.Bc(true);
+        roundingParams.bI(6.0f);
+        roundingParams.Qx(-1);
+        this.bQk.getHierarchy().a(roundingParams);
+        this.bQk.setOnClickListener(this);
+        this.bDN.setOnClickListener(this);
+        this.bQn.setOnClickListener(this);
     }
 
     public void resize() {
         getWindow().setGravity(17);
     }
 
-    public void jh(String str) {
+    public void iX(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bLx.setImageURI(str);
+            this.bQk.setImageURI(str);
         }
     }
 
@@ -88,47 +88,47 @@ public class a extends Dialog implements View.OnClickListener {
         }
     }
 
-    public void ji(String str) {
-        this.bLy.setText(str);
+    public void iY(String str) {
+        this.bQl.setText(str);
     }
 
-    public void iK(String str) {
-        this.bza.setText(str);
+    public void iz(String str) {
+        this.bDO.setText(str);
     }
 
-    public void jj(String str) {
-        this.bLA.setText(str);
+    public void iZ(String str) {
+        this.bQn.setText(str);
     }
 
-    public void fC(int i) {
-        this.byZ.setVisibility(i);
-    }
-
-    public void gF(int i) {
-        this.bLA.setVisibility(i);
+    public void fD(int i) {
+        this.bDN.setVisibility(i);
     }
 
     public void gG(int i) {
+        this.bQn.setVisibility(i);
+    }
+
+    public void gH(int i) {
         if (i == 0) {
-            this.bLz.playAnimation();
+            this.bQm.playAnimation();
         } else {
-            this.bLz.cancelAnimation();
+            this.bQm.cancelAnimation();
         }
-        this.bLz.setVisibility(i);
+        this.bQm.setVisibility(i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bLx) {
-            if (this.bLw != null) {
-                this.bLw.WX();
+        if (view == this.bQk) {
+            if (this.bQj != null) {
+                this.bQj.Yd();
             }
-        } else if (view == this.byZ) {
-            if (this.bLw != null) {
-                this.bLw.WY();
+        } else if (view == this.bDN) {
+            if (this.bQj != null) {
+                this.bQj.Ye();
             }
-        } else if (view == this.bLA && this.bLw != null) {
-            this.bLw.WZ();
+        } else if (view == this.bQn && this.bQj != null) {
+            this.bQj.Yf();
         }
     }
 }

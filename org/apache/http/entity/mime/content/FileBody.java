@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class FileBody extends AbstractContentBody {
     private final String charset;
     private final File file;

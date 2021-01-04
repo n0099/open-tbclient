@@ -1,28 +1,28 @@
 package com.baidu.swan.apps.inlinewidget.rtcroom.a.b;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class l extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String aya() {
+    public String azr() {
         return "getRemoteUserList";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.inlinewidget.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
-        ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> aym = bVar.aym();
+        ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> azD = bVar.azD();
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
-        if (aym != null) {
-            Iterator<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> it = aym.iterator();
+        if (azD != null) {
+            Iterator<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> it = azD.iterator();
             while (it.hasNext()) {
                 com.baidu.swan.apps.inlinewidget.rtcroom.model.c next = it.next();
                 JSONObject jSONObject2 = next == null ? null : next.toJSONObject();

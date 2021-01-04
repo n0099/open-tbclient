@@ -1,18 +1,18 @@
 package com.baidu.tieba.ala.liveroom.apppromotion;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaAppPromotionView extends RelativeLayout {
-    private TbImageView hex;
-    private TextView hey;
+    private TbImageView hqk;
+    private TextView hql;
 
     public AlaAppPromotionView(Context context) {
         this(context, null);
@@ -29,17 +29,17 @@ public class AlaAppPromotionView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_app_promotion_view, (ViewGroup) this, true);
-        this.hex = (TbImageView) findViewById(a.f.iv_app_icon);
-        this.hey = (TextView) findViewById(a.f.tv_app_des);
-        this.hex.setDefaultBgResource(a.c.sdk_transparent);
+        this.hqk = (TbImageView) findViewById(a.f.iv_app_icon);
+        this.hql = (TextView) findViewById(a.f.tv_app_des);
+        this.hqk.setDefaultBgResource(a.c.sdk_transparent);
     }
 
     public void setImage(String str) {
-        this.hex.startLoad(str, 10, false);
+        this.hqk.startLoad(str, 10, false);
     }
 
     public void setStatus(String str) {
-        this.hey.setText(str);
+        this.hql.setText(str);
     }
 
     public void setProgress(long j, long j2) {
@@ -47,6 +47,6 @@ public class AlaAppPromotionView extends RelativeLayout {
         if (i < 0) {
             i = 0;
         }
-        this.hey.setText(getResources().getString(a.h.ala_app_promotion_downloading, Integer.valueOf(i <= 100 ? i : 100)));
+        this.hql.setText(getResources().getString(a.h.ala_app_promotion_downloading, Integer.valueOf(i <= 100 ? i : 100)));
     }
 }

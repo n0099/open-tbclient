@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class FaceAR extends com.baidu.ar.c implements IFace {
     private static final String TAG = FaceAR.class.getSimpleName();
     private LuaMsgListener cc;
@@ -36,7 +36,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     private FaceDetector np;
     private FaceListener nq;
     private int[] nv;
-    private a.C0086a nz;
+    private a.C0078a nz;
     private List<String> nr = new ArrayList();
     private String ns = null;
     private String nt = null;
@@ -161,11 +161,11 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
 
     private void dn() {
         int i;
+        int i2;
         if (this.T) {
             this.nx.dr();
             return;
         }
-        int i2 = 180;
         int i3 = this.mInputWidth;
         int i4 = this.mInputHeight;
         if (this.S == 90 || this.S == 270) {
@@ -174,18 +174,20 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
         }
         if (Float.compare((i3 * 1.0f) / i4, (180 * 1.0f) / 320) == 0) {
             i = 320;
+            i2 = 180;
         } else if (i3 > i4) {
             i2 = Math.round((180 / i4) * i3);
             i = 180;
         } else {
             i = Math.round(i4 * (180 / i3));
+            i2 = 180;
         }
         this.nx.setAlgoImageWidth(i2);
         this.nx.setAlgoImageHeight(i);
     }
 
     /* renamed from: do  reason: not valid java name */
-    private j m17do() {
+    private j m16do() {
         dn();
         j jVar = new j();
         jVar.I(this.nx.getAlgoImageWidth());
@@ -199,7 +201,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             String str2 = this.ny.pY;
             String str3 = this.ny.pZ;
             com.baidu.ar.h.b.c(TAG, "classification result：" + this.ny.qg);
-            a.C0086a a2 = this.nx.a(this.ny);
+            a.C0078a a2 = this.nx.a(this.ny);
             if (a2 != null) {
                 this.nz = a2;
                 this.nw = c.a(a2.pO, str, str2, str3);
@@ -481,11 +483,11 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                 }
             };
             this.np.p(getContext());
-            j m17do = m17do();
+            j m16do = m16do();
             this.nx.z(this.nw);
             configSyncStatus(dm());
             this.np.E(u());
-            this.np.b(m17do);
+            this.np.b(m16do);
             a(this.np, this.mv);
             this.nA = new com.baidu.ar.face.attributes.a(r());
             this.nA.b(getContext(), this.ny.qc);

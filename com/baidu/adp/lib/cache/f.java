@@ -10,7 +10,7 @@ public class f {
         return z ? new b(i) : new a(i);
     }
 
-    public static e lX() {
+    public static e lv() {
         return new c();
     }
 
@@ -52,7 +52,6 @@ public class f {
         @Override // com.baidu.adp.lib.cache.e.a
         public String d(g<?> gVar) {
             String str;
-            int i;
             String str2 = null;
             if (gVar.timeToExpire < System.currentTimeMillis()) {
                 return gVar.uniqueKey;
@@ -60,24 +59,22 @@ public class f {
             this.tempItems.add(gVar);
             if (this.tempItems.size() > getMaxSize()) {
                 long j = 0;
-                int i2 = 0;
-                int i3 = -1;
-                while (i2 < this.tempItems.size()) {
-                    g<?> gVar2 = this.tempItems.get(i2);
-                    if (i3 == -1 || gVar2.lastHitTime < j) {
+                int i = 0;
+                int i2 = -1;
+                while (i < this.tempItems.size()) {
+                    g<?> gVar2 = this.tempItems.get(i);
+                    if (i2 == -1 || gVar2.lastHitTime < j) {
                         String str3 = gVar2.uniqueKey;
                         j = gVar2.lastHitTime;
                         str = str3;
-                        i = i2;
+                        i2 = i;
                     } else {
                         str = str2;
-                        i = i3;
                     }
-                    i2++;
-                    i3 = i;
+                    i++;
                     str2 = str;
                 }
-                this.tempItems.remove(i3);
+                this.tempItems.remove(i2);
                 return str2;
             }
             return null;
@@ -116,22 +113,19 @@ public class f {
 
         public String keyToEvictedOnNewItemJoined(String str) {
             String key;
-            long j;
             String str2 = null;
             if (!this.items.containsKey(str) && this.items.size() >= this.maxSize) {
                 synchronized (this) {
-                    long j2 = -1;
+                    long j = -1;
                     for (Map.Entry<String, Long> entry : this.items.entrySet()) {
                         long longValue = entry.getValue().longValue();
-                        if (j2 == -1 || j2 > longValue) {
+                        if (j == -1 || j > longValue) {
                             key = entry.getKey();
                             j = longValue;
                         } else {
-                            j = j2;
                             key = str2;
                         }
                         str2 = key;
-                        j2 = j;
                     }
                     if (str2 != null) {
                         this.items.remove(str2);

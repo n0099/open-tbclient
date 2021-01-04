@@ -2,12 +2,12 @@ package com.baidu.tieba.yuyinala.liveroom.datingnavigation;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class DatingStageHttpResponseMessage extends JsonHttpResponsedMessage {
-    private b omt;
+    private b opp;
 
-    public b edv() {
-        return this.omt;
+    public b ecE() {
+        return this.opp;
     }
 
     public DatingStageHttpResponseMessage() {
@@ -18,13 +18,13 @@ public class DatingStageHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031081) {
-            if (this.omt == null) {
-                this.omt = new b();
+            if (this.opp == null) {
+                this.opp = new b();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.omt.oms = optJSONObject.optString("activity_stage");
-                this.omt.omr = optJSONObject.optString("num_fields");
+                this.opp.opo = optJSONObject.optString("activity_stage");
+                this.opp.opn = optJSONObject.optString("num_fields");
             }
         }
     }

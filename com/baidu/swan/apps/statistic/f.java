@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.statistic;
 
 import android.util.Log;
-import com.baidu.swan.apps.ap.p;
-/* loaded from: classes25.dex */
+import com.baidu.swan.apps.ao.p;
+/* loaded from: classes9.dex */
 public final class f {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -14,7 +14,7 @@ public final class f {
             }
             return;
         }
-        p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.statistic.f.1
+        p.a(new Runnable() { // from class: com.baidu.swan.apps.statistic.f.1
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.swan.ubc.e.onEvent("671", com.baidu.swan.apps.statistic.a.d.this.toJSONObject());
@@ -30,9 +30,9 @@ public final class f {
             }
             return;
         }
-        com.baidu.swan.apps.statistic.a.d i2 = new com.baidu.swan.apps.statistic.a.d().tK(h.kS(i)).i(new com.baidu.swan.apps.am.a().cU(11L).cV(2331L).uC("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
+        com.baidu.swan.apps.statistic.a.d i2 = new com.baidu.swan.apps.statistic.a.d().tH(h.kX(i)).i(new com.baidu.swan.apps.al.a().cV(11L).cW(2331L).uz("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
         if (dVar instanceof com.baidu.swan.apps.core.pms.g) {
-            i2.a(((com.baidu.swan.apps.core.pms.g) dVar).ata());
+            i2.a(((com.baidu.swan.apps.core.pms.g) dVar).aur());
         }
         a(i2);
         if (DEBUG) {

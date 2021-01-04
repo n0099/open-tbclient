@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
 @Deprecated
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public class Base64InputStream extends FilterInputStream {
     private static final int BUFFER_SIZE = 2048;
     private static byte[] EMPTY = new byte[0];

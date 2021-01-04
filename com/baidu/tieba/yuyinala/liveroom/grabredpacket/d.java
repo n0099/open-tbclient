@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,12 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.CustomMessageListener;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.data.g;
 import com.baidu.live.message.FollowRoom;
 import com.baidu.live.message.YuyinFollowRoomMessage;
 import com.baidu.live.sdk.a;
@@ -31,37 +34,47 @@ import com.baidu.tieba.yuyinala.liveroom.grabredpacket.b;
 import com.baidu.tieba.yuyinala.liveroom.roomcard.AlaGetCollectRoomHttpResponseMessage;
 import com.baidu.tieba.yuyinala.liveroom.roomcard.h;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d extends Dialog {
-    private TextView acm;
+    private TextView acY;
     private Context context;
-    private int fkc;
-    private boolean gJW;
-    private ImageView lsX;
+    private int ftN;
+    private boolean gVJ;
+    private ImageView lyf;
     private String mLiveId;
     private String mRoomId;
     private ViewGroup mRootView;
     private TextView mTvTitle;
-    private h ojY;
-    private TextView olM;
-    private ViewGroup omC;
-    private TextView omD;
-    private TbImageView omE;
-    private CheckBox omF;
-    private RelativeLayout omG;
-    private RedPacketView omH;
-    private String omI;
-    private String omJ;
-    private String omK;
-    private String omL;
-    private String omM;
-    private String omN;
-    private boolean omO;
-    private b omP;
-    private Handler omQ;
+    private h olM;
+    private TextView ooG;
+    public CustomMessageListener ooJ;
+    private ViewGroup opE;
+    private TextView opF;
+    private TbImageView opG;
+    private CheckBox opH;
+    private RelativeLayout opI;
+    private RedPacketView opJ;
+    private String opK;
+    private String opL;
+    private String opM;
+    private String opN;
+    private String opO;
+    private String opP;
+    private boolean opQ;
+    private b opR;
+    private Handler opS;
 
     public d(@NonNull Context context) {
         super(context);
+        this.ooJ = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.9
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501014 && (customResponsedMessage.getData() instanceof g) && ((g) customResponsedMessage.getData()).Ex() != 1) {
+                    d.this.If();
+                }
+            }
+        };
         this.context = context;
         init();
     }
@@ -71,28 +84,28 @@ public class d extends Dialog {
         setContentView(a.g.dialog_redpacket_yuyin);
         setCanceledOnTouchOutside(false);
         this.mRootView = (ViewGroup) findViewById(a.f.red_packget_root);
-        this.omD = (TextView) findViewById(a.f.tv_time);
-        this.omC = (ViewGroup) findViewById(a.f.background_view);
-        this.lsX = (ImageView) findViewById(a.f.iv_close);
-        this.olM = (TextView) findViewById(a.f.tv_confirm);
-        this.omE = (TbImageView) findViewById(a.f.tiv_result);
+        this.opF = (TextView) findViewById(a.f.tv_time);
+        this.opE = (ViewGroup) findViewById(a.f.background_view);
+        this.lyf = (ImageView) findViewById(a.f.iv_close);
+        this.ooG = (TextView) findViewById(a.f.tv_confirm);
+        this.opG = (TbImageView) findViewById(a.f.tiv_result);
         this.mTvTitle = (TextView) findViewById(a.f.tv_title);
-        this.acm = (TextView) findViewById(a.f.tv_tip);
-        this.omF = (CheckBox) findViewById(a.f.cb_collect);
-        this.omG = (RelativeLayout) findViewById(a.f.rl_redpacket_lootgift_root);
-        this.omH = (RedPacketView) findViewById(a.f.red_packets_view1);
-        Ki();
+        this.acY = (TextView) findViewById(a.f.tv_tip);
+        this.opH = (CheckBox) findViewById(a.f.cb_collect);
+        this.opI = (RelativeLayout) findViewById(a.f.rl_redpacket_lootgift_root);
+        this.opJ = (RedPacketView) findViewById(a.f.red_packets_view1);
+        JK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edx() {
-        if (this.omF.isChecked()) {
-            this.ojY.w(this.mRoomId, this.mLiveId, 1);
-            this.omF.setVisibility(8);
+    public void ecI() {
+        if (this.opH.isChecked()) {
+            this.olM.y(this.mRoomId, this.mLiveId, 1);
+            this.opH.setVisibility(8);
         }
     }
 
-    private void Ki() {
+    private void JK() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
         Window window = getWindow();
@@ -114,20 +127,20 @@ public class d extends Dialog {
     }
 
     public void a(boolean z, int i, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z2) {
-        this.fkc = i;
-        this.omI = str;
-        this.omJ = str2;
+        this.ftN = i;
+        this.opK = str;
+        this.opL = str2;
         this.mRoomId = str3;
         this.mLiveId = str4;
-        this.omM = str5;
-        this.omK = str6;
-        this.omL = str7;
-        this.omN = str8;
-        this.omO = z;
-        this.gJW = z2;
-        this.omP = new b();
-        this.ojY = new h(this.context);
-        this.ojY.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.1
+        this.opO = str5;
+        this.opM = str6;
+        this.opN = str7;
+        this.opP = str8;
+        this.opQ = z;
+        this.gVJ = z2;
+        this.opR = new b();
+        this.olM = new h(this.context);
+        this.olM.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.1
             @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
             public void a(AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage) {
                 MessageManager.getInstance().dispatchResponsedMessage(new YuyinFollowRoomMessage(new FollowRoom(true, d.this.mLiveId)));
@@ -137,36 +150,36 @@ public class d extends Dialog {
             public void onFail(int i2, String str9) {
             }
         });
-        this.omQ = new Handler();
-        this.omC.removeAllViews();
+        this.opS = new Handler();
+        this.opE.removeAllViews();
         if (!isShowing()) {
             show();
             if (z) {
-                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.efB().a(this.omC, this.omI, this.omJ);
+                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.efJ().a(this.opE, this.opK, this.opL);
             } else {
-                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.efB().b(this.omC, this.omI, this.omJ);
+                com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.efJ().b(this.opE, this.opK, this.opL);
             }
-            if (this.gJW) {
-                this.omF.setVisibility(8);
+            if (this.gVJ) {
+                this.opH.setVisibility(8);
             } else {
-                this.omF.setVisibility(0);
+                this.opH.setVisibility(0);
             }
-            this.omQ.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.2
+            this.opS.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.edy();
+                    d.this.ecJ();
                 }
-            }, (((int) (this.fkc - (System.currentTimeMillis() / 1000))) - 15) * 1000);
-            this.lsX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.3
+            }, (((int) (this.ftN - (System.currentTimeMillis() / 1000))) - 15) * 1000);
+            this.lyf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.this.isShowing()) {
-                        d.this.ID();
+                        d.this.If();
                     }
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.omM);
+                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.opO);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("room_id", d.this.mRoomId);
@@ -176,42 +189,42 @@ public class d extends Dialog {
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "giftrain_esc").setContentExt(jSONObject));
                 }
             });
-            this.olM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.4
+            this.ooG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.omG.setVisibility(8);
+                    d.this.opI.setVisibility(8);
                 }
             });
-            this.omG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.5
+            this.opI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.omG.setVisibility(8);
+                    d.this.opI.setVisibility(8);
                 }
             });
         }
     }
 
-    public void ID() {
+    public void If() {
         dismiss();
-        this.omC.removeAllViews();
-        edz();
-        this.omQ.removeCallbacksAndMessages(null);
-        this.omG.setVisibility(8);
+        this.opE.removeAllViews();
+        ecL();
+        this.opS.removeCallbacksAndMessages(null);
+        this.opI.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edy() {
-        cXx();
-        this.omH.edB();
-        this.omH.setOnRedPacketClickListener(new RedPacketView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.6
+    public void ecJ() {
+        ecK();
+        this.opJ.ecN();
+        this.opJ.setOnRedPacketClickListener(new RedPacketView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.6
             @Override // com.baidu.tieba.yuyinala.liveroom.grabredpacket.RedPacketView.a
             public void a(c cVar) {
-                d.this.edx();
-                d.this.omP.i(d.this.mLiveId, d.this.mRoomId, d.this.omM, d.this.omK, d.this.omL, d.this.omN);
+                d.this.ecI();
+                d.this.opR.j(d.this.mLiveId, d.this.mRoomId, d.this.opO, d.this.opM, d.this.opN, d.this.opP);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.omM);
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.opO);
                     jSONObject.put("live_id", d.this.mLiveId);
                     jSONObject.put("live_id", d.this.mLiveId);
                     jSONObject.put("room_id", d.this.mRoomId);
@@ -221,18 +234,18 @@ public class d extends Dialog {
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "giftrain_clk").setContentExt(jSONObject));
             }
         });
-        this.omP.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.7
+        this.opR.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.7
             @Override // com.baidu.tieba.yuyinala.liveroom.grabredpacket.b.a
             public void a(LootGiftHttpResponseMessage lootGiftHttpResponseMessage) {
                 if (!TextUtils.isEmpty(lootGiftHttpResponseMessage.image)) {
-                    d.this.omG.setVisibility(0);
-                    d.this.omE.startLoad(lootGiftHttpResponseMessage.image, 10, false);
+                    d.this.opI.setVisibility(0);
+                    d.this.opG.startLoad(lootGiftHttpResponseMessage.image, 10, false);
                     d.this.mTvTitle.setText(lootGiftHttpResponseMessage.text);
-                    d.this.acm.setText(lootGiftHttpResponseMessage.tip);
+                    d.this.acY.setText(lootGiftHttpResponseMessage.tip);
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.omM);
+                        jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, d.this.opO);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("live_id", d.this.mLiveId);
                         jSONObject.put("room_id", d.this.mRoomId);
@@ -252,7 +265,7 @@ public class d extends Dialog {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.omM);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.opO);
             jSONObject.put("live_id", this.mLiveId);
             jSONObject.put("live_id", this.mLiveId);
             jSONObject.put("room_id", this.mRoomId);
@@ -263,28 +276,40 @@ public class d extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cXx() {
-        this.omQ.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.8
+    public void ecK() {
+        this.opS.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.d.8
             @Override // java.lang.Runnable
             public void run() {
-                int currentTimeMillis = (int) (d.this.fkc - (System.currentTimeMillis() / 1000));
+                int currentTimeMillis = (int) (d.this.ftN - (System.currentTimeMillis() / 1000));
                 if (currentTimeMillis <= 0) {
                     if (d.this.isShowing()) {
-                        d.this.ID();
+                        d.this.If();
                     }
-                    d.this.omD.setVisibility(8);
+                    d.this.opF.setVisibility(8);
                 } else if (currentTimeMillis > 15) {
-                    d.this.omD.setVisibility(8);
+                    d.this.opF.setVisibility(8);
                 } else {
-                    d.this.omD.setVisibility(0);
-                    d.this.omD.setText(currentTimeMillis + " S");
+                    d.this.opF.setVisibility(0);
+                    d.this.opF.setText(currentTimeMillis + " S");
                 }
-                d.this.cXx();
+                d.this.ecK();
             }
         }, 1000L);
     }
 
-    private void edz() {
-        this.omH.edA();
+    private void ecL() {
+        this.opJ.ecM();
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        super.show();
+        MessageManager.getInstance().registerListener(this.ooJ);
+    }
+
+    @Override // android.app.Dialog, android.content.DialogInterface
+    public void dismiss() {
+        super.dismiss();
+        MessageManager.getInstance().unRegisterListener(this.ooJ);
     }
 }

@@ -6,28 +6,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends c<a> {
-    private static volatile b oXr;
-    private ArrayList<ChatSession> oXq = new ArrayList<>();
-    private HashMap<BIMManager.CATEGORY, List<ChatSession>> oXs = new HashMap<>();
+    private static volatile b pdA;
+    private ArrayList<ChatSession> pdz = new ArrayList<>();
+    private HashMap<BIMManager.CATEGORY, List<ChatSession>> pdB = new HashMap<>();
 
     private b() {
     }
 
-    public static b eol() {
-        if (oXr == null) {
+    public static b eot() {
+        if (pdA == null) {
             synchronized (b.class) {
-                if (oXr == null) {
-                    oXr = new b();
+                if (pdA == null) {
+                    pdA = new b();
                 }
             }
         }
-        return oXr;
+        return pdA;
     }
 
-    public void ie(long j) {
-        List<ChatSession> list = this.oXs.get(BIMManager.CATEGORY.SINGLEPERSON);
+    public void hY(long j) {
+        List<ChatSession> list = this.pdB.get(BIMManager.CATEGORY.SINGLEPERSON);
         if (list != null && list.size() > 0) {
             Iterator<ChatSession> it = list.iterator();
             while (it.hasNext()) {

@@ -1,6 +1,6 @@
 package com.baidu.sumeru.universalimageloader.core.assist.deque;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements BlockingDeque<E>, Serializable {
     private static final long serialVersionUID = -387911632671998426L;
     private final int capacity;
@@ -25,7 +25,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     private final Condition notFull;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     public static final class Node<E> {
         E item;
         Node<E> next;
@@ -728,7 +728,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         return new DescendingItr();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     private abstract class AbstractItr implements Iterator<E> {
         private Node<E> lastRet;
         Node<E> next;
@@ -812,7 +812,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     private class Itr extends AbstractItr {
         private Itr() {
             super();
@@ -829,7 +829,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     private class DescendingItr extends AbstractItr {
         private DescendingItr() {
             super();

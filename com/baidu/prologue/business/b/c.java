@@ -2,11 +2,11 @@ package com.baidu.prologue.business.b;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.prologue.business.c.d;
 import com.baidu.prologue.business.data.e;
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c extends a<d> {
     public c(@NonNull Context context, @NonNull e eVar) {
         super(context, eVar);
@@ -16,12 +16,12 @@ public class c extends a<d> {
     @Override // com.baidu.prologue.business.b.a
     public void a(d dVar) {
         super.a((c) dVar);
-        dVar.km(this.cna.md5).b(new com.baidu.prologue.business.a.a((Activity) this.mContext)).ec(true).ed(true).kn("-1");
-        File bg = com.baidu.prologue.business.data.d.bg(this.cna.url, this.cna.md5);
-        if (bg.exists()) {
-            dVar.t(bg);
+        dVar.kg(this.cug.md5).b(new com.baidu.prologue.business.a.a((Activity) this.mContext)).el(true).em(true).kh("-1");
+        File bf = com.baidu.prologue.business.data.d.bf(this.cug.url, this.cug.md5);
+        if (bf.exists()) {
+            dVar.x(bf);
         } else {
-            dVar.kl(this.cna.url);
+            dVar.kf(this.cug.url);
         }
     }
 }

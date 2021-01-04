@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.j;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes13.dex */
+/* loaded from: classes8.dex */
 public class CdnCacheItem implements Serializable {
     private static final int TB_CDNCACHEITEM_ERROR = -1;
     private static final int TB_CDN_IP_DISABLE_TIME = 3600000;
@@ -70,28 +70,24 @@ public class CdnCacheItem implements Serializable {
     }
 
     public int setIPRank(int i, float f, String str) {
-        int i2;
         TBIPListItem tBIPListItem;
         if (str == null) {
             return -1;
         }
         synchronized (mLock) {
             int size = this.ipList.size();
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
-                if (i3 >= size) {
+                if (i2 >= size) {
                     i2 = 0;
                     tBIPListItem = null;
                     break;
                 }
-                TBIPListItem tBIPListItem2 = this.ipList.get(i3);
-                if (str.equalsIgnoreCase(tBIPListItem2.cdnIp)) {
-                    int i4 = i3;
-                    tBIPListItem = tBIPListItem2;
-                    i2 = i4;
+                tBIPListItem = this.ipList.get(i2);
+                if (str.equalsIgnoreCase(tBIPListItem.cdnIp)) {
                     break;
                 }
-                i3++;
+                i2++;
             }
             if (tBIPListItem == null) {
                 return -1;
@@ -138,7 +134,7 @@ public class CdnCacheItem implements Serializable {
         return this.isUsedIp;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes8.dex */
     private class TBIPListItem implements Serializable {
         private static final long serialVersionUID = -99289965442562023L;
         public String cdnIp;
@@ -236,44 +232,40 @@ public class CdnCacheItem implements Serializable {
     }
 
     public int setMoblieIPRank(int i, float f, String str) {
-        int i2;
         TBIPListItem tBIPListItem;
-        int i3;
+        int i2;
         synchronized (mLock) {
             if (str == null) {
                 this.mobileCdnDomainRank += i;
                 if (this.mobileCdnDomainRank < 0) {
                     this.mobileCdnDomainRank = 0;
                 }
-                i3 = this.mobileCdnDomainRank;
+                i2 = this.mobileCdnDomainRank;
                 if (this.mobileCdnDomainRank > f) {
                     this.mobileCdnDomainRank = 0;
                     this.mobileIsUsedIp = true;
                 }
             } else {
                 int size = this.mobileIpList.size();
-                int i4 = 0;
+                int i3 = 0;
                 while (true) {
-                    if (i4 >= size) {
-                        i2 = 0;
+                    if (i3 >= size) {
+                        i3 = 0;
                         tBIPListItem = null;
                         break;
                     }
-                    TBIPListItem tBIPListItem2 = this.mobileIpList.get(i4);
-                    if (str.equalsIgnoreCase(tBIPListItem2.cdnIp)) {
-                        int i5 = i4;
-                        tBIPListItem = tBIPListItem2;
-                        i2 = i5;
+                    tBIPListItem = this.mobileIpList.get(i3);
+                    if (str.equalsIgnoreCase(tBIPListItem.cdnIp)) {
                         break;
                     }
-                    i4++;
+                    i3++;
                 }
                 if (tBIPListItem == null) {
-                    i3 = -1;
+                    i2 = -1;
                 } else {
                     tBIPListItem.ipRank += i;
                     if (tBIPListItem.ipRank >= f) {
-                        this.mobileIpList.remove(i2);
+                        this.mobileIpList.remove(i3);
                         this.mobileIsUsedIp = true;
                     }
                     if (tBIPListItem.ipRank < 0) {
@@ -282,10 +274,10 @@ public class CdnCacheItem implements Serializable {
                     if (this.mobileIpList.size() == 0) {
                         this.mobileIsUsedIp = false;
                     }
-                    i3 = tBIPListItem.ipRank;
+                    i2 = tBIPListItem.ipRank;
                 }
             }
         }
-        return i3;
+        return i2;
     }
 }

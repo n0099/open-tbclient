@@ -1,8 +1,8 @@
 package com.baidu.searchbox.logsystem.basic.javacrash;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.common.others.java.Supplier;
 import com.baidu.searchbox.logsystem.basic.LogSystemServiceUtil;
 import com.baidu.searchbox.logsystem.basic.eventhandler.DefaultProcessEventSceneHandler;
@@ -16,7 +16,7 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingProcess
 import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class BaseUncaughtExceptionHandler extends BUncaughtExceptionHandler {
     private final Supplier<List<ProcessEventSceneHandler>> mSupplier;
 

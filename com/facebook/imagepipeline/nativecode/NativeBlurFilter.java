@@ -1,18 +1,19 @@
 package com.facebook.imagepipeline.nativecode;
 
 import android.graphics.Bitmap;
+import com.facebook.common.internal.d;
 import com.facebook.common.internal.g;
-@com.facebook.common.internal.d
-/* loaded from: classes15.dex */
+@d
+/* loaded from: classes5.dex */
 public class NativeBlurFilter {
-    @com.facebook.common.internal.d
+    @d
     private static native void nativeIterativeBoxBlur(Bitmap bitmap, int i, int i2);
 
     static {
         a.load();
     }
 
-    public static void h(Bitmap bitmap, int i, int i2) {
+    public static void i(Bitmap bitmap, int i, int i2) {
         g.checkNotNull(bitmap);
         g.checkArgument(i > 0);
         g.checkArgument(i2 > 0);

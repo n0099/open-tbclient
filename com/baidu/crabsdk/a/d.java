@@ -1,12 +1,12 @@
 package com.baidu.crabsdk.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class d implements i {
-    final /* synthetic */ c aoK;
+    final /* synthetic */ c apl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.aoK = cVar;
+        this.apl = cVar;
     }
 
     @Override // com.baidu.crabsdk.a.i

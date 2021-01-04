@@ -6,16 +6,16 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class w {
-    public List<x> fjM;
+    public List<x> ftw;
 
     public void W(JSONArray jSONArray) {
-        this.fjM = new ArrayList();
+        this.ftw = new ArrayList();
         try {
             if (jSONArray == null) {
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("key_index_tab_info_list", "[]");
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_index_tab_info_list", "[]");
                 return;
             }
-            JSONArray jSONArray2 = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bsO().getString("key_index_tab_info_list", "[]"));
+            JSONArray jSONArray2 = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bvq().getString("key_index_tab_info_list", "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 x xVar = new x();
                 x xVar2 = new x();
@@ -23,14 +23,14 @@ public class w {
                 for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
                     xVar2.parserJson(jSONArray2.getJSONObject(i2));
                     if (xVar.tabCode != null && xVar.tabCode.equals(xVar2.tabCode)) {
-                        xVar.isShowRedDot = TextUtils.isEmpty(xVar2.fjN) || !xVar2.fjN.equals(xVar.fjN);
+                        xVar.isShowRedDot = TextUtils.isEmpty(xVar2.ftx) || !xVar2.ftx.equals(xVar.ftx);
                     }
                 }
                 if (!xVar.isDirtyData()) {
-                    this.fjM.add(xVar);
+                    this.ftw.add(xVar);
                 }
             }
-            com.baidu.tbadk.core.sharedPref.b.bsO().putString("key_index_tab_info_list", jSONArray.toString());
+            com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_index_tab_info_list", jSONArray.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

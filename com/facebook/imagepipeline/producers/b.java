@@ -3,46 +3,46 @@ package com.facebook.imagepipeline.producers;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public abstract class b<T> implements k<T> {
-    private boolean poA = false;
+    private boolean pEa = false;
 
-    protected abstract void D(Throwable th);
+    protected abstract void C(Throwable th);
 
-    protected abstract void evk();
+    protected abstract void eyT();
 
-    protected abstract void g(T t, int i);
+    protected abstract void f(T t, int i);
 
-    public static boolean Rh(int i) {
+    public static boolean Rf(int i) {
         return (i & 1) == 1;
     }
 
-    public static boolean Ri(int i) {
-        return !Rh(i);
+    public static boolean Rg(int i) {
+        return !Rf(i);
     }
 
-    public static int ee(int i, int i2) {
+    public static int ec(int i, int i2) {
         return (i2 ^ (-1)) & i;
     }
 
-    public static boolean ef(int i, int i2) {
+    public static boolean ed(int i, int i2) {
         return (i & i2) == i2;
     }
 
-    public static boolean eg(int i, int i2) {
+    public static boolean ee(int i, int i2) {
         return (i & i2) != 0;
     }
 
-    public static int AW(boolean z) {
+    public static int Be(boolean z) {
         return z ? 1 : 0;
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void h(@Nullable T t, int i) {
-        if (!this.poA) {
-            this.poA = Rh(i);
+    public synchronized void g(@Nullable T t, int i) {
+        if (!this.pEa) {
+            this.pEa = Rf(i);
             try {
-                g(t, i);
+                f(t, i);
             } catch (Exception e) {
                 C(e);
             }
@@ -50,11 +50,11 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void E(Throwable th) {
-        if (!this.poA) {
-            this.poA = true;
+    public synchronized void D(Throwable th) {
+        if (!this.pEa) {
+            this.pEa = true;
             try {
-                D(th);
+                C(th);
             } catch (Exception e) {
                 C(e);
             }
@@ -62,11 +62,11 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void epN() {
-        if (!this.poA) {
-            this.poA = true;
+    public synchronized void etQ() {
+        if (!this.pEa) {
+            this.pEa = true;
             try {
-                evk();
+                eyT();
             } catch (Exception e) {
                 C(e);
             }
@@ -74,20 +74,20 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void aV(float f) {
-        if (!this.poA) {
+    public synchronized void aX(float f) {
+        if (!this.pEa) {
             try {
-                by(f);
+                bK(f);
             } catch (Exception e) {
                 C(e);
             }
         }
     }
 
-    protected void by(float f) {
+    protected void bK(float f) {
     }
 
     protected void C(Exception exc) {
-        com.facebook.common.c.a.c(getClass(), "unhandled exception", exc);
+        com.facebook.common.c.a.c(getClass(), "unhandled exception", (Throwable) exc);
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.ala.gamefrslivelist;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
     private List<Fragment> list;
 
@@ -12,11 +12,11 @@ public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
         super(fragmentManager);
     }
 
-    public void co(List<Fragment> list) {
+    public void cv(List<Fragment> list) {
         this.list = list;
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
+    @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         if (this.list.size() > i) {
             return this.list.get(i);
@@ -24,7 +24,7 @@ public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
         return null;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         if (this.list != null) {
             return this.list.size();

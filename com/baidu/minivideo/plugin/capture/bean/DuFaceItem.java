@@ -8,7 +8,7 @@ import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class DuFaceItem extends FaceItem {
     private static final boolean ADJUST_ZIP = false;
     public int arType = 10;
@@ -27,24 +27,23 @@ public class DuFaceItem extends FaceItem {
     @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem
     public boolean onResLoaded(String str) {
         boolean z;
-        Exception e;
         try {
             FileUtils.unzipFile(new File(str), getFilePath());
-            z = a.jO(getFilePath());
+            z = a.jG(getFilePath());
             if (!z) {
             }
             if (!z) {
                 LogUtils.d("DuFaceData", getFilePath() + " not verify");
                 FileUtils.deleteDir(new File(getFilePath()));
             }
-        } catch (Exception e2) {
+        } catch (Exception e) {
+            e = e;
             z = false;
-            e = e2;
         }
         try {
             deleteFile(str);
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             e.printStackTrace();
             deleteFile(getFilePath());
             checkResFile();

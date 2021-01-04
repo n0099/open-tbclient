@@ -18,12 +18,14 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class f implements ad {
-    private static final j b = new j();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final j f4335b = new j();
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<SurfaceView> f2916a;
+    private WeakReference<SurfaceView> f4336a;
     private final WeakReference<f> c = new WeakReference<>(this);
     private i d;
     private ak e;
@@ -36,14 +38,14 @@ public class f implements ad {
     private int l;
     private boolean m;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     private abstract class a implements e {
 
         /* renamed from: a  reason: collision with root package name */
-        protected int[] f2917a;
+        protected int[] f4337a;
 
         public a(int[] iArr) {
-            this.f2917a = a(iArr);
+            this.f4337a = a(iArr);
         }
 
         private int[] a(int[] iArr) {
@@ -66,13 +68,13 @@ public class f implements ad {
         @Override // com.baidu.platform.comapi.map.f.e
         public EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay) {
             int[] iArr = new int[1];
-            if (egl10.eglChooseConfig(eGLDisplay, this.f2917a, null, 0, iArr)) {
+            if (egl10.eglChooseConfig(eGLDisplay, this.f4337a, null, 0, iArr)) {
                 int i = iArr[0];
                 if (i <= 0) {
                     throw new IllegalArgumentException("No configs match configSpec");
                 }
                 EGLConfig[] eGLConfigArr = new EGLConfig[i];
-                if (egl10.eglChooseConfig(eGLDisplay, this.f2917a, eGLConfigArr, i, iArr)) {
+                if (egl10.eglChooseConfig(eGLDisplay, this.f4337a, eGLConfigArr, i, iArr)) {
                     EGLConfig a2 = a(egl10, eGLDisplay, eGLConfigArr);
                     if (a2 == null) {
                         throw new IllegalArgumentException("No config chosen");
@@ -87,7 +89,7 @@ public class f implements ad {
         abstract EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr);
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     private class b extends a {
         protected int c;
         protected int d;
@@ -131,17 +133,19 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     private class c implements InterfaceC0292f {
-        private int b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private int f4340b;
 
         private c() {
-            this.b = 12440;
+            this.f4340b = 12440;
         }
 
         @Override // com.baidu.platform.comapi.map.f.InterfaceC0292f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
-            int[] iArr = {this.b, f.this.l, 12344};
+            int[] iArr = {this.f4340b, f.this.l, 12344};
             EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
             if (f.this.l == 0) {
                 iArr = null;
@@ -159,7 +163,7 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     private static class d implements g {
         private d() {
         }
@@ -180,20 +184,20 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface e {
         EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay);
     }
 
     /* renamed from: com.baidu.platform.comapi.map.f$f  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface InterfaceC0292f {
         EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface g {
         EGLSurface a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj);
 
@@ -201,12 +205,14 @@ public class f implements ad {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class h {
 
         /* renamed from: a  reason: collision with root package name */
-        EGL10 f2919a;
-        EGLDisplay b;
+        EGL10 f4341a;
+
+        /* renamed from: b  reason: collision with root package name */
+        EGLDisplay f4342b;
         EGLSurface c;
         EGLConfig d;
         EGLContext e;
@@ -254,7 +260,7 @@ public class f implements ad {
         }
 
         private void a(String str) {
-            a(str, this.f2919a.eglGetError());
+            a(str, this.f4341a.eglGetError());
         }
 
         public static void a(String str, int i) {
@@ -277,21 +283,21 @@ public class f implements ad {
             if (this.c == null || this.c == EGL10.EGL_NO_SURFACE) {
                 return;
             }
-            this.f2919a.eglMakeCurrent(this.b, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
+            this.f4341a.eglMakeCurrent(this.f4342b, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
             f fVar = this.f.get();
             if (fVar != null) {
-                fVar.i.a(this.f2919a, this.b, this.c);
+                fVar.i.a(this.f4341a, this.f4342b, this.c);
             }
             this.c = null;
         }
 
         public void a() {
-            this.f2919a = (EGL10) EGLContext.getEGL();
-            this.b = this.f2919a.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-            if (this.b == EGL10.EGL_NO_DISPLAY) {
+            this.f4341a = (EGL10) EGLContext.getEGL();
+            this.f4342b = this.f4341a.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+            if (this.f4342b == EGL10.EGL_NO_DISPLAY) {
                 throw new RuntimeException("eglGetDisplay failed");
             }
-            if (!this.f2919a.eglInitialize(this.b, new int[2])) {
+            if (!this.f4341a.eglInitialize(this.f4342b, new int[2])) {
                 throw new RuntimeException("eglInitialize failed");
             }
             f fVar = this.f.get();
@@ -299,8 +305,8 @@ public class f implements ad {
                 this.d = null;
                 this.e = null;
             } else {
-                this.d = fVar.g.a(this.f2919a, this.b);
-                this.e = fVar.h.a(this.f2919a, this.b, this.d);
+                this.d = fVar.g.a(this.f4341a, this.f4342b);
+                this.e = fVar.h.a(this.f4341a, this.f4342b, this.d);
             }
             if (this.e == null || this.e == EGL10.EGL_NO_CONTEXT) {
                 this.e = null;
@@ -310,10 +316,10 @@ public class f implements ad {
         }
 
         public boolean b() {
-            if (this.f2919a == null) {
+            if (this.f4341a == null) {
                 throw new RuntimeException("egl not initialized");
             }
-            if (this.b == null) {
+            if (this.f4342b == null) {
                 throw new RuntimeException("eglDisplay not initialized");
             }
             if (this.d == null) {
@@ -322,19 +328,19 @@ public class f implements ad {
             g();
             f fVar = this.f.get();
             if (fVar != null) {
-                this.c = fVar.i.a(this.f2919a, this.b, this.d, fVar.a());
+                this.c = fVar.i.a(this.f4341a, this.f4342b, this.d, fVar.a());
             } else {
                 this.c = null;
             }
             if (this.c == null || this.c == EGL10.EGL_NO_SURFACE) {
-                if (this.f2919a.eglGetError() == 12299) {
+                if (this.f4341a.eglGetError() == 12299) {
                     Log.e("EglHelper", "createWindowSurface returned EGL_BAD_NATIVE_WINDOW.");
                 }
                 return false;
-            } else if (this.f2919a.eglMakeCurrent(this.b, this.c, this.c, this.e)) {
+            } else if (this.f4341a.eglMakeCurrent(this.f4342b, this.c, this.c, this.e)) {
                 return true;
             } else {
-                a("EGLHelper", "eglMakeCurrent", this.f2919a.eglGetError());
+                a("EGLHelper", "eglMakeCurrent", this.f4341a.eglGetError());
                 return false;
             }
         }
@@ -355,7 +361,7 @@ public class f implements ad {
         }
 
         public int d() {
-            return !this.f2919a.eglSwapBuffers(this.b, this.c) ? this.f2919a.eglGetError() : CommandMessage.COMMAND_BASE;
+            return !this.f4341a.eglSwapBuffers(this.f4342b, this.c) ? this.f4341a.eglGetError() : CommandMessage.COMMAND_BASE;
         }
 
         public void e() {
@@ -366,24 +372,26 @@ public class f implements ad {
             if (this.e != null) {
                 f fVar = this.f.get();
                 if (fVar != null) {
-                    fVar.h.a(this.f2919a, this.b, this.e);
+                    fVar.h.a(this.f4341a, this.f4342b, this.e);
                 }
                 this.e = null;
             }
-            if (this.b != null) {
-                this.f2919a.eglTerminate(this.b);
-                this.b = null;
+            if (this.f4342b != null) {
+                this.f4341a.eglTerminate(this.f4342b);
+                this.f4342b = null;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class i extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f2920a;
-        private boolean b;
+        private boolean f4343a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private boolean f4344b;
         private boolean c;
         private boolean d;
         private boolean e;
@@ -420,72 +428,57 @@ public class f implements ad {
             if (this.h) {
                 this.u.f();
                 this.h = false;
-                f.b.b(this);
+                f.f4335b.b(this);
             }
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         private void k() throws InterruptedException {
             boolean z;
-            int i;
             Runnable runnable;
-            boolean z2;
-            int i2;
-            boolean z3;
-            boolean z4;
-            boolean z5;
-            boolean z6;
-            boolean z7;
-            Runnable remove;
-            boolean z8;
-            boolean z9;
-            boolean z10;
-            Runnable runnable2;
-            int i3;
-            int i4;
             this.u = new h(this.v);
             this.h = false;
             this.i = false;
             this.p = false;
-            boolean z11 = false;
-            GL10 gl10 = null;
-            int i5 = 0;
-            boolean z12 = false;
+            boolean z2 = false;
+            boolean z3 = false;
+            boolean z4 = false;
+            boolean z5 = false;
+            boolean z6 = false;
+            boolean z7 = false;
+            boolean z8 = false;
+            boolean z9 = false;
+            int i = 0;
+            int i2 = 0;
+            Runnable runnable2 = null;
             Runnable runnable3 = null;
-            int i6 = 0;
-            boolean z13 = false;
-            Runnable runnable4 = null;
-            boolean z14 = false;
-            boolean z15 = false;
-            boolean z16 = false;
-            boolean z17 = false;
-            boolean z18 = false;
+            GL10 gl10 = null;
             while (true) {
                 try {
-                    synchronized (f.b) {
-                        while (!this.f2920a) {
+                    synchronized (f.f4335b) {
+                        while (!this.f4343a) {
                             if (this.r.isEmpty()) {
-                                boolean z19 = false;
+                                boolean z10 = false;
                                 if (this.d != this.c) {
-                                    z19 = this.c;
+                                    z10 = this.c;
                                     this.d = this.c;
-                                    f.b.notifyAll();
+                                    f.f4335b.notifyAll();
                                 }
                                 if (this.k) {
                                     i();
                                     j();
                                     this.k = false;
-                                    z14 = true;
+                                    z9 = true;
                                 }
-                                if (z16) {
+                                if (z5) {
                                     i();
                                     j();
-                                    z16 = false;
+                                    z5 = false;
                                 }
-                                if (z19 && this.i) {
+                                if (z10 && this.i) {
                                     i();
                                 }
-                                if (z19 && this.h) {
+                                if (z10 && this.h) {
                                     f fVar = this.v.get();
                                     if (!(fVar == null ? false : fVar.m)) {
                                         j();
@@ -497,167 +490,111 @@ public class f implements ad {
                                     }
                                     this.g = true;
                                     this.f = false;
-                                    f.b.notifyAll();
+                                    f.f4335b.notifyAll();
                                 }
                                 if (this.e && this.g) {
                                     this.g = false;
-                                    f.b.notifyAll();
+                                    f.f4335b.notifyAll();
                                 }
-                                if (z12) {
+                                if (z8) {
                                     this.p = false;
-                                    z12 = false;
+                                    z8 = false;
                                     this.q = true;
-                                    f.b.notifyAll();
+                                    f.f4335b.notifyAll();
                                 }
                                 if (this.t != null) {
-                                    runnable2 = this.t;
+                                    runnable = this.t;
                                     this.t = null;
                                 } else {
-                                    runnable2 = runnable3;
+                                    runnable = runnable3;
                                 }
                                 if (l()) {
                                     if (!this.h) {
-                                        if (z14) {
-                                            z14 = false;
+                                        if (z9) {
+                                            z9 = false;
                                         } else {
                                             try {
                                                 this.u.a();
                                                 this.h = true;
-                                                z11 = true;
-                                                f.b.notifyAll();
+                                                z2 = true;
+                                                f.f4335b.notifyAll();
                                             } catch (RuntimeException e) {
-                                                f.b.b(this);
+                                                f.f4335b.b(this);
                                                 throw e;
                                             }
                                         }
                                     }
                                     if (this.h && !this.i) {
                                         this.i = true;
-                                        z18 = true;
-                                        z17 = true;
-                                        z15 = true;
+                                        z3 = true;
+                                        z4 = true;
+                                        z6 = true;
                                     }
                                     if (this.i) {
                                         if (this.s) {
-                                            z15 = true;
-                                            i4 = this.l;
-                                            i3 = this.m;
+                                            z6 = true;
+                                            i = this.l;
+                                            i2 = this.m;
                                             this.p = true;
-                                            z18 = true;
+                                            z3 = true;
                                             this.s = false;
-                                        } else {
-                                            i3 = i5;
-                                            i4 = i6;
                                         }
                                         this.o = false;
-                                        f.b.notifyAll();
+                                        f.f4335b.notifyAll();
                                         if (this.p) {
-                                            i = i4;
-                                            Runnable runnable5 = runnable4;
-                                            z = true;
-                                            runnable = runnable2;
-                                            z3 = z18;
-                                            z4 = z17;
-                                            z5 = z16;
-                                            z6 = z15;
-                                            z7 = z14;
-                                            remove = runnable5;
-                                            boolean z20 = z12;
-                                            i2 = i3;
-                                            z2 = z20;
+                                            z7 = true;
+                                            runnable3 = runnable;
                                         } else {
-                                            runnable = runnable2;
-                                            z3 = z18;
-                                            z4 = z17;
-                                            z5 = z16;
-                                            z6 = z15;
-                                            z7 = z14;
-                                            remove = runnable4;
-                                            z = z13;
-                                            i = i4;
-                                            int i7 = i3;
-                                            z2 = z12;
-                                            i2 = i7;
+                                            runnable3 = runnable;
                                         }
                                     }
-                                } else if (runnable2 != null) {
+                                } else if (runnable != null) {
                                     Log.w("GLRenderControl", "Warning, !readyToDraw() but waiting for draw finished! Early reporting draw finished.");
-                                    runnable2.run();
-                                    runnable2 = null;
+                                    runnable.run();
+                                    runnable = null;
                                 }
-                                f.b.wait();
-                                runnable3 = runnable2;
+                                f.f4335b.wait();
+                                runnable3 = runnable;
                             } else {
-                                z = z13;
-                                i = i6;
-                                runnable = runnable3;
-                                z2 = z12;
-                                i2 = i5;
-                                z3 = z18;
-                                z4 = z17;
-                                z5 = z16;
-                                z6 = z15;
-                                z7 = z14;
-                                remove = this.r.remove(0);
+                                runnable2 = this.r.remove(0);
                             }
                         }
-                        synchronized (f.b) {
+                        synchronized (f.f4335b) {
                             i();
                             j();
                         }
                         return;
                     }
-                    if (remove != null) {
-                        remove.run();
-                        i5 = i2;
-                        z12 = z2;
-                        runnable3 = runnable;
-                        i6 = i;
-                        z13 = z;
-                        runnable4 = null;
-                        z14 = z7;
-                        z15 = z6;
-                        z16 = z5;
-                        z17 = z4;
-                        z18 = z3;
+                    if (runnable2 != null) {
+                        runnable2.run();
+                        runnable2 = null;
                     } else {
-                        if (!z3) {
-                            z8 = z3;
-                        } else if (this.u.b()) {
-                            synchronized (f.b) {
-                                this.j = true;
-                                f.b.notifyAll();
+                        if (z3) {
+                            if (this.u.b()) {
+                                synchronized (f.f4335b) {
+                                    this.j = true;
+                                    f.f4335b.notifyAll();
+                                }
+                                z3 = false;
+                            } else {
+                                synchronized (f.f4335b) {
+                                    this.j = true;
+                                    this.f = true;
+                                    f.f4335b.notifyAll();
+                                }
                             }
-                            z8 = false;
-                        } else {
-                            synchronized (f.b) {
-                                this.j = true;
-                                this.f = true;
-                                f.b.notifyAll();
-                            }
-                            i5 = i2;
-                            z12 = z2;
-                            runnable3 = runnable;
-                            i6 = i;
-                            z13 = z;
-                            runnable4 = remove;
-                            z14 = z7;
-                            z15 = z6;
-                            z16 = z5;
-                            z17 = z4;
-                            z18 = z3;
                         }
                         if (z4) {
                             z4 = false;
                             gl10 = (GL10) this.u.c();
                         }
-                        if (z11) {
+                        if (z2) {
                             f fVar2 = this.v.get();
                             if (fVar2 != null) {
                                 fVar2.e.a(null, fVar2.b(), fVar2.c(), 0);
                                 Log.d("GLRenderControl", "mRenderer.onSurfaceCreated");
                             }
-                            z11 = false;
+                            z2 = false;
                         }
                         if (z6) {
                             f fVar3 = this.v.get();
@@ -670,9 +607,9 @@ public class f implements ad {
                         f fVar4 = this.v.get();
                         if (fVar4 != null) {
                             fVar4.e.a(gl10);
-                            if (runnable != null) {
-                                runnable.run();
-                                runnable = null;
+                            if (runnable3 != null) {
+                                runnable3.run();
+                                runnable3 = null;
                             }
                             Log.d("GLRenderControl", "mRenderer.onDrawFrame");
                         }
@@ -685,34 +622,22 @@ public class f implements ad {
                                 break;
                             default:
                                 h.a("GLThread", "eglSwapBuffers", d);
-                                synchronized (f.b) {
+                                synchronized (f.f4335b) {
                                     this.f = true;
-                                    f.b.notifyAll();
+                                    f.f4335b.notifyAll();
                                     break;
                                 }
                         }
-                        if (z) {
-                            z9 = true;
-                            z10 = false;
+                        if (z7) {
+                            z = true;
+                            z7 = false;
                         } else {
-                            z9 = z2;
-                            z10 = z;
+                            z = z8;
                         }
-                        runnable4 = remove;
-                        z14 = z7;
-                        z15 = z6;
-                        z16 = z5;
-                        z17 = z4;
-                        z18 = z8;
-                        i5 = i2;
-                        z12 = z9;
-                        int i8 = i;
-                        z13 = z10;
-                        runnable3 = runnable;
-                        i6 = i8;
+                        z8 = z;
                     }
                 } catch (Throwable th) {
-                    synchronized (f.b) {
+                    synchronized (f.f4335b) {
                         i();
                         j();
                         throw th;
@@ -729,14 +654,14 @@ public class f implements ad {
             if (i < 0 || i > 1) {
                 throw new IllegalArgumentException("renderMode");
             }
-            synchronized (f.b) {
+            synchronized (f.f4335b) {
                 this.n = i;
-                f.b.notifyAll();
+                f.f4335b.notifyAll();
             }
         }
 
         public void a(int i, int i2) {
-            synchronized (f.b) {
+            synchronized (f.f4335b) {
                 this.l = i;
                 this.m = i2;
                 this.s = true;
@@ -745,10 +670,10 @@ public class f implements ad {
                 if (Thread.currentThread() == this) {
                     return;
                 }
-                f.b.notifyAll();
-                while (!this.b && !this.d && !this.q && a()) {
+                f.f4335b.notifyAll();
+                while (!this.f4344b && !this.d && !this.q && a()) {
                     try {
-                        f.b.wait();
+                        f.f4335b.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -757,7 +682,7 @@ public class f implements ad {
         }
 
         public void a(Runnable runnable) {
-            synchronized (f.b) {
+            synchronized (f.f4335b) {
                 if (Thread.currentThread() == this) {
                     return;
                 }
@@ -765,7 +690,7 @@ public class f implements ad {
                 this.o = true;
                 this.q = false;
                 this.t = runnable;
-                f.b.notifyAll();
+                f.f4335b.notifyAll();
             }
         }
 
@@ -775,7 +700,7 @@ public class f implements ad {
 
         public int b() {
             int i;
-            synchronized (f.b) {
+            synchronized (f.f4335b) {
                 i = this.n;
             }
             return i;
@@ -785,27 +710,27 @@ public class f implements ad {
             if (runnable == null) {
                 throw new IllegalArgumentException("r must not be null");
             }
-            synchronized (f.b) {
+            synchronized (f.f4335b) {
                 this.r.add(runnable);
-                f.b.notifyAll();
+                f.f4335b.notifyAll();
             }
         }
 
         public void c() {
-            synchronized (f.b) {
+            synchronized (f.f4335b) {
                 this.o = true;
-                f.b.notifyAll();
+                f.f4335b.notifyAll();
             }
         }
 
         public void d() {
-            synchronized (f.b) {
+            synchronized (f.f4335b) {
                 this.e = true;
                 this.j = false;
-                f.b.notifyAll();
-                while (this.g && !this.j && !this.b) {
+                f.f4335b.notifyAll();
+                while (this.g && !this.j && !this.f4344b) {
                     try {
-                        f.b.wait();
+                        f.f4335b.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -814,12 +739,12 @@ public class f implements ad {
         }
 
         public void e() {
-            synchronized (f.b) {
+            synchronized (f.f4335b) {
                 this.e = false;
-                f.b.notifyAll();
-                while (!this.g && !this.b) {
+                f.f4335b.notifyAll();
+                while (!this.g && !this.f4344b) {
                     try {
-                        f.b.wait();
+                        f.f4335b.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -828,12 +753,12 @@ public class f implements ad {
         }
 
         public void f() {
-            synchronized (f.b) {
+            synchronized (f.f4335b) {
                 this.c = true;
-                f.b.notifyAll();
-                while (!this.b && !this.d) {
+                f.f4335b.notifyAll();
+                while (!this.f4344b && !this.d) {
                     try {
-                        f.b.wait();
+                        f.f4335b.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -842,14 +767,14 @@ public class f implements ad {
         }
 
         public void g() {
-            synchronized (f.b) {
+            synchronized (f.f4335b) {
                 this.c = false;
                 this.o = true;
                 this.q = false;
-                f.b.notifyAll();
-                while (!this.b && this.d && !this.q) {
+                f.f4335b.notifyAll();
+                while (!this.f4344b && this.d && !this.q) {
                     try {
-                        f.b.wait();
+                        f.f4335b.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -858,12 +783,12 @@ public class f implements ad {
         }
 
         public void h() {
-            synchronized (f.b) {
-                this.f2920a = true;
-                f.b.notifyAll();
-                while (!this.b) {
+            synchronized (f.f4335b) {
+                this.f4343a = true;
+                f.f4335b.notifyAll();
+                while (!this.f4344b) {
                     try {
-                        f.b.wait();
+                        f.f4335b.wait();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -878,23 +803,23 @@ public class f implements ad {
                 k();
             } catch (InterruptedException e) {
             } finally {
-                f.b.a(this);
+                f.f4335b.a(this);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class j {
 
         /* renamed from: a  reason: collision with root package name */
-        private static String f2921a = "GLThreadManager";
+        private static String f4345a = "GLThreadManager";
 
         private j() {
         }
 
         public synchronized void a(i iVar) {
-            iVar.b = true;
+            iVar.f4344b = true;
             notifyAll();
         }
 
@@ -903,25 +828,25 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface k {
         GL a(GL gl);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class l extends Writer {
 
         /* renamed from: a  reason: collision with root package name */
-        private StringBuilder f2922a = new StringBuilder();
+        private StringBuilder f4346a = new StringBuilder();
 
         l() {
         }
 
         private void a() {
-            if (this.f2922a.length() > 0) {
-                Log.v("GLSurfaceView26", this.f2922a.toString());
-                this.f2922a.delete(0, this.f2922a.length());
+            if (this.f4346a.length() > 0) {
+                Log.v("GLSurfaceView26", this.f4346a.toString());
+                this.f4346a.delete(0, this.f4346a.length());
             }
         }
 
@@ -942,13 +867,13 @@ public class f implements ad {
                 if (c == '\n') {
                     a();
                 } else {
-                    this.f2922a.append(c);
+                    this.f4346a.append(c);
                 }
             }
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     private class m extends b {
         public m(boolean z) {
             super(8, 8, 8, 0, z ? 16 : 0, 0);
@@ -956,7 +881,7 @@ public class f implements ad {
     }
 
     public f(SurfaceView surfaceView) {
-        this.f2916a = new WeakReference<>(surfaceView);
+        this.f4336a = new WeakReference<>(surfaceView);
     }
 
     private Bitmap a(int i2, int i3, int i4, int i5, GL10 gl10, Bitmap.Config config) {
@@ -992,7 +917,7 @@ public class f implements ad {
     }
 
     public SurfaceHolder a() {
-        SurfaceView surfaceView = this.f2916a.get();
+        SurfaceView surfaceView = this.f4336a.get();
         if (surfaceView != null) {
             return surfaceView.getHolder();
         }
@@ -1045,7 +970,7 @@ public class f implements ad {
     }
 
     public int b() {
-        SurfaceView surfaceView = this.f2916a.get();
+        SurfaceView surfaceView = this.f4336a.get();
         if (surfaceView != null) {
             return surfaceView.getWidth();
         }
@@ -1062,7 +987,7 @@ public class f implements ad {
     }
 
     public int c() {
-        SurfaceView surfaceView = this.f2916a.get();
+        SurfaceView surfaceView = this.f4336a.get();
         if (surfaceView != null) {
             return surfaceView.getHeight();
         }

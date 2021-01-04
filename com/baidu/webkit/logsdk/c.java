@@ -1,4 +1,4 @@
 package com.baidu.webkit.logsdk;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public interface c {
 }

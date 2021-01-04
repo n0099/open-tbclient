@@ -11,7 +11,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class RequsetNetworkUtils {
     private static final String TAG = "RequsetNetworkUtils";
     private static ConnectivityManager mConnManager = null;
@@ -74,22 +74,37 @@ public class RequsetNetworkUtils {
         return String.format("%d.%d.%d.%d", Integer.valueOf(ipAddress & 255), Integer.valueOf((ipAddress >> 8) & 255), Integer.valueOf((ipAddress >> 16) & 255), Integer.valueOf((ipAddress >> 24) & 255));
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:7:0x000e A[Catch: Exception -> 0x005b, TryCatch #0 {Exception -> 0x005b, blocks: (B:5:0x0008, B:7:0x000e, B:8:0x0018, B:10:0x001e, B:12:0x002a, B:14:0x002e), top: B:24:0x0008 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String getMobileIp(Context context) {
+        Exception e;
         String str = "nonMobileIp";
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            while (networkInterfaces.hasMoreElements()) {
-                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                while (inetAddresses.hasMoreElements()) {
-                    InetAddress nextElement = inetAddresses.nextElement();
-                    str = (nextElement.isLoopbackAddress() || !(nextElement instanceof Inet4Address)) ? str : nextElement.getHostAddress().toString();
+            String str2 = "nonMobileIp";
+            while (!networkInterfaces.hasMoreElements()) {
+                try {
+                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                    while (true) {
+                        if (inetAddresses.hasMoreElements()) {
+                            InetAddress nextElement = inetAddresses.nextElement();
+                            str2 = (nextElement.isLoopbackAddress() || !(nextElement instanceof Inet4Address)) ? str2 : nextElement.getHostAddress().toString();
+                        }
+                    }
+                    if (!networkInterfaces.hasMoreElements()) {
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    str = str2;
+                    Log.d(TAG, "getMobileIp exception :" + e.getMessage());
+                    return str;
                 }
             }
-            return str;
-        } catch (Exception e) {
-            String str2 = str;
-            Log.d(TAG, "getMobileIp exception :" + e.getMessage());
             return str2;
+        } catch (Exception e3) {
+            e = e3;
         }
     }
 

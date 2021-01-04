@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.base;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public abstract class d {
     public abstract b a(int i);
 

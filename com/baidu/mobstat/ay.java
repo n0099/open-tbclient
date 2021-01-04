@@ -4,14 +4,6 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.ListFragment;
 import android.os.Build;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.SurfaceView;
 import android.view.TextureView;
@@ -56,18 +48,28 @@ import android.widget.ToggleButton;
 import android.widget.VideoView;
 import android.widget.ViewFlipper;
 import android.widget.ViewSwitcher;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class ay {
-    private static final ay b = new ay();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final ay f3768b = new ay();
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, String> f2574a = new HashMap<>();
+    private HashMap<String, String> f3769a = new HashMap<>();
 
     public static ay a() {
-        return b;
+        return f3768b;
     }
 
     private ay() {
@@ -81,7 +83,7 @@ public class ay {
     }
 
     private void b() {
-        if (Build.VERSION.SDK_INT >= 14 && this.f2574a.size() == 0) {
+        if (Build.VERSION.SDK_INT >= 14 && this.f3769a.size() == 0) {
             try {
                 a(AutoCompleteTextView.class.getSimpleName(), "A0");
             } catch (Throwable th) {
@@ -361,12 +363,12 @@ public class ay {
     }
 
     private void a(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !this.f2574a.containsKey(str)) {
-            this.f2574a.put(str, str2.toUpperCase(Locale.ENGLISH));
+        if (!TextUtils.isEmpty(str) && !this.f3769a.containsKey(str)) {
+            this.f3769a.put(str, str2.toUpperCase(Locale.ENGLISH));
         }
     }
 
     public String a(String str) {
-        return this.f2574a.get(str);
+        return this.f3769a.get(str);
     }
 }

@@ -17,7 +17,6 @@ import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.webkit.internal.ETAG;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -29,7 +28,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMFetchMsgRequest extends BaseHttpRequest {
     private static final String TAG = "IMFetchMsgRequest";
     private Long mAppid;
@@ -59,23 +58,22 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
         int i2;
-        String str;
         int i3;
-        String str2;
+        String str;
         ArrayList<ChatMsg> arrayList;
-        String str3 = new String(bArr);
-        LogUtils.d(TAG, "  " + str3);
+        String str2 = new String(bArr);
+        LogUtils.d(TAG, "  " + str2);
         ArrayList<ChatMsg> arrayList2 = null;
-        String str4 = "";
+        String str3 = "";
         Type type = new Type();
         type.t = 0L;
         int i4 = 0;
         boolean z = false;
         try {
-            JSONObject jSONObject = new JSONObject(str3);
+            JSONObject jSONObject = new JSONObject(str2);
             i3 = jSONObject.getInt("err_code");
-            str2 = jSONObject.optString("err_msg", "");
-            str4 = jSONObject.optString("request_id", "0");
+            str = jSONObject.optString("err_msg", "");
+            str3 = jSONObject.optString("request_id", "0");
             z = jSONObject.optBoolean("has_more", false);
             if (i3 == 0 && jSONObject.has("messages")) {
                 JSONArray jSONArray = jSONObject.getJSONArray("messages");
@@ -86,17 +84,15 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
             }
             i2 = i4;
             arrayList = arrayList2;
-            str = str4;
         } catch (Exception e) {
             i2 = i4;
-            str = str4;
             LogUtils.e("IMPaSetDisturbRequest", "JSONException", e);
             i3 = 1010;
-            str2 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             arrayList = null;
         }
-        LogUtils.d(TAG, "requestid : " + str + " , resultCode: " + i3 + " , resultMsg : " + str2);
+        LogUtils.d(TAG, "requestid : " + str3 + " , resultCode: " + i3 + " , resultMsg : " + str);
         if (this.mIsReliable && arrayList != null && arrayList.size() > 0) {
             LogUtils.d(TAG, "短连接回ack begin");
             final ArrayList<ChatMsg> arrayList3 = arrayList;
@@ -110,10 +106,10 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         }
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener instanceof IFetchMsgByIdExtendListener) {
-            ((IFetchMsgByIdExtendListener) removeListener).onFetchMsgByIdResult(i3, str2, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList, z);
+            ((IFetchMsgByIdExtendListener) removeListener).onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList, z);
             LogUtils.d(TAG, "IFetchMsgByIdExtendListener.onFetchMsgByIdResult");
         } else if (removeListener instanceof IFetchMsgByIdListener) {
-            ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i3, str2, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList);
+            ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i3, str, "0", this.mCategory, this.mContacter, this.mBeginid, this.mEndid, this.mCount, i2, ((Long) type.t).longValue(), arrayList);
             LogUtils.d(TAG, "IFetchMsgByIdListener.onFetchMsgByIdResult");
         }
     }
@@ -169,7 +165,7 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         Arrays.sort(split);
         String str = "";
         for (String str2 : split) {
-            if (str2.contains(UgcConstant.EXT_INFO)) {
+            if (str2.contains("ext_info")) {
                 str2 = URLDecoder.decode(str2);
             }
             str = str + str2;

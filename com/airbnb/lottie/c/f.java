@@ -4,17 +4,17 @@ import android.graphics.Color;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class f implements aj<Integer> {
-    public static final f HI = new f();
+    public static final f Hr = new f();
 
     private f() {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.c.aj
-    /* renamed from: a */
-    public Integer b(JsonReader jsonReader, float f) throws IOException {
+    /* renamed from: f */
+    public Integer g(JsonReader jsonReader, float f) throws IOException {
         boolean z = jsonReader.peek() == JsonToken.BEGIN_ARRAY;
         if (z) {
             jsonReader.beginArray();

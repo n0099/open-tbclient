@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a Mi = null;
+    private static a LD = null;
     public long mTimeOutValue = 10000;
     public long lastLocationTime = 0;
     private long location_expiration = 300000;
@@ -22,10 +22,10 @@ public class a {
     private boolean mIsExecLocationTask = false;
     private int errorCode = 4;
     private Address lastAddress = null;
-    private ArrayList<SoftReference<InterfaceC0020a>> mLocationCallBacks = null;
+    private ArrayList<SoftReference<InterfaceC0015a>> mLocationCallBacks = null;
     private ArrayList<com.baidu.adp.lib.c.b> mLocationProviders = new ArrayList<>();
     private Handler handler = null;
-    private b Mj = new b() { // from class: com.baidu.adp.lib.c.a.1
+    private b LH = new b() { // from class: com.baidu.adp.lib.c.a.1
         @Override // com.baidu.adp.lib.c.a.b
         public void onProviderGetLocation(int i, String str, Address address, long j, boolean z) {
             a.this.lastLocationTime = j;
@@ -65,7 +65,7 @@ public class a {
 
     /* renamed from: com.baidu.adp.lib.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0020a {
+    public interface InterfaceC0015a {
         void onLocationGeted(int i, String str, Address address);
     }
 
@@ -77,22 +77,22 @@ public class a {
     private a() {
     }
 
-    public static a mk() {
-        if (Mi == null) {
+    public static a lI() {
+        if (LD == null) {
             synchronized (a.class) {
-                if (Mi == null) {
-                    Mi = new a();
+                if (LD == null) {
+                    LD = new a();
                 }
             }
         }
-        return Mi;
+        return LD;
     }
 
     public void a(com.baidu.adp.lib.c.b bVar) {
         if (bVar != null) {
             synchronized (this.mLocationProviders) {
                 if (!this.mLocationProviders.contains(bVar)) {
-                    bVar.a(this.Mj);
+                    bVar.a(this.LH);
                     this.mLocationProviders.add(bVar);
                 }
             }
@@ -175,23 +175,23 @@ public class a {
         }
     }
 
-    public Address a(boolean z, InterfaceC0020a interfaceC0020a) {
-        return a(z, false, interfaceC0020a);
+    public Address a(boolean z, InterfaceC0015a interfaceC0015a) {
+        return a(z, false, interfaceC0015a);
     }
 
-    public Address a(boolean z, boolean z2, InterfaceC0020a interfaceC0020a) {
+    public Address a(boolean z, boolean z2, InterfaceC0015a interfaceC0015a) {
         boolean z3;
-        InterfaceC0020a interfaceC0020a2;
+        InterfaceC0015a interfaceC0015a2;
         if (System.currentTimeMillis() - this.lastLocationTime > this.location_expiration) {
             this.lastAddress = null;
         }
         if (this.lastAddress != null && !z && ((z2 && this.mLastAddressIsAccuracy) || !z2)) {
-            if (interfaceC0020a != null) {
-                interfaceC0020a.onLocationGeted(0, "", this.lastAddress);
+            if (interfaceC0015a != null) {
+                interfaceC0015a.onLocationGeted(0, "", this.lastAddress);
             }
             return this.lastAddress;
         }
-        if (interfaceC0020a != null) {
+        if (interfaceC0015a != null) {
             synchronized (this.mLocationCallBacks) {
                 int i = 0;
                 while (true) {
@@ -199,8 +199,8 @@ public class a {
                         z3 = false;
                         break;
                     }
-                    SoftReference<InterfaceC0020a> softReference = this.mLocationCallBacks.get(i);
-                    if (softReference == null || (interfaceC0020a2 = softReference.get()) == null || !interfaceC0020a2.equals(interfaceC0020a)) {
+                    SoftReference<InterfaceC0015a> softReference = this.mLocationCallBacks.get(i);
+                    if (softReference == null || (interfaceC0015a2 = softReference.get()) == null || !interfaceC0015a2.equals(interfaceC0015a)) {
                         i++;
                     } else {
                         z3 = true;
@@ -211,7 +211,7 @@ public class a {
                     if (this.mLocationCallBacks.size() >= 100) {
                         this.mLocationCallBacks.remove(0);
                     }
-                    this.mLocationCallBacks.add(new SoftReference<>(interfaceC0020a));
+                    this.mLocationCallBacks.add(new SoftReference<>(interfaceC0015a));
                 }
             }
             if (!this.mIsExecLocationTask) {
@@ -226,14 +226,14 @@ public class a {
         return null;
     }
 
-    public void a(InterfaceC0020a interfaceC0020a) {
-        InterfaceC0020a interfaceC0020a2;
+    public void a(InterfaceC0015a interfaceC0015a) {
+        InterfaceC0015a interfaceC0015a2;
         synchronized (this.mLocationCallBacks) {
             int i = 0;
             while (true) {
                 if (i < this.mLocationCallBacks.size()) {
-                    SoftReference<InterfaceC0020a> softReference = this.mLocationCallBacks.get(i);
-                    if (softReference == null || (interfaceC0020a2 = softReference.get()) == null || !interfaceC0020a2.equals(interfaceC0020a)) {
+                    SoftReference<InterfaceC0015a> softReference = this.mLocationCallBacks.get(i);
+                    if (softReference == null || (interfaceC0015a2 = softReference.get()) == null || !interfaceC0015a2.equals(interfaceC0015a)) {
                         i++;
                     } else {
                         this.mLocationCallBacks.remove(softReference);
@@ -293,7 +293,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void doCallBacks(int i, String str, Address address) {
-        InterfaceC0020a interfaceC0020a;
+        InterfaceC0015a interfaceC0015a;
         int i2 = 0;
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
@@ -303,9 +303,9 @@ public class a {
                 while (true) {
                     int i3 = i2;
                     if (i3 < this.mLocationCallBacks.size()) {
-                        SoftReference<InterfaceC0020a> softReference = this.mLocationCallBacks.get(i3);
-                        if (softReference != null && (interfaceC0020a = softReference.get()) != null) {
-                            interfaceC0020a.onLocationGeted(i, str, address);
+                        SoftReference<InterfaceC0015a> softReference = this.mLocationCallBacks.get(i3);
+                        if (softReference != null && (interfaceC0015a = softReference.get()) != null) {
+                            interfaceC0015a.onLocationGeted(i, str, address);
                         }
                         i2 = i3 + 1;
                     } else {

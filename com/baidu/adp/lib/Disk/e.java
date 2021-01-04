@@ -13,8 +13,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class e {
     protected final int BUFFER_SIZE = 1024;
-    protected b KA;
-    private DiskFileOperate KI;
+    protected b Ka;
+    private DiskFileOperate Kh;
     protected AtomicBoolean mIsCanceled;
 
     /* loaded from: classes.dex */
@@ -27,19 +27,19 @@ public class e {
     }
 
     public e(b bVar, DiskFileOperate diskFileOperate) {
-        this.KA = null;
+        this.Ka = null;
         this.mIsCanceled = null;
-        this.KI = null;
-        if (bVar == null || diskFileOperate == null || diskFileOperate.lM() == null) {
+        this.Kh = null;
+        if (bVar == null || diskFileOperate == null || diskFileOperate.li() == null) {
             throw new InvalidParameterException("DiskWorker Parameter is null");
         }
         this.mIsCanceled = new AtomicBoolean(false);
-        this.KA = bVar;
-        this.KI = diskFileOperate;
+        this.Ka = bVar;
+        this.Kh = diskFileOperate;
     }
 
     public boolean call() {
-        switch (this.KI.lM()) {
+        switch (this.Kh.li()) {
             case WRITE:
                 return write(false);
             case WRITE_FORCE:
@@ -66,10 +66,10 @@ public class e {
     }
 
     private boolean h(File file) {
-        if (file == null || !(this.KI instanceof com.baidu.adp.lib.Disk.a)) {
+        if (file == null || !(this.Kh instanceof com.baidu.adp.lib.Disk.a)) {
             return false;
         }
-        com.baidu.adp.lib.Disk.a aVar = (com.baidu.adp.lib.Disk.a) this.KI;
+        com.baidu.adp.lib.Disk.a aVar = (com.baidu.adp.lib.Disk.a) this.Kh;
         if (file.isDirectory()) {
             File[] listFiles = file.listFiles();
             if (listFiles != null) {
@@ -91,16 +91,16 @@ public class e {
     private boolean deleteFiles() {
         boolean z = false;
         try {
-            File folder = this.KA.getFolder(this.KI.getPath(), false, this.KI.isSdCard(), this.KI.isSavedCache());
+            File folder = this.Ka.getFolder(this.Kh.getPath(), false, this.Kh.isSdCard(), this.Kh.isSavedCache());
             z = h(folder);
             if (z) {
-                this.KI.setFileInfo(folder);
-                this.KI.setSuccess(true);
+                this.Kh.setFileInfo(folder);
+                this.Kh.setSuccess(true);
             }
         } catch (Exception e) {
             e.getMessage();
         } finally {
-            this.KI.unLock();
+            this.Kh.unLock();
         }
         return z;
     }
@@ -111,10 +111,10 @@ public class e {
         File file;
         try {
             try {
-                file = this.KA.getFile(this.KI.buildPath(), this.KI.getName(), false, this.KI.isSdCard(), this.KI.isSavedCache());
+                file = this.Ka.getFile(this.Kh.buildPath(), this.Kh.getName(), false, this.Kh.isSdCard(), this.Kh.isSavedCache());
             } catch (Exception e) {
                 e.getMessage();
-                this.KI.unLock();
+                this.Kh.unLock();
                 z = false;
             }
             if (file == null || this.mIsCanceled.get()) {
@@ -122,100 +122,96 @@ public class e {
             }
             z = file.exists() ? file.delete() : false;
             if (z) {
-                this.KI.setFileInfo(file);
-                this.KI.setSuccess(true);
+                this.Kh.setFileInfo(file);
+                this.Kh.setSuccess(true);
             }
             return z;
         } finally {
-            this.KI.unLock();
+            this.Kh.unLock();
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [202=5, 203=4, 207=4] */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00a6  */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [203=5, 204=4, 208=4] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00af  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean read() {
-        FileInputStream fileInputStream;
         ByteArrayOutputStream byteArrayOutputStream;
+        FileInputStream fileInputStream;
         boolean z;
         File file;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
-        byteArrayOutputStream2 = null;
-        FileInputStream fileInputStream2 = null;
+        this.Kh.ll();
         try {
-            file = this.KA.getFile(this.KI.buildPath(), this.KI.getName(), false, this.KI.isSdCard(), this.KI.isSavedCache());
+            file = this.Ka.getFile(this.Kh.buildPath(), this.Kh.getName(), false, this.Kh.isSdCard(), this.Kh.isSavedCache());
         } catch (Exception e) {
             e = e;
             byteArrayOutputStream = null;
+            fileInputStream = null;
         } catch (Throwable th) {
             th = th;
+            byteArrayOutputStream = null;
             fileInputStream = null;
         }
         if (file == null || !file.exists() || this.mIsCanceled.get()) {
             com.baidu.adp.lib.f.a.close((InputStream) null);
             com.baidu.adp.lib.f.a.close((OutputStream) null);
-            this.KI.unLock();
+            this.Kh.unLock();
             return false;
         }
         fileInputStream = new FileInputStream(file);
         try {
             byteArrayOutputStream = new ByteArrayOutputStream(1024);
             try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr, 0, 1024);
-                    if (read == -1 || this.mIsCanceled.get()) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                }
-            } catch (Exception e2) {
-                e = e2;
-                fileInputStream2 = fileInputStream;
                 try {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = fileInputStream.read(bArr, 0, 1024);
+                        if (read == -1 || this.mIsCanceled.get()) {
+                            break;
+                        }
+                        byteArrayOutputStream.write(bArr, 0, read);
+                    }
+                } catch (Exception e2) {
+                    e = e2;
                     BdLog.e(e.getMessage());
-                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream2);
-                    com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
-                    this.KI.unLock();
-                    z = false;
-                    return z;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileInputStream = fileInputStream2;
-                    byteArrayOutputStream2 = byteArrayOutputStream;
                     com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
-                    com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream2);
-                    this.KI.unLock();
-                    throw th;
+                    com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
+                    this.Kh.unLock();
+                    z = false;
+                    this.Kh.lm();
+                    return z;
                 }
-            } catch (Throwable th3) {
-                th = th3;
-                byteArrayOutputStream2 = byteArrayOutputStream;
+            } catch (Throwable th2) {
+                th = th2;
                 com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
-                com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream2);
-                this.KI.unLock();
+                com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
+                this.Kh.unLock();
                 throw th;
             }
         } catch (Exception e3) {
             e = e3;
             byteArrayOutputStream = null;
-            fileInputStream2 = fileInputStream;
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th3) {
+            th = th3;
+            byteArrayOutputStream = null;
+            com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
+            com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
+            this.Kh.unLock();
+            throw th;
         }
         if (!this.mIsCanceled.get()) {
             byte[] byteArray = byteArrayOutputStream.toByteArray();
-            if (!this.KI.isFormatData() || this.KI.formatData(byteArray)) {
-                this.KI.setData(byteArray);
+            if (!this.Kh.isFormatData() || this.Kh.formatData(byteArray)) {
+                this.Kh.setData(byteArray);
                 z = true;
                 com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
                 com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
                 if (z) {
-                    this.KI.setSuccess(true);
+                    this.Kh.setSuccess(true);
                 }
-                this.KI.unLock();
+                this.Kh.unLock();
+                this.Kh.lm();
                 return z;
             }
         }
@@ -224,45 +220,46 @@ public class e {
         com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
         if (z) {
         }
-        this.KI.unLock();
+        this.Kh.unLock();
+        this.Kh.lm();
         return z;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [256=6, 251=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [258=6, 253=7] */
     public boolean write(boolean z) {
         FileOutputStream fileOutputStream;
         boolean z2;
         File file;
         FileOutputStream fileOutputStream2 = null;
         try {
-            file = this.KA.getFile(this.KI.buildPath(), this.KI.getName(), true, this.KI.isSdCard(), this.KI.isSavedCache());
+            file = this.Ka.getFile(this.Kh.buildPath(), this.Kh.getName(), true, this.Kh.isSdCard(), this.Kh.isSavedCache());
         } catch (Exception e) {
             e = e;
             fileOutputStream = null;
         } catch (Throwable th) {
             th = th;
             com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream2);
-            this.KI.unLock();
+            this.Kh.unLock();
             throw th;
         }
         if (file == null || this.mIsCanceled.get()) {
             com.baidu.adp.lib.f.a.close((OutputStream) null);
-            this.KI.unLock();
+            this.Kh.unLock();
             return false;
         }
         if (file.exists()) {
             if (!z) {
                 com.baidu.adp.lib.f.a.close((OutputStream) null);
-                this.KI.unLock();
+                this.Kh.unLock();
                 return true;
             }
             file.delete();
         }
-        byte[] buildFormatData = this.KI.buildFormatData();
-        byte[] data = this.KI.getData();
+        byte[] buildFormatData = this.Kh.buildFormatData();
+        byte[] data = this.Kh.getData();
         if ((buildFormatData == null && data == null) || this.mIsCanceled.get()) {
             com.baidu.adp.lib.f.a.close((OutputStream) null);
-            this.KI.unLock();
+            this.Kh.unLock();
             return false;
         }
         fileOutputStream = new FileOutputStream(file);
@@ -274,7 +271,7 @@ public class e {
                     e = e2;
                     BdLog.e(e.getMessage());
                     com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
-                    this.KI.unLock();
+                    this.Kh.unLock();
                     z2 = false;
                     return z2;
                 }
@@ -282,7 +279,7 @@ public class e {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
                 com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream2);
-                this.KI.unLock();
+                this.Kh.unLock();
                 throw th;
             }
         }
@@ -291,14 +288,14 @@ public class e {
         }
         fileOutputStream.flush();
         com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
-        this.KI.setFileInfo(file);
-        this.KI.setSuccess(true);
-        this.KI.unLock();
+        this.Kh.setFileInfo(file);
+        this.Kh.setSuccess(true);
+        this.Kh.unLock();
         z2 = true;
         return z2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [299=5, 300=5, 304=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [301=5, 302=5, 306=5] */
     /* JADX WARN: Removed duplicated region for block: B:36:0x00a2  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x00af  */
     /*
@@ -309,16 +306,16 @@ public class e {
         boolean z2;
         byte[] buildFormatData;
         byte[] data;
-        OutputStream outputStream2 = this.KI.getOutputStream();
-        File fileInfo = this.KI.getFileInfo();
+        OutputStream outputStream2 = this.Kh.getOutputStream();
+        File fileInfo = this.Kh.getFileInfo();
         if (outputStream2 == null) {
             try {
-                fileInfo = this.KA.getFile(this.KI.buildPath(), this.KI.getName(), true, this.KI.isSdCard(), this.KI.isSavedCache());
+                fileInfo = this.Ka.getFile(this.Kh.buildPath(), this.Kh.getName(), true, this.Kh.isSdCard(), this.Kh.isSavedCache());
                 if (fileInfo == null || this.mIsCanceled.get()) {
                     if (!z) {
                         com.baidu.adp.lib.f.a.close(outputStream2);
                     }
-                    this.KI.unLock();
+                    this.Kh.unLock();
                     return false;
                 }
                 outputStream = new FileOutputStream(fileInfo, true);
@@ -328,14 +325,14 @@ public class e {
                 BdLog.e(e.getMessage());
                 if (!z) {
                 }
-                this.KI.unLock();
+                this.Kh.unLock();
                 z2 = false;
                 return z2;
             } catch (Throwable th) {
                 th = th;
                 if (!z) {
                 }
-                this.KI.unLock();
+                this.Kh.unLock();
                 throw th;
             }
         } else {
@@ -343,15 +340,15 @@ public class e {
         }
         try {
             try {
-                buildFormatData = this.KI.buildFormatData();
-                data = this.KI.getData();
+                buildFormatData = this.Kh.buildFormatData();
+                data = this.Kh.getData();
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
                 if (!z) {
                     com.baidu.adp.lib.f.a.close(outputStream);
                 }
-                this.KI.unLock();
+                this.Kh.unLock();
                 z2 = false;
                 return z2;
             }
@@ -359,7 +356,7 @@ public class e {
                 if (!z) {
                     com.baidu.adp.lib.f.a.close(outputStream);
                 }
-                this.KI.unLock();
+                this.Kh.unLock();
                 return false;
             }
             if (buildFormatData != null) {
@@ -369,14 +366,14 @@ public class e {
                 outputStream.write(data);
             }
             outputStream.flush();
-            this.KI.setFileInfo(fileInfo);
-            this.KI.setSuccess(true);
+            this.Kh.setFileInfo(fileInfo);
+            this.Kh.setSuccess(true);
             if (z) {
-                this.KI.setOutputStream(outputStream);
+                this.Kh.setOutputStream(outputStream);
             } else {
                 com.baidu.adp.lib.f.a.close(outputStream);
             }
-            this.KI.unLock();
+            this.Kh.unLock();
             z2 = true;
             return z2;
         } catch (Throwable th2) {
@@ -385,33 +382,33 @@ public class e {
             if (!z) {
                 com.baidu.adp.lib.f.a.close(outputStream2);
             }
-            this.KI.unLock();
+            this.Kh.unLock();
             throw th;
         }
     }
 
     public boolean info() {
         File folder;
-        if (this.KI.getName() != null) {
-            folder = this.KA.getFile(this.KI.buildPath(), this.KI.getName(), false, this.KI.isSdCard(), this.KI.isSavedCache());
+        if (this.Kh.getName() != null) {
+            folder = this.Ka.getFile(this.Kh.buildPath(), this.Kh.getName(), false, this.Kh.isSdCard(), this.Kh.isSavedCache());
         } else {
-            folder = this.KA.getFolder(this.KI.buildPath(), false, this.KI.isSdCard(), this.KI.isSavedCache());
+            folder = this.Ka.getFolder(this.Kh.buildPath(), false, this.Kh.isSdCard(), this.Kh.isSavedCache());
         }
         if (folder != null && folder.exists()) {
-            this.KI.setFileInfo(folder);
-            this.KI.setSuccess(true);
-            this.KI.unLock();
+            this.Kh.setFileInfo(folder);
+            this.Kh.setSuccess(true);
+            this.Kh.unLock();
             return true;
         }
-        this.KI.unLock();
+        this.Kh.unLock();
         return false;
     }
 
     public boolean rename() {
         boolean z;
         try {
-            File file = this.KA.getFile(this.KI.buildPath(), this.KI.getName(), false, this.KI.isSdCard(), this.KI.isSavedCache());
-            File file2 = this.KA.getFile(this.KI.buildDesPath(), this.KI.getDesName(), true, this.KI.isSdCard(), this.KI.isSavedCache());
+            File file = this.Ka.getFile(this.Kh.buildPath(), this.Kh.getName(), false, this.Kh.isSdCard(), this.Kh.isSavedCache());
+            File file2 = this.Ka.getFile(this.Kh.buildDesPath(), this.Kh.getDesName(), true, this.Kh.isSdCard(), this.Kh.isSavedCache());
             if (file != null) {
                 if (file2 != null) {
                     file2.delete();
@@ -421,30 +418,30 @@ public class e {
                 z = false;
             }
             if (z) {
-                this.KI.setSuccess(true);
+                this.Kh.setSuccess(true);
             }
             return z;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         } finally {
-            this.KI.unLock();
+            this.Kh.unLock();
         }
     }
 
     public boolean custom() {
         boolean z = false;
         try {
-            if (this.KI.lO() != null) {
-                z = this.KI.lO().a(this, this.KI, this.KA);
+            if (this.Kh.lk() != null) {
+                z = this.Kh.lk().a(this, this.Kh, this.Ka);
             }
             if (z) {
-                this.KI.setSuccess(true);
+                this.Kh.setSuccess(true);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            this.KI.unLock();
+            this.Kh.unLock();
         }
         return z;
     }

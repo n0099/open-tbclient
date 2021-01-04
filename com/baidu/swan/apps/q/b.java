@@ -3,41 +3,41 @@ package com.baidu.swan.apps.q;
 import android.content.Context;
 import android.text.TextWatcher;
 import com.baidu.swan.apps.component.components.textarea.SwanEditText;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b dcl;
-    private SwanEditText dcm;
+    private static volatile b dhf;
+    private SwanEditText dhg;
     private TextWatcher mTextWatcher;
 
     private b() {
     }
 
-    public static b ayM() {
-        if (dcl == null) {
+    public static b aAd() {
+        if (dhf == null) {
             synchronized (b.class) {
-                if (dcl == null) {
-                    dcl = new b();
+                if (dhf == null) {
+                    dhf = new b();
                 }
             }
         }
-        return dcl;
+        return dhf;
     }
 
-    public SwanEditText cL(Context context) {
-        this.dcm = new SwanEditText(context);
-        return this.dcm;
+    public SwanEditText cT(Context context) {
+        this.dhg = new SwanEditText(context);
+        return this.dhg;
     }
 
-    public SwanEditText ayN() {
-        return this.dcm;
+    public SwanEditText aAe() {
+        return this.dhg;
     }
 
-    public void ayO() {
-        this.dcm = null;
+    public void aAf() {
+        this.dhg = null;
     }
 
-    public TextWatcher ayP() {
+    public TextWatcher aAg() {
         return this.mTextWatcher;
     }
 

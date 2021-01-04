@@ -2,7 +2,7 @@ package kotlin.collections;
 
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class ArraysKt___ArraysKt$withIndex$4 extends Lambda implements kotlin.jvm.a.a<y> {
     final /* synthetic */ int[] receiver$0;
 
@@ -15,6 +15,6 @@ final class ArraysKt___ArraysKt$withIndex$4 extends Lambda implements kotlin.jvm
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.a
     public final y invoke() {
-        return kotlin.jvm.internal.i.w(this.receiver$0);
+        return kotlin.jvm.internal.i.u(this.receiver$0);
     }
 }

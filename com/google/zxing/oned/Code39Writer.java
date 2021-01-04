@@ -5,7 +5,7 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Code39Writer extends OneDimensionalCodeWriter {
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter, com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
@@ -23,27 +23,23 @@ public final class Code39Writer extends OneDimensionalCodeWriter {
         }
         int[] iArr = new int[9];
         int i = length + 25;
-        int i2 = 0;
-        while (i2 < length) {
+        for (int i2 = 0; i2 < length; i2++) {
             int indexOf = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%".indexOf(str.charAt(i2));
             if (indexOf < 0) {
                 throw new IllegalArgumentException("Bad contents: " + str);
             }
             toIntArray(Code39Reader.CHARACTER_ENCODINGS[indexOf], iArr);
-            int i3 = i;
-            for (int i4 = 0; i4 < 9; i4++) {
-                i3 += iArr[i4];
+            for (int i3 = 0; i3 < 9; i3++) {
+                i += iArr[i3];
             }
-            i2++;
-            i = i3;
         }
         boolean[] zArr = new boolean[i];
         toIntArray(Code39Reader.ASTERISK_ENCODING, iArr);
         int appendPattern = appendPattern(zArr, 0, iArr, true);
         int[] iArr2 = {1};
-        int appendPattern2 = appendPattern + appendPattern(zArr, appendPattern, iArr2, false);
-        for (int i5 = 0; i5 < length; i5++) {
-            toIntArray(Code39Reader.CHARACTER_ENCODINGS["0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%".indexOf(str.charAt(i5))], iArr);
+        int appendPattern2 = appendPattern(zArr, appendPattern, iArr2, false) + appendPattern;
+        for (int i4 = 0; i4 < length; i4++) {
+            toIntArray(Code39Reader.CHARACTER_ENCODINGS["0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%".indexOf(str.charAt(i4))], iArr);
             int appendPattern3 = appendPattern2 + appendPattern(zArr, appendPattern2, iArr, true);
             appendPattern2 = appendPattern3 + appendPattern(zArr, appendPattern3, iArr2, false);
         }

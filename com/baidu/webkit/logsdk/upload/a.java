@@ -1,12 +1,14 @@
 package com.baidu.webkit.logsdk.upload;
 
 import android.text.TextUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3968a;
-    public int b;
+    public String f6013a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f6014b;
     boolean c;
     public long d;
     public com.baidu.webkit.logsdk.b.a e;
@@ -20,8 +22,8 @@ public final class a {
     }
 
     public a(com.baidu.webkit.logsdk.b.a aVar, String str, String str2) {
-        this.f3968a = str;
-        this.b = 0;
+        this.f6013a = str;
+        this.f6014b = 0;
         this.c = false;
         this.e = aVar;
         int a2 = TextUtils.isEmpty(str2) ? -1 : com.baidu.webkit.logsdk.d.c.a(str2);

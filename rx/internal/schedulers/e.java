@@ -3,9 +3,9 @@ package rx.internal.schedulers;
 import java.util.concurrent.TimeUnit;
 import rx.g;
 import rx.k;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class e extends rx.g {
-    public static final e pTH = new e();
+    public static final e qvi = new e();
 
     private e() {
     }
@@ -15,9 +15,9 @@ public final class e extends rx.g {
         return new a();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     final class a extends g.a implements k {
-        final rx.subscriptions.a pTI = new rx.subscriptions.a();
+        final rx.subscriptions.a qvj = new rx.subscriptions.a();
 
         a() {
         }
@@ -30,17 +30,17 @@ public final class e extends rx.g {
         @Override // rx.g.a
         public k c(rx.functions.a aVar) {
             aVar.call();
-            return rx.subscriptions.e.eHb();
+            return rx.subscriptions.e.ePj();
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.pTI.unsubscribe();
+            this.qvj.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.pTI.isUnsubscribed();
+            return this.qvj.isUnsubscribed();
         }
     }
 }

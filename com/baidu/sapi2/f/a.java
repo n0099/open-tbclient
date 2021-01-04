@@ -14,7 +14,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static final String c = "SapiScheme";
     public static final String d = "3.0.5";
@@ -32,8 +32,10 @@ public class a {
     public static final String p = "achieve_sc_app_data";
 
     /* renamed from: a  reason: collision with root package name */
-    private SapiWebView.InvokeScAppCallback.InvokeScAppResult f3460a;
-    private b b;
+    private SapiWebView.InvokeScAppCallback.InvokeScAppResult f5237a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private b f5238b;
 
     public int a(Context context, String str, SapiWebView.InvokeScAppCallback invokeScAppCallback) {
         PackageInfo packageInfo = null;
@@ -54,26 +56,26 @@ public class a {
     }
 
     public void a(Activity activity, String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
-        this.f3460a = invokeScAppResult;
+        this.f5237a = invokeScAppResult;
         a aVar = new a();
         if (!aVar.a((Context) activity, g)) {
-            this.f3460a.setInvokeResult(a(b.b, b.d));
+            this.f5237a.setInvokeResult(a(b.f5240b, b.d));
             return;
         }
         try {
             aVar.a(activity, aVar.a(str, str2, list));
         } catch (Exception e2) {
-            this.f3460a.setInvokeResult(a(b.f3461a, b.c));
+            this.f5237a.setInvokeResult(a(b.f5239a, b.c));
         }
     }
 
     public void a(int i2, int i3, Intent intent) {
-        if (this.f3460a != null) {
+        if (this.f5237a != null) {
             String str = null;
             if (intent != null) {
                 str = intent.getExtras().getString(p);
             }
-            this.f3460a.setInvokeResult(str);
+            this.f5237a.setInvokeResult(str);
         }
     }
 
@@ -109,9 +111,9 @@ public class a {
     }
 
     private String a(int i2, String str) {
-        this.b = new b();
-        this.b.setResultCode(i2);
-        this.b.setResultMsg(str);
-        return this.b.a();
+        this.f5238b = new b();
+        this.f5238b.setResultCode(i2);
+        this.f5238b.setResultMsg(str);
+        return this.f5238b.a();
     }
 }

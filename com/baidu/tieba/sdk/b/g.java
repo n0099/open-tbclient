@@ -1,7 +1,7 @@
 package com.baidu.tieba.sdk.b;
 
 import com.baidu.tieba.sdk.activity.YuyinLivePlayerActivity;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface g {
     void a(YuyinLivePlayerActivity yuyinLivePlayerActivity);
 

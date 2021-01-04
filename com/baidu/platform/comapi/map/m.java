@@ -5,13 +5,15 @@ import android.view.SurfaceHolder;
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class m implements ak {
     public static boolean d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2927a;
-    public int b;
+    public int f4352a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f4353b;
     private af g;
     private WeakReference<MapSurfaceView> h;
     private WeakReference<GLTextureView> i;

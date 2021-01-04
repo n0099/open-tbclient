@@ -22,46 +22,46 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class b {
-    private static b eRm;
-    private static HashMap<String, String> eRo;
+    private static b fbl;
+    private static HashMap<String, String> fbn;
     private static ContentResolver mContentResolver;
-    private String cWT;
+    private String dbO;
     private String mFile;
     private SharedPreferences mSP;
-    private String eRp = null;
-    private ConcurrentHashMap<String, Object> eRn = new ConcurrentHashMap<>();
+    private String fbo = null;
+    private ConcurrentHashMap<String, Object> fbm = new ConcurrentHashMap<>();
 
     protected b() {
-        eRo = new HashMap<>();
-        eRo.put(a.eRd, "settings");
-        eRo.put(a.eRe, "remote_settings");
-        eRo.put(a.eRf, "bdservice_settings");
-        eRo.put(a.eRg, a.eRj);
-        eRo.put(a.eRh, a.eRk);
-        eRo.put(a.eRi, a.eRl);
+        fbn = new HashMap<>();
+        fbn.put(a.fbc, "settings");
+        fbn.put(a.fbd, "remote_settings");
+        fbn.put(a.fbe, "bdservice_settings");
+        fbn.put(a.fbf, a.fbi);
+        fbn.put(a.fbg, a.fbj);
+        fbn.put(a.fbh, a.fbk);
         mContentResolver = TbadkCoreApplication.getInst().getContentResolver();
     }
 
-    public static synchronized b bsO() {
+    public static synchronized b bvq() {
         b bVar;
         synchronized (b.class) {
-            if (eRm == null) {
-                eRm = new b();
+            if (fbl == null) {
+                fbl = new b();
             }
-            bVar = eRm;
+            bVar = fbl;
         }
         return bVar;
     }
 
     public boolean isContains(String str) {
-        if (BF(str)) {
+        if (BE(str)) {
             return false;
         }
-        return this.eRn.containsKey(str) || getSharedPreferences().contains(str);
+        return this.fbm.containsKey(str) || getSharedPreferences().contains(str);
     }
 
     public boolean getBoolean(String str, boolean z) {
-        if (BF(str)) {
+        if (BE(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -73,7 +73,7 @@ public class b {
             }
             return z;
         }
-        Object obj = this.eRn.get(str);
+        Object obj = this.fbm.get(str);
         if (obj instanceof Boolean) {
             return ((Boolean) obj).booleanValue();
         }
@@ -82,7 +82,7 @@ public class b {
     }
 
     public int getInt(String str, int i) {
-        if (BF(str)) {
+        if (BE(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -94,7 +94,7 @@ public class b {
             }
             return i;
         }
-        Object obj = this.eRn.get(str);
+        Object obj = this.fbm.get(str);
         if (obj instanceof Integer) {
             return ((Integer) obj).intValue();
         }
@@ -103,7 +103,7 @@ public class b {
     }
 
     public long getLong(String str, long j) {
-        if (BF(str)) {
+        if (BE(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -115,7 +115,7 @@ public class b {
             }
             return j;
         }
-        Object obj = this.eRn.get(str);
+        Object obj = this.fbm.get(str);
         if (obj instanceof Long) {
             return ((Long) obj).longValue();
         }
@@ -129,11 +129,11 @@ public class b {
     }
 
     public String getString(String str, String str2) {
-        if (BF(str)) {
+        if (BE(str)) {
             String value = getValue(str);
             return value != null ? value : str2;
         }
-        Object obj = this.eRn.get(str);
+        Object obj = this.fbm.get(str);
         if (obj instanceof String) {
             return (String) obj;
         }
@@ -143,10 +143,10 @@ public class b {
 
     public void commit() {
         SharedPreferences.Editor edit;
-        if (!this.eRn.isEmpty()) {
+        if (!this.fbm.isEmpty()) {
             this.mSP = getSharedPreferences();
             if (this.mSP != null && (edit = this.mSP.edit()) != null) {
-                for (Map.Entry<String, Object> entry : this.eRn.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.fbm.entrySet()) {
                     if (entry != null) {
                         String valueOf = String.valueOf(entry.getKey());
                         Object value = entry.getValue();
@@ -168,14 +168,14 @@ public class b {
                 } else {
                     edit.commit();
                 }
-                this.eRn.clear();
+                this.fbm.clear();
             }
         }
     }
 
     private void x(String str, Object obj) {
         if (str != null && obj != null) {
-            this.eRn.put(str, obj);
+            this.fbm.put(str, obj);
             Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tbadk.core.sharedPref.b.1
                 @Override // android.os.MessageQueue.IdleHandler
                 public boolean queueIdle() {
@@ -187,7 +187,7 @@ public class b {
     }
 
     public void putBoolean(String str, boolean z) {
-        if (BF(str)) {
+        if (BE(str)) {
             aw(str, z);
         } else if (l.isMainThread()) {
             x(str, Boolean.valueOf(z));
@@ -200,8 +200,8 @@ public class b {
     }
 
     public void putString(String str, String str2) {
-        if (BF(str)) {
-            dU(str, str2);
+        if (BE(str)) {
+            dT(str, str2);
         } else if ("null".equals(str2)) {
             remove(str);
         } else if (l.isMainThread()) {
@@ -215,8 +215,8 @@ public class b {
     }
 
     public void putInt(String str, int i) {
-        if (BF(str)) {
-            ak(str, i);
+        if (BE(str)) {
+            am(str, i);
         } else if (l.isMainThread()) {
             x(str, Integer.valueOf(i));
         } else {
@@ -228,7 +228,7 @@ public class b {
     }
 
     public void putLong(String str, long j) {
-        if (BF(str)) {
+        if (BE(str)) {
             v(str, j);
         } else if (l.isMainThread()) {
             x(str, Long.valueOf(j));
@@ -241,17 +241,17 @@ public class b {
     }
 
     public void remove(String str) {
-        if (BF(str)) {
+        if (BE(str)) {
             removeValue(str);
-        } else if (this.eRn.containsKey(str)) {
-            this.eRn.remove(str);
+        } else if (this.fbm.containsKey(str)) {
+            this.fbm.remove(str);
         } else {
             this.mSP = getSharedPreferences();
             EditorHelper.remove(this.mSP, str);
         }
     }
 
-    private boolean BF(String str) {
+    private boolean BE(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
@@ -265,48 +265,48 @@ public class b {
     }
 
     private String getValue(String str) {
-        return r(Uri.parse(bsP() + str));
+        return t(Uri.parse(bvr() + str));
     }
 
-    private void dU(String str, String str2) {
-        Uri parse = Uri.parse(bsP() + str);
+    private void dT(String str, String str2) {
+        Uri parse = Uri.parse(bvr() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, str2);
-        a(parse, contentValues);
+        b(parse, contentValues);
     }
 
-    private void ak(String str, int i) {
-        Uri parse = Uri.parse(bsP() + str);
+    private void am(String str, int i) {
+        Uri parse = Uri.parse(bvr() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(i));
-        a(parse, contentValues);
+        b(parse, contentValues);
     }
 
     private void v(String str, long j) {
-        Uri parse = Uri.parse(bsP() + str);
+        Uri parse = Uri.parse(bvr() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(j));
-        a(parse, contentValues);
+        b(parse, contentValues);
     }
 
     private void aw(String str, boolean z) {
-        Uri parse = Uri.parse(bsP() + str);
+        Uri parse = Uri.parse(bvr() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(z));
-        a(parse, contentValues);
+        b(parse, contentValues);
     }
 
     private void removeValue(String str) {
-        s(Uri.parse(bsP() + str));
+        u(Uri.parse(bvr() + str));
     }
 
     public synchronized SharedPreferences getSharedPreferences() {
         if (this.mFile == null || this.mFile.length() == 0) {
-            if (this.cWT == null || this.cWT.length() == 0) {
-                this.cWT = getProcessName();
+            if (this.dbO == null || this.dbO.length() == 0) {
+                this.dbO = getProcessName();
             }
-            if (eRo.containsKey(this.cWT)) {
-                this.mFile = eRo.get(this.cWT);
+            if (fbn.containsKey(this.dbO)) {
+                this.mFile = fbn.get(this.dbO);
             } else {
                 this.mFile = "settings";
             }
@@ -315,7 +315,7 @@ public class b {
     }
 
     private String getProcessName() {
-        String str = a.eRd;
+        String str = a.fbc;
         ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         if (activityManager != null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
@@ -331,36 +331,36 @@ public class b {
         return str;
     }
 
-    protected String bsP() {
-        if (this.eRp == null) {
+    protected String bvr() {
+        if (this.fbo == null) {
             String packageName = TbadkCoreApplication.getInst().getContext().getPackageName();
             if ("com.baidu.tieba".equals(packageName)) {
-                this.eRp = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
+                this.fbo = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
             } else {
-                this.eRp = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
+                this.fbo = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
             }
         }
-        return this.eRp;
+        return this.fbo;
     }
 
-    protected void a(final Uri uri, final ContentValues contentValues) {
+    protected void b(final Uri uri, final ContentValues contentValues) {
         if (l.isMainThread()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    b.this.b(uri, contentValues);
+                    b.this.c(uri, contentValues);
                     return null;
                 }
             }.execute(new Void[0]);
         } else {
-            b(uri, contentValues);
+            c(uri, contentValues);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(Uri uri, ContentValues contentValues) {
+    public void c(Uri uri, ContentValues contentValues) {
         try {
             mContentResolver.insert(uri, contentValues);
         } catch (Exception e) {
@@ -368,7 +368,7 @@ public class b {
         }
     }
 
-    protected String r(Uri uri) {
+    protected String t(Uri uri) {
         try {
             return mContentResolver.getType(uri);
         } catch (SecurityException e) {
@@ -377,24 +377,24 @@ public class b {
         }
     }
 
-    protected void s(final Uri uri) {
+    protected void u(final Uri uri) {
         if (l.isMainThread()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    b.this.t(uri);
+                    b.this.v(uri);
                     return null;
                 }
             }.execute(new Void[0]);
         } else {
-            t(uri);
+            v(uri);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void t(Uri uri) {
+    public void v(Uri uri) {
         try {
             mContentResolver.delete(uri, null, null);
         } catch (SecurityException e) {

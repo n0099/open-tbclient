@@ -38,6 +38,7 @@ import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.common.SecurityUtil;
@@ -84,7 +85,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class SapiUtils implements NoProguard {
     public static final String COOKIE_HTTPS_URL_PREFIX = "https://";
     public static final String COOKIE_URL_PREFIX = "https://www.";
@@ -111,8 +112,10 @@ public class SapiUtils implements NoProguard {
     public static final String QR_LOGIN_LP_PC = "pc";
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f3534a = "cmd";
-    static final String b = "error";
+    static final String f5371a = "cmd";
+
+    /* renamed from: b  reason: collision with root package name */
+    static final String f5372b = "error";
     static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
     static final String d = Character.toString(2);
     static final String e = Character.toString(3);
@@ -608,33 +611,30 @@ public class SapiUtils implements NoProguard {
     public static String getWifiInfo(Context context) {
         String str;
         String str2;
-        String str3;
         int i;
+        String str3;
         int i2 = 0;
         StringBuffer stringBuffer = new StringBuffer();
         try {
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             WifiInfo connectionInfo = ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() ? wifiManager.getConnectionInfo() : null;
             str2 = "";
-            str3 = "";
             if (connectionInfo != null) {
                 int abs = StrictMath.abs(connectionInfo.getRssi());
-                String ssid = connectionInfo.getSSID();
-                if (ssid != null) {
-                    ssid = ssid.replace("\"", "");
+                str3 = connectionInfo.getSSID();
+                if (str3 != null) {
+                    str3 = str3.replace("\"", "");
                 }
-                String bssid = connectionInfo.getBSSID();
-                if (bssid != null) {
-                    str3 = ssid;
-                    str2 = bssid.replace(":", "");
+                str2 = connectionInfo.getBSSID();
+                if (str2 != null) {
+                    str2 = str2.replace(":", "");
                     i = abs;
                 } else {
-                    str3 = ssid;
-                    str2 = bssid;
                     i = abs;
                 }
             } else {
                 i = 0;
+                str3 = "";
             }
             List<ScanResult> scanResults = checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) ? wifiManager.getScanResults() : null;
             if (scanResults != null) {
@@ -842,8 +842,8 @@ public class SapiUtils implements NoProguard {
                 } else {
                     hashMap2.put("islogin", "1");
                 }
-                hashMap2.put("client", "android");
-                k.a(k.f3564a, hashMap2);
+                hashMap2.put("client", HttpConstants.OS_TYPE_VALUE);
+                k.a(k.f5422a, hashMap2);
             }
             return urlParamsToMap;
         } else {
@@ -988,9 +988,9 @@ public class SapiUtils implements NoProguard {
         return ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str, str2);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [40=4, 28=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [40=5, 28=5] */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0058, code lost:
-        if (r0 == null) goto L33;
+        if (r0 == null) goto L34;
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x005a, code lost:
         r0.destroy();
@@ -999,101 +999,107 @@ public class SapiUtils implements NoProguard {
         return false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:33:0x006e, code lost:
-        if (r0 != null) goto L32;
+        if (r0 != null) goto L33;
      */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0088  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0083 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x007c  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static boolean a(String str) {
+        Throwable th;
         Process process;
-        Process process2;
         IOException e2;
+        Process process2;
+        Process process3;
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         try {
-            Process process3 = Runtime.getRuntime().exec("ls -l " + str);
+            process3 = Runtime.getRuntime().exec("ls -l " + str);
+        } catch (IOException e3) {
+            e2 = e3;
+            process2 = null;
+        } catch (Throwable th2) {
+            th = th2;
+            process = null;
+        }
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(process3.getInputStream()));
+        } catch (IOException e4) {
+            e2 = e4;
+            process2 = process3;
+            process3 = process2;
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(process3.getInputStream()));
-            } catch (IOException e3) {
-                process2 = process3;
-                e = e3;
-                IOException iOException = e;
-                process3 = process2;
-                e2 = iOException;
-                try {
-                    Log.e(e2);
-                    if (bufferedReader2 != null) {
-                        try {
-                            bufferedReader2.close();
-                        } catch (Exception e4) {
-                            Log.e(e4);
-                        }
-                    }
-                } catch (Throwable th) {
-                    process = process3;
-                    th = th;
-                    if (bufferedReader2 != null) {
-                        try {
-                            bufferedReader2.close();
-                        } catch (Exception e5) {
-                            Log.e(e5);
-                        }
-                    }
-                    if (process != null) {
-                        process.destroy();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                process = process3;
-                th = th2;
-            }
-            try {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null && readLine.length() >= 4) {
-                    char charAt = readLine.charAt(3);
-                    if (charAt == 's' || charAt == 'x') {
-                        try {
-                            bufferedReader.close();
-                        } catch (Exception e6) {
-                            Log.e(e6);
-                        }
-                        if (process3 != null) {
-                            process3.destroy();
-                        }
-                        return true;
-                    }
-                }
-                try {
-                    bufferedReader.close();
-                } catch (Exception e7) {
-                    Log.e(e7);
-                }
-            } catch (IOException e8) {
-                e2 = e8;
-                bufferedReader2 = bufferedReader;
                 Log.e(e2);
                 if (bufferedReader2 != null) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (Exception e5) {
+                        Log.e(e5);
+                    }
                 }
             } catch (Throwable th3) {
-                bufferedReader2 = bufferedReader;
                 th = th3;
-                process = process3;
+                bufferedReader = bufferedReader2;
+                bufferedReader2 = bufferedReader;
                 if (bufferedReader2 != null) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (Exception e6) {
+                        Log.e(e6);
+                    }
                 }
-                if (process != null) {
+                if (process3 != null) {
+                    process3.destroy();
                 }
                 throw th;
             }
-        } catch (IOException e9) {
-            e = e9;
-            process2 = null;
         } catch (Throwable th4) {
             th = th4;
-            process = null;
+            process = process3;
+            process3 = process;
+            if (bufferedReader2 != null) {
+            }
+            if (process3 != null) {
+            }
+            throw th;
+        }
+        try {
+            String readLine = bufferedReader.readLine();
+            if (readLine != null && readLine.length() >= 4) {
+                char charAt = readLine.charAt(3);
+                if (charAt == 's' || charAt == 'x') {
+                    try {
+                        bufferedReader.close();
+                    } catch (Exception e7) {
+                        Log.e(e7);
+                    }
+                    if (process3 != null) {
+                        process3.destroy();
+                    }
+                    return true;
+                }
+            }
+            try {
+                bufferedReader.close();
+            } catch (Exception e8) {
+                Log.e(e8);
+            }
+        } catch (IOException e9) {
+            e2 = e9;
+            bufferedReader2 = bufferedReader;
+            Log.e(e2);
+            if (bufferedReader2 != null) {
+            }
+        } catch (Throwable th5) {
+            th = th5;
+            bufferedReader2 = bufferedReader;
+            if (bufferedReader2 != null) {
+            }
+            if (process3 != null) {
+            }
+            throw th;
         }
     }
 

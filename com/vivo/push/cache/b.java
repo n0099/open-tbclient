@@ -4,26 +4,28 @@ import android.content.Context;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f4442a = new Object();
-    private static volatile b b;
+    private static final Object f13932a = new Object();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static volatile b f13933b;
     private e c;
 
     private b() {
     }
 
     public static b a() {
-        if (b == null) {
-            synchronized (f4442a) {
-                if (b == null) {
-                    b = new b();
+        if (f13933b == null) {
+            synchronized (f13932a) {
+                if (f13933b == null) {
+                    f13933b = new b();
                 }
             }
         }
-        return b;
+        return f13933b;
     }
 
     public final e a(Context context) {

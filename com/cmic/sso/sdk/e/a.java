@@ -5,7 +5,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static String a(byte[] bArr, String str) {
         try {
@@ -19,7 +19,7 @@ public class a {
         }
     }
 
-    public static String f(byte[] bArr, String str) {
+    public static String b(byte[] bArr, String str) {
         try {
             byte[] decode = Base64.decode(str, 0);
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.e.q);

@@ -9,27 +9,27 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.core.d.i;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile a dnB;
+    public static volatile a dsB;
     public String appId;
-    public String dnA;
-    public com.baidu.m.a.a dnC;
-    public String dnz;
+    public String dsA;
+    public com.baidu.m.a.a dsC;
+    public String dsz;
 
     private a() {
     }
 
-    public static a aFF() {
-        if (dnB == null) {
+    public static a aGZ() {
+        if (dsB == null) {
             synchronized (a.class) {
-                if (dnB == null) {
-                    dnB = new a();
+                if (dsB == null) {
+                    dsB = new a();
                 }
             }
         }
-        return dnB;
+        return dsB;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
@@ -38,11 +38,11 @@ public class a {
             com.baidu.swan.apps.console.c.i("SwanAppPayLaunchMsg", "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.m.b.adl().bu(context)) {
-            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).showToast();
+        } else if (!com.baidu.m.b.afh().bI(context)) {
+            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).aLS();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
-        } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.ch(a2, a2))) {
+        } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.cg(a2, a2))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
@@ -73,7 +73,7 @@ public class a {
         }
     }
 
-    public static int jY(int i) {
+    public static int jT(int i) {
         switch (i) {
             case -2:
                 return 2;

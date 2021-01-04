@@ -3,6 +3,7 @@ package com.baidu.ala.recorder.video.hardware;
 import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import android.media.MediaCodecInfo;
+import android.media.MediaCodecList;
 import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.os.Build;
@@ -10,15 +11,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Surface;
 import com.baidu.ala.recorder.video.hardware.TextureEncoder;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class VideoEncoderCore {
+    private static final String AVC_MIME_TYPE = "video/avc";
     private static final int DEFAULT_FRAME_RATE = 15;
     private static final int DEFAULT_IFRAME_INTERVAL = 2;
+    private static final String HEVC_MIME_TYPE = "video/hevc";
     private static final int LEN = 512000;
-    private static final String MIME_TYPE = "video/avc";
     private static final int MIN_STEP_REQ_KEYFRAME_MS = 500;
     private static final boolean REQUEST_BASELINE_PROFILE = true;
     private static final String TAG = "VideoEncoderCore";
@@ -32,13 +35,14 @@ public class VideoEncoderCore {
     private Surface mInputSurface;
     private long mLastKeyFrameTS;
     private long mLastReqKeyFrameTS;
+    private String mMineType;
     private OutputCallback mOutputCallback;
     private Bundle mReqKeyFrameParams;
-    private byte[] mH264Buffer = new byte[LEN];
+    private byte[] mH264Buffer = new byte[512000];
     private int mH264MetaSize = 0;
     private byte[] mH264MetaBuff = null;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public interface OutputCallback {
         public static final int KEY_FRAME = 2;
         public static final int MC_ENCODER_CONFIGURE_ERR = 1;
@@ -49,67 +53,82 @@ public class VideoEncoderCore {
 
         void onCodecConfig(byte[] bArr, int i, int i2);
 
-        void onCodecData(byte[] bArr, int i, int i2, int i3, long j, long j2);
+        void onCodecData(byte[] bArr, int i, int i2, int i3, long j, long j2, int i4);
 
         void onCodecError(int i);
 
         void onFormatChanged(MediaFormat mediaFormat);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [152=7, 153=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [189=7, 190=6] */
     @TargetApi(19)
     public VideoEncoderCore(TextureEncoder.EncodeConfig encodeConfig, OutputCallback outputCallback) {
+        this.mMineType = "video/avc";
         try {
             try {
                 try {
-                    try {
+                    this.mBufferInfo = new MediaCodec.BufferInfo();
+                    this.mOutputCallback = outputCallback;
+                    this.mEncodeConfig = TextureEncoder.EncodeConfig.CloneObj(encodeConfig);
+                    checkTextureEncoderConfig(this.mEncodeConfig);
+                    int i = this.mEncodeConfig.isLandscape ? this.mEncodeConfig.encodeHeight : this.mEncodeConfig.encodeWidth;
+                    int i2 = this.mEncodeConfig.isLandscape ? this.mEncodeConfig.encodeWidth : this.mEncodeConfig.encodeHeight;
+                    this.mMineType = "video/avc";
+                    if (this.mEncodeConfig.mVideoCodecId == 12) {
+                        this.mMineType = HEVC_MIME_TYPE;
+                    }
+                    MediaFormat createVideoFormat = MediaFormat.createVideoFormat(this.mMineType, i, i2);
+                    if (Build.VERSION.SDK_INT >= 21) {
                         try {
-                            this.mBufferInfo = new MediaCodec.BufferInfo();
-                            this.mOutputCallback = outputCallback;
-                            this.mEncodeConfig = TextureEncoder.EncodeConfig.CloneObj(encodeConfig);
-                            checkTextureEncoderConfig(this.mEncodeConfig);
-                            MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", this.mEncodeConfig.isLandscape ? this.mEncodeConfig.encodeHeight : this.mEncodeConfig.encodeWidth, this.mEncodeConfig.isLandscape ? this.mEncodeConfig.encodeWidth : this.mEncodeConfig.encodeHeight);
-                            createVideoFormat.setInteger("color-format", 2130708361);
-                            createVideoFormat.setInteger("bitrate", this.mEncodeConfig.encodeBitrate);
-                            createVideoFormat.setInteger("frame-rate", this.mEncodeConfig.H264FPS);
-                            createVideoFormat.setInteger("i-frame-interval", this.mEncodeConfig.H264GOP);
-                            this.mEncoder = MediaCodec.createEncoderByType("video/avc");
-                            this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                            this.mInputSurface = this.mEncoder.createInputSurface();
-                            this.mEncoder.start();
-                            this.mReqKeyFrameParams = new Bundle();
-                            this.mReqKeyFrameParams.putInt("request-sync", 0);
+                            if (new MediaCodecList(1).findEncoderForFormat(createVideoFormat) == null) {
+                                this.mMineType = "video/avc";
+                                createVideoFormat = MediaFormat.createVideoFormat(this.mMineType, i, i2);
+                            }
                         } catch (Exception e) {
                             e.printStackTrace();
-                            if (this.mOutputCallback != null) {
-                                this.mOutputCallback.onCodecError(1);
-                            }
-                        }
-                    } catch (MediaCodec.CryptoException e2) {
-                        e2.printStackTrace();
-                        if (this.mOutputCallback != null) {
-                            this.mOutputCallback.onCodecError(1);
+                            this.mMineType = "video/avc";
+                            createVideoFormat = MediaFormat.createVideoFormat(this.mMineType, i, i2);
                         }
                     }
-                } catch (IOException e3) {
+                    createVideoFormat.setInteger("color-format", 2130708361);
+                    createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.mEncodeConfig.encodeBitrate);
+                    createVideoFormat.setInteger("frame-rate", this.mEncodeConfig.H264FPS);
+                    createVideoFormat.setInteger("i-frame-interval", this.mEncodeConfig.H264GOP);
+                    this.mEncoder = MediaCodec.createEncoderByType(this.mMineType);
+                    this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+                    this.mInputSurface = this.mEncoder.createInputSurface();
+                    this.mEncoder.start();
+                    this.mReqKeyFrameParams = new Bundle();
+                    this.mReqKeyFrameParams.putInt("request-sync", 0);
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    if (this.mOutputCallback != null) {
+                        this.mOutputCallback.onCodecError(1);
+                    }
+                } catch (Exception e3) {
                     e3.printStackTrace();
                     if (this.mOutputCallback != null) {
                         this.mOutputCallback.onCodecError(1);
                     }
                 }
-            } catch (IllegalStateException e4) {
+            } catch (MediaCodec.CryptoException e4) {
                 e4.printStackTrace();
                 if (this.mOutputCallback != null) {
                     this.mOutputCallback.onCodecError(1);
                 }
+            } catch (IllegalStateException e5) {
+                e5.printStackTrace();
+                if (this.mOutputCallback != null) {
+                    this.mOutputCallback.onCodecError(1);
+                }
             }
-        } catch (IllegalArgumentException e5) {
-            e5.printStackTrace();
+        } catch (IllegalArgumentException e6) {
+            e6.printStackTrace();
             if (this.mOutputCallback != null) {
                 this.mOutputCallback.onCodecError(1);
             }
-        } catch (NullPointerException e6) {
-            e6.printStackTrace();
+        } catch (NullPointerException e7) {
+            e7.printStackTrace();
             if (this.mOutputCallback != null) {
                 this.mOutputCallback.onCodecError(1);
             }
@@ -179,7 +198,7 @@ public class VideoEncoderCore {
                     checkIfRequestKeyFrame();
                     byteBuffer.position(0);
                     int capacity = byteBuffer.capacity();
-                    byteBuffer.get(this.mH264Buffer, 0, LEN < this.mBufferInfo.size - byteBuffer.position() ? LEN : this.mBufferInfo.size - byteBuffer.position());
+                    byteBuffer.get(this.mH264Buffer, 0, 512000 < this.mBufferInfo.size - byteBuffer.position() ? 512000 : this.mBufferInfo.size - byteBuffer.position());
                     if ((this.mBufferInfo.flags & 2) != 0) {
                         captureH264MetaData(this.mH264Buffer, this.mBufferInfo, capacity);
                         if (this.mOutputCallback != null) {
@@ -194,10 +213,10 @@ public class VideoEncoderCore {
                         }
                         packageH264Keyframe(this.mH264Buffer, this.mBufferInfo);
                         if (this.mOutputCallback != null) {
-                            this.mOutputCallback.onCodecData(this.mH264MetaBuff, 0, this.mBufferInfo.size + this.mH264MetaSize, 2, this.mBufferInfo.presentationTimeUs / 1000, this.mBufferInfo.presentationTimeUs / 1000);
+                            this.mOutputCallback.onCodecData(this.mH264MetaBuff, 0, this.mBufferInfo.size + this.mH264MetaSize, 2, this.mBufferInfo.presentationTimeUs / 1000, this.mBufferInfo.presentationTimeUs / 1000, this.mEncodeConfig.mVideoCodecId);
                         }
                     } else if (this.mOutputCallback != null) {
-                        this.mOutputCallback.onCodecData(this.mH264Buffer, 0, this.mBufferInfo.size, 4, this.mBufferInfo.presentationTimeUs / 1000, this.mBufferInfo.presentationTimeUs / 1000);
+                        this.mOutputCallback.onCodecData(this.mH264Buffer, 0, this.mBufferInfo.size, 4, this.mBufferInfo.presentationTimeUs / 1000, this.mBufferInfo.presentationTimeUs / 1000, this.mEncodeConfig.mVideoCodecId);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -280,19 +299,24 @@ public class VideoEncoderCore {
 
     @TargetApi(16)
     private int selectProfile(MediaCodecInfo.CodecCapabilities codecCapabilities) {
-        boolean z = false;
+        boolean z;
+        int i = 0;
         boolean z2 = false;
-        for (int i = 0; i < codecCapabilities.profileLevels.length; i++) {
+        boolean z3 = false;
+        while (i < codecCapabilities.profileLevels.length) {
             if (codecCapabilities.profileLevels[i].profile == 8) {
-                z2 = true;
-            } else if (codecCapabilities.profileLevels[i].profile == 2) {
-                z = true;
+                z = z2;
+                z3 = true;
+            } else {
+                z = codecCapabilities.profileLevels[i].profile == 2 ? true : z2;
             }
+            i++;
+            z2 = z;
         }
-        if (z2) {
+        if (z3) {
             return 8;
         }
-        return z ? 2 : 1;
+        return z2 ? 2 : 1;
     }
 
     private void checkTextureEncoderConfig(TextureEncoder.EncodeConfig encodeConfig) {

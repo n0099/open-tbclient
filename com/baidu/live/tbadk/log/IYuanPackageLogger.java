@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface IYuanPackageLogger {
     void doClickOneGiftBagLog(String str, String str2, String str3, String str4, long j);
 

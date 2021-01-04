@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.restnet.beans;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class StatusCode {
     public static final int CLIENT_SIGN_CHECK_ERROR = -1;
     public static final int ERROR_HTTP_CLIENT = -2;

@@ -4,13 +4,13 @@ import android.graphics.Path;
 import android.util.JsonReader;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class ae {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.airbnb.lottie.model.content.i w(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
-        String str = null;
+    public static com.airbnb.lottie.model.content.i w(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         int i = 1;
-        com.airbnb.lottie.model.a.d dVar = null;
+        String str = null;
+        com.airbnb.lottie.model.a.d dVar2 = null;
         boolean z = false;
         com.airbnb.lottie.model.a.a aVar = null;
         while (jsonReader.hasNext()) {
@@ -53,10 +53,10 @@ class ae {
                     str = jsonReader.nextString();
                     break;
                 case 1:
-                    aVar = d.l(jsonReader, eVar);
+                    aVar = d.l(jsonReader, dVar);
                     break;
                 case 2:
-                    dVar = d.g(jsonReader, eVar);
+                    dVar2 = d.g(jsonReader, dVar);
                     break;
                 case 3:
                     z = jsonReader.nextBoolean();
@@ -69,6 +69,6 @@ class ae {
                     break;
             }
         }
-        return new com.airbnb.lottie.model.content.i(str, z, i == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, aVar, dVar);
+        return new com.airbnb.lottie.model.content.i(str, z, i == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, aVar, dVar2);
     }
 }

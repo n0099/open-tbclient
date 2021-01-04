@@ -9,12 +9,13 @@ import android.os.Bundle;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.swan.apps.u.c.c;
+import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends c<a> {
         @Override // com.baidu.swan.apps.u.c.c, com.baidu.swan.apps.u.c.a.c
         public /* synthetic */ com.baidu.swan.apps.u.c.a.c D(Bundle bundle) {
@@ -22,9 +23,9 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.swan.apps.ap.e.d
-        /* renamed from: aBb */
-        public a aBa() {
+        @Override // com.baidu.swan.apps.ao.e.d
+        /* renamed from: aCs */
+        public a aCr() {
             return this;
         }
     }
@@ -59,15 +60,15 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
     @Override // com.baidu.swan.apps.u.c.a.c
     public String toString() {
-        return "SwanAppLaunchParams{appId='" + getAppId() + "', from='" + aBe() + "', page='" + getPage() + "', isDebug=" + isDebug() + ", extraData=" + aBj() + ", clickId='" + aBl() + "', launchScheme='" + aBg() + "', notInHistory='" + aBm() + "'}";
+        return "SwanAppLaunchParams{appId='" + getAppId() + "', from='" + aCv() + "', page='" + getPage() + "', isDebug=" + isDebug() + ", extraData=" + aCA() + ", clickId='" + aCC() + "', launchScheme='" + aCx() + "', notInHistory='" + aCD() + "'}";
     }
 
-    public static String f(String str, String str2, int i) {
+    public static String i(String str, String str2, int i) {
         String str3;
         if (i == 1) {
             str3 = "swangame";
         } else {
-            str3 = "swan";
+            str3 = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
         }
         Uri.Builder builder = new Uri.Builder();
         JSONObject jSONObject = new JSONObject();
@@ -85,7 +86,7 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
         if (i == 1) {
             str2 = "swangame";
         } else {
-            str2 = "swan";
+            str2 = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
         }
         if (jSONObject == null) {
             jSONObject = new JSONObject();

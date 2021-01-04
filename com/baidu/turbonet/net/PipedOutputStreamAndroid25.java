@@ -2,21 +2,21 @@ package com.baidu.turbonet.net;
 
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
-    private PipedInputStreamAndroid25 oEH;
+    private PipedInputStreamAndroid25 oLo;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.oEH == null) {
+        if (this.oLo == null) {
             throw new IOException("Pipe not connected");
         }
-        this.oEH.Os(i);
+        this.oLo.Oi(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.oEH == null) {
+        if (this.oLo == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -26,23 +26,23 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.oEH.v(bArr, i, i2);
+            this.oLo.v(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.oEH != null) {
-            synchronized (this.oEH) {
-                this.oEH.notifyAll();
+        if (this.oLo != null) {
+            synchronized (this.oLo) {
+                this.oLo.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.oEH != null) {
-            this.oEH.ehK();
+        if (this.oLo != null) {
+            this.oLo.ehZ();
         }
     }
 }

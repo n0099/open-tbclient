@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.CommitInviteMsg.CommitInviteMsgReqIdl;
 import protobuf.CommitInviteMsg.DataReq;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class RequestCommitInviteMessage extends TbSocketMessage {
     private DataReq mReqData;
 

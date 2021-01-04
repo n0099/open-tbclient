@@ -8,7 +8,7 @@ import com.baidu.mobstat.ActivityLifeObserver;
 import com.baidu.mobstat.BaiduStatJSInterface;
 import com.baidu.mobstat.MtjConfig;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class av {
     public static void a(String str) {
         if (af.a() && !ax.a().b()) {
@@ -40,7 +40,7 @@ public class av {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a implements ActivityLifeObserver.IActivityLifeCallback {
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
         public void onActivityCreated(Activity activity, Bundle bundle) {
@@ -83,7 +83,7 @@ public class av {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class b implements BaiduStatJSInterface.IWebviewPageLoadCallback {
         @Override // com.baidu.mobstat.BaiduStatJSInterface.IWebviewPageLoadCallback
         public void onPageStarted(WebView webView, String str, bl blVar) {

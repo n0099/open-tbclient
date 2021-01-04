@@ -21,7 +21,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PluginManager {
     private Context mContext;
     private Map<String, PluginPackageParser> mPluginCache = Collections.synchronizedMap(new HashMap(1));
@@ -49,14 +49,18 @@ public class PluginManager {
     }
 
     private void saveSignatures(PackageInfo packageInfo) {
-        Signature[] signatureArr;
         if (packageInfo != null && packageInfo.signatures != null) {
+            Signature[] signatureArr = packageInfo.signatures;
+            int length = signatureArr.length;
             int i = 0;
-            for (Signature signature : packageInfo.signatures) {
-                File file = new File(PluginDirHelper.getPluginSignatureFile(this.mContext, packageInfo.packageName, i));
+            int i2 = 0;
+            while (i < length) {
+                Signature signature = signatureArr[i];
+                File file = new File(PluginDirHelper.getPluginSignatureFile(this.mContext, packageInfo.packageName, i2));
                 try {
                     Utils.writeToFile(file, signature.toByteArray());
                     i++;
+                    i2++;
                 } catch (Exception e) {
                     e.printStackTrace();
                     file.delete();

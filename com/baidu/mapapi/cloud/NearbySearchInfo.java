@@ -6,16 +6,16 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class NearbySearchInfo extends BaseCloudSearchInfo {
     public String location;
     public int radius;
 
     public NearbySearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.f1985a = "https://api.map.baidu.com/geosearch/v2/nearby";
+            this.f2770a = "https://api.map.baidu.com/geosearch/v2/nearby";
         } else {
-            this.f1985a = "http://api.map.baidu.com/geosearch/v2/nearby";
+            this.f2770a = "http://api.map.baidu.com/geosearch/v2/nearby";
         }
         this.radius = 1000;
     }

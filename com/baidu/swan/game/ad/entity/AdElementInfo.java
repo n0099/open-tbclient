@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class AdElementInfo implements Parcelable {
     public static final int ACTION_TYPE_DOWNLOAD = 2;
     public static final int ACTION_TYPE_LANDING_PAGE = 1;
@@ -24,14 +24,14 @@ public class AdElementInfo implements Parcelable {
     public static final Parcelable.Creator<AdElementInfo> CREATOR = new Parcelable.Creator<AdElementInfo>() { // from class: com.baidu.swan.game.ad.entity.AdElementInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: B */
+        /* renamed from: C */
         public AdElementInfo createFromParcel(Parcel parcel) {
             return new AdElementInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mh */
+        /* renamed from: mp */
         public AdElementInfo[] newArray(int i) {
             return new AdElementInfo[i];
         }
@@ -133,7 +133,7 @@ public class AdElementInfo implements Parcelable {
                     if (next.equals("s")) {
                         JSONArray optJSONArray = optJSONObject.optJSONArray(next);
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            wa(optJSONArray.optString(i));
+                            vZ(optJSONArray.optString(i));
                         }
                     } else if (next.equals("vskip")) {
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
@@ -153,12 +153,12 @@ public class AdElementInfo implements Parcelable {
                     } else if (next.equals("click")) {
                         JSONArray optJSONArray5 = optJSONObject.optJSONArray(next);
                         for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
-                            wc(optJSONArray5.optString(i5));
+                            wb(optJSONArray5.optString(i5));
                         }
                     } else if (next.equals("c")) {
                         JSONArray optJSONArray6 = optJSONObject.optJSONArray(next);
                         for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
-                            wb(optJSONArray6.optString(i6));
+                            wa(optJSONArray6.optString(i6));
                         }
                     }
                 }
@@ -242,7 +242,7 @@ public class AdElementInfo implements Parcelable {
             if (jSONObject.has("click_urls")) {
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("click_urls");
                 for (int i2 = 0; optJSONArray3 != null && i2 < optJSONArray3.length(); i2++) {
-                    wb(optJSONArray3.optString(i2));
+                    wa(optJSONArray3.optString(i2));
                 }
             }
             if (jSONObject.has("video_play_urls")) {
@@ -254,7 +254,7 @@ public class AdElementInfo implements Parcelable {
             if (jSONObject.has("conversion_urls")) {
                 JSONArray optJSONArray5 = jSONObject.optJSONArray("conversion_urls");
                 for (int i4 = 0; optJSONArray5 != null && i4 < optJSONArray5.length(); i4++) {
-                    wd(optJSONArray5.optString(i4));
+                    wc(optJSONArray5.optString(i4));
                 }
             }
             this.mExpire = jSONObject.optInt("expiration", 0);
@@ -343,7 +343,7 @@ public class AdElementInfo implements Parcelable {
         return this.mDescription;
     }
 
-    public String aSW() {
+    public String aVq() {
         return this.mPictureUrl;
     }
 
@@ -359,23 +359,23 @@ public class AdElementInfo implements Parcelable {
         return this.mDuration;
     }
 
-    public int aSX() {
-        return aTa() == 6 ? this.mRewardTime : this.mRewardTimeDefault;
+    public int aVr() {
+        return aVu() == 6 ? this.mRewardTime : this.mRewardTimeDefault;
     }
 
-    public int aSY() {
-        return aTa() == 6 ? this.mSkipTime : this.mSkipTimeDefault;
+    public int aVs() {
+        return aVu() == 6 ? this.mSkipTime : this.mSkipTimeDefault;
     }
 
-    public String aSZ() {
+    public String aVt() {
         return this.mEndFrameUrl;
     }
 
-    public int aTa() {
+    public int aVu() {
         return this.mCloseType;
     }
 
-    public String aTb() {
+    public String aVv() {
         return this.mClickUrl;
     }
 
@@ -400,7 +400,7 @@ public class AdElementInfo implements Parcelable {
         return 0;
     }
 
-    public int aTc() {
+    public int aVw() {
         return this.mExpire;
     }
 
@@ -412,23 +412,23 @@ public class AdElementInfo implements Parcelable {
         return this.mVideoHeight;
     }
 
-    public String aTd() {
+    public String aVx() {
         return this.mBannerHtml;
     }
 
-    public String aTe() {
+    public String aVy() {
         return this.mLandBannerHtml;
     }
 
-    public String aTf() {
+    public String aVz() {
         return this.mEndFrameHtml;
     }
 
-    public List<String> aTg() {
+    public List<String> aVA() {
         return new ArrayList(this.mImpressionUrls);
     }
 
-    public JSONObject aTh() {
+    public JSONObject aVB() {
         return this.mAdMonitors;
     }
 
@@ -452,17 +452,17 @@ public class AdElementInfo implements Parcelable {
         return new ArrayList(this.mCloseTrackers);
     }
 
-    public List<String> aTi() {
+    public List<String> aVC() {
         return new ArrayList(this.mConversionUrls);
     }
 
-    private void wa(String str) {
+    private void vZ(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mThirdImpMonitorTrackers.add(str);
         }
     }
 
-    private void wb(String str) {
+    private void wa(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mThirdClickMonitorTrackers.add(str);
         }
@@ -486,19 +486,19 @@ public class AdElementInfo implements Parcelable {
         }
     }
 
-    private void wc(String str) {
+    private void wb(String str) {
         if (str != null && !str.equals("")) {
             this.mMonitorClickers.add(str);
         }
     }
 
-    private void wd(String str) {
+    private void wc(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mConversionUrls.add(str);
         }
     }
 
-    public boolean aTj() {
+    public boolean aVD() {
         return this.mGdtAd;
     }
 }

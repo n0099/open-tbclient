@@ -5,15 +5,15 @@ import android.util.Base64;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class a extends BdAsyncTask<Void, String, String> {
-    private int idh;
-    private com.baidu.tieba.barselect.data.c idi;
     private String imagePath;
+    private int ipG;
+    private com.baidu.tieba.barselect.data.c ipH;
 
     public a(String str, int i, com.baidu.tieba.barselect.data.c cVar) {
-        this.idh = i;
-        this.idi = cVar;
+        this.ipG = i;
+        this.ipH = cVar;
         this.imagePath = str;
     }
 
@@ -24,7 +24,7 @@ public class a extends BdAsyncTask<Void, String, String> {
         if (this.imagePath == null) {
             return null;
         }
-        return Jn(this.imagePath);
+        return Jl(this.imagePath);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,13 +32,14 @@ public class a extends BdAsyncTask<Void, String, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((a) str);
-        if (this.idi != null && str != null) {
-            this.idi.p("", this.idh, str);
+        if (this.ipH != null && str != null) {
+            this.ipH.o("", this.ipG, str);
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [70=4] */
-    public String Jn(String str) {
+    public String Jl(String str) {
+        Throwable th;
         FileInputStream fileInputStream;
         String str2 = null;
         try {
@@ -71,9 +72,9 @@ public class a extends BdAsyncTask<Void, String, String> {
                 } catch (Exception e4) {
                     e = e4;
                     fileInputStream = null;
-                } catch (Throwable th) {
+                } catch (Throwable th2) {
+                    th = th2;
                     fileInputStream = null;
-                    th = th;
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
@@ -85,8 +86,8 @@ public class a extends BdAsyncTask<Void, String, String> {
                 }
             }
             return str2;
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 }

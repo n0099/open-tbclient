@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.anchortask.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends HttpMessage {
     private long anchorId;
     private long liveId;

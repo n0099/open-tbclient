@@ -13,11 +13,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.Base64;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.util.media.MimeType;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferListener {
     public static final int FORMAT_AAC = 2;
     public static final int FORMAT_AMR = 1;
@@ -59,7 +58,7 @@ public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferL
         final int chatType = this.mMsg.getChatType();
         if (file != null && file.exists()) {
             if (this.mType == 1) {
-                this.mContentType = MimeType.Image.JPEG;
+                this.mContentType = "image/jpeg";
                 String str = "";
                 try {
                     str = this.mFilePath.substring(this.mFilePath.lastIndexOf(".") + 1);
@@ -69,40 +68,36 @@ public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferL
                 }
                 ChatMsgManager.genBosObjectUrl(this.mContext, this.mFilePath, this.mContentType, str, DuzhanUpMsgCreator.getReqType(chatType), 0, 0, this);
             } else if (this.mType == 2) {
-                this.mContentType = MimeType.Audio.AMR;
+                this.mContentType = "audio/amr";
                 ChatMsgManager.audioTrans(this.mContext, this.mFilePath, this.mContentType, "amr", DuzhanUpMsgCreator.getReqType(chatType), new BIMValueCallBack() { // from class: com.baidu.android.imsdk.upload.AsyncChatTask.1
                     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [113=6, 114=6] */
-                    /* JADX WARN: Removed duplicated region for block: B:44:0x00e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
                     @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                    /*
-                        Code decompiled incorrectly, please refer to instructions dump.
-                    */
                     public void onResult(int i, String str2, Object obj) {
-                        FileOutputStream fileOutputStream;
                         Exception exc;
-                        FileOutputStream fileOutputStream2;
-                        if (i != 0) {
-                            AsyncChatTask.this.onGenBosObjectUrlListener(1018, Constants.ERROR_MSG_HTTP_RESPONSE_ERROR, null, null, null);
-                            return;
-                        }
+                        FileOutputStream fileOutputStream;
+                        FileOutputStream fileOutputStream2 = null;
                         try {
-                            byte[] decode = Base64.decode((String) obj);
-                            File file2 = new File(AsyncChatTask.this.mFilePath);
-                            if (file2.exists()) {
-                                fileOutputStream2 = new FileOutputStream(file2);
-                                try {
-                                    fileOutputStream2.write(decode);
-                                    fileOutputStream2.flush();
-                                } catch (Exception e2) {
-                                    exc = e2;
-                                    fileOutputStream = fileOutputStream2;
+                            if (i != 0) {
+                                AsyncChatTask.this.onGenBosObjectUrlListener(1018, Constants.ERROR_MSG_HTTP_RESPONSE_ERROR, null, null, null);
+                                return;
+                            }
+                            try {
+                                byte[] decode = Base64.decode((String) obj);
+                                File file2 = new File(AsyncChatTask.this.mFilePath);
+                                if (file2.exists()) {
+                                    fileOutputStream = new FileOutputStream(file2);
                                     try {
+                                        fileOutputStream.write(decode);
+                                        fileOutputStream.flush();
+                                    } catch (Exception e2) {
+                                        exc = e2;
+                                        fileOutputStream2 = fileOutputStream;
                                         new IMTrack.CrashBuilder(AsyncChatTask.this.mContext).exception(Log.getStackTraceString(exc)).build();
                                         AsyncChatTask.this.onGenBosObjectUrlListener(1023, Constants.ERROR_MSG_HTTP_RESPONSE_ERROR, null, null, null);
                                         LogUtils.e(AsyncChatTask.TAG, exc.getMessage());
-                                        if (fileOutputStream != null) {
+                                        if (fileOutputStream2 != null) {
                                             try {
-                                                fileOutputStream.close();
+                                                fileOutputStream2.close();
                                             } catch (Exception e3) {
                                                 new IMTrack.CrashBuilder(AsyncChatTask.this.mContext).exception(Log.getStackTraceString(e3)).build();
                                                 LogUtils.e(AsyncChatTask.TAG, e3.getMessage());
@@ -111,9 +106,10 @@ public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferL
                                         ChatMsgManager.genBosObjectUrl(AsyncChatTask.this.mContext, AsyncChatTask.this.mFilePath, AsyncChatTask.this.mContentType, "amr", DuzhanUpMsgCreator.getReqType(chatType), 0, 0, AsyncChatTask.this);
                                     } catch (Throwable th) {
                                         th = th;
-                                        if (fileOutputStream != null) {
+                                        fileOutputStream2 = fileOutputStream;
+                                        if (fileOutputStream2 != null) {
                                             try {
-                                                fileOutputStream.close();
+                                                fileOutputStream2.close();
                                             } catch (Exception e4) {
                                                 new IMTrack.CrashBuilder(AsyncChatTask.this.mContext).exception(Log.getStackTraceString(e4)).build();
                                                 LogUtils.e(AsyncChatTask.TAG, e4.getMessage());
@@ -121,33 +117,25 @@ public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferL
                                         }
                                         throw th;
                                     }
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    fileOutputStream = fileOutputStream2;
-                                    if (fileOutputStream != null) {
+                                } else {
+                                    AsyncChatTask.this.onGenBosObjectUrlListener(1007, Constants.ERROR_MSG_PARAMETER_ERROR, null, null, null);
+                                    fileOutputStream = null;
+                                }
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e5) {
+                                        new IMTrack.CrashBuilder(AsyncChatTask.this.mContext).exception(Log.getStackTraceString(e5)).build();
+                                        LogUtils.e(AsyncChatTask.TAG, e5.getMessage());
                                     }
-                                    throw th;
                                 }
-                            } else {
-                                AsyncChatTask.this.onGenBosObjectUrlListener(1007, Constants.ERROR_MSG_PARAMETER_ERROR, null, null, null);
-                                fileOutputStream2 = null;
+                            } catch (Exception e6) {
+                                exc = e6;
                             }
-                            if (fileOutputStream2 != null) {
-                                try {
-                                    fileOutputStream2.close();
-                                } catch (Exception e5) {
-                                    new IMTrack.CrashBuilder(AsyncChatTask.this.mContext).exception(Log.getStackTraceString(e5)).build();
-                                    LogUtils.e(AsyncChatTask.TAG, e5.getMessage());
-                                }
-                            }
-                        } catch (Exception e6) {
-                            fileOutputStream = null;
-                            exc = e6;
-                        } catch (Throwable th3) {
-                            th = th3;
-                            fileOutputStream = null;
+                            ChatMsgManager.genBosObjectUrl(AsyncChatTask.this.mContext, AsyncChatTask.this.mFilePath, AsyncChatTask.this.mContentType, "amr", DuzhanUpMsgCreator.getReqType(chatType), 0, 0, AsyncChatTask.this);
+                        } catch (Throwable th2) {
+                            th = th2;
                         }
-                        ChatMsgManager.genBosObjectUrl(AsyncChatTask.this.mContext, AsyncChatTask.this.mFilePath, AsyncChatTask.this.mContentType, "amr", DuzhanUpMsgCreator.getReqType(chatType), 0, 0, AsyncChatTask.this);
                     }
                 });
             }

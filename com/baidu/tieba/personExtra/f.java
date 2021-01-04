@@ -6,14 +6,14 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class f implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
             return null;
         }
-        String str = com.baidu.tbadk.core.c.a.brq().Bo("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
+        String str = com.baidu.tbadk.core.c.a.btS().Bn("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
         ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
         if (str != null) {
             try {

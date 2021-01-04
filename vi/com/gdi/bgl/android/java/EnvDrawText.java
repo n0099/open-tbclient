@@ -5,12 +5,12 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.support.v4.view.ViewCompat;
 import android.text.Layout;
 import android.text.TextPaint;
 import android.util.SparseArray;
+import androidx.core.view.ViewCompat;
 import java.nio.IntBuffer;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class EnvDrawText {
     private static final String DEVICE_VIVOX3L = "vivo X3L";
     private static final int FONT_STYLE_BOLD = 1;
@@ -20,7 +20,7 @@ public class EnvDrawText {
     public static SparseArray<a> fontCache = null;
     private static Bitmap defaultFontBmp = null;
 
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0156 A[Catch: all -> 0x00f1, TryCatch #0 {, blocks: (B:5:0x0006, B:11:0x0019, B:13:0x001d, B:16:0x0028, B:17:0x0040, B:18:0x0043, B:20:0x004a, B:21:0x005f, B:23:0x006b, B:25:0x0096, B:29:0x00cd, B:31:0x00d3, B:34:0x00dd, B:36:0x00e5, B:43:0x0100, B:44:0x0104, B:46:0x010a, B:49:0x0114, B:50:0x0138, B:51:0x0151, B:53:0x0156, B:55:0x015f, B:57:0x0165, B:58:0x016a, B:59:0x0170, B:60:0x0188, B:62:0x0192, B:64:0x01a3, B:66:0x01ad, B:68:0x01b3, B:71:0x01c9, B:73:0x01e6, B:77:0x0224, B:79:0x022a, B:82:0x0234, B:84:0x023c, B:85:0x0241, B:86:0x0244, B:88:0x024a, B:89:0x0250, B:93:0x025f, B:95:0x0269, B:98:0x0283, B:99:0x02aa, B:101:0x02b6, B:102:0x02c3, B:108:0x02db, B:110:0x02e1, B:113:0x02f9, B:114:0x031d, B:116:0x0329, B:106:0x02d1, B:107:0x02d5, B:103:0x02c6, B:37:0x00ea, B:42:0x00f4, B:8:0x0014), top: B:121:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0154 A[Catch: all -> 0x00f2, TryCatch #0 {, blocks: (B:5:0x0006, B:11:0x0019, B:13:0x001d, B:16:0x0028, B:17:0x0040, B:18:0x0043, B:20:0x004a, B:21:0x005f, B:23:0x006b, B:25:0x0096, B:29:0x00ce, B:31:0x00d4, B:34:0x00de, B:36:0x00e6, B:43:0x0101, B:44:0x0105, B:46:0x010b, B:49:0x0115, B:50:0x0139, B:51:0x014e, B:53:0x0154, B:55:0x015d, B:57:0x0163, B:58:0x0168, B:59:0x016e, B:60:0x0182, B:62:0x018c, B:64:0x019e, B:66:0x01a6, B:68:0x01ac, B:71:0x01c2, B:73:0x01df, B:77:0x021d, B:79:0x0223, B:82:0x022d, B:84:0x0235, B:85:0x023a, B:86:0x023d, B:88:0x0243, B:89:0x0249, B:93:0x0258, B:95:0x0262, B:98:0x027c, B:99:0x02a3, B:101:0x02af, B:102:0x02bc, B:108:0x02d4, B:110:0x02da, B:113:0x02f2, B:114:0x0316, B:116:0x0322, B:106:0x02ca, B:107:0x02ce, B:103:0x02bf, B:37:0x00eb, B:42:0x00f5, B:8:0x0014), top: B:120:0x0006 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -28,13 +28,11 @@ public class EnvDrawText {
         int[] iArr2;
         int ceil;
         Bitmap bitmap;
-        int i8;
-        int i9;
         int desiredWidth;
         Bitmap bitmap2;
         synchronized (EnvDrawText.class) {
-            int i10 = 0;
-            int i11 = 0;
+            int i8 = 0;
+            int i9 = 0;
             Canvas canvas = new Canvas();
             TextPaint textPaint = new TextPaint();
             if (canvas == null || textPaint == null) {
@@ -77,20 +75,18 @@ public class EnvDrawText {
                         desiredWidth2 = (int) Math.pow(2.0d, (int) Math.ceil(Math.log(desiredWidth2) / Math.log(2.0d)));
                         ceil2 = (int) Math.pow(2.0d, (int) Math.ceil(Math.log(ceil2) / Math.log(2.0d)));
                     }
-                    if (0 == desiredWidth2 && 0 == ceil2) {
-                        ceil2 = 0;
-                        i9 = 0;
-                    } else {
-                        i9 = desiredWidth2;
+                    if (0 != desiredWidth2 || 0 != ceil2) {
+                        i9 = ceil2;
+                        i8 = desiredWidth2;
                     }
                     if (iArr.length == 4) {
-                        iArr[2] = i9;
-                        iArr[3] = ceil2;
+                        iArr[2] = i8;
+                        iArr[3] = i9;
                     }
-                    if (i9 <= 0 || ceil2 <= 0) {
+                    if (i8 <= 0 || i9 <= 0) {
                         bitmap2 = null;
                     } else {
-                        Bitmap createBitmap = Bitmap.createBitmap(i9, ceil2, Bitmap.Config.ARGB_8888);
+                        Bitmap createBitmap = Bitmap.createBitmap(i8, i9, Bitmap.Config.ARGB_8888);
                         if (createBitmap == null) {
                             iArr2 = new int[0];
                         } else {
@@ -114,9 +110,7 @@ public class EnvDrawText {
                     textPaint.setStyle(Paint.Style.FILL);
                     textPaint.setColor(i3);
                     canvas.drawText(str, 0.0f, 0.0f - fontMetrics.ascent, textPaint);
-                    Bitmap bitmap3 = bitmap2;
-                    i8 = ceil2;
-                    bitmap = bitmap3;
+                    bitmap = bitmap2;
                     iArr2 = new int[i8 * i9];
                     if (bitmap != null) {
                         bitmap.copyPixelsToBuffer(IntBuffer.wrap(iArr2));
@@ -125,26 +119,25 @@ public class EnvDrawText {
                         bitmap.recycle();
                     }
                 } else {
-                    int i12 = indexOf + 1;
+                    int i10 = indexOf + 1;
                     int desiredWidth3 = (int) (Layout.getDesiredWidth(str.substring(0, indexOf), textPaint) + 0.5d);
-                    int i13 = i12;
-                    int i14 = 2;
+                    int i11 = 2;
                     while (true) {
-                        int indexOf2 = str.indexOf(92, i13);
+                        int indexOf2 = str.indexOf(92, i10);
                         if (indexOf2 > 0) {
-                            int desiredWidth4 = (int) (Layout.getDesiredWidth(str.substring(i13, indexOf2), textPaint) + 0.5d);
+                            int desiredWidth4 = (int) (Layout.getDesiredWidth(str.substring(i10, indexOf2), textPaint) + 0.5d);
                             if (desiredWidth4 <= desiredWidth3) {
                                 desiredWidth4 = desiredWidth3;
                             }
-                            i14++;
+                            i10 = indexOf2 + 1;
+                            i11++;
                             desiredWidth3 = desiredWidth4;
-                            i13 = indexOf2 + 1;
                         } else {
-                            if (i13 != str.length() && (desiredWidth = (int) (Layout.getDesiredWidth(str.substring(i13, str.length()), textPaint) + 0.5d)) > desiredWidth3) {
+                            if (i10 != str.length() && (desiredWidth = (int) (Layout.getDesiredWidth(str.substring(i10, str.length()), textPaint) + 0.5d)) > desiredWidth3) {
                                 desiredWidth3 = desiredWidth;
                             }
                             Paint.FontMetrics fontMetrics2 = textPaint.getFontMetrics();
-                            int ceil3 = ((int) Math.ceil(fontMetrics2.descent - fontMetrics2.ascent)) * i14;
+                            int ceil3 = ((int) Math.ceil(fontMetrics2.descent - fontMetrics2.ascent)) * i11;
                             iArr[0] = desiredWidth3;
                             iArr[1] = ceil3;
                             if (iArr.length == 4) {
@@ -152,17 +145,17 @@ public class EnvDrawText {
                                 ceil3 = (int) Math.pow(2.0d, (int) Math.ceil(Math.log(ceil3) / Math.log(2.0d)));
                             }
                             if (0 != desiredWidth3 || 0 != ceil3) {
-                                i11 = ceil3;
-                                i10 = desiredWidth3;
+                                i9 = ceil3;
+                                i8 = desiredWidth3;
                             }
                             if (iArr.length == 4) {
-                                iArr[2] = i10;
-                                iArr[3] = i11;
+                                iArr[2] = i8;
+                                iArr[3] = i9;
                             }
-                            if (i10 <= 0 || i11 <= 0) {
+                            if (i8 <= 0 || i9 <= 0) {
                                 bitmap = null;
                             } else {
-                                bitmap = Bitmap.createBitmap(i10, i11, Bitmap.Config.ARGB_8888);
+                                bitmap = Bitmap.createBitmap(i8, i9, Bitmap.Config.ARGB_8888);
                                 if (bitmap == null) {
                                     iArr2 = new int[0];
                                 } else {
@@ -175,32 +168,32 @@ public class EnvDrawText {
                                 canvas.drawColor(i5);
                             }
                             textPaint.setTextAlign(getTextAlignedType(i7));
-                            int i15 = i7 == 1 ? 0 : i7 == 2 ? iArr[0] : iArr[0] / 2;
-                            int i16 = 0;
-                            int i17 = 0;
+                            int i12 = i7 == 1 ? 0 : i7 == 2 ? iArr[0] : iArr[0] / 2;
+                            int i13 = 0;
+                            int i14 = 0;
                             while (true) {
-                                int indexOf3 = str.indexOf(92, i16);
+                                int indexOf3 = str.indexOf(92, i13);
                                 if (indexOf3 > 0) {
-                                    String substring = str.substring(i16, indexOf3);
+                                    String substring = str.substring(i13, indexOf3);
                                     int desiredWidth5 = (int) (Layout.getDesiredWidth(substring, textPaint) + 0.5d);
-                                    i16 = indexOf3 + 1;
+                                    i13 = indexOf3 + 1;
                                     if (i6 != 0 && canvas != null) {
                                         textPaint.setStrokeWidth(i6);
                                         textPaint.setStrokeCap(Paint.Cap.ROUND);
                                         textPaint.setStrokeJoin(Paint.Join.ROUND);
                                         textPaint.setStyle(Paint.Style.STROKE);
                                         textPaint.setColor(i4);
-                                        canvas.drawText(substring, i15, (i17 * ceil) - fontMetrics2.ascent, textPaint);
+                                        canvas.drawText(substring, i12, (i14 * ceil) - fontMetrics2.ascent, textPaint);
                                     }
                                     textPaint.setStyle(Paint.Style.FILL);
                                     textPaint.setColor(i3);
                                     if (canvas != null) {
-                                        canvas.drawText(substring, i15, (i17 * ceil) - fontMetrics2.ascent, textPaint);
+                                        canvas.drawText(substring, i12, (i14 * ceil) - fontMetrics2.ascent, textPaint);
                                     }
-                                    i17++;
+                                    i14++;
                                 } else {
-                                    if (i16 != str.length()) {
-                                        String substring2 = str.substring(i16, str.length());
+                                    if (i13 != str.length()) {
+                                        String substring2 = str.substring(i13, str.length());
                                         int desiredWidth6 = (int) (Layout.getDesiredWidth(substring2, textPaint) + 0.5d);
                                         if (i6 != 0 && canvas != null) {
                                             textPaint.setStrokeWidth(i6);
@@ -208,16 +201,14 @@ public class EnvDrawText {
                                             textPaint.setStrokeJoin(Paint.Join.ROUND);
                                             textPaint.setStyle(Paint.Style.STROKE);
                                             textPaint.setColor(i4);
-                                            canvas.drawText(substring2, i15, (i17 * ceil) - fontMetrics2.ascent, textPaint);
+                                            canvas.drawText(substring2, i12, (i14 * ceil) - fontMetrics2.ascent, textPaint);
                                         }
                                         textPaint.setStyle(Paint.Style.FILL);
                                         textPaint.setColor(i3);
                                         if (canvas != null) {
-                                            canvas.drawText(substring2, i15, (i17 * ceil) - fontMetrics2.ascent, textPaint);
+                                            canvas.drawText(substring2, i12, (i14 * ceil) - fontMetrics2.ascent, textPaint);
                                         }
                                     }
-                                    i8 = i11;
-                                    i9 = i10;
                                     iArr2 = new int[i8 * i9];
                                     if (bitmap != null) {
                                     }
@@ -424,24 +415,23 @@ public class EnvDrawText {
                 } else {
                     int i10 = indexOf + 1;
                     int desiredWidth3 = (int) (Layout.getDesiredWidth(str.substring(0, indexOf), textPaint) + 0.5d);
-                    int i11 = i10;
-                    int i12 = 2;
+                    int i11 = 2;
                     while (true) {
-                        int indexOf2 = str.indexOf(92, i11);
+                        int indexOf2 = str.indexOf(92, i10);
                         if (indexOf2 > 0) {
-                            int desiredWidth4 = (int) (Layout.getDesiredWidth(str.substring(i11, indexOf2), textPaint) + 0.5d);
+                            int desiredWidth4 = (int) (Layout.getDesiredWidth(str.substring(i10, indexOf2), textPaint) + 0.5d);
                             if (desiredWidth4 <= desiredWidth3) {
                                 desiredWidth4 = desiredWidth3;
                             }
-                            i12++;
+                            i10 = indexOf2 + 1;
+                            i11++;
                             desiredWidth3 = desiredWidth4;
-                            i11 = indexOf2 + 1;
                         } else {
-                            if (i11 != str.length() && (desiredWidth = (int) (Layout.getDesiredWidth(str.substring(i11, str.length()), textPaint) + 0.5d)) > desiredWidth3) {
+                            if (i10 != str.length() && (desiredWidth = (int) (Layout.getDesiredWidth(str.substring(i10, str.length()), textPaint) + 0.5d)) > desiredWidth3) {
                                 desiredWidth3 = desiredWidth;
                             }
                             Paint.FontMetrics fontMetrics2 = textPaint.getFontMetrics();
-                            int ceil3 = ((int) Math.ceil(fontMetrics2.descent - fontMetrics2.ascent)) * i12;
+                            int ceil3 = ((int) Math.ceil(fontMetrics2.descent - fontMetrics2.ascent)) * i11;
                             iArr[0] = desiredWidth3;
                             iArr[1] = ceil3;
                             if (iArr.length == 4) {
@@ -471,32 +461,32 @@ public class EnvDrawText {
                                 canvas.drawColor(i5);
                             }
                             textPaint.setTextAlign(getTextAlignedType(i7));
-                            int i13 = i7 == 1 ? 0 : i7 == 2 ? iArr[0] : iArr[0] / 2;
+                            int i12 = i7 == 1 ? 0 : i7 == 2 ? iArr[0] : iArr[0] / 2;
+                            int i13 = 0;
                             int i14 = 0;
-                            int i15 = 0;
                             while (true) {
-                                int indexOf3 = str.indexOf(92, i14);
+                                int indexOf3 = str.indexOf(92, i13);
                                 if (indexOf3 > 0) {
-                                    String substring = str.substring(i14, indexOf3);
+                                    String substring = str.substring(i13, indexOf3);
                                     int desiredWidth5 = (int) (Layout.getDesiredWidth(substring, textPaint) + 0.5d);
-                                    i14 = indexOf3 + 1;
+                                    i13 = indexOf3 + 1;
                                     if (i6 != 0 && canvas != null) {
                                         textPaint.setStrokeWidth(i6);
                                         textPaint.setStrokeCap(Paint.Cap.ROUND);
                                         textPaint.setStrokeJoin(Paint.Join.ROUND);
                                         textPaint.setStyle(Paint.Style.STROKE);
                                         textPaint.setColor(i4);
-                                        canvas.drawText(substring, i13, (i15 * ceil) - fontMetrics2.ascent, textPaint);
+                                        canvas.drawText(substring, i12, (i14 * ceil) - fontMetrics2.ascent, textPaint);
                                     }
                                     textPaint.setStyle(Paint.Style.FILL);
                                     textPaint.setColor(i3);
                                     if (canvas != null) {
-                                        canvas.drawText(substring, i13, (i15 * ceil) - fontMetrics2.ascent, textPaint);
+                                        canvas.drawText(substring, i12, (i14 * ceil) - fontMetrics2.ascent, textPaint);
                                     }
-                                    i15++;
+                                    i14++;
                                 } else {
-                                    if (i14 != str.length()) {
-                                        String substring2 = str.substring(i14, str.length());
+                                    if (i13 != str.length()) {
+                                        String substring2 = str.substring(i13, str.length());
                                         int desiredWidth6 = (int) (Layout.getDesiredWidth(substring2, textPaint) + 0.5d);
                                         if (i6 != 0 && canvas != null) {
                                             textPaint.setStrokeWidth(i6);
@@ -504,12 +494,12 @@ public class EnvDrawText {
                                             textPaint.setStrokeJoin(Paint.Join.ROUND);
                                             textPaint.setStyle(Paint.Style.STROKE);
                                             textPaint.setColor(i4);
-                                            canvas.drawText(substring2, i13, (i15 * ceil) - fontMetrics2.ascent, textPaint);
+                                            canvas.drawText(substring2, i12, (i14 * ceil) - fontMetrics2.ascent, textPaint);
                                         }
                                         textPaint.setStyle(Paint.Style.FILL);
                                         textPaint.setColor(i3);
                                         if (canvas != null) {
-                                            canvas.drawText(substring2, i13, (i15 * ceil) - fontMetrics2.ascent, textPaint);
+                                            canvas.drawText(substring2, i12, (i14 * ceil) - fontMetrics2.ascent, textPaint);
                                         }
                                     }
                                     bitmap = bitmap2;
@@ -621,11 +611,11 @@ public class EnvDrawText {
                 a aVar = fontCache.get(i);
                 if (aVar == null) {
                     a aVar2 = new a();
-                    aVar2.f5168a = typeface;
-                    aVar2.b++;
+                    aVar2.f14964a = typeface;
+                    aVar2.f14965b++;
                     fontCache.put(i, aVar2);
                 } else {
-                    aVar.b++;
+                    aVar.f14965b++;
                 }
             }
         }
@@ -635,8 +625,8 @@ public class EnvDrawText {
         synchronized (EnvDrawText.class) {
             a aVar = fontCache.get(i);
             if (aVar != null) {
-                aVar.b--;
-                if (aVar.b == 0) {
+                aVar.f14965b--;
+                if (aVar.f14965b == 0) {
                     fontCache.remove(i);
                 }
             }

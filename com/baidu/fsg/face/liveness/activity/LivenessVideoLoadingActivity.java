@@ -18,13 +18,13 @@ import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.fsg.face.liveness.view.LoadingDialog;
 import com.baidu.sapi2.biometrics.liveness.R;
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     public static final String KEY_VIDEOGETPORTRAITMODEL = "VideoGetPortraitModel";
     public static final String TAG = "LivenessVideoLoadingActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    private LoadingDialog f1709a;
+    private LoadingDialog f2312a;
 
     @Override // com.baidu.fsg.face.liveness.activity.LivenessBaseActivity, com.baidu.fsg.base.activity.BeanActivity, com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -47,20 +47,20 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     }
 
     private void a(Context context) {
-        if (this.f1709a == null) {
-            this.f1709a = new LoadingDialog(context);
-            this.f1709a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-            this.f1709a.setCancelable(false);
+        if (this.f2312a == null) {
+            this.f2312a = new LoadingDialog(context);
+            this.f2312a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
+            this.f2312a.setCancelable(false);
         }
-        if (!((Activity) context).isFinishing() && this.f1709a != null && !this.f1709a.isShowing()) {
-            this.f1709a.show();
+        if (!((Activity) context).isFinishing() && this.f2312a != null && !this.f2312a.isShowing()) {
+            this.f2312a.show();
         }
     }
 
     private void b() {
-        if (this.f1709a != null) {
-            if (!isFinishing() || !this.f1709a.isShowing()) {
-                this.f1709a.dismiss();
+        if (this.f2312a != null) {
+            if (!isFinishing() || !this.f2312a.isShowing()) {
+                this.f2312a.dismiss();
                 finish();
             }
         }

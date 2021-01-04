@@ -1,6 +1,7 @@
 package com.baidu.bdhttpdns;
 
 import android.util.Base64;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.Key;
 import java.security.MessageDigest;
@@ -11,12 +12,14 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class e {
-    private static String b = a();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f1626b = a();
 
     /* renamed from: a  reason: collision with root package name */
-    private static Pattern f1274a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
+    private static Pattern f1625a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
 
     private static String a() {
         try {
@@ -32,7 +35,7 @@ final class e {
     private static String a(String str, byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(1, dk(str), new IvParameterSpec("01020304".getBytes()));
+            cipher.init(1, dd(str), new IvParameterSpec("01020304".getBytes()));
             return Base64.encodeToString(cipher.doFinal(bArr), 0);
         } catch (Exception e) {
             return null;
@@ -56,7 +59,7 @@ final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(String str) {
-        return f1274a.matcher(str).matches();
+        return f1625a.matcher(str).matches();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -73,14 +76,14 @@ final class e {
         return Pattern.matches("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$", str);
     }
 
-    private static Key dk(String str) {
+    private static Key dd(String str) {
         return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(str.getBytes()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String e(String str) {
         try {
-            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
+            byte[] digest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes("UTF-8"));
             StringBuilder sb = new StringBuilder(digest.length * 2);
             for (byte b2 : digest) {
                 if ((b2 & 255) < 16) {
@@ -98,23 +101,23 @@ final class e {
         }
     }
 
-    private static String e(String str, byte[] bArr) {
-        try {
-            Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(2, dk(str), new IvParameterSpec("01020304".getBytes()));
-            return new String(cipher.doFinal(bArr));
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String f(String str) {
-        return a(b, str.getBytes());
+        return a(f1626b, str.getBytes());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String g(String str) {
-        return e(b, Base64.decode(str, 0));
+        return g(f1626b, Base64.decode(str, 0));
+    }
+
+    private static String g(String str, byte[] bArr) {
+        try {
+            Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
+            cipher.init(2, dd(str), new IvParameterSpec("01020304".getBytes()));
+            return new String(cipher.doFinal(bArr));
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

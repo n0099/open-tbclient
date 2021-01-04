@@ -10,19 +10,19 @@ import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private boolean fcU;
-    private TextView kHD;
-    private ImageView kHE;
-    private TextView kHF;
-    private TextView kHG;
+    private boolean isVisible;
+    private TextView kMM;
+    private ImageView kMN;
+    private TextView kMO;
+    private TextView kMP;
     private ArrayList<a> networkChangeListeners;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void onNetworkChange(boolean z);
     }
@@ -47,21 +47,21 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.kHE = (ImageView) findViewById(R.id.no_network_icon);
-        this.kHF = (TextView) findViewById(R.id.no_network_guide1);
-        this.kHG = (TextView) findViewById(R.id.no_network_guide2);
-        this.kHD = (TextView) findViewById(R.id.no_network_showmore);
+        this.kMN = (ImageView) findViewById(R.id.no_network_icon);
+        this.kMO = (TextView) findViewById(R.id.no_network_guide1);
+        this.kMP = (TextView) findViewById(R.id.no_network_guide2);
+        this.kMM = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.kHD != null) {
-            this.kHD.setOnClickListener(onClickListener);
+        if (this.kMM != null) {
+            this.kMM.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.fcU) {
-            this.fcU = z;
+        if (z != this.isVisible) {
+            this.isVisible = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        ap.setImageResource(this.kHE, R.drawable.icon_error);
-        ap.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
+        ao.setImageResource(this.kMN, R.drawable.icon_error);
+        ao.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1 || i == 4) {
-            this.kHF.setTextColor(-10523526);
-            this.kHG.setTextColor(-8682095);
-            this.kHD.setTextColor(-10523526);
+            this.kMO.setTextColor(-10523526);
+            this.kMP.setTextColor(-8682095);
+            this.kMM.setTextColor(-10523526);
             return;
         }
-        this.kHF.setTextColor(-14277082);
-        this.kHG.setTextColor(-5065030);
-        this.kHD.setTextColor(-14277082);
+        this.kMO.setTextColor(-14277082);
+        this.kMP.setTextColor(-5065030);
+        this.kMM.setTextColor(-14277082);
     }
 }

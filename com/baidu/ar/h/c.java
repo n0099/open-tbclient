@@ -4,12 +4,11 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class c {
     private static String xU = "pro";
-    private static String xV = TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY;
+    private static String xV = "101";
 
     public static int getVersionCode() {
         return 5010;

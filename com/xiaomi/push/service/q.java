@@ -3,21 +3,21 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.gd;
 import com.xiaomi.push.ii;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 final class q extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ii f4883a;
+    final /* synthetic */ ii f14613a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f923a;
+    final /* synthetic */ XMPushService f1001a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(int i, XMPushService xMPushService, ii iiVar) {
         super(i);
-        this.f923a = xMPushService;
-        this.f4883a = iiVar;
+        this.f1001a = xMPushService;
+        this.f14613a = iiVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -28,10 +28,10 @@ final class q extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            w.a(this.f923a, w.a(this.f4883a.b(), this.f4883a.m412a()));
+            w.a(this.f1001a, w.a(this.f14613a.b(), this.f14613a.m438a()));
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f923a.a(10, e);
+            this.f1001a.a(10, e);
         }
     }
 }

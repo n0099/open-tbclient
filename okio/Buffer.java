@@ -1,7 +1,7 @@
 package okio;
 
-import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.Closeable;
 import java.io.EOFException;
@@ -20,7 +20,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Buffer implements Cloneable, ByteChannel, BufferedSink, BufferedSource {
     private static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     static final int REPLACEMENT_CHARACTER = 65533;
@@ -267,7 +267,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         int i = segment.pos;
         int i2 = segment.limit;
         int i3 = i + 1;
-        byte b = segment.data[i];
+        byte b2 = segment.data[i];
         this.size--;
         if (i3 == i2) {
             this.head = segment.pop();
@@ -275,7 +275,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         } else {
             segment.pos = i3;
         }
-        return b;
+        return b2;
     }
 
     public final byte getByte(long j) {
@@ -429,22 +429,22 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             int i2 = segment.pos;
             int i3 = segment.limit;
             while (i2 < i3) {
-                byte b = bArr[i2];
-                if (b >= 48 && b <= 57) {
-                    int i4 = 48 - b;
+                byte b2 = bArr[i2];
+                if (b2 >= 48 && b2 <= 57) {
+                    int i4 = 48 - b2;
                     if (j < -922337203685477580L || (j == -922337203685477580L && i4 < j2)) {
-                        Buffer writeByte = new Buffer().writeDecimalLong(j).writeByte((int) b);
+                        Buffer writeByte = new Buffer().writeDecimalLong(j).writeByte((int) b2);
                         if (!z) {
                             writeByte.readByte();
                         }
                         throw new NumberFormatException("Number too large: " + writeByte.readUtf8());
                     }
                     j = (j * 10) + i4;
-                } else if (b == 45 && i == 0) {
+                } else if (b2 == 45 && i == 0) {
                     z = true;
                     j2--;
                 } else if (i == 0) {
-                    throw new NumberFormatException("Expected leading [0-9] or '-' character but was 0x" + Integer.toHexString(b));
+                    throw new NumberFormatException("Expected leading [0-9] or '-' character but was 0x" + Integer.toHexString(b2));
                 } else {
                     z2 = true;
                     if (i2 != i3) {
@@ -469,64 +469,67 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return z ? j : -j;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00a1  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00cc  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00b4 A[EDGE_INSN: B:41:0x00b4->B:37:0x00b4 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00aa, code lost:
+        r14.size -= r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00b1, code lost:
+        return r4;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x009b  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00bd  */
     @Override // okio.BufferedSource
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public long readHexadecimalUnsignedLong() {
         int i;
-        if (this.size == 0) {
-            throw new IllegalStateException("size == 0");
-        }
-        long j = 0;
-        int i2 = 0;
-        boolean z = false;
-        do {
-            Segment segment = this.head;
-            byte[] bArr = segment.data;
-            int i3 = segment.pos;
-            int i4 = segment.limit;
-            int i5 = i3;
-            while (i5 < i4) {
-                byte b = bArr[i5];
-                if (b >= 48 && b <= 57) {
-                    i = b - 48;
-                } else if (b >= 97 && b <= 102) {
-                    i = (b - 97) + 10;
-                } else if (b >= 65 && b <= 70) {
-                    i = (b - 65) + 10;
-                } else if (i2 == 0) {
-                    throw new NumberFormatException("Expected leading [0-9a-fA-F] character but was 0x" + Integer.toHexString(b));
-                } else {
-                    z = true;
-                    if (i5 != i4) {
-                        this.head = segment.pop();
-                        SegmentPool.recycle(segment);
+        if (this.size != 0) {
+            boolean z = false;
+            int i2 = 0;
+            long j = 0;
+            while (true) {
+                Segment segment = this.head;
+                byte[] bArr = segment.data;
+                int i3 = segment.limit;
+                int i4 = i2;
+                for (int i5 = segment.pos; i5 < i3; i5++) {
+                    byte b2 = bArr[i5];
+                    if (b2 >= 48 && b2 <= 57) {
+                        i = b2 - 48;
+                    } else if (b2 >= 97 && b2 <= 102) {
+                        i = (b2 - 97) + 10;
+                    } else if (b2 >= 65 && b2 <= 70) {
+                        i = (b2 - 65) + 10;
+                    } else if (i4 == 0) {
+                        throw new NumberFormatException("Expected leading [0-9a-fA-F] character but was 0x" + Integer.toHexString(b2));
                     } else {
-                        segment.pos = i5;
+                        z = true;
+                        if (i5 != i3) {
+                            this.head = segment.pop();
+                            SegmentPool.recycle(segment);
+                        } else {
+                            segment.pos = i5;
+                        }
+                        if (!!z || this.head == null) {
+                            break;
+                        }
+                        i2 = i4;
                     }
-                    if (!z) {
-                        break;
+                    if (((-1152921504606846976L) & j) != 0) {
+                        throw new NumberFormatException("Number too large: " + new Buffer().writeHexadecimalUnsignedLong(j).writeByte((int) b2).readUtf8());
                     }
+                    j = (j << 4) | i;
+                    i4++;
                 }
-                if (((-1152921504606846976L) & j) != 0) {
-                    throw new NumberFormatException("Number too large: " + new Buffer().writeHexadecimalUnsignedLong(j).writeByte((int) b).readUtf8());
+                if (i5 != i3) {
                 }
-                i2++;
-                i5++;
-                j = i | (j << 4);
+                if (!z) {
+                    break;
+                }
+                break;
             }
-            if (i5 != i4) {
-            }
-            if (!z) {
-            }
-        } while (this.head != null);
-        this.size -= i2;
-        return j;
+        }
+        throw new IllegalStateException("size == 0");
     }
 
     @Override // okio.BufferedSource
@@ -555,7 +558,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0028, code lost:
-        if (r15 == false) goto L27;
+        if (r14 == false) goto L27;
      */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002a, code lost:
         return -2;
@@ -568,7 +571,6 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
     */
     public int selectPrefix(Options options, boolean z) {
         int i;
-        int i2;
         Segment segment = this.head;
         if (segment == null) {
             if (z) {
@@ -577,39 +579,36 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             return options.indexOf(ByteString.EMPTY);
         }
         byte[] bArr = segment.data;
-        int i3 = segment.pos;
-        int i4 = segment.limit;
+        int i2 = segment.pos;
+        int i3 = segment.limit;
         int[] iArr = options.trie;
-        int i5 = 0;
-        int i6 = -1;
+        int i4 = 0;
+        int i5 = -1;
         Segment segment2 = segment;
         loop0: while (true) {
-            int i7 = i5 + 1;
-            int i8 = iArr[i5];
-            int i9 = i7 + 1;
-            int i10 = iArr[i7];
-            if (i10 != -1) {
-                i6 = i10;
+            int i6 = i4 + 1;
+            int i7 = iArr[i4];
+            int i8 = i6 + 1;
+            int i9 = iArr[i6];
+            if (i9 != -1) {
+                i5 = i9;
             }
             if (segment2 == null) {
                 break;
             }
-            if (i8 < 0) {
-                int i11 = i9 + (i8 * (-1));
-                int i12 = i4;
-                int i13 = i3;
-                int i14 = i12;
+            if (i7 < 0) {
+                int i10 = i8 + (i7 * (-1));
+                int i11 = i3;
                 while (true) {
-                    int i15 = i13 + 1;
-                    int i16 = bArr[i13] & 255;
-                    int i17 = i9 + 1;
-                    if (i16 == iArr[i9]) {
-                        boolean z2 = i17 == i11;
-                        if (i15 == i14) {
+                    int i12 = i2 + 1;
+                    int i13 = i8 + 1;
+                    if ((bArr[i2] & 255) == iArr[i8]) {
+                        boolean z2 = i13 == i10;
+                        if (i12 == i11) {
                             segment2 = segment2.next;
-                            i3 = segment2.pos;
+                            i2 = segment2.pos;
                             bArr = segment2.data;
-                            i2 = segment2.limit;
+                            i11 = segment2.limit;
                             if (segment2 == segment) {
                                 if (!z2) {
                                     break loop0;
@@ -617,50 +616,46 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                                 segment2 = null;
                             }
                         } else {
-                            i2 = i14;
-                            i3 = i15;
+                            i2 = i12;
                         }
                         if (z2) {
-                            int i18 = iArr[i17];
-                            i4 = i2;
-                            i = i18;
+                            i = iArr[i13];
+                            i3 = i11;
                             break;
                         }
-                        i13 = i3;
-                        i14 = i2;
-                        i9 = i17;
+                        i8 = i13;
                     } else {
-                        return i6;
+                        return i5;
                     }
                 }
             } else {
-                int i19 = i3 + 1;
-                int i20 = bArr[i3] & 255;
-                int i21 = i9 + i8;
-                while (i9 != i21) {
-                    if (i20 == iArr[i9]) {
-                        i = iArr[i9 + i8];
-                        if (i19 == i4) {
+                int i14 = i2 + 1;
+                int i15 = bArr[i2] & 255;
+                int i16 = i8 + i7;
+                while (i8 != i16) {
+                    if (i15 == iArr[i8]) {
+                        i = iArr[i8 + i7];
+                        if (i14 == i3) {
                             segment2 = segment2.next;
-                            i3 = segment2.pos;
+                            i2 = segment2.pos;
                             bArr = segment2.data;
-                            i4 = segment2.limit;
+                            i3 = segment2.limit;
                             if (segment2 == segment) {
                                 segment2 = null;
                             }
                         } else {
-                            i3 = i19;
+                            i2 = i14;
                         }
                     } else {
-                        i9++;
+                        i8++;
                     }
                 }
-                return i6;
+                return i5;
             }
             if (i >= 0) {
                 return i;
             }
-            i5 = -i;
+            i4 = -i;
         }
     }
 
@@ -789,21 +784,21 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         if (this.size == 0) {
             throw new EOFException();
         }
-        byte b = getByte(0L);
-        if ((b & 128) == 0) {
+        byte b2 = getByte(0L);
+        if ((b2 & 128) == 0) {
+            i = b2 & Byte.MAX_VALUE;
             i3 = 0;
-            i = b & Byte.MAX_VALUE;
             i2 = 1;
-        } else if ((b & 224) == 192) {
-            i = b & 31;
+        } else if ((b2 & 224) == 192) {
+            i = b2 & 31;
             i2 = 2;
             i3 = 128;
-        } else if ((b & 240) == 224) {
-            i = b & 15;
+        } else if ((b2 & 240) == 224) {
+            i = b2 & 15;
             i2 = 3;
             i3 = 2048;
-        } else if ((b & 248) == 240) {
-            i = b & 7;
+        } else if ((b2 & 248) == 240) {
+            i = b2 & 7;
             i2 = 4;
             i3 = 65536;
         } else {
@@ -811,26 +806,23 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             return REPLACEMENT_CHARACTER;
         }
         if (this.size < i2) {
-            throw new EOFException("size < " + i2 + ": " + this.size + " (to read code point prefixed 0x" + Integer.toHexString(b) + ")");
+            throw new EOFException("size < " + i2 + ": " + this.size + " (to read code point prefixed 0x" + Integer.toHexString(b2) + ")");
         }
-        int i4 = i;
-        int i5 = 1;
-        while (i5 < i2) {
-            byte b2 = getByte(i5);
-            if ((b2 & 192) == 128) {
-                i5++;
-                i4 = (b2 & 63) | (i4 << 6);
+        for (int i4 = 1; i4 < i2; i4++) {
+            byte b3 = getByte(i4);
+            if ((b3 & 192) == 128) {
+                i = (i << 6) | (b3 & 63);
             } else {
-                skip(i5);
+                skip(i4);
                 return REPLACEMENT_CHARACTER;
             }
         }
         skip(i2);
-        if (i4 > 1114111) {
+        if (i > 1114111) {
             return REPLACEMENT_CHARACTER;
         }
-        if ((i4 < 55296 || i4 > 57343) && i4 >= i3) {
-            return i4;
+        if ((i < 55296 || i > 57343) && i >= i3) {
+            return i;
         }
         return REPLACEMENT_CHARACTER;
     }
@@ -1127,7 +1119,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         }
         long j = 0;
         while (true) {
-            long read = source.read(this, PlaybackStateCompat.ACTION_PLAY_FROM_URI);
+            long read = source.read(this, 8192L);
             if (read != -1) {
                 j += read;
             } else {
@@ -1356,7 +1348,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             if (j < buffer.head.limit - buffer.head.pos) {
                 Segment segment = this.head != null ? this.head.prev : null;
                 if (segment != null && segment.owner) {
-                    if ((segment.limit + j) - (segment.shared ? 0 : segment.pos) <= PlaybackStateCompat.ACTION_PLAY_FROM_URI) {
+                    if ((segment.limit + j) - (segment.shared ? 0 : segment.pos) <= 8192) {
                         buffer.head.writeTo(segment, (int) j);
                         buffer.size -= j;
                         this.size += j;
@@ -1403,17 +1395,17 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b) {
-        return indexOf(b, 0L, Long.MAX_VALUE);
+    public long indexOf(byte b2) {
+        return indexOf(b2, 0L, Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b, long j) {
-        return indexOf(b, j, Long.MAX_VALUE);
+    public long indexOf(byte b2, long j) {
+        return indexOf(b2, j, Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource
-    public long indexOf(byte b, long j, long j2) {
+    public long indexOf(byte b2, long j, long j2) {
         Segment segment;
         long j3;
         Segment segment2;
@@ -1450,7 +1442,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             byte[] bArr = segment2.data;
             int min = (int) Math.min(segment2.limit, (segment2.pos + j2) - j5);
             for (int i = (int) ((segment2.pos + j) - j5); i < min; i++) {
-                if (bArr[i] == b) {
+                if (bArr[i] == b2) {
                     return (i - segment2.pos) + j5;
                 }
             }
@@ -1500,7 +1492,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                 j2 = j3;
             }
         }
-        byte b = byteString.getByte(0);
+        byte b2 = byteString.getByte(0);
         int size = byteString.size();
         long j4 = (this.size - size) + 1;
         long j5 = j2;
@@ -1509,7 +1501,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             byte[] bArr = segment3.data;
             int min = (int) Math.min(segment3.limit, (segment3.pos + j4) - j5);
             for (int i = (int) ((segment3.pos + j) - j5); i < min; i++) {
-                if (bArr[i] == b && rangeEquals(segment3, i + 1, byteString, 1, size)) {
+                if (bArr[i] == b2 && rangeEquals(segment3, i + 1, byteString, 1, size)) {
                     return (i - segment3.pos) + j5;
                 }
             }
@@ -1557,20 +1549,21 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             }
         }
         if (byteString.size() == 2) {
-            byte b = byteString.getByte(0);
-            byte b2 = byteString.getByte(1);
+            byte b2 = byteString.getByte(0);
+            byte b3 = byteString.getByte(1);
             while (j2 < this.size) {
                 byte[] bArr = segment.data;
                 int i = segment.limit;
                 for (int i2 = (int) ((segment.pos + j) - j2); i2 < i; i2++) {
-                    byte b3 = bArr[i2];
-                    if (b3 == b || b3 == b2) {
+                    byte b4 = bArr[i2];
+                    if (b4 == b2 || b4 == b3) {
                         return j2 + (i2 - segment.pos);
                     }
                 }
-                j2 += segment.limit - segment.pos;
+                long j4 = (segment.limit - segment.pos) + j2;
                 segment = segment.next;
-                j = j2;
+                j2 = j4;
+                j = j4;
             }
         } else {
             byte[] internalArray = byteString.internalArray();
@@ -1578,16 +1571,17 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                 byte[] bArr2 = segment.data;
                 int i3 = segment.limit;
                 for (int i4 = (int) ((segment.pos + j) - j2); i4 < i3; i4++) {
-                    byte b4 = bArr2[i4];
-                    for (byte b5 : internalArray) {
-                        if (b4 == b5) {
+                    byte b5 = bArr2[i4];
+                    for (byte b6 : internalArray) {
+                        if (b5 == b6) {
                             return j2 + (i4 - segment.pos);
                         }
                     }
                 }
-                j2 += segment.limit - segment.pos;
+                long j5 = (segment.limit - segment.pos) + j2;
                 segment = segment.next;
-                j = j2;
+                j2 = j5;
+                j = j5;
             }
         }
         return -1L;
@@ -1663,7 +1657,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
     }
 
     public final ByteString md5() {
-        return digest("MD5");
+        return digest(EncryptUtils.ENCRYPT_MD5);
     }
 
     public final ByteString sha1() {
@@ -1745,9 +1739,8 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                 int i3 = 0;
                 while (i3 < min) {
                     int i4 = i + 1;
-                    byte b = segment.data[i];
                     int i5 = i2 + 1;
-                    if (b != segment2.data[i2]) {
+                    if (segment.data[i] != segment2.data[i2]) {
                         return false;
                     }
                     i3++;
@@ -1776,11 +1769,9 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         }
         int i = 1;
         do {
-            int i2 = segment.pos;
-            int i3 = segment.limit;
-            while (i2 < i3) {
-                i2++;
-                i = segment.data[i2] + (i * 31);
+            int i2 = segment.limit;
+            for (int i3 = segment.pos; i3 < i2; i3++) {
+                i = (i * 31) + segment.data[i3];
             }
             segment = segment.next;
         } while (segment != this.head);
@@ -1847,7 +1838,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         return unsafeCursor;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class UnsafeCursor implements Closeable {
         public Buffer buffer;
         public byte[] data;
@@ -1865,8 +1856,6 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
         }
 
         public final int seek(long j) {
-            long j2;
-            long j3;
             if (j < -1 || j > this.buffer.size) {
                 throw new ArrayIndexOutOfBoundsException(String.format("offset=%s > size=%s", Long.valueOf(j), Long.valueOf(this.buffer.size)));
             }
@@ -1878,34 +1867,31 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
                 this.end = -1;
                 return -1;
             }
-            long j4 = this.buffer.size;
+            long j2 = 0;
+            long j3 = this.buffer.size;
             Segment segment = this.buffer.head;
             Segment segment2 = this.buffer.head;
-            if (this.segment == null) {
-                j2 = j4;
-                j3 = 0;
-            } else {
-                j2 = this.offset - (this.start - this.segment.pos);
-                if (j2 > j) {
+            if (this.segment != null) {
+                long j4 = this.offset - (this.start - this.segment.pos);
+                if (j4 > j) {
                     segment2 = this.segment;
-                    j3 = 0;
+                    j3 = j4;
                 } else {
                     segment = this.segment;
-                    j3 = j2;
                     j2 = j4;
                 }
             }
-            if (j2 - j > j - j3) {
-                while (j >= (segment.limit - segment.pos) + j3) {
-                    j3 += segment.limit - segment.pos;
+            if (j3 - j > j - j2) {
+                while (j >= (segment.limit - segment.pos) + j2) {
+                    j2 += segment.limit - segment.pos;
                     segment = segment.next;
                 }
             } else {
-                j3 = j2;
+                j2 = j3;
                 segment = segment2;
-                while (j3 > j) {
+                while (j2 > j) {
                     segment = segment.prev;
-                    j3 -= segment.limit - segment.pos;
+                    j2 -= segment.limit - segment.pos;
                 }
             }
             if (this.readWrite && segment.shared) {
@@ -1919,7 +1905,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             this.segment = segment;
             this.offset = j;
             this.data = segment.data;
-            this.start = ((int) (j - j3)) + segment.pos;
+            this.start = ((int) (j - j2)) + segment.pos;
             this.end = segment.limit;
             return this.end - this.start;
         }

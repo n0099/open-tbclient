@@ -8,13 +8,15 @@ import android.view.KeyEvent;
 import com.baidu.pass.biometrics.base.NoProguard;
 import com.baidu.pass.biometrics.base.R;
 import com.baidu.pass.biometrics.base.utils.PassBioGlobalUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class BaseActivity extends Activity implements NoProguard {
     private String c;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2692a = false;
-    private boolean b = true;
+    private boolean f3974a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    private boolean f3975b = true;
     private boolean d = false;
 
     @TargetApi(24)
@@ -22,10 +24,10 @@ public class BaseActivity extends Activity implements NoProguard {
         if (Build.VERSION.SDK_INT < 24 || !isInMultiWindowMode()) {
             return;
         }
-        if (this.f2692a) {
+        if (this.f3974a) {
             PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
         }
-        if (this.b) {
+        if (this.f3975b) {
             return;
         }
         finish();
@@ -70,10 +72,10 @@ public class BaseActivity extends Activity implements NoProguard {
         if (Build.VERSION.SDK_INT >= 24) {
             super.onMultiWindowModeChanged(z);
             if (z && isActivityInForeground()) {
-                if (this.f2692a) {
+                if (this.f3974a) {
                     PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
                 }
-                if (this.b) {
+                if (this.f3975b) {
                     return;
                 }
                 finish();
@@ -95,14 +97,14 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     protected void setIsMultiWindowAvailable(boolean z) {
-        if (z != this.b) {
-            this.b = z;
+        if (z != this.f3975b) {
+            this.f3975b = z;
         }
     }
 
     protected void setIsShowMultiWindowTips(boolean z) {
-        if (z != this.f2692a) {
-            this.f2692a = z;
+        if (z != this.f3974a) {
+            this.f3974a = z;
         }
     }
 

@@ -5,5 +5,5 @@ public interface b extends com.baidu.tbadk.core.view.commonLike.a {
 
     String getForumName();
 
-    void jc(boolean z);
+    void jy(boolean z);
 }

@@ -16,19 +16,31 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Map;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile int f2261a = 0;
-    private static String b;
+    private static volatile int f3237a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f3238b;
     private static String c;
     private static boolean d;
+
+    public static void a(int i, Map<String, String> map) {
+        int b2 = e.adA().b(i);
+        if ((f3237a & b2) == b2) {
+            return;
+        }
+        for (int i2 = (f3237a ^ b2) & b2; i2 > 0 && d(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (f3237a ^ b2) & b2) {
+        }
+        e.adA().d();
+    }
 
     public static void a(Context context, String str) {
         c = str;
         d = Utils.e(context);
-        e.abO().a(context, str);
+        e.adA().a(context, str);
     }
 
     private static void a(Context context, Map<String, String> map) {
@@ -64,8 +76,8 @@ public class b {
     }
 
     public static boolean a(int i) {
-        int b2 = e.abO().b(i);
-        return (f2261a & b2) == b2;
+        int b2 = e.adA().b(i);
+        return (f3237a & b2) == b2;
     }
 
     private static boolean a(int i, String str) {
@@ -87,11 +99,11 @@ public class b {
     }
 
     public static String[] a() {
-        return e.abO().b();
+        return e.adA().b();
     }
 
     public static String b() {
-        return b;
+        return f3238b;
     }
 
     public static String c() {
@@ -101,9 +113,9 @@ public class b {
     private static boolean c(int i, Map<String, String> map) {
         String str;
         int i2;
-        String str2;
-        String str3 = null;
+        String str2 = null;
         if (CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_CRASHPAD, true)) {
+            String str3 = "-1";
             if (map != null) {
                 String str4 = map.get(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE);
                 if (TextUtils.isEmpty(str4)) {
@@ -116,14 +128,13 @@ public class b {
                     }
                 }
                 str = map.get("abtest_sid");
-                str2 = map.get(CyberPlayerManager.INSTALL_OPT_PROCESS_TYPE);
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = "-1";
+                String str5 = map.get(CyberPlayerManager.INSTALL_OPT_PROCESS_TYPE);
+                if (!TextUtils.isEmpty(str5)) {
+                    str3 = str5;
                 }
             } else {
                 str = null;
                 i2 = 3;
-                str2 = "-1";
             }
             if (d) {
                 if ((i2 & 2) != 2) {
@@ -138,22 +149,22 @@ public class b {
                 }
                 try {
                     try {
-                        File file = new File(e.abO().gZ(1).c());
-                        File file2 = new File(e.abO().gZ(2).c());
+                        File file = new File(e.adA().ha(1).c());
+                        File file2 = new File(e.adA().ha(2).c());
                         String parent = file.getParent();
                         String parent2 = file2.getParent();
                         try {
-                            str3 = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
+                            str2 = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
                         } catch (Exception e2) {
                         }
                         if (d) {
-                            str2 = "4";
+                            str3 = "4";
                         }
                         if (!file2.canExecute()) {
                             file2.setExecutable(true);
                             CyberLog.d("CyberLibsLoader", "set " + file2.getAbsolutePath() + " executable");
                         }
-                        String[] strArr = {SDKVersion.VERSION, "neon", CyberPlayerManager.getClientID(), "unKnown", "0", "0", str2, "true", str3, GlobalConstants.DEFAULT_VERSION, parent, parent2, ""};
+                        String[] strArr = {SDKVersion.VERSION, "neon", CyberPlayerManager.getClientID(), "unKnown", "0", "0", str3, "true", str2, GlobalConstants.DEFAULT_VERSION, parent, parent2, ""};
                         a.a(true);
                         a.a(CyberPlayerManager.getApplicationContext(), strArr);
                         a.a("{searchbox_sid=" + str + "}");
@@ -197,67 +208,57 @@ public class b {
         }
     }
 
-    public static void d(int i, Map<String, String> map) {
-        int b2 = e.abO().b(i);
-        if ((f2261a & b2) == b2) {
-            return;
-        }
-        for (int i2 = (f2261a ^ b2) & b2; i2 > 0 && e(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (f2261a ^ b2) & b2) {
-        }
-        e.abO().d();
-    }
-
-    private static boolean e(int i, Map<String, String> map) {
+    private static boolean d(int i, Map<String, String> map) {
         boolean a2;
-        d gZ = e.abO().gZ(i);
-        if (gZ == null) {
+        d ha = e.adA().ha(i);
+        if (ha == null) {
             CyberLog.e("CyberLibsLoader", "Unable to find (" + i + ") LibInfo");
             return false;
         }
-        String a3 = gZ.a();
-        String b2 = gZ.b();
-        String c2 = gZ.c();
+        String a3 = ha.a();
+        String b2 = ha.b();
+        String c2 = ha.c();
         File file = new File(c2);
-        if (gZ.abN() == d.a.LIB_TYPE_JAR) {
+        if (ha.adz() == d.a.LIB_TYPE_JAR) {
             if (!"apk_internal_jar".equals(c2)) {
                 if (!file.exists()) {
-                    throw new FileNotFoundException(e.abO().du(i));
+                    throw new FileNotFoundException(e.adA().c(i));
                 }
-                if (e.abO().h(i)) {
+                if (e.adA().h(i)) {
                     a2 = CyberMediaExtLoader.init(CyberPlayerManager.getApplicationContext());
                 }
             }
             a2 = true;
         } else {
-            if (gZ.abN() == d.a.LIB_TYPE_SO) {
+            if (ha.adz() == d.a.LIB_TYPE_SO) {
                 if (!file.exists()) {
                     if (i == 8) {
                         i = 16;
                     }
-                    throw new FileNotFoundException(e.abO().du(i));
-                } else if (e.abO().d(i)) {
+                    throw new FileNotFoundException(e.adA().c(i));
+                } else if (e.adA().d(i)) {
                     System.load(c2);
                     if (i == 16) {
                         a(CyberPlayerManager.getApplicationContext(), map);
                         a2 = true;
                     }
-                } else if (e.abO().e(i)) {
+                } else if (e.adA().e(i)) {
                     IjkMediaPlayer.nativeSetEnableFFmpegExtend(c2);
                     a2 = true;
-                } else if (e.abO().f(i)) {
-                    b = c2;
+                } else if (e.adA().f(i)) {
+                    f3238b = c2;
                     a2 = true;
-                } else if (e.abO().hb(i)) {
+                } else if (e.adA().i(i)) {
                     a2 = c(i, map);
-                } else if (e.abO().ha(i)) {
+                } else if (e.adA().g(i)) {
                     a2 = a(i, c2);
                 }
             }
             a2 = true;
         }
-        f2261a |= i;
+        f3237a |= i;
         if (a2) {
-            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.abO().c() + " lib:" + a3 + " ver:" + b2 + " load success");
+            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.adA().c() + " lib:" + a3 + " ver:" + b2 + " load success");
             return true;
         }
         return true;

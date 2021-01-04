@@ -3,7 +3,7 @@ package com.baidu.mobads.openad.b;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class i extends SQLiteOpenHelper {
     public i(Context context) {
         super(context, "__bd_sdk_download_x.db", (SQLiteDatabase.CursorFactory) null, 1);

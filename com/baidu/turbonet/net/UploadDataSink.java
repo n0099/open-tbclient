@@ -1,9 +1,9 @@
 package com.baidu.turbonet.net;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface UploadDataSink {
-    void Ac(boolean z);
+    void onReadSucceeded(boolean z);
 
-    void ehc();
+    void onRewindSucceeded();
 
     void z(Exception exc);
 }

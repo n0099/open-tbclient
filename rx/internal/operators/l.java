@@ -1,194 +1,154 @@
 package rx.internal.operators;
 
-import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
+import rx.a;
 import rx.d;
 import rx.exceptions.MissingBackpressureException;
-import rx.g;
-import rx.internal.util.a.ae;
-/* loaded from: classes12.dex */
-public final class l<T> implements d.b<T, T> {
-    private final int bufferSize;
-    private final boolean delayError;
-    private final rx.g scheduler;
+import rx.internal.util.BackpressureDrainManager;
+/* loaded from: classes15.dex */
+public class l<T> implements d.b<T, T> {
+    private final Long qtm = null;
+    private final rx.functions.a qtn = null;
+    private final a.d qto = rx.a.qql;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes15.dex */
+    public static final class b {
+        static final l<?> qtt = new l<>();
+    }
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public l(rx.g gVar, boolean z, int i) {
-        this.scheduler = gVar;
-        this.delayError = z;
-        this.bufferSize = i <= 0 ? rx.internal.util.g.SIZE : i;
+    public static <T> l<T> eNX() {
+        return (l<T>) b.qtt;
+    }
+
+    l() {
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        if (!(this.scheduler instanceof rx.internal.schedulers.e) && !(this.scheduler instanceof rx.internal.schedulers.j)) {
-            a aVar = new a(this.scheduler, jVar, this.delayError, this.bufferSize);
-            aVar.init();
-            return aVar;
-        }
-        return jVar;
+        a aVar = new a(jVar, this.qtm, this.qtn, this.qto);
+        jVar.add(aVar);
+        jVar.setProducer(aVar.eNZ());
+        return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
-    public static final class a<T> extends rx.j<T> implements rx.functions.a {
-        final rx.j<? super T> child;
-        final boolean delayError;
-        long emitted;
-        Throwable error;
-        volatile boolean finished;
-        final int limit;
-        final g.a pRI;
-        final Queue<Object> queue;
-        final AtomicLong requested = new AtomicLong();
-        final AtomicLong pRJ = new AtomicLong();
+    /* loaded from: classes15.dex */
+    public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
+        private final rx.j<? super T> child;
+        private final rx.functions.a qtn;
+        private final a.d qto;
+        private final AtomicLong qtq;
+        private final BackpressureDrainManager qts;
+        private final ConcurrentLinkedQueue<Object> qtp = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean qtr = new AtomicBoolean(false);
 
-        public a(rx.g gVar, rx.j<? super T> jVar, boolean z, int i) {
+        public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
             this.child = jVar;
-            this.pRI = gVar.createWorker();
-            this.delayError = z;
-            i = i <= 0 ? rx.internal.util.g.SIZE : i;
-            this.limit = i - (i >> 2);
-            if (ae.eGo()) {
-                this.queue = new rx.internal.util.a.q(i);
-            } else {
-                this.queue = new rx.internal.util.atomic.c(i);
-            }
-            request(i);
+            this.qtq = l != null ? new AtomicLong(l.longValue()) : null;
+            this.qtn = aVar;
+            this.qts = new BackpressureDrainManager(this);
+            this.qto = dVar;
         }
 
-        void init() {
-            rx.j<? super T> jVar = this.child;
-            jVar.setProducer(new rx.f() { // from class: rx.internal.operators.l.a.1
-                @Override // rx.f
-                public void request(long j) {
-                    if (j > 0) {
-                        rx.internal.operators.a.e(a.this.requested, j);
-                        a.this.schedule();
-                    }
-                }
-            });
-            jVar.add(this.pRI);
-            jVar.add(this);
-        }
-
-        @Override // rx.e
-        public void onNext(T t) {
-            if (!isUnsubscribed() && !this.finished) {
-                if (!this.queue.offer(NotificationLite.next(t))) {
-                    onError(new MissingBackpressureException());
-                } else {
-                    schedule();
-                }
-            }
+        @Override // rx.j
+        public void onStart() {
+            request(Long.MAX_VALUE);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!isUnsubscribed() && !this.finished) {
-                this.finished = true;
-                schedule();
+            if (!this.qtr.get()) {
+                this.qts.terminateAndDrain();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (isUnsubscribed() || this.finished) {
-                rx.c.c.onError(th);
-                return;
-            }
-            this.error = th;
-            this.finished = true;
-            schedule();
-        }
-
-        protected void schedule() {
-            if (this.pRJ.getAndIncrement() == 0) {
-                this.pRI.c(this);
+            if (!this.qtr.get()) {
+                this.qts.terminateAndDrain(th);
             }
         }
 
-        @Override // rx.functions.a
-        public void call() {
+        @Override // rx.e
+        public void onNext(T t) {
+            if (eNY()) {
+                this.qtp.offer(NotificationLite.next(t));
+                this.qts.drain();
+            }
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public boolean cc(Object obj) {
+            return NotificationLite.a(this.child, obj);
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public void Z(Throwable th) {
+            if (th != null) {
+                this.child.onError(th);
+            } else {
+                this.child.onCompleted();
+            }
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public Object peek() {
+            return this.qtp.peek();
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public Object poll() {
+            Object poll = this.qtp.poll();
+            if (this.qtq != null && poll != null) {
+                this.qtq.incrementAndGet();
+            }
+            return poll;
+        }
+
+        private boolean eNY() {
             long j;
-            long j2 = this.emitted;
-            Queue<Object> queue = this.queue;
-            rx.j<? super T> jVar = this.child;
-            long j3 = 1;
-            do {
-                long j4 = this.requested.get();
-                while (j4 != j2) {
-                    boolean z = this.finished;
-                    Object poll = queue.poll();
-                    boolean z2 = poll == null;
-                    if (!a(z, z2, jVar, queue)) {
-                        if (z2) {
-                            break;
-                        }
-                        jVar.onNext((Object) NotificationLite.getValue(poll));
-                        long j5 = j2 + 1;
-                        if (j5 == this.limit) {
-                            j = rx.internal.operators.a.c(this.requested, j5);
-                            request(j5);
-                            j5 = 0;
-                        } else {
-                            j = j4;
-                        }
-                        j4 = j;
-                        j2 = j5;
-                    } else {
-                        return;
-                    }
-                }
-                if (j4 != j2 || !a(this.finished, queue.isEmpty(), jVar, queue)) {
-                    this.emitted = j2;
-                    j3 = this.pRJ.addAndGet(-j3);
-                } else {
-                    return;
-                }
-            } while (j3 != 0);
-        }
-
-        boolean a(boolean z, boolean z2, rx.j<? super T> jVar, Queue<Object> queue) {
-            if (jVar.isUnsubscribed()) {
-                queue.clear();
+            boolean z;
+            if (this.qtq == null) {
                 return true;
             }
-            if (z) {
-                if (this.delayError) {
-                    if (z2) {
-                        Throwable th = this.error;
+            do {
+                j = this.qtq.get();
+                if (j <= 0) {
+                    try {
+                        z = this.qto.eNp() && poll() != null;
+                    } catch (MissingBackpressureException e) {
+                        if (this.qtr.compareAndSet(false, true)) {
+                            unsubscribe();
+                            this.child.onError(e);
+                        }
+                        z = false;
+                    }
+                    if (this.qtn != null) {
                         try {
-                            if (th != null) {
-                                jVar.onError(th);
-                            } else {
-                                jVar.onCompleted();
-                            }
-                        } finally {
+                            this.qtn.call();
+                        } catch (Throwable th) {
+                            rx.exceptions.a.O(th);
+                            this.qts.terminateAndDrain(th);
+                            return false;
                         }
                     }
-                } else {
-                    Throwable th2 = this.error;
-                    if (th2 != null) {
-                        queue.clear();
-                        try {
-                            jVar.onError(th2);
-                            return true;
-                        } finally {
-                        }
-                    } else if (z2) {
-                        try {
-                            jVar.onCompleted();
-                            return true;
-                        } finally {
-                        }
+                    if (!z) {
+                        return false;
                     }
                 }
-            }
-            return false;
+            } while (!this.qtq.compareAndSet(j, j - 1));
+            return true;
+        }
+
+        protected rx.f eNZ() {
+            return this.qts;
         }
     }
 }

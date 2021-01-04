@@ -4,34 +4,35 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static String aoj;
-    public static String aok;
+    public static String aoK;
+    public static String aoL;
 
     public static String Z(Context context) {
         return z(context, AlaRecorderLog.Protocol.RTC);
     }
 
     public static String aa(Context context) {
-        if (TextUtils.isEmpty(aoj)) {
-            uK();
+        if (TextUtils.isEmpty(aoK)) {
+            uj();
         }
-        return y(context, aoj) + File.separator + "jniLibs" + File.separator + getCPUType();
+        return y(context, aoK) + File.separator + "jniLibs" + File.separator + getCPUType();
     }
 
-    public static void dz(String str) {
+    public static void ds(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "armeabi-v7a";
         }
-        aok = str;
+        aoL = str;
     }
 
     public static String getCPUType() {
-        return TextUtils.isEmpty(aok) ? "armeabi-v7a" : aok;
+        return TextUtils.isEmpty(aoL) ? "armeabi-v7a" : aoL;
     }
 
     public static String m(Context context, String str, String str2) {
@@ -47,8 +48,8 @@ public class b {
         }
         try {
             String str2 = "";
-            for (byte b : MessageDigest.getInstance("MD5").digest(str.getBytes())) {
-                String hexString = Integer.toHexString(b & 255);
+            for (byte b2 : MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes())) {
+                String hexString = Integer.toHexString(b2 & 255);
                 if (hexString.length() == 1) {
                     hexString = "0" + hexString;
                 }
@@ -69,12 +70,12 @@ public class b {
         return com.baidu.cloudbase.d.a.isExists(m + File.separator + "jniLibs" + File.separator + getCPUType() + File.separator + "libjingle_peerconnection_so.so");
     }
 
-    public static String uK() {
-        aoj = "https://b.bdstatic.com/searchbox/androidvideo/" + uL();
-        return aoj;
+    public static String uj() {
+        aoK = "https://b.bdstatic.com/searchbox/androidvideo/" + uk();
+        return aoK;
     }
 
-    public static String uL() {
+    public static String uk() {
         return getCPUType() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + AlaRecorderLog.Protocol.RTC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "5.4.14.zip";
     }
 

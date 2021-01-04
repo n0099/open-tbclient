@@ -1,7 +1,7 @@
 package com.baidu.ala.downloader;
 
 import com.baidu.tbadk.download.DownloadData;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class WrapDownloadData {
     public static final int ST_FILE_DOWNLOADED = 3;
     public static final int ST_FILE_DOWNLOAD_FAILED = 5;

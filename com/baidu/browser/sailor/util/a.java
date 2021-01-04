@@ -1,26 +1,28 @@
 package com.baidu.browser.sailor.util;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f1284a;
+    static final /* synthetic */ boolean f1647a;
 
     /* renamed from: com.baidu.browser.sailor.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    static abstract class AbstractC0095a {
+    /* loaded from: classes4.dex */
+    static abstract class AbstractC0087a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f1285a;
-        public int b;
+        public byte[] f1648a;
 
-        AbstractC0095a() {
+        /* renamed from: b  reason: collision with root package name */
+        public int f1649b;
+
+        AbstractC0087a() {
         }
     }
 
-    /* loaded from: classes12.dex */
-    static class b extends AbstractC0095a {
+    /* loaded from: classes4.dex */
+    static class b extends AbstractC0087a {
         static final /* synthetic */ boolean j;
         private static final byte[] k;
         private static final byte[] l;
@@ -39,7 +41,7 @@ public class a {
         }
 
         public b() {
-            this.f1285a = null;
+            this.f1648a = null;
             this.f = false;
             this.g = false;
             this.h = false;
@@ -51,7 +53,7 @@ public class a {
     }
 
     static {
-        f1284a = !a.class.desiredAssertionStatus();
+        f1647a = !a.class.desiredAssertionStatus();
     }
 
     private a() {
@@ -62,122 +64,128 @@ public class a {
         int i;
         int i2;
         int i3;
+        int i4;
         byte b2;
         byte b3;
-        int i4;
-        byte b4;
         int i5;
+        int i6;
+        byte b4;
+        int i7;
+        int i8 = 1;
         int length = bArr.length;
         b bVar = new b();
-        int i6 = (length / 3) * 4;
+        int i9 = (length / 3) * 4;
         if (!bVar.f) {
             switch (length % 3) {
                 case 1:
-                    i6 += 2;
+                    i9 += 2;
                     break;
                 case 2:
-                    i6 += 3;
+                    i9 += 3;
                     break;
             }
         } else if (length % 3 > 0) {
-            i6 += 4;
+            i9 += 4;
         }
         if (bVar.g && length > 0) {
-            i6 += (bVar.h ? 2 : 1) * (((length - 1) / 57) + 1);
+            i9 += (bVar.h ? 2 : 1) * (((length - 1) / 57) + 1);
         }
-        bVar.f1285a = new byte[i6];
+        bVar.f1648a = new byte[i9];
         byte[] bArr2 = bVar.i;
-        byte[] bArr3 = bVar.f1285a;
-        int i7 = 0;
-        int i8 = bVar.e;
-        int i9 = 0;
-        int i10 = length + 0;
-        int i11 = -1;
+        byte[] bArr3 = bVar.f1648a;
+        int i10 = bVar.e;
+        int i11 = length + 0;
         switch (bVar.d) {
             case 0:
-                i = -1;
+                i = 0;
+                i2 = -1;
                 break;
             case 1:
-                if (2 <= i10) {
-                    int i12 = ((bVar.c[0] & 255) << 16) | ((bArr[0] & 255) << 8);
-                    i9 = 2;
+                if (2 <= i11) {
+                    int i12 = ((bVar.c[0] & 255) << 16) | ((bArr[0] & 255) << 8) | (bArr[1] & 255);
                     bVar.d = 0;
-                    i = i12 | (bArr[1] & 255);
+                    i = 2;
+                    i2 = i12;
                     break;
                 }
-                i = i11;
+                i = 0;
+                i2 = -1;
                 break;
             case 2:
-                if (i10 > 0) {
-                    i9 = 1;
-                    i11 = ((bVar.c[0] & 255) << 16) | ((bVar.c[1] & 255) << 8) | (bArr[0] & 255);
+                if (i11 > 0) {
+                    int i13 = ((bVar.c[0] & 255) << 16) | ((bVar.c[1] & 255) << 8) | (bArr[0] & 255);
                     bVar.d = 0;
+                    i = 1;
+                    i2 = i13;
+                    break;
                 }
-                i = i11;
+                i = 0;
+                i2 = -1;
                 break;
             default:
-                i = i11;
+                i = 0;
+                i2 = -1;
                 break;
         }
-        if (i != -1) {
-            bArr3[0] = bArr2[(i >> 18) & 63];
-            bArr3[1] = bArr2[(i >> 12) & 63];
-            bArr3[2] = bArr2[(i >> 6) & 63];
-            int i13 = 4;
-            bArr3[3] = bArr2[i & 63];
-            int i14 = i8 - 1;
-            if (i14 == 0) {
+        if (i2 != -1) {
+            bArr3[0] = bArr2[(i2 >> 18) & 63];
+            bArr3[1] = bArr2[(i2 >> 12) & 63];
+            bArr3[2] = bArr2[(i2 >> 6) & 63];
+            int i14 = 4;
+            bArr3[3] = bArr2[i2 & 63];
+            int i15 = i10 - 1;
+            if (i15 == 0) {
                 if (bVar.h) {
-                    i13 = 5;
+                    i14 = 5;
                     bArr3[4] = 13;
                 }
-                i7 = i13 + 1;
-                bArr3[i13] = 10;
-                i2 = 19;
+                i3 = i14 + 1;
+                bArr3[i14] = 10;
+                i10 = 19;
             } else {
-                i2 = i14;
-                i7 = 4;
+                i10 = i15;
+                i3 = 4;
             }
         } else {
-            i2 = i8;
+            i3 = 0;
         }
-        while (i9 + 3 <= i10) {
-            int i15 = ((bArr[i9] & 255) << 16) | ((bArr[i9 + 1] & 255) << 8) | (bArr[i9 + 2] & 255);
-            bArr3[i7] = bArr2[(i15 >> 18) & 63];
-            bArr3[i7 + 1] = bArr2[(i15 >> 12) & 63];
-            bArr3[i7 + 2] = bArr2[(i15 >> 6) & 63];
-            bArr3[i7 + 3] = bArr2[i15 & 63];
-            i9 += 3;
-            int i16 = i7 + 4;
-            int i17 = i2 - 1;
-            if (i17 == 0) {
+        while (i + 3 <= i11) {
+            int i16 = ((bArr[i] & 255) << 16) | ((bArr[i + 1] & 255) << 8) | (bArr[i + 2] & 255);
+            bArr3[i3] = bArr2[(i16 >> 18) & 63];
+            bArr3[i3 + 1] = bArr2[(i16 >> 12) & 63];
+            bArr3[i3 + 2] = bArr2[(i16 >> 6) & 63];
+            bArr3[i3 + 3] = bArr2[i16 & 63];
+            i += 3;
+            int i17 = i3 + 4;
+            int i18 = i10 - 1;
+            if (i18 == 0) {
                 if (bVar.h) {
-                    i5 = i16 + 1;
-                    bArr3[i16] = 13;
+                    i7 = i17 + 1;
+                    bArr3[i17] = 13;
                 } else {
-                    i5 = i16;
+                    i7 = i17;
                 }
-                i7 = i5 + 1;
-                bArr3[i5] = 10;
-                i2 = 19;
+                i3 = i7 + 1;
+                bArr3[i7] = 10;
+                i10 = 19;
             } else {
-                i2 = i17;
-                i7 = i16;
+                i10 = i18;
+                i3 = i17;
             }
         }
-        if (i9 - bVar.d == i10 - 1) {
-            int i18 = 0;
+        if (i - bVar.d == i11 - 1) {
             if (bVar.d > 0) {
-                i18 = 1;
                 b4 = bVar.c[0];
+                i6 = i;
             } else {
-                b4 = bArr[i9];
-                i9++;
+                i6 = i + 1;
+                b4 = bArr[i];
+                i8 = 0;
             }
             int i19 = (b4 & 255) << 4;
-            bVar.d -= i18;
-            int i20 = i7 + 1;
-            bArr3[i7] = bArr2[(i19 >> 6) & 63];
+            bVar.d -= i8;
+            int i20 = i3 + 1;
+            bArr3[i3] = bArr2[(i19 >> 6) & 63];
             int i21 = i20 + 1;
             bArr3[i20] = bArr2[i19 & 63];
             if (bVar.f) {
@@ -194,63 +202,63 @@ public class a {
                 bArr3[i21] = 10;
                 i21++;
             }
-            i7 = i21;
-        } else if (i9 - bVar.d == i10 - 2) {
-            int i23 = 0;
+            i = i6;
+            i3 = i21;
+        } else if (i - bVar.d == i11 - 2) {
             if (bVar.d > 1) {
-                i23 = 1;
                 b2 = bVar.c[0];
             } else {
-                b2 = bArr[i9];
-                i9++;
+                b2 = bArr[i];
+                i8 = 0;
+                i++;
             }
-            int i24 = (b2 & 255) << 10;
+            int i23 = (b2 & 255) << 10;
             if (bVar.d > 0) {
-                b3 = bVar.c[i23];
-                i23++;
+                b3 = bVar.c[i8];
+                i8++;
             } else {
-                b3 = bArr[i9];
-                i9++;
+                b3 = bArr[i];
+                i++;
             }
-            int i25 = ((b3 & 255) << 2) | i24;
-            bVar.d -= i23;
-            int i26 = i7 + 1;
-            bArr3[i7] = bArr2[(i25 >> 12) & 63];
+            int i24 = ((b3 & 255) << 2) | i23;
+            bVar.d -= i8;
+            int i25 = i3 + 1;
+            bArr3[i3] = bArr2[(i24 >> 12) & 63];
+            int i26 = i25 + 1;
+            bArr3[i25] = bArr2[(i24 >> 6) & 63];
             int i27 = i26 + 1;
-            bArr3[i26] = bArr2[(i25 >> 6) & 63];
-            int i28 = i27 + 1;
-            bArr3[i27] = bArr2[i25 & 63];
+            bArr3[i26] = bArr2[i24 & 63];
             if (bVar.f) {
-                i4 = i28 + 1;
-                bArr3[i28] = 61;
+                i5 = i27 + 1;
+                bArr3[i27] = 61;
             } else {
-                i4 = i28;
+                i5 = i27;
             }
             if (bVar.g) {
                 if (bVar.h) {
-                    bArr3[i4] = 13;
-                    i4++;
+                    bArr3[i5] = 13;
+                    i5++;
                 }
-                bArr3[i4] = 10;
-                i4++;
+                bArr3[i5] = 10;
+                i5++;
             }
-            i7 = i4;
-        } else if (bVar.g && i7 > 0 && i2 != 19) {
+            i3 = i5;
+        } else if (bVar.g && i3 > 0 && i10 != 19) {
             if (bVar.h) {
-                i3 = i7 + 1;
-                bArr3[i7] = 13;
+                i4 = i3 + 1;
+                bArr3[i3] = 13;
             } else {
-                i3 = i7;
+                i4 = i3;
             }
-            i7 = i3 + 1;
-            bArr3[i3] = 10;
+            i3 = i4 + 1;
+            bArr3[i4] = 10;
         }
         if (b.j || bVar.d == 0) {
-            if (b.j || i9 == i10) {
-                bVar.b = i7;
-                bVar.e = i2;
-                if (f1284a || bVar.b == i6) {
-                    return bVar.f1285a;
+            if (b.j || i == i11) {
+                bVar.f1649b = i3;
+                bVar.e = i10;
+                if (f1647a || bVar.f1649b == i9) {
+                    return bVar.f1648a;
                 }
                 throw new AssertionError();
             }

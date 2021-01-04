@@ -1,21 +1,21 @@
 package com.baidu.tieba.ad.download.mvp;
 
-import android.support.annotation.NonNull;
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public interface b {
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes.dex */
     public interface a {
-        boolean bZ(View view);
+        boolean ci(View view);
     }
 
     void a(@NonNull DownloadStatus downloadStatus);
 
     void a(DownloadStatus downloadStatus, int i);
 
-    boolean bZ(View view);
+    boolean ci(View view);
 
     void fu(int i);
 

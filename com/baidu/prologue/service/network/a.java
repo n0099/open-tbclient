@@ -12,10 +12,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a {
     private static final Executor THREAD_POOL_EXECUTOR;
-    private static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
+    private static final boolean DEBUG = com.baidu.prologue.a.a.a.ctc;
     private static Handler sHandler = new Handler(Looper.getMainLooper());
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
@@ -39,7 +39,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.prologue.service.network.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class C0332a {
         String name;
         Runnable runnable;
@@ -48,7 +48,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     private static class b extends AsyncTask<C0332a, Object, Object> {
         private b() {
         }

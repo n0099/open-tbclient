@@ -1,5 +1,5 @@
 package com.baidu.e.b;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public interface d {
     String getAppName();
 }

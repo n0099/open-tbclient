@@ -6,12 +6,12 @@ import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.internal.view.SupportMenu;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.internal.view.SupportMenu;
 import com.baidu.mobads.AdSize;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdContainer;
@@ -20,9 +20,8 @@ import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.production.v;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.mobads.production.b implements a {
     private CountDownTimer A;
     private f B;
@@ -59,7 +58,7 @@ public class b extends com.baidu.mobads.production.b implements a {
 
     @Override // com.baidu.mobads.production.b
     protected void h() {
-        this.m = CoolPraiseGuideLottieView.ANIM_DURATION;
+        this.m = 8000;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProd

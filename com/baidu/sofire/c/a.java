@@ -16,21 +16,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class a {
     public static a d;
 
     /* renamed from: a  reason: collision with root package name */
-    int f3603a = 5;
-    String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
+    int f5482a = 5;
+
+    /* renamed from: b  reason: collision with root package name */
+    String f5483b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
     public SQLiteDatabase c;
-    private C0367a e;
+    private C0360a e;
     private Context f;
 
     private a(Context context) {
         b.a();
         this.f = context.getApplicationContext();
-        this.e = new C0367a(context.getApplicationContext());
+        this.e = new C0360a(context.getApplicationContext());
         try {
             this.c = this.e.getWritableDatabase();
         } catch (Throwable th) {
@@ -52,18 +54,18 @@ public final class a {
     }
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    private class C0367a extends SQLiteOpenHelper {
-        public C0367a(Context context) {
-            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f3603a);
-            new StringBuilder().append(a.this.f3603a);
+    /* loaded from: classes15.dex */
+    private class C0360a extends SQLiteOpenHelper {
+        public C0360a(Context context) {
+            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f5482a);
+            new StringBuilder().append(a.this.f5482a);
             b.a();
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public final void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(a.this.b);
+                sQLiteDatabase.execSQL(a.this.f5483b);
             } catch (Throwable th) {
                 e.a();
             }
@@ -339,12 +341,12 @@ public final class a {
                         apkInfo2.activities = new ActivityInfo[size];
                         for (int i2 = 0; i2 < size; i2++) {
                             ActivityInfo activityInfo = new ActivityInfo();
-                            activityInfo.theme = a2.get(i2).f3607a;
+                            activityInfo.theme = a2.get(i2).f5488a;
                             activityInfo.name = a2.get(i2).j;
                             activityInfo.configChanges = a2.get(i2).h;
                             activityInfo.flags = a2.get(i2).f;
                             activityInfo.labelRes = a2.get(i2).l;
-                            activityInfo.launchMode = a2.get(i2).b;
+                            activityInfo.launchMode = a2.get(i2).f5489b;
                             activityInfo.nonLocalizedLabel = a2.get(i2).m;
                             activityInfo.packageName = a2.get(i2).k;
                             activityInfo.permission = a2.get(i2).c;
@@ -420,9 +422,9 @@ public final class a {
             r6 = 0
             r7 = 0
             android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L43
-            if (r1 == 0) goto L77
-            int r0 = r1.getCount()     // Catch: java.lang.Throwable -> L74
-            if (r0 <= 0) goto L77
+            if (r1 == 0) goto L79
+            int r0 = r1.getCount()     // Catch: java.lang.Throwable -> L76
+            if (r0 <= 0) goto L79
             r0 = r10
         L32:
             if (r1 == 0) goto L3d
@@ -439,7 +441,7 @@ public final class a {
             r0 = move-exception
             r0 = r9
         L45:
-            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L70
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L72
             if (r0 == 0) goto L53
             boolean r1 = r0.isClosed()     // Catch: java.lang.Throwable -> L55
             if (r1 != 0) goto L53
@@ -454,31 +456,33 @@ public final class a {
             goto L3d
         L5b:
             r0 = move-exception
-        L5c:
-            if (r9 == 0) goto L67
-            boolean r1 = r9.isClosed()     // Catch: java.lang.Throwable -> L68
-            if (r1 != 0) goto L67
-            r9.close()     // Catch: java.lang.Throwable -> L68
-        L67:
-            throw r0
+            r2 = r0
+        L5d:
+            if (r9 == 0) goto L68
+            boolean r0 = r9.isClosed()     // Catch: java.lang.Throwable -> L69
+            if (r0 != 0) goto L68
+            r9.close()     // Catch: java.lang.Throwable -> L69
         L68:
-            r1 = move-exception
-            com.baidu.sofire.i.e.a()
-            goto L67
-        L6d:
+            throw r2
+        L69:
             r0 = move-exception
+            com.baidu.sofire.i.e.a()
+            goto L68
+        L6e:
+            r0 = move-exception
+            r2 = r0
             r9 = r1
-            goto L5c
-        L70:
+            goto L5d
+        L72:
             r1 = move-exception
+            r2 = r1
             r9 = r0
-            r0 = r1
-            goto L5c
-        L74:
+            goto L5d
+        L76:
             r0 = move-exception
             r0 = r1
             goto L45
-        L77:
+        L79:
             r0 = r8
             goto L32
         */
@@ -515,12 +519,12 @@ public final class a {
             r6 = 0
             r7 = 0
             android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L4d
-            if (r1 == 0) goto L81
-            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L7e
-            if (r0 == 0) goto L81
+            if (r1 == 0) goto L83
+            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L80
+            if (r0 == 0) goto L83
             java.lang.String r0 = "n"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L7e
-            int r8 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L7e
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L80
+            int r8 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L80
             r0 = r8
         L3c:
             if (r1 == 0) goto L47
@@ -537,7 +541,7 @@ public final class a {
             r0 = move-exception
             r0 = r9
         L4f:
-            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L7a
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L7c
             if (r0 == 0) goto L5d
             boolean r1 = r0.isClosed()     // Catch: java.lang.Throwable -> L5f
             if (r1 != 0) goto L5d
@@ -552,31 +556,33 @@ public final class a {
             goto L47
         L65:
             r0 = move-exception
-        L66:
-            if (r9 == 0) goto L71
-            boolean r1 = r9.isClosed()     // Catch: java.lang.Throwable -> L72
-            if (r1 != 0) goto L71
-            r9.close()     // Catch: java.lang.Throwable -> L72
-        L71:
-            throw r0
+            r2 = r0
+        L67:
+            if (r9 == 0) goto L72
+            boolean r0 = r9.isClosed()     // Catch: java.lang.Throwable -> L73
+            if (r0 != 0) goto L72
+            r9.close()     // Catch: java.lang.Throwable -> L73
         L72:
-            r1 = move-exception
-            com.baidu.sofire.i.e.a()
-            goto L71
-        L77:
+            throw r2
+        L73:
             r0 = move-exception
+            com.baidu.sofire.i.e.a()
+            goto L72
+        L78:
+            r0 = move-exception
+            r2 = r0
             r9 = r1
-            goto L66
-        L7a:
+            goto L67
+        L7c:
             r1 = move-exception
+            r2 = r1
             r9 = r0
-            r0 = r1
-            goto L66
-        L7e:
+            goto L67
+        L80:
             r0 = move-exception
             r0 = r1
             goto L4f
-        L81:
+        L83:
             r0 = r8
             goto L3c
         */
@@ -599,7 +605,7 @@ public final class a {
         try {
             ArrayList<ApkInfo> arrayList = new ArrayList();
             for (ApkInfo apkInfo : a()) {
-                if (!e.c(apkInfo.pkgPath) && f.b != null && !f.b.contains(Integer.valueOf(apkInfo.key))) {
+                if (!e.c(apkInfo.pkgPath) && f.f5510b != null && !f.f5510b.contains(Integer.valueOf(apkInfo.key))) {
                     arrayList.add(apkInfo);
                 }
             }
@@ -652,11 +658,11 @@ public final class a {
             r7 = 0
             android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L53
             if (r1 == 0) goto L40
-            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L82
+            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L84
             if (r0 == 0) goto L40
             java.lang.String r0 = "u"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L82
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L82
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L84
+            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L84
             if (r0 != r8) goto L4c
             r0 = r8
         L3f:
@@ -679,7 +685,7 @@ public final class a {
             r0 = move-exception
             r0 = r10
         L55:
-            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L7e
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L80
             if (r0 == 0) goto L4b
             boolean r1 = r0.isClosed()     // Catch: java.lang.Throwable -> L64
             if (r1 != 0) goto L4b
@@ -691,27 +697,29 @@ public final class a {
             goto L4b
         L69:
             r0 = move-exception
-        L6a:
-            if (r10 == 0) goto L75
-            boolean r1 = r10.isClosed()     // Catch: java.lang.Throwable -> L76
-            if (r1 != 0) goto L75
-            r10.close()     // Catch: java.lang.Throwable -> L76
-        L75:
-            throw r0
+            r2 = r0
+        L6b:
+            if (r10 == 0) goto L76
+            boolean r0 = r10.isClosed()     // Catch: java.lang.Throwable -> L77
+            if (r0 != 0) goto L76
+            r10.close()     // Catch: java.lang.Throwable -> L77
         L76:
-            r1 = move-exception
-            com.baidu.sofire.i.e.a()
-            goto L75
-        L7b:
+            throw r2
+        L77:
             r0 = move-exception
+            com.baidu.sofire.i.e.a()
+            goto L76
+        L7c:
+            r0 = move-exception
+            r2 = r0
             r10 = r1
-            goto L6a
-        L7e:
+            goto L6b
+        L80:
             r1 = move-exception
+            r2 = r1
             r10 = r0
-            r0 = r1
-            goto L6a
-        L82:
+            goto L6b
+        L84:
             r0 = move-exception
             r0 = r1
             goto L55
@@ -751,11 +759,11 @@ public final class a {
             r7 = 0
             android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L53
             if (r1 == 0) goto L40
-            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L82
+            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L84
             if (r0 == 0) goto L40
             java.lang.String r0 = "s"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L82
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L82
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L84
+            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L84
             if (r0 != r8) goto L4c
             r0 = r8
         L3f:
@@ -778,7 +786,7 @@ public final class a {
             r0 = move-exception
             r0 = r10
         L55:
-            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L7e
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L80
             if (r0 == 0) goto L4b
             boolean r1 = r0.isClosed()     // Catch: java.lang.Throwable -> L64
             if (r1 != 0) goto L4b
@@ -790,27 +798,29 @@ public final class a {
             goto L4b
         L69:
             r0 = move-exception
-        L6a:
-            if (r10 == 0) goto L75
-            boolean r1 = r10.isClosed()     // Catch: java.lang.Throwable -> L76
-            if (r1 != 0) goto L75
-            r10.close()     // Catch: java.lang.Throwable -> L76
-        L75:
-            throw r0
+            r2 = r0
+        L6b:
+            if (r10 == 0) goto L76
+            boolean r0 = r10.isClosed()     // Catch: java.lang.Throwable -> L77
+            if (r0 != 0) goto L76
+            r10.close()     // Catch: java.lang.Throwable -> L77
         L76:
-            r1 = move-exception
-            com.baidu.sofire.i.e.a()
-            goto L75
-        L7b:
+            throw r2
+        L77:
             r0 = move-exception
+            com.baidu.sofire.i.e.a()
+            goto L76
+        L7c:
+            r0 = move-exception
+            r2 = r0
             r10 = r1
-            goto L6a
-        L7e:
+            goto L6b
+        L80:
             r1 = move-exception
+            r2 = r1
             r10 = r0
-            r0 = r1
-            goto L6a
-        L82:
+            goto L6b
+        L84:
             r0 = move-exception
             r0 = r1
             goto L55
@@ -878,12 +888,12 @@ public final class a {
             r6 = 0
             r7 = 0
             android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L4d
-            if (r1 == 0) goto L81
-            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L7e
-            if (r0 == 0) goto L81
+            if (r1 == 0) goto L83
+            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L80
+            if (r0 == 0) goto L83
             java.lang.String r0 = "pdld"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L7e
-            int r8 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L7e
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L80
+            int r8 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L80
             r0 = r8
         L3c:
             if (r1 == 0) goto L47
@@ -900,7 +910,7 @@ public final class a {
             r0 = move-exception
             r0 = r9
         L4f:
-            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L7a
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L7c
             if (r0 == 0) goto L5d
             boolean r1 = r0.isClosed()     // Catch: java.lang.Throwable -> L5f
             if (r1 != 0) goto L5d
@@ -915,31 +925,33 @@ public final class a {
             goto L47
         L65:
             r0 = move-exception
-        L66:
-            if (r9 == 0) goto L71
-            boolean r1 = r9.isClosed()     // Catch: java.lang.Throwable -> L72
-            if (r1 != 0) goto L71
-            r9.close()     // Catch: java.lang.Throwable -> L72
-        L71:
-            throw r0
+            r2 = r0
+        L67:
+            if (r9 == 0) goto L72
+            boolean r0 = r9.isClosed()     // Catch: java.lang.Throwable -> L73
+            if (r0 != 0) goto L72
+            r9.close()     // Catch: java.lang.Throwable -> L73
         L72:
-            r1 = move-exception
-            com.baidu.sofire.i.e.a()
-            goto L71
-        L77:
+            throw r2
+        L73:
             r0 = move-exception
+            com.baidu.sofire.i.e.a()
+            goto L72
+        L78:
+            r0 = move-exception
+            r2 = r0
             r9 = r1
-            goto L66
-        L7a:
+            goto L67
+        L7c:
             r1 = move-exception
+            r2 = r1
             r9 = r0
-            r0 = r1
-            goto L66
-        L7e:
+            goto L67
+        L80:
             r0 = move-exception
             r0 = r1
             goto L4f
-        L81:
+        L83:
             r0 = r8
             goto L3c
         */
@@ -982,231 +994,117 @@ public final class a {
         }
     }
 
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    public final com.baidu.sofire.core.ApkInfo b(java.lang.String r11) {
-        /*
-            r10 = this;
-            r9 = 0
-            r8 = 0
-            boolean r0 = android.text.TextUtils.isEmpty(r11)
-            if (r0 == 0) goto La
-            r0 = r8
-        L9:
-            return r0
-        La:
-            android.database.sqlite.SQLiteDatabase r0 = r10.c     // Catch: java.lang.Throwable -> L1a7
-            java.lang.String r1 = "pgn"
-            r2 = 0
-            java.lang.String r3 = "p=?"
-            r4 = 1
-            java.lang.String[] r4 = new java.lang.String[r4]     // Catch: java.lang.Throwable -> L1a7
-            r5 = 0
-            r4[r5] = r11     // Catch: java.lang.Throwable -> L1a7
-            r5 = 0
-            r6 = 0
-            r7 = 0
-            android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L1a7
-            if (r1 == 0) goto L1df
-            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L1d7
-            if (r0 == 0) goto L1df
-            com.baidu.sofire.core.ApkInfo r2 = new com.baidu.sofire.core.ApkInfo     // Catch: java.lang.Throwable -> L1d7
-            r2.<init>()     // Catch: java.lang.Throwable -> L1d7
-            java.lang.String r0 = "k"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.key = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "n"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.initStatus = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "p"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.packageName = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "a"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.pkgPath = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "l"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.libPath = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "v"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.versionName = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "apk"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.dexPath = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "ap"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.apkParseSuc = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "cl"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.className = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "th"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.applicationTheme = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "st"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            long r4 = r1.getLong(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.startTime = r4     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "du"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.duration = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "m5"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.apkMD5 = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "pr"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
-            r2.priority = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = "ac"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
-            byte[] r0 = r1.getBlob(r0)     // Catch: java.lang.Throwable -> L1db
-            if (r0 == 0) goto L193
-            java.util.ArrayList r4 = com.baidu.sofire.core.a.a(r0)     // Catch: java.lang.Throwable -> L1db
-            if (r4 == 0) goto L193
-            int r5 = r4.size()     // Catch: java.lang.Throwable -> L1db
-            if (r5 <= 0) goto L193
-            android.content.pm.ActivityInfo[] r0 = new android.content.pm.ActivityInfo[r5]     // Catch: java.lang.Throwable -> L1db
-            r2.activities = r0     // Catch: java.lang.Throwable -> L1db
-            r3 = r9
-        L101:
-            if (r3 >= r5) goto L193
-            android.content.pm.ActivityInfo r6 = new android.content.pm.ActivityInfo     // Catch: java.lang.Throwable -> L1db
-            r6.<init>()     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            int r0 = r0.f3607a     // Catch: java.lang.Throwable -> L1db
-            r6.theme = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r0.j     // Catch: java.lang.Throwable -> L1db
-            r6.name = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            int r0 = r0.h     // Catch: java.lang.Throwable -> L1db
-            r6.configChanges = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            int r0 = r0.f     // Catch: java.lang.Throwable -> L1db
-            r6.flags = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            int r0 = r0.l     // Catch: java.lang.Throwable -> L1db
-            r6.labelRes = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            int r0 = r0.b     // Catch: java.lang.Throwable -> L1db
-            r6.launchMode = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r0.m     // Catch: java.lang.Throwable -> L1db
-            r6.nonLocalizedLabel = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r0.k     // Catch: java.lang.Throwable -> L1db
-            r6.packageName = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r0.c     // Catch: java.lang.Throwable -> L1db
-            r6.permission = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            int r0 = r0.g     // Catch: java.lang.Throwable -> L1db
-            r6.screenOrientation = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            int r0 = r0.i     // Catch: java.lang.Throwable -> L1db
-            r6.softInputMode = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r0.e     // Catch: java.lang.Throwable -> L1db
-            r6.targetActivity = r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
-            java.lang.String r0 = r0.d     // Catch: java.lang.Throwable -> L1db
-            r6.taskAffinity = r0     // Catch: java.lang.Throwable -> L1db
-            android.content.pm.ActivityInfo[] r0 = r2.activities     // Catch: java.lang.Throwable -> L1db
-            r0[r3] = r6     // Catch: java.lang.Throwable -> L1db
-            int r0 = r3 + 1
-            r3 = r0
-            goto L101
-        L193:
-            r0 = r2
-        L194:
-            if (r1 == 0) goto L9
-            boolean r2 = r1.isClosed()     // Catch: java.lang.Throwable -> L1a1
-            if (r2 != 0) goto L9
-            r1.close()     // Catch: java.lang.Throwable -> L1a1
-            goto L9
-        L1a1:
-            r1 = move-exception
-            com.baidu.sofire.i.e.a()
-            goto L9
-        L1a7:
-            r0 = move-exception
-            r0 = r8
-        L1a9:
-            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L1d4
-            if (r8 == 0) goto L9
-            boolean r1 = r8.isClosed()     // Catch: java.lang.Throwable -> L1b9
-            if (r1 != 0) goto L9
-            r8.close()     // Catch: java.lang.Throwable -> L1b9
-            goto L9
-        L1b9:
-            r1 = move-exception
-            com.baidu.sofire.i.e.a()
-            goto L9
-        L1bf:
-            r0 = move-exception
-            r1 = r8
-        L1c1:
-            if (r1 == 0) goto L1cc
-            boolean r2 = r1.isClosed()     // Catch: java.lang.Throwable -> L1cd
-            if (r2 != 0) goto L1cc
-            r1.close()     // Catch: java.lang.Throwable -> L1cd
-        L1cc:
-            throw r0
-        L1cd:
-            r1 = move-exception
-            com.baidu.sofire.i.e.a()
-            goto L1cc
-        L1d2:
-            r0 = move-exception
-            goto L1c1
-        L1d4:
-            r0 = move-exception
-            r1 = r8
-            goto L1c1
-        L1d7:
-            r0 = move-exception
-            r0 = r8
-            r8 = r1
-            goto L1a9
-        L1db:
-            r0 = move-exception
-            r8 = r1
-            r0 = r2
-            goto L1a9
-        L1df:
-            r0 = r8
-            goto L194
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.c.a.b(java.lang.String):com.baidu.sofire.core.ApkInfo");
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0196 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final ApkInfo b(String str) {
+        Cursor cursor;
+        ApkInfo apkInfo;
+        ApkInfo apkInfo2;
+        ArrayList<com.baidu.sofire.core.b> a2;
+        int size;
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            cursor = this.c.query("pgn", null, "p=?", new String[]{str}, null, null, null);
+            if (cursor != null) {
+                try {
+                    if (cursor.moveToFirst()) {
+                        ApkInfo apkInfo3 = new ApkInfo();
+                        try {
+                            apkInfo3.key = cursor.getInt(cursor.getColumnIndex("k"));
+                            apkInfo3.initStatus = cursor.getInt(cursor.getColumnIndex("n"));
+                            apkInfo3.packageName = cursor.getString(cursor.getColumnIndex("p"));
+                            apkInfo3.pkgPath = cursor.getString(cursor.getColumnIndex("a"));
+                            apkInfo3.libPath = cursor.getString(cursor.getColumnIndex("l"));
+                            apkInfo3.versionName = cursor.getString(cursor.getColumnIndex("v"));
+                            apkInfo3.dexPath = cursor.getString(cursor.getColumnIndex("apk"));
+                            apkInfo3.apkParseSuc = cursor.getInt(cursor.getColumnIndex("ap"));
+                            apkInfo3.className = cursor.getString(cursor.getColumnIndex(Config.CELL_LOCATION));
+                            apkInfo3.applicationTheme = cursor.getInt(cursor.getColumnIndex("th"));
+                            apkInfo3.startTime = cursor.getLong(cursor.getColumnIndex("st"));
+                            apkInfo3.duration = cursor.getInt(cursor.getColumnIndex("du"));
+                            apkInfo3.apkMD5 = cursor.getString(cursor.getColumnIndex("m5"));
+                            apkInfo3.priority = cursor.getInt(cursor.getColumnIndex(Config.PRINCIPAL_PART));
+                            byte[] blob = cursor.getBlob(cursor.getColumnIndex("ac"));
+                            if (blob != null && (a2 = com.baidu.sofire.core.a.a(blob)) != null && (size = a2.size()) > 0) {
+                                apkInfo3.activities = new ActivityInfo[size];
+                                for (int i = 0; i < size; i++) {
+                                    ActivityInfo activityInfo = new ActivityInfo();
+                                    activityInfo.theme = a2.get(i).f5488a;
+                                    activityInfo.name = a2.get(i).j;
+                                    activityInfo.configChanges = a2.get(i).h;
+                                    activityInfo.flags = a2.get(i).f;
+                                    activityInfo.labelRes = a2.get(i).l;
+                                    activityInfo.launchMode = a2.get(i).f5489b;
+                                    activityInfo.nonLocalizedLabel = a2.get(i).m;
+                                    activityInfo.packageName = a2.get(i).k;
+                                    activityInfo.permission = a2.get(i).c;
+                                    activityInfo.screenOrientation = a2.get(i).g;
+                                    activityInfo.softInputMode = a2.get(i).i;
+                                    activityInfo.targetActivity = a2.get(i).e;
+                                    activityInfo.taskAffinity = a2.get(i).d;
+                                    apkInfo3.activities[i] = activityInfo;
+                                }
+                            }
+                            apkInfo2 = apkInfo3;
+                            if (cursor == null) {
+                                try {
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                        return apkInfo2;
+                                    }
+                                    return apkInfo2;
+                                } catch (Throwable th) {
+                                    e.a();
+                                    return apkInfo2;
+                                }
+                            }
+                            return apkInfo2;
+                        } catch (Throwable th2) {
+                            apkInfo = apkInfo3;
+                            try {
+                                e.a();
+                                if (cursor != null) {
+                                    try {
+                                        if (!cursor.isClosed()) {
+                                            cursor.close();
+                                            return apkInfo;
+                                        }
+                                        return apkInfo;
+                                    } catch (Throwable th3) {
+                                        e.a();
+                                        return apkInfo;
+                                    }
+                                }
+                                return apkInfo;
+                            } catch (Throwable th4) {
+                                if (cursor != null) {
+                                    try {
+                                        if (!cursor.isClosed()) {
+                                            cursor.close();
+                                        }
+                                    } catch (Throwable th5) {
+                                        e.a();
+                                    }
+                                }
+                                throw th4;
+                            }
+                        }
+                    }
+                } catch (Throwable th6) {
+                    apkInfo = null;
+                }
+            }
+            apkInfo2 = null;
+            if (cursor == null) {
+            }
+        } catch (Throwable th7) {
+            cursor = null;
+            apkInfo = null;
+        }
     }
 }

@@ -8,7 +8,7 @@ import com.xiaomi.channel.commonutils.logger.b;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.ax;
 import com.xiaomi.push.service.bb;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class PkgDataClearedReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -21,9 +21,9 @@ public class PkgDataClearedReceiver extends BroadcastReceiver {
         }
         try {
             Intent intent2 = new Intent(context, XMPushService.class);
-            intent2.setAction(ax.b);
+            intent2.setAction(ax.f14557b);
             intent2.putExtra("data_cleared_pkg_name", encodedSchemeSpecificPart);
-            bb.a(context).m551a(intent2);
+            bb.a(context).m577a(intent2);
         } catch (Exception e) {
             b.d("data cleared broadcast error: " + e);
         }

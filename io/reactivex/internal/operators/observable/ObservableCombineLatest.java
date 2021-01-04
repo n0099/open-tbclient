@@ -9,24 +9,24 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ObservableCombineLatest<T, R> extends q<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayError;
-    final Iterable<? extends t<? extends T>> pFj;
-    final t<? extends T>[] pGy;
+    final Iterable<? extends t<? extends T>> qgL;
+    final t<? extends T>[] qia;
 
     @Override // io.reactivex.q
     public void a(u<? super R> uVar) {
         int length;
         t<? extends T>[] tVarArr;
         t<? extends T>[] tVarArr2;
-        t<? extends T>[] tVarArr3 = this.pGy;
+        t<? extends T>[] tVarArr3 = this.qia;
         if (tVarArr3 == null) {
             t<? extends T>[] tVarArr4 = new q[8];
             length = 0;
-            for (t<? extends T> tVar : this.pFj) {
+            for (t<? extends T> tVar : this.qgL) {
                 if (length == tVarArr4.length) {
                     tVarArr2 = new t[(length >> 2) + length];
                     System.arraycopy(tVarArr4, 0, tVarArr2, 0, length);
@@ -49,7 +49,7 @@ public final class ObservableCombineLatest<T, R> extends q<R> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class LatestCoordinator<T, R> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = 8567835998786448817L;
         int active;
@@ -145,7 +145,7 @@ public final class ObservableCombineLatest<T, R> extends q<R> {
                         try {
                             uVar.onNext((Object) io.reactivex.internal.functions.a.m(this.combiner.apply(poll), "The combiner returned a null value"));
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.J(th);
+                            io.reactivex.exceptions.a.O(th);
                             this.errors.addThrowable(th);
                             cancelSources();
                             clear(aVar);
@@ -247,7 +247,7 @@ public final class ObservableCombineLatest<T, R> extends q<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class CombinerObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements u<T> {
         private static final long serialVersionUID = -4823716997131257941L;
         final int index;

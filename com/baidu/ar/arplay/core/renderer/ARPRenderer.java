@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class ARPRenderer implements d, IARPRenderer {
     private static final int MAX_FRAME_COUNT = 100;
     private static final String TAG = ARPRenderer.class.getSimpleName();

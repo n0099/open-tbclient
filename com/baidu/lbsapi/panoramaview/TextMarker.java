@@ -2,12 +2,14 @@ package com.baidu.lbsapi.panoramaview;
 
 import android.os.Bundle;
 import com.baidu.pano.platform.comapi.a.a;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class TextMarker extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1852a;
-    private int b;
+    private String f2562a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f2563b;
     private int c;
     private int d;
     private int e;
@@ -18,8 +20,8 @@ public class TextMarker extends a {
     @Override // com.baidu.pano.platform.comapi.a.a
     public Bundle toBundle(String str, Bundle bundle) {
         bundle.putInt("markerType", 1003);
-        bundle.putString("text", this.f1852a == null ? "" : this.f1852a);
-        bundle.putInt("fontsize", this.b == 0 ? 12 : this.b);
+        bundle.putString("text", this.f2562a == null ? "" : this.f2562a);
+        bundle.putInt("fontsize", this.f2563b == 0 ? 12 : this.f2563b);
         bundle.putInt("fontcolor", this.c);
         bundle.putInt("bgcolor", this.d);
         bundle.putInt("paddingleft", this.e);
@@ -30,14 +32,14 @@ public class TextMarker extends a {
     }
 
     public void setText(String str) {
-        this.f1852a = str;
+        this.f2562a = str;
     }
 
     public void setFontSize(int i) {
         if (i < 0) {
             i = 0;
         }
-        this.b = i;
+        this.f2563b = i;
     }
 
     public void setFontColor(int i) {

@@ -1,5 +1,5 @@
 package com.baidu.sapi2.ecommerce;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class BuildConfig {
     @Deprecated
     public static final String APPLICATION_ID = "com.baidu.sapi2.ecommerce";

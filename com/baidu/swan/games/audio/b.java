@@ -1,7 +1,7 @@
 package com.baidu.swan.games.audio;
 
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface b {
-    void g(String str, JSONObject jSONObject);
+    void h(String str, JSONObject jSONObject);
 }

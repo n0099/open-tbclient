@@ -12,11 +12,11 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class a {
         public static String a(byte[] bArr) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -79,14 +79,14 @@ class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public static String[] b(Context context) {
         String packageName = context.getPackageName();
-        String[] b = b(context, packageName);
-        if (b == null || b.length <= 0) {
+        String[] b2 = b(context, packageName);
+        if (b2 == null || b2.length <= 0) {
             return null;
         }
-        String[] strArr = new String[b.length];
+        String[] strArr = new String[b2.length];
         for (int i = 0; i < strArr.length; i++) {
-            strArr[i] = b[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
-            if (com.baidu.lbsapi.auth.a.f1835a) {
+            strArr[i] = b2[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
+            if (com.baidu.lbsapi.auth.a.f2532a) {
                 com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
             }
         }

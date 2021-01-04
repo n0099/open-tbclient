@@ -1,12 +1,16 @@
 package io.flutter.embedding.engine;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class FlutterEngineCache {
     private static FlutterEngineCache instance;
     private final Map<String, FlutterEngine> cachedEngines = new HashMap();
 
+    @NonNull
     public static FlutterEngineCache getInstance() {
         if (instance == null) {
             instance = new FlutterEngineCache();
@@ -14,18 +18,20 @@ public class FlutterEngineCache {
         return instance;
     }
 
+    @VisibleForTesting
     FlutterEngineCache() {
     }
 
-    public boolean contains(String str) {
+    public boolean contains(@NonNull String str) {
         return this.cachedEngines.containsKey(str);
     }
 
-    public FlutterEngine get(String str) {
+    @Nullable
+    public FlutterEngine get(@NonNull String str) {
         return this.cachedEngines.get(str);
     }
 
-    public void put(String str, FlutterEngine flutterEngine) {
+    public void put(@NonNull String str, @Nullable FlutterEngine flutterEngine) {
         if (flutterEngine != null) {
             this.cachedEngines.put(str, flutterEngine);
         } else {
@@ -33,7 +39,7 @@ public class FlutterEngineCache {
         }
     }
 
-    public void remove(String str) {
+    public void remove(@NonNull String str) {
         put(str, null);
     }
 }

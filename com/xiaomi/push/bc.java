@@ -1,46 +1,46 @@
 package com.xiaomi.push;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class bc {
 
     /* renamed from: a  reason: collision with other field name */
-    private static byte[] f125a;
+    private static byte[] f203a;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4581a = System.getProperty("line.separator");
+    private static final String f14178a = System.getProperty("line.separator");
 
     /* renamed from: a  reason: collision with other field name */
-    private static char[] f126a = new char[64];
+    private static char[] f204a = new char[64];
 
     static {
         char c = 'A';
         int i = 0;
         while (c <= 'Z') {
-            f126a[i] = c;
+            f204a[i] = c;
             c = (char) (c + 1);
             i++;
         }
         char c2 = 'a';
         while (c2 <= 'z') {
-            f126a[i] = c2;
+            f204a[i] = c2;
             c2 = (char) (c2 + 1);
             i++;
         }
         char c3 = '0';
         while (c3 <= '9') {
-            f126a[i] = c3;
+            f204a[i] = c3;
             c3 = (char) (c3 + 1);
             i++;
         }
         int i2 = i + 1;
-        f126a[i] = '+';
+        f204a[i] = '+';
         int i3 = i2 + 1;
-        f126a[i2] = '/';
-        f125a = new byte[128];
-        for (int i4 = 0; i4 < f125a.length; i4++) {
-            f125a[i4] = -1;
+        f204a[i2] = '/';
+        f203a = new byte[128];
+        for (int i4 = 0; i4 < f203a.length; i4++) {
+            f203a[i4] = -1;
         }
         for (int i5 = 0; i5 < 64; i5++) {
-            f125a[f126a[i5]] = (byte) i5;
+            f203a[f204a[i5]] = (byte) i5;
         }
     }
 
@@ -49,7 +49,7 @@ public class bc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m155a(String str) {
+    public static byte[] m181a(String str) {
         return a(str.toCharArray());
     }
 
@@ -79,43 +79,42 @@ public class bc {
             int i10 = i9 + 1;
             char c4 = cArr[i9];
             if (i10 < i7) {
+                i3 = i10 + 1;
                 c = cArr[i10];
-                i10++;
             } else {
                 c = 'A';
-            }
-            if (i10 < i7) {
-                int i11 = i10 + 1;
-                c2 = cArr[i10];
-                i3 = i11;
-            } else {
                 i3 = i10;
+            }
+            if (i3 < i7) {
+                c2 = cArr[i3];
+                i3++;
+            } else {
                 c2 = 'A';
             }
             if (c3 > 127 || c4 > 127 || c > 127 || c2 > 127) {
                 throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
             }
-            byte b = f125a[c3];
-            byte b2 = f125a[c4];
-            byte b3 = f125a[c];
-            byte b4 = f125a[c2];
-            if (b < 0 || b2 < 0 || b3 < 0 || b4 < 0) {
+            byte b2 = f203a[c3];
+            byte b3 = f203a[c4];
+            byte b4 = f203a[c];
+            byte b5 = f203a[c2];
+            if (b2 < 0 || b3 < 0 || b4 < 0 || b5 < 0) {
                 throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
             }
-            int i12 = (b << 2) | (b2 >>> 4);
-            int i13 = ((b2 & 15) << 4) | (b3 >>> 2);
-            int i14 = ((b3 & 3) << 6) | b4;
-            int i15 = i8 + 1;
-            bArr[i8] = (byte) i12;
-            if (i15 < i6) {
-                i4 = i15 + 1;
-                bArr[i15] = (byte) i13;
+            int i11 = (b2 << 2) | (b3 >>> 4);
+            int i12 = ((b3 & 15) << 4) | (b4 >>> 2);
+            int i13 = ((b4 & 3) << 6) | b5;
+            int i14 = i8 + 1;
+            bArr[i8] = (byte) i11;
+            if (i14 < i6) {
+                i4 = i14 + 1;
+                bArr[i14] = (byte) i12;
             } else {
-                i4 = i15;
+                i4 = i14;
             }
             if (i4 < i6) {
                 i5 = i4 + 1;
-                bArr[i4] = (byte) i14;
+                bArr[i4] = (byte) i13;
             } else {
                 i5 = i4;
             }
@@ -133,44 +132,46 @@ public class bc {
         int i3;
         int i4;
         int i5;
-        int i6 = ((i2 * 4) + 2) / 3;
+        int i6;
+        int i7 = ((i2 * 4) + 2) / 3;
         char[] cArr = new char[((i2 + 2) / 3) * 4];
-        int i7 = i + i2;
-        int i8 = 0;
-        while (i < i7) {
-            int i9 = i + 1;
-            int i10 = bArr[i] & 255;
-            if (i9 < i7) {
-                i3 = bArr[i9] & 255;
-                i9++;
+        int i8 = i + i2;
+        int i9 = 0;
+        while (i < i8) {
+            int i10 = i + 1;
+            int i11 = bArr[i] & 255;
+            if (i10 < i8) {
+                i4 = i10 + 1;
+                i3 = bArr[i10] & 255;
             } else {
                 i3 = 0;
+                i4 = i10;
             }
-            if (i9 < i7) {
-                i4 = i9 + 1;
-                i5 = bArr[i9] & 255;
+            if (i4 < i8) {
+                i6 = i4 + 1;
+                i5 = bArr[i4] & 255;
             } else {
-                i4 = i9;
                 i5 = 0;
+                i6 = i4;
             }
-            int i11 = i10 >>> 2;
-            int i12 = ((i10 & 3) << 4) | (i3 >>> 4);
-            int i13 = ((i3 & 15) << 2) | (i5 >>> 6);
-            int i14 = i5 & 63;
-            int i15 = i8 + 1;
-            cArr[i8] = f126a[i11];
-            int i16 = i15 + 1;
-            cArr[i15] = f126a[i12];
-            cArr[i16] = i16 < i6 ? f126a[i13] : '=';
+            int i12 = i11 >>> 2;
+            int i13 = ((i11 & 3) << 4) | (i3 >>> 4);
+            int i14 = ((i3 & 15) << 2) | (i5 >>> 6);
+            int i15 = i5 & 63;
+            int i16 = i9 + 1;
+            cArr[i9] = f204a[i12];
             int i17 = i16 + 1;
-            cArr[i17] = i17 < i6 ? f126a[i14] : '=';
-            i8 = i17 + 1;
-            i = i4;
+            cArr[i16] = f204a[i13];
+            cArr[i17] = i17 < i7 ? f204a[i14] : '=';
+            int i18 = i17 + 1;
+            cArr[i18] = i18 < i7 ? f204a[i15] : '=';
+            i9 = i18 + 1;
+            i = i6;
         }
         return cArr;
     }
 
     public static String b(String str) {
-        return new String(m155a(str));
+        return new String(m181a(str));
     }
 }

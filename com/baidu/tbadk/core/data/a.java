@@ -6,7 +6,7 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public abstract class a extends BaseCardInfo implements com.baidu.tbadk.a.a.g {
+public abstract class a extends BaseCardInfo implements com.baidu.tbadk.a.a.i {
     public static final int BIG_IMG = 2;
     public static final int CONTENT = 1;
     public static final int HEAD_IMG = 4;
@@ -17,81 +17,81 @@ public abstract class a extends BaseCardInfo implements com.baidu.tbadk.a.a.g {
     private Map<BdUniqueId, com.baidu.tbadk.a.e> mABTestMap = new HashMap();
     public SparseArray<String> feedBackReasonMap = null;
 
-    public abstract by bmn();
+    public abstract bz boO();
 
-    public abstract at bmp();
+    public abstract at boQ();
 
-    public String bmo() {
-        if (bmn() == null) {
+    public String boP() {
+        if (boO() == null) {
             return null;
         }
-        return bmn().bmo();
+        return boO().boP();
     }
 
     public boolean isSelf() {
-        return com.baidu.tbadk.core.util.az.x(bmn());
+        return com.baidu.tbadk.core.util.ay.x(boO());
     }
 
-    public String bmq() {
+    public String boR() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.a.a.g
+    @Override // com.baidu.tbadk.a.a.i
     public void a(BdUniqueId bdUniqueId, com.baidu.tbadk.a.e eVar) {
         if (bdUniqueId != null) {
             this.mABTestMap.put(bdUniqueId, eVar);
         }
     }
 
-    public boolean bmr() {
-        by bmn = bmn();
-        if (bmn == null) {
+    public boolean boS() {
+        bz boO = boO();
+        if (boO == null) {
             return false;
         }
-        return bmn.eMj || bmn.eMl;
+        return boO.eWe || boO.eWg;
     }
 
-    public boolean bms() {
-        by bmn = bmn();
-        if (bmn == null) {
+    public boolean boT() {
+        bz boO = boO();
+        if (boO == null) {
             return false;
         }
-        return bmn.eMj || bmn.eMl || bmn.eMi;
+        return boO.eWe || boO.eWg || boO.eWd;
     }
 
-    public boolean bmt() {
-        by bmn = bmn();
-        if (bmn == null) {
+    public boolean boU() {
+        bz boO = boO();
+        if (boO == null) {
             return false;
         }
-        return bmn.eMi || bmn.eMj || bmn.eMl || bmn.eMk || bmn.eMm;
+        return boO.eWd || boO.eWe || boO.eWg || boO.eWf || boO.eWh;
     }
 
-    public boolean bmu() {
-        by bmn = bmn();
-        if (bmn == null) {
+    public boolean boV() {
+        bz boO = boO();
+        if (boO == null) {
             return false;
         }
-        return bmn.bmu();
+        return boO.boV();
     }
 
-    public boolean bmv() {
+    public boolean boW() {
         return false;
     }
 
-    public boolean bmw() {
+    public boolean boX() {
         return true;
     }
 
-    public boolean bmx() {
-        by bmn = bmn();
-        if (bmn == null || bmn.boP() == null || com.baidu.tbadk.core.util.az.x(bmn)) {
+    public boolean boY() {
+        bz boO = boO();
+        if (boO == null || boO.brq() == null || com.baidu.tbadk.core.util.ay.x(boO)) {
             return false;
         }
-        boolean z = bmn.bqL() || bmn.bnx() || bmn.bny();
-        if (bmn.eMi && z) {
+        boolean z = boO.btn() || boO.bpX() || boO.bpY();
+        if (boO.eWd && z) {
             return true;
         }
-        return bmn.eMk && z && !bmn.boP().hadConcerned();
+        return boO.eWf && z && !boO.brq().hadConcerned();
     }
 }

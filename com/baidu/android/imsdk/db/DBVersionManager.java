@@ -14,13 +14,13 @@ import com.baidu.android.imsdk.pubaccount.PaManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class DBVersionManager {
     public static final String TAG = DBVersionManager.class.getCanonicalName();
     private static DBVersionManager mInstance = null;
     private Context mContext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     interface VersionHandler {
         void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
 
@@ -41,7 +41,7 @@ public class DBVersionManager {
         return mInstance;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class DefaultHandler implements VersionHandler {
         public DefaultHandler() {
         }
@@ -66,10 +66,8 @@ public class DBVersionManager {
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     private int dropTable(SQLiteDatabase sQLiteDatabase) {
-        int i;
-        Exception e;
+        int i = -1;
         try {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -93,34 +91,25 @@ public class DBVersionManager {
                 Utility.writeIntData(this.mContext, Utility.getJumpToRecentKey(this.mContext), 1);
                 Utility.writeLongData(this.mContext, Constants.KEY_PA_SUBSCRIBE_SYNC_TIME + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), -1L);
                 i = 0;
-                try {
-                    sQLiteDatabase.setTransactionSuccessful();
-                    LogUtils.d(TAG, "drop table ok");
-                } catch (Exception e2) {
-                    e = e2;
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(LogUtils.TAG, "dropTable:", e);
-                    if (sQLiteDatabase != null) {
-                        sQLiteDatabase.endTransaction();
-                    }
-                    return i;
-                }
-            } finally {
+                sQLiteDatabase.setTransactionSuccessful();
+                LogUtils.d(TAG, "drop table ok");
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(LogUtils.TAG, "dropTable:", e);
                 if (sQLiteDatabase != null) {
                     sQLiteDatabase.endTransaction();
                 }
             }
-        } catch (Exception e3) {
-            i = -1;
-            e = e3;
+            return i;
+        } finally {
+            if (sQLiteDatabase != null) {
+                sQLiteDatabase.endTransaction();
+            }
         }
-        return i;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     private int createTable(SQLiteDatabase sQLiteDatabase) {
-        int i;
-        Exception e;
+        int i = -1;
         try {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -142,31 +131,24 @@ public class DBVersionManager {
                 sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGKEY_ISEXIST_INDEX);
                 sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_STUDIO_USE_PA_MESSAGE);
                 i = 0;
-            } finally {
+                sQLiteDatabase.setTransactionSuccessful();
+                LogUtils.d(TAG, "create table ok");
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(LogUtils.TAG, "createTable:", e);
                 if (sQLiteDatabase != null) {
                     sQLiteDatabase.endTransaction();
                 }
             }
-        } catch (Exception e2) {
-            i = -1;
-            e = e2;
-        }
-        try {
-            sQLiteDatabase.setTransactionSuccessful();
-            LogUtils.d(TAG, "create table ok");
-        } catch (Exception e3) {
-            e = e3;
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            LogUtils.e(LogUtils.TAG, "createTable:", e);
+            return i;
+        } finally {
             if (sQLiteDatabase != null) {
                 sQLiteDatabase.endTransaction();
             }
-            return i;
         }
-        return i;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version21And22Handler implements VersionHandler {
         public Version21And22Handler() {
         }
@@ -194,7 +176,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version22And223Handler implements VersionHandler {
         public Version22And223Handler() {
         }
@@ -214,7 +196,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version23And24Handler implements VersionHandler {
         public Version23And24Handler() {
         }
@@ -228,7 +210,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version24And25Handler implements VersionHandler {
         public Version24And25Handler() {
         }
@@ -248,7 +230,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version25And26Handler implements VersionHandler {
         public Version25And26Handler() {
         }
@@ -263,7 +245,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version26And27Handler implements VersionHandler {
         public Version26And27Handler() {
         }
@@ -290,7 +272,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version22And23Handler implements VersionHandler {
         public Version22And23Handler() {
         }
@@ -463,7 +445,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version48And49Handler implements VersionHandler {
         public Version48And49Handler() {
         }
@@ -483,7 +465,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version46And47Handler implements VersionHandler {
         public Version46And47Handler() {
         }
@@ -504,7 +486,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version45And46Handler implements VersionHandler {
         public Version45And46Handler() {
         }
@@ -541,7 +523,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version44And45Handler implements VersionHandler {
         public Version44And45Handler() {
         }
@@ -561,7 +543,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version43And44Handler implements VersionHandler {
         public Version43And44Handler() {
         }
@@ -582,7 +564,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version42And43Handler implements VersionHandler {
         public Version42And43Handler() {
         }
@@ -602,7 +584,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version41And42Handler implements VersionHandler {
         public Version41And42Handler() {
         }
@@ -651,7 +633,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version40And41Handler implements VersionHandler {
         public Version40And41Handler() {
         }
@@ -672,7 +654,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version39And40Handler implements VersionHandler {
         public Version39And40Handler() {
         }
@@ -693,7 +675,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version38And39Handler implements VersionHandler {
         public Version38And39Handler() {
         }
@@ -715,7 +697,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version37And38Handler implements VersionHandler {
         public Version37And38Handler() {
         }
@@ -736,7 +718,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version35And36Handler implements VersionHandler {
         public Version35And36Handler() {
         }
@@ -757,7 +739,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version36And37Handler implements VersionHandler {
         public Version36And37Handler() {
         }
@@ -778,7 +760,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version34And35Handler implements VersionHandler {
         public Version34And35Handler() {
         }
@@ -800,7 +782,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version33And34Handler implements VersionHandler {
         public Version33And34Handler() {
         }
@@ -822,7 +804,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version32And33Handler implements VersionHandler {
         public Version32And33Handler() {
         }
@@ -842,7 +824,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version31And32Handler implements VersionHandler {
         public Version31And32Handler() {
         }
@@ -864,7 +846,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version30And31Handler implements VersionHandler {
         public Version30And31Handler() {
         }
@@ -885,7 +867,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version29And30Handler implements VersionHandler {
         public Version29And30Handler() {
         }
@@ -909,7 +891,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Version28And29Handler implements VersionHandler {
         public Version28And29Handler() {
         }

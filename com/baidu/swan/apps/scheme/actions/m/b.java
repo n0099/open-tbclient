@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b extends e {
     public b(j jVar) {
         super(jVar, "/swanAPI/removeWebView");
@@ -17,16 +17,16 @@ public class b extends e {
         if (DEBUG) {
             Log.d("RemoveWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        d p = d.p(unitedSchemeEntity);
-        if (!p.isValid()) {
+        d o = d.o(unitedSchemeEntity);
+        if (!o.isValid()) {
             com.baidu.swan.apps.console.c.e("removeWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
         } else {
-            com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.aCp().oj(p.cIW);
+            com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.aDG().ob(o.cNP);
             if (cVar == null) {
                 com.baidu.swan.apps.console.c.e("removeWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            } else if (!cVar.c(p)) {
+            } else if (!cVar.c(o)) {
                 com.baidu.swan.apps.console.c.e("removeWebView", "remove webview widget fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             } else {

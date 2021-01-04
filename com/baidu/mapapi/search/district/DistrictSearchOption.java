@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.district;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class DistrictSearchOption {
     public String mCityName;
     public String mDistrictName;

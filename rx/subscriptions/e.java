@@ -1,16 +1,16 @@
 package rx.subscriptions;
 
 import rx.k;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class e {
-    private static final a pWk = new a();
+    private static final a qxK = new a();
 
-    public static k eHa() {
-        return rx.subscriptions.a.eGU();
+    public static k ePi() {
+        return rx.subscriptions.a.ePc();
     }
 
-    public static k eHb() {
-        return pWk;
+    public static k ePj() {
+        return qxK;
     }
 
     public static k l(rx.functions.a aVar) {
@@ -18,7 +18,7 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class a implements k {
         a() {
         }

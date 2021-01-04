@@ -9,23 +9,23 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class NavigationBarCoverTip extends LinearLayout {
-    private Animation bNp;
-    private Animation bNq;
-    private View iYb;
+    private Animation bSc;
+    private Animation bSd;
+    private View jko;
     private Activity mActivity;
     private Runnable mHideRunnable;
     private int mSkinType;
-    private a nOk;
+    private a nRG;
 
     /* loaded from: classes.dex */
     public interface a {
-        void QM();
+        void dXw();
 
-        void dXT();
+        void onShow();
     }
 
     public NavigationBarCoverTip(Context context) {
@@ -52,7 +52,7 @@ public class NavigationBarCoverTip extends LinearLayout {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.adp.lib.f.e.mY().removeCallbacks(NavigationBarCoverTip.this.mHideRunnable);
+                com.baidu.adp.lib.f.e.mB().removeCallbacks(NavigationBarCoverTip.this.mHideRunnable);
                 NavigationBarCoverTip.this.hideTip();
             }
         });
@@ -61,12 +61,12 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     private void initAnimation() {
-        this.bNp = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.bNp.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
+        this.bSc = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.bSc.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                if (NavigationBarCoverTip.this.nOk != null) {
-                    NavigationBarCoverTip.this.nOk.QM();
+                if (NavigationBarCoverTip.this.nRG != null) {
+                    NavigationBarCoverTip.this.nRG.onShow();
                 }
                 if (NavigationBarCoverTip.this.mActivity != null) {
                     UtilHelper.changeStatusBarIconAndTextColor(true, NavigationBarCoverTip.this.mActivity);
@@ -81,16 +81,16 @@ public class NavigationBarCoverTip extends LinearLayout {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.bNq = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.bNq.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.3
+        this.bSd = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.bSd.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.3
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (NavigationBarCoverTip.this.nOk != null) {
-                    NavigationBarCoverTip.this.nOk.dXT();
+                if (NavigationBarCoverTip.this.nRG != null) {
+                    NavigationBarCoverTip.this.nRG.dXw();
                 }
                 NavigationBarCoverTip.this.release();
             }
@@ -113,19 +113,19 @@ public class NavigationBarCoverTip extends LinearLayout {
 
     public void a(Activity activity, View view, int i) {
         this.mActivity = activity;
-        if (view != this.iYb) {
+        if (view != this.jko) {
             removeAllViews();
             addView(view);
-            this.iYb = view;
+            this.jko = view;
         }
         if (i < 0) {
             i = 5000;
         }
         setVisibility(0);
         clearAnimation();
-        startAnimation(this.bNp);
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mHideRunnable);
-        com.baidu.adp.lib.f.e.mY().postDelayed(this.mHideRunnable, i);
+        startAnimation(this.bSc);
+        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mHideRunnable);
+        com.baidu.adp.lib.f.e.mB().postDelayed(this.mHideRunnable, i);
     }
 
     public void i(Activity activity, int i) {
@@ -135,19 +135,19 @@ public class NavigationBarCoverTip extends LinearLayout {
         }
         setVisibility(0);
         clearAnimation();
-        startAnimation(this.bNp);
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mHideRunnable);
-        com.baidu.adp.lib.f.e.mY().postDelayed(this.mHideRunnable, i);
+        startAnimation(this.bSc);
+        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mHideRunnable);
+        com.baidu.adp.lib.f.e.mB().postDelayed(this.mHideRunnable, i);
     }
 
     public void hideTip() {
         clearAnimation();
-        startAnimation(this.bNq);
+        startAnimation(this.bSd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void release() {
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mHideRunnable);
+        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mHideRunnable);
         clearAnimation();
         setVisibility(8);
         if (this.mActivity != null) {
@@ -162,12 +162,12 @@ public class NavigationBarCoverTip extends LinearLayout {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundColor(this, R.color.cp_link_tip_a_alpha95);
+            ao.setBackgroundColor(this, R.color.cp_link_tip_a_alpha95);
             this.mSkinType = i;
         }
     }
 
     public void setCoverTipListener(a aVar) {
-        this.nOk = aVar;
+        this.nRG = aVar;
     }
 }

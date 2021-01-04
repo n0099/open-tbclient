@@ -5,8 +5,10 @@ import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.ar.record.EncoderParams;
+import com.kwai.video.player.KsMediaMeta;
+import com.kwai.video.player.misc.IMediaFormat;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
     private long uM = 0;
@@ -26,11 +28,11 @@ public class a extends b {
         if (encoderParams != null && dVar != null) {
             this.uP = dVar;
             MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString("mime", encoderParams.getAudioCodec());
+            mediaFormat.setString(IMediaFormat.KEY_MIME, encoderParams.getAudioCodec());
             mediaFormat.setInteger("aac-profile", 2);
             mediaFormat.setInteger("sample-rate", encoderParams.getAudioSampleRate());
             mediaFormat.setInteger("channel-count", encoderParams.getAudioChannel());
-            mediaFormat.setInteger("bitrate", encoderParams.getAudioBitrate());
+            mediaFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, encoderParams.getAudioBitrate());
             mediaFormat.setInteger("max-input-size", encoderParams.getAudioFrameSize());
             try {
                 this.uQ = MediaCodec.createEncoderByType(encoderParams.getAudioCodec());

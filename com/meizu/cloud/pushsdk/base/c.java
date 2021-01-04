@@ -12,23 +12,25 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4142a = "";
-    private static String b = "";
+    private static String f11533a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f11534b = "";
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(b)) {
+        if (TextUtils.isEmpty(f11534b)) {
             if (a()) {
-                b = d(context);
+                f11534b = d(context);
             } else {
-                b = c(context);
+                f11534b = c(context);
             }
-            return b;
+            return f11534b;
         }
-        return b;
+        return f11534b;
     }
 
     private static String a(String str) {
@@ -61,7 +63,7 @@ public class c {
         WifiInfo connectionInfo;
         String str;
         String str2 = null;
-        if (TextUtils.isEmpty(f4142a)) {
+        if (TextUtils.isEmpty(f11533a)) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
                     ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
@@ -87,13 +89,13 @@ public class c {
                         str2 = connectionInfo.getMacAddress();
                     }
                 }
-                f4142a = str2;
+                f11533a = str2;
             } catch (Exception e) {
                 com.meizu.cloud.a.a.e("DeviceUtils", "get address exception ");
             }
-            return f4142a;
+            return f11533a;
         }
-        return f4142a;
+        return f11533a;
     }
 
     private static String c(Context context) {
@@ -115,6 +117,6 @@ public class c {
 
     private static String d(Context context) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
-        return a2.f4137a ? (String) a2.b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        return a2.f11525a ? (String) a2.f11526b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 }

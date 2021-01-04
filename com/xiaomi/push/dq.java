@@ -1,30 +1,30 @@
 package com.xiaomi.push;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class dq {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile dq f4635a;
+    private static volatile dq f14252a;
 
     /* renamed from: a  reason: collision with other field name */
-    private dp f227a;
+    private dp f305a;
 
     public static dq a() {
-        if (f4635a == null) {
+        if (f14252a == null) {
             synchronized (dq.class) {
-                if (f4635a == null) {
-                    f4635a = new dq();
+                if (f14252a == null) {
+                    f14252a = new dq();
                 }
             }
         }
-        return f4635a;
+        return f14252a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dp m225a() {
-        return this.f227a;
+    public dp m251a() {
+        return this.f305a;
     }
 
     public void a(dp dpVar) {
-        this.f227a = dpVar;
+        this.f305a = dpVar;
     }
 }

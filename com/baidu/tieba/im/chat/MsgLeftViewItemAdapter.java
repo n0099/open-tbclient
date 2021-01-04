@@ -4,10 +4,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.im.chat.e;
+import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class MsgLeftViewItemAdapter extends e<MsgleftView> {
+public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     private boolean mNeedShowName;
 
     public MsgLeftViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
@@ -15,35 +15,35 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void sb(boolean z) {
+    public void su(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bT */
-    public e.a<MsgleftView> c(ViewGroup viewGroup) {
+    /* renamed from: ci */
+    public MsgCommonItemAdapter.MsgViewHolder<MsgleftView> e(ViewGroup viewGroup) {
         MsgleftView msgleftView = new MsgleftView(this.mPageContext);
         return new a(msgleftView.getConvertView(), msgleftView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
-        super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgleftView cTM = aVar.cTM();
-        cTM.DK(this.kkg);
-        cTM.sb(this.mNeedShowName);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgleftView> msgViewHolder) {
+        super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
+        MsgleftView cWy = msgViewHolder.cWy();
+        cWy.DW(this.kwM);
+        cWy.su(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        cTM.a(this.kjX);
-        cTM.setOnItemViewLongClickListener(this.kjY);
-        cTM.setPosition(i);
-        cTM.gJ(this.gim);
-        cTM.gI(chatMessage.getCacheData().getLastMsgTime());
-        cTM.a(viewGroup, chatMessage);
-        cTM.b(viewGroup, chatMessage);
+        cWy.a(this.kwD);
+        cWy.setOnItemViewLongClickListener(this.kwE);
+        cWy.setPosition(i);
+        cWy.gH(this.gsJ);
+        cWy.gG(chatMessage.getCacheData().getLastMsgTime());
+        cWy.a(viewGroup, chatMessage);
+        cWy.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -51,7 +51,7 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class a extends e.a<MsgleftView> {
+    public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgleftView> {
         public a(View view, MsgleftView msgleftView) {
             super(view, msgleftView);
         }

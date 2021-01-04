@@ -8,24 +8,26 @@ import com.baidu.mapapi.walknavi.params.WalkNaviLaunchParam;
 import com.baidu.platform.comapi.walknavi.e.c;
 import com.baidu.platform.comapi.wnplatform.j.b;
 import com.baidu.platform.comapi.wnplatform.p.g;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IWRoutePlanListener f2172a;
-    final /* synthetic */ WalkNaviLaunchParam b;
+    final /* synthetic */ IWRoutePlanListener f3082a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ WalkNaviLaunchParam f3083b;
     final /* synthetic */ WalkNavigateHelper c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WalkNavigateHelper walkNavigateHelper, IWRoutePlanListener iWRoutePlanListener, WalkNaviLaunchParam walkNaviLaunchParam) {
         this.c = walkNavigateHelper;
-        this.f2172a = iWRoutePlanListener;
-        this.b = walkNaviLaunchParam;
+        this.f3082a = iWRoutePlanListener;
+        this.f3083b = walkNaviLaunchParam;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.b
     public void a() {
-        this.f2172a.onRoutePlanStart();
+        this.f3082a.onRoutePlanStart();
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.b
@@ -34,8 +36,8 @@ class a implements b {
         com.baidu.mapapi.walknavi.controllers.a.a aVar;
         c cVar;
         d Q = com.baidu.platform.comapi.walknavi.b.a().Q();
-        if (Q == null || !Q.vE() || Q.wl() == null || !Q.wl().hasStart() || Q.wl().ww() == null || Q.wl().ww().wY() != 2 || !Q.wl().ww().wQ() || Q.wl().ww().wP() == null) {
-            this.f2172a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
+        if (Q == null || !Q.uV() || Q.vC() == null || !Q.vC().hasStart() || Q.vC().vN() == null || Q.vC().vN().wp() != 2 || !Q.vC().vN().wh() || Q.vC().vN().wg() == null) {
+            this.f3082a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
             return;
         }
         if (g.a()) {
@@ -46,22 +48,22 @@ class a implements b {
         } else {
             com.baidu.platform.comapi.wnplatform.a.a().a(false);
             if (g.d()) {
-                this.f2172a.onRoutePlanFail(WalkRoutePlanError.IS_NOT_SUPPORT_INDOOR_NAVI);
+                this.f3082a.onRoutePlanFail(WalkRoutePlanError.IS_NOT_SUPPORT_INDOOR_NAVI);
                 return;
             }
         }
         this.c.a(Q);
         WNavigatorWrapper.getWNavigator().d(1);
-        WNavigatorWrapper.getWNavigator().e(this.b.getExtraNaviMode());
+        WNavigatorWrapper.getWNavigator().e(this.f3083b.getExtraNaviMode());
         WalkNavigateHelper walkNavigateHelper = this.c;
-        a2 = this.c.a(Q, this.b);
+        a2 = this.c.a(Q, this.f3083b);
         walkNavigateHelper.e = a2;
-        aVar = this.c.f2171a;
+        aVar = this.c.f3080a;
         cVar = this.c.e;
         if (aVar.a(cVar)) {
-            this.f2172a.onRoutePlanSuccess();
+            this.f3082a.onRoutePlanSuccess();
         } else {
-            this.f2172a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
+            this.f3082a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
         }
     }
 
@@ -69,16 +71,16 @@ class a implements b {
     public void a(int i) {
         switch (i) {
             case 16777214:
-                this.f2172a.onRoutePlanFail(WalkRoutePlanError.FORWARD_AK_ERROR);
+                this.f3082a.onRoutePlanFail(WalkRoutePlanError.FORWARD_AK_ERROR);
                 return;
             case 16777216:
-                this.f2172a.onRoutePlanFail(WalkRoutePlanError.SERVER_UNUSUAL);
+                this.f3082a.onRoutePlanFail(WalkRoutePlanError.SERVER_UNUSUAL);
                 return;
             case 805306368:
-                this.f2172a.onRoutePlanFail(WalkRoutePlanError.NET_ERR);
+                this.f3082a.onRoutePlanFail(WalkRoutePlanError.NET_ERR);
                 return;
             default:
-                this.f2172a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
+                this.f3082a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
                 return;
         }
     }

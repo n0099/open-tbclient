@@ -9,7 +9,7 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class AbsDrawer {
     private static final int DEFAULT_PAINT_FLAGS = 6;
     private static final Matrix.ScaleToFit[] sS2FArray = {Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
@@ -49,7 +49,7 @@ public abstract class AbsDrawer {
         float min;
         float f;
         float f2;
-        float f3 = 0.0f;
+        float f3;
         if (imageView.getWidth() != 0 && imageView.getHeight() != 0) {
             int width = displayImage.getWidth();
             int height = displayImage.getHeight();
@@ -76,6 +76,7 @@ public abstract class AbsDrawer {
                     } else {
                         f = width2 / width;
                         f2 = (height2 - (height * f)) * 0.5f;
+                        f3 = 0.0f;
                     }
                     this.mDrawMatrix.setScale(f, f);
                     this.mDrawMatrix.postTranslate(f3, f2);

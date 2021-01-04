@@ -2,23 +2,25 @@ package com.xiaomi.mipush.sdk;
 
 import com.xiaomi.push.hr;
 import java.util.HashMap;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashMap<d, a> f4541a = new HashMap<>();
+    private static HashMap<d, a> f14129a = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4542a;
-        public String b;
+        public String f14130a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f14131b;
 
         public a(String str, String str2) {
-            this.f4542a = str;
-            this.b = str2;
+            this.f14130a = str;
+            this.f14131b = str2;
         }
     }
 
@@ -45,18 +47,18 @@ public class k {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m109a(d dVar) {
-        return f4541a.get(dVar);
+    public static a m135a(d dVar) {
+        return f14129a.get(dVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hr m110a(d dVar) {
+    public static hr m136a(d dVar) {
         return hr.AggregatePushSwitch;
     }
 
     private static void a(d dVar, a aVar) {
         if (aVar != null) {
-            f4541a.put(dVar, aVar);
+            f14129a.put(dVar, aVar);
         }
     }
 }

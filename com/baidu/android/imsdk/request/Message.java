@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public abstract class Message {
     private Context context;
     protected long mAppid;
@@ -64,15 +64,16 @@ public abstract class Message {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [118=4] */
     public byte[] getMessageBytes() {
-        ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;
+        ByteArrayOutputStream byteArrayOutputStream;
+        ByteArrayOutputStream byteArrayOutputStream2;
         byte[] bArr = null;
         buildBody();
         addRetryTime();
         try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
+            byteArrayOutputStream2 = new ByteArrayOutputStream();
             try {
-                BigEndianDataOutputStream bigEndianDataOutputStream = new BigEndianDataOutputStream(byteArrayOutputStream);
+                BigEndianDataOutputStream bigEndianDataOutputStream = new BigEndianDataOutputStream(byteArrayOutputStream2);
                 if (this.isHeartbeat) {
                     bigEndianDataOutputStream.writeByte((byte) 2);
                     bigEndianDataOutputStream.writeByte(Constants.SHORT_PING_CMD_TYPE);
@@ -85,18 +86,18 @@ public abstract class Message {
                         bigEndianDataOutputStream.write(this.mBody.getBytes());
                     }
                 }
-                bArr = byteArrayOutputStream.toByteArray();
-                if (byteArrayOutputStream != null) {
+                bArr = byteArrayOutputStream2.toByteArray();
+                if (byteArrayOutputStream2 != null) {
                     try {
-                        byteArrayOutputStream.close();
+                        byteArrayOutputStream2.close();
                     } catch (IOException e) {
                         LogUtils.e("Message", "baos.close", e);
                     }
                 }
             } catch (IOException e2) {
-                if (byteArrayOutputStream != null) {
+                if (byteArrayOutputStream2 != null) {
                     try {
-                        byteArrayOutputStream.close();
+                        byteArrayOutputStream2.close();
                     } catch (IOException e3) {
                         LogUtils.e("Message", "baos.close", e3);
                     }
@@ -104,6 +105,7 @@ public abstract class Message {
                 return bArr;
             } catch (Throwable th2) {
                 th = th2;
+                byteArrayOutputStream = byteArrayOutputStream2;
                 if (byteArrayOutputStream != null) {
                     try {
                         byteArrayOutputStream.close();
@@ -114,10 +116,10 @@ public abstract class Message {
                 throw th;
             }
         } catch (IOException e5) {
-            byteArrayOutputStream = null;
+            byteArrayOutputStream2 = null;
         } catch (Throwable th3) {
-            byteArrayOutputStream = null;
             th = th3;
+            byteArrayOutputStream = null;
         }
         return bArr;
     }

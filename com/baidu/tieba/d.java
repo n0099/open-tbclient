@@ -1,11 +1,13 @@
 package com.baidu.tieba;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public interface d<T> {
-    void Ff(String str);
+    void Fd(String str);
 
-    void az(T t);
+    void aB(T t);
 
     String getTitle();
 
     void onChangeSkinType();
+
+    void onDestroy();
 }

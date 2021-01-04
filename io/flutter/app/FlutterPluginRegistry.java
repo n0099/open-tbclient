@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class FlutterPluginRegistry implements PluginRegistry, PluginRegistry.ActivityResultListener, PluginRegistry.NewIntentListener, PluginRegistry.RequestPermissionsResultListener, PluginRegistry.UserLeaveHintListener, PluginRegistry.ViewDestroyListener {
     private static final String TAG = "FlutterPluginRegistry";
     private Activity mActivity;
@@ -81,7 +81,7 @@ public class FlutterPluginRegistry implements PluginRegistry, PluginRegistry.Act
         return this.mPlatformViewsController;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     private class FlutterRegistrar implements PluginRegistry.Registrar {
         private final String pluginKey;
 

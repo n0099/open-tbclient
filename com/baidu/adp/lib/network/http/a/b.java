@@ -13,10 +13,10 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b No = null;
+    private static b MO = null;
     private HashMap<String, com.baidu.adp.lib.network.http.a.a> mCache = new HashMap<>();
-    private a Np = null;
-    private int Nq = 0;
+    private a MP = null;
+    private int MQ = 0;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -25,22 +25,22 @@ public class b {
     private b() {
     }
 
-    public static b mI() {
-        if (No == null) {
+    public static b mg() {
+        if (MO == null) {
             synchronized (b.class) {
-                if (No == null) {
-                    No = new b();
+                if (MO == null) {
+                    MO = new b();
                 }
             }
         }
-        return No;
+        return MO;
     }
 
-    public c bO(String str) {
+    public c bI(String str) {
         c cVar = new c();
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.D(System.currentTimeMillis()) && aVar.mH() != null && aVar.mH().size() > 0) {
-            cVar.bQ(aVar.mH().get(0));
+        if (aVar != null && !aVar.D(System.currentTimeMillis()) && aVar.mf() != null && aVar.mf().size() > 0) {
+            cVar.bK(aVar.mf().get(0));
         }
         return cVar;
     }
@@ -51,44 +51,44 @@ public class b {
             return cVar;
         }
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.D(System.currentTimeMillis()) && aVar.mH() != null && aVar.mH().size() > 0) {
-            for (int i = 0; i < aVar.mH().size(); i++) {
-                if (!k.z(str2, aVar.mH().get(i))) {
+        if (aVar != null && !aVar.D(System.currentTimeMillis()) && aVar.mf() != null && aVar.mf().size() > 0) {
+            for (int i = 0; i < aVar.mf().size(); i++) {
+                if (!k.z(str2, aVar.mf().get(i))) {
                     cVar.ar(i);
-                    cVar.bQ(aVar.mH().get(i));
+                    cVar.bK(aVar.mf().get(i));
                     return cVar;
-                } else if (i == aVar.mH().size() - 1) {
+                } else if (i == aVar.mf().size() - 1) {
                     cVar.ar(0);
-                    cVar.bQ(aVar.mH().get(0));
+                    cVar.bK(aVar.mf().get(0));
                     return cVar;
                 }
             }
         }
         for (int i2 = 0; i2 < 3; i2++) {
-            cVar.mK();
+            cVar.mi();
             cVar.au(i2);
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.adp.lib.network.http.a.a a2 = a(str, cVar);
             cVar.E(System.currentTimeMillis() - currentTimeMillis);
-            if (a2 != null && a2.mH() != null && a2.mH().size() > 0) {
+            if (a2 != null && a2.mf() != null && a2.mf().size() > 0) {
                 a2.C(300L);
                 this.mCache.put(str, a2);
-                for (int i3 = 0; i3 < a2.mH().size(); i3++) {
-                    if (!k.z(str2, a2.mH().get(i2))) {
+                for (int i3 = 0; i3 < a2.mf().size(); i3++) {
+                    if (!k.z(str2, a2.mf().get(i2))) {
                         cVar.ar(i3);
-                        cVar.bQ(a2.mH().get(i3));
+                        cVar.bK(a2.mf().get(i3));
                         return cVar;
-                    } else if (i3 == a2.mH().size() - 1) {
+                    } else if (i3 == a2.mf().size() - 1) {
                         cVar.ar(0);
-                        cVar.bQ(a2.mH().get(0));
+                        cVar.bK(a2.mf().get(0));
                         return cVar;
                     }
                 }
                 continue;
             } else {
                 com.baidu.adp.lib.network.http.a.a aVar2 = this.mCache.get(str);
-                if (aVar2 != null && aVar2.mH() != null && aVar2.mH().size() > 0) {
-                    cVar.bQ(aVar2.mH().get(0));
+                if (aVar2 != null && aVar2.mf() != null && aVar2.mf().size() > 0) {
+                    cVar.bK(aVar2.mf().get(0));
                     return cVar;
                 }
             }
@@ -96,48 +96,49 @@ public class b {
         return cVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0082 A[Catch: all -> 0x0151, TryCatch #9 {all -> 0x0151, blocks: (B:15:0x0068, B:17:0x006e, B:35:0x00f6, B:20:0x0073, B:22:0x0082, B:23:0x0086), top: B:80:0x0068 }] */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0090 A[Catch: Exception -> 0x0154, TryCatch #5 {Exception -> 0x0154, blocks: (B:25:0x008b, B:27:0x0090, B:29:0x0095, B:31:0x009a), top: B:78:0x008b }] */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0095 A[Catch: Exception -> 0x0154, TryCatch #5 {Exception -> 0x0154, blocks: (B:25:0x008b, B:27:0x0090, B:29:0x0095, B:31:0x009a), top: B:78:0x008b }] */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x009a A[Catch: Exception -> 0x0154, TRY_LEAVE, TryCatch #5 {Exception -> 0x0154, blocks: (B:25:0x008b, B:27:0x0090, B:29:0x0095, B:31:0x009a), top: B:78:0x008b }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0131 A[Catch: Exception -> 0x013f, TryCatch #8 {Exception -> 0x013f, blocks: (B:50:0x012c, B:52:0x0131, B:54:0x0136, B:56:0x013b), top: B:82:0x012c }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0136 A[Catch: Exception -> 0x013f, TryCatch #8 {Exception -> 0x013f, blocks: (B:50:0x012c, B:52:0x0131, B:54:0x0136, B:56:0x013b), top: B:82:0x012c }] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x013b A[Catch: Exception -> 0x013f, TRY_LEAVE, TryCatch #8 {Exception -> 0x013f, blocks: (B:50:0x012c, B:52:0x0131, B:54:0x0136, B:56:0x013b), top: B:82:0x012c }] */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x008b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x012c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0083 A[Catch: all -> 0x0153, TryCatch #7 {all -> 0x0153, blocks: (B:15:0x0068, B:17:0x006e, B:36:0x00f7, B:21:0x0074, B:23:0x0083, B:24:0x0087), top: B:81:0x0068 }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0091 A[Catch: Exception -> 0x0156, TryCatch #3 {Exception -> 0x0156, blocks: (B:26:0x008c, B:28:0x0091, B:30:0x0096, B:32:0x009b), top: B:79:0x008c }] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0096 A[Catch: Exception -> 0x0156, TryCatch #3 {Exception -> 0x0156, blocks: (B:26:0x008c, B:28:0x0091, B:30:0x0096, B:32:0x009b), top: B:79:0x008c }] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x009b A[Catch: Exception -> 0x0156, TRY_LEAVE, TryCatch #3 {Exception -> 0x0156, blocks: (B:26:0x008c, B:28:0x0091, B:30:0x0096, B:32:0x009b), top: B:79:0x008c }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0134 A[Catch: Exception -> 0x0142, TryCatch #11 {Exception -> 0x0142, blocks: (B:51:0x012f, B:53:0x0134, B:55:0x0139, B:57:0x013e), top: B:86:0x012f }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0139 A[Catch: Exception -> 0x0142, TryCatch #11 {Exception -> 0x0142, blocks: (B:51:0x012f, B:53:0x0134, B:55:0x0139, B:57:0x013e), top: B:86:0x012f }] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x013e A[Catch: Exception -> 0x0142, TRY_LEAVE, TryCatch #11 {Exception -> 0x0142, blocks: (B:51:0x012f, B:53:0x0134, B:55:0x0139, B:57:0x013e), top: B:86:0x012f }] */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x008c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x012f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private com.baidu.adp.lib.network.http.a.a a(String str, final c cVar) {
+        Throwable th;
+        HttpURLConnection httpURLConnection;
         BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
         InputStream inputStream;
-        HttpURLConnection httpURLConnection;
-        HttpURLConnection httpURLConnection2 = null;
+        Exception e;
         if (k.isEmpty(str)) {
             return null;
         }
-        cVar.ak(true);
+        cVar.aj(true);
         StringBuffer stringBuffer = new StringBuffer();
         try {
-            if (cVar.mJ()) {
-                HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL("http://180.76.76.112/v2/0011/?dn=" + str).openConnection();
+            if (cVar.mh()) {
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL("http://180.76.76.112/v2/0011/?dn=" + str).openConnection();
                 try {
-                    httpURLConnection3.setDoOutput(true);
-                    httpURLConnection3.setDoInput(true);
-                    httpURLConnection3.setUseCaches(false);
-                    httpURLConnection3.setConnectTimeout(5000);
-                    httpURLConnection3.setReadTimeout(10000);
-                    httpURLConnection3.setRequestMethod("GET");
-                    httpURLConnection3.connect();
-                    inputStream = httpURLConnection3.getInputStream();
-                    httpURLConnection = httpURLConnection3;
-                } catch (Exception e) {
+                    httpURLConnection2.setDoOutput(true);
+                    httpURLConnection2.setDoInput(true);
+                    httpURLConnection2.setUseCaches(false);
+                    httpURLConnection2.setConnectTimeout(5000);
+                    httpURLConnection2.setReadTimeout(10000);
+                    httpURLConnection2.setRequestMethod("GET");
+                    httpURLConnection2.connect();
+                    inputStream = httpURLConnection2.getInputStream();
+                    httpURLConnection = httpURLConnection2;
+                } catch (Exception e2) {
+                    e = e2;
+                    httpURLConnection = httpURLConnection2;
                     bufferedReader = null;
                     inputStreamReader = null;
                     inputStream = null;
-                    e = e;
-                    httpURLConnection = httpURLConnection3;
                     cVar.setException(e.getClass().getName());
                     if (e instanceof SSLException) {
                     }
@@ -151,19 +152,19 @@ public class b {
                     if (httpURLConnection != null) {
                     }
                     return null;
-                } catch (Throwable th) {
+                } catch (Throwable th2) {
+                    th = th2;
+                    httpURLConnection = httpURLConnection2;
                     bufferedReader = null;
                     inputStreamReader = null;
                     inputStream = null;
-                    httpURLConnection2 = httpURLConnection3;
-                    th = th;
                     if (inputStreamReader != null) {
                     }
                     if (inputStream != null) {
                     }
                     if (bufferedReader != null) {
                     }
-                    if (httpURLConnection2 != null) {
+                    if (httpURLConnection != null) {
                     }
                     throw th;
                 }
@@ -180,7 +181,7 @@ public class b {
                     public boolean verify(String str2, SSLSession sSLSession) {
                         boolean verify = HttpsURLConnection.getDefaultHostnameVerifier().verify("httpsdns.baidu.com", sSLSession);
                         if (!verify) {
-                            cVar.al(true);
+                            cVar.ak(true);
                         }
                         return verify;
                     }
@@ -202,17 +203,17 @@ public class b {
                                     break;
                                 }
                                 stringBuffer.append(readLine);
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e3) {
+                                e = e3;
                                 cVar.setException(e.getClass().getName());
                                 if (e instanceof SSLException) {
-                                    cVar.al(true);
+                                    cVar.ak(true);
                                 }
                                 e.printStackTrace();
                                 if (inputStreamReader != null) {
                                     try {
                                         inputStreamReader.close();
-                                    } catch (Exception e3) {
+                                    } catch (Exception e4) {
                                         return null;
                                     }
                                 }
@@ -227,13 +228,12 @@ public class b {
                                 }
                                 return null;
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            httpURLConnection2 = httpURLConnection;
+                        } catch (Throwable th3) {
+                            th = th3;
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
-                                } catch (Exception e4) {
+                                } catch (Exception e5) {
                                     throw th;
                                 }
                             }
@@ -243,21 +243,21 @@ public class b {
                             if (bufferedReader != null) {
                                 bufferedReader.close();
                             }
-                            if (httpURLConnection2 != null) {
-                                httpURLConnection2.disconnect();
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
                             }
                             throw th;
                         }
                     }
                     com.baidu.adp.lib.network.http.a.a aVar = new com.baidu.adp.lib.network.http.a.a();
                     aVar.setStartTime(System.currentTimeMillis());
-                    cVar.mK();
-                    com.baidu.adp.lib.network.http.a.a bN = aVar.bN(stringBuffer.toString());
+                    cVar.mi();
+                    com.baidu.adp.lib.network.http.a.a bH = aVar.bH(stringBuffer.toString());
                     if (inputStreamReader != null) {
                         try {
                             inputStreamReader.close();
-                        } catch (Exception e5) {
-                            return bN;
+                        } catch (Exception e6) {
+                            return bH;
                         }
                     }
                     if (inputStream != null) {
@@ -268,44 +268,43 @@ public class b {
                     }
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
-                        return bN;
+                        return bH;
                     }
-                    return bN;
-                } catch (Exception e6) {
-                    e = e6;
+                    return bH;
+                } catch (Exception e7) {
+                    e = e7;
                     bufferedReader = null;
-                } catch (Throwable th3) {
-                    th = th3;
+                } catch (Throwable th4) {
+                    th = th4;
                     bufferedReader = null;
-                    httpURLConnection2 = httpURLConnection;
                     if (inputStreamReader != null) {
                     }
                     if (inputStream != null) {
                     }
                     if (bufferedReader != null) {
                     }
-                    if (httpURLConnection2 != null) {
+                    if (httpURLConnection != null) {
                     }
                     throw th;
                 }
-            } catch (Exception e7) {
-                e = e7;
+            } catch (Exception e8) {
+                e = e8;
                 bufferedReader = null;
                 inputStreamReader = null;
-            } catch (Throwable th4) {
-                th = th4;
+            } catch (Throwable th5) {
+                th = th5;
                 bufferedReader = null;
                 inputStreamReader = null;
-                httpURLConnection2 = httpURLConnection;
             }
-        } catch (Exception e8) {
-            e = e8;
+        } catch (Exception e9) {
+            e = e9;
             httpURLConnection = null;
             bufferedReader = null;
             inputStreamReader = null;
             inputStream = null;
-        } catch (Throwable th5) {
-            th = th5;
+        } catch (Throwable th6) {
+            th = th6;
+            httpURLConnection = null;
             bufferedReader = null;
             inputStreamReader = null;
             inputStream = null;

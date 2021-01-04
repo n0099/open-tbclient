@@ -1,7 +1,7 @@
 package com.vivo.push.util;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public interface BaseNotifyLayoutAdapter {
     int getNotificationLayout();
 

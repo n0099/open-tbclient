@@ -12,7 +12,7 @@ import com.baidu.ala.recorder.video.listener.TextureViewListener;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(16)
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaTextureView extends TextureView implements TextureView.SurfaceTextureListener {
     private static final boolean IS_OPEN_TAG = false;
     private static final String TAG = "LIVE_SDK_JNI";
@@ -146,6 +146,8 @@ public class AlaTextureView extends TextureView implements TextureView.SurfaceTe
     public synchronized void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         int i3;
         int i4;
+        int i5;
+        int i6;
         int realScreenOrientation = AlaLiveUtilHelper.getRealScreenOrientation(this.mActivity);
         if (i != this.mSurfaceWidth || i2 != this.mSurfaceHeight) {
             if (realScreenOrientation != 2 || i >= i2) {
@@ -156,12 +158,14 @@ public class AlaTextureView extends TextureView implements TextureView.SurfaceTe
                 i4 = i2;
             }
             if (realScreenOrientation != 1 || i3 >= i4) {
-                int i5 = i3;
-                i3 = i4;
-                i4 = i5;
+                i5 = i3;
+                i6 = i4;
+            } else {
+                i5 = i4;
+                i6 = i3;
             }
-            this.mSurfaceWidth = i3;
-            this.mSurfaceHeight = i4;
+            this.mSurfaceWidth = i6;
+            this.mSurfaceHeight = i5;
             for (TextureViewListener textureViewListener : this.mListeners) {
                 textureViewListener.onSurfaceWindow(this.mSurfaceHolder);
             }

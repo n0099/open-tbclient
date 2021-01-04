@@ -1,10 +1,10 @@
 package com.baidu.tbadk.widget;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.ViewPager;
 /* loaded from: classes.dex */
 public class NestedNoScrollViewPager extends ViewPager {
     public NestedNoScrollViewPager(@NonNull Context context) {

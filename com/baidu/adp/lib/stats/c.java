@@ -6,6 +6,10 @@ public class c {
     public String OC;
     public String OD;
     public String OE;
+    public String OF;
+    public String OG;
+    public String OH;
+    public String Ol;
     public String Om;
     public String Oo;
     public String Op;
@@ -26,5 +30,6 @@ public class c {
     public String mCuid;
     public String mIMEI;
     public String mNetType;
+    public String mProduct;
     public String mUid;
 }

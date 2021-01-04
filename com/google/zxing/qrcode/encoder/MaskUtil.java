@@ -1,5 +1,5 @@
 package com.google.zxing.qrcode.encoder;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class MaskUtil {
     private static final int N1 = 3;
     private static final int N2 = 3;
@@ -22,8 +22,8 @@ final class MaskUtil {
         int i = 0;
         for (int i2 = 0; i2 < height - 1; i2++) {
             for (int i3 = 0; i3 < width - 1; i3++) {
-                byte b = array[i2][i3];
-                if (b == array[i2][i3 + 1] && b == array[i2 + 1][i3] && b == array[i2 + 1][i3 + 1]) {
+                byte b2 = array[i2][i3];
+                if (b2 == array[i2][i3 + 1] && b2 == array[i2 + 1][i3] && b2 == array[i2 + 1][i3 + 1]) {
                     i++;
                 }
             }
@@ -126,37 +126,29 @@ final class MaskUtil {
     }
 
     private static int applyMaskPenaltyRule1Internal(ByteMatrix byteMatrix, boolean z) {
-        int i;
-        byte b;
         int height = z ? byteMatrix.getHeight() : byteMatrix.getWidth();
         int width = z ? byteMatrix.getWidth() : byteMatrix.getHeight();
         byte[][] array = byteMatrix.getArray();
-        int i2 = 0;
-        for (int i3 = 0; i3 < height; i3++) {
+        int i = 0;
+        for (int i2 = 0; i2 < height; i2++) {
             byte b2 = -1;
-            int i4 = 0;
-            int i5 = 0;
-            while (i4 < width) {
-                byte b3 = z ? array[i3][i4] : array[i4][i3];
+            int i3 = 0;
+            for (int i4 = 0; i4 < width; i4++) {
+                byte b3 = z ? array[i2][i4] : array[i4][i2];
                 if (b3 == b2) {
-                    b = b2;
-                    i = i5 + 1;
+                    i3++;
                 } else {
-                    if (i5 >= 5) {
-                        i2 += (i5 - 5) + 3;
+                    if (i3 >= 5) {
+                        i += (i3 - 5) + 3;
                     }
-                    i = 1;
-                    b = b3;
+                    i3 = 1;
+                    b2 = b3;
                 }
-                i4++;
-                i5 = i;
-                b2 = b;
-                i2 = i2;
             }
-            if (i5 >= 5) {
-                i2 += (i5 - 5) + 3;
+            if (i3 >= 5) {
+                i += (i3 - 5) + 3;
             }
         }
-        return i2;
+        return i;
     }
 }

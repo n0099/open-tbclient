@@ -7,17 +7,17 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.swan.game.ad.c;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class d extends b {
-    private boolean dRa;
+    private boolean dZX;
 
     public d(Context context, AdElementInfo adElementInfo, com.baidu.swan.game.ad.jsbridge.a aVar) {
         super(context, adElementInfo, aVar);
-        this.dRa = false;
+        this.dZX = false;
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public View aSn() {
+    public View aUH() {
         return LayoutInflater.from(this.mContext).inflate(c.f.ng_game_land_play, (ViewGroup) null);
     }
 
@@ -25,14 +25,14 @@ public class d extends b {
     public void a(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
         int videoWidth = adElementInfo.getVideoWidth();
         int videoHeight = adElementInfo.getVideoHeight();
-        this.cmn = com.baidu.swan.games.view.a.c.baF();
-        this.cmo = com.baidu.swan.games.view.a.c.baG();
+        this.ctq = com.baidu.swan.games.view.a.c.bcX();
+        this.cts = com.baidu.swan.games.view.a.c.bcY();
         if (videoWidth < videoHeight) {
-            this.dRa = true;
-            int i = (int) (((this.cmn - videoWidth) / 2) * 0.8d);
-            int i2 = (int) (((this.cmn - videoWidth) / 2) * 0.1d);
+            this.dZX = true;
+            int i = (int) (((this.ctq - videoWidth) / 2) * 0.8d);
+            int i2 = (int) (((this.ctq - videoWidth) / 2) * 0.1d);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i);
-            layoutParams.leftMargin = (this.cmn - i) - i2;
+            layoutParams.leftMargin = (this.ctq - i) - i2;
             layoutParams.addRule(15);
             layoutParams.removeRule(13);
             layoutParams.removeRule(12);
@@ -43,7 +43,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public String aSo() {
-        return this.dRa ? "reward_banner_land_html" : "reward_banner_html";
+    public String aUI() {
+        return this.dZX ? "reward_banner_land_html" : "reward_banner_html";
     }
 }

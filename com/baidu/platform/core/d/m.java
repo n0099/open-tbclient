@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class m extends k {
     private RouteNode a(JSONObject jSONObject, String str) {
         if (jSONObject == null || str == null || "".equals(str)) {
@@ -30,7 +30,7 @@ public class m extends k {
     private TaxiInfo a(JSONObject jSONObject) {
         float f;
         float f2;
-        float f3 = 0.0f;
+        float f3;
         if (jSONObject == null) {
             return null;
         }
@@ -45,13 +45,15 @@ public class m extends k {
             if (i >= length) {
                 f = 0.0f;
                 f2 = 0.0f;
+                f3 = 0.0f;
                 break;
             }
             JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
             if (jSONObject2 != null && jSONObject2.optString("desc").contains("白天")) {
-                f2 = (float) jSONObject2.optDouble("km_price");
-                f3 = (float) jSONObject2.optDouble("start_price");
+                f3 = (float) jSONObject2.optDouble("km_price");
+                float optDouble = (float) jSONObject2.optDouble("start_price");
                 f = (float) jSONObject2.optDouble("total_price");
+                f2 = optDouble;
                 break;
             }
             i++;
@@ -60,8 +62,8 @@ public class m extends k {
         taxiInfo.setDistance(jSONObject.optInt("distance"));
         taxiInfo.setDuration(jSONObject.optInt("duration"));
         taxiInfo.setTotalPrice(f);
-        taxiInfo.setStartPrice(f3);
-        taxiInfo.setPerKMPrice(f2);
+        taxiInfo.setStartPrice(f2);
+        taxiInfo.setPerKMPrice(f3);
         return taxiInfo;
     }
 

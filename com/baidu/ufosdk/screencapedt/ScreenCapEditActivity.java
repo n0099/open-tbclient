@@ -12,8 +12,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.support.v4.internal.view.SupportMenu;
-import android.support.v4.view.ViewCompat;
 import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -26,6 +24,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.core.internal.view.SupportMenu;
+import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tieba.R;
@@ -40,12 +40,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public class ScreenCapEditActivity extends Activity implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3726a = b() + "/ufo/ufo_screen.jpeg";
-    public static int b = SupportMenu.CATEGORY_MASK;
+    public static String f5675a = b() + "/ufo/ufo_screen.jpeg";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f5676b = SupportMenu.CATEGORY_MASK;
     public static int d = 0;
     private float A;
     private float B;
@@ -95,7 +97,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
 
     private void a() {
         this.m = new Canvas(this.g);
-        this.n.setColor(b);
+        this.n.setColor(f5676b);
         this.n.setStyle(Paint.Style.STROKE);
         if (this.n.getStrokeWidth() < d) {
             this.n.setStrokeWidth(d);
@@ -381,9 +383,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         String str = b() + "/ufo";
         try {
             File file = new File(str);
-            f3726a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
-            com.baidu.ufosdk.f.c.b("--savePic--" + f3726a);
-            File file2 = new File(f3726a);
+            f5675a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
+            com.baidu.ufosdk.f.c.b("--savePic--" + f5675a);
+            File file2 = new File(f5675a);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -479,9 +481,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         int i = width > height ? 3 : width * 4 > height * 3 ? 1 : width * 2 > height ? 0 : 2;
         this.F = new RelativeLayout(this);
         this.F.setFitsSystemWindows(true);
-        this.F.setId(R.string.abc_action_bar_up_description);
+        this.F.setId(R.id.BLOCK);
         RelativeLayout relativeLayout = new RelativeLayout(this);
-        relativeLayout.setId(R.string.abc_action_menu_overflow_description);
+        relativeLayout.setId(R.id.BOTH);
         this.F.setBackgroundColor(-15066598);
         this.R = new Button(this);
         this.R.setText(s.a("36"));
@@ -498,7 +500,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         layoutParams2.addRule(15);
         relativeLayout.addView(this.R, layoutParams2);
         this.S = new TextView(this);
-        this.S.setId(R.string.abc_activity_chooser_view_see_all);
+        this.S.setId(R.id.Backward);
         this.S.setText(s.a("50"));
         this.S.setTextColor(-1);
         this.S.setTextSize(com.baidu.ufosdk.b.T);
@@ -508,7 +510,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         relativeLayout.addView(this.S, layoutParams3);
         this.T = new Button(this);
         this.T.setText(s.a("51"));
-        this.T.setId(R.string.abc_activitychooserview_choose_application);
+        this.T.setId(R.id.CTRL);
         this.T.setTextColor(com.baidu.ufosdk.b.v);
         this.T.setTextSize(com.baidu.ufosdk.b.U);
         this.T.setGravity(17);
@@ -525,23 +527,23 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         layoutParams5.addRule(10);
         this.F.addView(relativeLayout, layoutParams5);
         LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setId(R.string.abc_capital_off);
+        linearLayout.setId(R.id.DOWN);
         linearLayout.setOrientation(0);
         linearLayout.setBackgroundColor(-15066598);
         this.Q = new RelativeLayout(this);
-        this.Q.setId(R.string.abc_searchview_description_clear);
+        this.Q.setId(R.id.FUNCTION);
         RelativeLayout relativeLayout2 = this.Q;
         getApplicationContext();
         relativeLayout2.setBackgroundDrawable(m.a(-15395563));
         this.G = new ImageView(this);
-        this.G.setId(R.string.abc_toolbar_collapse_description);
+        this.G.setId(R.id.SELECT);
         this.G.setBackgroundDrawable(new BitmapDrawable(m.a(getApplicationContext(), "rect_normal.png")));
         RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f));
         layoutParams6.addRule(14);
         layoutParams6.setMargins(0, 0, 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 5.0f));
         this.Q.addView(this.G, layoutParams6);
         this.U = new TextView(this);
-        this.U.setId(R.string.search_menu_title);
+        this.U.setId(R.id.SHIFT);
         this.U.setText(s.a("52"));
         this.U.setTextColor(-1);
         this.U.setTextSize(12.0f);
@@ -554,20 +556,20 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         this.Q.setOnClickListener(new c(this));
         this.P = new RelativeLayout(this);
         this.P.setClickable(false);
-        this.P.setId(R.string.status_bar_notification_info_overflow);
+        this.P.setId(R.id.STROKE);
         RelativeLayout relativeLayout3 = this.P;
         getApplicationContext();
         relativeLayout3.setBackgroundDrawable(m.a((int) ViewCompat.MEASURED_STATE_MASK));
         this.P.setClickable(true);
         this.O = new ImageView(this);
-        this.O.setId(R.string.sapi_sdk_common_retry_btn_text);
+        this.O.setId(R.id.TAG_GIFT_ITEM);
         this.O.setBackgroundDrawable(new BitmapDrawable(m.a(this, "delete_all_disable.png")));
         RelativeLayout.LayoutParams layoutParams8 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f));
         layoutParams8.addRule(14);
         layoutParams8.setMargins(0, 0, 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 5.0f));
         this.P.addView(this.O, layoutParams8);
         this.V = new TextView(this);
-        this.V.setId(R.string.sapi_sdk_common_loading_timeout);
+        this.V.setId(R.id.SYM);
         this.V.setText(s.a("53"));
         this.V.setTextColor(-10066330);
         this.V.setTextSize(12.0f);
@@ -585,9 +587,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         layoutParams11.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), 0);
         this.F.addView(linearLayout, layoutParams11);
         FrameLayout frameLayout = new FrameLayout(this);
-        frameLayout.setId(R.string.abc_search_hint);
+        frameLayout.setId(R.id.FILL);
         this.e = new ImageView(this);
-        this.e.setId(R.string.abc_capital_on);
+        this.e.setId(R.id.Emoji_GridView);
         this.e.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         com.baidu.ufosdk.f.c.a("^^ imgvStyle = " + i);
         switch (i) {
@@ -632,7 +634,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             this.e.setScaleType(ImageView.ScaleType.FIT_CENTER);
             this.e.setImageBitmap(this.f);
         }
-        this.n.setColor(b);
+        this.n.setColor(f5676b);
         this.n.setStyle(Paint.Style.STROKE);
         this.n.setStrokeCap(Paint.Cap.ROUND);
         this.n.setStrokeJoin(Paint.Join.ROUND);

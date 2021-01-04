@@ -2,7 +2,7 @@ package GetSugTopic;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public final class DataRes extends Message {
     @ProtoField(tag = 2)
     public final TopicListModule bang_topic;
@@ -24,7 +24,7 @@ public final class DataRes extends Message {
         this.sug_topic = builder.sug_topic;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public TopicListModule bang_topic;
         public TopicListModule sug_topic;

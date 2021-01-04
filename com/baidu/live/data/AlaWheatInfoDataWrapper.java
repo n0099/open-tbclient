@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaWheatInfoDataWrapper implements Serializable, Cloneable {
     private int activity_stage;
     private List<AlaWheatInfoData> anchorWheatBackupLists;
@@ -37,60 +37,62 @@ public class AlaWheatInfoDataWrapper implements Serializable, Cloneable {
             this.hostWheatLists.clear();
             this.anchorWheatLists.clear();
             this.anchorWheatBackupLists.clear();
-            JSONObject jSONObject = new JSONObject(str);
-            this.xqcount = jSONObject.optInt("xqcount", 0);
-            this.room_mode = jSONObject.optInt("room_mode", 0);
-            this.is_applying = jSONObject.optInt("is_applying", 0);
-            this.activity_stage = jSONObject.optInt("activity_stage", 0);
-            if (jSONObject != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("host");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
-                        AlaWheatInfoData alaWheatInfoData = new AlaWheatInfoData();
-                        if (jSONObject2 != null) {
-                            alaWheatInfoData.parseJson(jSONObject2);
-                        }
-                        if (!TextUtils.isEmpty(alaWheatInfoData.uk)) {
-                            this.hostWheatLists.add(alaWheatInfoData);
-                        } else {
-                            this.hostWheatLists.add(null);
-                        }
-                    }
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("anchor");
-                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        JSONObject jSONObject3 = (JSONObject) optJSONArray2.opt(i2);
-                        AlaWheatInfoData alaWheatInfoData2 = new AlaWheatInfoData();
-                        if (jSONObject3 != null) {
-                            alaWheatInfoData2.parseJson(jSONObject3);
-                        }
-                        if (!TextUtils.isEmpty(alaWheatInfoData2.uk)) {
-                            this.anchorWheatLists.add(alaWheatInfoData2);
-                        } else {
-                            this.anchorWheatLists.add(null);
-                        }
-                        if (!isSweetStage()) {
-                            this.anchorWheatBackupLists.add(alaWheatInfoData2);
+            if (!TextUtils.isEmpty(str)) {
+                JSONObject jSONObject = new JSONObject(str);
+                this.xqcount = jSONObject.optInt("xqcount", 0);
+                this.room_mode = jSONObject.optInt("room_mode", 0);
+                this.is_applying = jSONObject.optInt("is_applying", 0);
+                this.activity_stage = jSONObject.optInt("activity_stage", 0);
+                if (jSONObject != null) {
+                    JSONArray optJSONArray = jSONObject.optJSONArray("host");
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
+                            AlaWheatInfoData alaWheatInfoData = new AlaWheatInfoData();
+                            if (jSONObject2 != null) {
+                                alaWheatInfoData.parseJson(jSONObject2);
+                            }
+                            if (!TextUtils.isEmpty(alaWheatInfoData.uk)) {
+                                this.hostWheatLists.add(alaWheatInfoData);
+                            } else {
+                                this.hostWheatLists.add(null);
+                            }
                         }
                     }
-                }
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("xiangqin");
-                if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        JSONObject jSONObject4 = (JSONObject) optJSONArray3.opt(i3);
-                        AlaWheatInfoData alaWheatInfoData3 = new AlaWheatInfoData();
-                        if (jSONObject4 != null) {
-                            alaWheatInfoData3.parseJson(jSONObject4);
+                    JSONArray optJSONArray2 = jSONObject.optJSONArray("anchor");
+                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            JSONObject jSONObject3 = (JSONObject) optJSONArray2.opt(i2);
+                            AlaWheatInfoData alaWheatInfoData2 = new AlaWheatInfoData();
+                            if (jSONObject3 != null) {
+                                alaWheatInfoData2.parseJson(jSONObject3);
+                            }
+                            if (!TextUtils.isEmpty(alaWheatInfoData2.uk)) {
+                                this.anchorWheatLists.add(alaWheatInfoData2);
+                            } else {
+                                this.anchorWheatLists.add(null);
+                            }
+                            if (!isSweetStage()) {
+                                this.anchorWheatBackupLists.add(alaWheatInfoData2);
+                            }
                         }
-                        if (!TextUtils.isEmpty(alaWheatInfoData3.uk)) {
-                            this.xiangqinLists.add(alaWheatInfoData3);
-                        } else {
-                            this.xiangqinLists.add(null);
-                        }
-                        if (isSweetStage()) {
-                            this.anchorWheatBackupLists.add(alaWheatInfoData3);
+                    }
+                    JSONArray optJSONArray3 = jSONObject.optJSONArray("xiangqin");
+                    if (optJSONArray3 != null && optJSONArray3.length() > 0) {
+                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                            JSONObject jSONObject4 = (JSONObject) optJSONArray3.opt(i3);
+                            AlaWheatInfoData alaWheatInfoData3 = new AlaWheatInfoData();
+                            if (jSONObject4 != null) {
+                                alaWheatInfoData3.parseJson(jSONObject4);
+                            }
+                            if (!TextUtils.isEmpty(alaWheatInfoData3.uk)) {
+                                this.xiangqinLists.add(alaWheatInfoData3);
+                            } else {
+                                this.xiangqinLists.add(null);
+                            }
+                            if (isSweetStage()) {
+                                this.anchorWheatBackupLists.add(alaWheatInfoData3);
+                            }
                         }
                     }
                 }

@@ -9,27 +9,29 @@ import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class g extends HttpHandlerWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ContrastPortraitResult f2738a;
-    final /* synthetic */ LivenessRecogActivity b;
+    final /* synthetic */ ContrastPortraitResult f4050a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ LivenessRecogActivity f4051b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(LivenessRecogActivity livenessRecogActivity, Looper looper, ContrastPortraitResult contrastPortraitResult) {
         super(looper);
-        this.b = livenessRecogActivity;
-        this.f2738a = contrastPortraitResult;
+        this.f4051b = livenessRecogActivity;
+        this.f4050a = contrastPortraitResult;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
     public void onFailure(Throwable th, int i, String str) {
-        this.f2738a.setResultCode(-206);
-        this.f2738a.setResultMsg(ContrastPortraitResult.ERROR_MSG_SERVER_ERROR);
-        this.b.b(this.f2738a);
+        this.f4050a.setResultCode(-206);
+        this.f4050a.setResultMsg(ContrastPortraitResult.ERROR_MSG_SERVER_ERROR);
+        this.f4051b.b(this.f4050a);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -42,25 +44,25 @@ public class g extends HttpHandlerWrap {
             JSONObject jSONObject = new JSONObject(str);
             int optInt = jSONObject.optInt(BaiduRimConstants.RETCODE_KEY);
             String optString = jSONObject.optString("retMsg");
-            this.f2738a.setResultCode(optInt);
-            this.f2738a.setResultMsg(optString);
-            if (this.f2738a.getResultCode() == 0) {
+            this.f4050a.setResultCode(optInt);
+            this.f4050a.setResultMsg(optString);
+            if (this.f4050a.getResultCode() == 0) {
                 JSONObject optJSONObject = new JSONObject(str).optJSONObject("result");
-                if (this.b.passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_AUTHTOKEN) {
-                    this.f2738a.authsid = optJSONObject.optString("authsid");
+                if (this.f4051b.passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_AUTHTOKEN) {
+                    this.f4050a.authsid = optJSONObject.optString("authsid");
                 }
-                this.f2738a.callbackkey = optJSONObject.optString("callbackkey");
-                this.f2738a.contrastres = optJSONObject.optInt("contrastres");
-                this.f2738a.finalres = optJSONObject.optInt("finalres");
-                this.f2738a.finish = optJSONObject.optInt("finish");
-                this.f2738a.imgdigests = optJSONObject.optString("imgdigests");
-                this.f2738a.recordvideo = optJSONObject.optInt("recordvideo");
+                this.f4050a.callbackkey = optJSONObject.optString("callbackkey");
+                this.f4050a.contrastres = optJSONObject.optInt("contrastres");
+                this.f4050a.finalres = optJSONObject.optInt("finalres");
+                this.f4050a.finish = optJSONObject.optInt("finish");
+                this.f4050a.imgdigests = optJSONObject.optString("imgdigests");
+                this.f4050a.recordvideo = optJSONObject.optInt("recordvideo");
             }
         } catch (JSONException e) {
             Log.e(e);
-            this.f2738a.setResultCode(-206);
-            this.f2738a.setResultMsg(ContrastPortraitResult.ERROR_MSG_SERVER_ERROR);
+            this.f4050a.setResultCode(-206);
+            this.f4050a.setResultMsg(ContrastPortraitResult.ERROR_MSG_SERVER_ERROR);
         }
-        this.b.c(this.f2738a);
+        this.f4051b.c(this.f4050a);
     }
 }

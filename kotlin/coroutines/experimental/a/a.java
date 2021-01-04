@@ -2,11 +2,11 @@ package kotlin.coroutines.experimental.a;
 
 import kotlin.e;
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    private static final Object pKs = new Object();
+    private static final Object qlV = new Object();
 
-    public static final Object eDW() {
-        return pKs;
+    public static final Object eMe() {
+        return qlV;
     }
 }

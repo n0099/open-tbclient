@@ -4,16 +4,14 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.SparseArray;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import com.airbnb.lottie.d;
 import com.airbnb.lottie.e;
-import com.airbnb.lottie.f;
-import com.airbnb.lottie.i;
+import com.airbnb.lottie.h;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.g;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.example.flutter_lottie.LottieNameTransform;
 import io.flutter.plugin.common.MethodCall;
@@ -25,12 +23,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 @RequiresApi(api = 15)
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, MethodChannel.MethodCallHandler {
     private PluginRegistry.Registrar registrar;
     private RenderingThreads renderingThreads;
     private SparseArray<FluttieAnimation> managedAnimations = new SparseArray<>();
-    private SparseArray<e> loadedCompositions = new SparseArray<>();
+    private SparseArray<d> loadedCompositions = new SparseArray<>();
     private AtomicInteger compositionRequestCounter = new AtomicInteger();
 
     public static void registerWith(PluginRegistry.Registrar registrar) {
@@ -124,12 +122,12 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 result.success(Boolean.valueOf(Build.VERSION.SDK_INT >= 21));
                 return;
             case 1:
-                loadComposition(this.compositionRequestCounter.getAndIncrement(), (String) methodCall.argument(UgcConstant.SOURCE_TYPE), (String) methodCall.argument("source"), result);
+                loadComposition(this.compositionRequestCounter.getAndIncrement(), (String) methodCall.argument("source_type"), (String) methodCall.argument("source"), result);
                 return;
             case 2:
                 int intValue = ((Integer) methodCall.argument("composition")).intValue();
-                e eVar = this.loadedCompositions.get(intValue);
-                if (eVar == null) {
+                d dVar = this.loadedCompositions.get(intValue);
+                if (dVar == null) {
                     result.error("invalid", "There is no prepared animation for that request id: " + intValue, null);
                     return;
                 }
@@ -140,10 +138,10 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 double doubleValue2 = ((Double) methodCall.argument("pref_size_h")).doubleValue();
                 float f = 1.0f;
                 if (doubleValue > 0.0d && doubleValue2 > 0.0d) {
-                    f = (float) Math.min(doubleValue / eVar.iu().height(), doubleValue2 / eVar.iu().width());
+                    f = (float) Math.min(doubleValue / dVar.hR().height(), doubleValue2 / dVar.hR().width());
                 }
                 TextureRegistry.SurfaceTextureEntry createSurfaceTexture = this.registrar.textures().createSurfaceTexture();
-                FluttieAnimation fluttieAnimation = new FluttieAnimation(this, createSurfaceTexture, eVar, f, (String) methodCall.argument("img_assets_path"));
+                FluttieAnimation fluttieAnimation = new FluttieAnimation(this, createSurfaceTexture, dVar, f, (String) methodCall.argument("img_assets_path"));
                 fluttieAnimation.setRepeatOptions(intValue2, i);
                 if (intValue3 > 0) {
                     fluttieAnimation.setDuration(intValue3);
@@ -181,22 +179,22 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
     }
 
     private void loadComposition(final int i, String str, String str2, final MethodChannel.Result result) {
-        i<e> iVar = new i<e>() { // from class: de.simolus3.fluttie.FluttiePlugin.1
+        h<d> hVar = new h<d>() { // from class: de.simolus3.fluttie.FluttiePlugin.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.airbnb.lottie.i
-            public void onResult(@Nullable e eVar) {
+            @Override // com.airbnb.lottie.h
+            public void onResult(@Nullable d dVar) {
                 try {
-                    if (eVar == null) {
+                    if (dVar == null) {
                         result.error("Could not load composition", "CompositionLoadError", null);
                         return;
                     }
-                    if (!eVar.it().isEmpty()) {
-                        Iterator<String> it = eVar.it().iterator();
+                    if (!dVar.hQ().isEmpty()) {
+                        Iterator<String> it = dVar.hQ().iterator();
                         while (it.hasNext()) {
                             it.next();
                         }
                     }
-                    FluttiePlugin.this.loadedCompositions.append(i, eVar);
+                    FluttiePlugin.this.loadedCompositions.append(i, dVar);
                     try {
                         result.success(Integer.valueOf(i));
                     } catch (Exception e) {
@@ -207,9 +205,9 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 }
             }
         };
-        i<Throwable> iVar2 = new i<Throwable>() { // from class: de.simolus3.fluttie.FluttiePlugin.2
+        h<Throwable> hVar2 = new h<Throwable>() { // from class: de.simolus3.fluttie.FluttiePlugin.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.airbnb.lottie.i
+            @Override // com.airbnb.lottie.h
             public void onResult(Throwable th) {
             }
         };
@@ -236,18 +234,18 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
         }
         switch (c) {
             case 0:
-                f.n(str2, null).a(iVar).c(iVar2);
+                e.n(str2, null).a(hVar).c(hVar2);
                 return;
             case 1:
-                f.t(this.registrar.context(), this.registrar.lookupKeyForAsset(str2)).a(iVar).c(iVar2);
+                e.t(this.registrar.context(), this.registrar.lookupKeyForAsset(str2)).a(hVar).c(hVar2);
                 return;
             case 2:
                 if (str2.endsWith(".json")) {
                     str2 = str2.substring(0, str2.length() - 5);
                 }
-                int identifier = g.li().getResources().getIdentifier(LottieNameTransform.getAndroidNameFromIos(str2), "raw", BdBaseApplication.getInst().getPackageName());
+                int identifier = com.baidu.adp.base.h.kE().getResources().getIdentifier(LottieNameTransform.getAndroidNameFromIos(str2), "raw", BdBaseApplication.getInst().getPackageName());
                 if (identifier != 0) {
-                    f.d(this.registrar.context(), identifier).a(iVar).c(iVar2);
+                    e.d(this.registrar.context(), identifier).a(hVar).c(hVar2);
                     return;
                 } else {
                     BdLog.e("flutter lottie resource in package not found :" + str2);

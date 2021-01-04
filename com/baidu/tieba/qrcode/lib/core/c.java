@@ -4,26 +4,26 @@ import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class c extends AsyncTask<Void, Void, String> {
     private Camera mCamera;
     private byte[] mData;
-    private a mEI;
+    private a mKa;
     private int orientation;
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        String b(byte[] bArr, int i, int i2, boolean z);
+        String c(byte[] bArr, int i, int i2, boolean z);
     }
 
     public c(Camera camera, byte[] bArr, a aVar, int i) {
         this.mCamera = camera;
         this.mData = bArr;
-        this.mEI = aVar;
+        this.mKa = aVar;
         this.orientation = i;
     }
 
-    public c dEm() {
+    public c dEb() {
         if (Build.VERSION.SDK_INT >= 11) {
             executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         } else {
@@ -41,7 +41,7 @@ public class c extends AsyncTask<Void, Void, String> {
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        this.mEI = null;
+        this.mKa = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,6 +49,8 @@ public class c extends AsyncTask<Void, Void, String> {
     @Override // android.os.AsyncTask
     public String doInBackground(Void... voidArr) {
         Camera.Parameters parameters;
+        int i;
+        int i2;
         if (this.mCamera == null) {
             return null;
         }
@@ -60,28 +62,30 @@ public class c extends AsyncTask<Void, Void, String> {
         }
         if (parameters != null) {
             Camera.Size previewSize = parameters.getPreviewSize();
-            int i = previewSize.width;
-            int i2 = previewSize.height;
+            int i3 = previewSize.width;
+            int i4 = previewSize.height;
             byte[] bArr = this.mData;
             if (this.orientation == 0) {
                 bArr = new byte[this.mData.length];
-                for (int i3 = 0; i3 < i2; i3++) {
-                    for (int i4 = 0; i4 < i; i4++) {
-                        bArr[(((i4 * i2) + i2) - i3) - 1] = this.mData[(i3 * i) + i4];
+                for (int i5 = 0; i5 < i4; i5++) {
+                    for (int i6 = 0; i6 < i3; i6++) {
+                        bArr[(((i6 * i4) + i4) - i5) - 1] = this.mData[(i5 * i3) + i6];
                     }
                 }
+                i = i3;
+                i2 = i4;
             } else {
-                i2 = i;
-                i = i2;
+                i = i4;
+                i2 = i3;
             }
             try {
-                if (this.mEI != null) {
-                    return this.mEI.b(bArr, i2, i, false);
+                if (this.mKa != null) {
+                    return this.mKa.c(bArr, i2, i, false);
                 }
                 return null;
             } catch (Exception e2) {
                 try {
-                    return this.mEI.b(bArr, i2, i, true);
+                    return this.mKa.c(bArr, i2, i, true);
                 } catch (Exception e3) {
                     return null;
                 }

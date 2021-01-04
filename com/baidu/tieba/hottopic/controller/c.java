@@ -1,32 +1,28 @@
 package com.baidu.tieba.hottopic.controller;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private OvalActionButton joQ;
+    private OvalActionButton jBn;
     private TbPageContext<?> mPageContext;
     private String mPostContent;
     private String mTopicId;
 
     public c(OvalActionButton ovalActionButton, TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.joQ = ovalActionButton;
-        this.joQ.setIsCircle(true);
-        this.joQ.setHasShadow(false);
-        this.joQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
+        this.jBn = ovalActionButton;
+        this.jBn.setIsCircle(true);
+        this.jBn.setHasShadow(false);
+        this.jBn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cQV();
+                c.this.cUb();
             }
         });
     }
@@ -35,23 +31,18 @@ public class c {
         this.mTopicId = str;
     }
 
-    public void DW(String str) {
+    public void DT(String str) {
         this.mPostContent = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQV() {
-        WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.mPageContext.getPageActivity(), 9, "0", null, null, null, 0, null, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, null, 0);
-        writeActivityConfig.setTopicId(String.valueOf(this.mTopicId));
-        writeActivityConfig.getIntent().putExtra("from", "topic_detail");
-        writeActivityConfig.setCallFrom("1");
-        if (!StringUtils.isNull(this.mPostContent)) {
-            writeActivityConfig.setTitle(String.format(TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_write_name), this.mPostContent), true);
+    public void cUb() {
+        if (!WriteActivityConfig.isAsyncWriting() && this.mTopicId != null) {
+            String str = null;
+            if (!StringUtils.isNull(this.mPostContent)) {
+                str = String.format(TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_write_name), this.mPostContent);
+            }
+            WriteActivityConfig.newInstance(this.mPageContext.getPageActivity()).setType(9).setForumId("0").setTopicId(String.valueOf(this.mTopicId)).setFrom("topic_detail").setCallFrom("1").setTitle(str).send();
         }
-        writeActivityConfig.setForumLevel(-1);
-        writeActivityConfig.setForumAvatar(null);
-        writeActivityConfig.setPrivateThread(0);
-        writeActivityConfig.setForumDir("", "");
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
     }
 }

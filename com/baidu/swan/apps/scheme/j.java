@@ -28,12 +28,12 @@ import com.baidu.swan.apps.storage.a.o;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class j extends UnitedSchemeBaseDispatcher {
-    protected final Map<String, aa> dAi = new HashMap();
+    protected final Map<String, aa> dIN = new HashMap();
 
     public j() {
-        aLb();
+        aNr();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -59,21 +59,20 @@ public class j extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str);
                 return false;
             }
-            String str2 = str;
             for (int size = arrayList.size(); size > 0; size--) {
-                String str3 = "/" + ((String) arrayList.get(size - 1));
-                if (str2.isEmpty() || str2.length() < str3.length()) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str2 + " @ " + str3);
+                String str2 = "/" + ((String) arrayList.get(size - 1));
+                if (str.isEmpty() || str.length() < str2.length()) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str + " @ " + str2);
                     return false;
                 }
-                aa aaVar = this.dAi.get(str2);
+                aa aaVar = this.dIN.get(str);
                 if (aaVar != null) {
                     if (unitedSchemeEntity.isOnlyVerify()) {
                         return true;
                     }
                     return aaVar.a(context, unitedSchemeEntity, callbackHandler, "/swanAPI" + uri.getPath());
                 }
-                str2 = str2.substring(0, str2.length() - str3.length());
+                str = str.substring(0, str.length() - str2.length());
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "not support such action ：" + uri.getPath());
             return false;
@@ -85,8 +84,8 @@ public class j extends UnitedSchemeBaseDispatcher {
         return null;
     }
 
-    protected void aLb() {
-        this.dAi.clear();
+    protected void aNr() {
+        this.dIN.clear();
         a(new u(this));
         a(new com.baidu.swan.apps.network.i(this));
         a(new ad(this));
@@ -117,10 +116,10 @@ public class j extends UnitedSchemeBaseDispatcher {
         a(new ac(this));
         a(new r(this));
         a(new q(this));
-        a(new com.baidu.swan.apps.al.e.a.a(this));
-        a(new com.baidu.swan.apps.al.e.a.b(this));
-        a(new com.baidu.swan.apps.al.a.a.a(this));
-        a(new com.baidu.swan.apps.al.a.a.b(this));
+        a(new com.baidu.swan.apps.ak.e.a.a(this));
+        a(new com.baidu.swan.apps.ak.e.a.b(this));
+        a(new com.baidu.swan.apps.ak.a.a.a(this));
+        a(new com.baidu.swan.apps.ak.a.a.b(this));
         a(new com.baidu.swan.apps.media.a.a.a(this));
         a(new t(this));
         a(new com.baidu.swan.apps.media.b.a.a(this));
@@ -137,15 +136,15 @@ public class j extends UnitedSchemeBaseDispatcher {
         a(new com.baidu.swan.apps.scheme.actions.e.c(this));
         a(new com.baidu.swan.apps.scheme.actions.d.a.b(this));
         a(new com.baidu.swan.apps.scheme.actions.d.a.a(this));
-        a(new com.baidu.swan.apps.al.g.a.a(this));
-        a(new com.baidu.swan.apps.al.g.a.b(this));
-        a(new com.baidu.swan.apps.al.c.a.c(this));
-        a(new com.baidu.swan.apps.al.c.a.a(this));
-        a(new com.baidu.swan.apps.al.b.a(this));
-        a(new com.baidu.swan.apps.al.i.a(this));
-        a(new com.baidu.swan.apps.al.b.b(this));
-        a(new com.baidu.swan.apps.al.b.c(this));
-        a(new com.baidu.swan.apps.al.h.a(this));
+        a(new com.baidu.swan.apps.ak.g.a.a(this));
+        a(new com.baidu.swan.apps.ak.g.a.b(this));
+        a(new com.baidu.swan.apps.ak.c.a.c(this));
+        a(new com.baidu.swan.apps.ak.c.a.a(this));
+        a(new com.baidu.swan.apps.ak.b.a(this));
+        a(new com.baidu.swan.apps.ak.i.a(this));
+        a(new com.baidu.swan.apps.ak.b.b(this));
+        a(new com.baidu.swan.apps.ak.b.c(this));
+        a(new com.baidu.swan.apps.ak.h.a(this));
         a(new com.baidu.swan.apps.d.a.a.a(this));
         a(new com.baidu.swan.apps.setting.a.h(this));
         a(new com.baidu.swan.apps.inlinewidget.c.d(this));
@@ -153,6 +152,6 @@ public class j extends UnitedSchemeBaseDispatcher {
     }
 
     public void a(aa aaVar) {
-        this.dAi.put(aaVar.name, aaVar);
+        this.dIN.put(aaVar.name, aaVar);
     }
 }

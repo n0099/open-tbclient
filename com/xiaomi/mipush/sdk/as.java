@@ -5,17 +5,17 @@ import android.database.ContentObserver;
 import android.os.Handler;
 import com.xiaomi.push.az;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class as extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aq f4527a;
+    final /* synthetic */ aq f14112a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public as(aq aqVar, Handler handler) {
         super(handler);
-        this.f4527a = aqVar;
+        this.f14112a = aqVar;
     }
 
     @Override // android.database.ContentObserver
@@ -24,16 +24,16 @@ public class as extends ContentObserver {
         Integer num;
         Context context2;
         Context context3;
-        aq aqVar = this.f4527a;
-        context = this.f4527a.f51a;
-        aqVar.f55a = Integer.valueOf(com.xiaomi.push.service.aw.a(context).a());
-        num = this.f4527a.f55a;
+        aq aqVar = this.f14112a;
+        context = this.f14112a.f129a;
+        aqVar.f133a = Integer.valueOf(com.xiaomi.push.service.aw.a(context).a());
+        num = this.f14112a.f133a;
         if (num.intValue() != 0) {
-            context2 = this.f4527a.f51a;
+            context2 = this.f14112a.f129a;
             context2.getContentResolver().unregisterContentObserver(this);
-            context3 = this.f4527a.f51a;
+            context3 = this.f14112a.f129a;
             if (az.b(context3)) {
-                this.f4527a.m84c();
+                this.f14112a.m110c();
             }
         }
     }

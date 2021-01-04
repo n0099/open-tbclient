@@ -1,6 +1,6 @@
 package kotlin.text;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public enum RegexOption implements e {
     IGNORE_CASE(2, 0, 2, null),
     MULTILINE(8, 0, 2, null),

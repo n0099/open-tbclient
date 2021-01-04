@@ -3,9 +3,9 @@ package rx.internal.operators;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class OnSubscribeDetach<T> implements d.a<T> {
-    final rx.d<T> pPC;
+    final rx.d<T> qre;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -17,14 +17,14 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
         a aVar = new a(bVar);
         jVar.add(aVar);
         jVar.setProducer(aVar);
-        this.pPC.a((rx.j) bVar);
+        this.qre.a((rx.j) bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class b<T> extends rx.j<T> {
         final AtomicReference<rx.j<? super T>> actual;
-        final AtomicReference<rx.f> pQc = new AtomicReference<>();
+        final AtomicReference<rx.f> qrE = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
 
         public b(rx.j<? super T> jVar) {
@@ -41,7 +41,7 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.pQc.lazySet(TerminatedProducer.INSTANCE);
+            this.qrE.lazySet(TerminatedProducer.INSTANCE);
             rx.j<? super T> andSet = this.actual.getAndSet(null);
             if (andSet != null) {
                 andSet.onError(th);
@@ -52,24 +52,24 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.e
         public void onCompleted() {
-            this.pQc.lazySet(TerminatedProducer.INSTANCE);
+            this.qrE.lazySet(TerminatedProducer.INSTANCE);
             rx.j<? super T> andSet = this.actual.getAndSet(null);
             if (andSet != null) {
                 andSet.onCompleted();
             }
         }
 
-        void iK(long j) {
+        void ju(long j) {
             if (j < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             }
-            rx.f fVar = this.pQc.get();
+            rx.f fVar = this.qrE.get();
             if (fVar != null) {
                 fVar.request(j);
                 return;
             }
             rx.internal.operators.a.e(this.requested, j);
-            rx.f fVar2 = this.pQc.get();
+            rx.f fVar2 = this.qrE.get();
             if (fVar2 != null && fVar2 != TerminatedProducer.INSTANCE) {
                 fVar2.request(this.requested.getAndSet(0L));
             }
@@ -77,47 +77,47 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            if (this.pQc.compareAndSet(null, fVar)) {
+            if (this.qrE.compareAndSet(null, fVar)) {
                 fVar.request(this.requested.getAndSet(0L));
-            } else if (this.pQc.get() != TerminatedProducer.INSTANCE) {
+            } else if (this.qrE.get() != TerminatedProducer.INSTANCE) {
                 throw new IllegalStateException("Producer already set!");
             }
         }
 
-        void eFH() {
-            this.pQc.lazySet(TerminatedProducer.INSTANCE);
+        void eNP() {
+            this.qrE.lazySet(TerminatedProducer.INSTANCE);
             this.actual.lazySet(null);
             unsubscribe();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class a<T> implements rx.f, rx.k {
-        final b<T> pQb;
+        final b<T> qrD;
 
         public a(b<T> bVar) {
-            this.pQb = bVar;
+            this.qrD = bVar;
         }
 
         @Override // rx.f
         public void request(long j) {
-            this.pQb.iK(j);
+            this.qrD.ju(j);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.pQb.isUnsubscribed();
+            return this.qrD.isUnsubscribed();
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.pQb.eFH();
+            this.qrD.eNP();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public enum TerminatedProducer implements rx.f {
         INSTANCE;
 

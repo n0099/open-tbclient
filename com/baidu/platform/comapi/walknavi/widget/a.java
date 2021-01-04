@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f3094a;
-    private TextView b;
+    private TextView f4600a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private TextView f4601b;
     private TextView c;
     private TextView d;
     private LinearLayout e;
@@ -24,7 +26,7 @@ public class a extends Dialog {
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface InterfaceC0302a {
         void a();
     }
@@ -38,25 +40,25 @@ public class a extends Dialog {
     }
 
     public a(Activity activity) {
-        this(activity, R.string.abc_action_menu_overflow_description);
-        View a2 = com.baidu.platform.comapi.wnplatform.p.a.a.a(activity, 2130903046, null);
+        this(activity, R.id.BOTH);
+        View a2 = com.baidu.platform.comapi.wnplatform.p.a.a.a(activity, R.array.Mask_X007, null);
         requestWindowFeature(1);
         if (getWindow() != null) {
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
         }
         setContentView(a2);
-        this.f3094a = (TextView) a2.findViewById(2131165243);
-        this.b = (TextView) a2.findViewById(2131165246);
-        this.c = (TextView) a2.findViewById(2131165250);
-        this.d = (TextView) a2.findViewById(2131165251);
-        this.e = (LinearLayout) a2.findViewById(2131165249);
-        this.f = (LinearLayout) a2.findViewById(2131165252);
+        this.f4600a = (TextView) a2.findViewById(R.dimen.abc_action_bar_content_inset_material);
+        this.f4601b = (TextView) a2.findViewById(R.dimen.abc_action_bar_default_padding_end_material);
+        this.c = (TextView) a2.findViewById(R.dimen.abc_action_bar_overflow_padding_end_material);
+        this.d = (TextView) a2.findViewById(R.dimen.abc_action_bar_overflow_padding_start_material);
+        this.e = (LinearLayout) a2.findViewById(R.dimen.abc_action_bar_icon_vertical_padding_material);
+        this.f = (LinearLayout) a2.findViewById(R.dimen.abc_action_bar_stacked_max_height);
         this.c.setOnClickListener(new b(this));
         this.d.setOnClickListener(new c(this));
         this.i = false;
         this.j = false;
-        this.f3094a.setVisibility(8);
-        this.b.setVisibility(8);
+        this.f4600a.setVisibility(8);
+        this.f4601b.setVisibility(8);
         this.c.setVisibility(8);
         this.d.setVisibility(8);
         this.e.setVisibility(8);
@@ -66,22 +68,22 @@ public class a extends Dialog {
 
     public a a(String str) {
         if (str == null) {
-            this.b.setVisibility(8);
-            this.b.setText("", TextView.BufferType.SPANNABLE);
+            this.f4601b.setVisibility(8);
+            this.f4601b.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.b.setVisibility(0);
-            this.b.setText(str, TextView.BufferType.SPANNABLE);
+            this.f4601b.setVisibility(0);
+            this.f4601b.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }
 
     public a b(String str) {
         if (str == null) {
-            this.f3094a.setVisibility(8);
-            this.f3094a.setText("", TextView.BufferType.SPANNABLE);
+            this.f4600a.setVisibility(8);
+            this.f4600a.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f3094a.setVisibility(0);
-            this.f3094a.setText(str, TextView.BufferType.SPANNABLE);
+            this.f4600a.setVisibility(0);
+            this.f4600a.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }

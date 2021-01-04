@@ -1,16 +1,16 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.cb;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class bx extends cb.d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f4596a;
+    protected String f14195a;
 
     public bx(String str, String str2, String[] strArr, String str3) {
         super(str, str2, strArr);
-        this.f4596a = "MessageDeleteJob";
-        this.f4596a = str3;
+        this.f14195a = "MessageDeleteJob";
+        this.f14195a = str3;
     }
 
     public static bx a(String str) {

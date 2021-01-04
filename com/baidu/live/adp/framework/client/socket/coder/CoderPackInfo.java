@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework.client.socket.coder;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class CoderPackInfo {
     public byte[] body;
     public int bodyLength;

@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.tbadk.mainTab.b {
     public c(int i, String str) {
         this.mFragement.type = i;

@@ -1,21 +1,21 @@
 package com.facebook.common.a;
 
 import javax.annotation.Nullable;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class c implements b {
     @Nullable
-    private static c pbE = null;
+    private static c psP = null;
 
     private c() {
     }
 
-    public static synchronized c epI() {
+    public static synchronized c etN() {
         c cVar;
         synchronized (c.class) {
-            if (pbE == null) {
-                pbE = new c();
+            if (psP == null) {
+                psP = new c();
             }
-            cVar = pbE;
+            cVar = psP;
         }
         return cVar;
     }

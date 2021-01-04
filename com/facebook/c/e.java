@@ -3,9 +3,9 @@ package com.facebook.c;
 import com.facebook.common.internal.g;
 import java.io.UnsupportedEncodingException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
-    public static byte[] Zj(String str) {
+    public static byte[] Zu(String str) {
         g.checkNotNull(str);
         try {
             return str.getBytes(HTTP.ASCII);
@@ -14,7 +14,7 @@ public class e {
         }
     }
 
-    public static boolean e(byte[] bArr, byte[] bArr2) {
+    public static boolean g(byte[] bArr, byte[] bArr2) {
         g.checkNotNull(bArr);
         g.checkNotNull(bArr2);
         if (bArr2.length > bArr.length) {
@@ -35,16 +35,16 @@ public class e {
         if (i2 > i) {
             return -1;
         }
-        byte b = bArr2[0];
+        byte b2 = bArr2[0];
         int i4 = i - i2;
         while (i3 <= i4) {
-            if (bArr[i3] != b) {
+            if (bArr[i3] != b2) {
                 do {
                     i3++;
                     if (i3 > i4) {
                         break;
                     }
-                } while (bArr[i3] != b);
+                } while (bArr[i3] != b2);
             }
             if (i3 <= i4) {
                 int i5 = i3 + 1;

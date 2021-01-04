@@ -27,7 +27,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AppendTrack extends AbstractTrack {
     private static Logger LOG = Logger.getLogger(AppendTrack.class);
     SampleDescriptionBox stsd;
@@ -348,8 +348,8 @@ public class AppendTrack extends AbstractTrack {
                 i += track.getSyncSamples().length;
             }
             long[] jArr = new long[i];
-            long j = 0;
             int i2 = 0;
+            long j = 0;
             for (Track track2 : this.tracks) {
                 long[] syncSamples = track2.getSyncSamples();
                 int length = syncSamples.length;

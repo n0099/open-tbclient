@@ -7,14 +7,14 @@ import com.baidu.swan.pms.c.g;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class a extends m implements d {
     public a(com.baidu.swan.apps.runtime.d dVar) {
         super(dVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static final Bundle z(Map<String, String> map) {
+    public static final Bundle A(Map<String, String> map) {
         Bundle bundle = new Bundle();
         if (map != null && !map.isEmpty()) {
             for (Map.Entry<String, String> entry : map.entrySet()) {

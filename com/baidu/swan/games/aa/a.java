@@ -3,30 +3,30 @@ package com.baidu.swan.games.aa;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private static final ReentrantLock efc = new ReentrantLock();
-    private static volatile a efd;
-    private List<c> dYT = new ArrayList(3);
-    private d dYb;
+    private static final ReentrantLock eod = new ReentrantLock();
+    private static volatile a eoe;
+    private d egY;
+    private List<c> ehQ = new ArrayList(3);
 
     private a() {
     }
 
-    public static a aZN() {
-        if (efd == null) {
+    public static a bch() {
+        if (eoe == null) {
             synchronized (a.class) {
-                if (efd == null) {
-                    efd = new a();
+                if (eoe == null) {
+                    eoe = new a();
                 }
             }
         }
-        return efd;
+        return eoe;
     }
 
     public void a(d dVar) {
-        this.dYb = dVar;
-        aZO();
+        this.egY = dVar;
+        bci();
     }
 
     public void at(String str, boolean z) {
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.dYb = null;
-        this.dYT.clear();
+        this.egY = null;
+        this.ehQ.clear();
     }
 
     private void a(c cVar) {
-        efc.lock();
+        eod.lock();
         try {
-            if (this.dYb != null) {
-                this.dYb.c(cVar);
+            if (this.egY != null) {
+                this.egY.c(cVar);
             } else {
-                this.dYT.add(cVar);
+                this.ehQ.add(cVar);
             }
         } finally {
-            efc.unlock();
+            eod.unlock();
         }
     }
 
-    private void aZO() {
-        if (!this.dYT.isEmpty() && this.dYb != null) {
-            efc.lock();
+    private void bci() {
+        if (!this.ehQ.isEmpty() && this.egY != null) {
+            eod.lock();
             try {
-                for (c cVar : this.dYT) {
-                    this.dYb.c(cVar);
+                for (c cVar : this.ehQ) {
+                    this.egY.c(cVar);
                 }
-                this.dYT.clear();
+                this.ehQ.clear();
             } finally {
-                efc.unlock();
+                eod.unlock();
             }
         }
     }

@@ -1,9 +1,9 @@
 package com.baidu.live.talentshow.d;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface f {
-    void SA();
+    void TE();
 
     void a(com.baidu.live.talentshow.b.c cVar);
 
@@ -15,17 +15,17 @@ public interface f {
 
     void d(long j, int i, int i2);
 
-    void d(String str, JSONObject jSONObject);
-
     void e(long j, int i, int i2);
 
-    void f(long j, int i);
+    void e(String str, JSONObject jSONObject);
 
-    void fA(int i);
+    void fB(int i);
 
     void g(long j, int i);
 
     void h(long j, int i);
 
-    void iJ(String str);
+    void i(long j, int i);
+
+    void iy(String str);
 }

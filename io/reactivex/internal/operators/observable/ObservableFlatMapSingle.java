@@ -9,7 +9,7 @@ import io.reactivex.u;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ObservableFlatMapSingle<T, R> extends a<T, R> {
     final boolean delayErrors;
     final h<? super T, ? extends aa<? extends R>> mapper;
@@ -19,7 +19,7 @@ public final class ObservableFlatMapSingle<T, R> extends a<T, R> {
         this.source.subscribe(new FlatMapSingleObserver(uVar, this.mapper, this.delayErrors));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class FlatMapSingleObserver<T, R> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 8600231336733376951L;
         final u<? super R> actual;
@@ -56,7 +56,7 @@ public final class ObservableFlatMapSingle<T, R> extends a<T, R> {
                     aaVar.a(innerObserver);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 this.d.dispose();
                 onError(th);
             }
@@ -131,7 +131,7 @@ public final class ObservableFlatMapSingle<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(q.eCS());
+                aVar = new io.reactivex.internal.queue.a<>(q.eLa());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }
@@ -201,7 +201,7 @@ public final class ObservableFlatMapSingle<T, R> extends a<T, R> {
             clear();
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<R> {
             private static final long serialVersionUID = -502562646270949838L;
 

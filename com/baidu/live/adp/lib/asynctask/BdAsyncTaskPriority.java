@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.asynctask;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface BdAsyncTaskPriority {
     public static final int HIGH = 3;
     public static final int LOW = 1;

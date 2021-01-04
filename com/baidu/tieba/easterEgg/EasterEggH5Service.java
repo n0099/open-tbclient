@@ -15,16 +15,16 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.a.g;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.b.g;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.easterEgg.d;
 import com.google.gson.Gson;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class EasterEggH5Service extends Service {
     private static String KEY_URL = "url";
     private EasterEggBridge eggBridge;
@@ -38,7 +38,7 @@ public class EasterEggH5Service extends Service {
     private Gson gson = new Gson();
     private c onHitEventListener = new c() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.1
         @Override // com.baidu.tieba.easterEgg.c
-        public void aB(String str, String str2, String str3) {
+        public void aE(String str, String str2, String str3) {
             if (EasterEggH5Service.this.mWebView != null) {
                 EasterEggH5Service.this.loadJsUrl(EasterEggH5Service.this.mWebView, "receiveEvent", str2, str3);
             }
@@ -51,7 +51,7 @@ public class EasterEggH5Service extends Service {
             String str;
             if (customResponsedMessage.getData() instanceof String) {
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.JF("reindeer_search");
+                    str = EasterEggH5Service.this.mHttpRule.JD("reindeer_search");
                 } else {
                     str = null;
                 }
@@ -59,7 +59,7 @@ public class EasterEggH5Service extends Service {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("content", customResponsedMessage.getData());
-                        EasterEggH5Service.this.onHitEventListener.aB("reindeer_search", EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(jSONObject.toString()));
+                        EasterEggH5Service.this.onHitEventListener.aE("reindeer_search", EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(jSONObject.toString()));
                     } catch (JSONException e) {
                     }
                 }
@@ -74,13 +74,13 @@ public class EasterEggH5Service extends Service {
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.JF(gVar.mUrl);
+                    str = EasterEggH5Service.this.mHttpRule.JD(gVar.mUrl);
                 } else {
                     str = null;
                 }
                 if (str != null) {
                     HashMap hashMap = new HashMap();
-                    if (!y.isEmpty(gVar.mPostData)) {
+                    if (!x.isEmpty(gVar.mPostData)) {
                         int i = 0;
                         while (true) {
                             int i2 = i;
@@ -93,7 +93,7 @@ public class EasterEggH5Service extends Service {
                             i = i2 + 1;
                         }
                     }
-                    EasterEggH5Service.this.onHitEventListener.aB(gVar.mUrl, EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(EasterEggH5Service.this.gson.toJson(hashMap)));
+                    EasterEggH5Service.this.onHitEventListener.aE(gVar.mUrl, EasterEggH5Service.this.gson.toJson(str), EasterEggH5Service.this.gson.toJson(EasterEggH5Service.this.gson.toJson(hashMap)));
                 }
             }
         }
@@ -108,7 +108,7 @@ public class EasterEggH5Service extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         if (intent != null) {
             this.mUrl = intent.getStringExtra(KEY_URL);
-            if (!au.isEmpty(this.mUrl)) {
+            if (!at.isEmpty(this.mUrl)) {
                 this.mWebView.loadUrl(this.mUrl);
             }
         }
@@ -124,14 +124,14 @@ public class EasterEggH5Service extends Service {
         this.model.a(new d.a() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.4
             @Override // com.baidu.tieba.easterEgg.d.a
             public void a(boolean z, com.baidu.tieba.easterEgg.a.a aVar) {
-                if (z && aVar != null && !au.isEmpty(aVar.cuk()) && aVar.isOpen()) {
+                if (z && aVar != null && !at.isEmpty(aVar.cxc()) && aVar.isOpen()) {
                     if (EasterEggH5Service.this.mWebView != null) {
-                        EasterEggH5Service.this.mWebView.loadUrl(aVar.cuk());
+                        EasterEggH5Service.this.mWebView.loadUrl(aVar.cxc());
                     }
-                    HashMap<String, String> cuj = aVar.cuj();
-                    if (cuj != null) {
-                        EasterEggH5Service.this.mHttpRule.F(cuj);
-                        EasterEggH5Service.this.mSocketRule.F(cuj);
+                    HashMap<String, String> cxb = aVar.cxb();
+                    if (cxb != null) {
+                        EasterEggH5Service.this.mHttpRule.E(cxb);
+                        EasterEggH5Service.this.mSocketRule.E(cxb);
                         return;
                     }
                     return;
@@ -188,7 +188,7 @@ public class EasterEggH5Service extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadJsUrl(WebView webView, String str, String... strArr) {
-        if (!au.isEmpty(str)) {
+        if (!at.isEmpty(str)) {
             String str2 = "javascript:" + str + "(";
             if (strArr != null) {
                 for (int i = 0; i < strArr.length; i++) {

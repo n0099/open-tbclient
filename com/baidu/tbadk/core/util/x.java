@@ -1,54 +1,100 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes.dex */
 public class x {
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void a(Context context, Field[] fieldArr, InputMethodManager inputMethodManager) {
-        if (context != null && fieldArr != null && fieldArr.length > 0 && inputMethodManager != null) {
-            for (Field field : fieldArr) {
-                try {
-                    Object obj = field.get(inputMethodManager);
-                    if (!(obj instanceof View)) {
-                        continue;
-                    } else if (((View) obj).getContext() == context) {
-                        field.set(inputMethodManager, null);
-                    } else {
-                        return;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+    public static <T> void clear(List<T> list) {
+        if (list != null) {
+            list.clear();
         }
     }
 
-    public static void f(Application application) {
-        final InputMethodManager inputMethodManager;
-        if (application != null && (inputMethodManager = (InputMethodManager) application.getSystemService("input_method")) != null) {
-            String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
-            final Field[] fieldArr = new Field[strArr.length];
-            for (int i = 0; i < strArr.length; i++) {
-                try {
-                    fieldArr[i] = inputMethodManager.getClass().getDeclaredField(strArr[i]);
-                    if (!fieldArr[i].isAccessible()) {
-                        fieldArr[i].setAccessible(true);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            application.registerActivityLifecycleCallbacks(new com.baidu.tbadk.h.g() { // from class: com.baidu.tbadk.core.util.x.1
-                @Override // com.baidu.tbadk.h.g, android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityDestroyed(Activity activity) {
-                    x.a(activity, fieldArr, inputMethodManager);
-                }
-            });
+    public static <T> int getCount(List<T> list) {
+        if (list == null || list.isEmpty()) {
+            return 0;
         }
+        return list.size();
+    }
+
+    public static <T> T getItem(List<T> list, int i) {
+        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+            return null;
+        }
+        return list.get(i);
+    }
+
+    public static <T> int getPosition(List<T> list, T t) {
+        if (list == null || list.isEmpty() || t == null) {
+            return -1;
+        }
+        return list.indexOf(t);
+    }
+
+    public static <T> boolean isEmpty(List<T> list) {
+        return getCount(list) <= 0;
+    }
+
+    public static <T> T remove(List<T> list, int i) {
+        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+            return null;
+        }
+        return list.remove(i);
+    }
+
+    public static <T> boolean add(List<T> list, T t) {
+        if (list == null) {
+            return false;
+        }
+        return list.add(t);
+    }
+
+    public static <T> boolean add(List<T> list, int i, T t) {
+        if (list == null || i > list.size() || i < 0) {
+            return false;
+        }
+        list.add(i, t);
+        return true;
+    }
+
+    public static <T> boolean addAll(List<T> list, int i, List<T> list2) {
+        if (list == null || i > list.size() || i < 0 || list2 == null || list2.size() <= 0) {
+            return false;
+        }
+        list.addAll(i, list2);
+        return true;
+    }
+
+    public static <T> List<T> subList(List<T> list, int i, int i2) {
+        int count = getCount(list);
+        if (count > 0 && i >= 0 && i2 <= count) {
+            return list.subList(i, i2);
+        }
+        return null;
+    }
+
+    public static <T> void removeSubList(List<T> list, int i, int i2) {
+        int count = getCount(list);
+        if (count > 0 && i >= 0 && i2 <= count) {
+            clear(list.subList(i, i2));
+        }
+    }
+
+    public static <T> boolean equalList(List<T> list, List<T> list2) {
+        if (list == list2) {
+            return true;
+        }
+        if (list == null || list2 == null) {
+            return false;
+        }
+        return list.size() == list2.size() && list.containsAll(list2);
+    }
+
+    public static <T> List<T> trimToSize(List<T> list, int i) {
+        int count = getCount(list);
+        int min = Math.min(count, i);
+        if (min > 0 && min < count) {
+            return subList(list, 0, min);
+        }
+        return list;
     }
 }

@@ -90,96 +90,77 @@ public class HttpManager {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0030 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x002b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private static String readConnectResponse(HttpURLConnection httpURLConnection, boolean z) {
+        ByteArrayOutputStream byteArrayOutputStream;
         InputStream inputStream;
-        InputStream inputStream2;
-        ByteArrayOutputStream byteArrayOutputStream = null;
+        byte[] bArr;
         String str = null;
-        byteArrayOutputStream = null;
-        byteArrayOutputStream = null;
-        byteArrayOutputStream = null;
         try {
-            byte[] bArr = new byte[8192];
-            if (z) {
-                inputStream = httpURLConnection.getErrorStream();
-            } else {
-                inputStream = httpURLConnection.getInputStream();
-            }
             try {
-                ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
-                if (inputStream != null) {
-                    while (true) {
-                        try {
-                            int read = inputStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            byteArrayOutputStream2.write(bArr, 0, read);
-                        } catch (IOException e) {
-                            e = e;
-                            byteArrayOutputStream = byteArrayOutputStream2;
-                            inputStream2 = inputStream;
-                            try {
-                                throw new WeiboException(e);
-                            } catch (Throwable th) {
-                                th = th;
-                                inputStream = inputStream2;
-                                if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (Exception e2) {
-                                    }
-                                }
-                                if (byteArrayOutputStream != null) {
-                                    try {
-                                        byteArrayOutputStream.close();
-                                    } catch (Exception e3) {
-                                    }
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            byteArrayOutputStream = byteArrayOutputStream2;
-                            if (inputStream != null) {
-                            }
-                            if (byteArrayOutputStream != null) {
-                            }
-                            throw th;
-                        }
-                    }
-                    str = new String(byteArrayOutputStream2.toByteArray(), "UTF-8");
+                bArr = new byte[8192];
+                if (z) {
+                    inputStream = httpURLConnection.getErrorStream();
+                } else {
+                    inputStream = httpURLConnection.getInputStream();
                 }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (Exception e4) {
-                    }
-                }
-                if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                    } catch (Exception e5) {
-                    }
-                }
-                return str;
-            } catch (IOException e6) {
-                e = e6;
-                inputStream2 = inputStream;
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Throwable th) {
+                th = th;
             }
-        } catch (IOException e7) {
-            e = e7;
-            inputStream2 = null;
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (IOException e) {
+            e = e;
+        } catch (Throwable th2) {
+            th = th2;
+            byteArrayOutputStream = null;
             inputStream = null;
+        }
+        try {
+            ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+            if (inputStream != null) {
+                while (true) {
+                    try {
+                        int read = inputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        byteArrayOutputStream2.write(bArr, 0, read);
+                    } catch (IOException e2) {
+                        e = e2;
+                        throw new WeiboException(e);
+                    }
+                }
+                str = new String(byteArrayOutputStream2.toByteArray(), "UTF-8");
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception e3) {
+                }
+            }
+            if (byteArrayOutputStream2 != null) {
+                try {
+                    byteArrayOutputStream2.close();
+                } catch (Exception e4) {
+                }
+            }
+            return str;
+        } catch (IOException e5) {
+            e = e5;
+        } catch (Throwable th3) {
+            th = th3;
+            byteArrayOutputStream = null;
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception e6) {
+                }
+            }
+            if (byteArrayOutputStream != null) {
+                try {
+                    byteArrayOutputStream.close();
+                } catch (Exception e7) {
+                }
+            }
+            throw th;
         }
     }
 
@@ -222,8 +203,8 @@ public class HttpManager {
             } else {
                 str3 = str + "?" + weiboParameters.encodeUrl();
             }
-            str = str3;
             createConnect = ConnectionFactory.createConnect(str3, context);
+            str = str3;
         } else {
             createConnect = ConnectionFactory.createConnect(str, context);
         }

@@ -6,38 +6,38 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator bGH;
-    private boolean bGI;
-    private boolean bGJ;
+    private ObjectAnimator bLu;
+    private boolean bLv;
+    private boolean bLw;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.bGI = false;
-        this.bGJ = false;
+        this.bLv = false;
+        this.bLw = false;
         init();
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bGI = false;
-        this.bGJ = false;
+        this.bLv = false;
+        this.bLw = false;
         init();
     }
 
     private void init() {
-        this.bGH = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.bGH.setRepeatMode(1);
-        this.bGH.setRepeatCount(-1);
-        this.bGH.setDuration(700L);
+        this.bLu = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.bLu.setRepeatMode(1);
+        this.bLu.setRepeatCount(-1);
+        this.bLu.setDuration(700L);
         setVisibility(8);
-        this.bGI = false;
+        this.bLv = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.bGJ) {
+        if (this.bLw) {
             startPlayAnimation();
         }
     }
@@ -46,30 +46,30 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Vo();
+        Wq();
     }
 
     public void setAutoStartPlay(boolean z) {
-        this.bGJ = z;
+        this.bLw = z;
     }
 
     public void startPlayAnimation() {
-        if (!this.bGI) {
-            this.bGI = true;
-            if (this.bGH != null) {
+        if (!this.bLv) {
+            this.bLv = true;
+            if (this.bLu != null) {
                 setVisibility(0);
-                this.bGH.start();
+                this.bLu.start();
             }
         }
     }
 
-    public void Vo() {
-        if (this.bGH != null) {
-            this.bGH.setRepeatCount(-1);
-            this.bGH.cancel();
+    public void Wq() {
+        if (this.bLu != null) {
+            this.bLu.setRepeatCount(-1);
+            this.bLu.cancel();
             clearAnimation();
         }
-        this.bGI = false;
+        this.bLv = false;
         setVisibility(8);
     }
 }

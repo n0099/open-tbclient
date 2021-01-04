@@ -22,7 +22,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.view.AbstractView;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class FastJsonJsonView extends AbstractView {
     private static final Pattern CALLBACK_PARAM_PATTERN = Pattern.compile("[0-9A-Za-z_\\.]*");
     public static final String DEFAULT_CONTENT_TYPE = "application/json;charset=UTF-8";

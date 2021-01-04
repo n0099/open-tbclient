@@ -3,11 +3,11 @@ package com.baidu.tbadk.widget.richText;
 import android.app.Activity;
 import android.graphics.Rect;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -16,15 +16,15 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.ItemStarData;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.data.m;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.imageManager.a;
@@ -35,7 +35,7 @@ import tbclient.HeadItem;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
-    public static int tB(int i) {
+    public static int tM(int i) {
         switch (i) {
             case 0:
                 return 1;
@@ -78,15 +78,15 @@ public class e {
         }
     }
 
-    public static SpannableStringBuilder a(by byVar, List<PbContent> list, String str) {
+    public static SpannableStringBuilder a(bz bzVar, List<PbContent> list, String str) {
         int size;
         CharSequence a2;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (!y.isEmpty(list)) {
+        if (!x.isEmpty(list)) {
             if (list != null && (size = list.size()) > 0) {
                 for (int i = 0; i < size; i++) {
                     PbContent pbContent = list.get(i);
-                    if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && (a2 = a(byVar, pbContent)) != null) {
+                    if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && (a2 = a(bzVar, pbContent)) != null) {
                         spannableStringBuilder.append(a2);
                     }
                 }
@@ -101,10 +101,10 @@ public class e {
     }
 
     public static SpannableStringBuilder g(List<PbContent> list, String str) {
-        return a((by) null, list, str);
+        return a((bz) null, list, str);
     }
 
-    public static SpannableStringBuilder bI(List<PbContent> list) {
+    public static SpannableStringBuilder bP(List<PbContent> list) {
         return g(list, "");
     }
 
@@ -113,22 +113,22 @@ public class e {
         SpannableStringBuilder spannableStringBuilder;
         boolean z2;
         SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
-        if (!y.isEmpty(list)) {
+        if (!x.isEmpty(list)) {
             if (list != null && (size = list.size()) > 0) {
                 for (int i = 0; i < size; i++) {
                     PbContent pbContent = list.get(i);
                     if (pbContent != null && !TextUtils.isEmpty(pbContent.text)) {
-                        CharSequence a2 = a((by) null, pbContent);
+                        CharSequence a2 = a((bz) null, pbContent);
                         if (i != 0 || list2 == null) {
                             spannableStringBuilder = null;
                             z2 = true;
                         } else {
-                            SpannableStringBuilder bJ = bJ(list2);
-                            if (tB(pbContent.type.intValue()) == 16) {
+                            SpannableStringBuilder bQ = bQ(list2);
+                            if (tM(pbContent.type.intValue()) == 16) {
                                 z2 = true;
-                                spannableStringBuilder = bJ;
+                                spannableStringBuilder = bQ;
                             } else {
-                                spannableStringBuilder = bJ;
+                                spannableStringBuilder = bQ;
                                 z2 = false;
                             }
                         }
@@ -163,28 +163,28 @@ public class e {
         return spannableStringBuilder2;
     }
 
-    public static CharSequence a(by byVar, PbContent pbContent) {
-        switch (tB(pbContent.type.intValue())) {
+    public static CharSequence a(bz bzVar, PbContent pbContent) {
+        switch (tM(pbContent.type.intValue())) {
             case 2:
-                return a(byVar, 2, pbContent.text, pbContent.link);
+                return a(bzVar, 2, pbContent.text, pbContent.link);
             case 4:
-                return EU(pbContent.text);
+                return ER(pbContent.text);
             case 16:
-                return b(byVar, pbContent.text, String.valueOf(pbContent.uid));
+                return b(bzVar, pbContent.text, String.valueOf(pbContent.uid));
             case 18:
-                return a(byVar, pbContent.text, pbContent.link);
+                return a(bzVar, pbContent.text, pbContent.link);
             default:
                 return new SpannableString(pbContent.text != null ? pbContent.text : "");
         }
     }
 
-    private static SpannableString a(final by byVar, int i, String str, final String str2, int i2) {
+    private static SpannableString a(final bz bzVar, int i, String str, final String str2, int i2) {
         SpannableString spannableString;
         f fVar;
         if (str == null) {
             return null;
         }
-        boolean z = i == 2 && ei(str, str2);
+        boolean z = i == 2 && eh(str, str2);
         if (!str.endsWith(" ")) {
             str = str + " ";
         }
@@ -197,25 +197,25 @@ public class e {
             fVar = new f(i, str2) { // from class: com.baidu.tbadk.widget.richText.e.1
                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    e.a(str2, (by) null);
+                    e.a(str2, (bz) null);
                 }
             };
         } else if (i == 16) {
             fVar = new f(i, str2) { // from class: com.baidu.tbadk.widget.richText.e.2
                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    e.i(byVar, str2);
+                    e.i(bzVar, str2);
                 }
             };
         } else {
             fVar = new f(i, str2) { // from class: com.baidu.tbadk.widget.richText.e.3
                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    e.EV(str2);
+                    e.ES(str2);
                 }
             };
         }
-        fVar.tD(i2);
+        fVar.tO(i2);
         if (i2 == 1) {
             fVar.setTextColor(R.color.CAM_X0109);
         } else {
@@ -232,43 +232,43 @@ public class e {
         return spannableString;
     }
 
-    private static SpannableString a(by byVar, String str, String str2) {
-        SpannableString a2 = a(byVar, 18, str, str2);
-        aq.a(byVar, a2, a2.toString(), 0);
+    private static SpannableString a(bz bzVar, String str, String str2) {
+        SpannableString a2 = a(bzVar, 18, str, str2);
+        ap.a(bzVar, a2, a2.toString(), 0);
         return a2;
     }
 
-    private static SpannableString b(by byVar, String str, String str2) {
-        return a(byVar, 16, str, str2);
+    private static SpannableString b(bz bzVar, String str, String str2) {
+        return a(bzVar, 16, str, str2);
     }
 
-    private static SpannableString a(by byVar, int i, String str, String str2) {
-        return a(byVar, i, str, str2, 0);
+    private static SpannableString a(bz bzVar, int i, String str, String str2) {
+        return a(bzVar, i, str, str2, 0);
     }
 
-    private static SpannableString EU(String str) {
-        int DK;
+    private static SpannableString ER(String str) {
+        int DH;
         String str2;
-        a.C0605a Ef;
+        a.C0596a Ec;
         int width;
-        if (str == null || (DK = TbFaceManager.bDU().DK(str)) == 0) {
+        if (str == null || (DH = TbFaceManager.bGo().DH(str)) == 0) {
             return null;
         }
-        String DM = TbFaceManager.bDU().DM(str);
+        String DJ = TbFaceManager.bGo().DJ(str);
         if (!TextUtils.isEmpty(str) && str.startsWith("shoubai_emoji_")) {
-            str2 = "[" + DM + "]";
-            Ef = TbFaceManager.bDU().Ef("image_emoticon");
+            str2 = "[" + DJ + "]";
+            Ec = TbFaceManager.bGo().Ec("image_emoticon");
         } else {
-            str2 = "#(" + DM + ")";
-            Ef = TbFaceManager.bDU().Ef(str);
+            str2 = "#(" + DJ + ")";
+            Ec = TbFaceManager.bGo().Ec(str);
         }
         SpannableString spannableString = new SpannableString(str2 + " ");
-        d dVar = new d(TbadkCoreApplication.getInst().getContext(), DK);
-        if (Ef != null) {
+        d dVar = new d(TbadkCoreApplication.getInst().getContext(), DH);
+        if (Ec != null) {
             if (str != null && str.startsWith("bearchildren_")) {
-                width = (int) (0.25d * Ef.getWidth());
+                width = (int) (0.25d * Ec.getWidth());
             } else {
-                width = (int) (0.4d * Ef.getWidth());
+                width = (int) (0.4d * Ec.getWidth());
             }
             dVar.setBounds(new Rect(0, 0, width, width));
         } else {
@@ -279,74 +279,74 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void a(String str, by byVar) {
+    public static void a(String str, bz bzVar) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (!TextUtils.isEmpty(str) && (currentActivity instanceof TbPageContextSupport)) {
             TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) currentActivity;
             m mVar = new m();
             mVar.mLink = str;
-            if (byVar != null) {
-                mVar.type = byVar.boD();
-                mVar.fsY = byVar.boC();
+            if (bzVar != null) {
+                mVar.type = bzVar.bre();
+                mVar.fCE = bzVar.brd();
             }
             com.baidu.tbadk.plugins.b.a(mVar);
-            bf.bua().b(tbPageContextSupport.getPageContext(), new String[]{mVar.mLink, mVar.fsY});
+            be.bwu().b(tbPageContextSupport.getPageContext(), new String[]{mVar.mLink, mVar.fCE});
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void i(by byVar, String str) {
+    public static void i(bz bzVar, String str) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (!TextUtils.isEmpty(str) && currentActivity != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(currentActivity, str, null)));
-            if (byVar != null) {
-                ar arVar = new ar("c13564");
-                if (byVar.bqJ()) {
-                    arVar = new ar("c12352");
-                    arVar.al("obj_source", 1);
-                    a(arVar, byVar);
-                } else if (byVar.eMi) {
-                    arVar.al("obj_source", 2);
-                    if (byVar.getBaijiahaoData() != null) {
-                        arVar.al("obj_type", byVar.getBaijiahaoData().oriUgcType);
+            if (bzVar != null) {
+                aq aqVar = new aq("c13564");
+                if (bzVar.btl()) {
+                    aqVar = new aq("c12352");
+                    aqVar.an("obj_source", 1);
+                    a(aqVar, bzVar);
+                } else if (bzVar.eWd) {
+                    aqVar.an("obj_source", 2);
+                    if (bzVar.getBaijiahaoData() != null) {
+                        aqVar.an("obj_type", bzVar.getBaijiahaoData().oriUgcType);
                     }
                 } else {
-                    arVar.al("obj_source", 3);
-                    if (byVar.getBaijiahaoData() != null) {
-                        arVar.al("obj_type", byVar.getBaijiahaoData().oriUgcType);
+                    aqVar.an("obj_source", 3);
+                    if (bzVar.getBaijiahaoData() != null) {
+                        aqVar.an("obj_type", bzVar.getBaijiahaoData().oriUgcType);
                     }
                 }
-                arVar.al("obj_locate", 5);
-                TiebaStatic.log(arVar);
+                aqVar.an("obj_locate", 5);
+                TiebaStatic.log(aqVar);
             }
         }
     }
 
-    private static void a(ar arVar, by byVar) {
-        if (byVar.bnv()) {
-            arVar.al("obj_type", 2);
-        } else if (byVar.isLinkThread()) {
-            arVar.al("obj_type", 4);
-        } else if (byVar.isShareThread) {
-            arVar.al("obj_type", 5);
-        } else if (byVar.bnx()) {
-            arVar.al("obj_type", 6);
-        } else if (byVar.bqM()) {
-            arVar.al("obj_type", 7);
-        } else if (byVar.bny()) {
-            arVar.al("obj_type", 8);
-        } else if (byVar.bqN()) {
-            arVar.al("obj_type", 9);
-        } else if (byVar.getType() == by.eIS) {
-            arVar.al("obj_type", 1);
+    private static void a(aq aqVar, bz bzVar) {
+        if (bzVar.bpV()) {
+            aqVar.an("obj_type", 2);
+        } else if (bzVar.isLinkThread()) {
+            aqVar.an("obj_type", 4);
+        } else if (bzVar.isShareThread) {
+            aqVar.an("obj_type", 5);
+        } else if (bzVar.bpX()) {
+            aqVar.an("obj_type", 6);
+        } else if (bzVar.bto()) {
+            aqVar.an("obj_type", 7);
+        } else if (bzVar.bpY()) {
+            aqVar.an("obj_type", 8);
+        } else if (bzVar.btp()) {
+            aqVar.an("obj_type", 9);
+        } else if (bzVar.getType() == bz.eSL) {
+            aqVar.an("obj_type", 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void EV(String str) {
+    public static void ES(String str) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (!TextUtils.isEmpty(str) && (currentActivity instanceof TbPageContextSupport)) {
-            bf.bua().b(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});
+            be.bwu().b(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});
         }
     }
 
@@ -363,7 +363,7 @@ public class e {
         return spannableString;
     }
 
-    public static SpannableStringBuilder bJ(List<HeadItem> list) {
+    public static SpannableStringBuilder bQ(List<HeadItem> list) {
         ItemStarData itemStarData = new ItemStarData();
         itemStarData.parseProto(list);
         return a(itemStarData);
@@ -376,13 +376,13 @@ public class e {
         if (itemStarData == null || itemStarData.list == null) {
             return spannableStringBuilder;
         }
-        int count = y.getCount(itemStarData.list);
+        int count = x.getCount(itemStarData.list);
         if (count == 0) {
             return spannableStringBuilder;
         }
         if (count == 1) {
             try {
-                i2 = Integer.parseInt(((ItemStarData.SingleItemStar) y.getItem(itemStarData.list, 0)).content);
+                i2 = Integer.parseInt(((ItemStarData.SingleItemStar) x.getItem(itemStarData.list, 0)).content);
             } catch (NumberFormatException e) {
                 i2 = 0;
             }
@@ -406,17 +406,17 @@ public class e {
         return spannableStringBuilder;
     }
 
-    public static boolean ei(@NonNull String str, @NonNull String str2) {
-        if (au.isEmpty(str) || au.isEmpty(str2)) {
+    public static boolean eh(@NonNull String str, @NonNull String str2) {
+        if (at.isEmpty(str) || at.isEmpty(str2)) {
             return false;
         }
-        if (bf.bua().l(str2)) {
-            if (bf.bua().l(str)) {
+        if (be.bwu().l(str2)) {
+            if (be.bwu().l(str)) {
                 if (str.equals(str2)) {
                     return false;
                 }
                 List<String> queryParameters = Uri.parse(str2).getQueryParameters("url");
-                if (y.isEmpty(queryParameters)) {
+                if (x.isEmpty(queryParameters)) {
                     return true;
                 }
                 String str3 = queryParameters.get(0);

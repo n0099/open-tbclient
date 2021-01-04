@@ -1,32 +1,32 @@
 package com.baidu.swan.apps.extcore.model.b;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.r.d;
 import java.io.File;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class b implements a {
-    public static final String cZo = d.ayQ() + File.separator + "extension_core";
+    public static final String dek = d.aAh() + File.separator + "extension_core";
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public File awJ() {
-        return new File(d.ayQ(), "extension_core");
+    public File ayb() {
+        return new File(d.aAh(), "extension_core");
     }
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public String awK() {
+    public String ayc() {
         return "aiapps/extcore/extension-core.zip";
     }
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public String awL() {
+    public String ayd() {
         return "aiapps/extcore/extension-config.json";
     }
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
-    public int awM() {
+    public int aye() {
         return 0;
     }
 }

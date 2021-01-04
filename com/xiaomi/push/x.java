@@ -2,38 +2,29 @@ package com.xiaomi.push;
 
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final HashMap<String, String> f4898a = new HashMap<>();
+    private static final HashMap<String, String> f14630a = new HashMap<>();
 
     static {
-        f4898a.put("FFD8FF", "jpg");
-        f4898a.put("89504E47", "png");
-        f4898a.put("47494638", "gif");
-        f4898a.put("474946", "gif");
-        f4898a.put("424D", "bmp");
+        f14630a.put("FFD8FF", "jpg");
+        f14630a.put("89504E47", "png");
+        f14630a.put("47494638", "gif");
+        f14630a.put("474946", "gif");
+        f14630a.put("424D", "bmp");
     }
 
     public static long a(File file) {
-        long j;
-        Exception e;
+        long j = 0;
         try {
             File[] listFiles = file.listFiles();
-            j = 0;
             for (int i = 0; i < listFiles.length; i++) {
-                try {
-                    j += listFiles[i].isDirectory() ? a(listFiles[i]) : listFiles[i].length();
-                } catch (Exception e2) {
-                    e = e2;
-                    com.xiaomi.channel.commonutils.logger.b.a(e);
-                    return j;
-                }
+                j += listFiles[i].isDirectory() ? a(listFiles[i]) : listFiles[i].length();
             }
-        } catch (Exception e3) {
-            j = 0;
-            e = e3;
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
         }
         return j;
     }

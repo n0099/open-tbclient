@@ -1,27 +1,28 @@
 package com.facebook.imagepipeline.nativecode;
 
+import com.facebook.common.internal.d;
 import com.facebook.common.internal.g;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-@com.facebook.common.internal.d
-/* loaded from: classes15.dex */
+@d
+/* loaded from: classes5.dex */
 public class JpegTranscoder {
-    @com.facebook.common.internal.d
+    @d
     private static native void nativeTranscodeJpeg(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException;
 
-    @com.facebook.common.internal.d
+    @d
     private static native void nativeTranscodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException;
 
     static {
         a.load();
     }
 
-    public static boolean Rf(int i) {
+    public static boolean Rd(int i) {
         return i >= 0 && i <= 270 && i % 90 == 0;
     }
 
-    public static boolean Rg(int i) {
+    public static boolean Re(int i) {
         switch (i) {
             case 1:
             case 2:
@@ -43,7 +44,7 @@ public class JpegTranscoder {
         g.checkArgument(i2 <= 16);
         g.checkArgument(i3 >= 0);
         g.checkArgument(i3 <= 100);
-        g.checkArgument(Rf(i));
+        g.checkArgument(Rd(i));
         if (i2 != 8 || i != 0) {
             z = true;
         }
@@ -57,7 +58,7 @@ public class JpegTranscoder {
         g.checkArgument(i2 <= 16);
         g.checkArgument(i3 >= 0);
         g.checkArgument(i3 <= 100);
-        g.checkArgument(Rg(i));
+        g.checkArgument(Re(i));
         if (i2 != 8 || i != 1) {
             z = true;
         }

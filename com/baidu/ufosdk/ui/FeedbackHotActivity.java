@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.R;
@@ -31,7 +32,7 @@ import org.apache.http.HttpHost;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"InlinedApi", "SetJavaScriptEnabled", "JavascriptInterface", "NewApi"})
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public class FeedbackHotActivity extends Activity {
     private RelativeLayout g;
     private LinearLayout h;
@@ -44,11 +45,13 @@ public class FeedbackHotActivity extends Activity {
     private Timer q;
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f3738a = R.string.abc_action_bar_up_description;
-    private final int b = R.string.abc_action_menu_overflow_description;
-    private final int c = R.string.abc_action_mode_done;
-    private final int d = R.string.abc_activity_chooser_view_see_all;
-    private final int e = R.string.abc_activitychooserview_choose_application;
+    private final int f5692a = R.id.BLOCK;
+
+    /* renamed from: b  reason: collision with root package name */
+    private final int f5693b = R.id.BOTH;
+    private final int c = R.id.BOTTOM;
+    private final int d = R.id.Backward;
+    private final int e = R.id.CTRL;
     private final String f = "UfoCacheFile";
     private String o = "";
     private String p = "";
@@ -103,7 +106,7 @@ public class FeedbackHotActivity extends Activity {
         this.r.obtainMessage(0).sendToTarget();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("os", "android");
+            jSONObject.put("os", HttpConstants.OS_TYPE_VALUE);
             jSONObject.put("appvn", com.baidu.ufosdk.b.e.b());
             jSONObject.put("devid", UfoSDK.devid);
             jSONObject.put("osvn", Build.VERSION.RELEASE);
@@ -180,9 +183,9 @@ public class FeedbackHotActivity extends Activity {
         com.baidu.ufosdk.f.r.a(getWindow(), com.baidu.ufosdk.b.L);
         this.g = new RelativeLayout(this);
         this.g.setFitsSystemWindows(true);
-        this.g.setId(R.string.abc_activity_chooser_view_see_all);
+        this.g.setId(R.id.Backward);
         RelativeLayout relativeLayout = new RelativeLayout(this);
-        relativeLayout.setId(R.string.abc_action_mode_done);
+        relativeLayout.setId(R.id.BOTTOM);
         this.g.setBackgroundColor(com.baidu.ufosdk.b.z);
         this.h = new LinearLayout(this);
         this.h.setOrientation(1);
@@ -225,7 +228,7 @@ public class FeedbackHotActivity extends Activity {
         LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
         layoutParams5.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), 0, 0, 0);
         this.i = new ImageView(this);
-        this.i.setId(R.string.abc_action_bar_up_description);
+        this.i.setId(R.id.BLOCK);
         this.i.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.i.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_back_icon_browser.png")));
         linearLayout.addView(this.i, layoutParams5);
@@ -243,7 +246,7 @@ public class FeedbackHotActivity extends Activity {
         relativeLayout.addView(linearLayout, layoutParams7);
         relativeLayout.setBackgroundColor(com.baidu.ufosdk.b.A);
         this.n = new TextView(this);
-        this.n.setId(R.string.abc_action_menu_overflow_description);
+        this.n.setId(R.id.BOTH);
         this.n.setText(com.baidu.ufosdk.f.s.a("8"));
         this.n.setTextColor(com.baidu.ufosdk.b.r);
         this.n.setTextSize(com.baidu.ufosdk.b.S);
@@ -255,7 +258,7 @@ public class FeedbackHotActivity extends Activity {
         layoutParams9.addRule(10);
         this.g.addView(relativeLayout, layoutParams9);
         View view = new View(this);
-        view.setId(R.string.abc_activitychooserview_choose_application);
+        view.setId(R.id.CTRL);
         view.setBackgroundColor(-2894893);
         RelativeLayout.LayoutParams layoutParams10 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
         layoutParams10.addRule(3, relativeLayout.getId());

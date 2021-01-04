@@ -1,10 +1,12 @@
 package com.meizu.flyme.openidsdk;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f4219a;
-    public String b;
+    public long f11667a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f11668b;
     public String c;
     public int d;
 
@@ -17,18 +19,18 @@ public class a {
     }
 
     public void a(long j) {
-        this.f4219a = j;
+        this.f11667a = j;
     }
 
     public void a(String str) {
-        this.b = str;
+        this.f11668b = str;
     }
 
     public boolean a() {
-        return this.f4219a > System.currentTimeMillis();
+        return this.f11667a > System.currentTimeMillis();
     }
 
     public void b() {
-        this.f4219a = 0L;
+        this.f11667a = 0L;
     }
 }

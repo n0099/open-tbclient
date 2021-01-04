@@ -14,26 +14,26 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ParallelJoin<T> extends g<T> {
     final boolean delayErrors;
-    final a<? extends T> pHh;
     final int prefetch;
+    final a<? extends T> qiK;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         JoinSubscriptionBase joinSubscription;
         if (this.delayErrors) {
-            joinSubscription = new JoinSubscriptionDelayError(cVar, this.pHh.eDe(), this.prefetch);
+            joinSubscription = new JoinSubscriptionDelayError(cVar, this.qiK.eLm(), this.prefetch);
         } else {
-            joinSubscription = new JoinSubscription(cVar, this.pHh.eDe(), this.prefetch);
+            joinSubscription = new JoinSubscription(cVar, this.qiK.eLm(), this.prefetch);
         }
         cVar.onSubscribe(joinSubscription);
-        this.pHh.a(joinSubscription.subscribers);
+        this.qiK.a(joinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static abstract class JoinSubscriptionBase<T> extends AtomicInteger implements d {
         private static final long serialVersionUID = 3100232009247827843L;
         final c<? super T> actual;
@@ -93,7 +93,7 @@ public final class ParallelJoin<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class JoinSubscription<T> extends JoinSubscriptionBase<T> {
         private static final long serialVersionUID = 6312374661811000451L;
 
@@ -260,7 +260,7 @@ public final class ParallelJoin<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class JoinSubscriptionDelayError<T> extends JoinSubscriptionBase<T> {
         private static final long serialVersionUID = -5737965195918321883L;
 
@@ -319,22 +319,22 @@ public final class ParallelJoin<T> extends g<T> {
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:28:0x0055, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:28:0x0052, code lost:
             if (r1 == false) goto L86;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:29:0x0057, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:29:0x0054, code lost:
             if (r2 == false) goto L83;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:31:0x0061, code lost:
-            if (r15.errors.get() == null) goto L81;
+        /* JADX WARN: Code restructure failed: missing block: B:31:0x005e, code lost:
+            if (r14.errors.get() == null) goto L81;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:32:0x0063, code lost:
-            r8.onError(r15.errors.terminate());
+        /* JADX WARN: Code restructure failed: missing block: B:32:0x0060, code lost:
+            r8.onError(r14.errors.terminate());
          */
-        /* JADX WARN: Code restructure failed: missing block: B:33:0x006d, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:33:0x006a, code lost:
             r8.onComplete();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:34:0x0071, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:34:0x006e, code lost:
             if (r2 == false) goto L3;
          */
         /* JADX WARN: Code restructure failed: missing block: B:89:?, code lost:
@@ -429,7 +429,7 @@ public final class ParallelJoin<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class JoinInnerSubscriber<T> extends AtomicReference<d> implements j<T> {
         private static final long serialVersionUID = 8410034718427740355L;
         final int limit;

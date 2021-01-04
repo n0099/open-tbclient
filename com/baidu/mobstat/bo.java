@@ -17,12 +17,14 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class bo {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Proxy f2593a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
-    private static final Proxy b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+    private static final Proxy f3805a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final Proxy f3806b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
 
     public static String a() {
         try {
@@ -49,124 +51,117 @@ public final class bo {
     }
 
     public static void a(Context context, String str, String str2, boolean z) {
-        FileOutputStream fileOutputStream;
-        Throwable th;
-        FileOutputStream openFileOutput;
         if (context != null) {
+            FileOutputStream fileOutputStream = null;
             try {
-                try {
-                    openFileOutput = context.openFileOutput(str, z ? 32768 : 0);
-                } catch (Throwable th2) {
-                    fileOutputStream = null;
-                    th = th2;
-                }
-                try {
-                    bu.a(new ByteArrayInputStream(str2.getBytes("utf-8")), openFileOutput);
-                    bu.a(openFileOutput);
-                } catch (Throwable th3) {
-                    fileOutputStream = openFileOutput;
-                    th = th3;
-                    bu.a(fileOutputStream);
-                    throw th;
-                }
+                fileOutputStream = context.openFileOutput(str, z ? 32768 : 0);
+                bu.a(new ByteArrayInputStream(str2.getBytes("utf-8")), fileOutputStream);
             } catch (Exception e) {
-                bu.a(null);
+            } finally {
+                bu.a(fileOutputStream);
             }
         }
     }
 
     public static void a(String str, String str2, boolean z) {
+        Throwable th;
         FileOutputStream fileOutputStream;
+        FileOutputStream fileOutputStream2;
         File parentFile;
-        FileOutputStream fileOutputStream2 = null;
+        FileOutputStream fileOutputStream3 = null;
         try {
             File a2 = a(str);
             if (a2 == null) {
-                fileOutputStream = null;
+                fileOutputStream2 = null;
             } else {
                 if (!a2.exists() && (parentFile = a2.getParentFile()) != null) {
                     parentFile.mkdirs();
                 }
-                fileOutputStream = new FileOutputStream(a2, z);
+                fileOutputStream2 = new FileOutputStream(a2, z);
                 try {
-                    bu.a(new ByteArrayInputStream(str2.getBytes("utf-8")), fileOutputStream);
+                    bu.a(new ByteArrayInputStream(str2.getBytes("utf-8")), fileOutputStream2);
                 } catch (Exception e) {
-                    fileOutputStream2 = fileOutputStream;
-                    bu.a(fileOutputStream2);
+                    fileOutputStream3 = fileOutputStream2;
+                    bu.a(fileOutputStream3);
                     return;
-                } catch (Throwable th) {
-                    fileOutputStream2 = fileOutputStream;
-                    th = th;
-                    bu.a(fileOutputStream2);
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream = fileOutputStream2;
+                    bu.a(fileOutputStream);
                     throw th;
                 }
             }
-            bu.a(fileOutputStream);
+            bu.a(fileOutputStream2);
         } catch (Exception e2) {
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
+            th = th3;
+            fileOutputStream = null;
         }
     }
 
     public static String a(Context context, String str) {
-        FileInputStream fileInputStream;
         Throwable th;
+        FileInputStream fileInputStream;
+        FileInputStream openFileInput;
         byte[] a2;
         FileInputStream fileInputStream2 = null;
         try {
-            fileInputStream = context.openFileInput(str);
-        } catch (Exception e) {
-        } catch (Throwable th2) {
-            fileInputStream = null;
-            th = th2;
-        }
-        try {
-            a2 = a(fileInputStream);
+            openFileInput = context.openFileInput(str);
+            try {
+                a2 = a(openFileInput);
+            } catch (Exception e) {
+                fileInputStream2 = openFileInput;
+                bu.a(fileInputStream2);
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream = openFileInput;
+                bu.a(fileInputStream);
+                throw th;
+            }
         } catch (Exception e2) {
-            fileInputStream2 = fileInputStream;
-            bu.a(fileInputStream2);
-            return "";
         } catch (Throwable th3) {
             th = th3;
-            bu.a(fileInputStream);
-            throw th;
+            fileInputStream = null;
         }
         if (a2 != null) {
             String str2 = new String(a2, "utf-8");
-            bu.a(fileInputStream);
+            bu.a(openFileInput);
             return str2;
         }
-        bu.a(fileInputStream);
+        bu.a(openFileInput);
         return "";
     }
 
     public static String b(String str) {
-        FileInputStream fileInputStream;
         Throwable th;
+        FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         File a2 = a(str);
         if (a2 != null && a2.exists()) {
-            FileInputStream fileInputStream2 = null;
+            FileInputStream fileInputStream3 = null;
             try {
-                fileInputStream = new FileInputStream(a2);
+                fileInputStream2 = new FileInputStream(a2);
             } catch (Exception e) {
             } catch (Throwable th2) {
-                fileInputStream = null;
                 th = th2;
+                fileInputStream = null;
             }
             try {
-                byte[] a3 = a(fileInputStream);
+                byte[] a3 = a(fileInputStream2);
                 if (a3 != null) {
                     String str2 = new String(a3, "utf-8");
-                    bu.a(fileInputStream);
+                    bu.a(fileInputStream2);
                     return str2;
                 }
-                bu.a(fileInputStream);
-            } catch (Exception e2) {
-                fileInputStream2 = fileInputStream;
                 bu.a(fileInputStream2);
+            } catch (Exception e2) {
+                fileInputStream3 = fileInputStream2;
+                bu.a(fileInputStream3);
                 return "";
             } catch (Throwable th3) {
                 th = th3;
+                fileInputStream = fileInputStream2;
                 bu.a(fileInputStream);
                 throw th;
             }
@@ -216,9 +211,9 @@ public final class bo {
                 String extraInfo = networkInfo.getExtraInfo();
                 String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                 if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(f2593a);
+                    httpURLConnection = (HttpURLConnection) url.openConnection(f3805a);
                 } else if (lowerCase.startsWith("ctwap")) {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(b);
+                    httpURLConnection = (HttpURLConnection) url.openConnection(f3806b);
                 }
             }
             httpURLConnection = null;

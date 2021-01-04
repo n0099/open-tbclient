@@ -1,121 +1,92 @@
 package com.baidu.tbadk.core.util.a;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.s;
+import android.app.Application;
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.WindowManager;
+import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class b {
-    public boolean eSR;
-    private final g eUI = new g();
-    public boolean mIsNeedTbs = false;
-    public boolean mNeedBackgroundLogin = true;
-    public boolean mIsUseCurrentBDUSS = true;
-    public boolean mIsNeedAddCommenParam = true;
-    public boolean Nf = false;
-    public boolean mIsFromCDN = false;
-    public boolean mIsRequestImage = false;
-    public int mImageType = 0;
+    private static volatile b fec;
+    private a fed;
+    private Application mApplication;
 
-    public g bui() {
-        return this.eUI;
+    public static b bwy() {
+        if (fec == null) {
+            synchronized (b.class) {
+                if (fec == null) {
+                    fec = new b();
+                }
+            }
+        }
+        return fec;
     }
 
-    public void a(s sVar) {
-        String bduss;
-        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-        if (currentAccountInfo != null && (bduss = currentAccountInfo.getBDUSS()) != null && this.mIsUseCurrentBDUSS) {
-            sVar.addPostData("BDUSS", bduss);
-            String c = com.baidu.tbadk.core.a.d.c(currentAccountInfo);
-            if (!StringUtils.isNull(c)) {
-                sVar.addPostData("stoken", c);
-            }
-        }
+    private b() {
     }
 
-    public void b(s sVar) {
-        String str;
-        boolean z;
-        sVar.addPostData("_client_type", "2");
-        if (!TbadkCoreApplication.getInst().isOfficial()) {
-            sVar.addPostData("apid", "sw");
-        }
-        sVar.addPostData("_client_version", TbConfig.getVersion());
-        if (TbadkCoreApplication.getInst().getImei() != null) {
-            sVar.addPostData("_phone_imei", TbadkCoreApplication.getInst().getImei());
-        }
-        String clientId = TbadkCoreApplication.getClientId();
-        if (clientId != null) {
-            sVar.addPostData("_client_id", clientId);
-        }
-        String subappType = TbConfig.getSubappType();
-        if (!TextUtils.isEmpty(subappType)) {
-            sVar.addPostData("subapp_type", subappType);
-        }
-        String from = TbadkCoreApplication.getFrom();
-        if (from != null && from.length() > 0) {
-            sVar.addPostData("from", from);
-        }
-        int netType = j.netType();
-        sVar.addPostData("net_type", String.valueOf(netType));
-        String bxa = com.baidu.tbadk.coreExtra.b.a.bwX().bxa();
-        if (TbSingleton.getInstance().isVisitPreviewServer()) {
-            bxa = bxa + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
-        }
-        if (1 == netType) {
-            if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                str = bxa + "ka=open";
-                z = true;
-            }
-            str = bxa;
-            z = false;
-        } else {
-            if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                str = bxa + "ka=open";
-                z = true;
-            }
-            str = bxa;
-            z = false;
-        }
-        com.baidu.adp.lib.network.a.a.am(z);
-        com.baidu.adp.lib.network.a.a.bS(str);
-        if (this.mIsNeedTbs) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                sVar.addPostData("tbs", com.baidu.tbadk.mutiprocess.f.getTbs());
-            } else {
-                sVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
-            }
-        }
-        sVar.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
-        sVar.addPostData("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
-        sVar.addPostData("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
-        sVar.addPostData("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
-        sVar.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
-        sVar.addPostData("model", Build.MODEL);
-        if (com.baidu.tbadk.core.sharedPref.b.bsO().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
-            sVar.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
+    public void c(Application application) {
+        this.mApplication = application;
+        Display defaultDisplay = ((WindowManager) this.mApplication.getSystemService("window")).getDefaultDisplay();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        defaultDisplay.getMetrics(displayMetrics);
+        float f = displayMetrics.density;
+        if (f > 2.5d && f < 3.0f) {
+            fd(null);
+            this.fed = new a(displayMetrics);
+            this.mApplication.registerActivityLifecycleCallbacks(this.fed);
         }
     }
 
-    public String getApiName() {
-        if (this.eUI.mUrl == null) {
+    public void a(Context context, float f, int i) {
+        DisplayMetrics fe = fe(context);
+        DisplayMetrics fe2 = fe(this.mApplication);
+        a(fe, f, i);
+        a(fe2, f, i);
+        DisplayMetrics ff = ff(context);
+        DisplayMetrics ff2 = ff(this.mApplication);
+        a(ff, f, i);
+        a(ff2, f, i);
+    }
+
+    public void fd(Context context) {
+        DisplayMetrics fe = fe(context);
+        DisplayMetrics fe2 = fe(this.mApplication);
+        a(fe, 3.0f, 480);
+        a(fe2, 3.0f, 480);
+        DisplayMetrics ff = ff(context);
+        DisplayMetrics ff2 = ff(this.mApplication);
+        a(ff, 3.0f, 480);
+        a(ff2, 3.0f, 480);
+    }
+
+    private static DisplayMetrics fe(Context context) {
+        if (context == null) {
             return null;
         }
-        String str = TbConfig.SERVER_ADDRESS;
-        if (this.eUI.mUrl.startsWith(str)) {
-            int indexOf = this.eUI.mUrl.indexOf(63);
-            if (indexOf < 0) {
-                indexOf = this.eUI.mUrl.length();
-            }
-            return this.eUI.mUrl.substring(str.length(), indexOf);
+        return context.getResources().getDisplayMetrics();
+    }
+
+    private static DisplayMetrics ff(Context context) {
+        if (context == null) {
+            return null;
         }
-        return this.eUI.mUrl;
+        Resources resources = context.getResources();
+        if ("MiuiResources".equals(resources.getClass().getSimpleName()) || "XResources".equals(resources.getClass().getSimpleName())) {
+            try {
+                Field declaredField = Resources.class.getDeclaredField("mTmpMetrics");
+                declaredField.setAccessible(true);
+                return (DisplayMetrics) declaredField.get(resources);
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    private void a(DisplayMetrics displayMetrics, float f, int i) {
+        c.a(displayMetrics, f, i);
     }
 }

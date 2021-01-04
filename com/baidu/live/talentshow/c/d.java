@@ -1,7 +1,7 @@
 package com.baidu.live.talentshow.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface d {
-    void ST();
+    void A(int i, String str);
 
-    void y(int i, String str);
+    void Ua();
 }

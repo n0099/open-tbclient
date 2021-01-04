@@ -2,25 +2,28 @@ package com.baidu.android.pushservice.d;
 
 import android.content.Context;
 import android.text.TextUtils;
+import java.io.Closeable;
 import java.io.InputStream;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class j extends com.baidu.android.pushservice.g.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1061a;
-    private a b;
+    private Context f1266a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private a f1267b;
     private String c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i, String[] strArr);
     }
 
     public j(Context context, String str, a aVar) {
-        this.f1061a = context;
+        this.f1266a = context;
         this.c = str;
-        this.b = aVar;
+        this.f1267b = aVar;
         c("PushService-PushService-HTTPDNS");
         a((short) 100);
     }
@@ -30,41 +33,42 @@ public class j extends com.baidu.android.pushservice.g.c {
         b();
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.io.Closeable[] */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Not initialized variable reg: 0, insn: 0x007e: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r0 I:??[OBJECT, ARRAY]), block:B:21:0x007d */
+    /* JADX WARN: Not initialized variable reg: 0, insn: 0x0080: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r0 I:??[OBJECT, ARRAY]), block:B:22:0x007f */
     protected void b() {
+        Throwable th;
+        Closeable closeable;
         InputStream inputStream;
-        String[] strArr;
+        Closeable closeable2;
         try {
             try {
-                com.baidu.android.pushservice.e.a a2 = com.baidu.android.pushservice.e.b.a(this.f1061a, "https://httpsdns.baidu.com/?dn=" + this.c, "GET", (HashMap<String, String>) null);
-                int b = a2.b();
+                com.baidu.android.pushservice.e.a a2 = com.baidu.android.pushservice.e.b.a(this.f1266a, "https://httpsdns.baidu.com/?dn=" + this.c, "GET", (HashMap<String, String>) null);
+                int b2 = a2.b();
                 inputStream = a2.a();
                 try {
-                    if (b == 200) {
-                        String a3 = com.baidu.android.pushservice.i.m.a(this.f1061a, inputStream);
-                        this.b.a(0, TextUtils.isEmpty(a3) ? null : a3.split(" "));
+                    if (b2 == 200) {
+                        String a3 = com.baidu.android.pushservice.i.m.a(this.f1266a, inputStream);
+                        this.f1267b.a(0, TextUtils.isEmpty(a3) ? null : a3.split(" "));
                     } else {
-                        com.baidu.android.pushservice.i.m.a(this.f1061a, inputStream);
-                        this.b.a(-1, null);
+                        com.baidu.android.pushservice.i.m.a(this.f1266a, inputStream);
+                        this.f1267b.a(-1, null);
                     }
-                    com.baidu.android.pushservice.e.b.a(this.f1061a, inputStream);
+                    com.baidu.android.pushservice.e.b.a(this.f1266a, inputStream);
                 } catch (Exception e) {
-                    this.b.a(-1, null);
-                    com.baidu.android.pushservice.e.b.a(this.f1061a, inputStream);
+                    this.f1267b.a(-1, null);
+                    com.baidu.android.pushservice.e.b.a(this.f1266a, inputStream);
                 }
-            } catch (Throwable th) {
-                r1 = strArr;
-                th = th;
-                com.baidu.android.pushservice.e.b.a(this.f1061a, r1);
+            } catch (Throwable th2) {
+                th = th2;
+                closeable = closeable2;
+                com.baidu.android.pushservice.e.b.a(this.f1266a, closeable);
                 throw th;
             }
         } catch (Exception e2) {
             inputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            com.baidu.android.pushservice.e.b.a(this.f1061a, r1);
+        } catch (Throwable th3) {
+            th = th3;
+            closeable = null;
+            com.baidu.android.pushservice.e.b.a(this.f1266a, closeable);
             throw th;
         }
     }

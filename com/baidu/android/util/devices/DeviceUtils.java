@@ -10,7 +10,9 @@ import android.util.DisplayMetrics;
 import android.view.KeyCharacterMap;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.IDevices;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.xiaomi.mipush.sdk.Constants;
@@ -22,10 +24,10 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class DeviceUtils implements IDevices {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class OSInfo {
         public static String getOS() {
             return "Android";
@@ -136,35 +138,35 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class ScreenInfo {
         private static final int STANDARD_STATUSBAR_HEIGHT = 50;
         private static int originDensityDip = 0;
         private static DisplayMetrics sDisplayMetrics;
 
-        public static int dp2px(Context context, float f) {
+        public static int dp2px(@Nullable Context context, float f) {
             if (context == null) {
                 return 0;
             }
             return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
         }
 
-        public static float dp2pxf(Context context, float f) {
+        public static float dp2pxf(@Nullable Context context, float f) {
             return getDensity(context) * f;
         }
 
-        public static int px2dp(Context context, float f) {
+        public static int px2dp(@Nullable Context context, float f) {
             if (context == null) {
                 return 0;
             }
             return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
         }
 
-        public static float px2dpFloat(Context context, float f) {
+        public static float px2dpFloat(@Nullable Context context, float f) {
             return f / getDensity(context);
         }
 
-        public static int getDisplayWidth(Context context) {
+        public static int getDisplayWidth(@Nullable Context context) {
             DisplayMetrics displayMetrics = getDisplayMetrics(context);
             if (displayMetrics != null) {
                 return displayMetrics.widthPixels;
@@ -172,7 +174,7 @@ public class DeviceUtils implements IDevices {
             return 0;
         }
 
-        public static int getDisplayHeight(Context context) {
+        public static int getDisplayHeight(@Nullable Context context) {
             DisplayMetrics displayMetrics = getDisplayMetrics(context);
             if (displayMetrics != null) {
                 return displayMetrics.heightPixels;
@@ -180,7 +182,7 @@ public class DeviceUtils implements IDevices {
             return 0;
         }
 
-        public static int getRealScreenHeight(Context context) {
+        public static int getRealScreenHeight(@Nullable Context context) {
             if (context == null) {
                 return 0;
             }
@@ -208,7 +210,7 @@ public class DeviceUtils implements IDevices {
             return originDensityDip;
         }
 
-        public static float getDensity(Context context) {
+        public static float getDensity(@Nullable Context context) {
             initDisplayMetrics(context);
             if (sDisplayMetrics != null) {
                 return sDisplayMetrics.density;
@@ -216,7 +218,7 @@ public class DeviceUtils implements IDevices {
             return 0.0f;
         }
 
-        public static int getDensityDpi(Context context) {
+        public static int getDensityDpi(@Nullable Context context) {
             initDisplayMetrics(context);
             if (sDisplayMetrics != null) {
                 return sDisplayMetrics.densityDpi;
@@ -239,7 +241,7 @@ public class DeviceUtils implements IDevices {
 
         public static int getStatusBarHeight() {
             int i = 0;
-            int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
+            int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE);
             if (identifier > 0) {
                 try {
                     i = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
@@ -259,7 +261,7 @@ public class DeviceUtils implements IDevices {
                 return 0;
             }
             Resources resources = AppRuntime.getAppContext().getResources();
-            return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", "android"));
+            return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE));
         }
 
         public static boolean isScreenPortrait() {
@@ -280,7 +282,7 @@ public class DeviceUtils implements IDevices {
             return displayMetrics.density > ((float) screenOriginDensityDip) / 160.0f;
         }
 
-        public static int[] getRealScreenSize(Context context) {
+        public static int[] getRealScreenSize(@Nullable Context context) {
             int[] iArr = new int[2];
             int displayWidth = getDisplayWidth(context);
             int realScreenHeight = getRealScreenHeight(context);
@@ -292,7 +294,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static final class CPUInfo {
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";

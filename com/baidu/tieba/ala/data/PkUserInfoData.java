@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class PkUserInfoData extends BaseData implements Serializable {
     public String bdPortrait;
     public long charmCount;

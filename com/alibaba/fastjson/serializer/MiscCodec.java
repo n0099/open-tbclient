@@ -36,7 +36,7 @@ import java.util.TimeZone;
 import java.util.UUID;
 import java.util.regex.Pattern;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class MiscCodec implements ObjectDeserializer, ObjectSerializer {
     private static boolean FILE_RELATIVE_PATH_SUPPORT;
     private static Method method_paths_get;
@@ -147,10 +147,8 @@ public class MiscCodec implements ObjectDeserializer, ObjectSerializer {
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
         Object parse;
         String str;
-        int i;
-        InetAddress inetAddress;
-        InetAddress inetAddress2 = null;
-        int i2 = 0;
+        InetAddress inetAddress = null;
+        int i = 0;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         if (type == InetSocketAddress.class) {
             if (jSONLexer.token() == 8) {
@@ -163,27 +161,21 @@ public class MiscCodec implements ObjectDeserializer, ObjectSerializer {
                 jSONLexer.nextToken(17);
                 if (stringVal.equals("address")) {
                     defaultJSONParser.accept(17);
-                    int i3 = i2;
                     inetAddress = (InetAddress) defaultJSONParser.parseObject((Class<Object>) InetAddress.class);
-                    i = i3;
                 } else if (stringVal.equals(ClientCookie.PORT_ATTR)) {
                     defaultJSONParser.accept(17);
                     if (jSONLexer.token() != 2) {
                         throw new JSONException("port is not int");
                     }
-                    i = jSONLexer.intValue();
+                    int intValue = jSONLexer.intValue();
                     jSONLexer.nextToken();
-                    inetAddress = inetAddress2;
+                    i = intValue;
                 } else {
                     defaultJSONParser.accept(17);
                     defaultJSONParser.parse();
-                    i = i2;
-                    inetAddress = inetAddress2;
                 }
                 if (jSONLexer.token() == 16) {
                     jSONLexer.nextToken();
-                    inetAddress2 = inetAddress;
-                    i2 = i;
                 } else {
                     defaultJSONParser.accept(13);
                     return (T) new InetSocketAddress(inetAddress, i);

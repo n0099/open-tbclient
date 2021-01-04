@@ -1,8 +1,7 @@
 package com.baidu.live.guess.http;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends HttpMessage {
     public a() {
         super(1021218);
@@ -17,7 +16,7 @@ public class a extends HttpMessage {
     }
 
     public void setAnswer(int i) {
-        addParam(UgcUBCUtils.QUESTION_REPLY_PAGE, i);
+        addParam("answer", i);
     }
 
     public void setCuid(String str) {

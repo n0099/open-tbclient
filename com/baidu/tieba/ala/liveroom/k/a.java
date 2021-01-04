@@ -18,10 +18,10 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.d;
-import com.baidu.live.data.bo;
-import com.baidu.live.data.cf;
-import com.baidu.live.data.cg;
-import com.baidu.live.data.w;
+import com.baidu.live.data.bq;
+import com.baidu.live.data.ch;
+import com.baidu.live.data.ci;
+import com.baidu.live.data.x;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -40,32 +40,32 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private w aLD;
-    private cg aSj;
-    private Dialog biC;
-    private boolean biE;
+    private x aMh;
+    private ci aTe;
+    private Dialog bkh;
+    private boolean bkj;
     private Context context;
-    private AnimatorSet hrY;
+    private AnimatorSet hDT;
     private View mContentView;
     private String otherParams;
-    private boolean hrZ = false;
+    private boolean hDU = false;
     private Handler handler = new Handler();
-    private boolean hsa = false;
-    private boolean hsb = false;
-    private boolean hsc = false;
+    private boolean hDV = false;
+    private boolean hDW = false;
+    private boolean hDX = false;
 
-    public void bF(boolean z) {
-        this.biE = z;
-        if (this.biE) {
-            ID();
+    public void bD(boolean z) {
+        this.bkj = z;
+        if (this.bkj) {
+            If();
         }
     }
 
-    public void ID() {
-        if (this.biC != null && this.biC.isShowing()) {
-            Context context = this.biC.getContext();
+    public void If() {
+        if (this.bkh != null && this.bkh.isShowing()) {
+            Context context = this.bkh.getContext();
             if (context != null) {
                 if (context instanceof Activity) {
                     Activity activity = (Activity) context;
@@ -77,84 +77,89 @@ public class a {
                         return;
                     }
                 }
-                this.biC.dismiss();
+                this.bkh.dismiss();
             } else {
                 return;
             }
         }
-        this.biC = null;
+        this.bkh = null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00dc  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0103  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0117  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x011b  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x012d  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00c6  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00de  */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x011a  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x011e  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0134  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0104 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(final Context context, w wVar, String str) {
-        bo boVar;
-        cf cfVar;
+    public void a(final Context context, x xVar, String str) {
+        bq bqVar;
+        ch chVar;
         JSONArray jSONArray;
         JSONArray jSONArray2;
         int i;
         int i2;
         int i3 = 0;
         this.context = context;
-        if (!TbadkCoreApplication.getInst().isMobileBaidu() && !this.biE) {
-            this.aLD = wVar;
+        if (!TbadkCoreApplication.getInst().isMobileBaidu() && !this.bkj) {
+            this.aMh = xVar;
             this.otherParams = str;
-            if (this.aLD != null && this.aLD.aKr != null) {
+            if (this.aMh != null && this.aMh.aKQ != null) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("test_firstRecharge", false);
                 Map<String, Object> process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap);
                 boolean booleanValue = process.containsKey("test_firstRecharge") ? ((Boolean) process.get("test_firstRecharge")).booleanValue() : false;
                 if (booleanValue) {
-                    this.aLD.aKr.isNewUser = true;
+                    this.aMh.aKQ.isNewUser = true;
                 }
-                this.hsa = this.aLD.aKr.isNewUser;
-                if (this.hsa && !this.hrZ && TbadkCoreApplication.isLogin() && (boVar = com.baidu.live.ae.a.RB().bxq) != null && boVar.aQP != null && boVar.aQP.aTi && (cfVar = boVar.aQM) != null) {
-                    this.aSj = cfVar.aSj;
-                    if (this.aSj != null && !TextUtils.isEmpty(this.aSj.aSq)) {
-                        int i4 = this.aSj.aSe;
-                        int i5 = this.aSj.aSf;
-                        final String b = k.b(new Date());
-                        String string = d.BM().getString("first_recharge_show_trace", "");
+                this.hDV = this.aMh.aKQ.isNewUser;
+                if (this.hDV && !this.hDU && TbadkCoreApplication.isLogin() && (bqVar = com.baidu.live.af.a.SE().bCb) != null && bqVar.aRE != null && bqVar.aRE.aUg && (chVar = bqVar.aRB) != null) {
+                    this.aTe = chVar.aTe;
+                    if (this.aTe != null && !TextUtils.isEmpty(this.aTe.aTo)) {
+                        int i4 = this.aTe.aSZ;
+                        int i5 = this.aTe.aTa;
+                        final String b2 = k.b(new Date());
+                        String string = d.Ba().getString("first_recharge_show_trace", "");
                         if (!TextUtils.isEmpty(string)) {
                             try {
                                 jSONArray = new JSONArray(string);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            jSONArray2 = booleanValue ? null : jSONArray;
+                            jSONArray2 = !booleanValue ? null : jSONArray;
                             if (i4 == 0 || i5 != 0) {
                                 if ((i4 < 0 || i5 >= 0) && jSONArray2 != null) {
                                     HashSet hashSet = new HashSet();
-                                    for (i = 0; i < jSONArray2.length(); i++) {
-                                        JSONObject optJSONObject = jSONArray2.optJSONObject(i);
-                                        if (optJSONObject != null) {
-                                            String optString = optJSONObject.optString("date");
-                                            hashSet.add(optString);
-                                            if (TextUtils.equals(optString, b)) {
-                                                i3++;
+                                    i = 0;
+                                    while (true) {
+                                        int i6 = i3;
+                                        if (i >= jSONArray2.length()) {
+                                            JSONObject optJSONObject = jSONArray2.optJSONObject(i);
+                                            if (optJSONObject != null) {
+                                                String optString = optJSONObject.optString("date");
+                                                hashSet.add(optString);
+                                                i3 = TextUtils.equals(optString, b2) ? i6 + 1 : i6;
+                                                if (i4 >= 0 && i3 >= i4) {
+                                                    return;
+                                                }
+                                            } else {
+                                                i3 = i6;
                                             }
-                                            if (i4 >= 0 && i3 >= i4) {
+                                            i++;
+                                        } else if (i5 >= 0) {
+                                            if (hashSet.size() <= i5) {
+                                                if (hashSet.size() == i5 && i6 == 0) {
+                                                    return;
+                                                }
+                                            } else {
                                                 return;
                                             }
-                                        }
-                                    }
-                                    if (i5 >= 0) {
-                                        if (hashSet.size() <= i5) {
-                                            if (hashSet.size() == i5 && i3 == 0) {
-                                                return;
-                                            }
-                                        } else {
-                                            return;
                                         }
                                     }
                                 }
-                                i2 = this.aSj.aRq;
+                                i2 = this.aTe.aSf;
                                 if (i2 <= 0) {
                                     i2 = 20;
                                 }
@@ -174,29 +179,32 @@ public class a {
                                                 return;
                                             }
                                         }
-                                        if (a.this.aLD != null && a.this.aLD.aKr != null && a.this.aLD.aKr.isNewUser) {
-                                            a.this.a(context, a.this.aSj);
-                                            a.this.a(b, a.this.aSj);
+                                        if (a.this.aMh != null && a.this.aMh.aKQ != null && a.this.aMh.aKQ.isNewUser) {
+                                            a.this.a(context, a.this.aTe);
+                                            a.this.a(b2, a.this.aTe);
                                         }
                                     }
                                 }, i2 * 1000);
-                                this.hrZ = true;
+                                this.hDU = true;
                             }
                             return;
                         }
                         jSONArray = null;
-                        if (booleanValue) {
+                        if (!booleanValue) {
                         }
                         if (i4 == 0) {
                         }
                         if (i4 < 0) {
                         }
                         HashSet hashSet2 = new HashSet();
-                        while (i < jSONArray2.length()) {
+                        i = 0;
+                        while (true) {
+                            int i62 = i3;
+                            if (i >= jSONArray2.length()) {
+                            }
+                            i++;
                         }
-                        if (i5 >= 0) {
-                        }
-                        i2 = this.aSj.aRq;
+                        i2 = this.aTe.aSf;
                         if (i2 <= 0) {
                         }
                         if (booleanValue) {
@@ -214,13 +222,13 @@ public class a {
                                         return;
                                     }
                                 }
-                                if (a.this.aLD != null && a.this.aLD.aKr != null && a.this.aLD.aKr.isNewUser) {
-                                    a.this.a(context, a.this.aSj);
-                                    a.this.a(b, a.this.aSj);
+                                if (a.this.aMh != null && a.this.aMh.aKQ != null && a.this.aMh.aKQ.isNewUser) {
+                                    a.this.a(context, a.this.aTe);
+                                    a.this.a(b2, a.this.aTe);
                                 }
                             }
                         }, i2 * 1000);
-                        this.hrZ = true;
+                        this.hDU = true;
                     }
                 }
             }
@@ -228,9 +236,9 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final Context context, final cg cgVar) {
-        if (!this.biE) {
-            ID();
+    public void a(final Context context, final ci ciVar) {
+        if (!this.bkj) {
+            If();
             View inflate = LayoutInflater.from(context).inflate(a.g.dialog_first_recharge, (ViewGroup) null);
             final Dialog dialog = new Dialog(context, a.i.FlowerGuideDialogStyle);
             dialog.requestWindowFeature(1);
@@ -238,19 +246,19 @@ public class a {
             dialog.setContentView(inflate);
             dialog.setCanceledOnTouchOutside(false);
             this.mContentView = inflate;
-            this.biC = dialog;
-            cft();
+            this.bkh = dialog;
+            cij();
             inflate.findViewById(a.f.main_layout).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.k.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     try {
-                        a.this.ID();
-                        if (a.this.aLD != null && a.this.aLD.mLiveInfo != null) {
-                            String str = cgVar.aSq;
+                        a.this.If();
+                        if (a.this.aMh != null && a.this.aMh.mLiveInfo != null) {
+                            String str = ciVar.aTo;
                             if (!TextUtils.isEmpty(str)) {
-                                BrowserHelper.startInternalWebActivity(context, str.contains("?") ? str + "&liveId=" + a.this.aLD.mLiveInfo.live_id : str + "?liveId=" + a.this.aLD.mLiveInfo.live_id);
-                                if (a.this.aLD != null) {
-                                    LogManager.getFirstChargeLogger().doClickLiveFirstChargePopupLog(a.this.aLD.mLiveInfo.live_id + "", a.this.aLD.mLiveInfo.room_id + "", a.this.aLD.mLiveInfo.feed_id, a.this.otherParams);
+                                BrowserHelper.startInternalWebActivity(context, str.contains("?") ? str + "&liveId=" + a.this.aMh.mLiveInfo.live_id : str + "?liveId=" + a.this.aMh.mLiveInfo.live_id);
+                                if (a.this.aMh != null) {
+                                    LogManager.getFirstChargeLogger().doClickLiveFirstChargePopupLog(a.this.aMh.mLiveInfo.live_id + "", a.this.aMh.mLiveInfo.room_id + "", a.this.aMh.mLiveInfo.feed_id, a.this.otherParams);
                                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "firstcharg_clk").setContentExt(null, "popup", null));
                                 }
                             }
@@ -264,9 +272,9 @@ public class a {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     try {
-                        a.this.ID();
-                        if (a.this.aLD != null) {
-                            LogManager.getFirstChargeLogger().doClickLiveFirstChargePopupCloseLog(a.this.aLD.mLiveInfo.live_id + "", a.this.aLD.mLiveInfo.room_id + "", a.this.aLD.mLiveInfo.feed_id, a.this.otherParams);
+                        a.this.If();
+                        if (a.this.aMh != null) {
+                            LogManager.getFirstChargeLogger().doClickLiveFirstChargePopupCloseLog(a.this.aMh.mLiveInfo.live_id + "", a.this.aMh.mLiveInfo.room_id + "", a.this.aMh.mLiveInfo.feed_id, a.this.otherParams);
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -277,33 +285,33 @@ public class a {
             tbImageView.setDefaultBgResource(a.e.sdk_shape_transparent);
             TbImageView tbImageView2 = (TbImageView) inflate.findViewById(a.f.recharge_imageView);
             tbImageView2.setDefaultBgResource(a.e.sdk_shape_transparent);
-            if (!TextUtils.isEmpty(cgVar.aSp)) {
-                tbImageView2.startLoad(cgVar.aSp, 10, false);
+            if (!TextUtils.isEmpty(ciVar.aTn)) {
+                tbImageView2.startLoad(ciVar.aTn, 10, false);
             }
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(tbImageView2, "scaleX", 1.0f, 1.2f, 1.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(tbImageView2, "scaleY", 1.0f, 1.2f, 1.0f);
             ofFloat.setRepeatCount(-1);
             ofFloat2.setRepeatCount(-1);
-            this.hrY = new AnimatorSet();
-            this.hrY.play(ofFloat).with(ofFloat2);
-            this.hrY.setInterpolator(new AccelerateDecelerateInterpolator());
-            this.hrY.setDuration(2000L);
-            this.hrY.setStartDelay(0L);
+            this.hDT = new AnimatorSet();
+            this.hDT.play(ofFloat).with(ofFloat2);
+            this.hDT.setInterpolator(new AccelerateDecelerateInterpolator());
+            this.hDT.setDuration(2000L);
+            this.hDT.setStartDelay(0L);
             dialog.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.tieba.ala.liveroom.k.a.4
                 @Override // android.content.DialogInterface.OnShowListener
                 public void onShow(DialogInterface dialogInterface) {
-                    if (a.this.hrY != null) {
-                        a.this.hrY.start();
+                    if (a.this.hDT != null) {
+                        a.this.hDT.start();
                     }
                 }
             });
             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.k.a.5
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
-                    if (a.this.hrY != null) {
-                        a.this.hrY.cancel();
+                    if (a.this.hDT != null) {
+                        a.this.hDT.cancel();
                     }
-                    a.this.hrZ = false;
+                    a.this.hDU = false;
                 }
             });
             tbImageView.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.tieba.ala.liveroom.k.a.6
@@ -319,12 +327,12 @@ public class a {
                             } else if (activity.isFinishing()) {
                                 return;
                             }
-                            if (a.this.aLD != null) {
+                            if (a.this.aMh != null) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913097, "firstRechargeDialog"));
                                 if (dialog != null && !dialog.isShowing()) {
                                     dialog.show();
-                                    if (a.this.aLD != null) {
-                                        LogManager.getFirstChargeLogger().doDisplayLiveFirstChargePopupLog(a.this.aLD.mLiveInfo.live_id + "", a.this.aLD.mLiveInfo.room_id + "", a.this.aLD.mLiveInfo.feed_id, a.this.otherParams);
+                                    if (a.this.aMh != null) {
+                                        LogManager.getFirstChargeLogger().doDisplayLiveFirstChargePopupLog(a.this.aMh.mLiveInfo.live_id + "", a.this.aMh.mLiveInfo.room_id + "", a.this.aMh.mLiveInfo.feed_id, a.this.otherParams);
                                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "firstcharg_show").setContentExt(null, "popup", null));
                                     }
                                 }
@@ -339,29 +347,31 @@ public class a {
                 public void onCancel() {
                 }
             });
-            if (!TextUtils.isEmpty(cgVar.aSo)) {
-                tbImageView.startLoad(cgVar.aSo, 10, false);
+            if (!TextUtils.isEmpty(ciVar.aTm)) {
+                tbImageView.startLoad(ciVar.aTm, 10, false);
             }
         }
     }
 
-    public void a(String str, cg cgVar) {
+    public void a(String str, ci ciVar) {
         int i;
+        int i2;
         JSONArray jSONArray;
-        int i2 = 0;
-        if (cgVar != null) {
+        if (ciVar != null) {
             try {
-                i = cgVar.aSe;
-                i2 = cgVar.aSf;
+                int i3 = ciVar.aSZ;
+                i = ciVar.aTa;
+                i2 = i3;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return;
             }
         } else {
             i = 0;
+            i2 = 0;
         }
-        if (i >= 0 || i2 >= 0) {
-            String string = d.BM().getString("first_recharge_show_trace", "");
+        if (i2 >= 0 || i >= 0) {
+            String string = d.Ba().getString("first_recharge_show_trace", "");
             if (!TextUtils.isEmpty(string)) {
                 jSONArray = new JSONArray(string);
             } else {
@@ -370,58 +380,58 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("date", str);
             jSONArray.put(jSONObject);
-            d.BM().putString("first_recharge_show_trace", jSONArray.toString());
+            d.Ba().putString("first_recharge_show_trace", jSONArray.toString());
         }
     }
 
     public void onResume() {
-        if (!this.hsb && this.hsa && this.context != null && this.aLD != null && this.aLD.aKr != null && !this.aLD.aKr.isNewUser) {
-            ID();
-            if (this.hsa && this.aSj != null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913098, this.aSj.aKm));
+        if (!this.hDW && this.hDV && this.context != null && this.aMh != null && this.aMh.aKQ != null && !this.aMh.aKQ.isNewUser) {
+            If();
+            if (this.hDV && this.aTe != null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913098, this.aTe.aKL));
             }
-            this.hsb = true;
-            cfs();
+            this.hDW = true;
+            cii();
         }
     }
 
-    public void n(w wVar) {
-        if (!this.hsc && this.hsa && wVar != null && wVar.aKr != null) {
-            boolean z = wVar.aKr.isNewUser;
-            this.aLD = wVar;
-            if (!z && this.hsa) {
+    public void o(x xVar) {
+        if (!this.hDX && this.hDV && xVar != null && xVar.aKQ != null) {
+            boolean z = xVar.aKQ.isNewUser;
+            this.aMh = xVar;
+            if (!z && this.hDV) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913115));
-                this.hsc = true;
-                cfs();
+                this.hDX = true;
+                cii();
             }
         }
     }
 
-    private void cfs() {
-        if (this.hsb && this.hsc) {
-            this.hsa = false;
+    private void cii() {
+        if (this.hDW && this.hDX) {
+            this.hDV = false;
         }
     }
 
     public void release() {
-        this.hrZ = false;
-        this.aLD = null;
+        this.hDU = false;
+        this.aMh = null;
         this.handler.removeCallbacksAndMessages(null);
-        ID();
-        if (this.hrY != null) {
-            this.hrY.cancel();
-            this.hrY = null;
+        If();
+        if (this.hDT != null) {
+            this.hDT.cancel();
+            this.hDT = null;
         }
     }
 
-    public void HO() {
-        if (this.biC != null && this.biC.isShowing() && this.mContentView != null) {
-            this.biC.show();
-            cft();
+    public void Hp() {
+        if (this.bkh != null && this.bkh.isShowing() && this.mContentView != null) {
+            this.bkh.show();
+            cij();
         }
     }
 
-    private void cft() {
+    private void cij() {
         TbImageView tbImageView = (TbImageView) this.mContentView.findViewById(a.f.rechargeBg_imageView);
         tbImageView.setDefaultBgResource(a.e.sdk_shape_transparent);
         TbImageView tbImageView2 = (TbImageView) this.mContentView.findViewById(a.f.recharge_imageView);
@@ -430,13 +440,13 @@ public class a {
         int dimension2 = (int) this.context.getResources().getDimension(a.d.sdk_ds720);
         int dimension3 = (int) this.context.getResources().getDimension(a.d.sdk_ds176);
         int dimension4 = (int) this.context.getResources().getDimension(a.d.sdk_ds474);
-        if (UtilHelper.getRealScreenOrientation(this.biC.getContext()) == 2) {
+        if (UtilHelper.getRealScreenOrientation(this.bkh.getContext()) == 2) {
             int dimension5 = (int) (BdUtilHelper.getScreenDimensions(this.context)[1] - this.context.getResources().getDimension(a.d.sdk_ds120));
             tbImageView.getLayoutParams().height = (int) (((dimension5 * 1.0f) * dimension) / (dimension + dimension3));
             tbImageView.getLayoutParams().width = (int) (((tbImageView.getLayoutParams().height * dimension2) * 1.0f) / dimension);
             tbImageView2.getLayoutParams().height = (int) (((dimension5 * 1.0f) * dimension3) / (dimension + dimension3));
             tbImageView2.getLayoutParams().width = (int) (((tbImageView2.getLayoutParams().height * dimension4) * 1.0f) / dimension3);
-            UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.biC.getWindow(), true, false);
+            UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.bkh.getWindow(), true, false);
             return;
         }
         tbImageView.getLayoutParams().height = dimension;
@@ -444,9 +454,9 @@ public class a {
         tbImageView2.getLayoutParams().height = dimension3;
         tbImageView2.getLayoutParams().width = dimension4;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.biC.getWindow(), true, false);
+            UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.bkh.getWindow(), true, false);
         } else {
-            UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.biC.getWindow(), false, false);
+            UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.bkh.getWindow(), false, false);
         }
     }
 }

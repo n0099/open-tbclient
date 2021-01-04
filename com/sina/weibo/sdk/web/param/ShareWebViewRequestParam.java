@@ -184,26 +184,28 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     }
 
     private void handleMblogPic(String str, byte[] bArr) {
+        Throwable th;
         FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         try {
             if (!TextUtils.isEmpty(str)) {
                 File file = new File(str);
                 if (file.exists() && file.canRead() && file.length() > 0) {
                     byte[] bArr2 = new byte[(int) file.length()];
-                    FileInputStream fileInputStream2 = null;
                     try {
-                        fileInputStream = new FileInputStream(file);
+                        fileInputStream2 = new FileInputStream(file);
                     } catch (IOException e) {
+                        fileInputStream2 = null;
+                    } catch (Throwable th2) {
+                        th = th2;
                         fileInputStream = null;
-                    } catch (Throwable th) {
-                        th = th;
                     }
                     try {
-                        fileInputStream.read(bArr2);
+                        fileInputStream2.read(bArr2);
                         this.mBase64ImgData = Base64.encodebyte(bArr2);
-                        if (fileInputStream != null) {
+                        if (fileInputStream2 != null) {
                             try {
-                                fileInputStream.close();
+                                fileInputStream2.close();
                                 return;
                             } catch (Exception e2) {
                                 return;
@@ -211,21 +213,21 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
                         }
                         return;
                     } catch (IOException e3) {
-                        if (fileInputStream != null) {
+                        if (fileInputStream2 != null) {
                             try {
-                                fileInputStream.close();
+                                fileInputStream2.close();
                             } catch (Exception e4) {
                             }
                         }
                         if (bArr == null) {
                         }
                         return;
-                    } catch (Throwable th2) {
-                        fileInputStream2 = fileInputStream;
-                        th = th2;
-                        if (fileInputStream2 != null) {
+                    } catch (Throwable th3) {
+                        th = th3;
+                        fileInputStream = fileInputStream2;
+                        if (fileInputStream != null) {
                             try {
-                                fileInputStream2.close();
+                                fileInputStream.close();
                             } catch (Exception e5) {
                             }
                         }

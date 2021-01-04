@@ -77,6 +77,11 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FRS_LIVE_FROM_PREFIX_FRIENDLIVE = "frs_play-friendlive-";
     public static final String FRS_LIVE_FROM_PREFIX_HOT = "frs_play-hot-";
     public static final String FRS_LIVE_FROM_PREFIX_NEW = "frs_play-new-";
+    public static final String JUMP_ALA_LIVE_ROOM_BROADCAST = "jump_ala_live_room_broadcast";
+    public static final String JUMP_ALA_LIVE_ROOM_DATA = "jump_ala_live_room_data";
+    public static final String JUMP_ALA_LIVE_ROOM_DATA_CORE = "jump_ala_live_room_data_core";
+    public static final String JUMP_ALA_LIVE_ROOM_DATA_FROM = "jump_ala_live_room_data_from";
+    public static final String JUMP_ALA_LIVE_ROOM_DATA_HOST = "jump_ala_live_room_data_host";
     public static final String LIVE_COMMON_BROADCAST_QUEUE = "live_common_broadcast_queue";
     public static final String LIVE_ENTRY_LIVE_URL = "live_entry_live_url";
     public static final String LIVE_ENTRY_NAME = "live_entry_name";

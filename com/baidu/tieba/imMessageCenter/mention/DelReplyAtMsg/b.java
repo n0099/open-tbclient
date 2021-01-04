@@ -1,6 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg;
 
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
@@ -12,70 +12,70 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private k ilP;
-    private List<g> ilS;
-    private i kIP;
-    private g kIQ;
-    private com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a kIR;
-    private a kIS;
-    private k.b kIT = new k.b() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.2
+    private k iyk;
+    private List<g> iyn;
+    private i kNY;
+    private g kNZ;
+    private com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a kOa;
+    private a kOb;
+    private k.b kOc = new k.b() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.2
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            b.this.dbx();
-            if (b.this.kIS != null) {
-                b.this.kIS.dbt();
+            b.this.dba();
+            if (b.this.kOb != null) {
+                b.this.kOb.daW();
             }
-            b.this.cfE();
+            b.this.ciu();
         }
     };
-    private e mContext;
+    private f mContext;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void dbt();
+        void daW();
     }
 
-    public b(e eVar) {
-        this.mContext = eVar;
-        this.ilP = new k(eVar.getPageActivity());
-        this.kIQ = new g(eVar.getString(R.string.delete), this.ilP);
-        this.kIQ.a(this.kIT);
-        this.ilS = new ArrayList();
-        this.ilS.add(this.kIQ);
-        this.ilP.a(new k.a() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.1
+    public b(f fVar) {
+        this.mContext = fVar;
+        this.iyk = new k(fVar.getPageActivity());
+        this.kNZ = new g(fVar.getString(R.string.delete), this.iyk);
+        this.kNZ.a(this.kOc);
+        this.iyn = new ArrayList();
+        this.iyn.add(this.kNZ);
+        this.iyk.a(new k.a() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.1
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                b.this.cfE();
+                b.this.ciu();
             }
         });
-        this.ilP.bu(this.ilS);
-        this.kIP = new i(eVar, this.ilP);
+        this.iyk.bB(this.iyn);
+        this.kNY = new i(fVar, this.iyk);
         onChangeSkinType();
         registerTask();
     }
 
-    public void cfE() {
-        if (this.kIP != null && this.kIP.isShowing()) {
-            this.kIP.dismiss();
+    public void ciu() {
+        if (this.kNY != null && this.kNY.isShowing()) {
+            this.kNY.dismiss();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.ilP != null) {
-            this.ilP.onChangeSkinType();
+        if (this.iyk != null) {
+            this.iyk.onChangeSkinType();
         }
     }
 
     public void show() {
-        if (this.kIP != null) {
-            this.kIP.show();
+        if (this.kNY != null) {
+            this.kNY.show();
         }
     }
 
     public void a(com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a aVar) {
-        this.kIR = aVar;
+        this.kOa = aVar;
     }
 
     private void registerTask() {
@@ -87,18 +87,18 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dbx() {
-        if (this.kIR != null) {
+    public void dba() {
+        if (this.kOa != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
-            httpMessage.addParam("type", this.kIR.type);
-            httpMessage.addParam("thread_id", this.kIR.threadId);
-            httpMessage.addParam("post_id", this.kIR.postId);
-            httpMessage.addParam("ori_ugc_nid", this.kIR.nid);
+            httpMessage.addParam("type", this.kOa.type);
+            httpMessage.addParam("thread_id", this.kOa.threadId);
+            httpMessage.addParam("post_id", this.kOa.postId);
+            httpMessage.addParam("ori_ugc_nid", this.kOa.nid);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public void a(a aVar) {
-        this.kIS = aVar;
+        this.kOb = aVar;
     }
 }

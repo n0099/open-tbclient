@@ -5,7 +5,7 @@ import com.meizu.cloud.a.a;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class BasicPushStatus implements Serializable {
     public static final String SUCCESS_CODE = "200";
     public static final String TAG = "BasicPushStatus";
@@ -37,7 +37,6 @@ public abstract class BasicPushStatus implements Serializable {
 
     protected JSONObject parse(String str) {
         JSONObject jSONObject;
-        JSONException e;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -53,16 +52,16 @@ public abstract class BasicPushStatus implements Serializable {
                     }
                     setMessage(jSONObject.getString("message"));
                     return jSONObject;
-                } catch (JSONException e2) {
-                    e = e2;
+                } catch (JSONException e) {
+                    e = e;
                     a.e(TAG, "covert json error " + e.getMessage());
                     return jSONObject;
                 }
             }
             return jSONObject;
-        } catch (JSONException e3) {
+        } catch (JSONException e2) {
+            e = e2;
             jSONObject = null;
-            e = e3;
         }
     }
 

@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.ufosdk.R;
 import com.baidu.ufosdk.UfoSDK;
 import java.lang.ref.WeakReference;
@@ -22,15 +21,17 @@ import org.apache.http.HttpHost;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class ej extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference f3860a;
-    private String b;
+    private final WeakReference f5842a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f5843b;
 
     public ej(FeedbackInputActivity feedbackInputActivity) {
-        this.f3860a = new WeakReference(feedbackInputActivity);
+        this.f5842a = new WeakReference(feedbackInputActivity);
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:70|71|(2:73|74)(1:105)|75|76|(2:78|(7:87|88|89|(2:91|(1:96)(1:95))|97|(1:93)|96)(2:82|(1:86)))|101|(1:80)|87|88|89|(0)|97|(0)|96) */
@@ -61,8 +62,8 @@ public final class ej extends Handler {
         String str5 = (String) message.obj;
         com.baidu.ufosdk.f.c.a("第一条会话：" + str5);
         if (str5.equals("newMessage") || str5.length() == 0) {
-            this.b = String.valueOf(System.currentTimeMillis());
-            hashMap.put("time", this.b);
+            this.f5843b = String.valueOf(System.currentTimeMillis());
+            hashMap.put("time", this.f5843b);
         } else {
             String string = feedbackInputActivity.r.getString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.e, "0");
             if (string.equals("0")) {
@@ -92,11 +93,11 @@ public final class ej extends Handler {
                     int intValue2 = jSONArray2.getJSONObject(i).has("evaluation") ? ((Integer) jSONArray2.getJSONObject(i).get("evaluation")).intValue() : 0;
                     hashMap2.put("evaluation", Integer.valueOf(intValue2));
                     if (intValue2 == 0) {
-                        hashMap2.put(UgcUBCUtils.UGC_TYPE_ASK, 0);
+                        hashMap2.put("ask", 0);
                     } else if (intValue2 == 10) {
-                        hashMap2.put(UgcUBCUtils.UGC_TYPE_ASK, 1);
+                        hashMap2.put("ask", 1);
                     } else if (intValue2 <= 9) {
-                        hashMap2.put(UgcUBCUtils.UGC_TYPE_ASK, 9);
+                        hashMap2.put("ask", 9);
                         if (jSONArray2.getJSONObject(i).has("discontent_reason")) {
                             hashMap2.put("discontent_reason", (String) jSONArray2.getJSONObject(i).get("discontent_reason"));
                         }
@@ -104,7 +105,7 @@ public final class ej extends Handler {
                             hashMap2.put("discontent_labels", (JSONArray) jSONArray2.getJSONObject(i).get("discontent_labels"));
                         }
                     } else if (intValue2 >= 11) {
-                        hashMap2.put(UgcUBCUtils.UGC_TYPE_ASK, 11);
+                        hashMap2.put("ask", 11);
                     }
                 }
                 hashMap2.put("chatId", Integer.valueOf(jSONArray2.getJSONObject(i).has("id") ? ((Integer) jSONArray2.getJSONObject(i).get("id")).intValue() : 0));
@@ -132,7 +133,7 @@ public final class ej extends Handler {
                                     if (jSONArray != null) {
                                     }
                                     hashMap2.put("flagRobot", 0);
-                                    if (jSONObject.has(UgcUBCUtils.QUESTION_REPLY_PAGE)) {
+                                    if (jSONObject.has("answer")) {
                                     }
                                     str3 = null;
                                     if (str3 != null) {
@@ -153,12 +154,12 @@ public final class ej extends Handler {
                                 str2 = (String) jSONObject.get(AlaStaticKeys.ALA_STATIC_VALUE_TIP);
                                 if (jSONArray != null || jSONArray.length() <= 0) {
                                     hashMap2.put("flagRobot", 0);
-                                    if (jSONObject.has(UgcUBCUtils.QUESTION_REPLY_PAGE)) {
-                                        str3 = jSONObject.getString(UgcUBCUtils.QUESTION_REPLY_PAGE);
+                                    if (jSONObject.has("answer")) {
+                                        str3 = jSONObject.getString("answer");
                                         if (str3 != null || str3.length() <= 0) {
                                             hashMap2.put("content", jSONArray2.getJSONObject(i).getString("content"));
                                         } else {
-                                            hashMap2.put("content", jSONObject.getString(UgcUBCUtils.QUESTION_REPLY_PAGE));
+                                            hashMap2.put("content", jSONObject.getString("answer"));
                                         }
                                     }
                                     str3 = null;
@@ -179,7 +180,7 @@ public final class ej extends Handler {
                             if (jSONArray != null) {
                             }
                             hashMap2.put("flagRobot", 0);
-                            if (jSONObject.has(UgcUBCUtils.QUESTION_REPLY_PAGE)) {
+                            if (jSONObject.has("answer")) {
                             }
                             str3 = null;
                             if (str3 != null) {
@@ -205,7 +206,7 @@ public final class ej extends Handler {
             feedbackInputActivity.j.notifyDataSetChanged();
             feedbackInputActivity.d.setVisibility(0);
             feedbackInputActivity.c.setVisibility(0);
-            feedbackInputActivity.b.setVisibility(8);
+            feedbackInputActivity.f5697b.setVisibility(8);
             feedbackInputActivity.k.setVisibility(8);
             feedbackInputActivity.i.setSelection(feedbackInputActivity.i.getBottom());
             feedbackInputActivity.n = true;
@@ -243,9 +244,9 @@ public final class ej extends Handler {
                     hashMap.put("time", (String) ((Map) arrayList.get(i)).get("time"));
                     hashMap.put("contenttype", "0");
                     if (!((String) ((Map) arrayList.get(i)).get("toggle")).equals("yes") || feedbackInputActivity.z) {
-                        hashMap.put(UgcUBCUtils.UGC_TYPE_ASK, 0);
+                        hashMap.put("ask", 0);
                     } else {
-                        hashMap.put(UgcUBCUtils.UGC_TYPE_ASK, 1);
+                        hashMap.put("ask", 1);
                         feedbackInputActivity.B = false;
                     }
                     String str = (String) hashMap.get("content");
@@ -266,9 +267,9 @@ public final class ej extends Handler {
                         e.printStackTrace();
                     }
                     if (!((String) ((Map) arrayList.get(i)).get("toggle")).equals("yes") || feedbackInputActivity.z) {
-                        hashMap.put(UgcUBCUtils.UGC_TYPE_ASK, 0);
+                        hashMap.put("ask", 0);
                     } else {
-                        hashMap.put(UgcUBCUtils.UGC_TYPE_ASK, 1);
+                        hashMap.put("ask", 1);
                         feedbackInputActivity.B = false;
                     }
                 }
@@ -286,7 +287,7 @@ public final class ej extends Handler {
     @Override // android.os.Handler
     public final void handleMessage(Message message) {
         super.handleMessage(message);
-        FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f3860a.get();
+        FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f5842a.get();
         if (feedbackInputActivity == null) {
             return;
         }
@@ -338,7 +339,7 @@ public final class ej extends Handler {
                 feedbackInputActivity.d.setVisibility(8);
                 feedbackInputActivity.c.setVisibility(8);
                 com.baidu.ufosdk.f.i.a(feedbackInputActivity.getApplicationContext(), feedbackInputActivity.m);
-                feedbackInputActivity.b.setVisibility(0);
+                feedbackInputActivity.f5697b.setVisibility(0);
                 feedbackInputActivity.k.setVisibility(8);
                 return;
             case 5:
@@ -352,10 +353,10 @@ public final class ej extends Handler {
                 return;
             case 7:
                 try {
-                    String b = com.baidu.ufosdk.f.k.b((String) message.obj);
-                    if (!TextUtils.isEmpty(b)) {
-                        com.baidu.ufosdk.f.c.a("solved replay response: " + b);
-                        if (new JSONObject(b).optInt(BaseJsonData.TAG_ERRNO, -1) == 0) {
+                    String b2 = com.baidu.ufosdk.f.k.b((String) message.obj);
+                    if (!TextUtils.isEmpty(b2)) {
+                        com.baidu.ufosdk.f.c.a("solved replay response: " + b2);
+                        if (new JSONObject(b2).optInt(BaseJsonData.TAG_ERRNO, -1) == 0) {
                             feedbackInputActivity.u = false;
                             feedbackInputActivity.j.notifyDataSetChanged();
                             feedbackInputActivity.i.setSelection(feedbackInputActivity.i.getBottom());
@@ -393,7 +394,7 @@ public final class ej extends Handler {
                     }
                     hashMap3.put("contenttype", "0");
                     hashMap3.put("time", String.valueOf(System.currentTimeMillis()));
-                    hashMap3.put(UgcUBCUtils.UGC_TYPE_ASK, 0);
+                    hashMap3.put("ask", 0);
                     feedbackInputActivity.h.add(hashMap3);
                 } else if (TextUtils.isEmpty(feedbackInputActivity.M)) {
                     Toast.makeText(feedbackInputActivity.getApplicationContext(), com.baidu.ufosdk.f.s.a("60"), 0).show();
@@ -431,13 +432,13 @@ public final class ej extends Handler {
                 feedbackInputActivity.startActivity(intent);
                 return;
             case 11:
-                feedbackInputActivity.K.f3870a.setVisibility(8);
+                feedbackInputActivity.K.f5860a.setVisibility(8);
                 feedbackInputActivity.K.c.setBackgroundResource(R.drawable.dialog_btn_selector);
                 feedbackInputActivity.K.c.setTextColor(-1);
                 feedbackInputActivity.K.c.setClickable(true);
-                feedbackInputActivity.K.b.setFocusable(true);
-                feedbackInputActivity.K.b.setFocusableInTouchMode(true);
-                feedbackInputActivity.K.b.requestFocus();
+                feedbackInputActivity.K.f5861b.setFocusable(true);
+                feedbackInputActivity.K.f5861b.setFocusableInTouchMode(true);
+                feedbackInputActivity.K.f5861b.requestFocus();
                 if (((Integer) message.obj).intValue() == 0) {
                     if (feedbackInputActivity.K != null && feedbackInputActivity.K.isShowing()) {
                         feedbackInputActivity.K.dismiss();
@@ -508,7 +509,7 @@ public final class ej extends Handler {
                 if (feedbackInputActivity.g != null && feedbackInputActivity.e != null) {
                     feedbackInputActivity.g.a(feedbackInputActivity.e);
                 }
-                feedbackInputActivity.q.putString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f, this.b);
+                feedbackInputActivity.q.putString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f, this.f5843b);
                 feedbackInputActivity.q.commit();
                 com.baidu.ufosdk.f.c.a("Handler = 14 tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f);
                 if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || feedbackInputActivity.f == null || feedbackInputActivity.f.length() <= 0) {
@@ -541,7 +542,7 @@ public final class ej extends Handler {
                     }
                     hashMap5.put("contenttype", "0");
                     hashMap5.put("time", String.valueOf(System.currentTimeMillis()));
-                    hashMap5.put(UgcUBCUtils.UGC_TYPE_ASK, 0);
+                    hashMap5.put("ask", 0);
                     feedbackInputActivity.h.add(hashMap5);
                 }
                 feedbackInputActivity.u = true;
@@ -549,7 +550,7 @@ public final class ej extends Handler {
                 feedbackInputActivity.i.setSelection(feedbackInputActivity.i.getBottom());
                 return;
             case 18:
-                ((InputMethodManager) feedbackInputActivity.getSystemService("input_method")).showSoftInput(feedbackInputActivity.K.b, 1);
+                ((InputMethodManager) feedbackInputActivity.getSystemService("input_method")).showSoftInput(feedbackInputActivity.K.f5861b, 1);
                 com.baidu.ufosdk.f.c.a("show keyboard! " + message.obj.toString());
                 return;
         }

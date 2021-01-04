@@ -3,7 +3,6 @@ package okhttp3;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -19,7 +18,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import okio.Buffer;
 import org.apache.http.HttpHost;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class HttpUrl {
     static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     static final String FRAGMENT_ENCODE_SET = "";
@@ -167,7 +166,7 @@ public final class HttpUrl {
             return null;
         }
         int indexOf = this.url.indexOf(63) + 1;
-        return this.url.substring(indexOf, Util.delimiterOffset(this.url, indexOf, this.url.length(), (char) UgcConstant.TOPIC_PATTERN_TAG));
+        return this.url.substring(indexOf, Util.delimiterOffset(this.url, indexOf, this.url.length(), '#'));
     }
 
     static void namesAndValuesToQueryString(StringBuilder sb, List<String> list) {
@@ -370,7 +369,7 @@ public final class HttpUrl {
         return PublicSuffixDatabase.get().getEffectiveTldPlusOne(this.host);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         static final String INVALID_HOST = "Invalid URL host";
         @Nullable
@@ -676,7 +675,7 @@ public final class HttpUrl {
                     sb.append(':');
                     sb.append(this.encodedPassword);
                 }
-                sb.append(UgcConstant.AT_PATTERN_TAG);
+                sb.append('@');
             }
             if (this.host != null) {
                 if (this.host.indexOf(58) != -1) {
@@ -700,7 +699,7 @@ public final class HttpUrl {
                 HttpUrl.namesAndValuesToQueryString(sb, this.encodedQueryNamesAndValues);
             }
             if (this.encodedFragment != null) {
-                sb.append(UgcConstant.TOPIC_PATTERN_TAG);
+                sb.append('#');
                 sb.append(this.encodedFragment);
             }
             return sb.toString();
@@ -726,64 +725,57 @@ public final class HttpUrl {
             } else {
                 throw new IllegalArgumentException("Expected URL scheme 'http' or 'https' but no colon was found");
             }
-            boolean z = false;
-            boolean z2 = false;
             int slashCount = slashCount(str, skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace);
             if (slashCount >= 2 || httpUrl == null || !httpUrl.scheme.equals(this.scheme)) {
-                int i2 = skipLeadingAsciiWhitespace + slashCount;
+                int i2 = slashCount + skipLeadingAsciiWhitespace;
+                boolean z = false;
+                boolean z2 = false;
                 while (true) {
-                    boolean z3 = z2;
-                    boolean z4 = z;
-                    int i3 = i2;
-                    int delimiterOffset = Util.delimiterOffset(str, i3, skipTrailingAsciiWhitespace, "@/\\?#");
+                    int delimiterOffset = Util.delimiterOffset(str, i2, skipTrailingAsciiWhitespace, "@/\\?#");
                     switch (delimiterOffset != skipTrailingAsciiWhitespace ? str.charAt(delimiterOffset) : (char) 65535) {
                         case 65535:
                         case '#':
                         case '/':
                         case '?':
                         case '\\':
-                            int portColonOffset = portColonOffset(str, i3, delimiterOffset);
+                            int portColonOffset = portColonOffset(str, i2, delimiterOffset);
                             if (portColonOffset + 1 < delimiterOffset) {
-                                this.host = canonicalizeHost(str, i3, portColonOffset);
+                                this.host = canonicalizeHost(str, i2, portColonOffset);
                                 this.port = parsePort(str, portColonOffset + 1, delimiterOffset);
                                 if (this.port == -1) {
                                     throw new IllegalArgumentException("Invalid URL port: \"" + str.substring(portColonOffset + 1, delimiterOffset) + '\"');
                                 }
                             } else {
-                                this.host = canonicalizeHost(str, i3, portColonOffset);
+                                this.host = canonicalizeHost(str, i2, portColonOffset);
                                 this.port = HttpUrl.defaultPort(this.scheme);
                             }
                             if (this.host != null) {
                                 skipLeadingAsciiWhitespace = delimiterOffset;
                                 break;
                             } else {
-                                throw new IllegalArgumentException("Invalid URL host: \"" + str.substring(i3, portColonOffset) + '\"');
+                                throw new IllegalArgumentException("Invalid URL host: \"" + str.substring(i2, portColonOffset) + '\"');
                             }
                         case '@':
-                            if (!z3) {
-                                int delimiterOffset2 = Util.delimiterOffset(str, i3, delimiterOffset, ':');
-                                String canonicalize = HttpUrl.canonicalize(str, i3, delimiterOffset2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
-                                if (z4) {
+                            if (!z) {
+                                int delimiterOffset2 = Util.delimiterOffset(str, i2, delimiterOffset, ':');
+                                String canonicalize = HttpUrl.canonicalize(str, i2, delimiterOffset2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
+                                if (z2) {
                                     canonicalize = this.encodedUsername + "%40" + canonicalize;
                                 }
                                 this.encodedUsername = canonicalize;
                                 if (delimiterOffset2 != delimiterOffset) {
-                                    z3 = true;
+                                    z = true;
                                     this.encodedPassword = HttpUrl.canonicalize(str, delimiterOffset2 + 1, delimiterOffset, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
                                 }
-                                z4 = true;
+                                z2 = true;
                             } else {
-                                this.encodedPassword += "%40" + HttpUrl.canonicalize(str, i3, delimiterOffset, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
+                                this.encodedPassword += "%40" + HttpUrl.canonicalize(str, i2, delimiterOffset, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
                             }
                             i2 = delimiterOffset + 1;
-                            z2 = z3;
-                            break;
-                        default:
-                            z2 = z3;
-                            i2 = i3;
                             break;
                     }
-                    z = z4;
+                    z = z;
+                    z2 = z2;
                 }
             } else {
                 this.encodedUsername = httpUrl.encodedUsername();
@@ -801,7 +793,7 @@ public final class HttpUrl {
             if (delimiterOffset3 >= skipTrailingAsciiWhitespace || str.charAt(delimiterOffset3) != '?') {
                 i = delimiterOffset3;
             } else {
-                i = Util.delimiterOffset(str, delimiterOffset3, skipTrailingAsciiWhitespace, (char) UgcConstant.TOPIC_PATTERN_TAG);
+                i = Util.delimiterOffset(str, delimiterOffset3, skipTrailingAsciiWhitespace, '#');
                 this.encodedQueryNamesAndValues = HttpUrl.queryStringToNamesAndValues(HttpUrl.canonicalize(str, delimiterOffset3 + 1, i, HttpUrl.QUERY_ENCODE_SET, true, false, true, true, null));
             }
             if (i < skipTrailingAsciiWhitespace && str.charAt(i) == '#') {

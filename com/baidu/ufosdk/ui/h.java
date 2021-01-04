@@ -2,44 +2,46 @@ package com.baidu.ufosdk.ui;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class h implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f3881a;
-    final /* synthetic */ f b;
+    final /* synthetic */ e f5878a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ f f5879b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar, e eVar) {
-        this.b = fVar;
-        this.f3881a = eVar;
+        this.f5879b = fVar;
+        this.f5878a = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         ey eyVar;
         ey eyVar2;
-        String b = this.f3881a.b();
-        for (int i = 0; i < this.b.c.getChildCount(); i++) {
-            View childAt = this.b.c.getChildAt(i);
+        String b2 = this.f5878a.b();
+        for (int i = 0; i < this.f5879b.c.getChildCount(); i++) {
+            View childAt = this.f5879b.c.getChildAt(i);
             if (childAt instanceof e) {
-                if (((e) childAt).b().equals(b)) {
+                if (((e) childAt).b().equals(b2)) {
                     ((e) childAt).a(true);
                 } else {
                     ((e) childAt).a(false);
                 }
             }
         }
-        for (int i2 = 0; i2 < this.b.b.getChildCount(); i2++) {
-            View childAt2 = this.b.b.getChildAt(i2);
+        for (int i2 = 0; i2 < this.f5879b.f5868b.getChildCount(); i2++) {
+            View childAt2 = this.f5879b.f5868b.getChildAt(i2);
             if (childAt2 instanceof e) {
                 ((e) childAt2).a(false);
             }
         }
-        eyVar = this.b.g;
+        eyVar = this.f5879b.g;
         if (eyVar != null) {
-            eyVar2 = this.b.g;
-            eyVar2.a(b);
+            eyVar2 = this.f5879b.g;
+            eyVar2.a(b2);
         }
     }
 }

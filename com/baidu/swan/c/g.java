@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static String getStringFromInput(InputStream inputStream) {
         byte[] byteFromInputStream;

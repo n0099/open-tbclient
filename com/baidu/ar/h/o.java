@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Arrays;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class o {
     private static String yg = null;
 
@@ -21,8 +21,8 @@ public class o {
             b.aS("bdar: addSystemInfo context/httpParams is null!!!");
             return;
         }
-        jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, "android");
-        jSONObject.put(HttpConstants.HTTP_OS_TYPE, "android");
+        jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, HttpConstants.OS_TYPE_VALUE);
+        jSONObject.put(HttpConstants.HTTP_OS_TYPE, HttpConstants.OS_TYPE_VALUE);
         jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, c.getVersionCode());
         jSONObject.put("app_id", c.s(context));
         jSONObject.put("device_id", Build.MODEL);

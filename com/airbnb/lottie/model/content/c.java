@@ -1,33 +1,33 @@
 package com.airbnb.lottie.model.content;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private final float[] FU;
-    private final int[] FV;
+    private final float[] FG;
+    private final int[] FH;
 
     public c(float[] fArr, int[] iArr) {
-        this.FU = fArr;
-        this.FV = iArr;
+        this.FG = fArr;
+        this.FH = iArr;
     }
 
-    public float[] jO() {
-        return this.FU;
+    public float[] jn() {
+        return this.FG;
     }
 
     public int[] getColors() {
-        return this.FV;
+        return this.FH;
     }
 
     public int getSize() {
-        return this.FV.length;
+        return this.FH.length;
     }
 
     public void a(c cVar, c cVar2, float f) {
-        if (cVar.FV.length != cVar2.FV.length) {
-            throw new IllegalArgumentException("Cannot interpolate between gradients. Lengths vary (" + cVar.FV.length + " vs " + cVar2.FV.length + ")");
+        if (cVar.FH.length != cVar2.FH.length) {
+            throw new IllegalArgumentException("Cannot interpolate between gradients. Lengths vary (" + cVar.FH.length + " vs " + cVar2.FH.length + ")");
         }
-        for (int i = 0; i < cVar.FV.length; i++) {
-            this.FU[i] = com.airbnb.lottie.d.e.lerp(cVar.FU[i], cVar2.FU[i], f);
-            this.FV[i] = com.airbnb.lottie.d.b.b(f, cVar.FV[i], cVar2.FV[i]);
+        for (int i = 0; i < cVar.FH.length; i++) {
+            this.FG[i] = com.airbnb.lottie.d.e.lerp(cVar.FG[i], cVar2.FG[i], f);
+            this.FH[i] = com.airbnb.lottie.d.b.b(f, cVar.FH[i], cVar2.FH[i]);
         }
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class QuicMessageHandler extends d implements c {
     public native void closeStream(int i);
 
@@ -46,7 +46,7 @@ public class QuicMessageHandler extends d implements c {
     }
 
     @Override // com.baidu.lcp.sdk.connect.d
-    public InputStream Ar() throws EOFException, IOException {
+    public InputStream zF() throws EOFException, IOException {
         return null;
     }
 }

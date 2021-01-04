@@ -2,7 +2,7 @@ package com.google.zxing.client.result;
 
 import com.google.zxing.Result;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class AddressBookAUResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser

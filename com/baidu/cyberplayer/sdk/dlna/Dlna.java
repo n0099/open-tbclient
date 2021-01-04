@@ -3,12 +3,14 @@ package com.baidu.cyberplayer.sdk.dlna;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
 @Keep
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class Dlna {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1379a = "com.baidu.media.dlna.DlnaProviderImpl";
-    private static DlnaProvider b = null;
+    private static String f1805a = "com.baidu.media.dlna.DlnaProviderImpl";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static DlnaProvider f1806b = null;
     public static int DLNA_ERROR_PLAY_ACTION_NOT_FOUND = -1001;
     public static int DLNA_ERROR_DEVICE_CONNECT_TIMEOUT = -1002;
     public static int DLNA_ERROR_SET_AV_TRANSPORT_URI_ACTION_NOT_FOUND = -1003;
@@ -28,46 +30,46 @@ public class Dlna {
     public static int DLNA_ERROR_CREATE_SSDP_THREAD_FIAL = DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL;
     public static int DLNA_ERROR_STOP_SPCE_INVALIDATE = DlnaManager.DLNA_ERROR_STOP_SPCE_INVALIDATE;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final Dlna f1380a = new Dlna();
+        private static final Dlna f1807a = new Dlna();
     }
 
     private Dlna() {
     }
 
     public static Dlna getInstance() {
-        return a.f1380a;
+        return a.f1807a;
     }
 
     public static void init(ClassLoader classLoader) {
         try {
-            b = (DlnaProvider) Class.forName(f1379a, true, classLoader).newInstance();
+            f1806b = (DlnaProvider) Class.forName(f1805a, true, classLoader).newInstance();
         } catch (Exception e) {
             e.printStackTrace();
-            b = null;
+            f1806b = null;
         }
     }
 
     public PnPController getCtrlPoint(String str) {
-        if (b == null || str == null) {
+        if (f1806b == null || str == null) {
             return null;
         }
-        return new PnPController(str, b);
+        return new PnPController(str, f1806b);
     }
 
     public void refresh(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        if (b != null) {
-            b.stop();
-            b.search(dlnaSearchListener);
+        if (f1806b != null) {
+            f1806b.stop();
+            f1806b.search(dlnaSearchListener);
         }
     }
 
     public void stop() {
-        if (b != null) {
-            b.stop();
+        if (f1806b != null) {
+            f1806b.stop();
         }
     }
 }

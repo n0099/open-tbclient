@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.searchbox.account.contants.LoginConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public enum BindType {
     EXPLICIT("explicit", "afterauth", "finishbind"),
     SMS(LoginConstants.SMS_LOGIN, "afterauth", "finishbind"),
@@ -9,19 +9,21 @@ public enum BindType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3548a;
-    private String b;
+    private String f5393a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f5394b;
     private String c;
 
     BindType(String str, String str2, String str3) {
-        this.f3548a = "";
-        this.f3548a = str;
-        this.b = str2;
+        this.f5393a = "";
+        this.f5393a = str;
+        this.f5394b = str2;
         this.c = str3;
     }
 
     public String getCallbackPage() {
-        return this.b;
+        return this.f5394b;
     }
 
     public String getFinishBindPage() {
@@ -29,6 +31,6 @@ public enum BindType {
     }
 
     public String getName() {
-        return this.f3548a;
+        return this.f5393a;
     }
 }

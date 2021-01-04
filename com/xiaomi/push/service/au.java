@@ -20,17 +20,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class au extends be.a implements cz.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f4837a;
+    private long f14554a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f869a;
+    private XMPushService f947a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static class a implements cz.b {
         a() {
         }
@@ -48,7 +48,7 @@ public class au extends be.a implements cz.a {
             int port = url.getPort() == -1 ? 80 : url.getPort();
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                String a2 = com.xiaomi.push.az.a(com.xiaomi.push.t.m576a(), url);
+                String a2 = com.xiaomi.push.az.a(com.xiaomi.push.t.m602a(), url);
                 hg.a(url.getHost() + ":" + port, (int) (System.currentTimeMillis() - currentTimeMillis), null);
                 return a2;
             } catch (IOException e) {
@@ -58,7 +58,7 @@ public class au extends be.a implements cz.a {
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     static class b extends cz {
         protected b(Context context, cy cyVar, cz.b bVar, String str) {
             super(context, cyVar, bVar, str);
@@ -68,19 +68,19 @@ public class au extends be.a implements cz.a {
         @Override // com.xiaomi.push.cz
         public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
             try {
-                if (he.m327a().m332a()) {
-                    str2 = be.m552a();
+                if (he.m353a().m358a()) {
+                    str2 = be.m578a();
                 }
                 return super.a(arrayList, str, str2, z);
             } catch (IOException e) {
-                hg.a(0, fh.GSLB_ERR.a(), 1, null, com.xiaomi.push.az.b(f4618a) ? 1 : 0);
+                hg.a(0, fh.GSLB_ERR.a(), 1, null, com.xiaomi.push.az.b(f14226a) ? 1 : 0);
                 throw e;
             }
         }
     }
 
     au(XMPushService xMPushService) {
-        this.f869a = xMPushService;
+        this.f947a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -105,33 +105,33 @@ public class au extends be.a implements cz.a {
     public void a(ek.b bVar) {
         cv b2;
         boolean z;
-        if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f4837a > BdKVCache.MILLS_1Hour) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("fetch bucket :" + bVar.a());
-            this.f4837a = System.currentTimeMillis();
+        if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f14554a > BdKVCache.MILLS_1Hour) {
+            com.xiaomi.channel.commonutils.logger.b.m73a("fetch bucket :" + bVar.a());
+            this.f14554a = System.currentTimeMillis();
             cz a2 = cz.a();
-            a2.m211a();
-            a2.m214b();
-            fs m512a = this.f869a.m512a();
-            if (m512a == null || (b2 = a2.b(m512a.m286a().c())) == null) {
+            a2.m237a();
+            a2.m240b();
+            fs m538a = this.f947a.m538a();
+            if (m538a == null || (b2 = a2.b(m538a.m312a().c())) == null) {
                 return;
             }
-            ArrayList<String> m199a = b2.m199a();
-            Iterator<String> it = m199a.iterator();
+            ArrayList<String> m225a = b2.m225a();
+            Iterator<String> it = m225a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
                     break;
-                } else if (it.next().equals(m512a.m287a())) {
+                } else if (it.next().equals(m538a.m313a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m199a.isEmpty()) {
+            if (!z || m225a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m47a("bucket changed, force reconnect");
-            this.f869a.a(0, (Exception) null);
-            this.f869a.a(false);
+            com.xiaomi.channel.commonutils.logger.b.m73a("bucket changed, force reconnect");
+            this.f947a.a(0, (Exception) null);
+            this.f947a.a(false);
         }
     }
 }

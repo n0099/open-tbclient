@@ -11,15 +11,15 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.person.a.d;
 import com.baidu.tieba.ala.person.messages.PlaybacksResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends BdBaseModel {
-    private int bbx;
-    private int hKZ;
-    private a hLa;
-    private HttpMessageListener hLb;
+    private int bdf;
+    private int hXl;
+    private a hXm;
+    private HttpMessageListener hXn;
     private String uid;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(d dVar);
 
@@ -28,29 +28,29 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bbx = -1;
-        this.hLb = new HttpMessageListener(1021027) { // from class: com.baidu.tieba.ala.person.c.b.1
+        this.bdf = -1;
+        this.hXn = new HttpMessageListener(1021027) { // from class: com.baidu.tieba.ala.person.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021027 && b.this.hLa != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021027 && b.this.hXm != null) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof PlaybacksResponseMessage)) {
-                        b.this.hLa.onFail(httpResponsedMessage.getErrorString());
+                        b.this.hXm.onFail(httpResponsedMessage.getErrorString());
                         return;
                     }
                     PlaybacksResponseMessage playbacksResponseMessage = (PlaybacksResponseMessage) httpResponsedMessage;
                     if (playbacksResponseMessage.getError() != 0) {
-                        b.this.hLa.onFail(httpResponsedMessage.getErrorString());
+                        b.this.hXm.onFail(httpResponsedMessage.getErrorString());
                         return;
                     }
-                    b.this.hKZ = playbacksResponseMessage.hKT.hJz.has_more;
-                    b.this.hLa.a(playbacksResponseMessage.hKT);
+                    b.this.hXl = playbacksResponseMessage.hXf.hVL.has_more;
+                    b.this.hXm.a(playbacksResponseMessage.hXf);
                 }
             }
         };
-        this.hLb.setSelfListener(true);
-        this.hLb.setTag(getUniqueId());
-        registerListener(this.hLb);
+        this.hXn.setSelfListener(true);
+        this.hXn.setTag(getUniqueId());
+        registerListener(this.hXn);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -58,21 +58,21 @@ public class b extends BdBaseModel {
         if (TextUtils.isEmpty(this.uid)) {
             return false;
         }
-        return IT(this.uid);
+        return IR(this.uid);
     }
 
     public void setCurrentPage(int i) {
-        this.bbx = i;
+        this.bdf = i;
     }
 
-    public boolean IT(String str) {
-        this.bbx++;
+    public boolean IR(String str) {
+        this.bdf++;
         if (!TextUtils.isEmpty(str) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
             HttpMessage httpMessage = new HttpMessage(1021027);
             httpMessage.addParam("user_id", str);
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
             httpMessage.addParam("ps", "20");
-            httpMessage.addParam(Config.PACKAGE_NAME, this.bbx);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.bdf);
             httpMessage.addParam("need_records", 1);
             sendMessage(httpMessage);
             return true;
@@ -91,6 +91,6 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.hLa = aVar;
+        this.hXm = aVar;
     }
 }

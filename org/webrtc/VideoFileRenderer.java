@@ -9,7 +9,7 @@ import java.nio.charset.Charset;
 import java.util.concurrent.CountDownLatch;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class VideoFileRenderer implements VideoSink {
     private static final String TAG = "VideoFileRenderer";
     private EglBase eglBase;

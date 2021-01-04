@@ -5,14 +5,15 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.util.devices.DeviceUtil;
 @TargetApi(26)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TraceFragmentNativeCallback extends BaseTraceFragmentCallback {
     private FragmentManager.FragmentLifecycleCallbacks mFragmentCallbacks;
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean register(Activity activity) {
+    public boolean register(@NonNull Activity activity) {
         if (DeviceUtil.OSInfo.hasOreo()) {
             if (this.mFragmentCallbacks == null) {
                 this.mFragmentCallbacks = getFragmentCallbacks();
@@ -28,7 +29,7 @@ public class TraceFragmentNativeCallback extends BaseTraceFragmentCallback {
     }
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean unregister(Activity activity) {
+    public boolean unregister(@NonNull Activity activity) {
         FragmentManager fragmentManager;
         if (DeviceUtil.OSInfo.hasOreo()) {
             if (this.mFragmentCallbacks != null && (fragmentManager = activity.getFragmentManager()) != null) {

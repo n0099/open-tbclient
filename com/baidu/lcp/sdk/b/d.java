@@ -10,20 +10,20 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class d extends a {
-    private a.d aAn = null;
+    private a.d aAD = null;
 
     public d(Context context) {
         this.context = context;
     }
 
-    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0167c
+    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0159c
     public void onSuccess(byte[] bArr) {
         String str = new String(bArr);
-        com.baidu.lcp.sdk.d.d.d("LCPHttpDnsUrlRequest", "onSuccess----ip of " + f.aG(this.context).azU + " is " + str);
+        com.baidu.lcp.sdk.d.d.d("LCPHttpDnsUrlRequest", "onSuccess----ip of " + f.aF(this.context).aAk + " is " + str);
         try {
-            JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(f.aG(this.context).azU);
+            JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(f.aF(this.context).aAk);
             JSONArray optJSONArray = jSONObject.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP);
             JSONArray optJSONArray2 = jSONObject.optJSONArray("ipv6");
             int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
@@ -37,10 +37,10 @@ public class d extends a {
                     arrayList.add(optJSONArray2.getString(0));
                 }
                 com.baidu.lcp.sdk.connect.a.s(arrayList);
-                if (this.aAn != null && com.baidu.lcp.sdk.connect.a.azg.size() > 0) {
-                    this.aAn.c(0, "ok", com.baidu.lcp.sdk.connect.a.azg.get(0));
-                    if (com.baidu.lcp.sdk.connect.a.azg.size() > 1) {
-                        com.baidu.lcp.sdk.connect.a.azh++;
+                if (this.aAD != null && com.baidu.lcp.sdk.connect.a.azw.size() > 0) {
+                    this.aAD.c(0, "ok", com.baidu.lcp.sdk.connect.a.azw.get(0));
+                    if (com.baidu.lcp.sdk.connect.a.azw.size() > 1) {
+                        com.baidu.lcp.sdk.connect.a.azx++;
                         return;
                     }
                     return;
@@ -48,20 +48,20 @@ public class d extends a {
                 return;
             }
             com.baidu.lcp.sdk.d.d.e("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
-            com.baidu.lcp.sdk.connect.a.aZ(true);
-            com.baidu.lcp.sdk.connect.a.aD(this.context).a(f.aG(this.context).azU, this.aAn);
+            com.baidu.lcp.sdk.connect.a.aW(true);
+            com.baidu.lcp.sdk.connect.a.aC(this.context).a(f.aF(this.context).aAk, this.aAD);
         } catch (Exception e) {
             com.baidu.lcp.sdk.d.d.e("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e.getMessage());
-            com.baidu.lcp.sdk.connect.a.aZ(true);
-            com.baidu.lcp.sdk.connect.a.aD(this.context).a(f.aG(this.context).azU, this.aAn);
+            com.baidu.lcp.sdk.connect.a.aW(true);
+            com.baidu.lcp.sdk.connect.a.aC(this.context).a(f.aF(this.context).aAk, this.aAD);
         }
     }
 
-    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0167c
+    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0159c
     public void onFailure(int i, String str) {
         com.baidu.lcp.sdk.d.d.e("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i + ",errormsg:" + str);
-        com.baidu.lcp.sdk.connect.a.aZ(true);
-        com.baidu.lcp.sdk.connect.a.aD(this.context).a(f.aG(this.context).azU, this.aAn);
+        com.baidu.lcp.sdk.connect.a.aW(true);
+        com.baidu.lcp.sdk.connect.a.aC(this.context).a(f.aF(this.context).aAk, this.aAD);
     }
 
     @Override // com.baidu.lcp.sdk.b.c.a
@@ -71,7 +71,7 @@ public class d extends a {
 
     @Override // com.baidu.lcp.sdk.b.c.a
     public byte[] getRequestParameter() {
-        return ("type=ipv4,ipv6&dn=" + f.aG(this.context).azU).getBytes();
+        return ("type=ipv4,ipv6&dn=" + f.aF(this.context).aAk).getBytes();
     }
 
     @Override // com.baidu.lcp.sdk.b.c.a
@@ -87,7 +87,7 @@ public class d extends a {
     }
 
     public void a(a.d dVar) {
-        this.aAn = dVar;
+        this.aAD = dVar;
     }
 
     @Override // com.baidu.lcp.sdk.b.a, com.baidu.lcp.sdk.b.c.a

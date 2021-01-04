@@ -1,48 +1,56 @@
 package io.flutter.embedding.engine.systemchannels;
 
+import androidx.annotation.NonNull;
 import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.JSONMessageCodec;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class SettingsChannel {
     private static final String ALWAYS_USE_24_HOUR_FORMAT = "alwaysUse24HourFormat";
     public static final String CHANNEL_NAME = "flutter/settings";
     private static final String PLATFORM_BRIGHTNESS = "platformBrightness";
     private static final String TAG = "SettingsChannel";
     private static final String TEXT_SCALE_FACTOR = "textScaleFactor";
+    @NonNull
     public final BasicMessageChannel<Object> channel;
 
-    public SettingsChannel(DartExecutor dartExecutor) {
+    public SettingsChannel(@NonNull DartExecutor dartExecutor) {
         this.channel = new BasicMessageChannel<>(dartExecutor, CHANNEL_NAME, JSONMessageCodec.INSTANCE);
     }
 
+    @NonNull
     public MessageBuilder startMessage() {
         return new MessageBuilder(this.channel);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class MessageBuilder {
+        @NonNull
         private final BasicMessageChannel<Object> channel;
+        @NonNull
         private Map<String, Object> message = new HashMap();
 
-        MessageBuilder(BasicMessageChannel<Object> basicMessageChannel) {
+        MessageBuilder(@NonNull BasicMessageChannel<Object> basicMessageChannel) {
             this.channel = basicMessageChannel;
         }
 
+        @NonNull
         public MessageBuilder setTextScaleFactor(float f) {
             this.message.put(SettingsChannel.TEXT_SCALE_FACTOR, Float.valueOf(f));
             return this;
         }
 
+        @NonNull
         public MessageBuilder setUse24HourFormat(boolean z) {
             this.message.put(SettingsChannel.ALWAYS_USE_24_HOUR_FORMAT, Boolean.valueOf(z));
             return this;
         }
 
-        public MessageBuilder setPlatformBrightness(PlatformBrightness platformBrightness) {
+        @NonNull
+        public MessageBuilder setPlatformBrightness(@NonNull PlatformBrightness platformBrightness) {
             this.message.put(SettingsChannel.PLATFORM_BRIGHTNESS, platformBrightness.name);
             return this;
         }
@@ -53,14 +61,15 @@ public class SettingsChannel {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public enum PlatformBrightness {
         light("light"),
         dark("dark");
         
+        @NonNull
         public String name;
 
-        PlatformBrightness(String str) {
+        PlatformBrightness(@NonNull String str) {
             this.name = str;
         }
     }

@@ -4,26 +4,26 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class m {
     private Context context;
-    public int fuO;
-    public int fuP;
-    public int fuQ;
-    public boolean fuR;
-    public boolean fuS;
-    public int fuU;
-    public int fuV;
-    public int[] fuX;
-    public boolean fuY;
-    public n fub;
+    public n fDH;
+    public int fEA;
+    public int fEB;
+    public int[] fED;
+    public boolean fEE;
+    public int fEu;
+    public int fEv;
+    public int fEw;
+    public boolean fEx;
+    public boolean fEy;
     public int id;
     public String name;
-    public boolean fuT = true;
-    public boolean fuW = false;
-    private boolean fuZ = true;
+    public boolean fEz = true;
+    public boolean fEC = false;
+    private boolean fEF = true;
 
     public m(String str, int i, int i2) {
         this.name = str;
         this.id = i;
-        this.fuU = i2;
+        this.fEA = i2;
     }
 
     public m(Context context, String str, int i) {
@@ -36,7 +36,7 @@ public class m {
         this.name = str;
         this.id = i;
         this.context = context;
-        this.fuU = i2;
+        this.fEA = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,7 +44,7 @@ public class m {
         return this.context;
     }
 
-    public boolean sH() {
+    public boolean sj() {
         return true;
     }
 
@@ -52,14 +52,14 @@ public class m {
         return true;
     }
 
-    public void kv(boolean z) {
+    public void kR(boolean z) {
     }
 
-    public void kw(boolean z) {
-        this.fuZ = z;
+    public void kS(boolean z) {
+        this.fEF = z;
     }
 
-    public boolean bCD() {
-        return this.fuZ;
+    public boolean bEY() {
+        return this.fEF;
     }
 }

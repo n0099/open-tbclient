@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class i {
     private static String yb = null;
 
@@ -119,13 +119,9 @@ public final class i {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: java.io.FileOutputStream */
-    /* JADX WARN: Multi-variable type inference failed */
     public static boolean a(File file, File file2, Boolean bool) {
-        FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
         FileOutputStream fileOutputStream;
-        FileInputStream fileInputStream3 = null;
+        FileInputStream fileInputStream;
         if (file != null && file.exists() && file.isFile() && file.canRead()) {
             if (!file2.getParentFile().exists()) {
                 file2.getParentFile().mkdirs();
@@ -135,49 +131,44 @@ public final class i {
             }
             try {
                 fileInputStream = new FileInputStream(file);
-                try {
-                    fileOutputStream = new FileOutputStream(file2);
-                } catch (Exception e) {
-                    e = e;
-                    fileInputStream2 = null;
-                    fileInputStream3 = fileInputStream;
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                fileInputStream2 = null;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Exception e) {
+                e = e;
+                fileOutputStream = null;
+                fileInputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                fileOutputStream = null;
                 fileInputStream = null;
             }
             try {
-                k.a(fileInputStream, fileOutputStream);
-                fileOutputStream.flush();
-                k.closeQuietly(fileInputStream);
-                k.closeQuietly(fileOutputStream);
-            } catch (Exception e3) {
-                e = e3;
-                fileInputStream3 = fileInputStream;
-                fileInputStream2 = fileOutputStream;
+                fileOutputStream = new FileOutputStream(file2);
                 try {
-                    e.printStackTrace();
-                    k.closeQuietly(fileInputStream3);
-                    k.closeQuietly(fileInputStream2);
-                    return true;
-                } catch (Throwable th3) {
-                    th = th3;
-                    fileInputStream = fileInputStream3;
-                    fileInputStream3 = fileInputStream2;
+                    try {
+                        k.a(fileInputStream, fileOutputStream);
+                        fileOutputStream.flush();
+                        k.closeQuietly(fileInputStream);
+                        k.closeQuietly(fileOutputStream);
+                    } catch (Exception e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        k.closeQuietly(fileInputStream);
+                        k.closeQuietly(fileOutputStream);
+                        return true;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
                     k.closeQuietly(fileInputStream);
-                    k.closeQuietly(fileInputStream3);
+                    k.closeQuietly(fileOutputStream);
                     throw th;
                 }
-            } catch (Throwable th4) {
-                th = th4;
-                fileInputStream3 = fileOutputStream;
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                fileOutputStream = null;
                 k.closeQuietly(fileInputStream);
-                k.closeQuietly(fileInputStream3);
+                k.closeQuietly(fileOutputStream);
                 throw th;
             }
             return true;
@@ -217,6 +208,7 @@ public final class i {
     }
 
     public static String f(File file) {
+        Throwable th;
         FileInputStream fileInputStream;
         String str = null;
         try {
@@ -249,9 +241,9 @@ public final class i {
                 } catch (IOException e4) {
                     e = e4;
                     fileInputStream = null;
-                } catch (Throwable th) {
+                } catch (Throwable th2) {
+                    th = th2;
                     fileInputStream = null;
-                    th = th;
                     k.closeQuietly(fileInputStream);
                     if (fileInputStream != null) {
                         try {
@@ -264,8 +256,8 @@ public final class i {
                 }
             }
             return str;
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 

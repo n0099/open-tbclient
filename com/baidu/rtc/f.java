@@ -1,7 +1,7 @@
 package com.baidu.rtc;
 
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 interface f {
     void a(b bVar, JSONObject jSONObject);
 }

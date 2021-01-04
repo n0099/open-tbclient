@@ -4,8 +4,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes24.dex */
-public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.g, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.e>> {
+import com.baidu.tieba.card.holder.CardViewHolder;
+/* loaded from: classes8.dex */
+public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.g, CardViewHolder<com.baidu.tieba.personPolymeric.view.e>> {
     private TbPageContext mPageContext;
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -16,19 +17,19 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.e> c(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.e(this.mPageContext));
+    /* renamed from: aX */
+    public CardViewHolder<com.baidu.tieba.personPolymeric.view.e> e(ViewGroup viewGroup) {
+        return new CardViewHolder<>(new com.baidu.tieba.personPolymeric.view.e(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.e> aVar) {
-        if (aVar == null || aVar.csN() == null || gVar == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.g gVar, CardViewHolder<com.baidu.tieba.personPolymeric.view.e> cardViewHolder) {
+        if (cardViewHolder == null || cardViewHolder.cvG() == null || gVar == null) {
             return null;
         }
-        aVar.csN().a(gVar);
-        return aVar.csN().getView();
+        cardViewHolder.cvG().a(gVar);
+        return cardViewHolder.cvG().getView();
     }
 }

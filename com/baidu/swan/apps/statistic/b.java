@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.statistic;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.swan.ubc.Flow;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static void onEvent(String str, JSONObject jSONObject) {
         com.baidu.swan.ubc.e.onEvent(str, jSONObject);
@@ -23,42 +23,42 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a tv(String str) {
-        return new a(com.baidu.swan.ubc.e.zw(str));
+    public static a ts(String str) {
+        return new a(com.baidu.swan.ubc.e.zv(str));
     }
 
     public static void a(@NonNull a aVar, String str, String str2) {
-        Flow aMB = aVar.aMB();
-        if (aMB != null) {
-            aMB.addEvent(str, str2);
+        Flow aOR = aVar.aOR();
+        if (aOR != null) {
+            aOR.addEvent(str, str2);
         }
     }
 
     public static void a(@NonNull a aVar, String str, String str2, long j) {
-        Flow aMB = aVar.aMB();
-        if (aMB != null) {
-            aMB.addEvent(str, str2, j);
+        Flow aOR = aVar.aOR();
+        if (aOR != null) {
+            aOR.addEvent(str, str2, j);
         }
     }
 
     public static void b(@NonNull a aVar) {
-        Flow aMB = aVar.aMB();
-        if (aMB != null) {
-            aMB.cancel();
+        Flow aOR = aVar.aOR();
+        if (aOR != null) {
+            aOR.cancel();
         }
     }
 
     public static void c(@NonNull a aVar) {
-        Flow aMB = aVar.aMB();
-        if (aMB != null) {
-            aMB.end();
+        Flow aOR = aVar.aOR();
+        if (aOR != null) {
+            aOR.end();
         }
     }
 
     public static void a(@NonNull a aVar, String str) {
-        Flow aMB = aVar.aMB();
-        if (aMB != null) {
-            aMB.setValueWithDuration(str);
+        Flow aOR = aVar.aOR();
+        if (aOR != null) {
+            aOR.setValueWithDuration(str);
         }
     }
 }

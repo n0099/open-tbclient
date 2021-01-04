@@ -3,28 +3,28 @@ package com.facebook.cache.disk;
 import com.facebook.cache.common.CacheEventListener;
 import com.facebook.infer.annotation.ReturnsOwnership;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class i implements com.facebook.cache.common.a {
-    private static final Object pbv = new Object();
-    private static i pbw;
-    private static int pbx;
-    private String myy;
-    private IOException oGl;
-    private long pbA;
-    private long pbB;
-    private CacheEventListener.EvictionReason pbC;
-    private i pbD;
-    private com.facebook.cache.common.b pby;
-    private long pbz;
+    private static final Object psG = new Object();
+    private static i psH;
+    private static int psI;
+    private String mDP;
+    private IOException oMu;
+    private com.facebook.cache.common.b psJ;
+    private long psK;
+    private long psL;
+    private long psM;
+    private CacheEventListener.EvictionReason psN;
+    private i psO;
 
     @ReturnsOwnership
-    public static i epH() {
-        synchronized (pbv) {
-            if (pbw != null) {
-                i iVar = pbw;
-                pbw = iVar.pbD;
-                iVar.pbD = null;
-                pbx--;
+    public static i etM() {
+        synchronized (psG) {
+            if (psH != null) {
+                i iVar = psH;
+                psH = iVar.psO;
+                iVar.psO = null;
+                psI--;
                 return iVar;
             }
             return new i();
@@ -35,60 +35,60 @@ public class i implements com.facebook.cache.common.a {
     }
 
     public i h(com.facebook.cache.common.b bVar) {
-        this.pby = bVar;
+        this.psJ = bVar;
         return this;
     }
 
-    public i Zd(String str) {
-        this.myy = str;
+    public i Zo(String str) {
+        this.mDP = str;
         return this;
     }
 
-    public i ij(long j) {
-        this.pbz = j;
+    public i ix(long j) {
+        this.psK = j;
         return this;
     }
 
-    public i ik(long j) {
-        this.pbB = j;
+    public i iy(long j) {
+        this.psM = j;
         return this;
     }
 
-    public i il(long j) {
-        this.pbA = j;
+    public i iz(long j) {
+        this.psL = j;
         return this;
     }
 
-    public i e(IOException iOException) {
-        this.oGl = iOException;
+    public i h(IOException iOException) {
+        this.oMu = iOException;
         return this;
     }
 
     public i a(CacheEventListener.EvictionReason evictionReason) {
-        this.pbC = evictionReason;
+        this.psN = evictionReason;
         return this;
     }
 
     public void recycle() {
-        synchronized (pbv) {
-            if (pbx < 5) {
+        synchronized (psG) {
+            if (psI < 5) {
                 reset();
-                pbx++;
-                if (pbw != null) {
-                    this.pbD = pbw;
+                psI++;
+                if (psH != null) {
+                    this.psO = psH;
                 }
-                pbw = this;
+                psH = this;
             }
         }
     }
 
     private void reset() {
-        this.pby = null;
-        this.myy = null;
-        this.pbz = 0L;
-        this.pbA = 0L;
-        this.pbB = 0L;
-        this.oGl = null;
-        this.pbC = null;
+        this.psJ = null;
+        this.mDP = null;
+        this.psK = 0L;
+        this.psL = 0L;
+        this.psM = 0L;
+        this.oMu = null;
+        this.psN = null;
     }
 }

@@ -1,88 +1,88 @@
 package com.baidu.minivideo.arface.c;
 
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private long ceT;
-    private long ceU;
-    private long ceV;
-    private long ceW;
-    private long ceY;
-    private long ceZ;
-    public long cfa;
-    public long cfb;
-    private String cfc;
+    private long clQ;
+    private long clR;
+    private long clS;
+    private long clT;
+    private long clV;
+    private long clW;
+    public long clX;
+    public long clY;
+    private String clZ;
     private long mLastTime;
     private String mTag;
-    private long ceX = 1000;
+    private long clU = 1000;
     private boolean mDebug = false;
-    private StringBuilder cfd = new StringBuilder();
+    private StringBuilder cma = new StringBuilder();
 
     public c(String str, String str2) {
         this.mTag = str;
-        this.cfc = str2;
+        this.clZ = str2;
         reset();
     }
 
     public void bI(long j) {
-        this.ceX = j;
+        this.clU = j;
     }
 
-    public void acI() {
+    public void aeB() {
         if (this.mLastTime == 0) {
             this.mLastTime = System.currentTimeMillis();
             return;
         }
         long currentTimeMillis = System.currentTimeMillis() - this.mLastTime;
-        this.ceV += currentTimeMillis;
-        this.ceW++;
-        if (currentTimeMillis > this.ceT) {
-            this.ceT = currentTimeMillis;
-        } else if (currentTimeMillis < this.ceU) {
-            this.ceU = currentTimeMillis;
+        this.clS += currentTimeMillis;
+        this.clT++;
+        if (currentTimeMillis > this.clQ) {
+            this.clQ = currentTimeMillis;
+        } else if (currentTimeMillis < this.clR) {
+            this.clR = currentTimeMillis;
         }
         if (this.mDebug) {
-            if (this.cfd.length() > 0) {
-                this.cfd.delete(0, this.cfd.length());
+            if (this.cma.length() > 0) {
+                this.cma.delete(0, this.cma.length());
             }
-            this.cfd.append(this.cfc);
+            this.cma.append(this.clZ);
             for (int i = (int) ((currentTimeMillis - 33) / 5); i > 0; i--) {
-                this.cfd.append('.');
+                this.cma.append('.');
             }
-            this.cfd.append(currentTimeMillis);
-            d(this.mTag, this.cfd.toString());
+            this.cma.append(currentTimeMillis);
+            d(this.mTag, this.cma.toString());
         }
-        this.ceY++;
-        if (this.ceX > 0 && System.currentTimeMillis() - this.ceZ > this.ceX) {
-            acJ();
+        this.clV++;
+        if (this.clU > 0 && System.currentTimeMillis() - this.clW > this.clU) {
+            aeC();
         }
         this.mLastTime = System.currentTimeMillis();
-        if (this.ceZ == 0) {
-            this.ceZ = this.mLastTime;
-            this.ceY = 0L;
+        if (this.clW == 0) {
+            this.clW = this.mLastTime;
+            this.clV = 0L;
         }
     }
 
-    public void acJ() {
-        this.cfa = System.currentTimeMillis() - this.ceZ;
-        this.cfb = this.ceY;
-        this.ceZ = 0L;
-        this.ceY = 0L;
+    public void aeC() {
+        this.clX = System.currentTimeMillis() - this.clW;
+        this.clY = this.clV;
+        this.clW = 0L;
+        this.clV = 0L;
         if (this.mDebug) {
-            d(this.mTag, String.format("%s, PeriodTime: %d, Times: %d", this.cfc, Long.valueOf(this.cfa), Long.valueOf(this.cfb)));
+            d(this.mTag, String.format("%s, PeriodTime: %d, Times: %d", this.clZ, Long.valueOf(this.clX), Long.valueOf(this.clY)));
         }
     }
 
     public void reset() {
         this.mLastTime = 0L;
-        this.ceV = 0L;
-        this.ceW = 0L;
-        this.ceT = Long.MIN_VALUE;
-        this.ceU = Long.MAX_VALUE;
+        this.clS = 0L;
+        this.clT = 0L;
+        this.clQ = Long.MIN_VALUE;
+        this.clR = Long.MAX_VALUE;
     }
 
-    public String acK() {
-        String format = String.format("%s, Total: %d, Times: %d, Min: %d, Max: %d, Average：%f", this.cfc, Long.valueOf(this.ceV), Long.valueOf(this.ceW), Long.valueOf(this.ceU), Long.valueOf(this.ceT), Float.valueOf(((float) this.ceV) / ((float) this.ceW)));
+    public String aeD() {
+        String format = String.format("%s, Total: %d, Times: %d, Min: %d, Max: %d, Average：%f", this.clZ, Long.valueOf(this.clS), Long.valueOf(this.clT), Long.valueOf(this.clR), Long.valueOf(this.clQ), Float.valueOf(((float) this.clS) / ((float) this.clT)));
         if (this.mDebug) {
             d(this.mTag, format);
         }

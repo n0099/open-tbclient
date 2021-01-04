@@ -1,10 +1,10 @@
 package com.baidu.tieba.ala.livecard.vc;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes6.dex */
+import androidx.viewpager.widget.ViewPager;
+/* loaded from: classes10.dex */
 public class FrsAlaStageLiveViewPager extends ViewPager {
     public FrsAlaStageLiveViewPager(Context context) {
         super(context);
@@ -15,7 +15,7 @@ public class FrsAlaStageLiveViewPager extends ViewPager {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.view.ViewPager, android.view.View
+    @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public void onMeasure(int i, int i2) {
         int i3 = 0;
         for (int i4 = 0; i4 < getChildCount(); i4++) {

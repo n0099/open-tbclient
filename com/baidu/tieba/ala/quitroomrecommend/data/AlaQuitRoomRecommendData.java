@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.quitroomrecommend.data;
 
 import com.baidu.live.data.AlaLiveInfoData;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaQuitRoomRecommendData extends AlaLiveInfoData {
     public String distance;
     public String labelIcon;

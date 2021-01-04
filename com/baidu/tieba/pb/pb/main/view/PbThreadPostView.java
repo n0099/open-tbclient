@@ -8,17 +8,17 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class PbThreadPostView extends LinearLayout {
-    private f lEP;
-    public View lVP;
-    public TextView lVQ;
-    public TextView lVR;
+    private f lKf;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
+    public View mbe;
+    public TextView mbf;
+    public TextView mbg;
 
     public PbThreadPostView(Context context) {
         this(context, null);
@@ -36,30 +36,30 @@ public class PbThreadPostView extends LinearLayout {
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
-        uo();
+        tN();
     }
 
-    private void uo() {
-        this.lVP = findViewById(R.id.pb_thread_post_container);
-        this.lVQ = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.lVR = (TextView) findViewById(R.id.pb_thread_post_button);
+    private void tN() {
+        this.mbe = findViewById(R.id.pb_thread_post_container);
+        this.mbf = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.mbg = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(f fVar) {
-        this.lEP = fVar;
-        vJ(TbadkCoreApplication.getInst().getSkinType());
+        this.lKf = fVar;
+        vU(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.lVR.setOnClickListener(this.mOnClickListener);
+            this.mbg.setOnClickListener(this.mOnClickListener);
         }
     }
 
-    public void vJ(int i) {
-        ap.setBackgroundColor(this.lVP, R.color.CAM_X0205, i);
-        ap.setViewTextColor(this.lVQ, R.color.CAM_X0107);
-        ap.setViewTextColor(this.lVR, R.color.CAM_X0302);
+    public void vU(int i) {
+        ao.setBackgroundColor(this.mbe, R.color.CAM_X0205, i);
+        ao.setViewTextColor(this.mbf, R.color.CAM_X0107);
+        ao.setViewTextColor(this.mbg, R.color.CAM_X0302);
     }
 }

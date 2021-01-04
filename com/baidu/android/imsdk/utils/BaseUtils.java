@@ -1,9 +1,10 @@
 package com.baidu.android.imsdk.utils;
 
 import android.text.TextUtils;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseUtils {
     public static final String METHOD_RECEIVEESSAGE = "93";
     public static final String METHOD_SENDMESSAGE = "55";
@@ -11,7 +12,7 @@ public abstract class BaseUtils {
     public static String getMd5(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 messageDigest.update(str.getBytes());
                 return Utility.byte2Hex(messageDigest.digest());
             } catch (NoSuchAlgorithmException e) {

@@ -23,7 +23,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class BDLocManager implements Debug {
     private static final String TAG = "loc tiny String";
     private static final long WIFI_SCAN_SPAN_MIN = 10000;
@@ -44,7 +44,7 @@ public class BDLocManager implements Debug {
     private long time = System.currentTimeMillis();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     public class BDCellInfo {
         public int mCid;
         public int mLac;
@@ -80,7 +80,7 @@ public class BDLocManager implements Debug {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     private class CellStateListener extends PhoneStateListener {
         public CellStateListener() {
         }
@@ -98,7 +98,7 @@ public class BDLocManager implements Debug {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     public class WifiList {
         public List<ScanResult> wifiList;
         private long wifiTime;
@@ -149,9 +149,7 @@ public class BDLocManager implements Debug {
 
         public String toString(int i) {
             boolean z;
-            boolean z2;
             int i2;
-            boolean z3;
             if (size() < 1) {
                 return null;
             }
@@ -166,17 +164,11 @@ public class BDLocManager implements Debug {
             int size = this.wifiList.size();
             int i3 = 0;
             int i4 = 0;
-            boolean z4 = true;
-            boolean z5 = z;
-            while (true) {
-                if (i3 >= size) {
-                    z2 = z4;
-                    break;
-                }
+            boolean z2 = true;
+            boolean z3 = z;
+            while (i3 < size) {
                 if (this.wifiList.get(i3).level == 0) {
                     i2 = i4;
-                    z2 = z4;
-                    z3 = z5;
                 } else {
                     String str = this.wifiList.get(i3).BSSID;
                     int i5 = this.wifiList.get(i3).level;
@@ -191,22 +183,17 @@ public class BDLocManager implements Debug {
                             z2 = false;
                         } else {
                             i2 = i4;
-                            z2 = z4;
                         }
-                        if (i2 > i && z5) {
+                        if (i2 > i && z3) {
                             break;
                         }
-                        z3 = z5;
                     } else {
                         BDLocManager.this.connecetWifiLevel = StrictMath.abs(i5);
                         i2 = i4;
-                        z2 = z4;
                         z3 = true;
                     }
                 }
                 i3++;
-                z5 = z3;
-                z4 = z2;
                 i4 = i2;
             }
             String str2 = hasConnectWifi ? "h" + BDLocManager.this.connectWifi + "km" + BDLocManager.this.connecetWifiLevel : null;
@@ -266,7 +253,6 @@ public class BDLocManager implements Debug {
     }
 
     private static String encode(String str) {
-        int i = 0;
         if (str == null) {
             return null;
         }
@@ -275,6 +261,7 @@ public class BDLocManager implements Debug {
         byte nextInt2 = (byte) new Random().nextInt(255);
         byte[] bArr = new byte[bytes.length + 2];
         int length = bytes.length;
+        int i = 0;
         int i2 = 0;
         while (i < length) {
             bArr[i2] = (byte) (bytes[i] ^ nextInt);

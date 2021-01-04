@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.liveness.utils;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LivenessVideoState {
     public static final int STATE_RECOG_FIRST = 1;
     public static final int STATE_RECOG_INIT = 0;
@@ -10,8 +10,10 @@ public class LivenessVideoState {
     public static final int STATE_VIDEO_DONE = 6;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1730a;
-    private long b;
+    private long f2354a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private long f2355b;
     public boolean isLrcTipAnimCalling;
     public boolean isWarningTipAnimCalled;
     public long lrcTextStartTime;
@@ -34,28 +36,28 @@ public class LivenessVideoState {
     }
 
     public String getLrcStartTimeOffset() {
-        return ((this.lrcTextStartTime - this.f1730a) / 1000) + "";
+        return ((this.lrcTextStartTime - this.f2354a) / 1000) + "";
     }
 
     public void setProcessStartTime() {
-        this.f1730a = System.currentTimeMillis();
+        this.f2354a = System.currentTimeMillis();
         setLastFindFaceStartTime();
     }
 
     public boolean isFirstRecogTimeout() {
-        return this.currentState < 5 && System.currentTimeMillis() - this.f1730a > 20000;
+        return this.currentState < 5 && System.currentTimeMillis() - this.f2354a > 20000;
     }
 
     public long getVideoTime() {
-        return (System.currentTimeMillis() - this.f1730a) / 1000;
+        return (System.currentTimeMillis() - this.f2354a) / 1000;
     }
 
     public void setLastFindFaceStartTime() {
-        this.b = System.currentTimeMillis();
+        this.f2355b = System.currentTimeMillis();
     }
 
     public boolean isVideoStateLostFaceTimeout() {
-        return this.currentState == 5 && System.currentTimeMillis() - this.b > 5000;
+        return this.currentState == 5 && System.currentTimeMillis() - this.f2355b > 5000;
     }
 
     public boolean isGotoRecogFace(long[] jArr) {

@@ -8,139 +8,139 @@ import org.json.JSONObject;
 public class c {
     private DownloadStaticsData downloadStaticsData;
     private String extInfo;
-    private JSONObject mNf;
-    private String mNh;
-    private JSONObject mNi;
-    private int mNj;
-    private String mNk;
-    private int mNl;
-    private int mNm;
-    private int mNn;
-    private int mNo;
-    private int mNp;
-    private int mNq;
-    private String mNr;
-    private String mNs;
-    private String mNt;
-    private String mNu;
-    private String mNv;
-    private String mNw;
+    private JSONObject hUL;
+    private String mSA;
+    private String mSB;
+    private String mSC;
+    private String mSD;
+    private String mSE;
+    private String mSF;
+    private JSONObject mSo;
+    private String mSr;
+    private int mSs;
+    private String mSt;
+    private int mSu;
+    private int mSv;
+    private int mSw;
+    private int mSx;
+    private int mSy;
+    private int mSz;
     private String placeId;
-    private int aaN = -1;
-    private int aaP = -1;
+    private int aby = -1;
+    private int abA = -1;
     private int pageNumber = -1;
-    private long mNg = System.currentTimeMillis() / 1000;
+    private long mSq = System.currentTimeMillis() / 1000;
 
     public void setExtInfo(String str) {
         this.extInfo = str;
     }
 
-    public void Jq(int i) {
-        this.aaN = i;
-        if (this.mNi != null) {
+    public void Jk(int i) {
+        this.aby = i;
+        if (this.hUL != null) {
             try {
-                this.mNi.put("da_type", i);
+                this.hUL.put("da_type", i);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void Jr(int i) {
-        this.aaP = i;
+    public void Jl(int i) {
+        this.abA = i;
     }
 
     public void setPageNumber(int i) {
         this.pageNumber = i;
     }
 
-    public void Sp(String str) {
+    public void RX(String str) {
         this.placeId = str;
     }
 
-    public void Sq(String str) {
-        this.mNh = str;
+    public void RY(String str) {
+        this.mSr = str;
     }
 
-    public void Sr(String str) {
+    public void RZ(String str) {
     }
 
-    public void Js(int i) {
-        this.mNm = i;
+    public void Jm(int i) {
+        this.mSv = i;
     }
 
-    public void Jt(int i) {
-        this.mNn = i;
+    public void Jn(int i) {
+        this.mSw = i;
     }
 
-    public void Ju(int i) {
-        this.mNo = i;
+    public void Jo(int i) {
+        this.mSx = i;
     }
 
-    public void Jv(int i) {
-        this.mNp = i;
+    public void Jp(int i) {
+        this.mSy = i;
     }
 
-    public void Jw(int i) {
-        this.mNq = i;
+    public void Jq(int i) {
+        this.mSz = i;
     }
 
-    public void Ss(String str) {
-        this.mNr = str;
+    public void Sa(String str) {
+        this.mSA = str;
     }
 
     public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
         this.downloadStaticsData = downloadStaticsData;
         if (downloadStaticsData != null) {
-            this.aaP = com.baidu.adp.lib.f.b.toInt(downloadStaticsData.getAdPosition(), 0);
-            this.mNh = downloadStaticsData.getPrice();
+            this.abA = com.baidu.adp.lib.f.b.toInt(downloadStaticsData.getAdPosition(), 0);
+            this.mSr = downloadStaticsData.getPrice();
             this.extInfo = downloadStaticsData.getExtensionInfo();
         }
     }
 
-    public void gj(String str, String str2) {
-        if (this.mNf == null) {
-            this.mNf = new JSONObject();
+    public void gg(String str, String str2) {
+        if (this.mSo == null) {
+            this.mSo = new JSONObject();
         }
         try {
-            this.mNf.put(str, str2);
+            this.mSo.put(str, str2);
         } catch (Exception e) {
         }
     }
 
     public JSONObject makeJSONObject() {
-        if (this.mNi != null) {
-            return this.mNi;
+        if (this.hUL != null) {
+            return this.hUL;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.aaP != -1) {
-                jSONObject.put("da_locate", this.aaP);
+            if (this.abA != -1) {
+                jSONObject.put("da_locate", this.abA);
             }
-            if (this.aaN != -1) {
-                jSONObject.put("da_type", this.aaN);
+            if (this.aby != -1) {
+                jSONObject.put("da_type", this.aby);
             }
             jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.mNg);
+            jSONObject.put("origin_time", this.mSq);
             if (this.pageNumber != -1) {
                 jSONObject.put("da_page_num", this.pageNumber);
             }
-            jSONObject.put("da_price", this.mNh);
+            jSONObject.put("da_price", this.mSr);
             jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-            jSONObject.put("ext1", this.mNj);
-            jSONObject.put("ext3", this.mNl);
-            jSONObject.put("ext2", this.mNk);
-            jSONObject.put("da_ext1", this.mNm);
-            jSONObject.put("da_ext2", this.mNn);
-            jSONObject.put("da_ext3", this.mNo);
-            jSONObject.put("da_ext4", this.mNp);
-            jSONObject.put("da_ext5", this.mNq);
-            jSONObject.put("da_menu1", this.mNs);
-            jSONObject.put("da_menu2", this.mNt);
-            jSONObject.put("da_menu3", this.mNu);
-            jSONObject.put("da_page", this.mNv);
+            jSONObject.put("ext1", this.mSs);
+            jSONObject.put("ext3", this.mSu);
+            jSONObject.put("ext2", this.mSt);
+            jSONObject.put("da_ext1", this.mSv);
+            jSONObject.put("da_ext2", this.mSw);
+            jSONObject.put("da_ext3", this.mSx);
+            jSONObject.put("da_ext4", this.mSy);
+            jSONObject.put("da_ext5", this.mSz);
+            jSONObject.put("da_menu1", this.mSB);
+            jSONObject.put("da_menu2", this.mSC);
+            jSONObject.put("da_menu3", this.mSD);
+            jSONObject.put("da_page", this.mSE);
             jSONObject.put("place_id", this.placeId);
-            jSONObject.put("lego_extra", this.mNr);
+            jSONObject.put("lego_extra", this.mSA);
             if (this.downloadStaticsData != null) {
                 jSONObject.put("da_range", this.downloadStaticsData.getDa_range());
                 jSONObject.put("da_range_nt", this.downloadStaticsData.getDa_range_nt());
@@ -148,36 +148,36 @@ public class c {
                 jSONObject.put("da_menu3", this.downloadStaticsData.getFid());
                 jSONObject.put(ConstantData.Logo.LOGO_AD_APK_PACKAGE_NAME, this.downloadStaticsData.getApk_name());
             }
-            jSONObject.put("da_area", this.mNw);
+            jSONObject.put("da_area", this.mSF);
         } catch (JSONException e) {
         }
-        if (this.mNf != null) {
+        if (this.mSo != null) {
             try {
-                jSONObject.put("ext", this.mNf);
+                jSONObject.put("ext", this.mSo);
             } catch (Exception e2) {
             }
         }
-        this.mNi = jSONObject;
+        this.hUL = jSONObject;
         return jSONObject;
     }
 
-    public void St(String str) {
-        this.mNs = str;
+    public void Sb(String str) {
+        this.mSB = str;
     }
 
-    public void Su(String str) {
-        this.mNt = str;
+    public void Sc(String str) {
+        this.mSC = str;
     }
 
-    public void Sv(String str) {
-        this.mNu = str;
+    public void Sd(String str) {
+        this.mSD = str;
     }
 
-    public void Sw(String str) {
-        this.mNv = str;
+    public void Se(String str) {
+        this.mSE = str;
     }
 
-    public void Sx(String str) {
-        this.mNw = str;
+    public void Sf(String str) {
+        this.mSF = str;
     }
 }

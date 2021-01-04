@@ -2,31 +2,31 @@ package com.baidu.ufosdk.ui;
 
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class et implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ er f3869a;
+    final /* synthetic */ er f5859a;
 
     private et(er erVar) {
-        this.f3869a = erVar;
+        this.f5859a = erVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ et(er erVar, byte b) {
+    public /* synthetic */ et(er erVar, byte b2) {
         this(erVar);
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         switch (view.getId()) {
-            case R.xml.null_network_security_config /* 2131165189 */:
-                eu b = er.b(this.f3869a);
-                er.a(this.f3869a).getText().toString();
-                b.a();
+            case R.dimen.L_X06 /* 2131165189 */:
+                eu b2 = er.b(this.f5859a);
+                er.a(this.f5859a).getText().toString();
+                b2.a();
                 return;
-            case R.xml.pass_sdk_file_provider /* 2131165190 */:
-                er.b(this.f3869a).a(er.a(this.f3869a).getText().toString());
+            case R.dimen.M_H_X001 /* 2131165190 */:
+                er.b(this.f5859a).a(er.a(this.f5859a).getText().toString());
                 return;
             default:
                 return;

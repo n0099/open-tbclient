@@ -4,51 +4,51 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.videochat.player.LivePlayer;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private LivePlayer bLh;
-    private com.baidu.live.u.b bLi;
+    private LivePlayer bPU;
+    private com.baidu.live.v.b bPV;
     private Activity mActivity;
 
     public b(Activity activity) {
         this.mActivity = activity;
     }
 
-    public void a(com.baidu.live.u.b bVar) {
-        this.bLi = bVar;
+    public void a(com.baidu.live.v.b bVar) {
+        this.bPV = bVar;
     }
 
     public void e(AlaLiveInfoData alaLiveInfoData) {
-        if (this.bLh == null) {
-            this.bLh = new LivePlayer(this.mActivity);
-            this.bLh.setIPlayerCallBack(new com.baidu.live.u.b() { // from class: com.baidu.live.videochat.a.b.1
-                @Override // com.baidu.live.u.b
-                public void eb(int i) {
-                    if (b.this.bLi != null) {
-                        b.this.bLi.eb(i);
+        if (this.bPU == null) {
+            this.bPU = new LivePlayer(this.mActivity);
+            this.bPU.setIPlayerCallBack(new com.baidu.live.v.b() { // from class: com.baidu.live.videochat.a.b.1
+                @Override // com.baidu.live.v.b
+                public void dY(int i) {
+                    if (b.this.bPV != null) {
+                        b.this.bPV.dY(i);
                     }
                 }
             });
         }
-        this.bLh.c(alaLiveInfoData);
+        this.bPU.c(alaLiveInfoData);
     }
 
-    public void Xt() {
-        if (this.bLh != null) {
-            this.bLh.setIPlayerCallBack(null);
-            this.bLh.cE(true);
-            this.bLh.destroy();
-            this.bLh = null;
+    public void Yz() {
+        if (this.bPU != null) {
+            this.bPU.setIPlayerCallBack(null);
+            this.bPU.cH(true);
+            this.bPU.destroy();
+            this.bPU = null;
         }
     }
 
     public boolean isStarted() {
-        return this.bLh != null;
+        return this.bPU != null;
     }
 
-    public View Xr() {
-        if (this.bLh != null) {
-            return this.bLh.getLivePlayer();
+    public View Yx() {
+        if (this.bPU != null) {
+            return this.bPU.getLivePlayer();
         }
         return null;
     }

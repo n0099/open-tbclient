@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class CommandMessage extends Message {
     public static final String APP_KEY = "appKey";
     public static final String APP_SECRET = "appSecret";
@@ -81,7 +81,6 @@ public class CommandMessage extends Message {
 
     public static List<SubscribeResult> parseToSubscribeResultList(String str, String str2, String str3, String str4) {
         ArrayList arrayList;
-        JSONException e;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -95,16 +94,16 @@ public class CommandMessage extends Message {
                     subscribeResult.setContent(jSONObject.getString(str4));
                     subscribeResult.setSubscribeId(jSONObject.getString(str3));
                     arrayList.add(subscribeResult);
-                } catch (JSONException e2) {
-                    e = e2;
+                } catch (JSONException e) {
+                    e = e;
                     e.printStackTrace();
                     LogUtil.d("parseToSubscribeResultList--" + arrayList);
                     return arrayList;
                 }
             }
-        } catch (JSONException e3) {
+        } catch (JSONException e2) {
+            e = e2;
             arrayList = null;
-            e = e3;
         }
         LogUtil.d("parseToSubscribeResultList--" + arrayList);
         return arrayList;

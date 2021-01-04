@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import javax.crypto.Cipher;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 class e {
     public static void a(byte[] bArr, f fVar) {
         JSONObject jSONObject = new JSONObject(new String(a("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDn6dzi813ZXXfMIeXrxJxtVekfpxksX9N5XPh9g4D94cOvZnYL93PngexbPfGW9T7DhGnPdgRxR6Ux1pGRdTfrL9yK8nR7uCa5Va9IXbNd4T5QPpbmJ5hvmk7qg8GY8BxcC/0M+a5ylVP8bUDq50Y9Si+7g844wOCbrOkzSe920wIDAQAB".getBytes(), bArr)));
@@ -88,49 +88,51 @@ class e {
     }
 
     private static byte[] n(Context context) {
-        InputStream inputStream;
         Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;
+        InputStream inputStream;
+        ByteArrayOutputStream byteArrayOutputStream2;
         byte[] bArr = null;
         try {
             inputStream = context.getAssets().open("dumixar.license");
             try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
-            } catch (IOException e) {
-                byteArrayOutputStream = null;
-            } catch (Throwable th2) {
-                byteArrayOutputStream = null;
-                th = th2;
-            }
-        } catch (IOException e2) {
-            byteArrayOutputStream = null;
-            inputStream = null;
-        } catch (Throwable th3) {
-            inputStream = null;
-            th = th3;
-            byteArrayOutputStream = null;
-        }
-        try {
-            byte[] bArr2 = new byte[512];
-            while (true) {
-                int read = inputStream.read(bArr2);
-                if (read == -1) {
-                    break;
+                byteArrayOutputStream2 = new ByteArrayOutputStream();
+                try {
+                    byte[] bArr2 = new byte[512];
+                    while (true) {
+                        int read = inputStream.read(bArr2);
+                        if (read == -1) {
+                            break;
+                        }
+                        byteArrayOutputStream2.write(bArr2, 0, read);
+                    }
+                    bArr = byteArrayOutputStream2.toByteArray();
+                    com.baidu.ar.h.k.closeQuietly(byteArrayOutputStream2);
+                    com.baidu.ar.h.k.closeQuietly(inputStream);
+                } catch (IOException e) {
+                    com.baidu.ar.h.k.closeQuietly(byteArrayOutputStream2);
+                    com.baidu.ar.h.k.closeQuietly(inputStream);
+                    return bArr;
+                } catch (Throwable th2) {
+                    th = th2;
+                    byteArrayOutputStream = byteArrayOutputStream2;
+                    com.baidu.ar.h.k.closeQuietly(byteArrayOutputStream);
+                    com.baidu.ar.h.k.closeQuietly(inputStream);
+                    throw th;
                 }
-                byteArrayOutputStream.write(bArr2, 0, read);
+            } catch (IOException e2) {
+                byteArrayOutputStream2 = null;
+            } catch (Throwable th3) {
+                th = th3;
+                byteArrayOutputStream = null;
             }
-            bArr = byteArrayOutputStream.toByteArray();
-            com.baidu.ar.h.k.closeQuietly(byteArrayOutputStream);
-            com.baidu.ar.h.k.closeQuietly(inputStream);
         } catch (IOException e3) {
-            com.baidu.ar.h.k.closeQuietly(byteArrayOutputStream);
-            com.baidu.ar.h.k.closeQuietly(inputStream);
-            return bArr;
+            byteArrayOutputStream2 = null;
+            inputStream = null;
         } catch (Throwable th4) {
             th = th4;
-            com.baidu.ar.h.k.closeQuietly(byteArrayOutputStream);
-            com.baidu.ar.h.k.closeQuietly(inputStream);
-            throw th;
+            byteArrayOutputStream = null;
+            inputStream = null;
         }
         return bArr;
     }

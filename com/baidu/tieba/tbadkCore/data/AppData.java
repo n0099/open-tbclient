@@ -8,9 +8,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.switchs.AppLegoSwitch;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
@@ -98,9 +98,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo Oo = com.baidu.tieba.lego.card.b.Oo(str);
-        if (Oo != null) {
-            ICardInfo viewItem = Oo.getViewItem(0, 4);
+        ICardInfo NW = com.baidu.tieba.lego.card.b.NW(str);
+        if (NW != null) {
+            ICardInfo viewItem = NW.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -119,7 +119,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo Oo;
+        ICardInfo NW;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -171,8 +171,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (Oo = com.baidu.tieba.lego.card.b.Oo(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = Oo.getViewItem(0, 1);
+                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (NW = com.baidu.tieba.lego.card.b.NW(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = NW.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -187,7 +187,7 @@ public class AppData extends OrmObject {
         }
     }
 
-    public int bmD() {
+    public int bpe() {
         if (this.goods == null) {
             return 25;
         }
@@ -212,21 +212,21 @@ public class AppData extends OrmObject {
                 return 41;
             }
             return 32;
-        } else if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.k.blV().isShowImages() && !this.legoCard.isNoPicAd()) {
+        } else if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.k.bou().isShowImages() && !this.legoCard.isNoPicAd()) {
             return 34;
         } else {
             if (this.legoCard.getCardType() == 12) {
                 return 12;
             }
-            if (!by.eJH.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
+            if (!bz.eTA.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
                 return 31;
             }
             if (this.url_type == 3) {
-                if (!bmE()) {
+                if (!bpf()) {
                     return 26;
                 }
             } else if (this.url_type == 1) {
-                if (!bmF()) {
+                if (!bpg()) {
                     return 27;
                 }
             } else {
@@ -236,11 +236,11 @@ public class AppData extends OrmObject {
         }
     }
 
-    public boolean bmE() {
+    public boolean bpf() {
         return (this.goods == null || this.goods.goods_style != 1001) && this.url_type == 3 && !StringUtils.isNull(this.apk_name) && !StringUtils.isNull(this.apk_url);
     }
 
-    public boolean bmF() {
+    public boolean bpg() {
         if (this.goods == null || this.goods.goods_style != 1001) {
             if (this.goods == null || this.goods.goods_style != -1001) {
                 if (this.url_type == 1) {
@@ -330,7 +330,7 @@ public class AppData extends OrmObject {
             this.id = goodsInfo.id.intValue();
             this.user_name = goodsInfo.user_name;
             this.user_portrait = goodsInfo.user_portrait;
-            this.thread_title = au.cutStringWithSuffix(goodsInfo.thread_title, 29, StringHelper.STRING_MORE);
+            this.thread_title = at.cutStringWithSuffix(goodsInfo.thread_title, 29, StringHelper.STRING_MORE);
             this.thread_pic = goodsInfo.thread_pic;
             this.pop_window_text = goodsInfo.pop_window_text;
             this.goods_style = goodsInfo.goods_style.intValue();

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static void n(SwanAppActivity swanAppActivity) {
         Intent intent;
@@ -19,11 +19,11 @@ public class a {
             }
             bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
             bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
-            com.baidu.swan.apps.runtime.d.aJQ().y(new String[0]);
+            com.baidu.swan.apps.runtime.d.aMg().F(new String[0]);
             bundle.remove("pms_db_info_onload");
             bundle.remove("pms_db_info_updated");
-            bundle.putString("launch_id", SwanLauncher.avM());
-            com.baidu.swan.apps.runtime.d.aJQ().e(bundle, "update_tag_by_activity_on_relaunch");
+            bundle.putString("launch_id", SwanLauncher.axe());
+            com.baidu.swan.apps.runtime.d.aMg().e(bundle, "update_tag_by_activity_on_relaunch");
         }
     }
 }

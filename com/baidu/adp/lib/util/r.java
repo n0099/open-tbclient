@@ -18,31 +18,32 @@ public class r {
             th = th;
             cursor = null;
         }
-        if (cursor == null) {
-            return null;
-        }
-        while (cursor.moveToNext()) {
-            try {
-                l.b bVar = new l.b();
-                bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.lastSaveTime = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.timeToExpire = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.value = cursor.getString(cursor.getColumnIndex("m_value"));
-                linkedList.add(bVar);
-            } catch (Throwable th2) {
-                th = th2;
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
                 try {
-                    BdLog.e(th);
-                    Collections.sort(linkedList, new a());
-                    return linkedList;
-                } finally {
-                    com.baidu.adp.lib.f.a.close(cursor);
+                    l.b bVar = new l.b();
+                    bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.lastSaveTime = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    bVar.timeToExpire = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.value = cursor.getString(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        com.baidu.adp.lib.f.a.close(cursor);
+                        Collections.sort(linkedList, new a());
+                        return linkedList;
+                    } finally {
+                        com.baidu.adp.lib.f.a.close(cursor);
+                    }
                 }
             }
+            Collections.sort(linkedList, new a());
+            return linkedList;
         }
         com.baidu.adp.lib.f.a.close(cursor);
-        Collections.sort(linkedList, new a());
-        return linkedList;
+        return null;
     }
 
     /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
@@ -55,39 +56,40 @@ public class r {
             th = th;
             cursor = null;
         }
-        if (cursor == null) {
-            return null;
-        }
-        while (cursor.moveToNext()) {
-            try {
-                l.b bVar = new l.b();
-                bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.lastSaveTime = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.timeToExpire = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.value = cursor.getBlob(cursor.getColumnIndex("m_value"));
-                linkedList.add(bVar);
-            } catch (Throwable th2) {
-                th = th2;
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
                 try {
-                    BdLog.e(th);
-                    Collections.sort(linkedList, new a());
-                    return linkedList;
-                } finally {
-                    com.baidu.adp.lib.f.a.close(cursor);
+                    l.b bVar = new l.b();
+                    bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.lastSaveTime = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    bVar.timeToExpire = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.value = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        com.baidu.adp.lib.f.a.close(cursor);
+                        Collections.sort(linkedList, new a());
+                        return linkedList;
+                    } finally {
+                        com.baidu.adp.lib.f.a.close(cursor);
+                    }
                 }
             }
+            Collections.sort(linkedList, new a());
+            return linkedList;
         }
         com.baidu.adp.lib.f.a.close(cursor);
-        Collections.sort(linkedList, new a());
-        return linkedList;
+        return null;
     }
 
     private static Cursor d(com.baidu.adp.lib.cache.l<?> lVar) {
         if (lVar != null && (lVar instanceof l.c)) {
             l.c cVar = (l.c) lVar;
-            if (cVar.mb() instanceof com.baidu.adp.lib.cache.j) {
-                com.baidu.adp.lib.cache.c lY = ((com.baidu.adp.lib.cache.j) cVar.mb()).lY();
-                return lY.queryAllForNameSpace(lY.lV().getOpenedDatabase(), cVar.getNameSpace());
+            if (cVar.lz() instanceof com.baidu.adp.lib.cache.j) {
+                com.baidu.adp.lib.cache.c lw = ((com.baidu.adp.lib.cache.j) cVar.lz()).lw();
+                return lw.queryAllForNameSpace(lw.lt().getOpenedDatabase(), cVar.getNameSpace());
             }
             return null;
         }

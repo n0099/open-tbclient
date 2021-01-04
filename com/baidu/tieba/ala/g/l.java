@@ -12,18 +12,18 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.data.PkInfoData;
 import com.baidu.tieba.ala.messages.GetPkInfoResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class l extends BdBaseModel {
-    private Runnable hIq;
+    private Runnable hUq;
     boolean loop = false;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private HttpMessageListener messageListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(PkInfoData pkInfoData);
 
-        void bo(int i, String str);
+        void bq(int i, String str);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -38,7 +38,7 @@ public class l extends BdBaseModel {
 
     public void a(final long j, final long j2, final long j3, final long j4, final int i) {
         this.loop = true;
-        this.hIq = new Runnable() { // from class: com.baidu.tieba.ala.g.l.1
+        this.hUq = new Runnable() { // from class: com.baidu.tieba.ala.g.l.1
             @Override // java.lang.Runnable
             public void run() {
                 l.this.a(j, j2, j3, j4, i);
@@ -54,7 +54,7 @@ public class l extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        cmg();
+        coX();
         b(aVar);
     }
 
@@ -66,17 +66,17 @@ public class l extends BdBaseModel {
                 if (httpResponsedMessage.getCmd() == 1021213 && (httpResponsedMessage instanceof GetPkInfoResponseMessage)) {
                     GetPkInfoResponseMessage getPkInfoResponseMessage = (GetPkInfoResponseMessage) httpResponsedMessage;
                     if (!getPkInfoResponseMessage.isSuccess()) {
-                        aVar.bo(getPkInfoResponseMessage.getError(), getPkInfoResponseMessage.getErrorString());
+                        aVar.bq(getPkInfoResponseMessage.getError(), getPkInfoResponseMessage.getErrorString());
                         if (l.this.loop) {
-                            l.this.mHandler.postDelayed(l.this.hIq, 2000L);
+                            l.this.mHandler.postDelayed(l.this.hUq, 2000L);
                         }
-                    } else if (getPkInfoResponseMessage.clV() != null) {
-                        aVar.a(getPkInfoResponseMessage.clV());
+                    } else if (getPkInfoResponseMessage.coM() != null) {
+                        aVar.a(getPkInfoResponseMessage.coM());
                         if (l.this.loop) {
-                            l.this.mHandler.postDelayed(l.this.hIq, getPkInfoResponseMessage.clV().pkInfoInterval);
+                            l.this.mHandler.postDelayed(l.this.hUq, getPkInfoResponseMessage.coM().pkInfoInterval);
                         }
                     } else if (l.this.loop) {
-                        l.this.mHandler.postDelayed(l.this.hIq, 5000L);
+                        l.this.mHandler.postDelayed(l.this.hUq, 5000L);
                     }
                 }
             }
@@ -84,7 +84,7 @@ public class l extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void cmg() {
+    private void coX() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021213, TbConfig.SERVER_ADDRESS + "ala/pksolo/getPkInfo");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -94,16 +94,16 @@ public class l extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cmh() {
+    public void coY() {
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021213);
     }
 
-    public void hJ(boolean z) {
+    public void ib(boolean z) {
         this.loop = z;
     }
 
-    public boolean isLoop() {
+    public boolean aLf() {
         return this.loop;
     }
 }

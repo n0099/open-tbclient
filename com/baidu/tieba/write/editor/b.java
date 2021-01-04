@@ -7,83 +7,83 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d.e;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.c.e;
+/* loaded from: classes8.dex */
 public class b extends m {
     private Context context;
 
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.fuW = false;
+        this.fEC = false;
         this.context = context;
-        this.fuV = 3;
-        this.fub = new EditorInfoContainer(context, str);
-        this.fuX = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
+        this.fEB = 3;
+        this.fDH = new EditorInfoContainer(context, str);
+        this.fED = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
-    public void dyt() {
+    public void dyi() {
         BaseActivity baseActivity = (BaseActivity) this.context;
-        e eVar = new e(baseActivity.getPageContext(), (View) this.fub);
-        eVar.fO(R.drawable.bg_tip_blue_left_less_than_right_down);
-        eVar.fN(16);
-        eVar.pf(true);
+        e eVar = new e(baseActivity.getPageContext(), (View) this.fDH);
+        eVar.fP(R.drawable.bg_tip_blue_left_less_than_right_down);
+        eVar.fO(16);
+        eVar.pD(true);
         eVar.setAnchor(2);
         eVar.setUseDirectOffset(true);
-        eVar.yt(l.getDimens(baseActivity, R.dimen.ds32));
-        eVar.yq(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
-        eVar.yr(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
-        eVar.fP((int) IMConnection.RETRY_DELAY_TIMES);
-        eVar.pe(false);
-        if (eVar.A(baseActivity.getString(R.string.write_location_topic_hint_title), "write_hint_tip_key", true)) {
-            ((EditorInfoContainer) this.fub).hM(IMConnection.RETRY_DELAY_TIMES);
+        eVar.yH(l.getDimens(baseActivity, R.dimen.ds32));
+        eVar.yE(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
+        eVar.yF(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
+        eVar.fQ((int) IMConnection.RETRY_DELAY_TIMES);
+        eVar.pC(false);
+        if (eVar.C(baseActivity.getString(R.string.write_location_topic_hint_title), "write_hint_tip_key", true)) {
+            ((EditorInfoContainer) this.fDH).hG(IMConnection.RETRY_DELAY_TIMES);
         }
     }
 
     public void setFrom(String str) {
-        if (this.fub instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fub).setFrom(str);
+        if (this.fDH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fDH).setFrom(str);
         }
     }
 
-    public void bS(String str, int i) {
-        if (this.fub instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fub).bS(str, i);
+    public void bZ(String str, int i) {
+        if (this.fDH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fDH).bZ(str, i);
         }
     }
 
-    public void ML(int i) {
-        if (this.fub instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fub).ML(i);
+    public void My(int i) {
+        if (this.fDH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fDH).My(i);
         }
     }
 
-    public void zk(boolean z) {
-        if (this.fub instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fub).zk(z);
+    public void zm(boolean z) {
+        if (this.fDH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fDH).zm(z);
         }
     }
 
-    public void cwe() {
-        if (this.fub instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fub).cwe();
+    public void cyX() {
+        if (this.fDH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fDH).cyX();
         }
     }
 
-    public void dZb() {
-        if (this.fub instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fub).dZb();
+    public void dYI() {
+        if (this.fDH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fDH).dYI();
         }
     }
 
-    public void dZd() {
-        if (this.fub instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fub).hide();
+    public void dYK() {
+        if (this.fDH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fDH).hide();
         }
     }
 
-    public void zl(boolean z) {
-        if (this.fub instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fub).zl(z);
+    public void zn(boolean z) {
+        if (this.fDH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.fDH).zn(z);
         }
     }
 }

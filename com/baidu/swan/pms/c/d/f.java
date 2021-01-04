@@ -1,63 +1,63 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes6.dex */
 public class f extends g {
-    private String eob;
-    private String eoe;
-    private String eog;
-    private int eoh;
-    private String eoj;
-    private int eol;
+    private String exJ;
+    private String exM;
+    private String exN;
+    private int exO;
+    private String exQ;
+    private int exT;
 
     public f(String str, int i, String str2, int i2) {
         super(i2);
-        this.eoh = -1;
-        this.eob = str;
-        this.eoj = str2;
-        this.eol = i;
+        this.exO = -1;
+        this.exJ = str;
+        this.exQ = str2;
+        this.exT = i;
     }
 
     public f(String str, String str2, String str3, int i) {
         super(i);
-        this.eoh = -1;
-        this.eob = str;
-        this.eoj = str3;
+        this.exO = -1;
+        this.exJ = str;
+        this.exQ = str3;
         try {
-            this.eol = Integer.valueOf(str2).intValue();
+            this.exT = Integer.valueOf(str2).intValue();
         } catch (NumberFormatException e) {
-            this.eol = 0;
+            this.exT = 0;
         }
     }
 
-    public f za(String str) {
-        this.eoe = str;
+    public f yZ(String str) {
+        this.exM = str;
         return this;
     }
 
-    public int bey() {
-        return this.eoh;
+    public int bgT() {
+        return this.exO;
     }
 
-    public void zb(String str) {
-        this.eog = str;
+    public void za(String str) {
+        this.exN = str;
     }
 
     public String getBundleId() {
-        return this.eob;
+        return this.exJ;
     }
 
-    public String beD() {
-        return this.eoj;
+    public String bgY() {
+        return this.exQ;
     }
 
-    public int beF() {
-        return this.eol;
+    public int bha() {
+        return this.exT;
     }
 
-    public String bez() {
-        return this.eoe;
+    public String bgU() {
+        return this.exM;
     }
 
-    public String beA() {
-        return this.eog;
+    public String bgV() {
+        return this.exN;
     }
 }

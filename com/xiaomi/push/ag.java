@@ -13,57 +13,67 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class ag {
     public static boolean a(Context context, String str, long j) {
+        FileLock fileLock;
         RandomAccessFile randomAccessFile;
-        FileLock fileLock = null;
         boolean z = true;
         if (Build.VERSION.SDK_INT < 23 || g.c(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             try {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp.lock");
-                y.m583a(file);
+                y.m609a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
+            } catch (IOException e) {
+                e = e;
+                fileLock = null;
+                randomAccessFile = null;
+            } catch (Throwable th) {
+                th = th;
+                fileLock = null;
+                randomAccessFile = null;
+            }
+            try {
+                fileLock = randomAccessFile.getChannel().lock();
                 try {
                     try {
-                        fileLock = randomAccessFile.getChannel().lock();
                         z = b(context, str, j);
                         if (fileLock != null && fileLock.isValid()) {
                             try {
                                 fileLock.release();
-                            } catch (IOException e) {
+                            } catch (IOException e2) {
                             }
                         }
                         y.a(randomAccessFile);
-                    } catch (IOException e2) {
-                        e = e2;
+                    } catch (IOException e3) {
+                        e = e3;
                         e.printStackTrace();
                         if (fileLock != null && fileLock.isValid()) {
                             try {
                                 fileLock.release();
-                            } catch (IOException e3) {
+                            } catch (IOException e4) {
                             }
                         }
                         y.a(randomAccessFile);
                         return z;
                     }
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                     if (fileLock != null && fileLock.isValid()) {
                         try {
                             fileLock.release();
-                        } catch (IOException e4) {
+                        } catch (IOException e5) {
                         }
                     }
                     y.a(randomAccessFile);
                     throw th;
                 }
-            } catch (IOException e5) {
-                e = e5;
-                randomAccessFile = null;
-            } catch (Throwable th2) {
-                th = th2;
-                randomAccessFile = null;
+            } catch (IOException e6) {
+                e = e6;
+                fileLock = null;
+            } catch (Throwable th3) {
+                th = th3;
+                fileLock = null;
                 if (fileLock != null) {
                     fileLock.release();
                 }
@@ -74,14 +84,14 @@ public class ag {
         return z;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00d1 A[Catch: IOException -> 0x00e1, all -> 0x010c, LOOP:1: B:30:0x00cb->B:32:0x00d1, LOOP_END, TRY_LEAVE, TryCatch #4 {IOException -> 0x00e1, blocks: (B:29:0x00c7, B:30:0x00cb, B:32:0x00d1), top: B:63:0x00c7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00d1 A[Catch: IOException -> 0x00e1, all -> 0x010b, LOOP:1: B:30:0x00cb->B:32:0x00d1, LOOP_END, TRY_LEAVE, TryCatch #4 {IOException -> 0x00e1, blocks: (B:29:0x00c7, B:30:0x00cb, B:32:0x00d1), top: B:63:0x00c7 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static boolean b(Context context, String str, long j) {
         BufferedWriter bufferedWriter;
-        BufferedReader bufferedReader;
         Throwable th;
+        BufferedReader bufferedReader;
         File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp");
         ArrayList<String> arrayList = new ArrayList();
         long currentTimeMillis = System.currentTimeMillis();
@@ -89,12 +99,12 @@ public class ag {
         if (file.exists()) {
             BufferedReader bufferedReader2 = null;
             try {
-                bufferedReader = new BufferedReader(new FileReader(file));
+                BufferedReader bufferedReader3 = new BufferedReader(new FileReader(file));
                 while (true) {
                     try {
-                        String readLine = bufferedReader.readLine();
+                        String readLine = bufferedReader3.readLine();
                         if (readLine == null) {
-                            y.a(bufferedReader);
+                            y.a(bufferedReader3);
                             break;
                         }
                         String[] split = readLine.split(":");
@@ -104,7 +114,7 @@ public class ag {
                                 if (split2.length == 2) {
                                     long parseLong = Long.parseLong(split2[1]);
                                     if (!TextUtils.equals(split2[0], context.getPackageName()) && ((float) Math.abs(currentTimeMillis - parseLong)) < ((float) (1000 * j)) * 0.9f) {
-                                        y.a(bufferedReader);
+                                        y.a(bufferedReader3);
                                         return false;
                                     }
                                 } else {
@@ -115,7 +125,7 @@ public class ag {
                             }
                         }
                     } catch (Exception e) {
-                        bufferedReader2 = bufferedReader;
+                        bufferedReader2 = bufferedReader3;
                         try {
                             arrayList.clear();
                             y.a(bufferedReader2);
@@ -139,23 +149,24 @@ public class ag {
                                 throw th;
                             }
                         } catch (Throwable th3) {
-                            bufferedReader = bufferedReader2;
                             th = th3;
+                            bufferedReader = bufferedReader2;
                             y.a(bufferedReader);
                             throw th;
                         }
                     } catch (Throwable th4) {
                         th = th4;
+                        bufferedReader = bufferedReader3;
                         y.a(bufferedReader);
                         throw th;
                     }
                 }
             } catch (Exception e3) {
             } catch (Throwable th5) {
-                bufferedReader = null;
                 th = th5;
+                bufferedReader = null;
             }
-        } else if (!y.m583a(file)) {
+        } else if (!y.m609a(file)) {
             return true;
         }
         arrayList.add(str2);

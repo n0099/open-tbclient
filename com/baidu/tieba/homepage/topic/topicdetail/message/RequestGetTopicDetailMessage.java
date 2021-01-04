@@ -2,16 +2,16 @@ package com.baidu.tieba.homepage.topic.topicdetail.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.CommonReq;
 import tbclient.NewHottopic.DataReq;
 import tbclient.NewHottopic.NewHottopicReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class RequestGetTopicDetailMessage extends NetMessage {
     private String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3687common;
+    private CommonReq f5615common;
     private long topicId;
 
     public RequestGetTopicDetailMessage() {
@@ -19,7 +19,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f3687common = commonReq;
+        this.f5615common = commonReq;
     }
 
     public void setTopicId(long j) {
@@ -33,11 +33,11 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f5073common = this.f3687common;
+        builder.f14866common = this.f5615common;
         builder.topic_id = Long.valueOf(this.topicId);
         builder.call_from = this.callFrom;
         if (z) {
-            u.a(builder, true);
+            t.b(builder, true);
         }
         NewHottopicReqIdl.Builder builder2 = new NewHottopicReqIdl.Builder();
         builder2.data = builder.build(false);

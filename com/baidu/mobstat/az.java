@@ -10,14 +10,16 @@ import android.view.Window;
 import android.webkit.WebView;
 import com.baidu.mobstat.al;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class az {
     private static final az k = new az();
     private static volatile boolean l = true;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2575a;
-    private Activity b;
+    private Context f3770a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Activity f3771b;
     private volatile boolean c;
     private volatile boolean d;
     private volatile String e;
@@ -94,8 +96,8 @@ public class az {
     public void a(Activity activity) {
         if (d()) {
             a(true);
-            this.f2575a = activity.getApplicationContext();
-            this.b = activity;
+            this.f3770a = activity.getApplicationContext();
+            this.f3771b = activity;
             e();
             c(activity);
             a(activity, true);
@@ -129,15 +131,15 @@ public class az {
 
     public void b(Activity activity) {
         if (d()) {
-            d(this.b);
-            this.b = null;
+            d(this.f3771b);
+            this.f3771b = null;
             a(activity, false);
         }
     }
 
     public void a(WebView webView, String str, bl blVar) {
         if (TextUtils.isEmpty(this.e)) {
-            this.e = bo.a(this.f2575a, "mtj_autoTracker.js");
+            this.e = bo.a(this.f3770a, "mtj_autoTracker.js");
         }
         b(webView, this.e, blVar);
     }
@@ -147,14 +149,14 @@ public class az {
     }
 
     private void e() {
-        if (bw.s(this.f2575a) && !this.c) {
+        if (bw.s(this.f3770a) && !this.c) {
             if (!this.d) {
-                this.e = bo.a(this.f2575a, "mtj_autoTracker.js");
+                this.e = bo.a(this.f3770a, "mtj_autoTracker.js");
                 this.d = true;
             }
             if (this.f == 0) {
-                this.f = bq.a().n(this.f2575a);
-                this.g = bq.a().o(this.f2575a);
+                this.f = bq.a().n(this.f3770a);
+                this.g = bq.a().o(this.f3770a);
             }
             if ((this.d && TextUtils.isEmpty(this.e)) || System.currentTimeMillis() - this.f > this.g) {
                 f();
@@ -167,10 +169,10 @@ public class az {
             @Override // java.lang.Runnable
             public void run() {
                 if (!az.this.c) {
-                    boolean a2 = bg.a(az.this.f2575a, az.this.h, 1, false);
+                    boolean a2 = bg.a(az.this.f3770a, az.this.h, 1, false);
                     az.this.c = true;
                     if (a2) {
-                        az.this.e = bo.a(az.this.f2575a, "mtj_autoTracker.js");
+                        az.this.e = bo.a(az.this.f3770a, "mtj_autoTracker.js");
                     }
                 }
             }
@@ -181,7 +183,7 @@ public class az {
 
     private void b(WebView webView, String str, bl blVar) {
         if (blVar != null) {
-            blVar.a(this.b, webView, str, (JSONObject) null, false);
+            blVar.a(this.f3771b, webView, str, (JSONObject) null, false);
         }
     }
 }

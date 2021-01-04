@@ -1,53 +1,25 @@
 package com.baidu.tieba.frs.forumRule.a;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
-import java.util.ArrayList;
+import com.baidu.tieba.frs.forumRule.b.c;
 import java.util.List;
-/* loaded from: classes22.dex */
-public class a {
-    private BdTypeRecyclerView Yf;
-    private final List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
-    private f jhf;
-    private d jhg;
-    private b jhh;
-    private String mFrom;
+/* loaded from: classes2.dex */
+public interface a {
 
-    public a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
-        a(forumRulesShowActivity, bdTypeRecyclerView);
-    }
+    /* renamed from: com.baidu.tieba.frs.forumRule.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0735a {
+        void KT(String str);
 
-    private void a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.Yf = bdTypeRecyclerView;
-        this.jhf = new f(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.c.b.TYPE);
-        this.jhg = new d(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.c.c.jhN);
-        this.jhh = new b(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.c.a.jhI);
-        this.bnf.add(this.jhf);
-        this.bnf.add(this.jhg);
-        this.bnf.add(this.jhh);
-        bdTypeRecyclerView.addAdapters(this.bnf);
-    }
+        void a(com.baidu.tieba.frs.forumRule.b.a aVar);
 
-    public void setFrom(String str) {
-        this.mFrom = str;
-        if (this.jhf != null) {
-            this.jhf.setFrom(str);
-        }
-        if (this.jhh != null) {
-            this.jhh.setFrom(str);
-        }
-    }
+        void a(com.baidu.tieba.frs.forumRule.b.b bVar);
 
-    public void setData(List<q> list) {
-        if (this.Yf != null) {
-            this.Yf.setData(list);
-        }
-        if (this.jhg != null) {
-            this.jhg.setData(list);
-        }
-    }
+        void bFH();
 
-    public void onChangeSkinType(int i) {
+        void du(List<c> list);
+
+        void finish();
+
+        void t(boolean z, String str);
     }
 }

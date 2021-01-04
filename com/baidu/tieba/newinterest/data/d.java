@@ -1,13 +1,13 @@
 package com.baidu.tieba.newinterest.data;
 
 import tbclient.RecommendForumInfo;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class d {
-    public RecommendForumInfo lwn;
+    public RecommendForumInfo lBv;
     public boolean selected;
 
     public d(RecommendForumInfo recommendForumInfo, boolean z) {
-        this.lwn = recommendForumInfo;
+        this.lBv = recommendForumInfo;
         this.selected = z;
     }
 }

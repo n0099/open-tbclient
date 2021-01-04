@@ -6,12 +6,14 @@ import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.ResUtils;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class BeanActivity extends BaseActivity implements IBeanResponseCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1451a = "BaseActivity";
-    private Handler b = null;
+    private static final String f1918a = "BaseActivity";
+
+    /* renamed from: b  reason: collision with root package name */
+    private Handler f1919b = null;
     public BeanActivity mAct;
 
     @Override // com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
@@ -44,10 +46,10 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
     }
 
     private Handler a() {
-        if (this.b == null) {
-            this.b = new Handler(getMainLooper());
+        if (this.f1919b == null) {
+            this.f1919b = new Handler(getMainLooper());
         }
-        return this.b;
+        return this.f1919b;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback

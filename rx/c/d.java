@@ -2,7 +2,7 @@ package rx.c;
 
 import rx.d;
 import rx.k;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public abstract class d {
     @Deprecated
     public <T> d.a<T> b(d.a<T> aVar) {
@@ -20,7 +20,7 @@ public abstract class d {
     }
 
     @Deprecated
-    public <T> Throwable W(Throwable th) {
+    public <T> Throwable ab(Throwable th) {
         return th;
     }
 

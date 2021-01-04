@@ -2,13 +2,13 @@ package com.baidu.live.videochat.panel.a;
 
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
     public String appId;
-    public String bNA;
-    public int bNx;
-    public String bNy;
-    public String bNz;
+    public int bSk;
+    public String bSl;
+    public String bSm;
+    public String bSn;
     public String cuid;
     public String liveId;
     public String portrait;
@@ -21,14 +21,14 @@ public class a {
             this.userId = jSONObject.optString("user_id");
             this.userName = jSONObject.optString("show_name");
             this.portrait = jSONObject.optString("portrait");
-            this.bNx = jSONObject.optInt("liveconnect_status");
+            this.bSk = jSONObject.optInt("liveconnect_status");
             this.cuid = jSONObject.optString("cuid");
             this.appId = jSONObject.optString("appid");
-            this.bNy = jSONObject.optString(HttpRequest.SUBAPP_VERSION);
+            this.bSl = jSONObject.optString(HttpRequest.SUBAPP_VERSION);
             this.liveId = jSONObject.optString("live_id");
             this.roomId = jSONObject.optString("room_id");
-            this.bNz = jSONObject.optString("im_uk");
-            this.bNA = jSONObject.optString("uk");
+            this.bSm = jSONObject.optString("im_uk");
+            this.bSn = jSONObject.optString("uk");
         }
     }
 }

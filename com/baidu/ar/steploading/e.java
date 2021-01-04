@@ -17,7 +17,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 class e extends com.baidu.ar.e.a<String, String> {
     private IHttpRequest bR;
     private WeakReference<Context> wn;
@@ -87,38 +87,38 @@ class e extends com.baidu.ar.e.a<String, String> {
 
                 @Override // com.baidu.ar.ihttp.a
                 public void a(IHttpResponse iHttpResponse) {
-                    int i;
+                    String message;
                     JSONException jSONException;
-                    String str3 = null;
+                    int i = 0;
                     if (iHttpResponse.isSuccess()) {
                         try {
                             String aO = e.this.aO(iHttpResponse.getContent());
                             if (iCallbackWith != null) {
                                 iCallbackWith.run(aO);
                             }
-                            i = 0;
+                            message = null;
                             jSONException = null;
                         } catch (JSONException e) {
                             e.printStackTrace();
                             i = 3;
-                            str3 = e.getMessage();
+                            message = e.getMessage();
                             jSONException = e;
                         } catch (Exception e2) {
                             e2.printStackTrace();
                             i = 1;
-                            str3 = e2.getMessage();
+                            message = e2.getMessage();
                             jSONException = e2;
                         }
                     } else {
-                        i = 0;
+                        message = null;
                         jSONException = null;
                     }
-                    if (TextUtils.isEmpty(str3)) {
+                    if (TextUtils.isEmpty(message)) {
                         return;
                     }
                     StatisticApi.onEvent(StatisticConstants.LOAD_QUERY_FAILURE);
                     if (iError != null) {
-                        iError.onError(i, str3, jSONException);
+                        iError.onError(i, message, jSONException);
                     }
                 }
             });

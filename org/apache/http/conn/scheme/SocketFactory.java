@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public interface SocketFactory {
     Socket connectSocket(Socket socket, String str, int i, InetAddress inetAddress, int i2, HttpParams httpParams) throws IOException, UnknownHostException, ConnectTimeoutException;
 

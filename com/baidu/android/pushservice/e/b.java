@@ -32,19 +32,21 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public static class a extends SSLSocketFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private HostnameVerifier f1077a = HttpsURLConnection.getDefaultHostnameVerifier();
-        private HttpsURLConnection b;
+        private HostnameVerifier f1286a = HttpsURLConnection.getDefaultHostnameVerifier();
+
+        /* renamed from: b  reason: collision with root package name */
+        private HttpsURLConnection f1287b;
 
         a(HttpsURLConnection httpsURLConnection) {
-            this.b = httpsURLConnection;
+            this.f1287b = httpsURLConnection;
         }
 
         @Override // javax.net.SocketFactory
@@ -74,7 +76,7 @@ public class b {
 
         @Override // javax.net.ssl.SSLSocketFactory
         public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-            String requestProperty = this.b.getRequestProperty("Host");
+            String requestProperty = this.f1287b.getRequestProperty("Host");
             if (!TextUtils.isEmpty(requestProperty)) {
                 str = requestProperty;
             }
@@ -93,7 +95,7 @@ public class b {
                 } catch (Throwable th) {
                 }
             }
-            if (this.f1077a.verify(str, sSLSocket.getSession())) {
+            if (this.f1286a.verify(str, sSLSocket.getSession())) {
                 return sSLSocket;
             }
             throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);
@@ -269,36 +271,34 @@ public class b {
         DataOutputStream dataOutputStream;
         OutputStream outputStream;
         DataOutputStream dataOutputStream2;
-        OutputStream outputStream2 = null;
         boolean z = (hashMap == null || hashMap.isEmpty()) ? false : true;
         try {
             outputStream = httpURLConnection.getOutputStream();
             try {
                 dataOutputStream = new DataOutputStream(outputStream);
-            } catch (Exception e) {
-                dataOutputStream2 = null;
-                outputStream2 = outputStream;
-            } catch (Throwable th) {
-                th = th;
-                dataOutputStream = null;
-            }
-            try {
-                dataOutputStream.write(a(hashMap).getBytes("UTF-8"));
-                dataOutputStream.flush();
-                a(context, dataOutputStream, outputStream);
-                return z;
+                try {
+                    dataOutputStream.write(a(hashMap).getBytes("UTF-8"));
+                    dataOutputStream.flush();
+                    a(context, dataOutputStream, outputStream);
+                    return z;
+                } catch (Exception e) {
+                    dataOutputStream2 = dataOutputStream;
+                    a(context, dataOutputStream2, outputStream);
+                    return false;
+                } catch (Throwable th) {
+                    th = th;
+                    a(context, dataOutputStream, outputStream);
+                    throw th;
+                }
             } catch (Exception e2) {
-                dataOutputStream2 = dataOutputStream;
-                outputStream2 = outputStream;
-                a(context, dataOutputStream2, outputStream2);
-                return false;
+                dataOutputStream2 = null;
             } catch (Throwable th2) {
                 th = th2;
-                a(context, dataOutputStream, outputStream);
-                throw th;
+                dataOutputStream = null;
             }
         } catch (Exception e3) {
             dataOutputStream2 = null;
+            outputStream = null;
         } catch (Throwable th3) {
             th = th3;
             dataOutputStream = null;

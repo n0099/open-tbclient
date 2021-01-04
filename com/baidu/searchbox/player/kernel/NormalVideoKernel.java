@@ -1,10 +1,10 @@
 package com.baidu.searchbox.player.kernel;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
@@ -14,7 +14,7 @@ import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class NormalVideoKernel extends AbsVideoKernel {
     private static final String TAG = "NormalVideoKernel";
     private BVideoView mVideoView = new BVideoView(BDPlayerConfig.getAppContext());
@@ -78,8 +78,8 @@ public class NormalVideoKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public View getBVideoView() {
         return this.mVideoView;
     }

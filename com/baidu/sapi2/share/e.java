@@ -32,16 +32,18 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3522a = "share_account";
-    private static final String b = "share_fail_reason";
+    private static final String f5349a = "share_account";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f5350b = "share_fail_reason";
     static final int c = 87;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Comparator<Map.Entry<Intent, Integer>> {
         a() {
         }
@@ -55,19 +57,19 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ SapiContext f3523a;
+        final /* synthetic */ SapiContext f5351a;
 
         b(SapiContext sapiContext) {
-            this.f3523a = sapiContext;
+            this.f5351a = sapiContext;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f3523a.getCurrentAccount() != null) {
+            if (this.f5351a.getCurrentAccount() != null) {
                 SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, "slient_share");
                 SapiAccountManager.getSilentShareListener().onSilentShare();
             }
@@ -133,10 +135,9 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void c() {
-        int i = 0;
         SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
         Context context = confignation.context;
-        if (SapiUtils.isOnline(context) && !com.baidu.sapi2.utils.enums.a.b.equals(confignation.loginShareDirection())) {
+        if (SapiUtils.isOnline(context) && !com.baidu.sapi2.utils.enums.a.f5411b.equals(confignation.loginShareDirection())) {
             ArrayList arrayList = new ArrayList();
             List<Intent> c2 = c(context);
             if (c2.size() == 0) {
@@ -152,6 +153,7 @@ public final class e {
             int size = c2.size();
             int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
             StringBuilder sb = new StringBuilder();
+            int i = 0;
             int i2 = 0;
             int i3 = 0;
             for (Intent intent : c2) {
@@ -163,7 +165,7 @@ public final class e {
                 } else if (a2 == null) {
                     i3++;
                 } else {
-                    int i4 = a2.b;
+                    int i4 = a2.f5332b;
                     if (i4 == 0) {
                         i2++;
                     } else if (i4 == 1) {
@@ -358,11 +360,11 @@ public final class e {
                 ComponentName componentName = new ComponentName(str, "com.baidu.sapi2.activity.ShareActivity");
                 Intent intent = new Intent();
                 intent.putExtra("android.intent.extra.TEXT", str2);
-                intent.putExtra(com.baidu.sapi2.share.b.b, str4);
-                intent.putExtra(com.baidu.sapi2.share.b.f3517a, str3);
+                intent.putExtra(com.baidu.sapi2.share.b.f5341b, str4);
+                intent.putExtra(com.baidu.sapi2.share.b.f5340a, str3);
                 intent.putExtra(com.baidu.sapi2.share.b.c, str5);
                 intent.setComponent(componentName);
-                activity.startActivityForResult(intent, com.baidu.sapi2.share.b.h);
+                activity.startActivityForResult(intent, 20001);
             } else {
                 Toast.makeText(activity, "登录失败", 0).show();
             }
@@ -374,8 +376,8 @@ public final class e {
                     if (i2 < shareStorageModel.size()) {
                         if (shareStorageModel.get(i2).pkg.equals(str) && shareStorageModel.get(i2).url.equals(str2)) {
                             b.c cVar = com.baidu.sapi2.share.b.l;
-                            cVar.f3519a = i2;
-                            cVar.b = shareStorageModel.get(i2).tpl;
+                            cVar.f5344a = i2;
+                            cVar.f5345b = shareStorageModel.get(i2).tpl;
                             com.baidu.sapi2.share.b.l.c = shareStorageModel.get(i2).app;
                             break;
                         }
@@ -393,24 +395,25 @@ public final class e {
         throw new IllegalArgumentException("loginActivity can't be null");
     }
 
-    public static void a(b.AbstractC0352b abstractC0352b, int i, int i2, Intent intent, com.baidu.sapi2.share.b bVar, List<PassNameValuePair> list) {
+    public static void a(b.AbstractC0349b abstractC0349b, int i, int i2, Intent intent, com.baidu.sapi2.share.b bVar, List<PassNameValuePair> list) {
         String str;
-        int i3;
         String str2;
-        String str3;
+        int i3 = 0;
         if (i == 20001) {
-            if (abstractC0352b != null) {
+            if (abstractC0349b != null) {
                 Context context = SapiAccountManager.getInstance().getConfignation().context;
+                String str3 = "";
+                String str4 = "";
                 String stringExtra = intent != null ? intent.getStringExtra(com.baidu.sapi2.share.b.c) : "";
                 if (i2 == -1 && intent != null) {
-                    SapiAccount sapiAccount = (SapiAccount) intent.getParcelableExtra(f3522a);
+                    SapiAccount sapiAccount = (SapiAccount) intent.getParcelableExtra(f5349a);
                     if (sapiAccount != null) {
                         if (intent.getIntExtra(com.baidu.sapi2.share.b.g, 0) >= 190) {
                             com.baidu.sapi2.share.a.a().a(sapiAccount, intent.getStringExtra("PKG"));
                         } else {
                             sapiAccount.app = "";
                         }
-                        String str4 = sapiAccount.uid;
+                        String str5 = sapiAccount.uid;
                         SapiContext sapiContext = SapiContext.getInstance();
                         sapiContext.setCurrentAccount(sapiAccount);
                         SapiAccountManager.getInstance().preFetchStoken(sapiAccount, false);
@@ -429,31 +432,29 @@ public final class e {
                             }
                         }
                         sapiContext.put(SapiContext.KEY_PRE_LOGIN_TYPE, com.baidu.sapi2.share.b.k);
-                        abstractC0352b.onSuccess();
-                        str3 = str4;
-                        str2 = "";
-                        i3 = 0;
+                        abstractC0349b.onSuccess();
+                        str2 = str5;
                     } else {
-                        i3 = 1;
+                        str3 = "互通登录失败,请稍后再试";
                         Toast.makeText(context, "互通登录失败,请稍后再试", 0).show();
-                        abstractC0352b.onFailed(-207, "互通登录失败,请稍后再试");
-                        str2 = "互通登录失败,请稍后再试";
-                        str3 = "";
+                        abstractC0349b.onFailed(-207, "互通登录失败,请稍后再试");
+                        str2 = "";
+                        i3 = 1;
                     }
+                    str4 = str2;
                 } else {
                     if (intent != null) {
-                        str = intent.getStringExtra(b);
+                        str = intent.getStringExtra(f5350b);
                         Toast.makeText(context, str, 0).show();
                     } else {
                         str = "result data is null";
                     }
-                    abstractC0352b.onFailed(-207, "互通登录失败,请稍后再试");
+                    abstractC0349b.onFailed(-207, "互通登录失败,请稍后再试");
                     i3 = 2;
-                    str2 = str;
-                    str3 = "";
+                    str3 = str;
                 }
                 if (!SapiShareClient.SHARE_ACCOUNT_CLOUND_VERSION.equals(stringExtra)) {
-                    SapiStatUtil.statShareV2Result(com.baidu.sapi2.share.b.l, str2, i3, str3, list);
+                    SapiStatUtil.statShareV2Result(com.baidu.sapi2.share.b.l, str3, i3, str4, list);
                     return;
                 } else if (i3 == 0) {
                     SapiStatUtil.statInvokeCloudShareAccount(4);

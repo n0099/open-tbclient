@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class DialogRecordDBManager extends DBBase {
     public static final String TAG = DialogRecordDBManager.class.getSimpleName();
     private static DialogRecordDBManager mInstance;
@@ -46,198 +46,142 @@ public class DialogRecordDBManager extends DBBase {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [110=6, 111=5, 113=5, 114=5] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:83:0x0016 */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0159  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x015e  */
-    /* JADX WARN: Type inference failed for: r2v14 */
-    /* JADX WARN: Type inference failed for: r2v15 */
-    /* JADX WARN: Type inference failed for: r2v16 */
-    /* JADX WARN: Type inference failed for: r2v19, types: [long] */
-    /* JADX WARN: Type inference failed for: r2v20 */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public long addBatch(List<DialogRecord> list) {
-        SQLiteDatabase sQLiteDatabase;
-        Cursor cursor;
-        long j;
-        Exception exc;
-        Cursor cursor2;
-        long j2;
-        ?? r2;
-        Cursor cursor3;
+        Throwable th;
+        Exception e;
+        SQLiteDatabase openDatabase;
         if (list == null) {
             return -1L;
         }
         if (list.size() == 0) {
             return 0L;
         }
-        Cursor cursor4 = null;
-        r6 = null;
-        cursor4 = null;
-        Cursor cursor5 = null;
+        long j = -1;
+        Cursor cursor = null;
+        SQLiteDatabase sQLiteDatabase = null;
         try {
-            SQLiteDatabase openDatabase = openDatabase();
             try {
+                openDatabase = openDatabase();
                 try {
-                    if (openDatabase == null) {
-                        LogUtils.e(TAG, "getWritableDb fail!");
-                        if (0 != 0) {
-                            cursor4.close();
-                        }
-                        if (openDatabase != null) {
-                            openDatabase.endTransaction();
-                        }
-                        r2 = -1;
-                    } else {
-                        openDatabase.beginTransaction();
-                        Iterator<DialogRecord> it = list.iterator();
-                        Cursor cursor6 = null;
-                        long j3 = -1;
-                        while (true) {
-                            try {
-                                if (!it.hasNext()) {
-                                    cursor2 = cursor6;
-                                    j2 = j3;
-                                    break;
-                                }
-                                DialogRecord next = it.next();
-                                String[] strArr = {String.valueOf(next.getCategory()), String.valueOf(next.getContacter())};
-                                cursor = openDatabase.query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "category=? AND contacter=?", strArr, null, null, null);
-                                if (cursor == null) {
-                                    if (cursor != null) {
-                                        cursor.close();
-                                    }
-                                    if (openDatabase != null) {
-                                        openDatabase.endTransaction();
-                                    }
-                                    r2 = j3;
-                                    cursor5 = strArr;
-                                } else {
-                                    try {
-                                        ContentValues contentValues = new ContentValues();
-                                        contentValues.put(TableDefine.DRColumns.COLUMN_MAXMSGID, Long.valueOf(next.getMaxMsgid()));
-                                        contentValues.put("state", Integer.valueOf(next.getState()));
-                                        contentValues.put("update_time", Long.valueOf(next.getUpdateTime()));
-                                        contentValues.put(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID, Long.valueOf(next.getDialogueMsgid()));
-                                        if (cursor.getCount() > 0) {
-                                            contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 0);
-                                            j3 = openDatabase.update(TableDefine.DB_TABLE_DIALOG_RECORD, contentValues, "category=? AND contacter=?", strArr);
-                                        } else {
-                                            contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 1);
-                                            contentValues.put("category", Integer.valueOf(next.getCategory()));
-                                            contentValues.put("contacter", Long.valueOf(next.getContacter()));
-                                            j3 = openDatabase.insert(TableDefine.DB_TABLE_DIALOG_RECORD, null, contentValues);
-                                        }
-                                        if (cursor != null) {
-                                            cursor.close();
-                                            cursor3 = null;
-                                        } else {
-                                            cursor3 = cursor;
-                                        }
-                                        if (j3 < 0) {
-                                            j2 = j3;
-                                            cursor2 = cursor3;
-                                            break;
-                                        }
-                                        cursor6 = cursor3;
-                                    } catch (Exception e) {
-                                        sQLiteDatabase = openDatabase;
-                                        cursor4 = cursor;
-                                        exc = e;
-                                        j = j3;
-                                        try {
-                                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(exc)).build();
-                                            LogUtils.e(TAG, "deleteCmdMsg:", exc);
-                                            if (cursor4 != null) {
-                                                cursor4.close();
-                                            }
-                                            if (sQLiteDatabase != null) {
-                                                sQLiteDatabase.endTransaction();
-                                                return j;
-                                            }
-                                            return j;
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            cursor = cursor4;
-                                            if (cursor != null) {
-                                            }
-                                            if (sQLiteDatabase != null) {
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        sQLiteDatabase = openDatabase;
-                                        th = th2;
-                                        if (cursor != null) {
-                                        }
-                                        if (sQLiteDatabase != null) {
-                                        }
-                                        throw th;
-                                    }
-                                }
-                            } catch (Exception e2) {
-                                exc = e2;
-                                sQLiteDatabase = openDatabase;
-                                cursor4 = cursor6;
-                                j = j3;
-                            } catch (Throwable th3) {
-                                sQLiteDatabase = openDatabase;
-                                cursor = cursor6;
-                                th = th3;
-                            }
-                        }
-                        if (j2 >= 0) {
-                            try {
-                                openDatabase.setTransactionSuccessful();
-                            } catch (Throwable th4) {
-                                sQLiteDatabase = openDatabase;
-                                cursor = cursor2;
-                                th = th4;
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                if (sQLiteDatabase != null) {
-                                    sQLiteDatabase.endTransaction();
-                                }
-                                throw th;
-                            }
-                        }
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        if (openDatabase != null) {
-                            openDatabase.endTransaction();
-                            r2 = j2;
-                            cursor5 = cursor2;
-                        } else {
-                            r2 = j2;
-                            cursor5 = cursor2;
-                        }
+                    try {
+                    } catch (Throwable th2) {
+                        th = th2;
+                        sQLiteDatabase = openDatabase;
                     }
-                    return r2;
-                } catch (Throwable th5) {
-                    sQLiteDatabase = r2;
-                    cursor = cursor5;
-                    th = th5;
+                } catch (Exception e2) {
+                    e = e2;
+                    sQLiteDatabase = openDatabase;
                 }
             } catch (Exception e3) {
-                j = -1;
-                exc = e3;
-                sQLiteDatabase = openDatabase;
+                e = e3;
             }
-        } catch (Exception e4) {
-            j = -1;
-            exc = e4;
-            sQLiteDatabase = null;
-        } catch (Throwable th6) {
-            th = th6;
-            sQLiteDatabase = null;
-            cursor = null;
+            if (openDatabase == null) {
+                LogUtils.e(TAG, "getWritableDb fail!");
+                if (0 != 0) {
+                    cursor.close();
+                }
+                if (openDatabase != null) {
+                    openDatabase.endTransaction();
+                }
+                return -1L;
+            }
+            openDatabase.beginTransaction();
+            Iterator<DialogRecord> it = list.iterator();
+            Cursor cursor2 = null;
+            long j2 = -1;
+            while (true) {
+                try {
+                    if (!it.hasNext()) {
+                        cursor = cursor2;
+                        j = j2;
+                        break;
+                    }
+                    DialogRecord next = it.next();
+                    String[] strArr = {String.valueOf(next.getCategory()), String.valueOf(next.getContacter())};
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "category=? AND contacter=?", strArr, null, null, null);
+                    if (cursor == null) {
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        if (openDatabase != null) {
+                            openDatabase.endTransaction();
+                        }
+                        return j2;
+                    }
+                    try {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put(TableDefine.DRColumns.COLUMN_MAXMSGID, Long.valueOf(next.getMaxMsgid()));
+                        contentValues.put("state", Integer.valueOf(next.getState()));
+                        contentValues.put("update_time", Long.valueOf(next.getUpdateTime()));
+                        contentValues.put(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID, Long.valueOf(next.getDialogueMsgid()));
+                        if (cursor.getCount() > 0) {
+                            contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 0);
+                            j2 = openDatabase.update(TableDefine.DB_TABLE_DIALOG_RECORD, contentValues, "category=? AND contacter=?", strArr);
+                        } else {
+                            contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 1);
+                            contentValues.put("category", Integer.valueOf(next.getCategory()));
+                            contentValues.put("contacter", Long.valueOf(next.getContacter()));
+                            j2 = openDatabase.insert(TableDefine.DB_TABLE_DIALOG_RECORD, null, contentValues);
+                        }
+                        if (cursor != null) {
+                            cursor.close();
+                            cursor = null;
+                        }
+                        if (j2 < 0) {
+                            j = j2;
+                            break;
+                        }
+                        cursor2 = cursor;
+                    } catch (Exception e4) {
+                        e = e4;
+                        sQLiteDatabase = openDatabase;
+                        j = j2;
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "deleteCmdMsg:", e);
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        if (sQLiteDatabase != null) {
+                            sQLiteDatabase.endTransaction();
+                            return j;
+                        }
+                        return j;
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    sQLiteDatabase = openDatabase;
+                    cursor = cursor2;
+                    j = j2;
+                } catch (Throwable th3) {
+                    th = th3;
+                    sQLiteDatabase = openDatabase;
+                    cursor = cursor2;
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    if (sQLiteDatabase != null) {
+                        sQLiteDatabase.endTransaction();
+                    }
+                    throw th;
+                }
+            }
+            if (j >= 0) {
+                openDatabase.setTransactionSuccessful();
+            }
+            if (cursor != null) {
+                cursor.close();
+            }
+            if (openDatabase != null) {
+                openDatabase.endTransaction();
+                return j;
+            }
+            return j;
+        } catch (Throwable th4) {
+            th = th4;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [143=5, 144=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [143=4, 144=4] */
     public long getMaxMsgid() {
         Cursor cursor = null;
         long j = -1;
@@ -246,44 +190,31 @@ public class DialogRecordDBManager extends DBBase {
                 SQLiteDatabase openDatabase = openDatabase();
                 if (openDatabase == null) {
                     LogUtils.e(TAG, "getWritableDb fail!");
-                    if (0 != 0) {
-                        cursor.close();
-                    }
                 } else {
                     Cursor rawQuery = openDatabase.rawQuery("select max(localmsgid) from dialog_record", null);
                     if (rawQuery != null) {
-                        try {
-                            j = rawQuery.moveToNext() ? rawQuery.getLong(0) : 0L;
-                        } catch (Exception e) {
-                            cursor = rawQuery;
-                            e = e;
-                            j = 0;
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                            LogUtils.e(TAG, "maxMsgid:", e);
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            return j;
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor = rawQuery;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            throw th;
+                        j = 0;
+                        if (rawQuery.moveToNext()) {
+                            j = rawQuery.getLong(0);
                         }
                     }
                     if (rawQuery != null) {
                         rawQuery.close();
                     }
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "maxMsgid:", e);
+                if (0 != 0) {
+                    cursor.close();
+                }
             }
-        } catch (Exception e2) {
-            e = e2;
+            return j;
+        } finally {
+            if (0 != 0) {
+                cursor.close();
+            }
         }
-        return j;
     }
 
     public List<DialogRecord> getDialogRecord(int i) {
@@ -305,7 +236,7 @@ public class DialogRecordDBManager extends DBBase {
         return (DialogRecord) list.get(0);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Parse implements CursorParse {
         int count;
         List<DialogRecord> result = null;
@@ -362,8 +293,8 @@ public class DialogRecordDBManager extends DBBase {
                         try {
                             i = cursor.moveToNext() ? cursor.getInt(0) : 0;
                         } catch (Exception e) {
-                            i = 0;
                             e = e;
+                            i = 0;
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "getUnCompleteItemCount:", e);
                             if (cursor != null) {
@@ -404,8 +335,8 @@ public class DialogRecordDBManager extends DBBase {
                         try {
                             i = cursor.moveToNext() ? cursor.getInt(0) : 0;
                         } catch (Exception e) {
-                            i = 0;
                             e = e;
+                            i = 0;
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "getUnCompleteItemCount:", e);
                             if (cursor != null) {

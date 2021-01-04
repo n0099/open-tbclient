@@ -2,12 +2,12 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class SearchResult implements Parcelable {
     public ERRORNO error;
     public int status;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum ERRORNO {
         NO_ERROR,
         RESULT_NOT_FOUND,

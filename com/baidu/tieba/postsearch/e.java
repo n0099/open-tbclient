@@ -13,22 +13,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import com.baidu.tieba.postsearch.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class e extends BaseAdapter {
     private static final int MAX_SIZE = TbadkCoreApplication.getInst().getListItemRule().getMaxCache();
-    private TbPageContext<?> eNx;
-    private int hKN = -1;
+    private TbPageContext<?> eXu;
+    private int hWZ = -1;
     private List<b.a> mData = new ArrayList();
 
     public e(TbPageContext<?> tbPageContext) {
-        this.eNx = tbPageContext;
+        this.eXu = tbPageContext;
     }
 
     public void setData(List<b.a> list) {
@@ -59,13 +59,13 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.eXu.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.mDk = (TextView) view.findViewById(R.id.title_text);
-            aVar.mDl = (TextView) view.findViewById(R.id.content_text);
-            aVar.mDm = (TextView) view.findViewById(R.id.label_text);
-            aVar.hLy = (TextView) view.findViewById(R.id.user_name);
-            aVar.mDn = (TextView) view.findViewById(R.id.time_text);
+            aVar.mIE = (TextView) view.findViewById(R.id.title_text);
+            aVar.mIF = (TextView) view.findViewById(R.id.content_text);
+            aVar.mIG = (TextView) view.findViewById(R.id.label_text);
+            aVar.hXL = (TextView) view.findViewById(R.id.user_name);
+            aVar.mIH = (TextView) view.findViewById(R.id.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -75,69 +75,69 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.mDk.setText(Html.fromHtml(au.getHighLightString(aVar3.title, str)));
-            aVar2.mDl.setText(Html.fromHtml(au.getHighLightString(aVar3.content, str)));
-            aVar2.hLy.setText(aVar3.name_show);
-            aVar2.mDn.setText(au.getFormatTime(aVar3.time));
-            aVar2.mDm.setVisibility(0);
+            aVar2.mIE.setText(Html.fromHtml(at.getHighLightString(aVar3.title, str)));
+            aVar2.mIF.setText(Html.fromHtml(at.getHighLightString(aVar3.content, str)));
+            aVar2.hXL.setText(aVar3.name_show);
+            aVar2.mIH.setText(at.getFormatTime(aVar3.time));
+            aVar2.mIG.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.mDm.setText(R.string.floor_text);
-            } else if (aVar3.mCI == 1) {
-                aVar2.mDm.setText(R.string.reply_post);
+                aVar2.mIG.setText(R.string.floor_text);
+            } else if (aVar3.mHZ == 1) {
+                aVar2.mIG.setText(R.string.reply_post);
             } else {
-                aVar2.mDm.setVisibility(8);
+                aVar2.mIG.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (e.this.eNx != null) {
+                    if (e.this.eXu != null) {
                         e.this.a(aVar3);
                         if (aVar3.is_floor == 1) {
-                            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.eNx.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
+                            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.eXu.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
                             createSubPbActivityConfig.setKeyPageStartFrom(8);
-                            e.this.eNx.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
+                            e.this.eXu.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
                             return;
                         }
-                        PbActivityConfig createNormalCfg = new PbActivityConfig(e.this.eNx.getPageActivity()).createNormalCfg(aVar3.tid + "", aVar3.pid + "", "search_post");
+                        PbActivityConfig createNormalCfg = new PbActivityConfig(e.this.eXu.getPageActivity()).createNormalCfg(aVar3.tid + "", aVar3.pid + "", "search_post");
                         createNormalCfg.setStartFrom(8);
                         createNormalCfg.setSortType(0);
-                        e.this.eNx.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
+                        e.this.eXu.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
                     }
                 }
             });
-            ap.setBackgroundColor(view, R.color.CAM_X0201);
-            com.baidu.tbadk.r.a.a(this.eNx, view);
+            ao.setBackgroundColor(view, R.color.CAM_X0201);
+            com.baidu.tbadk.r.a.a(this.eXu, view);
         }
         return view;
     }
 
     public void setTabType(int i) {
-        this.hKN = i;
+        this.hWZ = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b.a aVar) {
-        ar dY = new ar("c12405").dY("fname", aVar.fname).dY("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.hKN > 0) {
-            dY.al("tab_id", this.hKN);
+        aq dX = new aq("c12405").dX("fname", aVar.fname).dX("uid", TbadkCoreApplication.getCurrentAccount());
+        if (this.hWZ > 0) {
+            dX.an("tab_id", this.hWZ);
         }
         if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.mCI == 1) {
-                dY.w("pid", aVar.pid);
+            if (aVar.is_floor == 1 || aVar.mHZ == 1) {
+                dX.w("pid", aVar.pid);
             } else {
-                dY.w("tid", aVar.tid);
+                dX.w("tid", aVar.tid);
             }
         }
-        TiebaStatic.log(dY);
+        TiebaStatic.log(dX);
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     private static class a {
-        TextView hLy;
-        TextView mDk;
-        TextView mDl;
-        TextView mDm;
-        TextView mDn;
+        TextView hXL;
+        TextView mIE;
+        TextView mIF;
+        TextView mIG;
+        TextView mIH;
 
         private a() {
         }

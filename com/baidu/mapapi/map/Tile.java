@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class Tile {
     public final byte[] data;
     public final int height;

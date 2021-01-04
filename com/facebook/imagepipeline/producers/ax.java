@@ -1,24 +1,26 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes15.dex */
+
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+/* loaded from: classes5.dex */
 public final class ax {
     public static boolean a(int i, int i2, com.facebook.imagepipeline.common.d dVar) {
-        return dVar == null ? ((float) Rn(i)) >= 2048.0f && Rn(i2) >= 2048 : Rn(i) >= dVar.width && Rn(i2) >= dVar.height;
+        return dVar == null ? ((float) Rk(i)) >= 2048.0f && Rk(i2) >= 2048 : Rk(i) >= dVar.width && Rk(i2) >= dVar.height;
     }
 
     public static boolean a(com.facebook.imagepipeline.f.e eVar, com.facebook.imagepipeline.common.d dVar) {
         if (eVar == null) {
             return false;
         }
-        switch (eVar.evy()) {
+        switch (eVar.ezf()) {
             case 90:
-            case 270:
+            case SubsamplingScaleImageView.ORIENTATION_270 /* 270 */:
                 return a(eVar.getHeight(), eVar.getWidth(), dVar);
             default:
                 return a(eVar.getWidth(), eVar.getHeight(), dVar);
         }
     }
 
-    public static int Rn(int i) {
+    public static int Rk(int i) {
         return (int) (i * 1.3333334f);
     }
 }

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.widget.EditText;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class TextHelper {
     public static int getTextLength(EditText editText) {
         if (editText == null) {
@@ -33,18 +33,23 @@ public class TextHelper {
     }
 
     public static int getTextLength(String str) {
+        int i = 0;
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
-        int i = 0;
-        for (int i2 = 0; i2 < str.length(); i2++) {
-            if (isCharacter(str.charAt(i2))) {
-                i++;
-            } else {
-                i += 2;
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 >= str.length()) {
+                return i3;
             }
+            if (isCharacter(str.charAt(i2))) {
+                i = i3 + 1;
+            } else {
+                i = i3 + 2;
+            }
+            i2++;
         }
-        return i;
     }
 
     public static int getTextLengthWithEmoji(String str) {
@@ -95,6 +100,7 @@ public class TextHelper {
 
     public static int getTrimmedTextLength(EditText editText) {
         Editable text;
+        int i = 0;
         if (editText == null || (text = editText.getText()) == null) {
             return 0;
         }
@@ -106,15 +112,19 @@ public class TextHelper {
         if (TextUtils.isEmpty(trim)) {
             return 0;
         }
-        int i = 0;
-        for (int i2 = 0; i2 < trim.length(); i2++) {
-            if (isCharacter(trim.charAt(i2))) {
-                i++;
-            } else {
-                i += 2;
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 >= trim.length()) {
+                return i3;
             }
+            if (isCharacter(trim.charAt(i2))) {
+                i = i3 + 1;
+            } else {
+                i = i3 + 2;
+            }
+            i2++;
         }
-        return i;
     }
 
     public static boolean checkText(EditText editText) {
@@ -161,28 +171,34 @@ public class TextHelper {
     }
 
     public static String subString(String str, int i, int i2) {
+        int i3 = 0;
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str) || i > i2) {
             return sb.toString();
         }
         if (i >= 0 && i2 >= 0) {
-            int i3 = 0;
-            for (int i4 = 0; i4 < str.length(); i4++) {
+            int i4 = 0;
+            while (true) {
+                int i5 = i3;
+                if (i4 >= str.length()) {
+                    break;
+                }
                 char charAt = str.charAt(i4);
-                if (i3 >= i2) {
-                    if (i3 == i2) {
+                if (i5 >= i2) {
+                    if (i5 == i2) {
                         return sb.toString();
                     }
                     return sb.deleteCharAt(sb.length() - 1).toString();
                 }
-                if (i3 >= i) {
+                if (i5 >= i) {
                     sb.append(charAt);
                 }
                 if (isCharacter(charAt)) {
-                    i3++;
+                    i3 = i5 + 1;
                 } else {
-                    i3 += 2;
+                    i3 = i5 + 2;
                 }
+                i4++;
             }
         }
         return sb.toString();
@@ -215,28 +231,34 @@ public class TextHelper {
     }
 
     public static String subString(String str, int i) {
+        int i2 = 0;
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return sb.toString();
         }
         if (i > 0) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < str.length(); i3++) {
+            int i3 = 0;
+            while (true) {
+                int i4 = i2;
+                if (i3 >= str.length()) {
+                    break;
+                }
                 char charAt = str.charAt(i3);
-                if (i2 >= i) {
-                    if (i2 == i) {
+                if (i4 >= i) {
+                    if (i4 == i) {
                         return sb.toString();
                     }
                     return sb.deleteCharAt(sb.length() - 1).toString();
                 }
-                if (i2 >= 0) {
+                if (i4 >= 0) {
                     sb.append(charAt);
                 }
                 if (isCharacterExceptCapital(charAt)) {
-                    i2++;
+                    i2 = i4 + 1;
                 } else {
-                    i2 += 2;
+                    i2 = i4 + 2;
                 }
+                i3++;
             }
         }
         return sb.toString();

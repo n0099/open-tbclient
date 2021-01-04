@@ -4,41 +4,41 @@ import android.view.View;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class k {
-    private l gPB;
-    private com.baidu.tieba.ala.guardclub.model.g gPC;
+    private l hbo;
+    private com.baidu.tieba.ala.guardclub.model.g hbp;
 
     public k(BaseActivity baseActivity, long j, long j2, long j3, String str, boolean z, boolean z2, boolean z3, boolean z4, String str2, BdUniqueId bdUniqueId, g.a aVar) {
-        this.gPB = new l(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
-        this.gPC = new com.baidu.tieba.ala.guardclub.model.g(j3, z3, aVar);
-        this.gPB.setOtherParams(str2);
-        this.gPB.setFeedId(str);
-        this.gPC.k(this.gPB);
-        this.gPB.a(this.gPC);
+        this.hbo = new l(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
+        this.hbp = new com.baidu.tieba.ala.guardclub.model.g(j3, z3, aVar);
+        this.hbo.setOtherParams(str2);
+        this.hbo.setFeedId(str);
+        this.hbp.k(this.hbo);
+        this.hbo.a(this.hbp);
     }
 
-    public void mN(boolean z) {
-        this.gPB.mN(z);
+    public void nn(boolean z) {
+        this.hbo.nn(z);
     }
 
-    public void IR() {
-        if (this.gPB != null) {
-            this.gPB.IR();
+    public void Is() {
+        if (this.hbo != null) {
+            this.hbo.Is();
         }
     }
 
     public View getView() {
-        return this.gPB.getView();
+        return this.hbo.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void baD() {
-        if (this.gPC != null) {
-            this.gPC.onDestory();
+    public void onPageDestroy() {
+        if (this.hbp != null) {
+            this.hbp.onDestory();
         }
-        if (this.gPB != null) {
-            this.gPB.bWj();
+        if (this.hbo != null) {
+            this.hbo.bYO();
         }
     }
 }

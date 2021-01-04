@@ -37,7 +37,7 @@ public class PersonPolymericActivityConfig extends IntentConfig {
     }
 
     public void setSourceNid(String str) {
-        getIntent().putExtra("nid", str);
+        getIntent().putExtra(IntentConfig.NID, str);
     }
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig

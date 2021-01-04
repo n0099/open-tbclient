@@ -5,26 +5,26 @@ import com.baidu.poly.util.HttpSigner;
 import kotlin.jvm.internal.p;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public final class a {
-    private static int cgm = 1;
+    private static int cno = 1;
 
     /* renamed from: com.baidu.poly.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static final class C0309a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.b.a cgx;
-        final /* synthetic */ JSONObject cgy;
+        final /* synthetic */ com.baidu.poly.b.a cnA;
+        final /* synthetic */ JSONObject cnB;
 
         C0309a(com.baidu.poly.b.a aVar, JSONObject jSONObject) {
-            this.cgx = aVar;
-            this.cgy = jSONObject;
+            this.cnA = aVar;
+            this.cnB = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         /* renamed from: b */
         public void a(String str) {
-            com.baidu.poly.b.a aVar = this.cgx;
+            com.baidu.poly.b.a aVar = this.cnA;
             if (aVar != null) {
                 aVar.onResult(0, "");
             }
@@ -32,27 +32,27 @@ public final class a {
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            com.baidu.poly.b.a aVar = this.cgx;
+            com.baidu.poly.b.a aVar = this.cnA;
             if (aVar != null) {
                 aVar.onResult(1, str);
             }
-            com.baidu.poly.a.c.a.c(this.cgy);
+            com.baidu.poly.a.c.a.c(this.cnB);
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static final class b extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.b.a cgx;
+        final /* synthetic */ com.baidu.poly.b.a cnA;
 
         b(com.baidu.poly.b.a aVar) {
-            this.cgx = aVar;
+            this.cnA = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         /* renamed from: b */
         public void a(String str) {
-            com.baidu.poly.b.a aVar = this.cgx;
+            com.baidu.poly.b.a aVar = this.cnA;
             if (aVar != null) {
                 aVar.onResult(0, "");
             }
@@ -60,7 +60,7 @@ public final class a {
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            com.baidu.poly.b.a aVar = this.cgx;
+            com.baidu.poly.b.a aVar = this.cnA;
             if (aVar != null) {
                 aVar.onResult(1, str);
             }
@@ -68,21 +68,21 @@ public final class a {
     }
 
     public static final void b(int i) {
-        cgm = i;
+        cno = i;
     }
 
     public static final int q() {
-        return cgm;
+        return cno;
     }
 
     public static final void b(JSONObject jSONObject, com.baidu.poly.b.a aVar) {
         if (jSONObject != null) {
             com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
             c.a(cVar);
-            com.baidu.poly.a.a.b ao = c.ao(jSONObject);
-            c.a(cVar, ao.get("bduss"));
-            HttpSigner.a(ao);
-            new f(false).a(d.w(), cVar, ao, new C0309a(aVar, jSONObject));
+            com.baidu.poly.a.a.b aw = c.aw(jSONObject);
+            c.a(cVar, aw.get("bduss"));
+            HttpSigner.a(aw);
+            new f(false).a(d.w(), cVar, aw, new C0309a(aVar, jSONObject));
         }
     }
 

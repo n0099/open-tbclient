@@ -2,15 +2,15 @@ package com.baidu.tieba.frs.HorseRace;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.CommonReq;
 import tbclient.GetHorseRaceLampList.DataReq;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class LiveHorseRaceRequestMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3685common;
+    private CommonReq f5613common;
     private Long forum_id;
 
     public LiveHorseRaceRequestMessage() {
@@ -18,7 +18,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f3685common = commonReq;
+        this.f5613common = commonReq;
     }
 
     public void setForum_id(Long l) {
@@ -28,10 +28,10 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f4993common = this.f3685common;
+        builder.f14786common = this.f5613common;
         builder.forum_id = this.forum_id;
         if (z) {
-            u.a(builder, true);
+            t.b(builder, true);
         }
         GetHorseRaceLampListReqIdl.Builder builder2 = new GetHorseRaceLampListReqIdl.Builder();
         builder2.data = builder.build(false);

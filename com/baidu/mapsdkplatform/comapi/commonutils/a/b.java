@@ -12,19 +12,21 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2211a;
-    private File b;
+    private String f3146a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private File f3147b;
     private a c;
     private d.b d;
     private volatile boolean e = false;
 
     public b(String str, File file, a aVar, d.b bVar) {
-        this.f2211a = str;
-        this.b = file;
+        this.f3146a = str;
+        this.f3147b = file;
         this.c = aVar;
         this.d = bVar;
     }
@@ -33,22 +35,22 @@ public class b implements Runnable {
         return this.e;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00e0 A[Catch: IOException -> 0x00e4, TRY_LEAVE, TryCatch #1 {IOException -> 0x00e4, blocks: (B:41:0x00db, B:43:0x00e0), top: B:55:0x00db }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x00db A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00e3 A[Catch: IOException -> 0x00e7, TRY_LEAVE, TryCatch #2 {IOException -> 0x00e7, blocks: (B:42:0x00de, B:44:0x00e3), top: B:58:0x00de }] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00de A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
-        InputStream inputStream;
+        Throwable th;
         RandomAccessFile randomAccessFile;
+        InputStream inputStream;
+        RandomAccessFile randomAccessFile2;
+        InputStream inputStream2;
         HttpsURLConnection httpsURLConnection;
-        RandomAccessFile randomAccessFile2 = null;
-        r4 = null;
-        r4 = null;
-        InputStream inputStream2 = null;
+        InputStream inputStream3 = null;
         try {
-            URL url = new URL(this.f2211a);
+            URL url = new URL(this.f3146a);
             if (HttpClient.isHttpsEnable) {
                 HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                 httpsURLConnection2.setHostnameVerifier(new c(this));
@@ -61,80 +63,89 @@ public class b implements Runnable {
             httpsURLConnection.setReadTimeout(10000);
             httpsURLConnection.setRequestProperty(Headers.RANGE, "bytes=" + this.c.a() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.c.b());
             httpsURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            randomAccessFile = new RandomAccessFile(this.b, "rw");
+            randomAccessFile2 = new RandomAccessFile(this.f3147b, "rw");
             try {
-                try {
-                    randomAccessFile.seek(this.c.a());
-                    int responseCode = httpsURLConnection.getResponseCode();
-                    if (responseCode == 200 || responseCode == 206) {
-                        byte[] bArr = new byte[1048576];
-                        inputStream2 = httpsURLConnection.getInputStream();
-                        while (true) {
+                randomAccessFile2.seek(this.c.a());
+                int responseCode = httpsURLConnection.getResponseCode();
+                if (responseCode == 200 || responseCode == 206) {
+                    byte[] bArr = new byte[1048576];
+                    inputStream3 = httpsURLConnection.getInputStream();
+                    while (true) {
+                        try {
+                            int read = inputStream3.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            randomAccessFile2.write(bArr, 0, read);
+                        } catch (Exception e) {
+                            inputStream2 = inputStream3;
                             try {
-                                int read = inputStream2.read(bArr);
-                                if (read == -1) {
-                                    break;
-                                }
-                                randomAccessFile.write(bArr, 0, read);
-                            } catch (Throwable th) {
-                                inputStream = inputStream2;
-                                randomAccessFile2 = randomAccessFile;
-                                th = th;
-                                if (inputStream != null) {
+                                this.e = false;
+                                this.d.b(this);
+                                if (inputStream2 != null) {
+                                    try {
+                                        inputStream2.close();
+                                    } catch (IOException e2) {
+                                        e2.printStackTrace();
+                                    }
                                 }
                                 if (randomAccessFile2 != null) {
+                                    randomAccessFile2.close();
+                                }
+                                this.d.a(this);
+                            } catch (Throwable th2) {
+                                th = th2;
+                                randomAccessFile = randomAccessFile2;
+                                inputStream = inputStream2;
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
+                                        throw th;
+                                    }
+                                }
+                                if (randomAccessFile != null) {
+                                    randomAccessFile.close();
                                 }
                                 throw th;
                             }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            randomAccessFile = randomAccessFile2;
+                            inputStream = inputStream3;
+                            if (inputStream != null) {
+                            }
+                            if (randomAccessFile != null) {
+                            }
+                            throw th;
                         }
                     }
-                    this.e = true;
-                    if (inputStream2 != null) {
-                        try {
-                            inputStream2.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (randomAccessFile != null) {
-                        randomAccessFile.close();
-                    }
-                } catch (Exception e2) {
-                    this.e = false;
-                    this.d.b(this);
-                    if (inputStream2 != null) {
-                        try {
-                            inputStream2.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    if (randomAccessFile != null) {
-                        randomAccessFile.close();
-                    }
-                    this.d.a(this);
                 }
-            } catch (Throwable th2) {
-                inputStream = null;
-                randomAccessFile2 = randomAccessFile;
-                th = th2;
-                if (inputStream != null) {
+                this.e = true;
+                if (inputStream3 != null) {
                     try {
-                        inputStream.close();
+                        inputStream3.close();
                     } catch (IOException e4) {
                         e4.printStackTrace();
-                        throw th;
                     }
                 }
                 if (randomAccessFile2 != null) {
                     randomAccessFile2.close();
                 }
-                throw th;
+            } catch (Exception e5) {
+                inputStream2 = null;
+            } catch (Throwable th4) {
+                th = th4;
+                randomAccessFile = randomAccessFile2;
+                inputStream = null;
             }
-        } catch (Exception e5) {
+        } catch (Exception e6) {
+            randomAccessFile2 = null;
+            inputStream2 = null;
+        } catch (Throwable th5) {
+            th = th5;
             randomAccessFile = null;
-        } catch (Throwable th3) {
-            th = th3;
             inputStream = null;
         }
         this.d.a(this);

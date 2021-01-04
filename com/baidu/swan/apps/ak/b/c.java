@@ -1,38 +1,58 @@
 package com.baidu.swan.apps.ak.b;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.aa;
+import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
-public class c implements a<JSONObject> {
-    private JSONArray dEN;
-
-    public void cb(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            if (this.dEN == null) {
-                this.dEN = new JSONArray();
-            }
-            this.dEN.put(jSONObject);
-            if (DEBUG) {
-                Log.d("WhiteCollector", "FEStage: " + jSONObject);
-            }
-        }
+/* loaded from: classes9.dex */
+public class c extends aa {
+    public c(j jVar) {
+        super(jVar, "/swanAPI/stopMediaVolumeListen");
     }
 
-    public JSONObject aMz() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("stageError", this.dEN);
-        } catch (JSONException e) {
+    @Override // com.baidu.swan.apps.scheme.actions.aa
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
+        if (eVar == null) {
+            com.baidu.swan.apps.console.c.e("stopMediaVolumeListen", "none swanApp");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
             if (DEBUG) {
-                Log.e("WhiteCollector", Log.getStackTraceString(e));
+                Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal swanApp");
+                return false;
+            }
+            return false;
+        } else if (context == null) {
+            com.baidu.swan.apps.console.c.e("stopMediaVolumeListen", "none context");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
+            if (DEBUG) {
+                Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal context");
+                return false;
+            }
+            return false;
+        } else {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                com.baidu.swan.apps.console.c.e("stopMediaVolumeListen", "none params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            String optString = optParamsAsJo.optString("id");
+            if (TextUtils.isEmpty(optString)) {
+                com.baidu.swan.apps.console.c.e("stopMediaVolumeListen", "id is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (!d.aQd().ur(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
         }
-        return jSONObject;
-    }
-
-    public void clear() {
-        this.dEN = null;
     }
 }

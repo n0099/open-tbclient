@@ -15,13 +15,14 @@ import com.baidu.ar.d.j;
 import com.baidu.ar.d.k;
 import com.baidu.ar.imu.i;
 import com.baidu.ar.lua.LuaMsgListener;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public abstract class c implements c.a {
     private com.baidu.ar.filter.a B;
     private a C;
@@ -48,7 +49,7 @@ public abstract class c implements c.a {
     protected boolean mIsFrontCamera = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         boolean a(String str, com.baidu.ar.d.e eVar);
 
@@ -145,7 +146,7 @@ public abstract class c implements c.a {
                         case 180:
                             di.setPixelRotate(PixelRotation.FlipHorizontal);
                             break;
-                        case 270:
+                        case SubsamplingScaleImageView.ORIENTATION_270 /* 270 */:
                             di.setPixelRotate(PixelRotation.RotateRightFlipHorizontal);
                             break;
                     }

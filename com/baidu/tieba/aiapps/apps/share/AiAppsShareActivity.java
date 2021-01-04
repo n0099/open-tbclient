@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.share;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -13,9 +13,9 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class AiAppsShareActivity extends Activity {
-    private CustomMessageListener listener = new CustomMessageListener(2921376) { // from class: com.baidu.tieba.aiapps.apps.share.AiAppsShareActivity.1
+    private CustomMessageListener fmh = new CustomMessageListener(2921376) { // from class: com.baidu.tieba.aiapps.apps.share.AiAppsShareActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,9 +39,9 @@ public class AiAppsShareActivity extends Activity {
         }
         a aVar = new a();
         try {
-            aVar.ds(new JSONObject(stringExtra));
+            aVar.dB(new JSONObject(stringExtra));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this, aVar, false)));
-            MessageManager.getInstance().registerListener(this.listener);
+            MessageManager.getInstance().registerListener(this.fmh);
         } catch (JSONException e) {
             finish();
         }
@@ -50,7 +50,7 @@ public class AiAppsShareActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.listener);
+        MessageManager.getInstance().unRegisterListener(this.fmh);
     }
 
     @Override // android.app.Activity

@@ -1,15 +1,15 @@
 package com.baidu.swan.c;
 
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import java.io.File;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface b extends SharedPreferences, SharedPreferences.Editor {
-    boolean aNp();
+    boolean aPF();
 
-    Set<String> aNq();
+    Set<String> aPG();
 
     @Override // android.content.SharedPreferences
     @Deprecated

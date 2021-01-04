@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.liveroom.activeview;
 
-import com.baidu.live.data.o;
-import com.baidu.live.data.w;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.p;
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
 public interface c {
     void onStart();
 
@@ -12,5 +12,5 @@ public interface c {
 
     void setCallback(a aVar);
 
-    void setData(boolean z, w wVar, o oVar);
+    void setData(boolean z, x xVar, p pVar);
 }

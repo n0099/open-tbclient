@@ -1,7 +1,7 @@
 package io.reactivex.internal.disposables;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class SequentialDisposable extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b {
     private static final long serialVersionUID = -754898800686245608L;
 

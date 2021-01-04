@@ -1,16 +1,16 @@
 package com.baidu.tieba.ala.frsgamelive.b;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c extends BaseCardInfo {
-    public static final BdUniqueId gLs = BdUniqueId.gen();
-    public static final BdUniqueId gLt = BdUniqueId.gen();
-    public by eCR;
+    public static final BdUniqueId gXe = BdUniqueId.gen();
+    public static final BdUniqueId gXf = BdUniqueId.gen();
+    public bz eMv;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return (this.eCR == null || this.eCR.bpj() == null || this.eCR.bpj().live_type != 1) ? gLs : gLt;
+        return (this.eMv == null || this.eMv.brJ() == null || this.eMv.brJ().live_type != 1) ? gXe : gXf;
     }
 }

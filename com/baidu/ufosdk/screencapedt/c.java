@@ -1,18 +1,18 @@
 package com.baidu.ufosdk.screencapedt;
 
-import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.RelativeLayout;
+import androidx.core.view.ViewCompat;
 import com.baidu.ufosdk.f.m;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class c implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScreenCapEditActivity f3729a;
+    final /* synthetic */ ScreenCapEditActivity f5680a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ScreenCapEditActivity screenCapEditActivity) {
-        this.f3729a = screenCapEditActivity;
+        this.f5680a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,17 +21,17 @@ final class c implements View.OnClickListener {
         boolean z2;
         RelativeLayout relativeLayout;
         RelativeLayout relativeLayout2;
-        ScreenCapEditActivity screenCapEditActivity = this.f3729a;
-        z = this.f3729a.H;
+        ScreenCapEditActivity screenCapEditActivity = this.f5680a;
+        z = this.f5680a.H;
         screenCapEditActivity.H = !z;
-        z2 = this.f3729a.H;
+        z2 = this.f5680a.H;
         if (z2) {
-            relativeLayout = this.f3729a.Q;
+            relativeLayout = this.f5680a.Q;
             relativeLayout.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
             return;
         }
-        relativeLayout2 = this.f3729a.Q;
-        this.f3729a.getApplicationContext();
+        relativeLayout2 = this.f5680a.Q;
+        this.f5680a.getApplicationContext();
         relativeLayout2.setBackgroundDrawable(m.a((int) ViewCompat.MEASURED_STATE_MASK));
     }
 }

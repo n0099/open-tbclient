@@ -4,40 +4,40 @@ import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.view.Surface;
-import com.airbnb.lottie.e;
-import com.airbnb.lottie.g;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import com.airbnb.lottie.d;
+import com.airbnb.lottie.f;
 import com.baidu.adp.lib.util.BdLog;
 import io.flutter.view.TextureRegistry;
 @RequiresApi(api = 15)
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
-    private e composition;
-    private g drawable;
+    private d composition;
+    private f drawable;
     private volatile boolean isDisposed;
     private boolean pausedButNotByUser;
 
     /* renamed from: plugin  reason: collision with root package name */
-    private final FluttiePlugin f4901plugin;
+    private final FluttiePlugin f14694plugin;
     private Surface surface;
     private final TextureRegistry.SurfaceTextureEntry surfaceTexture;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public FluttieAnimation(FluttiePlugin fluttiePlugin, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, e eVar, float f, String str) {
-        this.f4901plugin = fluttiePlugin;
+    public FluttieAnimation(FluttiePlugin fluttiePlugin, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, d dVar, float f, String str) {
+        this.f14694plugin = fluttiePlugin;
         this.surfaceTexture = surfaceTextureEntry;
         this.surface = new Surface(surfaceTextureEntry.surfaceTexture());
-        Rect iu = eVar.iu();
-        surfaceTextureEntry.surfaceTexture().setDefaultBufferSize((int) (iu.width() * f), (int) (iu.height() * f));
-        this.drawable = new g();
+        Rect hR = dVar.hR();
+        surfaceTextureEntry.surfaceTexture().setDefaultBufferSize((int) (hR.width() * f), (int) (hR.height() * f));
+        this.drawable = new f();
         this.drawable.enableMergePathsForKitKatAndAbove(true);
         this.drawable.setScale(f);
-        this.composition = eVar;
-        this.drawable.a(eVar);
+        this.composition = dVar;
+        this.drawable.a(dVar);
         if (str != null) {
-            this.drawable.bh("flutter_assets/" + str);
+            this.drawable.be("flutter_assets/" + str);
         }
         this.drawable.addAnimatorUpdateListener(this);
         fluttiePlugin.getRenderingThreads().markDirty(this);
@@ -51,7 +51,7 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setDuration(int i) {
-        this.drawable.setSpeed(Math.copySign(this.composition.iv() / i, this.drawable.getSpeed()));
+        this.drawable.setSpeed(Math.copySign(this.composition.hS() / i, this.drawable.getSpeed()));
     }
 
     public int getId() {
@@ -91,7 +91,7 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
     public void onAnimationUpdate(@Nullable ValueAnimator valueAnimator) {
-        this.f4901plugin.getRenderingThreads().markDirty(this);
+        this.f14694plugin.getRenderingThreads().markDirty(this);
     }
 
     public boolean isPlaying() {

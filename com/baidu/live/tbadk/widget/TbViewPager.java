@@ -1,16 +1,16 @@
 package com.baidu.live.tbadk.widget;
 
 import android.content.Context;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewConfigurationCompat;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.ViewConfigurationCompat;
+import androidx.viewpager.widget.ViewPager;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class TbViewPager extends ViewPager {
     private static final int INVALID_POINTER = -1;
     private static final int SMOOTH_SCROLL_DURATION = 600;
@@ -19,7 +19,7 @@ public class TbViewPager extends ViewPager {
     private boolean mIsDisallowIntercept;
     private int mTouchSlop;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class ViewPagerScroller extends Scroller {
         public ViewPagerScroller(Context context) {
             super(context);
@@ -109,7 +109,7 @@ public class TbViewPager extends ViewPager {
         }
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
+    @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (isInvalidPointer(motionEvent)) {
             return true;
@@ -117,7 +117,7 @@ public class TbViewPager extends ViewPager {
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.View
+    @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & 255) {
             case 0:

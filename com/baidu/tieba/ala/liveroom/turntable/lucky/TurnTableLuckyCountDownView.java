@@ -4,20 +4,20 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class TurnTableLuckyCountDownView extends View {
-    private RectF dPN;
-    private Paint dPP;
-    private float dPU;
-    private float hDh;
-    private float hDi;
-    private String hDj;
+    private Paint bjo;
+    private RectF dYJ;
+    private Paint dYL;
+    private float dYR;
+    private float hPi;
+    private float hPj;
+    private String hPk;
     private float mProgress;
-    private Paint mTextPaint;
 
     public TurnTableLuckyCountDownView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -25,7 +25,7 @@ public class TurnTableLuckyCountDownView extends View {
     }
 
     public void setTimer(String str, float f) {
-        this.hDj = str;
+        this.hPk = str;
         this.mProgress = f;
         invalidate();
     }
@@ -33,40 +33,40 @@ public class TurnTableLuckyCountDownView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        Paint.FontMetricsInt fontMetricsInt = this.mTextPaint.getFontMetricsInt();
-        this.hDh = i * 0.5f;
-        this.hDi = ((i2 - fontMetricsInt.top) - fontMetricsInt.bottom) * 0.5f;
-        this.dPN.set(this.dPU * 0.5f, this.dPU * 0.5f, i - (this.dPU * 0.5f), i2 - (this.dPU * 0.5f));
+        Paint.FontMetricsInt fontMetricsInt = this.bjo.getFontMetricsInt();
+        this.hPi = i * 0.5f;
+        this.hPj = ((i2 - fontMetricsInt.top) - fontMetricsInt.bottom) * 0.5f;
+        this.dYJ.set(this.dYR * 0.5f, this.dYR * 0.5f, i - (this.dYR * 0.5f), i2 - (this.dYR * 0.5f));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawArc(this.dPN, -90.0f, this.mProgress * (-360.0f), false, this.dPP);
-        canvas.drawText(this.hDj == null ? "" : this.hDj, this.hDh, this.hDi, this.mTextPaint);
+        canvas.drawArc(this.dYJ, -90.0f, this.mProgress * (-360.0f), false, this.dYL);
+        canvas.drawText(this.hPk == null ? "" : this.hPk, this.hPi, this.hPj, this.bjo);
     }
 
     private void init() {
-        ckM();
+        cnD();
         initProgress();
     }
 
-    private void ckM() {
-        this.mTextPaint = new Paint(1);
-        this.mTextPaint.setDither(true);
-        this.mTextPaint.setColor(-1);
-        this.mTextPaint.setStyle(Paint.Style.FILL);
-        this.mTextPaint.setTextAlign(Paint.Align.CENTER);
-        this.mTextPaint.setTextSize(getResources().getDimensionPixelSize(a.d.sdk_fontsize24));
+    private void cnD() {
+        this.bjo = new Paint(1);
+        this.bjo.setDither(true);
+        this.bjo.setColor(-1);
+        this.bjo.setStyle(Paint.Style.FILL);
+        this.bjo.setTextAlign(Paint.Align.CENTER);
+        this.bjo.setTextSize(getResources().getDimensionPixelSize(a.d.sdk_fontsize24));
     }
 
     private void initProgress() {
-        this.dPU = getResources().getDimensionPixelOffset(a.d.sdk_ds6);
-        this.dPP = new Paint(1);
-        this.dPP.setDither(true);
-        this.dPP.setColor(-12753);
-        this.dPP.setStrokeWidth(this.dPU);
-        this.dPP.setStyle(Paint.Style.STROKE);
-        this.dPN = new RectF();
+        this.dYR = getResources().getDimensionPixelOffset(a.d.sdk_ds6);
+        this.dYL = new Paint(1);
+        this.dYL.setDither(true);
+        this.dYL.setColor(-12753);
+        this.dYL.setStrokeWidth(this.dYR);
+        this.dYL.setStyle(Paint.Style.STROKE);
+        this.dYJ = new RectF();
     }
 }

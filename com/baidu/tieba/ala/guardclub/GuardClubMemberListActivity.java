@@ -17,15 +17,15 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.view.BackBar;
 import com.baidu.tieba.ala.guardclub.model.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberListActivity> {
-    private TextView bQP;
-    private k gOw;
-    private g.a gPm = new g.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.3
+    private TextView bWw;
+    private k haj;
+    private g.a haZ = new g.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.3
         @Override // com.baidu.tieba.ala.guardclub.model.g.a
-        public void vO(int i) {
-            if (GuardClubMemberListActivity.this.bQP != null) {
-                GuardClubMemberListActivity.this.bQP.setText(String.format(GuardClubMemberListActivity.this.getString(a.h.guard_member_number), Integer.valueOf(i)));
+        public void vZ(int i) {
+            if (GuardClubMemberListActivity.this.bWw != null) {
+                GuardClubMemberListActivity.this.bWw.setText(String.format(GuardClubMemberListActivity.this.getString(a.h.guard_member_number), Integer.valueOf(i)));
             }
         }
     };
@@ -40,7 +40,7 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
     };
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
@@ -56,7 +56,7 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
                 findViewById.setVisibility(8);
             }
             FrameLayout frameLayout = (FrameLayout) findViewById(a.f.container_guard_club_member_list);
-            this.bQP = (TextView) findViewById(a.f.tv_guard_club_list_title);
+            this.bWw = (TextView) findViewById(a.f.tv_guard_club_list_title);
             View findViewById2 = findViewById(a.f.img_guard_club_list_back);
             findViewById2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.1
                 @Override // android.view.View.OnClickListener
@@ -78,8 +78,8 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
                 findViewById2.setVisibility(0);
                 backBar.setVisibility(8);
             }
-            this.gOw = new k(this, getIntent().getLongExtra("live_id", 0L), getIntent().getLongExtra("room_id", 0L), getIntent().getLongExtra("anchor_id", 0L), getIntent().getStringExtra("feed_id"), getIntent().getBooleanExtra("is_live_owner", false), true, true, true, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId(), this.gPm);
-            View view = this.gOw.getView();
+            this.haj = new k(this, getIntent().getLongExtra("live_id", 0L), getIntent().getLongExtra("room_id", 0L), getIntent().getLongExtra("anchor_id", 0L), getIntent().getStringExtra("feed_id"), getIntent().getBooleanExtra("is_live_owner", false), true, true, true, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId(), this.haZ);
+            View view = this.haj.getView();
             if (view != null) {
                 frameLayout.addView(view, new FrameLayout.LayoutParams(-1, -1));
             }
@@ -91,7 +91,7 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         UtilHelper.changeStatusBarIconAndTextColor(true, getActivity());
@@ -104,11 +104,11 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gOw != null) {
-            this.gOw.baD();
+        if (this.haj != null) {
+            this.haj.onPageDestroy();
         }
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }

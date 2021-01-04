@@ -5,10 +5,10 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.AgreeMe.AgreeMeReqIdl;
 import tbclient.AgreeMe.DataReq;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class AgreeMeRequestMessage extends NetMessage {
     public long id;
 
@@ -21,13 +21,13 @@ public class AgreeMeRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.id = Long.valueOf(this.id);
-            builder.q_type = Integer.valueOf(k.blV().getViewImageQuality());
+            builder.q_type = Integer.valueOf(k.bou().getViewImageQuality());
             builder.rn = 20;
             builder.scr_dip = Integer.valueOf((int) TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
             builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp()));
             builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
             if (z) {
-                u.a(builder, true);
+                t.b(builder, true);
             }
             AgreeMeReqIdl.Builder builder2 = new AgreeMeReqIdl.Builder();
             builder2.data = builder.build(false);

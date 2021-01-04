@@ -1,7 +1,7 @@
 package com.google.zxing.common;
 
 import java.util.Arrays;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class BitMatrix implements Cloneable {
     private final int[] bits;
     private final int height;
@@ -180,64 +180,54 @@ public final class BitMatrix implements Cloneable {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0041  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0055 A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public int[] getEnclosingRectangle() {
         int i;
-        int i2 = this.width;
-        int i3 = this.height;
-        int i4 = i2;
-        int i5 = -1;
+        int i2 = -1;
+        int i3 = this.width;
+        int i4 = this.height;
+        int i5 = 0;
         int i6 = -1;
-        for (int i7 = 0; i7 < this.height; i7++) {
-            int i8 = 0;
-            while (i8 < this.rowSize) {
-                int i9 = this.bits[(this.rowSize * i7) + i8];
-                if (i9 != 0) {
-                    if (i7 < i3) {
-                        i3 = i7;
-                    }
-                    if (i7 > i6) {
-                        i6 = i7;
-                    }
-                    if ((i8 << 5) < i4) {
-                        int i10 = 0;
-                        while ((i9 << (31 - i10)) == 0) {
-                            i10++;
-                        }
-                        if ((i8 << 5) + i10 < i4) {
-                            i = (i8 << 5) + i10;
-                            if ((i8 << 5) + 31 <= i5) {
-                                int i11 = 31;
-                                while ((i9 >>> i11) == 0) {
-                                    i11--;
-                                }
-                                if ((i8 << 5) + i11 > i5) {
-                                    i5 = (i8 << 5) + i11;
-                                }
-                            }
-                        }
-                    }
-                    i = i4;
-                    if ((i8 << 5) + 31 <= i5) {
-                    }
-                } else {
-                    i = i4;
-                }
-                i8++;
-                i6 = i6;
-                i5 = i5;
-                i3 = i3;
-                i4 = i;
+        while (true) {
+            i = i2;
+            if (i5 >= this.height) {
+                break;
             }
+            i2 = i;
+            for (int i7 = 0; i7 < this.rowSize; i7++) {
+                int i8 = this.bits[(this.rowSize * i5) + i7];
+                if (i8 != 0) {
+                    if (i5 < i4) {
+                        i4 = i5;
+                    }
+                    if (i5 > i6) {
+                        i6 = i5;
+                    }
+                    if ((i7 << 5) < i3) {
+                        int i9 = 0;
+                        while ((i8 << (31 - i9)) == 0) {
+                            i9++;
+                        }
+                        if ((i7 << 5) + i9 < i3) {
+                            i3 = (i7 << 5) + i9;
+                        }
+                    }
+                    if ((i7 << 5) + 31 > i2) {
+                        int i10 = 31;
+                        while ((i8 >>> i10) == 0) {
+                            i10--;
+                        }
+                        if ((i7 << 5) + i10 > i2) {
+                            i2 = (i7 << 5) + i10;
+                        }
+                    }
+                }
+            }
+            i5++;
         }
-        if (i5 < i4 || i6 < i3) {
+        if (i < i3 || i6 < i4) {
             return null;
         }
-        return new int[]{i4, i3, (i5 - i4) + 1, (i6 - i3) + 1};
+        return new int[]{i3, i4, (i - i3) + 1, (i6 - i4) + 1};
     }
 
     public int[] getTopLeftOnBit() {
@@ -326,7 +316,7 @@ public final class BitMatrix implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BitMatrix m46clone() {
+    public BitMatrix m51clone() {
         return new BitMatrix(this.width, this.height, this.rowSize, (int[]) this.bits.clone());
     }
 }

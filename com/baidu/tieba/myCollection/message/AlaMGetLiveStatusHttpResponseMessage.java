@@ -1,12 +1,11 @@
 package com.baidu.tieba.myCollection.message;
 
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessage {
     private List<Long> closeLives;
     private long interval;
@@ -21,7 +20,7 @@ public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessa
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             setError(jSONObject.optInt("error_code"));
-            setErrorString(jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG));
+            setErrorString(jSONObject.optString("error_msg"));
             if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("close_live");
                 if (optJSONArray != null) {

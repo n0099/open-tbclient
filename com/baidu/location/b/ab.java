@@ -11,21 +11,23 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class ab {
     private int B;
 
     /* renamed from: a  reason: collision with root package name */
-    long f1871a = 0;
+    long f2591a = 0;
     private a z;
-    private static ArrayList<String> b = new ArrayList<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static ArrayList<String> f2590b = new ArrayList<>();
     private static ArrayList<String> c = new ArrayList<>();
     private static ArrayList<String> d = new ArrayList<>();
-    private static String e = com.baidu.location.e.k.f1958a + "/yo.dat";
-    private static String f = com.baidu.location.e.k.f1958a + "/yoh.dat";
-    private static String g = com.baidu.location.e.k.f1958a + "/yom.dat";
-    private static String h = com.baidu.location.e.k.f1958a + "/yol.dat";
-    private static String i = com.baidu.location.e.k.f1958a + "/yor.dat";
+    private static String e = com.baidu.location.e.k.f2731a + "/yo.dat";
+    private static String f = com.baidu.location.e.k.f2731a + "/yoh.dat";
+    private static String g = com.baidu.location.e.k.f2731a + "/yom.dat";
+    private static String h = com.baidu.location.e.k.f2731a + "/yol.dat";
+    private static String i = com.baidu.location.e.k.f2731a + "/yor.dat";
     private static File j = null;
     private static int k = 8;
     private static int l = 8;
@@ -45,12 +47,14 @@ public class ab {
     private static ab A = null;
     private static long C = 0;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     private class a extends com.baidu.location.e.f {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f1872a = false;
-        int b = 0;
+        boolean f2592a = false;
+
+        /* renamed from: b  reason: collision with root package name */
+        int f2593b = 0;
         int c = 0;
         private ArrayList<String> e = new ArrayList<>();
         private boolean f = true;
@@ -62,20 +66,20 @@ public class ab {
         @Override // com.baidu.location.e.f
         public void a() {
             this.h = com.baidu.location.e.l.e();
-            if (this.b != 1) {
+            if (this.f2593b != 1) {
                 this.h = com.baidu.location.e.l.g();
             }
             this.i = 2;
             if (this.e != null) {
                 for (int i = 0; i < this.e.size(); i++) {
-                    if (this.b == 1) {
+                    if (this.f2593b == 1) {
                         this.k.put("cldc[" + i + "]", this.e.get(i));
                     } else {
                         this.k.put("cltr[" + i + "]", this.e.get(i));
                     }
                 }
                 this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
-                if (this.b != 1) {
+                if (this.f2593b != 1) {
                     this.k.put("qt", "cltrg");
                 }
             }
@@ -99,40 +103,40 @@ public class ab {
             if (this.k != null) {
                 this.k.clear();
             }
-            this.f1872a = false;
+            this.f2592a = false;
         }
 
         public synchronized void b() {
             int i = 0;
             synchronized (this) {
-                if (!this.f1872a) {
+                if (!this.f2592a) {
                     if (p <= 4 || this.c >= p) {
                         this.c = 0;
-                        this.f1872a = true;
-                        this.b = 0;
+                        this.f2592a = true;
+                        this.f2593b = 0;
                         try {
                             if (this.e == null || this.e.size() < 1) {
                                 if (this.e == null) {
                                     this.e = new ArrayList<>();
                                 }
-                                this.b = 0;
+                                this.f2593b = 0;
                                 while (true) {
-                                    String b = this.b < 2 ? ab.b() : null;
-                                    if (b == null && this.b != 1 && this.f) {
-                                        this.b = 2;
+                                    String b2 = this.f2593b < 2 ? ab.b() : null;
+                                    if (b2 == null && this.f2593b != 1 && this.f) {
+                                        this.f2593b = 2;
                                         try {
-                                            b = j.a();
+                                            b2 = j.a();
                                         } catch (Exception e) {
-                                            b = null;
+                                            b2 = null;
                                         }
                                     } else {
-                                        this.b = 1;
+                                        this.f2593b = 1;
                                     }
-                                    if (b == null) {
+                                    if (b2 == null) {
                                         break;
-                                    } else if (!b.contains("err!")) {
-                                        this.e.add(b);
-                                        i += b.length();
+                                    } else if (!b2.contains("err!")) {
+                                        this.e.add(b2);
+                                        i += b2.length();
                                         if (i >= com.baidu.location.e.a.i) {
                                             break;
                                         }
@@ -143,8 +147,8 @@ public class ab {
                                 if (this.e != null) {
                                     this.e.clear();
                                 }
-                                this.f1872a = false;
-                            } else if (this.b != 1) {
+                                this.f2592a = false;
+                            } else if (this.f2593b != 1) {
                                 ExecutorService c = z.a().c();
                                 if (c != null) {
                                     a(c, com.baidu.location.e.l.g());
@@ -221,10 +225,10 @@ public class ab {
                             i3 = -4;
                         } else {
                             byte[] bArr = new byte[n];
-                            int i4 = readInt2;
-                            int i5 = k;
-                            while (i5 > 0 && i4 > 0) {
-                                randomAccessFile.seek(((((readInt + i4) - 1) % readInt3) * readInt4) + readLong);
+                            int i4 = k;
+                            int i5 = readInt2;
+                            while (i4 > 0 && i5 > 0) {
+                                randomAccessFile.seek(((((readInt + i5) - 1) % readInt3) * readInt4) + readLong);
                                 int readInt5 = randomAccessFile.readInt();
                                 if (readInt5 > 0 && readInt5 < readInt4) {
                                     randomAccessFile.read(bArr, 0, readInt5);
@@ -237,12 +241,12 @@ public class ab {
                             }
                             randomAccessFile.seek(i2);
                             randomAccessFile.writeInt(readInt);
-                            randomAccessFile.writeInt(i4);
+                            randomAccessFile.writeInt(i5);
                             randomAccessFile.writeInt(readInt3);
                             randomAccessFile.writeInt(readInt4);
                             randomAccessFile.writeLong(readLong);
                             randomAccessFile.close();
-                            i3 = k - i5;
+                            i3 = k - i4;
                         }
                     }
                 }
@@ -270,7 +274,7 @@ public class ab {
         String str3 = null;
         if (i2 == 1) {
             str = f;
-            arrayList = b;
+            arrayList = f2590b;
         } else if (i2 == 2) {
             str = g;
             arrayList = c;
@@ -294,14 +298,14 @@ public class ab {
             if (size > 0) {
                 try {
                     str2 = arrayList.get(size - 1);
-                    try {
-                        arrayList.remove(size - 1);
-                    } catch (Exception e2) {
-                        str3 = str2;
-                        str2 = str3;
-                        return str2;
-                    }
+                } catch (Exception e2) {
+                }
+                try {
+                    arrayList.remove(size - 1);
                 } catch (Exception e3) {
+                    str3 = str2;
+                    str2 = str3;
+                    return str2;
                 }
             } else {
                 str2 = null;
@@ -316,40 +320,25 @@ public class ab {
         int i3;
         boolean z2;
         int i4;
-        int i5;
         if (i2 == 1) {
-            String str2 = f;
+            str = f;
             if (z) {
                 return;
             }
-            str = str2;
-            arrayList = b;
+            arrayList = f2590b;
         } else if (i2 == 2) {
-            String str3 = g;
-            if (z) {
-                str = str3;
-                arrayList = b;
-            } else {
-                str = str3;
-                arrayList = c;
-            }
+            str = g;
+            arrayList = z ? f2590b : c;
         } else if (i2 == 3) {
-            String str4 = h;
-            if (z) {
-                str = str4;
-                arrayList = c;
-            } else {
-                str = str4;
-                arrayList = d;
-            }
+            str = h;
+            arrayList = z ? c : d;
         } else if (i2 != 4) {
             return;
         } else {
-            String str5 = i;
+            str = i;
             if (!z) {
                 return;
             }
-            str = str5;
             arrayList = d;
         }
         File file = new File(str);
@@ -366,12 +355,14 @@ public class ab {
             int readInt5 = randomAccessFile.readInt();
             int size = arrayList.size();
             while (true) {
-                i3 = readInt5;
                 if (size <= l) {
+                    i3 = readInt5;
                     z2 = false;
                     break;
                 }
-                readInt5 = z ? i3 + 1 : i3;
+                if (z) {
+                    readInt5++;
+                }
                 if (readInt3 >= readInt) {
                     if (!z) {
                         z2 = true;
@@ -387,19 +378,16 @@ public class ab {
                     if (i4 > readInt3) {
                         i4 = 0;
                     }
-                    i5 = readInt3;
                 } else {
                     randomAccessFile.seek((readInt2 * readInt3) + 128);
                     byte[] bytes2 = (arrayList.get(0) + (char) 0).getBytes();
                     randomAccessFile.writeInt(bytes2.length);
                     randomAccessFile.write(bytes2, 0, bytes2.length);
                     arrayList.remove(0);
-                    int i6 = readInt4;
-                    i5 = readInt3 + 1;
-                    i4 = i6;
+                    readInt3++;
+                    i4 = readInt4;
                 }
                 size--;
-                readInt3 = i5;
                 readInt4 = i4;
             }
             randomAccessFile.seek(12L);
@@ -520,7 +508,7 @@ public class ab {
     }
 
     private static boolean a(Location location, com.baidu.location.c.h hVar) {
-        if (location == null || hVar == null || hVar.f1939a == null || hVar.f1939a.isEmpty() || hVar.b(y)) {
+        if (location == null || hVar == null || hVar.f2696a == null || hVar.f2696a.isEmpty() || hVar.b(y)) {
             return false;
         }
         if (x == null) {
@@ -544,15 +532,14 @@ public class ab {
                 int readInt2 = randomAccessFile.readInt();
                 int readInt3 = randomAccessFile.readInt();
                 byte[] bArr = new byte[n];
-                int i2 = readInt2;
-                int i3 = l + 1;
+                int i2 = l + 1;
                 boolean z = false;
-                while (i3 > 0 && i2 > 0) {
-                    if (i2 < readInt3) {
+                while (i2 > 0 && readInt2 > 0) {
+                    if (readInt2 < readInt3) {
                         readInt3 = 0;
                     }
                     try {
-                        randomAccessFile.seek(((i2 - 1) * readInt) + 128);
+                        randomAccessFile.seek(((readInt2 - 1) * readInt) + 128);
                         int readInt4 = randomAccessFile.readInt();
                         if (readInt4 > 0 && readInt4 < readInt) {
                             randomAccessFile.read(bArr, 0, readInt4);
@@ -561,14 +548,14 @@ public class ab {
                                 z = true;
                             }
                         }
-                        i3--;
                         i2--;
+                        readInt2--;
                     } catch (Exception e2) {
                         return z;
                     }
                 }
                 randomAccessFile.seek(12L);
-                randomAccessFile.writeInt(i2);
+                randomAccessFile.writeInt(readInt2);
                 randomAccessFile.writeInt(readInt3);
                 randomAccessFile.close();
                 return z;
@@ -605,7 +592,7 @@ public class ab {
             if (file.exists()) {
                 return;
             }
-            File file2 = new File(com.baidu.location.e.k.f1958a);
+            File file2 = new File(com.baidu.location.e.k.f2731a);
             if (!file2.exists()) {
                 file2.mkdirs();
             }
@@ -689,7 +676,7 @@ public class ab {
             if (!str.contains("err!")) {
                 int i2 = com.baidu.location.e.l.q;
                 if (i2 == 1) {
-                    arrayList = b;
+                    arrayList = f2590b;
                 } else if (i2 == 2) {
                     arrayList = c;
                 } else if (i2 == 3) {

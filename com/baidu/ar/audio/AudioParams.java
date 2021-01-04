@@ -1,5 +1,5 @@
 package com.baidu.ar.audio;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class AudioParams {
     public static final float DEFAULT_AMPLIFY_VOLUME = 1.0f;
     public static final int DEFAULT_AUDIO_BUFFER_SIZE = 32768;

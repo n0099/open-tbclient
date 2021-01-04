@@ -3,7 +3,7 @@ package com.baidu.swan.game.ad.downloader.b;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class b extends SQLiteOpenHelper {
     public b(Context context, com.baidu.swan.game.ad.downloader.a.a aVar) {
         super(context, "swan_ad_download.db", (SQLiteDatabase.CursorFactory) null, 1);

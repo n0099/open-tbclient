@@ -1,9 +1,19 @@
 package com.baidu.helios.common.cc;
 
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 class c {
-    public static void a(byte[] bArr, byte[] bArr2, int i) {
+    public static byte[] a(byte[] bArr, int i) {
+        if (bArr == null || bArr.length == 0) {
+            throw new IllegalArgumentException("original array should not be null or empty");
+        }
+        if (i < 0) {
+            throw new IllegalArgumentException("length should be more than zero!");
+        }
+        return Arrays.copyOf(bArr, i);
+    }
+
+    public static void b(byte[] bArr, byte[] bArr2, int i) {
         if (i < 0) {
             throw new IllegalArgumentException("start should be more than zero!");
         }
@@ -20,15 +30,5 @@ class c {
             throw new IllegalArgumentException("start should be less than:" + (bArr.length - bArr2.length));
         }
         System.arraycopy(bArr2, 0, bArr, i, bArr2.length);
-    }
-
-    public static byte[] a(byte[] bArr, int i) {
-        if (bArr == null || bArr.length == 0) {
-            throw new IllegalArgumentException("original array should not be null or empty");
-        }
-        if (i < 0) {
-            throw new IllegalArgumentException("length should be more than zero!");
-        }
-        return Arrays.copyOf(bArr, i);
     }
 }

@@ -3,13 +3,13 @@ package kotlin.sequences;
 import java.util.Iterator;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class g<T, R> implements c<R> {
-    private final c<T> pLe;
-    private final kotlin.jvm.a.b<T, R> pLq;
+    private final c<T> qmH;
+    private final kotlin.jvm.a.b<T, R> qmT;
 
     @kotlin.e
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements Iterator<R> {
         private final Iterator<T> iterator;
 
@@ -20,12 +20,12 @@ public final class g<T, R> implements c<R> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.iterator = g.this.pLe.iterator();
+            this.iterator = g.this.qmH.iterator();
         }
 
         @Override // java.util.Iterator
         public R next() {
-            return (R) g.this.pLq.invoke(this.iterator.next());
+            return (R) g.this.qmT.invoke(this.iterator.next());
         }
 
         @Override // java.util.Iterator
@@ -40,8 +40,8 @@ public final class g<T, R> implements c<R> {
     public g(c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
         p.o(cVar, "sequence");
         p.o(bVar, "transformer");
-        this.pLe = cVar;
-        this.pLq = bVar;
+        this.qmH = cVar;
+        this.qmT = bVar;
     }
 
     @Override // kotlin.sequences.c

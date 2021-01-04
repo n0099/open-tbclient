@@ -2,7 +2,7 @@ package com.baidu.ar.statistic;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 final class k {
     private d wI;
     private ArrayList<com.baidu.ar.statistic.a> wJ;
@@ -13,7 +13,7 @@ final class k {
     private a wO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void R(int i);
     }

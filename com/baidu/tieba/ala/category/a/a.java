@@ -5,18 +5,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends AbsDelegateAdapter<com.baidu.tieba.ala.category.b.c, b> {
-    private String gCR;
+    private String gOD;
 
     public a(Context context, BdUniqueId bdUniqueId) {
-        super(context, com.baidu.tieba.ala.category.b.c.gDg, bdUniqueId);
+        super(context, com.baidu.tieba.ala.category.b.c.gOS, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: ac */
+    /* renamed from: ao */
     public b onCreateViewHolder(ViewGroup viewGroup) {
         return new b(this.mContext, this.mPageId);
     }
@@ -26,12 +26,12 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.ala.category.b.c, b> {
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.category.b.c cVar, b bVar) {
-        bVar.a(cVar, this.gCR);
+        bVar.a(cVar, this.gOD);
         return view;
     }
 
-    public void GR(String str) {
-        this.gCR = str;
+    public void GQ(String str) {
+        this.gOD = str;
         notifyDataSetChanged();
     }
 }

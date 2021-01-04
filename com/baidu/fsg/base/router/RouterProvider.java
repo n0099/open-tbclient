@@ -1,12 +1,14 @@
 package com.baidu.fsg.base.router;
 
 import java.util.HashMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class RouterProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1483a = true;
-    private HashMap<String, RouterAction> b = new HashMap<>();
+    private boolean f1973a = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    private HashMap<String, RouterAction> f1974b = new HashMap<>();
 
     protected abstract void registerActions();
 
@@ -16,14 +18,14 @@ public abstract class RouterProvider {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void registerAction(String str, RouterAction routerAction) {
-        this.b.put(str, routerAction);
+        this.f1974b.put(str, routerAction);
     }
 
     public RouterAction findAction(String str) {
-        return this.b.get(str);
+        return this.f1974b.get(str);
     }
 
     public boolean isValid() {
-        return this.f1483a;
+        return this.f1973a;
     }
 }

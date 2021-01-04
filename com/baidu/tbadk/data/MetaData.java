@@ -7,11 +7,14 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.data.Config;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.data.BazhuGradeData;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.PrivSetsData;
@@ -21,6 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.BaijiahaoInfo;
+import tbclient.ForumToolPerm;
 import tbclient.GodInfo;
 import tbclient.Icon;
 import tbclient.LiveRoomInfo;
@@ -85,6 +89,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private String sealPrefix = null;
     private int left_call_num = 0;
     private BaijiahaoInfo baijiahaoInfo = null;
+    private List<ForumToolPerm> forumToolAuth = new ArrayList();
 
     public BaijiahaoInfo getBaijiahaoInfo() {
         return this.baijiahaoInfo;
@@ -401,6 +406,25 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.sealPrefix;
     }
 
+    public List<ForumToolPerm> getForumToolAuth() {
+        return this.forumToolAuth;
+    }
+
+    public void setForumToolAuth(List<ForumToolPerm> list) {
+        this.forumToolAuth = list;
+    }
+
+    public void parseFromCurrentUser() {
+        if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
+            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+            this.userId = currentAccountInfo.getID();
+            this.gender = currentAccountInfo.getSex();
+            this.userName = currentAccountInfo.getAccount();
+            this.name_show = currentAccountInfo.getAccountNameShow();
+            this.portrait = currentAccountInfo.getPortrait();
+        }
+    }
+
     public void parserProtobuf(User user) {
         if (user != null) {
             this.userId = user.id + "";
@@ -514,6 +538,11 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             if (!StringUtils.isNull(user.appeal_thread_popover)) {
                 this.appealThreadPopover = user.appeal_thread_popover;
             }
+            List<ForumToolPerm> list4 = user.forum_tool_auth;
+            this.forumToolAuth.clear();
+            if (list4 != null && list4.size() > 0) {
+                this.forumToolAuth.addAll(list4);
+            }
         }
     }
 
@@ -533,6 +562,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public void parserJson(JSONObject jSONObject) {
+        int i = 0;
         if (jSONObject != null) {
             try {
                 this.userId = jSONObject.optString("id");
@@ -544,7 +574,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.is_like = jSONObject.optInt("is_like", 0);
                 this.is_bawu = jSONObject.optInt("is_bawu", 0);
                 this.is_manager = jSONObject.optInt("is_manager", 0);
-                this.isMem = jSONObject.optInt("is_mem", 0);
+                this.isMem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM, 0);
                 this.bawu_type = jSONObject.optString("bawu_type");
                 this.is_myfriend = jSONObject.optInt("is_friend");
                 this.is_myfans = jSONObject.optInt("is_fans");
@@ -566,23 +596,23 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 JSONObject optJSONObject = jSONObject.optJSONObject("god_data");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("tb_vip");
                 if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         IconData iconData = new IconData();
-                        iconData.parserJson(optJSONArray.getJSONObject(i));
+                        iconData.parserJson(optJSONArray.getJSONObject(i2));
                         this.mIconInfo.add(iconData);
                     }
                 }
                 if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         IconData iconData2 = new IconData();
-                        iconData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        iconData2.parserJson(optJSONArray2.getJSONObject(i3));
                         this.mTShowIconInfo.add(iconData2);
                     }
                 }
                 if (optJSONArray3 != null) {
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                    for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
                         IconData iconData3 = new IconData();
-                        iconData3.parserJson(optJSONArray3.getJSONObject(i3));
+                        iconData3.parserJson(optJSONArray3.getJSONObject(i4));
                         this.mTShowIconInfoNew.add(iconData3);
                     }
                 }
@@ -638,6 +668,22 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                     this.businessAccountData.parseJson(optJSONObject8);
                 }
                 this.appealThreadPopover = jSONObject.optString("appeal_thread_popover");
+                this.forumToolAuth.clear();
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("forum_tool_auth");
+                if (optJSONArray4 == null) {
+                    return;
+                }
+                while (true) {
+                    int i5 = i;
+                    if (i5 < optJSONArray4.length()) {
+                        ForumToolPerm.Builder builder2 = new ForumToolPerm.Builder();
+                        builder2.perm = Long.valueOf(((JSONObject) optJSONArray4.get(i5)).optLong("perm"));
+                        this.forumToolAuth.add(builder2.build(false));
+                        i = i5 + 1;
+                    } else {
+                        return;
+                    }
+                }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -717,7 +763,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public boolean isOfficial() {
-        return this.businessAccountData != null && this.businessAccountData.fsE;
+        return this.businessAccountData != null && this.businessAccountData.fCj;
     }
 
     public boolean isForumBusinessAccount() {
@@ -741,7 +787,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public boolean showBazhuGrade() {
-        if ((this.baijiahaoInfo != null && this.baijiahaoInfo.auth_id.intValue() != 0 && !au.isEmpty(this.baijiahaoInfo.auth_desc)) || this.mBazhuGrade == null || au.isEmpty(this.mBazhuGrade.getDesc())) {
+        if ((this.baijiahaoInfo != null && this.baijiahaoInfo.auth_id.intValue() != 0 && !at.isEmpty(this.baijiahaoInfo.auth_desc)) || this.mBazhuGrade == null || at.isEmpty(this.mBazhuGrade.getDesc())) {
             return false;
         }
         if (this.is_bawu == 1 && Config.BAWU_TYPE_MANAGER.equals(this.bawu_type)) {

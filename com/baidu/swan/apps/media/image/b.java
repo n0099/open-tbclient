@@ -6,7 +6,7 @@ import android.net.Uri;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class b {
     private final Bitmap bitmap;
     private boolean cached;
@@ -48,18 +48,18 @@ public final class b {
         this.tile = true;
     }
 
-    public static b jN(int i) {
+    public static b jI(int i) {
         return new b(i);
     }
 
-    public static b qH(String str) {
+    public static b qB(String str) {
         if (str == null) {
             throw new NullPointerException("Asset name must not be null");
         }
-        return qI("file:///android_asset/" + str);
+        return qC("file:///android_asset/" + str);
     }
 
-    public static b qI(String str) {
+    public static b qC(String str) {
         if (str == null) {
             throw new NullPointerException("Uri must not be null");
         }
@@ -72,22 +72,22 @@ public final class b {
         return new b(Uri.parse(str));
     }
 
-    public static b m(Bitmap bitmap) {
+    public static b n(Bitmap bitmap) {
         if (bitmap == null) {
             throw new NullPointerException("Bitmap must not be null");
         }
         return new b(bitmap, true);
     }
 
-    public b aDJ() {
-        return fW(true);
+    public b aFc() {
+        return gf(true);
     }
 
-    public b aDK() {
-        return fW(false);
+    public b aFd() {
+        return gf(false);
     }
 
-    public b fW(boolean z) {
+    public b gf(boolean z) {
         this.tile = z;
         return this;
     }
@@ -128,7 +128,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean aDL() {
+    public final boolean aFe() {
         return this.cached;
     }
 }

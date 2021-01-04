@@ -2,15 +2,15 @@ package com.baidu.live.gift;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class u {
-    public long aUE;
+    public long aVW;
     public String name;
 
-    public u D(JSONObject jSONObject) {
+    public u K(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.name = jSONObject.optString("name");
-            this.aUE = jSONObject.optLong("last_accessed");
+            this.aVW = jSONObject.optLong("last_accessed");
         }
         return this;
     }
@@ -19,7 +19,7 @@ public class u {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("name", this.name);
-            jSONObject.put("last_accessed", this.aUE);
+            jSONObject.put("last_accessed", this.aVW);
             return jSONObject;
         } catch (JSONException e) {
             e.printStackTrace();

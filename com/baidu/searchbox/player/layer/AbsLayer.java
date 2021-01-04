@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
@@ -16,7 +16,7 @@ import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.message.IMessenger;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsLayer implements ILayer {
     protected Context mContext;
     private IMessenger mCourier;
@@ -125,8 +125,8 @@ public abstract class AbsLayer implements ILayer {
         }
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public BDVideoPlayer getBindPlayer() {
         return this.mLayerContainer.getBindPlayer();
     }
@@ -140,20 +140,20 @@ public abstract class AbsLayer implements ILayer {
         getBindPlayer().getVideoSession().setInterceptor(iVideoEventInterceptor);
     }
 
-    @PublicMethod
     @Nullable
+    @PublicMethod
     protected Activity getActivity() {
         return getBindPlayer().getActivity();
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     protected Context getAppContext() {
         return this.mContext.getApplicationContext();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public static class PrivateHandler extends Handler {
         protected WeakReference<AbsLayer> mWeakControl;
 

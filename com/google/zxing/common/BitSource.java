@@ -1,5 +1,5 @@
 package com.google.zxing.common;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class BitSource {
     private int bitOffset;
     private int byteOffset;
@@ -28,14 +28,13 @@ public final class BitSource {
             int i5 = i < i4 ? i : i4;
             int i6 = i4 - i5;
             int i7 = (((255 >> (8 - i5)) << i6) & this.bytes[this.byteOffset]) >> i6;
-            int i8 = i - i5;
+            i3 = i - i5;
             this.bitOffset = i5 + this.bitOffset;
             if (this.bitOffset == 8) {
                 this.bitOffset = 0;
                 this.byteOffset++;
             }
             i2 = i7;
-            i3 = i8;
         } else {
             i2 = 0;
             i3 = i;
@@ -47,10 +46,10 @@ public final class BitSource {
                 i3 -= 8;
             }
             if (i3 > 0) {
-                int i9 = 8 - i3;
-                int i10 = (i2 << i3) | ((((255 >> i9) << i9) & this.bytes[this.byteOffset]) >> i9);
+                int i8 = 8 - i3;
+                int i9 = (i2 << i3) | ((((255 >> i8) << i8) & this.bytes[this.byteOffset]) >> i8);
                 this.bitOffset = i3 + this.bitOffset;
-                return i10;
+                return i9;
             }
             return i2;
         }

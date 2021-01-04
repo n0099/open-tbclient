@@ -1,21 +1,21 @@
 package com.baidu.swan.apps.env;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.util.Pair;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import java.io.File;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Nullable
-    public static Set<String> aG(List<String> list) {
+    public static Set<String> aK(List<String> list) {
         if (list == null || list.isEmpty()) {
             return null;
         }
@@ -28,10 +28,10 @@ public class d {
             return null;
         }
         HashSet hashSet = new HashSet();
-        for (com.baidu.swan.apps.process.messaging.service.c cVar : com.baidu.swan.apps.process.messaging.service.e.aIs().aIu()) {
+        for (com.baidu.swan.apps.process.messaging.service.c cVar : com.baidu.swan.apps.process.messaging.service.e.aJL().aJN()) {
             String appId = cVar.getAppId();
-            if (cVar.aIf() && cVar.aId() && list.contains(appId)) {
-                com.baidu.swan.apps.process.messaging.a.aHE().a(new com.baidu.swan.apps.process.messaging.c(i).a(cVar.drv));
+            if (cVar.aJy() && cVar.aJw() && list.contains(appId)) {
+                com.baidu.swan.apps.process.messaging.a.aIX().a(new com.baidu.swan.apps.process.messaging.c(i).a(cVar.dwt));
                 hashSet.add(appId);
                 if (DEBUG) {
                     Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + ")");
@@ -41,9 +41,9 @@ public class d {
         return hashSet;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x006a  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0086  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00a6  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0069  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0085  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00a5  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

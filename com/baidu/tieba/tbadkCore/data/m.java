@@ -4,25 +4,25 @@ import android.content.Context;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class m {
-    private String abC;
-    private HashMap eSd;
+    private String aco;
+    private HashMap fbY;
     private Context mContext;
 
     public m(Context context, String str, HashMap hashMap) {
         this.mContext = null;
-        this.abC = null;
-        this.eSd = null;
+        this.aco = null;
+        this.fbY = null;
         this.mContext = context;
-        this.abC = str;
-        this.eSd = hashMap;
+        this.aco = str;
+        this.fbY = hashMap;
     }
 
     public String getPageName() {
-        return this.abC;
+        return this.aco;
     }
 
     public HashMap getParams() {
-        return this.eSd;
+        return this.fbY;
     }
 
     public Context getContext() {

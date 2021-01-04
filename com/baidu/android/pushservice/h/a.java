@@ -4,16 +4,17 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static String a(Context context, String str) {
         try {
-            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+            byte[] digest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes());
             StringBuilder sb = new StringBuilder();
-            for (byte b : digest) {
-                int i = b & 255;
+            for (byte b2 : digest) {
+                int i = b2 & 255;
                 if (i < 16) {
                     sb.append(0);
                 }

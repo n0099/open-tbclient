@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.util;
 
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.InputStream;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
@@ -8,7 +9,7 @@ public class s {
 
     public static String toMd5(byte[] bArr) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.update(bArr);
             return toHexString(messageDigest.digest());
         } catch (Exception e) {
@@ -34,7 +35,7 @@ public class s {
         if (inputStream != null) {
             try {
                 byte[] bArr = new byte[1024];
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 while (true) {
                     int read = inputStream.read(bArr);
                     if (read <= 0) {

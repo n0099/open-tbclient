@@ -1,32 +1,31 @@
 package com.baidu.tieba.personCenter.c;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class b {
     private int errorCode = -1;
     private String errorMsg = "";
-    private int mjU = 0;
+    private int mpd = 0;
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
-    public int bEL() {
-        return this.mjU;
+    public int bHf() {
+        return this.mpd;
     }
 
-    public void QW(String str) {
+    public void QC(String str) {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 this.errorCode = jSONObject.optInt("error_code", -1);
-                this.errorMsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+                this.errorMsg = jSONObject.optString("error_msg", "");
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.mjU = optJSONObject.optInt("msg_count");
+                    this.mpd = optJSONObject.optInt("msg_count");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

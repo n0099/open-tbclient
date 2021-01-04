@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.person.a;
 
 import com.baidu.live.data.AlaLiveInfoData;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public AlaLiveInfoData hJw;
-    public AlaLiveInfoData hJx;
+    public AlaLiveInfoData hVI;
+    public AlaLiveInfoData hVJ;
 }

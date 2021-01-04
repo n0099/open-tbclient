@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.fsg.base.restnet.rest.RestHttpRequestInterceptor;
 import com.baidu.fsg.base.restnet.rest.d;
 import com.baidubce.http.Headers;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     private static final String PARAM_CUID = "cuid_1";
     private static final String PARAM_IMSI = "wims";

@@ -13,7 +13,7 @@ import com.baidu.ar.audio.IEasyAudio;
 import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.Watermark;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a implements FrameRenderListener, IRecord {
     private static final String TAG = a.class.getSimpleName();
     private DuMixOutput W;
@@ -40,6 +40,8 @@ public class a implements FrameRenderListener, IRecord {
     }
 
     private void a(EncoderParams encoderParams, AudioParams audioParams) {
+        int i;
+        int i2;
         int videoWidth = encoderParams.getVideoWidth();
         int videoHeight = encoderParams.getVideoHeight();
         if (this.mWindowWidth > 0 && this.mWindowHeight > 0) {
@@ -51,18 +53,20 @@ public class a implements FrameRenderListener, IRecord {
         }
         Orientation globalOrientation = OrientationManager.getGlobalOrientation();
         if (globalOrientation == Orientation.LANDSCAPE || globalOrientation == Orientation.LANDSCAPE_REVERSE) {
-            int i = videoWidth;
-            videoWidth = videoHeight;
-            videoHeight = i;
+            i = videoWidth;
+            i2 = videoHeight;
+        } else {
+            i = videoHeight;
+            i2 = videoWidth;
         }
-        if (videoWidth % 2 == 1) {
-            videoWidth++;
+        if (i2 % 2 == 1) {
+            i2++;
         }
-        if (videoHeight % 2 == 1) {
-            videoHeight++;
+        if (i % 2 == 1) {
+            i++;
         }
-        encoderParams.setVideoWidth(videoWidth);
-        encoderParams.setVideoHeight(videoHeight);
+        encoderParams.setVideoWidth(i2);
+        encoderParams.setVideoHeight(i);
         encoderParams.setAudioSampleRate(audioParams.getSampleRate());
         encoderParams.setAudioFrameSize(audioParams.getFrameSize());
     }

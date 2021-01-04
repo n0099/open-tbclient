@@ -1,5 +1,7 @@
 package com.baidu.live.adp.framework;
-/* loaded from: classes4.dex */
+
+import com.kwad.sdk.core.response.model.SdkConfigData;
+/* loaded from: classes11.dex */
 public interface MessageConfig {
     public static final int BASE_CMD_START = 1000;
     public static final int BASE_COMMON_ERROR = -1000;
@@ -43,5 +45,5 @@ public interface MessageConfig {
     public static final int SOCKET_TIME_OUT_MS_2G = 20000;
     public static final int SOCKET_TIME_OUT_MS_3G = 10000;
     public static final int SOCKET_TIME_OUT_MS_WIFI = 5000;
-    public static final int[] reconStrategy = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
+    public static final int[] reconStrategy = {30, 60, 300, 600, 1800, SdkConfigData.DEFAULT_REQUEST_INTERVAL, 7200, 14400};
 }

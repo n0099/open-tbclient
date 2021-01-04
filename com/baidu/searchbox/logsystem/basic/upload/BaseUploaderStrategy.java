@@ -1,19 +1,19 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.logsys.LogFile;
 import com.baidu.searchbox.logsystem.logsys.LogObject;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseUploaderStrategy implements UploadInterface {
     protected boolean mUploadJavaCrash;
     protected UploadListener mUploadListener;
     protected boolean mUploadNativeCrash;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface UploadListener {
         void onUploadDone(@Nullable LogObject logObject);
 

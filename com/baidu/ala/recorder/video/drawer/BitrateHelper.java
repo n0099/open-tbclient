@@ -2,7 +2,7 @@ package com.baidu.ala.recorder.video.drawer;
 
 import com.baidu.android.imsdk.internal.IMConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class BitrateHelper {
     private static final int MAX_TIME_LEN = 8000;
     private static final int MIN_TIME_LEN = 3000;
@@ -12,7 +12,7 @@ public class BitrateHelper {
     private long keyframes = 0;
     private long frames = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     interface Callback {
         void onBitrate(long j);
     }

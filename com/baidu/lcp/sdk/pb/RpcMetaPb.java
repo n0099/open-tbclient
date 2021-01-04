@@ -12,10 +12,10 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class RpcMetaPb {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public enum CompressType implements Internal.EnumLite {
         COMPRESS_NONE(0, 0),
         COMPRESS_GZIP(1, 1);
@@ -25,7 +25,7 @@ public final class RpcMetaPb {
         private static Internal.EnumLiteMap<CompressType> internalValueMap = new Internal.EnumLiteMap<CompressType>() { // from class: com.baidu.lcp.sdk.pb.RpcMetaPb.CompressType.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Internal.EnumLiteMap
-            /* renamed from: dE */
+            /* renamed from: dB */
             public CompressType findValueByNumber(int i) {
                 return CompressType.valueOf(i);
             }
@@ -57,7 +57,7 @@ public final class RpcMetaPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class RpcMeta extends GeneratedMessageLite implements j {
         public static final int ACCEPT_COMPRESS_TYPE_FIELD_NUMBER = 9;
         public static final int ATTACHMENT_SIZE_FIELD_NUMBER = 5;
@@ -315,9 +315,9 @@ public final class RpcMetaPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (hasChunkInfo() && !getChunkInfo().isInitialized()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -440,7 +440,7 @@ public final class RpcMetaPb {
         }
 
         public static a newBuilder() {
-            return a.Bl();
+            return a.Az();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -459,7 +459,7 @@ public final class RpcMetaPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends GeneratedMessageLite.Builder<RpcMeta, a> implements j {
             private int acceptCompressType;
             private int attachmentSize;
@@ -480,13 +480,13 @@ public final class RpcMetaPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a Bl() {
+            public static a Az() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bm */
+            /* renamed from: AA */
             public a clear() {
                 super.clear();
                 this.request = RpcRequestMeta.getDefaultInstance();
@@ -512,9 +512,9 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bn */
+            /* renamed from: AB */
             public a clone() {
-                return Bl().mergeFrom(buildPartial());
+                return Az().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -525,7 +525,7 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bo */
+            /* renamed from: AC */
             public RpcMeta build() {
                 RpcMeta buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -536,7 +536,7 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bp */
+            /* renamed from: AD */
             public RpcMeta buildPartial() {
                 RpcMeta rpcMeta = new RpcMeta(this);
                 int i = this.bitField0;
@@ -590,13 +590,13 @@ public final class RpcMetaPb {
                         a(rpcMeta.getResponse());
                     }
                     if (rpcMeta.hasCompressType()) {
-                        dF(rpcMeta.getCompressType());
+                        dC(rpcMeta.getCompressType());
                     }
                     if (rpcMeta.hasCorrelationId()) {
-                        aj(rpcMeta.getCorrelationId());
+                        ai(rpcMeta.getCorrelationId());
                     }
                     if (rpcMeta.hasAttachmentSize()) {
-                        dG(rpcMeta.getAttachmentSize());
+                        dD(rpcMeta.getAttachmentSize());
                     }
                     if (rpcMeta.hasChunkInfo()) {
                         b(rpcMeta.getChunkInfo());
@@ -608,7 +608,7 @@ public final class RpcMetaPb {
                         a(rpcMeta.getNotify());
                     }
                     if (rpcMeta.hasAcceptCompressType()) {
-                        dH(rpcMeta.getAcceptCompressType());
+                        dE(rpcMeta.getAcceptCompressType());
                     }
                 }
                 return this;
@@ -620,15 +620,14 @@ public final class RpcMetaPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: o */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                RpcMeta rpcMeta;
-                Throwable th;
+                RpcMeta rpcMeta = null;
                 try {
                     try {
                         RpcMeta parsePartialFrom = RpcMeta.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -636,9 +635,8 @@ public final class RpcMetaPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        rpcMeta = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (rpcMeta != null) {
                             mergeFrom(rpcMeta);
                         }
@@ -648,9 +646,9 @@ public final class RpcMetaPb {
                     RpcMeta rpcMeta2 = (RpcMeta) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         rpcMeta = rpcMeta2;
-                        th = th3;
                         if (rpcMeta != null) {
                         }
                         throw th;
@@ -687,19 +685,19 @@ public final class RpcMetaPb {
                 return this;
             }
 
-            public a dF(int i) {
+            public a dC(int i) {
                 this.bitField0 |= 4;
                 this.compressType = i;
                 return this;
             }
 
-            public a aj(long j) {
+            public a ai(long j) {
                 this.bitField0 |= 8;
                 this.correlationId = j;
                 return this;
             }
 
-            public a dG(int i) {
+            public a dD(int i) {
                 this.bitField0 |= 16;
                 this.attachmentSize = i;
                 return this;
@@ -742,7 +740,7 @@ public final class RpcMetaPb {
                 return this;
             }
 
-            public a dH(int i) {
+            public a dE(int i) {
                 this.bitField0 |= 256;
                 this.acceptCompressType = i;
                 return this;
@@ -750,7 +748,7 @@ public final class RpcMetaPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class RpcRequestMeta extends GeneratedMessageLite implements l {
         public static final int LOG_ID_FIELD_NUMBER = 3;
         public static final int METHOD_ID_FIELD_NUMBER = 2;
@@ -895,9 +893,9 @@ public final class RpcMetaPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -986,7 +984,7 @@ public final class RpcMetaPb {
         }
 
         public static a newBuilder() {
-            return a.Bx();
+            return a.AL();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1005,7 +1003,7 @@ public final class RpcMetaPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends GeneratedMessageLite.Builder<RpcRequestMeta, a> implements l {
             private int bitField0;
             private long logId;
@@ -1021,13 +1019,13 @@ public final class RpcMetaPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a Bx() {
+            public static a AL() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: By */
+            /* renamed from: AM */
             public a clear() {
                 super.clear();
                 this.serviceId = 0L;
@@ -1043,9 +1041,9 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bz */
+            /* renamed from: AN */
             public a clone() {
-                return Bx().mergeFrom(buildPartial());
+                return AL().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1056,7 +1054,7 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: BA */
+            /* renamed from: AO */
             public RpcRequestMeta build() {
                 RpcRequestMeta buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1067,7 +1065,7 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: BB */
+            /* renamed from: AP */
             public RpcRequestMeta buildPartial() {
                 RpcRequestMeta rpcRequestMeta = new RpcRequestMeta(this);
                 int i = this.bitField0;
@@ -1095,16 +1093,16 @@ public final class RpcMetaPb {
             public a mergeFrom(RpcRequestMeta rpcRequestMeta) {
                 if (rpcRequestMeta != RpcRequestMeta.getDefaultInstance()) {
                     if (rpcRequestMeta.hasServiceId()) {
-                        an(rpcRequestMeta.getServiceId());
+                        am(rpcRequestMeta.getServiceId());
                     }
                     if (rpcRequestMeta.hasMethodId()) {
-                        ao(rpcRequestMeta.getMethodId());
+                        an(rpcRequestMeta.getMethodId());
                     }
                     if (rpcRequestMeta.hasLogId()) {
-                        ap(rpcRequestMeta.getLogId());
+                        ao(rpcRequestMeta.getLogId());
                     }
                     if (rpcRequestMeta.hasNeedCommon()) {
-                        dI(rpcRequestMeta.getNeedCommon());
+                        dF(rpcRequestMeta.getNeedCommon());
                     }
                 }
                 return this;
@@ -1116,15 +1114,14 @@ public final class RpcMetaPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: s */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                RpcRequestMeta rpcRequestMeta;
-                Throwable th;
+                RpcRequestMeta rpcRequestMeta = null;
                 try {
                     try {
                         RpcRequestMeta parsePartialFrom = RpcRequestMeta.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -1132,9 +1129,8 @@ public final class RpcMetaPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        rpcRequestMeta = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (rpcRequestMeta != null) {
                             mergeFrom(rpcRequestMeta);
                         }
@@ -1144,9 +1140,9 @@ public final class RpcMetaPb {
                     RpcRequestMeta rpcRequestMeta2 = (RpcRequestMeta) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         rpcRequestMeta = rpcRequestMeta2;
-                        th = th3;
                         if (rpcRequestMeta != null) {
                         }
                         throw th;
@@ -1154,25 +1150,25 @@ public final class RpcMetaPb {
                 }
             }
 
-            public a an(long j) {
+            public a am(long j) {
                 this.bitField0 |= 1;
                 this.serviceId = j;
                 return this;
             }
 
-            public a ao(long j) {
+            public a an(long j) {
                 this.bitField0 |= 2;
                 this.methodId = j;
                 return this;
             }
 
-            public a ap(long j) {
+            public a ao(long j) {
                 this.bitField0 |= 4;
                 this.logId = j;
                 return this;
             }
 
-            public a dI(int i) {
+            public a dF(int i) {
                 this.bitField0 |= 8;
                 this.needCommon = i;
                 return this;
@@ -1180,7 +1176,7 @@ public final class RpcMetaPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class RpcResponseMeta extends GeneratedMessageLite implements m {
         public static final int ERROR_CODE_FIELD_NUMBER = 4;
         public static final int ERROR_TEXT_FIELD_NUMBER = 5;
@@ -1359,9 +1355,9 @@ public final class RpcMetaPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -1456,7 +1452,7 @@ public final class RpcMetaPb {
         }
 
         public static a newBuilder() {
-            return a.BD();
+            return a.AR();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1475,7 +1471,7 @@ public final class RpcMetaPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends GeneratedMessageLite.Builder<RpcResponseMeta, a> implements m {
             private int bitField0;
             private int errorCode;
@@ -1492,13 +1488,13 @@ public final class RpcMetaPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a BD() {
+            public static a AR() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: BE */
+            /* renamed from: AS */
             public a clear() {
                 super.clear();
                 this.serviceId = 0L;
@@ -1516,9 +1512,9 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: BF */
+            /* renamed from: AT */
             public a clone() {
-                return BD().mergeFrom(buildPartial());
+                return AR().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1529,7 +1525,7 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: BG */
+            /* renamed from: AU */
             public RpcResponseMeta build() {
                 RpcResponseMeta buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1540,7 +1536,7 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: BH */
+            /* renamed from: AV */
             public RpcResponseMeta buildPartial() {
                 RpcResponseMeta rpcResponseMeta = new RpcResponseMeta(this);
                 int i = this.bitField0;
@@ -1572,16 +1568,16 @@ public final class RpcMetaPb {
             public a mergeFrom(RpcResponseMeta rpcResponseMeta) {
                 if (rpcResponseMeta != RpcResponseMeta.getDefaultInstance()) {
                     if (rpcResponseMeta.hasServiceId()) {
-                        aq(rpcResponseMeta.getServiceId());
+                        ap(rpcResponseMeta.getServiceId());
                     }
                     if (rpcResponseMeta.hasMethodId()) {
-                        ar(rpcResponseMeta.getMethodId());
+                        aq(rpcResponseMeta.getMethodId());
                     }
                     if (rpcResponseMeta.hasLogId()) {
-                        as(rpcResponseMeta.getLogId());
+                        ar(rpcResponseMeta.getLogId());
                     }
                     if (rpcResponseMeta.hasErrorCode()) {
-                        dJ(rpcResponseMeta.getErrorCode());
+                        dG(rpcResponseMeta.getErrorCode());
                     }
                     if (rpcResponseMeta.hasErrorText()) {
                         this.bitField0 |= 16;
@@ -1597,15 +1593,14 @@ public final class RpcMetaPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: u */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                RpcResponseMeta rpcResponseMeta;
-                Throwable th;
+                RpcResponseMeta rpcResponseMeta = null;
                 try {
                     try {
                         RpcResponseMeta parsePartialFrom = RpcResponseMeta.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -1613,9 +1608,8 @@ public final class RpcMetaPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        rpcResponseMeta = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (rpcResponseMeta != null) {
                             mergeFrom(rpcResponseMeta);
                         }
@@ -1625,9 +1619,9 @@ public final class RpcMetaPb {
                     RpcResponseMeta rpcResponseMeta2 = (RpcResponseMeta) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         rpcResponseMeta = rpcResponseMeta2;
-                        th = th3;
                         if (rpcResponseMeta != null) {
                         }
                         throw th;
@@ -1635,25 +1629,25 @@ public final class RpcMetaPb {
                 }
             }
 
-            public a aq(long j) {
+            public a ap(long j) {
                 this.bitField0 |= 1;
                 this.serviceId = j;
                 return this;
             }
 
-            public a ar(long j) {
+            public a aq(long j) {
                 this.bitField0 |= 2;
                 this.methodId = j;
                 return this;
             }
 
-            public a as(long j) {
+            public a ar(long j) {
                 this.bitField0 |= 4;
                 this.logId = j;
                 return this;
             }
 
-            public a dJ(int i) {
+            public a dG(int i) {
                 this.bitField0 |= 8;
                 this.errorCode = i;
                 return this;
@@ -1661,7 +1655,7 @@ public final class RpcMetaPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class RpcNotifyMeta extends GeneratedMessageLite implements k {
         public static final int LOG_ID_FIELD_NUMBER = 3;
         public static final int METHOD_ID_FIELD_NUMBER = 2;
@@ -1791,9 +1785,9 @@ public final class RpcMetaPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -1876,7 +1870,7 @@ public final class RpcMetaPb {
         }
 
         public static a newBuilder() {
-            return a.Br();
+            return a.AF();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1895,7 +1889,7 @@ public final class RpcMetaPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends GeneratedMessageLite.Builder<RpcNotifyMeta, a> implements k {
             private int bitField0;
             private long logId;
@@ -1910,13 +1904,13 @@ public final class RpcMetaPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a Br() {
+            public static a AF() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bs */
+            /* renamed from: AG */
             public a clear() {
                 super.clear();
                 this.serviceId = 0L;
@@ -1930,9 +1924,9 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bt */
+            /* renamed from: AH */
             public a clone() {
-                return Br().mergeFrom(buildPartial());
+                return AF().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1943,7 +1937,7 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bu */
+            /* renamed from: AI */
             public RpcNotifyMeta build() {
                 RpcNotifyMeta buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1954,7 +1948,7 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bv */
+            /* renamed from: AJ */
             public RpcNotifyMeta buildPartial() {
                 RpcNotifyMeta rpcNotifyMeta = new RpcNotifyMeta(this);
                 int i = this.bitField0;
@@ -1978,13 +1972,13 @@ public final class RpcMetaPb {
             public a mergeFrom(RpcNotifyMeta rpcNotifyMeta) {
                 if (rpcNotifyMeta != RpcNotifyMeta.getDefaultInstance()) {
                     if (rpcNotifyMeta.hasServiceId()) {
-                        ak(rpcNotifyMeta.getServiceId());
+                        aj(rpcNotifyMeta.getServiceId());
                     }
                     if (rpcNotifyMeta.hasMethodId()) {
-                        al(rpcNotifyMeta.getMethodId());
+                        ak(rpcNotifyMeta.getMethodId());
                     }
                     if (rpcNotifyMeta.hasLogId()) {
-                        am(rpcNotifyMeta.getLogId());
+                        al(rpcNotifyMeta.getLogId());
                     }
                 }
                 return this;
@@ -1996,15 +1990,14 @@ public final class RpcMetaPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: q */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                RpcNotifyMeta rpcNotifyMeta;
-                Throwable th;
+                RpcNotifyMeta rpcNotifyMeta = null;
                 try {
                     try {
                         RpcNotifyMeta parsePartialFrom = RpcNotifyMeta.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -2012,9 +2005,8 @@ public final class RpcMetaPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        rpcNotifyMeta = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (rpcNotifyMeta != null) {
                             mergeFrom(rpcNotifyMeta);
                         }
@@ -2024,9 +2016,9 @@ public final class RpcMetaPb {
                     RpcNotifyMeta rpcNotifyMeta2 = (RpcNotifyMeta) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         rpcNotifyMeta = rpcNotifyMeta2;
-                        th = th3;
                         if (rpcNotifyMeta != null) {
                         }
                         throw th;
@@ -2034,19 +2026,19 @@ public final class RpcMetaPb {
                 }
             }
 
-            public a ak(long j) {
+            public a aj(long j) {
                 this.bitField0 |= 1;
                 this.serviceId = j;
                 return this;
             }
 
-            public a al(long j) {
+            public a ak(long j) {
                 this.bitField0 |= 2;
                 this.methodId = j;
                 return this;
             }
 
-            public a am(long j) {
+            public a al(long j) {
                 this.bitField0 |= 4;
                 this.logId = j;
                 return this;
@@ -2054,7 +2046,7 @@ public final class RpcMetaPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class ChunkInfo extends GeneratedMessageLite implements i {
         public static final int CHUNK_ID_FIELD_NUMBER = 2;
         public static final int STREAM_ID_FIELD_NUMBER = 1;
@@ -2169,9 +2161,9 @@ public final class RpcMetaPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasStreamId()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -2255,7 +2247,7 @@ public final class RpcMetaPb {
         }
 
         public static a newBuilder() {
-            return a.Bf();
+            return a.At();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2274,7 +2266,7 @@ public final class RpcMetaPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends GeneratedMessageLite.Builder<ChunkInfo, a> implements i {
             private int bitField0;
             private long chunkId;
@@ -2288,13 +2280,13 @@ public final class RpcMetaPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a Bf() {
+            public static a At() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bg */
+            /* renamed from: Au */
             public a clear() {
                 super.clear();
                 this.streamId = 0L;
@@ -2306,9 +2298,9 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bh */
+            /* renamed from: Av */
             public a clone() {
-                return Bf().mergeFrom(buildPartial());
+                return At().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2319,7 +2311,7 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bi */
+            /* renamed from: Aw */
             public ChunkInfo build() {
                 ChunkInfo buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -2330,7 +2322,7 @@ public final class RpcMetaPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bj */
+            /* renamed from: Ax */
             public ChunkInfo buildPartial() {
                 ChunkInfo chunkInfo = new ChunkInfo(this);
                 int i = this.bitField0;
@@ -2350,10 +2342,10 @@ public final class RpcMetaPb {
             public a mergeFrom(ChunkInfo chunkInfo) {
                 if (chunkInfo != ChunkInfo.getDefaultInstance()) {
                     if (chunkInfo.hasStreamId()) {
-                        ah(chunkInfo.getStreamId());
+                        ag(chunkInfo.getStreamId());
                     }
                     if (chunkInfo.hasChunkId()) {
-                        ai(chunkInfo.getChunkId());
+                        ah(chunkInfo.getChunkId());
                     }
                 }
                 return this;
@@ -2365,15 +2357,14 @@ public final class RpcMetaPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: m */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                ChunkInfo chunkInfo;
-                Throwable th;
+                ChunkInfo chunkInfo = null;
                 try {
                     try {
                         ChunkInfo parsePartialFrom = ChunkInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -2381,9 +2372,8 @@ public final class RpcMetaPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        chunkInfo = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (chunkInfo != null) {
                             mergeFrom(chunkInfo);
                         }
@@ -2393,9 +2383,9 @@ public final class RpcMetaPb {
                     ChunkInfo chunkInfo2 = (ChunkInfo) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         chunkInfo = chunkInfo2;
-                        th = th3;
                         if (chunkInfo != null) {
                         }
                         throw th;
@@ -2407,7 +2397,7 @@ public final class RpcMetaPb {
                 return (this.bitField0 & 1) == 1;
             }
 
-            public a ah(long j) {
+            public a ag(long j) {
                 this.bitField0 |= 1;
                 this.streamId = j;
                 return this;
@@ -2417,7 +2407,7 @@ public final class RpcMetaPb {
                 return (this.bitField0 & 2) == 2;
             }
 
-            public a ai(long j) {
+            public a ah(long j) {
                 this.bitField0 |= 2;
                 this.chunkId = j;
                 return this;

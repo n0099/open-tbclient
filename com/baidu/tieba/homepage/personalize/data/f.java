@@ -3,48 +3,48 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.at;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.Personalized.UserFollowLive;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class f extends com.baidu.tbadk.core.data.a {
-    public static final BdUniqueId jUF = BdUniqueId.gen();
-    private List<AlaLiveInfo> jUG = new ArrayList();
+    public static final BdUniqueId khQ = BdUniqueId.gen();
+    private List<AlaLiveInfo> khR = new ArrayList();
 
     public void a(UserFollowLive userFollowLive) {
-        this.jUG.clear();
-        if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !y.isEmpty(userFollowLive.user_follow_live)) {
-            this.jUG.addAll(userFollowLive.user_follow_live);
+        this.khR.clear();
+        if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !x.isEmpty(userFollowLive.user_follow_live)) {
+            this.khR.addAll(userFollowLive.user_follow_live);
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jUF;
+        return khQ;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public by bmn() {
+    public bz boO() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at bmp() {
+    public at boQ() {
         return null;
     }
 
-    public List<AlaLiveInfo> cQo() {
-        return this.jUG;
+    public List<AlaLiveInfo> cTu() {
+        return this.khR;
     }
 
-    public ar cQp() {
-        ar arVar = new ar("c13620");
-        arVar.w("uid", TbadkApplication.getCurrentAccountId());
-        arVar.al("fid", 0);
-        return arVar;
+    public aq cTv() {
+        aq aqVar = new aq("c13620");
+        aqVar.w("uid", TbadkApplication.getCurrentAccountId());
+        aqVar.an("fid", 0);
+        return aqVar;
     }
 }

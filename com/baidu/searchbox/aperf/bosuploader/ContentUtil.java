@@ -1,6 +1,7 @@
 package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.common.security.MD5Util;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public class ContentUtil {
     private static final String KEY_LOCAL_EXPIRED_AT = "localExpireAt";
     private static final String REQ_KEY_REQ = "req";
@@ -71,7 +72,7 @@ public class ContentUtil {
         }
     }
 
-    public static STSInfo createSTSInfo(JSONObject jSONObject) {
+    public static STSInfo createSTSInfo(@NonNull JSONObject jSONObject) {
         STSInfo sTSInfo = new STSInfo(jSONObject.optString(RESULT_KEY_AK), jSONObject.optString(RESULT_KEY_SK), jSONObject.optString("token"), jSONObject.optLong(KEY_LOCAL_EXPIRED_AT), jSONObject.optString(RESULT_KEY_EXPIRE), jSONObject.optString(RESULT_KEY_BUCKET), jSONObject.optString(RESULT_KEY_ENDPOINT));
         sTSInfo.setOrigin(jSONObject.toString());
         return sTSInfo;

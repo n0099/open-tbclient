@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.a;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import java.util.Set;
 /* loaded from: classes6.dex */
 public interface e {

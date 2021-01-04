@@ -4,18 +4,20 @@ import com.meizu.cloud.pushsdk.base.h;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private static HashMap<String, Method> b = new HashMap<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static HashMap<String, Method> f11523b = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4136a = "ReflectMethod";
+    private String f11524a = "ReflectMethod";
     private com.meizu.cloud.pushsdk.base.a.a c;
     private String d;
     private Class<?>[] e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public class a {
     }
 
@@ -93,7 +95,7 @@ public class c {
         d<T> dVar = new d<>();
         try {
             String b2 = b();
-            Method method = b.get(b2);
+            Method method = f11523b.get(b2);
             if (method == null) {
                 if (this.e.length == objArr.length) {
                     method = this.c.a().getMethod(this.d, this.e);
@@ -106,13 +108,13 @@ public class c {
                     }
                     method = a();
                 }
-                b.put(b2, method);
+                f11523b.put(b2, method);
             }
             method.setAccessible(true);
-            dVar.b = (T) method.invoke(obj, objArr);
-            dVar.f4137a = true;
+            dVar.f11526b = (T) method.invoke(obj, objArr);
+            dVar.f11525a = true;
         } catch (Exception e) {
-            h.b().a(this.f4136a, "invoke", e);
+            h.b().a(this.f11524a, "invoke", e);
         }
         return dVar;
     }

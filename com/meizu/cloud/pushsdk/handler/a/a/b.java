@@ -12,14 +12,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private File f4182a;
+    private File f11605a;
 
     public b(String str) {
-        this.f4182a = new File(str);
+        this.f11605a = new File(str);
     }
 
     private void a(File file, ZipOutputStream zipOutputStream, String str) throws Exception {
@@ -58,8 +58,8 @@ public class b {
     }
 
     public boolean a(List<String> list) throws Exception {
-        if (!this.f4182a.exists()) {
-            this.f4182a.getParentFile().mkdirs();
+        if (!this.f11605a.exists()) {
+            this.f11605a.getParentFile().mkdirs();
         }
         ArrayList arrayList = new ArrayList();
         String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -70,7 +70,7 @@ public class b {
                 arrayList.add(file);
             }
         }
-        a(arrayList, this.f4182a);
+        a(arrayList, this.f11605a);
         return true;
     }
 }

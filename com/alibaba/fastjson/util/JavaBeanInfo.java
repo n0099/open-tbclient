@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class JavaBeanInfo {
     public final Method buildMethod;
     public final Class<?> builderClass;
@@ -219,7 +219,7 @@ public class JavaBeanInfo {
         String str4;
         StringBuilder sb;
         String[] strArr;
-        Constructor<?> constructor;
+        String[] lookupParameterNames;
         Class<?>[] clsArr;
         JSONField jSONField3;
         int ordinal;
@@ -237,15 +237,15 @@ public class JavaBeanInfo {
         Method[] methods = cls.getMethods();
         boolean isKotlin = TypeUtils.isKotlin(cls);
         Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
-        Constructor<?> constructor2 = null;
+        Constructor<?> constructor = null;
         if (!isKotlin || declaredConstructors.length == 1) {
             if (builderClass == null) {
-                constructor2 = getDefaultConstructor(cls, declaredConstructors);
+                constructor = getDefaultConstructor(cls, declaredConstructors);
             } else {
-                constructor2 = getDefaultConstructor(builderClass, builderClass.getDeclaredConstructors());
+                constructor = getDefaultConstructor(builderClass, builderClass.getDeclaredConstructors());
             }
         }
-        Constructor<?> constructor3 = null;
+        Constructor<?> constructor2 = null;
         Method method = null;
         Method method2 = null;
         ArrayList arrayList = new ArrayList();
@@ -253,16 +253,16 @@ public class JavaBeanInfo {
             for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
                 computeFields(cls, type, propertyNamingStrategy, arrayList, cls2.getDeclaredFields());
             }
-            return new JavaBeanInfo(cls, builderClass, constructor2, null, null, null, jSONType, arrayList);
+            return new JavaBeanInfo(cls, builderClass, constructor, null, null, null, jSONType, arrayList);
         }
         boolean z3 = cls.isInterface() || Modifier.isAbstract(cls.getModifiers());
-        if ((constructor2 == null && builderClass == null) || z3) {
-            constructor3 = getCreatorConstructor(declaredConstructors);
-            if (constructor3 != null && !z3) {
-                TypeUtils.setAccessible(constructor3);
-                Class<?>[] parameterTypes = constructor3.getParameterTypes();
+        if ((constructor == null && builderClass == null) || z3) {
+            constructor2 = getCreatorConstructor(declaredConstructors);
+            if (constructor2 != null && !z3) {
+                TypeUtils.setAccessible(constructor2);
+                Class<?>[] parameterTypes = constructor2.getParameterTypes();
                 if (parameterTypes.length > 0) {
-                    Annotation[][] parameterAnnotations = constructor3.getParameterAnnotations();
+                    Annotation[][] parameterAnnotations = constructor2.getParameterAnnotations();
                     int i = 0;
                     while (true) {
                         int i2 = i;
@@ -288,7 +288,7 @@ public class JavaBeanInfo {
                         if (jSONField5 == null) {
                             throw new JSONException("illegal json creator");
                         }
-                        add(arrayList, new FieldInfo(jSONField5.name(), cls, parameterTypes[i2], constructor3.getGenericParameterTypes()[i2], TypeUtils.getField(cls, jSONField5.name(), declaredFields), jSONField5.ordinal(), SerializerFeature.of(jSONField5.serialzeFeatures()), Feature.of(jSONField5.parseFeatures())));
+                        add(arrayList, new FieldInfo(jSONField5.name(), cls, parameterTypes[i2], constructor2.getGenericParameterTypes()[i2], TypeUtils.getField(cls, jSONField5.name(), declaredFields), jSONField5.ordinal(), SerializerFeature.of(jSONField5.serialzeFeatures()), Feature.of(jSONField5.parseFeatures())));
                         i = i2 + 1;
                     }
                 }
@@ -331,65 +331,53 @@ public class JavaBeanInfo {
                     }
                 } else if (!z3) {
                     String name = cls.getName();
+                    String[] strArr2 = null;
                     if (isKotlin && declaredConstructors.length > 0) {
                         String[] koltinConstructorParameters = TypeUtils.getKoltinConstructorParameters(cls);
                         Constructor<?> koltinConstructor = TypeUtils.getKoltinConstructor(declaredConstructors);
                         TypeUtils.setAccessible(koltinConstructor);
                         strArr = koltinConstructorParameters;
-                        constructor3 = koltinConstructor;
+                        constructor2 = koltinConstructor;
                     } else {
                         int length3 = declaredConstructors.length;
                         int i7 = 0;
-                        String[] strArr2 = null;
                         while (true) {
                             if (i7 >= length3) {
                                 strArr = strArr2;
                                 break;
                             }
-                            Constructor<?> constructor4 = declaredConstructors[i7];
-                            Class<?>[] parameterTypes3 = constructor4.getParameterTypes();
+                            Constructor<?> constructor3 = declaredConstructors[i7];
+                            Class<?>[] parameterTypes3 = constructor3.getParameterTypes();
                             if (name.equals("org.springframework.security.web.authentication.WebAuthenticationDetails") && parameterTypes3.length == 2 && parameterTypes3[0] == String.class && parameterTypes3[1] == String.class) {
-                                constructor4.setAccessible(true);
-                                strArr = ASMUtils.lookupParameterNames(constructor4);
-                                constructor3 = constructor4;
+                                constructor3.setAccessible(true);
+                                strArr = ASMUtils.lookupParameterNames(constructor3);
+                                constructor2 = constructor3;
                                 break;
                             } else if (name.equals("org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken") && parameterTypes3.length == 3 && parameterTypes3[0] == Object.class && parameterTypes3[1] == Object.class && parameterTypes3[2] == Collection.class) {
-                                constructor4.setAccessible(true);
+                                constructor3.setAccessible(true);
                                 strArr = new String[]{"principal", "credentials", "authorities"};
-                                constructor3 = constructor4;
+                                constructor2 = constructor3;
                                 break;
                             } else if (name.equals("org.springframework.security.core.authority.SimpleGrantedAuthority") && parameterTypes3.length == 1 && parameterTypes3[0] == String.class) {
                                 strArr = new String[]{"authority"};
-                                constructor3 = constructor4;
+                                constructor2 = constructor3;
                                 break;
                             } else {
-                                if ((constructor4.getModifiers() & 1) != 0) {
-                                    String[] lookupParameterNames = ASMUtils.lookupParameterNames(constructor4);
-                                    if (lookupParameterNames == null) {
-                                        constructor = constructor3;
-                                    } else if (lookupParameterNames.length == 0) {
-                                        constructor = constructor3;
-                                    } else if (constructor3 == null || strArr2 == null || lookupParameterNames.length > strArr2.length) {
-                                        strArr2 = lookupParameterNames;
-                                        constructor = constructor4;
-                                    } else {
-                                        constructor = constructor3;
-                                    }
-                                } else {
-                                    constructor = constructor3;
+                                if (((constructor3.getModifiers() & 1) != 0) && (lookupParameterNames = ASMUtils.lookupParameterNames(constructor3)) != null && lookupParameterNames.length != 0 && (constructor2 == null || strArr2 == null || lookupParameterNames.length > strArr2.length)) {
+                                    strArr2 = lookupParameterNames;
+                                    constructor2 = constructor3;
                                 }
                                 i7++;
-                                constructor3 = constructor;
                             }
                         }
                     }
                     if (strArr == null) {
                         clsArr = null;
                     } else {
-                        clsArr = constructor3.getParameterTypes();
+                        clsArr = constructor2.getParameterTypes();
                     }
                     if (strArr != null && clsArr.length == strArr.length) {
-                        Annotation[][] parameterAnnotations3 = constructor3.getParameterAnnotations();
+                        Annotation[][] parameterAnnotations3 = constructor2.getParameterAnnotations();
                         int i8 = 0;
                         while (true) {
                             int i9 = i8;
@@ -415,7 +403,7 @@ public class JavaBeanInfo {
                                 }
                             }
                             Class<?> cls3 = clsArr[i9];
-                            Type type2 = constructor3.getGenericParameterTypes()[i9];
+                            Type type2 = constructor2.getGenericParameterTypes()[i9];
                             Field field = TypeUtils.getField(cls, str5, declaredFields);
                             JSONField jSONField6 = (field == null || jSONField3 != null) ? jSONField3 : (JSONField) field.getAnnotation(JSONField.class);
                             if (jSONField6 == null) {
@@ -440,7 +428,7 @@ public class JavaBeanInfo {
                             i8 = i9 + 1;
                         }
                         if (!isKotlin && !cls.getName().equals("javax.servlet.http.Cookie")) {
-                            return new JavaBeanInfo(cls, builderClass, null, constructor3, null, null, jSONType, arrayList);
+                            return new JavaBeanInfo(cls, builderClass, null, constructor2, null, null, jSONType, arrayList);
                         }
                     } else {
                         throw new JSONException("default constructor not found. " + cls);
@@ -448,8 +436,8 @@ public class JavaBeanInfo {
                 }
             }
         }
-        if (constructor2 != null) {
-            TypeUtils.setAccessible(constructor2);
+        if (constructor != null) {
+            TypeUtils.setAccessible(constructor);
         }
         if (builderClass != null) {
             JSONPOJOBuilder jSONPOJOBuilder = (JSONPOJOBuilder) builderClass.getAnnotation(JSONPOJOBuilder.class);
@@ -622,7 +610,7 @@ public class JavaBeanInfo {
                 }
                 i22 = i23 + 1;
             } else {
-                return new JavaBeanInfo(cls, builderClass, constructor2, constructor3, method2, method, jSONType, arrayList);
+                return new JavaBeanInfo(cls, builderClass, constructor, constructor2, method2, method, jSONType, arrayList);
             }
         }
     }

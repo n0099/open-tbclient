@@ -17,7 +17,7 @@ import com.baidu.android.imsdk.group.GroupManagerImpl;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class BIMConversationMsg extends BIMConversation {
     private static String TAG = "BIMConversation";
     private ISendMessageListener mInternalSendMessageListener;

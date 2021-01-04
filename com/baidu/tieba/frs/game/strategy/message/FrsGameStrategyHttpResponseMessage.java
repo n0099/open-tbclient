@@ -2,16 +2,16 @@ package com.baidu.tieba.frs.game.strategy.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tieba.frs.game.strategy.tab.e;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
     private boolean mHasMore;
     private List<e> mTabList;
-    private List<q> mThreadList;
+    private List<n> mThreadList;
 
     public FrsGameStrategyHttpResponseMessage() {
         super(1003362);
@@ -27,8 +27,8 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
                 setError(gameForumGuideTabResIdl.error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = a.ds(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = a.dt(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = a.dA(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = a.dB(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
         }
     }
@@ -42,7 +42,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
             frsGameStrategyRequestMessage = (FrsGameStrategyRequestMessage) orginalMessage.getExtra();
         }
         if (frsGameStrategyRequestMessage != null) {
-            new com.baidu.tieba.frs.game.strategy.a.a().b(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
+            new com.baidu.tieba.frs.game.strategy.a.a().c(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
         }
     }
 
@@ -50,7 +50,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
         return this.mTabList;
     }
 
-    public List<q> getThreadList() {
+    public List<n> getThreadList() {
         return this.mThreadList;
     }
 

@@ -5,16 +5,17 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Build;
-/* loaded from: classes8.dex */
+import com.baidu.platform.comapi.map.MapBundleKey;
+/* loaded from: classes3.dex */
 public final class g {
-    private static Intent apz;
+    private static Intent apV;
 
     public static void e(Context context) {
-        if (apz != null || context == null) {
+        if (apV != null || context == null) {
             return;
         }
         try {
-            apz = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            apV = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             com.baidu.crabsdk.c.a.v("Battery Broadcast Regist Success");
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("Register Battery Error!", e);
@@ -44,11 +45,11 @@ public final class g {
     }
 
     public static String y() {
-        if (apz == null) {
+        if (apV == null) {
             return "N/A";
         }
         try {
-            return ((int) ((apz.getIntExtra("level", 0) * 100.0f) / apz.getIntExtra("scale", 100))) + "%";
+            return ((int) ((apV.getIntExtra(MapBundleKey.MapObjKey.OBJ_LEVEL, 0) * 100.0f) / apV.getIntExtra("scale", 100))) + "%";
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("Get Battery Error!", e);
             return "N/A";

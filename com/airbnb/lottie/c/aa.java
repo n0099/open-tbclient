@@ -3,10 +3,10 @@ package com.airbnb.lottie.c;
 import android.graphics.PointF;
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class aa {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.airbnb.lottie.model.content.f u(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+    public static com.airbnb.lottie.model.content.f u(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         com.airbnb.lottie.model.a.b bVar = null;
         com.airbnb.lottie.model.a.f fVar = null;
         com.airbnb.lottie.model.a.m<PointF, PointF> mVar = null;
@@ -45,13 +45,13 @@ class aa {
                     str = jsonReader.nextString();
                     break;
                 case 1:
-                    mVar = a.b(jsonReader, eVar);
+                    mVar = a.b(jsonReader, dVar);
                     break;
                 case 2:
-                    fVar = d.h(jsonReader, eVar);
+                    fVar = d.h(jsonReader, dVar);
                     break;
                 case 3:
-                    bVar = d.f(jsonReader, eVar);
+                    bVar = d.f(jsonReader, dVar);
                     break;
                 default:
                     jsonReader.skipValue();

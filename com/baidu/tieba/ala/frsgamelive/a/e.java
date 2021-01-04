@@ -4,10 +4,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.c.f;
-/* loaded from: classes6.dex */
-public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsgamelive.b.c, f.a> {
-    private com.baidu.tieba.ala.f gLh;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
+/* loaded from: classes10.dex */
+public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsgamelive.b.c, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
+    private com.baidu.tieba.ala.g gWT;
     private TbPageContext mPageContext;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -18,21 +18,21 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsga
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ah */
-    public f.a c(ViewGroup viewGroup) {
-        return new f.a(new com.baidu.tieba.ala.frsgamelive.c.f(this.mPageContext));
+    /* renamed from: at */
+    public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder e(ViewGroup viewGroup) {
+        return new AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder(new AlaGameFrsLiveGameCardView(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.frsgamelive.b.c cVar, f.a aVar) {
-        aVar.gMP.a(cVar);
-        aVar.gMP.c(this.gLh);
-        return aVar.getView();
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.frsgamelive.b.c cVar, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
+        alaGameFrsGameViewHolder.gYz.a(cVar);
+        alaGameFrsGameViewHolder.gYz.c(this.gWT);
+        return alaGameFrsGameViewHolder.getView();
     }
 
-    public void a(com.baidu.tieba.ala.f fVar) {
-        this.gLh = fVar;
+    public void a(com.baidu.tieba.ala.g gVar) {
+        this.gWT = gVar;
     }
 }

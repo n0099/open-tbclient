@@ -3,10 +3,10 @@ package com.baidu.swan.games.bdtls.model;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class i {
-    private String dXs;
-    private Integer dXt;
+    private String egq;
+    private Integer egr;
 
     public i() {
         this(null, null, 3, null);
@@ -16,7 +16,7 @@ public final class i {
         if (this != obj) {
             if (obj instanceof i) {
                 i iVar = (i) obj;
-                if (!p.l(this.dXs, iVar.dXs) || !p.l(this.dXt, iVar.dXt)) {
+                if (!p.l(this.egq, iVar.egq) || !p.l(this.egr, iVar.egr)) {
                 }
             }
             return false;
@@ -25,19 +25,19 @@ public final class i {
     }
 
     public int hashCode() {
-        String str = this.dXs;
+        String str = this.egq;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        Integer num = this.dXt;
+        Integer num = this.egr;
         return hashCode + (num != null ? num.hashCode() : 0);
     }
 
     public String toString() {
-        return "ResponseParams(responseMessage=" + this.dXs + ", responseStatusCode=" + this.dXt + ")";
+        return "ResponseParams(responseMessage=" + this.egq + ", responseStatusCode=" + this.egr + ")";
     }
 
     public i(String str, Integer num) {
-        this.dXs = str;
-        this.dXt = num;
+        this.egq = str;
+        this.egr = num;
     }
 
     public /* synthetic */ i(String str, Integer num, int i, o oVar) {
@@ -45,18 +45,18 @@ public final class i {
     }
 
     public final String getResponseMessage() {
-        return this.dXs;
+        return this.egq;
     }
 
-    public final void wW(String str) {
-        this.dXs = str;
+    public final void wV(String str) {
+        this.egq = str;
     }
 
-    public final Integer aWw() {
-        return this.dXt;
+    public final Integer aYQ() {
+        return this.egr;
     }
 
-    public final void f(Integer num) {
-        this.dXt = num;
+    public final void h(Integer num) {
+        this.egr = num;
     }
 }

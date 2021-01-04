@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.guardthrone.messages;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.guardthrone.b.a;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaGuardThroneResponseMessage extends JsonHttpResponsedMessage {
-    private a gTd;
+    private a heQ;
 
     public AlaGuardThroneResponseMessage() {
         super(1021164);
@@ -16,12 +16,12 @@ public class AlaGuardThroneResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gTd = new a();
-            this.gTd.parserJson(optJSONObject);
+            this.heQ = new a();
+            this.heQ.parserJson(optJSONObject);
         }
     }
 
-    public a bWW() {
-        return this.gTd;
+    public a bZB() {
+        return this.heQ;
     }
 }

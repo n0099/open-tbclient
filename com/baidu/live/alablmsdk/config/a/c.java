@@ -1,7 +1,7 @@
 package com.baidu.live.alablmsdk.config.a;
 
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
     public int height;
     public int width;
@@ -15,7 +15,7 @@ public class c {
         this.height = i4;
     }
 
-    public String Ct() {
+    public String BK() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.x).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.y).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.width).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(this.height);
         return sb.toString();

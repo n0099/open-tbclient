@@ -7,30 +7,32 @@ import java.util.zip.CRC32;
 import java.util.zip.CheckedInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class e {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [37=4] */
     public static boolean a(File file, File file2) {
-        ZipInputStream zipInputStream;
         Throwable th;
-        ZipInputStream zipInputStream2 = null;
+        ZipInputStream zipInputStream;
+        ZipInputStream zipInputStream2;
+        ZipInputStream zipInputStream3 = null;
         try {
-            zipInputStream = new ZipInputStream(new CheckedInputStream(new FileInputStream(file), new CRC32()));
+            zipInputStream2 = new ZipInputStream(new CheckedInputStream(new FileInputStream(file), new CRC32()));
         } catch (IOException e) {
         } catch (Throwable th2) {
-            zipInputStream = null;
             th = th2;
+            zipInputStream = null;
         }
         try {
-            a(zipInputStream, file2);
-            c.a(zipInputStream);
+            a(zipInputStream2, file2);
+            c.a(zipInputStream2);
             return true;
         } catch (IOException e2) {
-            zipInputStream2 = zipInputStream;
-            c.a(zipInputStream2);
+            zipInputStream3 = zipInputStream2;
+            c.a(zipInputStream3);
             return false;
         } catch (Throwable th3) {
             th = th3;
+            zipInputStream = zipInputStream2;
             c.a(zipInputStream);
             throw th;
         }

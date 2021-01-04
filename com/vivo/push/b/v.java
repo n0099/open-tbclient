@@ -1,43 +1,44 @@
 package com.vivo.push.b;
 
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class v extends u {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<String> f4421a;
-    private ArrayList<String> b;
+    private ArrayList<String> f13891a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private ArrayList<String> f13892b;
 
     public v(int i) {
         super(i);
-        this.f4421a = null;
-        this.b = null;
+        this.f13891a = null;
+        this.f13892b = null;
     }
 
     public final ArrayList<String> d() {
-        return this.f4421a;
+        return this.f13891a;
     }
 
     public final List<String> e() {
-        return this.b;
+        return this.f13892b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("content", this.f4421a);
-        aVar.a(AlaRecorderLog.KEY_ERROR_MSG, this.b);
+        aVar.a("content", this.f13891a);
+        aVar.a("error_msg", this.f13892b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f4421a = aVar.b("content");
-        this.b = aVar.b(AlaRecorderLog.KEY_ERROR_MSG);
+        this.f13891a = aVar.b("content");
+        this.f13892b = aVar.b("error_msg");
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y

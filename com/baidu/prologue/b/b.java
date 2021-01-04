@@ -1,13 +1,13 @@
 package com.baidu.prologue.b;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface b {
     boolean W(int i, int i2);
+
+    boolean X(int i, int i2);
 
     void onBufferingUpdate(int i);
 
     void onCompletion();
-
-    boolean onError(int i, int i2);
 
     void onPrepared();
 

@@ -9,7 +9,6 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
 import android.os.Bundle;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -20,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.adp.framework.MessageConfig;
@@ -30,9 +30,11 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.platform.comapi.map.MapSurfaceView;
 import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class MapView extends ViewGroup {
-    private static String b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f2845b;
     private int A;
     private boolean B;
     private MapSurfaceView e;
@@ -58,7 +60,7 @@ public final class MapView extends ViewGroup {
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2027a = MapView.class.getSimpleName();
+    private static final String f2844a = MapView.class.getSimpleName();
     private static int c = 0;
     private static int d = 0;
     private static final SparseIntArray q = new SparseIntArray();
@@ -155,7 +157,7 @@ public final class MapView extends ViewGroup {
         System.currentTimeMillis();
         com.baidu.mapsdkplatform.comapi.map.j.a();
         BMapManager.init();
-        a(context, baiduMapOptions, b, c);
+        a(context, baiduMapOptions, f2845b, c);
         a(context);
         b(context);
         if (baiduMapOptions != null && !baiduMapOptions.h) {
@@ -205,13 +207,13 @@ public final class MapView extends ViewGroup {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            Log.e(f2027a, "customStyleFilePath is empty or null, please check!");
+            Log.e(f2844a, "customStyleFilePath is empty or null, please check!");
         } else if (!str.endsWith(".sty")) {
-            Log.e(f2027a, "customStyleFile format is incorrect , please check!");
+            Log.e(f2844a, "customStyleFile format is incorrect , please check!");
         } else if (new File(str).exists()) {
             this.e.getBaseMap().a(str, i);
         } else {
-            Log.e(f2027a, "customStyleFile does not exist , please check!");
+            Log.e(f2844a, "customStyleFile does not exist , please check!");
         }
     }
 
@@ -233,9 +235,9 @@ public final class MapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.i.a()) {
-            float f = this.e.getBaseMap().B().f2244a;
-            this.i.b(f > this.e.getBaseMap().b);
-            this.i.a(f < this.e.getBaseMap().f2226a);
+            float f = this.e.getBaseMap().B().f3202a;
+            this.i.b(f > this.e.getBaseMap().f3172b);
+            this.i.a(f < this.e.getBaseMap().f3171a);
         }
     }
 
@@ -295,7 +297,7 @@ public final class MapView extends ViewGroup {
         if (!new File(str).exists()) {
             throw new RuntimeException("BDMapSDKException: please check whether the customMapStylePath file exits");
         }
-        b = str;
+        f2845b = str;
     }
 
     @Deprecated
@@ -341,7 +343,7 @@ public final class MapView extends ViewGroup {
     }
 
     public final BaiduMap getMap() {
-        this.f.f1999a = this;
+        this.f.f2793a = this;
         return this.f;
     }
 
@@ -417,8 +419,8 @@ public final class MapView extends ViewGroup {
             this.h.recycle();
             this.h = null;
         }
-        if (b != null) {
-            b = null;
+        if (f2845b != null) {
+            f2845b = null;
         }
         this.i.b();
         BMapManager.destroy();
@@ -429,10 +431,10 @@ public final class MapView extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected final void onLayout(boolean z, int i, int i2, int i3, int i4) {
         float f;
-        float f2;
         int measuredHeight;
         int width;
         int childCount = getChildCount();
+        float f2 = 1.0f;
         a(this.g);
         if (((getWidth() - this.v) - this.w) - this.g.getMeasuredWidth() <= 0 || ((getHeight() - this.x) - this.y) - this.g.getMeasuredHeight() <= 0) {
             this.v = 0;
@@ -440,10 +442,9 @@ public final class MapView extends ViewGroup {
             this.y = 0;
             this.x = 0;
             f = 1.0f;
-            f2 = 1.0f;
         } else {
-            f = ((getWidth() - this.v) - this.w) / getWidth();
-            f2 = ((getHeight() - this.x) - this.y) / getHeight();
+            f2 = ((getWidth() - this.v) - this.w) / getWidth();
+            f = ((getHeight() - this.x) - this.y) / getHeight();
         }
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
@@ -451,10 +452,10 @@ public final class MapView extends ViewGroup {
                 if (childAt == this.e) {
                     this.e.layout(0, 0, getWidth(), getHeight());
                 } else if (childAt == this.g) {
-                    int i6 = (int) (this.v + (5.0f * f));
-                    int i7 = (int) (this.w + (5.0f * f));
-                    int i8 = (int) (this.x + (5.0f * f2));
-                    int i9 = (int) (this.y + (5.0f * f2));
+                    int i6 = (int) (this.v + (5.0f * f2));
+                    int i7 = (int) (this.w + (5.0f * f2));
+                    int i8 = (int) (this.x + (5.0f * f));
+                    int i9 = (int) (this.y + (5.0f * f));
                     switch (this.r) {
                         case 1:
                             measuredHeight = i8 + this.g.getMeasuredHeight();
@@ -493,8 +494,8 @@ public final class MapView extends ViewGroup {
                     if (this.i.a()) {
                         a(this.i);
                         if (this.k == null) {
-                            int height = (int) (((getHeight() - 15) * f2) + this.x);
-                            int width2 = (int) (((getWidth() - 15) * f) + this.v);
+                            int height = (int) (((getHeight() - 15) * f) + this.x);
+                            int width2 = (int) (((getWidth() - 15) * f2) + this.v);
                             int measuredWidth = width2 - this.i.getMeasuredWidth();
                             int measuredHeight2 = height - this.i.getMeasuredHeight();
                             if (this.r == 4) {
@@ -511,8 +512,8 @@ public final class MapView extends ViewGroup {
                     if (this.j == null) {
                         this.A = this.l.getMeasuredWidth();
                         this.z = this.l.getMeasuredHeight();
-                        int i10 = (int) (this.v + (5.0f * f));
-                        int height2 = (getHeight() - ((int) ((this.y + (5.0f * f2)) + 56.0f))) - this.g.getMeasuredHeight();
+                        int i10 = (int) (this.v + (5.0f * f2));
+                        int height2 = (getHeight() - ((int) ((this.y + (5.0f * f)) + 56.0f))) - this.g.getMeasuredHeight();
                         this.l.layout(i10, height2, this.A + i10, this.z + height2);
                     } else {
                         this.l.layout(this.j.x, this.j.y, this.j.x + this.l.getMeasuredWidth(), this.j.y + this.l.getMeasuredHeight());
@@ -521,7 +522,7 @@ public final class MapView extends ViewGroup {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof MapViewLayoutParams) {
                         MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.e.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2028a));
+                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f2847b : this.e.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2846a));
                         a(childAt);
                         int measuredWidth2 = childAt.getMeasuredWidth();
                         int measuredHeight3 = childAt.getMeasuredHeight();

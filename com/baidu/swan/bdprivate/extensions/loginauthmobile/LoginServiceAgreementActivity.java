@@ -3,14 +3,14 @@ package com.baidu.swan.bdprivate.extensions.loginauthmobile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
 import com.baidu.swan.bdprivate.b;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
-    private SwanAppActionBar dOb;
+    private SwanAppActionBar dWU;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.bdprivate.activity.BaseActivity, android.app.Activity
@@ -29,15 +29,15 @@ public class LoginServiceAgreementActivity extends BaseActivity {
         if (extras != null) {
             ngWebView.loadUrl(extras.getString("url"));
         }
-        this.dOb = (SwanAppActionBar) findViewById(b.e.ai_apps_title_bar);
-        this.dOb.setLeftBackViewVisibility(true);
-        this.dOb.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginServiceAgreementActivity.1
+        this.dWU = (SwanAppActionBar) findViewById(b.e.ai_apps_title_bar);
+        this.dWU.setLeftBackViewVisibility(true);
+        this.dWU.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginServiceAgreementActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LoginServiceAgreementActivity.this.finish();
             }
         });
-        this.dOb.setTitle(b.g.swanapp_service_agreement);
-        this.dOb.setRightZoneVisibility(false);
+        this.dWU.setTitle(b.g.swanapp_service_agreement);
+        this.dWU.setRightZoneVisibility(false);
     }
 }

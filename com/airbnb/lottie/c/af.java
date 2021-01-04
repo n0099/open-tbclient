@@ -5,10 +5,10 @@ import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.io.IOException;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class af {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.airbnb.lottie.model.content.j x(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+    public static com.airbnb.lottie.model.content.j x(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         String str = null;
         ArrayList arrayList = new ArrayList();
         while (jsonReader.hasNext()) {
@@ -35,7 +35,7 @@ public class af {
                 case 1:
                     jsonReader.beginArray();
                     while (jsonReader.hasNext()) {
-                        com.airbnb.lottie.model.content.b m = g.m(jsonReader, eVar);
+                        com.airbnb.lottie.model.content.b m = g.m(jsonReader, dVar);
                         if (m != null) {
                             arrayList.add(m);
                         }

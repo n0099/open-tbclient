@@ -10,18 +10,18 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
+import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdMaterialProgressDrawable extends Drawable implements Animatable {
     private static final int ANIMATION_DURATION = 1332;
     private static final int ARROW_HEIGHT = 5;
@@ -74,7 +74,7 @@ public class BdMaterialProgressDrawable extends Drawable implements Animatable {
     private final Ring mRing = new Ring(this.mCallback);
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public @interface ProgressDrawableSize {
     }
 
@@ -302,7 +302,7 @@ public class BdMaterialProgressDrawable extends Drawable implements Animatable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class Ring {
         private int mAlpha;
         private Path mArrow;

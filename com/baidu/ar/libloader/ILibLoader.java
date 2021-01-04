@@ -2,20 +2,20 @@ package com.baidu.ar.libloader;
 
 import android.content.Context;
 import com.baidu.ar.ARType;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public interface ILibLoader {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(ARType aRType, String str, String str2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void onSuccess();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void onReady();
     }

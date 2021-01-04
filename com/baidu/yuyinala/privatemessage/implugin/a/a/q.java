@@ -21,22 +21,22 @@ import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.a.a;
 import com.baidu.yuyinala.privatemessage.implugin.ui.common.EventDispatchRelativeLayout;
 import java.net.URLDecoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class q extends d {
     public View mContentView;
     public Context mContext;
     public View mConvertView;
-    public TextView oNs;
+    public TextView oTA;
 
     public q(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_receive_txt_item, (ViewGroup) null);
-        this.oNs = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_txt);
-        this.oMc = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oMf = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.jbv = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
-        this.mok = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
-        this.oMg = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
+        this.oTA = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_txt);
+        this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oSn = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.jnJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
+        this.mtx = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.oSo = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.mConvertView.setTag(this);
     }
@@ -65,23 +65,23 @@ public class q extends d {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e("ReceiveTxtItem", "ReceiveTxtItem>init>sequence is null, msgtext = " + ((TextMsg) chatMsg).getText());
                 return;
             }
-            this.oNs.setText(text);
-            Spannable c = com.baidu.yuyinala.privatemessage.implugin.util.f.c(context, this.oNs.getText());
+            this.oTA.setText(text);
+            Spannable c = com.baidu.yuyinala.privatemessage.implugin.util.f.c(context, this.oTA.getText());
             if (c != null) {
-                this.oNs.setText(c);
-                this.oNs.setMovementMethod(LinkMovementMethod.getInstance());
+                this.oTA.setText(c);
+                this.oTA.setMovementMethod(LinkMovementMethod.getInstance());
             }
-            this.oNs.setFocusableInTouchMode(true);
-            this.oNs.setFocusable(true);
-            this.oNs.setClickable(true);
-            this.oNs.setLongClickable(true);
-            this.oNs.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.q.1
+            this.oTA.setFocusableInTouchMode(true);
+            this.oTA.setFocusable(true);
+            this.oTA.setClickable(true);
+            this.oTA.setLongClickable(true);
+            this.oTA.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.q.1
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
                     a.f subViewLongClickListener;
                     View contentView = q.this.getContentView();
                     if ((contentView instanceof EventDispatchRelativeLayout) && (subViewLongClickListener = ((EventDispatchRelativeLayout) contentView).getSubViewLongClickListener()) != null) {
-                        subViewLongClickListener.ekY();
+                        subViewLongClickListener.elc();
                         return true;
                     }
                     return true;
@@ -106,23 +106,23 @@ public class q extends d {
                 spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.q.2
                     @Override // android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        com.baidu.yuyinala.privatemessage.implugin.d.b.elh().h(context, uRLSpan.getURL(), false);
+                        com.baidu.yuyinala.privatemessage.implugin.d.b.ell().h(context, uRLSpan.getURL(), false);
                     }
                 }, spanStart, spanEnd, 33);
             }
-            this.oNs.setMovementMethod(LinkMovementMethod.getInstance());
-            this.oNs.setText(spannableStringBuilder);
-            this.oNs.setFocusableInTouchMode(true);
-            this.oNs.setFocusable(true);
-            this.oNs.setClickable(true);
-            this.oNs.setLongClickable(true);
-            this.oNs.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.q.3
+            this.oTA.setMovementMethod(LinkMovementMethod.getInstance());
+            this.oTA.setText(spannableStringBuilder);
+            this.oTA.setFocusableInTouchMode(true);
+            this.oTA.setFocusable(true);
+            this.oTA.setClickable(true);
+            this.oTA.setLongClickable(true);
+            this.oTA.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.q.3
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
                     a.f subViewLongClickListener;
                     View contentView = q.this.getContentView();
                     if ((contentView instanceof EventDispatchRelativeLayout) && (subViewLongClickListener = ((EventDispatchRelativeLayout) contentView).getSubViewLongClickListener()) != null) {
-                        subViewLongClickListener.ekY();
+                        subViewLongClickListener.elc();
                         return true;
                     }
                     return true;

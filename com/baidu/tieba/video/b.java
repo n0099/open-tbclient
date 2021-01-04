@@ -1,24 +1,24 @@
 package com.baidu.tieba.video;
 
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean Nj;
+    private boolean MH;
     public BaseActivity activity;
     public String coverPath;
     public String filterName;
     public boolean isMute;
     public String musicPath;
-    public String nAW;
+    public String nFe;
     public String originPath;
 
-    public abstract void dTE();
+    public abstract void dTv();
 
-    public abstract void dTF();
+    public abstract void dTw();
 
     public b(BaseActivity baseActivity, String str, String str2) {
         this.originPath = str;
@@ -47,33 +47,33 @@ public abstract class b {
         }
     }
 
-    public void yC(boolean z) {
-        this.Nj = z;
+    public void yF(boolean z) {
+        this.MH = z;
     }
 
     public boolean isCancel() {
-        return this.Nj;
+        return this.MH;
     }
 
-    private void dTD() {
-        if (!au.isEmpty(this.nAW)) {
-            n.deleteFile(new File(this.nAW));
+    private void dTu() {
+        if (!at.isEmpty(this.nFe)) {
+            n.deleteFile(new File(this.nFe));
         }
     }
 
     public void onCancel() {
-        dTD();
+        dTu();
     }
 
     public void bT(int i, String str) {
-        dTD();
+        dTu();
     }
 
     public void bU(int i, String str) {
-        dTD();
+        dTu();
     }
 
     public void a(VideoInfo videoInfo) {
-        dTD();
+        dTu();
     }
 }

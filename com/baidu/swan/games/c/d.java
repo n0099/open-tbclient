@@ -2,141 +2,140 @@ package com.baidu.swan.games.c;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.ap.ak;
-import com.baidu.swan.apps.ap.j;
+import com.baidu.swan.apps.ao.ak;
+import com.baidu.swan.apps.ao.j;
 import com.baidu.swan.apps.r.d;
 import com.baidu.swan.apps.res.widget.dialog.g;
-import com.baidu.webkit.internal.ETAG;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static d dYt;
-    private boolean dYu;
+    private static d ehq;
+    private boolean ehr;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void eZ(boolean z);
+        void fi(boolean z);
     }
 
     private d() {
-        this.dYu = DEBUG && com.baidu.swan.apps.ad.a.a.aHg();
+        this.ehr = DEBUG && com.baidu.swan.apps.ad.a.a.aIz();
     }
 
-    public static d aWN() {
-        if (dYt == null) {
+    public static d aZh() {
+        if (ehq == null) {
             synchronized (d.class) {
-                if (dYt == null) {
-                    dYt = new d();
+                if (ehq == null) {
+                    ehq = new d();
                 }
             }
         }
-        return dYt;
+        return ehq;
     }
 
-    private File aWO() {
-        File file = new File(com.baidu.swan.games.l.a.ayQ(), "game_core_console");
-        File file2 = (DEBUG && this.dYu) ? new File(file, ETAG.KEY_DEBUG) : file;
+    private File aZi() {
+        File file = new File(com.baidu.swan.games.l.a.aAh(), "game_core_console");
+        File file2 = (DEBUG && this.ehr) ? new File(file, "debug") : file;
         if (!file2.exists()) {
             file2.mkdirs();
         }
         return file2;
     }
 
-    public File aWP() {
-        return new File(aWO(), "res");
+    public File aZj() {
+        return new File(aZi(), "res");
     }
 
-    public File aWQ() {
-        return new File(com.baidu.swan.apps.r.d.ayS(), "sConsole-core");
+    public File aZk() {
+        return new File(com.baidu.swan.apps.r.d.aAj(), "sConsole-core");
     }
 
-    private File aWR() {
-        return new File(aWO(), "debugGameSconsole.zip");
+    private File aZl() {
+        return new File(aZi(), "debugGameSconsole.zip");
     }
 
-    private File aWS() {
-        return new File(aWP(), "swan-game-sconsole.js");
+    private File aZm() {
+        return new File(aZj(), "swan-game-sconsole.js");
     }
 
-    private File aWT() {
-        return new File(aWP(), "swan-game-sconsole.version");
+    private File aZn() {
+        return new File(aZj(), "swan-game-sconsole.version");
     }
 
-    private File aWU() {
-        return new File(aWO(), "swan-game-sconsole.html");
+    private File aZo() {
+        return new File(aZi(), "swan-game-sconsole.html");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWV() {
-        File aWS = aWS();
-        File aWU = aWU();
-        if (!aWU.exists() && aWS.exists()) {
+    public void aZp() {
+        File aZm = aZm();
+        File aZo = aZo();
+        if (!aZo.exists() && aZm.exists()) {
             String format = String.format("%s%s%s", "res", File.separator, "swan-game-sconsole.js");
-            String readAssetData = com.baidu.swan.c.d.readAssetData(com.baidu.swan.apps.t.a.aza(), "aigames/sConsole.html");
+            String readAssetData = com.baidu.swan.c.d.readAssetData(com.baidu.swan.apps.t.a.aAr(), "aigames/sConsole.html");
             if (readAssetData != null) {
-                com.baidu.swan.c.d.saveFile(String.format(readAssetData, format), aWU);
+                com.baidu.swan.c.d.saveFile(String.format(readAssetData, format), aZo);
             }
         }
     }
 
     public void a(String str, final a aVar) {
         if (DEBUG) {
-            final boolean z = this.dYu;
-            this.dYu = true;
+            final boolean z = this.ehr;
+            this.ehr = true;
             d.c cVar = new d.c();
             cVar.mDownloadUrl = str;
-            final File aWR = aWR();
-            new com.baidu.swan.apps.l.a().a(cVar, aWR.getAbsolutePath(), new d.b() { // from class: com.baidu.swan.games.c.d.1
+            final File aZl = aZl();
+            new com.baidu.swan.apps.l.a().a(cVar, aZl.getAbsolutePath(), new d.b() { // from class: com.baidu.swan.games.c.d.1
                 @Override // com.baidu.swan.apps.r.d.b
                 public void fu(int i) {
                 }
 
                 @Override // com.baidu.swan.apps.r.d.b
                 public void onSuccess() {
-                    File aWP = d.this.aWP();
-                    if (aWP.exists()) {
-                        com.baidu.swan.c.d.deleteFile(aWP);
+                    File aZj = d.this.aZj();
+                    if (aZj.exists()) {
+                        com.baidu.swan.c.d.deleteFile(aZj);
                     }
-                    boolean unzipFile = com.baidu.swan.c.d.unzipFile(aWR.getAbsolutePath(), aWP.getAbsolutePath());
+                    boolean unzipFile = com.baidu.swan.c.d.unzipFile(aZl.getAbsolutePath(), aZj.getAbsolutePath());
                     if (unzipFile) {
-                        d.this.aWV();
-                        d.this.xi(j.b(new Date(), "'debug'-HH:mm:ss"));
+                        d.this.aZp();
+                        d.this.xh(j.b(new Date(), "'debug'-HH:mm:ss"));
                     }
-                    com.baidu.swan.c.d.deleteFile(aWR);
-                    aVar.eZ(unzipFile);
-                    d.this.dYu = z;
+                    com.baidu.swan.c.d.deleteFile(aZl);
+                    aVar.fi(unzipFile);
+                    d.this.ehr = z;
                 }
 
                 @Override // com.baidu.swan.apps.r.d.b
                 public void onFailed() {
-                    aVar.eZ(false);
-                    d.this.dYu = z;
+                    aVar.fi(false);
+                    d.this.ehr = z;
                 }
             });
         }
     }
 
-    public void xi(String str) {
-        File aWT = aWT();
-        if (aWT.exists()) {
-            com.baidu.swan.c.d.deleteFile(aWT);
+    public void xh(String str) {
+        File aZn = aZn();
+        if (aZn.exists()) {
+            com.baidu.swan.c.d.deleteFile(aZn);
         }
-        com.baidu.swan.c.d.saveFile(str, aWT);
+        com.baidu.swan.c.d.saveFile(str, aZn);
     }
 
-    public String aWW() {
-        return com.baidu.swan.c.d.readFileData(aWT());
+    public String aZq() {
+        return com.baidu.swan.c.d.readFileData(aZn());
     }
 
-    public String aWX() {
+    public String aZr() {
         try {
-            return aWU().toURI().toURL().toString();
+            return aZo().toURI().toURL().toString();
         } catch (Exception e) {
             if (DEBUG) {
                 Log.e("ConsoleResourceManager", "getGameConsoleHtmlUrl:" + e);
@@ -145,38 +144,38 @@ public class d {
         }
     }
 
-    public boolean aWY() {
-        return aWS().exists() && aWU().exists();
+    public boolean aZs() {
+        return aZm().exists() && aZo().exists();
     }
 
     public void a(@NonNull final a aVar) {
-        if (DEBUG && this.dYu) {
+        if (DEBUG && this.ehr) {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.c.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    aVar.eZ(d.this.aWY());
+                    aVar.fi(d.this.aZs());
                 }
             });
         } else {
-            com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.a(aWW()), new com.baidu.swan.games.c.a.a(new com.baidu.swan.games.c.b.a() { // from class: com.baidu.swan.games.c.d.3
+            com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.a(aZq()), new com.baidu.swan.games.c.a.a(new com.baidu.swan.games.c.b.a() { // from class: com.baidu.swan.games.c.d.3
                 @Override // com.baidu.swan.games.c.b.a
                 @NonNull
-                public File aqg() {
-                    return d.aWN().aWP();
+                public File ars() {
+                    return d.aZh().aZj();
                 }
 
                 @Override // com.baidu.swan.games.c.b.a
-                public void nr(@NonNull String str) {
-                    d.aWN().xi(str);
+                public void nk(@NonNull String str) {
+                    d.aZh().xh(str);
                 }
             }, new b() { // from class: com.baidu.swan.games.c.d.4
                 @Override // com.baidu.swan.games.c.b
-                public void eX(boolean z) {
-                    d.this.aWV();
+                public void fg(boolean z) {
+                    d.this.aZp();
                     ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.c.d.4.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            aVar.eZ(d.this.aWY());
+                            aVar.fi(d.this.aZs());
                         }
                     });
                 }
@@ -185,6 +184,6 @@ public class d {
     }
 
     public void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener) {
-        new g.a(activity).iz(a.h.aiapps_debug_switch_title).iy(a.h.aiapps_sconsole_load_error).a(new com.baidu.swan.apps.view.c.a()).gJ(false).c(a.h.aiapps_ok, onClickListener).aJB();
+        new g.a(activity).iu(a.h.aiapps_debug_switch_title).it(a.h.aiapps_sconsole_load_error).a(new com.baidu.swan.apps.view.c.a()).gV(false).c(a.h.aiapps_ok, onClickListener).aLx();
     }
 }

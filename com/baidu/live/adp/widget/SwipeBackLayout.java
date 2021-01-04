@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
@@ -17,10 +16,11 @@ import android.view.Window;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.Scroller;
+import androidx.core.view.MotionEventCompat;
 import com.baidu.live.adp.R;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class SwipeBackLayout extends FrameLayout {
     private static final int INVALID_POINTER = -1;
     private static final int MARGIN_THRESHOLD = 24;
@@ -56,14 +56,14 @@ public class SwipeBackLayout extends FrameLayout {
     private int mViewWidth;
     private float mXVelocity;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnSlidingStateChangeListener {
         void onSlidingEnd(boolean z);
 
         void onSlidingStart();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface SwipeControlInterface {
         void disableSwipeBack();
 
@@ -429,7 +429,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class MyAccelerateInterpolator implements Interpolator {
         private final float mFactor;
 

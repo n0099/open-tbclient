@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.live.walletconfig;
 
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class CashierData implements Serializable {
     public static final String CHANNEL = "channel";
     public static final String CUSTOMER_ID = "customerId";

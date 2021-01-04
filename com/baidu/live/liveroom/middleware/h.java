@@ -1,7 +1,7 @@
 package com.baidu.live.liveroom.middleware;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface h {
     void d(String str, int i, String str2);
 
-    void il(String str);
+    void hX(String str);
 }

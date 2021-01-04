@@ -1,14 +1,14 @@
 package com.baidu.swan.bdprivate.extensions.b;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.searchbox.websocket.WebSocketRequest;
-import com.baidu.swan.apps.ap.ai;
-import com.baidu.swan.apps.ap.p;
+import com.baidu.swan.apps.ao.ai;
+import com.baidu.swan.apps.ao.p;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.network.i;
 import com.baidu.swan.apps.runtime.e;
@@ -18,7 +18,7 @@ import java.util.Iterator;
 import okhttp3.HttpUrl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends i {
     public a(j jVar) {
         super(jVar, "/swanAPI/adRequest");
@@ -26,7 +26,7 @@ public class a extends i {
 
     @Override // com.baidu.swan.apps.network.i
     protected boolean a(@NonNull final e eVar, @NonNull final UnitedSchemeEntity unitedSchemeEntity, @NonNull final CallbackHandler callbackHandler, @NonNull final String str) {
-        p.postOnComputation(new Runnable() { // from class: com.baidu.swan.bdprivate.extensions.b.a.1
+        p.b(new Runnable() { // from class: com.baidu.swan.bdprivate.extensions.b.a.1
             @Override // java.lang.Runnable
             public void run() {
                 a.this.c(eVar, unitedSchemeEntity, callbackHandler, str);
@@ -37,12 +37,12 @@ public class a extends i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(@NonNull e eVar, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
-        JSONObject b = b(unitedSchemeEntity, "params");
-        String optString = b.optString("cb");
+        JSONObject b2 = b(unitedSchemeEntity, "params");
+        String optString = b2.optString("cb");
         try {
-            String optString2 = b.optString("url");
-            a(b, optString2, ai.isBaiduDomain(optString2));
-            unitedSchemeEntity.putParams("params", b.toString());
+            String optString2 = b2.optString("url");
+            b(b2, optString2, ai.isBaiduDomain(optString2));
+            unitedSchemeEntity.putParams("params", b2.toString());
             if (!super.a(eVar, unitedSchemeEntity, callbackHandler, str)) {
                 c.e("AdRequest", "request fail");
                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
@@ -52,7 +52,7 @@ public class a extends i {
         }
     }
 
-    private void a(JSONObject jSONObject, String str, boolean z) throws JSONException {
+    private void b(JSONObject jSONObject, String str, boolean z) throws JSONException {
         HttpUrl parse;
         JSONObject optJSONObject;
         String str2;
@@ -61,7 +61,7 @@ public class a extends i {
             if (!z) {
                 str2 = "";
             } else {
-                str2 = aFf();
+                str2 = aGz();
                 JSONObject optJSONObject2 = jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
                 if (optJSONObject2 == null) {
                     optJSONObject2 = new JSONObject();
@@ -78,7 +78,7 @@ public class a extends i {
                 String next = keys.next();
                 String optString = optJSONObject.optString(next);
                 if (TextUtils.equals(optString, "cuid")) {
-                    str3 = com.baidu.swan.apps.t.a.azf().bW(com.baidu.swan.apps.t.a.aza());
+                    str3 = com.baidu.swan.apps.t.a.aAw().cd(com.baidu.swan.apps.t.a.aAr());
                 } else if (TextUtils.equals(optString, ETAG.KEY_BAIDU_ID) && z) {
                     str3 = ai.getCookieValue(str2, "BAIDUID");
                 } else {

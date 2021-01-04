@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
     final boolean delayErrors;
     final h<? super T, ? extends o<? extends R>> mapper;
@@ -20,10 +20,10 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.pFi.a((j) new FlatMapMaybeSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.qgK.a((j) new FlatMapMaybeSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class FlatMapMaybeSubscriber<T, R> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = 8600231336733376951L;
         final org.a.c<? super R> actual;
@@ -68,7 +68,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
                     oVar.a(innerObserver);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 this.s.cancel();
                 onError(th);
             }
@@ -158,7 +158,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(g.eCS());
+                aVar = new io.reactivex.internal.queue.a<>(g.eLa());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }
@@ -367,7 +367,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<R> {
             private static final long serialVersionUID = -502562646270949838L;
 

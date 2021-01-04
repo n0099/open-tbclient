@@ -3,10 +3,10 @@ package com.baidu.tieba.homepage.tabfeed.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import tbclient.ActivityPage.SpecialColumn;
-/* loaded from: classes22.dex */
-public class SpecialColumnItemData implements Parcelable, q {
+/* loaded from: classes2.dex */
+public class SpecialColumnItemData implements Parcelable, n {
     public static final int TYPE_LIVE = 3;
     public static final int TYPE_LIVE_RE = 4;
     public static final int TYPE_NORMAL = 1;
@@ -23,14 +23,14 @@ public class SpecialColumnItemData implements Parcelable, q {
     public static final Parcelable.Creator<SpecialColumnItemData> CREATOR = new Parcelable.Creator<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Y */
+        /* renamed from: Z */
         public SpecialColumnItemData createFromParcel(Parcel parcel) {
             return new SpecialColumnItemData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Db */
+        /* renamed from: Dp */
         public SpecialColumnItemData[] newArray(int i) {
             return new SpecialColumnItemData[i];
         }
@@ -47,7 +47,7 @@ public class SpecialColumnItemData implements Parcelable, q {
         this.agree_num = specialColumn.agree_num.intValue();
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         return TYPE;
     }

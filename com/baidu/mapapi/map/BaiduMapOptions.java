@@ -4,13 +4,15 @@ import android.graphics.Point;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class BaiduMapOptions implements Parcelable {
     public static final Parcelable.Creator<BaiduMapOptions> CREATOR = new k();
 
     /* renamed from: a  reason: collision with root package name */
-    MapStatus f2000a;
-    boolean b;
+    MapStatus f2795a;
+
+    /* renamed from: b  reason: collision with root package name */
+    boolean f2796b;
     int c;
     boolean d;
     boolean e;
@@ -23,8 +25,8 @@ public final class BaiduMapOptions implements Parcelable {
     Point l;
 
     public BaiduMapOptions() {
-        this.f2000a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.b = false;
+        this.f2795a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
+        this.f2796b = false;
         this.c = 1;
         this.d = true;
         this.e = true;
@@ -36,8 +38,8 @@ public final class BaiduMapOptions implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public BaiduMapOptions(Parcel parcel) {
-        this.f2000a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.b = false;
+        this.f2795a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
+        this.f2796b = false;
         this.c = 1;
         this.d = true;
         this.e = true;
@@ -45,8 +47,8 @@ public final class BaiduMapOptions implements Parcelable {
         this.g = true;
         this.h = true;
         this.i = true;
-        this.f2000a = (MapStatus) parcel.readParcelable(MapStatus.class.getClassLoader());
-        this.b = parcel.readByte() != 0;
+        this.f2795a = (MapStatus) parcel.readParcelable(MapStatus.class.getClassLoader());
+        this.f2796b = parcel.readByte() != 0;
         this.c = parcel.readInt();
         this.d = parcel.readByte() != 0;
         this.e = parcel.readByte() != 0;
@@ -60,11 +62,11 @@ public final class BaiduMapOptions implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.baidu.mapsdkplatform.comapi.map.u a() {
-        return new com.baidu.mapsdkplatform.comapi.map.u().a(this.f2000a.c()).a(this.b).a(this.c).b(this.d).c(this.e).d(this.f).e(this.g);
+        return new com.baidu.mapsdkplatform.comapi.map.u().a(this.f2795a.c()).a(this.f2796b).a(this.c).b(this.d).c(this.e).d(this.f).e(this.g);
     }
 
     public BaiduMapOptions compassEnabled(boolean z) {
-        this.b = z;
+        this.f2796b = z;
         return this;
     }
 
@@ -80,7 +82,7 @@ public final class BaiduMapOptions implements Parcelable {
 
     public BaiduMapOptions mapStatus(MapStatus mapStatus) {
         if (mapStatus != null) {
-            this.f2000a = mapStatus;
+            this.f2795a = mapStatus;
         }
         return this;
     }
@@ -117,8 +119,8 @@ public final class BaiduMapOptions implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f2000a, i);
-        parcel.writeByte((byte) (this.b ? 1 : 0));
+        parcel.writeParcelable(this.f2795a, i);
+        parcel.writeByte((byte) (this.f2796b ? 1 : 0));
         parcel.writeInt(this.c);
         parcel.writeByte((byte) (this.d ? 1 : 0));
         parcel.writeByte((byte) (this.e ? 1 : 0));

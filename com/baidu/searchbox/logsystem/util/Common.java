@@ -1,10 +1,10 @@
 package com.baidu.searchbox.logsystem.util;
 
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.JsonReader;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
@@ -14,18 +14,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class Common {
     private static AppExtraCall sAppExtraCall;
     private static volatile Device sCommonDevice;
     private static volatile Version sCommonVersion;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public interface AppExtraCall {
         JSONObject getAppExtraInfo();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class Device {
         @NonNull
         public String mCPU = "";
@@ -37,7 +37,7 @@ public class Common {
         public String mMemory = "";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class Version {
         protected static final String SDK_VERSION = "sdkversion";
         @NonNull

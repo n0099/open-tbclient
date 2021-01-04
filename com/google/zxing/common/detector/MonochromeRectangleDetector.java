@@ -4,7 +4,7 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
 @Deprecated
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class MonochromeRectangleDetector {
     private static final int MAX_MODULES = 32;
     private final BitMatrix image;
@@ -30,41 +30,43 @@ public final class MonochromeRectangleDetector {
     }
 
     private ResultPoint findCornerFromCenter(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) throws NotFoundException {
-        int[] blackWhiteRange;
+        int[] iArr = null;
         int i10 = i;
         int i11 = i5;
-        int[] iArr = null;
-        while (i11 < i8 && i11 >= i7 && i10 < i4 && i10 >= i3) {
-            if (i2 == 0) {
-                blackWhiteRange = blackWhiteRange(i11, i9, i3, i4, true);
-            } else {
-                blackWhiteRange = blackWhiteRange(i10, i9, i7, i8, false);
+        while (true) {
+            int[] iArr2 = iArr;
+            if (i11 >= i8 || i11 < i7 || i10 >= i4 || i10 < i3) {
+                break;
             }
-            if (blackWhiteRange != null) {
-                i10 += i2;
-                iArr = blackWhiteRange;
+            if (i2 == 0) {
+                iArr = blackWhiteRange(i11, i9, i3, i4, true);
+            } else {
+                iArr = blackWhiteRange(i10, i9, i7, i8, false);
+            }
+            if (iArr != null) {
                 i11 += i6;
-            } else if (iArr == null) {
+                i10 += i2;
+            } else if (iArr2 == null) {
                 throw NotFoundException.getNotFoundInstance();
             } else {
                 if (i2 == 0) {
                     int i12 = i11 - i6;
-                    if (iArr[0] < i) {
-                        if (iArr[1] > i) {
-                            return new ResultPoint(iArr[i6 > 0 ? (char) 0 : (char) 1], i12);
+                    if (iArr2[0] < i) {
+                        if (iArr2[1] > i) {
+                            return new ResultPoint(iArr2[i6 > 0 ? (char) 0 : (char) 1], i12);
                         }
-                        return new ResultPoint(iArr[0], i12);
+                        return new ResultPoint(iArr2[0], i12);
                     }
-                    return new ResultPoint(iArr[1], i12);
+                    return new ResultPoint(iArr2[1], i12);
                 }
                 int i13 = i10 - i2;
-                if (iArr[0] < i5) {
-                    if (iArr[1] > i5) {
-                        return new ResultPoint(i13, iArr[i2 < 0 ? (char) 0 : (char) 1]);
+                if (iArr2[0] < i5) {
+                    if (iArr2[1] > i5) {
+                        return new ResultPoint(i13, iArr2[i2 < 0 ? (char) 0 : (char) 1]);
                     }
-                    return new ResultPoint(i13, iArr[0]);
+                    return new ResultPoint(i13, iArr2[0]);
                 }
-                return new ResultPoint(i13, iArr[1]);
+                return new ResultPoint(i13, iArr2[1]);
             }
         }
         throw NotFoundException.getNotFoundInstance();

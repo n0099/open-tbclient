@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.g;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableRange extends g<Integer> {
     final int end;
     final int start;
@@ -17,7 +17,7 @@ public final class FlowableRange extends g<Integer> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static abstract class BaseRangeSubscription extends BasicQueueSubscription<Integer> {
         private static final long serialVersionUID = -2252972430506210021L;
         volatile boolean cancelled;
@@ -76,7 +76,7 @@ public final class FlowableRange extends g<Integer> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class RangeSubscription extends BaseRangeSubscription {
         private static final long serialVersionUID = 2587302975077663557L;
         final org.a.c<? super Integer> actual;
@@ -140,7 +140,7 @@ public final class FlowableRange extends g<Integer> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class RangeConditionalSubscription extends BaseRangeSubscription {
         private static final long serialVersionUID = 2587302975077663557L;
         final io.reactivex.internal.a.a<? super Integer> actual;
@@ -171,19 +171,18 @@ public final class FlowableRange extends g<Integer> {
             int i = this.end;
             int i2 = this.index;
             io.reactivex.internal.a.a<? super Integer> aVar = this.actual;
-            int i3 = i2;
             long j2 = 0;
             while (true) {
-                if (j2 != j && i3 != i) {
+                if (j2 != j && i2 != i) {
                     if (!this.cancelled) {
-                        if (aVar.tryOnNext(Integer.valueOf(i3))) {
+                        if (aVar.tryOnNext(Integer.valueOf(i2))) {
                             j2++;
                         }
-                        i3++;
+                        i2++;
                     } else {
                         return;
                     }
-                } else if (i3 == i) {
+                } else if (i2 == i) {
                     if (!this.cancelled) {
                         aVar.onComplete();
                         return;
@@ -192,7 +191,7 @@ public final class FlowableRange extends g<Integer> {
                 } else {
                     j = get();
                     if (j2 == j) {
-                        this.index = i3;
+                        this.index = i2;
                         j = addAndGet(-j2);
                         if (j == 0) {
                             return;

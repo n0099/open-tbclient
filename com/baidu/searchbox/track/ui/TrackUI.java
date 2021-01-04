@@ -1,9 +1,11 @@
 package com.baidu.searchbox.track.ui;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TrackUI {
     private static final String SEPERATOR = "\t";
     private static final String SEPERATOR_ARROR = "->";
@@ -18,7 +20,7 @@ public class TrackUI {
     private long mTimeStamp;
     private String mType;
 
-    public TrackUI(String str, String str2, String str3, String str4, long j, String str5) {
+    public TrackUI(@NonNull String str, @NonNull String str2, @Nullable String str3, @Nullable String str4, long j, @NonNull String str5) {
         this.mActivityPage = str;
         this.mActivityPageTag = str2;
         this.mFragmentPage = str3;
@@ -27,7 +29,7 @@ public class TrackUI {
         this.mEvent = str5;
     }
 
-    public TrackUI(String str, String str2, String str3, String str4, String str5, String str6, String str7, long j, String str8) {
+    public TrackUI(@NonNull String str, @NonNull String str2, @Nullable String str3, @Nullable String str4, @Nullable String str5, @Nullable String str6, @Nullable String str7, long j, @NonNull String str8) {
         this.mActivityPage = str;
         this.mActivityPageTag = str2;
         this.mFragmentPage = str3;
@@ -43,6 +45,7 @@ public class TrackUI {
         return simpleDateFormat.format(new Date(j));
     }
 
+    @Nullable
     public static String[] parse(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(SEPERATOR)) == null || split.length != 4) {
@@ -87,6 +90,7 @@ public class TrackUI {
         return this.mType;
     }
 
+    @NonNull
     @Deprecated
     public String toString() {
         StringBuilder append = new StringBuilder(getTime(this.mTimeStamp)).append(SEPERATOR).append(this.mTimeStamp).append(SEPERATOR).append(this.mActivityPage).append(this.mActivityPageTag);

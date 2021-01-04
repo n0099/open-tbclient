@@ -1,10 +1,11 @@
 package com.baidu.tieba.livesdk.e;
 
 import com.baidu.adp.lib.e.c;
+import com.baidu.adp.lib.e.d;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoaderListener;
 import java.net.URLDecoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes10.dex */
 public class b implements IImageLoader {
     @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader
     public void loadImage(final String str, final IImageLoaderListener iImageLoaderListener) {
@@ -29,10 +30,10 @@ public class b implements IImageLoader {
         }
         if (str2 != null) {
             if (str2.toLowerCase().startsWith("file://")) {
-                c.mS().a(str2.substring(7), 43, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.1
+                d.mx().a(str2.substring(7), 43, new c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
-                    @Override // com.baidu.adp.lib.e.b
+                    @Override // com.baidu.adp.lib.e.c
                     public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str3, int i3) {
                         if (aVar != null && aVar.getRawBitmap() != null && iImageLoaderListener != null) {
                             iImageLoaderListener.onLoadComplete(str, aVar.getRawBitmap());
@@ -40,10 +41,10 @@ public class b implements IImageLoader {
                     }
                 }, i2, i, null, new Object[0]);
             } else {
-                c.mS().a(str2, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.2
+                d.mx().a(str2, 10, new c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.2
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
-                    @Override // com.baidu.adp.lib.e.b
+                    @Override // com.baidu.adp.lib.e.c
                     public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str3, int i3) {
                         if (aVar != null && aVar.getRawBitmap() != null && iImageLoaderListener != null) {
                             iImageLoaderListener.onLoadComplete(str, aVar.getRawBitmap());
@@ -56,10 +57,10 @@ public class b implements IImageLoader {
 
     @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader
     public void loadBlurImage(final String str, String str2, final IImageLoaderListener iImageLoaderListener) {
-        c.mS().a(str, 39, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.3
+        d.mx().a(str, 39, new c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.e.b
+            @Override // com.baidu.adp.lib.e.c
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str3, int i) {
                 if (aVar != null && aVar.getRawBitmap() != null && iImageLoaderListener != null) {
                     iImageLoaderListener.onLoadComplete(str, aVar.getRawBitmap());
@@ -73,10 +74,10 @@ public class b implements IImageLoader {
         if (str != null) {
             try {
                 if (str.toLowerCase().startsWith("file://")) {
-                    c.mS().l(str, 36);
+                    d.mx().l(str, 36);
                 } else {
-                    c.mS().l(str, 10);
-                    c.mS().l(str, 39);
+                    d.mx().l(str, 10);
+                    d.mx().l(str, 39);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -19,21 +19,21 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public abstract class gj {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f4695a;
+    private static long f14349a;
     private static String c;
 
     /* renamed from: a  reason: collision with other field name */
-    private gn f396a;
+    private gn f474a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<gg> f397a;
+    private List<gg> f475a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Map<String, Object> f398a;
+    private final Map<String, Object> f476a;
     private String d;
     private String e;
     private String f;
@@ -42,57 +42,59 @@ public abstract class gj {
     private String i;
 
     /* renamed from: a  reason: collision with other field name */
-    protected static final String f394a = Locale.getDefault().getLanguage().toLowerCase();
-    private static String b = null;
+    protected static final String f472a = Locale.getDefault().getLanguage().toLowerCase();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f14350b = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final DateFormat f395a = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+    public static final DateFormat f473a = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 
     static {
-        f395a.setTimeZone(TimeZone.getTimeZone("UTC"));
+        f473a.setTimeZone(TimeZone.getTimeZone("UTC"));
         c = gu.a(5) + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
-        f4695a = 0L;
+        f14349a = 0L;
     }
 
     public gj() {
-        this.d = b;
+        this.d = f14350b;
         this.e = null;
         this.f = null;
         this.g = null;
         this.h = null;
         this.i = null;
-        this.f397a = new CopyOnWriteArrayList();
-        this.f398a = new HashMap();
-        this.f396a = null;
+        this.f475a = new CopyOnWriteArrayList();
+        this.f476a = new HashMap();
+        this.f474a = null;
     }
 
     public gj(Bundle bundle) {
-        this.d = b;
+        this.d = f14350b;
         this.e = null;
         this.f = null;
         this.g = null;
         this.h = null;
         this.i = null;
-        this.f397a = new CopyOnWriteArrayList();
-        this.f398a = new HashMap();
-        this.f396a = null;
+        this.f475a = new CopyOnWriteArrayList();
+        this.f476a = new HashMap();
+        this.f474a = null;
         this.f = bundle.getString("ext_to");
         this.g = bundle.getString("ext_from");
         this.h = bundle.getString("ext_chid");
         this.e = bundle.getString("ext_pkt_id");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
-            this.f397a = new ArrayList(parcelableArray.length);
+            this.f475a = new ArrayList(parcelableArray.length);
             for (Parcelable parcelable : parcelableArray) {
                 gg a2 = gg.a((Bundle) parcelable);
                 if (a2 != null) {
-                    this.f397a.add(a2);
+                    this.f475a.add(a2);
                 }
             }
         }
         Bundle bundle2 = bundle.getBundle("ext_ERROR");
         if (bundle2 != null) {
-            this.f396a = new gn(bundle2);
+            this.f474a = new gn(bundle2);
         }
     }
 
@@ -100,15 +102,15 @@ public abstract class gj {
         String sb;
         synchronized (gj.class) {
             StringBuilder append = new StringBuilder().append(c);
-            long j = f4695a;
-            f4695a = 1 + j;
+            long j = f14349a;
+            f14349a = 1 + j;
             sb = append.append(Long.toString(j)).toString();
         }
         return sb;
     }
 
     public static String q() {
-        return f394a;
+        return f472a;
     }
 
     public Bundle a() {
@@ -128,13 +130,13 @@ public abstract class gj {
         if (!TextUtils.isEmpty(this.h)) {
             bundle.putString("ext_chid", this.h);
         }
-        if (this.f396a != null) {
-            bundle.putBundle("ext_ERROR", this.f396a.a());
+        if (this.f474a != null) {
+            bundle.putBundle("ext_ERROR", this.f474a.a());
         }
-        if (this.f397a != null) {
-            Bundle[] bundleArr = new Bundle[this.f397a.size()];
+        if (this.f475a != null) {
+            Bundle[] bundleArr = new Bundle[this.f475a.size()];
             int i = 0;
-            Iterator<gg> it = this.f397a.iterator();
+            Iterator<gg> it = this.f475a.iterator();
             while (true) {
                 int i2 = i;
                 if (!it.hasNext()) {
@@ -158,9 +160,9 @@ public abstract class gj {
     }
 
     public gg a(String str, String str2) {
-        for (gg ggVar : this.f397a) {
+        for (gg ggVar : this.f475a) {
             if (str2 == null || str2.equals(ggVar.b())) {
-                if (str.equals(ggVar.m305a())) {
+                if (str.equals(ggVar.m331a())) {
                     return ggVar;
                 }
             }
@@ -169,33 +171,33 @@ public abstract class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public gn m307a() {
-        return this.f396a;
+    public gn m333a() {
+        return this.f474a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Object m308a(String str) {
-        return this.f398a == null ? null : this.f398a.get(str);
+    public synchronized Object m334a(String str) {
+        return this.f476a == null ? null : this.f476a.get(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m309a();
+    public abstract String m335a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<gg> m310a() {
-        return this.f397a == null ? Collections.emptyList() : Collections.unmodifiableList(new ArrayList(this.f397a));
+    public synchronized Collection<gg> m336a() {
+        return this.f475a == null ? Collections.emptyList() : Collections.unmodifiableList(new ArrayList(this.f475a));
     }
 
     public void a(gg ggVar) {
-        this.f397a.add(ggVar);
+        this.f475a.add(ggVar);
     }
 
     public void a(gn gnVar) {
-        this.f396a = gnVar;
+        this.f474a = gnVar;
     }
 
     public synchronized Collection<String> b() {
-        return this.f398a == null ? Collections.emptySet() : Collections.unmodifiableSet(new HashSet(this.f398a.keySet()));
+        return this.f476a == null ? Collections.emptySet() : Collections.unmodifiableSet(new HashSet(this.f476a.keySet()));
     }
 
     public boolean equals(Object obj) {
@@ -207,11 +209,11 @@ public abstract class gj {
             return false;
         }
         gj gjVar = (gj) obj;
-        if (this.f396a != null) {
-            if (!this.f396a.equals(gjVar.f396a)) {
+        if (this.f474a != null) {
+            if (!this.f474a.equals(gjVar.f474a)) {
                 return false;
             }
-        } else if (gjVar.f396a != null) {
+        } else if (gjVar.f474a != null) {
             return false;
         }
         if (this.g != null) {
@@ -221,7 +223,7 @@ public abstract class gj {
         } else if (gjVar.g != null) {
             return false;
         }
-        if (this.f397a.equals(gjVar.f397a)) {
+        if (this.f475a.equals(gjVar.f475a)) {
             if (this.e != null) {
                 if (!this.e.equals(gjVar.e)) {
                     return false;
@@ -236,11 +238,11 @@ public abstract class gj {
             } else if (gjVar.h != null) {
                 return false;
             }
-            if (this.f398a != null) {
-                if (!this.f398a.equals(gjVar.f398a)) {
+            if (this.f476a != null) {
+                if (!this.f476a.equals(gjVar.f476a)) {
                     return false;
                 }
-            } else if (gjVar.f398a != null) {
+            } else if (gjVar.f476a != null) {
                 return false;
             }
             if (this.f != null) {
@@ -259,7 +261,7 @@ public abstract class gj {
     }
 
     public int hashCode() {
-        return (((((((this.h != null ? this.h.hashCode() : 0) + (((this.g != null ? this.g.hashCode() : 0) + (((this.f != null ? this.f.hashCode() : 0) + (((this.e != null ? this.e.hashCode() : 0) + ((this.d != null ? this.d.hashCode() : 0) * 31)) * 31)) * 31)) * 31)) * 31) + this.f397a.hashCode()) * 31) + this.f398a.hashCode()) * 31) + (this.f396a != null ? this.f396a.hashCode() : 0);
+        return (((((((this.h != null ? this.h.hashCode() : 0) + (((this.g != null ? this.g.hashCode() : 0) + (((this.f != null ? this.f.hashCode() : 0) + (((this.e != null ? this.e.hashCode() : 0) + ((this.d != null ? this.d.hashCode() : 0) * 31)) * 31)) * 31)) * 31)) * 31) + this.f475a.hashCode()) * 31) + this.f476a.hashCode()) * 31) + (this.f474a != null ? this.f474a.hashCode() : 0);
     }
 
     public String j() {
@@ -315,114 +317,110 @@ public abstract class gj {
         ObjectOutputStream objectOutputStream;
         ByteArrayOutputStream byteArrayOutputStream;
         ObjectOutputStream objectOutputStream2;
-        ByteArrayOutputStream byteArrayOutputStream2;
         sb = new StringBuilder();
-        for (gg ggVar : m310a()) {
+        for (gg ggVar : m336a()) {
             sb.append(ggVar.d());
         }
-        if (this.f398a != null && !this.f398a.isEmpty()) {
+        if (this.f476a != null && !this.f476a.isEmpty()) {
             sb.append("<properties xmlns=\"http://www.jivesoftware.com/xmlns/xmpp/properties\">");
             for (String str : b()) {
-                Object m308a = m308a(str);
+                Object m334a = m334a(str);
                 sb.append("<property>");
                 sb.append("<name>").append(gu.a(str)).append("</name>");
                 sb.append("<value type=\"");
-                if (m308a instanceof Integer) {
-                    sb.append("integer\">").append(m308a).append("</value>");
-                } else if (m308a instanceof Long) {
-                    sb.append("long\">").append(m308a).append("</value>");
-                } else if (m308a instanceof Float) {
-                    sb.append("float\">").append(m308a).append("</value>");
-                } else if (m308a instanceof Double) {
-                    sb.append("double\">").append(m308a).append("</value>");
-                } else if (m308a instanceof Boolean) {
-                    sb.append("boolean\">").append(m308a).append("</value>");
-                } else if (m308a instanceof String) {
+                if (m334a instanceof Integer) {
+                    sb.append("integer\">").append(m334a).append("</value>");
+                } else if (m334a instanceof Long) {
+                    sb.append("long\">").append(m334a).append("</value>");
+                } else if (m334a instanceof Float) {
+                    sb.append("float\">").append(m334a).append("</value>");
+                } else if (m334a instanceof Double) {
+                    sb.append("double\">").append(m334a).append("</value>");
+                } else if (m334a instanceof Boolean) {
+                    sb.append("boolean\">").append(m334a).append("</value>");
+                } else if (m334a instanceof String) {
                     sb.append("string\">");
-                    sb.append(gu.a((String) m308a));
+                    sb.append(gu.a((String) m334a));
                     sb.append("</value>");
                 } else {
                     try {
                         byteArrayOutputStream = new ByteArrayOutputStream();
                         try {
                             objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                        } catch (Exception e) {
-                            e = e;
-                            objectOutputStream2 = null;
-                            byteArrayOutputStream2 = byteArrayOutputStream;
-                        } catch (Throwable th) {
-                            th = th;
-                            objectOutputStream = null;
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        objectOutputStream2 = null;
-                        byteArrayOutputStream2 = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        objectOutputStream = null;
-                        byteArrayOutputStream = null;
-                    }
-                    try {
-                        objectOutputStream.writeObject(m308a);
-                        sb.append("java-object\">");
-                        sb.append(gu.a(byteArrayOutputStream.toByteArray())).append("</value>");
-                        if (objectOutputStream != null) {
                             try {
-                                objectOutputStream.close();
+                                objectOutputStream.writeObject(m334a);
+                                sb.append("java-object\">");
+                                sb.append(gu.a(byteArrayOutputStream.toByteArray())).append("</value>");
+                                if (objectOutputStream != null) {
+                                    try {
+                                        objectOutputStream.close();
+                                    } catch (Exception e) {
+                                    }
+                                }
+                                if (byteArrayOutputStream != null) {
+                                    try {
+                                        byteArrayOutputStream.close();
+                                    } catch (Exception e2) {
+                                    }
+                                }
                             } catch (Exception e3) {
-                            }
-                        }
-                        if (byteArrayOutputStream != null) {
-                            try {
-                                byteArrayOutputStream.close();
-                            } catch (Exception e4) {
-                            }
-                        }
-                    } catch (Exception e5) {
-                        e = e5;
-                        objectOutputStream2 = objectOutputStream;
-                        byteArrayOutputStream2 = byteArrayOutputStream;
-                        try {
-                            e.printStackTrace();
-                            if (objectOutputStream2 != null) {
+                                e = e3;
+                                objectOutputStream2 = objectOutputStream;
                                 try {
-                                    objectOutputStream2.close();
-                                } catch (Exception e6) {
+                                    e.printStackTrace();
+                                    if (objectOutputStream2 != null) {
+                                        try {
+                                            objectOutputStream2.close();
+                                        } catch (Exception e4) {
+                                        }
+                                    }
+                                    if (byteArrayOutputStream != null) {
+                                        try {
+                                            byteArrayOutputStream.close();
+                                        } catch (Exception e5) {
+                                        }
+                                    }
+                                    sb.append("</property>");
+                                } catch (Throwable th) {
+                                    th = th;
+                                    objectOutputStream = objectOutputStream2;
+                                    if (objectOutputStream != null) {
+                                        try {
+                                            objectOutputStream.close();
+                                        } catch (Exception e6) {
+                                        }
+                                    }
+                                    if (byteArrayOutputStream != null) {
+                                        try {
+                                            byteArrayOutputStream.close();
+                                        } catch (Exception e7) {
+                                        }
+                                    }
+                                    throw th;
                                 }
-                            }
-                            if (byteArrayOutputStream2 != null) {
-                                try {
-                                    byteArrayOutputStream2.close();
-                                } catch (Exception e7) {
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (objectOutputStream != null) {
                                 }
+                                if (byteArrayOutputStream != null) {
+                                }
+                                throw th;
                             }
-                            sb.append("</property>");
+                        } catch (Exception e8) {
+                            e = e8;
+                            objectOutputStream2 = null;
                         } catch (Throwable th3) {
                             th = th3;
-                            byteArrayOutputStream = byteArrayOutputStream2;
-                            objectOutputStream = objectOutputStream2;
-                            if (objectOutputStream != null) {
-                                try {
-                                    objectOutputStream.close();
-                                } catch (Exception e8) {
-                                }
-                            }
-                            if (byteArrayOutputStream != null) {
-                                try {
-                                    byteArrayOutputStream.close();
-                                } catch (Exception e9) {
-                                }
-                            }
-                            throw th;
+                            objectOutputStream = null;
                         }
+                    } catch (Exception e9) {
+                        e = e9;
+                        objectOutputStream2 = null;
+                        byteArrayOutputStream = null;
                     } catch (Throwable th4) {
                         th = th4;
-                        if (objectOutputStream != null) {
-                        }
-                        if (byteArrayOutputStream != null) {
-                        }
-                        throw th;
+                        objectOutputStream = null;
+                        byteArrayOutputStream = null;
                     }
                 }
                 sb.append("</property>");

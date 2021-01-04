@@ -11,6 +11,6 @@ public abstract class a implements f {
     }
 
     @Override // com.baidu.tbadk.b.f
-    public void a(Object obj, HashMap<String, String> hashMap, String str, com.baidu.adp.base.d dVar) {
+    public void a(Object obj, HashMap<String, String> hashMap, String str, com.baidu.adp.base.e eVar) {
     }
 }

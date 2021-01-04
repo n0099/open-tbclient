@@ -6,13 +6,15 @@ import android.location.Location;
 import com.baidu.mobads.interfaces.IXAdContext;
 import com.baidu.mobads.interfaces.IXAdManager;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class XAdManager implements IXAdManager {
     private static IXAdManager d;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2288a;
-    private Location b;
+    private String f3284a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Location f3285b;
     private Context c;
 
     public static IXAdManager getInstance(Context context) {
@@ -28,18 +30,18 @@ public class XAdManager implements IXAdManager {
 
     @Override // com.baidu.mobads.interfaces.IXAdManager
     public void setAppSid(String str) {
-        this.f2288a = str;
+        this.f3284a = str;
         XAdSDKFoundationFacade.getInstance().getCommonUtils().setAppId(str);
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdManager
     public void setLocation(Location location) {
-        this.b = location;
+        this.f3285b = location;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdManager
     public IXAdContext newAdContext() {
-        return new XAdContext(this.c, this.f2288a, this.b);
+        return new XAdContext(this.c, this.f3284a, this.f3285b);
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdManager

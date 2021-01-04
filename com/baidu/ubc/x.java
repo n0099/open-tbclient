@@ -6,136 +6,136 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class x {
-    private final y oHA;
+    private final y oNJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(Context context) {
-        this.oHA = y.gX(context);
+        this.oNJ = y.hm(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(n nVar) {
-        this.oHA.b(nVar);
+        this.oNJ.b(nVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ba(List<n> list) {
-        this.oHA.ba(list);
+    public void bh(List<n> list) {
+        this.oNJ.bh(list);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean eja() {
-        return this.oHA.eja();
+    public boolean ejk() {
+        return this.oNJ.ejk();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(p pVar) {
-        this.oHA.b(pVar);
+        this.oNJ.b(pVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, int i, long j, JSONArray jSONArray) {
-        this.oHA.a(str, i, j, jSONArray);
+        this.oNJ.a(str, i, j, jSONArray);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void L(String str, int i) {
-        this.oHA.L(str, i);
+    public void M(String str, int i) {
+        this.oNJ.M(str, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void i(String str, int i, String str2) {
-        this.oHA.i(str, i, str2);
+        this.oNJ.i(str, i, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bfv() {
-        this.oHA.bfv();
+    public void bhS() {
+        this.oNJ.bhS();
     }
 
     public void a(f fVar) {
-        this.oHA.a(fVar);
+        this.oNJ.a(fVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(SparseArray<ArrayList> sparseArray) {
-        this.oHA.b(sparseArray);
+    public void e(SparseArray<ArrayList> sparseArray) {
+        this.oNJ.e(sparseArray);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k XP(String str) {
-        return this.oHA.XP(str);
+    public k Xy(String str) {
+        return this.oNJ.Xy(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean XQ(String str) {
-        return this.oHA.XQ(str);
+    public boolean Xz(String str) {
+        return this.oNJ.Xz(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int a(ArrayList<j> arrayList, aj ajVar) {
-        return this.oHA.a(arrayList, ajVar);
+        return this.oNJ.a(arrayList, ajVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int a(aj ajVar, aj ajVar2) {
-        return this.oHA.a(ajVar, ajVar2);
+        return this.oNJ.a(ajVar, ajVar2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int c(aj ajVar) {
-        return this.oHA.c(ajVar);
+        return this.oNJ.c(ajVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean gB(List<k> list) {
-        return this.oHA.gB(list);
+    public boolean gt(List<k> list) {
+        return this.oNJ.gt(list);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int ejb() {
-        return this.oHA.ejb();
+    public int ejl() {
+        return this.oNJ.ejl();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public HashMap<String, String> bp(ArrayList<String> arrayList) {
-        return this.oHA.bp(arrayList);
+    public HashMap<String, String> bo(ArrayList<String> arrayList) {
+        return this.oNJ.bo(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(SparseArray<Integer> sparseArray, ArrayList<String> arrayList, boolean z, String str) {
-        return this.oHA.a(sparseArray, arrayList, z, str);
+        return this.oNJ.a(sparseArray, arrayList, z, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o XR(String str) {
-        return this.oHA.XR(str);
+    public o XA(String str) {
+        return this.oNJ.XA(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void zj(String str) {
+        this.oNJ.zj(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void bhT() {
+        this.oNJ.bhT();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void zk(String str) {
-        this.oHA.zk(str);
+        this.oNJ.zk(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bfw() {
-        this.oHA.bfw();
+    public void dA(String str, String str2) {
+        this.oNJ.dA(str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void zl(String str) {
-        this.oHA.zl(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dB(String str, String str2) {
-        this.oHA.dB(str, str2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void bfx() {
-        this.oHA.bfx();
+    public void bhU() {
+        this.oNJ.bhU();
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.searchbox.player.layer;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.Surface;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.event.ControlEvent;
@@ -19,7 +19,7 @@ import com.baidu.searchbox.player.session.VideoKernelState;
 import com.baidu.searchbox.player.session.VideoSession;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class BaseKernelLayer extends AbsLayer {
     protected static final int MIN_POSITION = 2;
     public static int SEEK_TO_DELTA = 1;
@@ -52,8 +52,8 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @Override // com.baidu.searchbox.player.layer.ILayer
-    @PublicMethod
     @Nullable
+    @PublicMethod
     public View getContentView() {
         return this.mVideoKernel.getBVideoView();
     }
@@ -187,8 +187,8 @@ public class BaseKernelLayer extends AbsLayer {
         return this.mVideoKernel.getVideoUrl();
     }
 
-    @PublicMethod
     @Nullable
+    @PublicMethod
     public String getServerIpInfo() {
         return this.mVideoKernel.getServerIpInfo();
     }

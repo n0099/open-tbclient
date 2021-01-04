@@ -2,46 +2,46 @@ package com.baidu.tieba.ala.guardthrone.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.NonNull;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.widget.CustomViewPager;
 import com.baidu.live.tieba.view.GradientTextView;
 import com.baidu.tieba.ala.guardthrone.adapter.AlaThroneAndNobleControllerAdapter;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.OnPageChangeListener {
-    private List<com.baidu.live.j.c> aHA;
-    private View.OnClickListener aHE;
-    private FrameLayout aHl;
-    private LinearLayout aHm;
-    private CustomViewPager aHn;
-    private float aHp;
-    private float aHq;
-    private int aHr;
-    private float aHs;
-    private int aHt;
-    private int aHw;
-    private int aHx;
-    private int aHy;
-    private a gTh;
-    private b gTi;
+    private FrameLayout aHD;
+    private LinearLayout aHE;
+    private CustomViewPager aHF;
+    private float aHH;
+    private float aHI;
+    private int aHJ;
+    private float aHK;
+    private int aHL;
+    private int aHO;
+    private int aHP;
+    private int aHQ;
+    private List<com.baidu.live.k.c> aHS;
+    private View.OnClickListener aHW;
+    private a heU;
+    private b heV;
     private int mCurrentTabIndex;
     private boolean mIsClicked;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void a(int i, com.baidu.live.j.c cVar);
+        void a(int i, com.baidu.live.k.c cVar);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void onPageSelected(int i);
     }
@@ -50,19 +50,19 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
         super(context);
         this.mCurrentTabIndex = 0;
         this.mIsClicked = false;
-        this.aHE = new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardthrone.view.AlaThroneAndNobleTabHost.1
+        this.aHW = new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardthrone.view.AlaThroneAndNobleTabHost.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int indexOfChild = AlaThroneAndNobleTabHost.this.aHm.indexOfChild(view);
+                int indexOfChild = AlaThroneAndNobleTabHost.this.aHE.indexOfChild(view);
                 if (indexOfChild >= 0) {
                     AlaThroneAndNobleTabHost.this.mIsClicked = true;
-                    if (AlaThroneAndNobleTabHost.this.aHn != null) {
-                        AlaThroneAndNobleTabHost.this.aHn.setCurrentItem(indexOfChild);
+                    if (AlaThroneAndNobleTabHost.this.aHF != null) {
+                        AlaThroneAndNobleTabHost.this.aHF.setCurrentItem(indexOfChild);
                     }
                 }
             }
         };
-        aT(context);
+        aS(context);
         init();
     }
 
@@ -70,14 +70,14 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
         super(context, attributeSet);
         this.mCurrentTabIndex = 0;
         this.mIsClicked = false;
-        this.aHE = new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardthrone.view.AlaThroneAndNobleTabHost.1
+        this.aHW = new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardthrone.view.AlaThroneAndNobleTabHost.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int indexOfChild = AlaThroneAndNobleTabHost.this.aHm.indexOfChild(view);
+                int indexOfChild = AlaThroneAndNobleTabHost.this.aHE.indexOfChild(view);
                 if (indexOfChild >= 0) {
                     AlaThroneAndNobleTabHost.this.mIsClicked = true;
-                    if (AlaThroneAndNobleTabHost.this.aHn != null) {
-                        AlaThroneAndNobleTabHost.this.aHn.setCurrentItem(indexOfChild);
+                    if (AlaThroneAndNobleTabHost.this.aHF != null) {
+                        AlaThroneAndNobleTabHost.this.aHF.setCurrentItem(indexOfChild);
                     }
                 }
             }
@@ -86,65 +86,65 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
         init();
     }
 
-    private void aT(Context context) {
-        this.aHp = getResources().getDimensionPixelOffset(a.d.sdk_ds110);
-        this.aHq = getResources().getDimensionPixelOffset(a.d.sdk_fontsize32);
-        this.aHr = getResources().getColor(a.c.sdk_color_e6e6e6);
-        this.aHs = getResources().getDimensionPixelOffset(a.d.sdk_fontsize40);
-        this.aHw = -1;
+    private void aS(Context context) {
+        this.aHH = getResources().getDimensionPixelOffset(a.d.sdk_ds110);
+        this.aHI = getResources().getDimensionPixelOffset(a.d.sdk_fontsize32);
+        this.aHJ = getResources().getColor(a.c.sdk_color_e6e6e6);
+        this.aHK = getResources().getDimensionPixelOffset(a.d.sdk_fontsize40);
+        this.aHO = -1;
     }
 
     private void b(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.sdk_AlaLiveRoomPanelTabHost);
-        this.aHp = obtainStyledAttributes.getDimension(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_height, getResources().getDimensionPixelOffset(a.d.sdk_ds110));
-        this.aHq = getResources().getDimensionPixelOffset(a.d.sdk_fontsize32);
-        this.aHr = obtainStyledAttributes.getColor(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_textDefColor, getResources().getColor(a.c.sdk_color_e6e6e6));
-        this.aHs = obtainStyledAttributes.getDimension(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_textSelSize, getResources().getDimensionPixelOffset(a.d.sdk_fontsize40));
-        this.aHt = obtainStyledAttributes.getColor(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_textSelColor, getResources().getColor(a.c.ala_guard_throne_color_E5B372));
-        this.aHw = obtainStyledAttributes.getInt(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_tabItemViewGravity, -1);
-        this.aHx = obtainStyledAttributes.getColor(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_textSelStartColor, 0);
-        this.aHy = obtainStyledAttributes.getColor(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_textSelEndColor, 0);
+        this.aHH = obtainStyledAttributes.getDimension(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_height, getResources().getDimensionPixelOffset(a.d.sdk_ds110));
+        this.aHI = getResources().getDimensionPixelOffset(a.d.sdk_fontsize32);
+        this.aHJ = obtainStyledAttributes.getColor(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_textDefColor, getResources().getColor(a.c.sdk_color_e6e6e6));
+        this.aHK = obtainStyledAttributes.getDimension(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_textSelSize, getResources().getDimensionPixelOffset(a.d.sdk_fontsize40));
+        this.aHL = obtainStyledAttributes.getColor(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_textSelColor, getResources().getColor(a.c.ala_guard_throne_color_E5B372));
+        this.aHO = obtainStyledAttributes.getInt(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_tabItemViewGravity, -1);
+        this.aHP = obtainStyledAttributes.getColor(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_textSelStartColor, 0);
+        this.aHQ = obtainStyledAttributes.getColor(a.j.sdk_AlaLiveRoomPanelTabHost_sdk_textSelEndColor, 0);
         obtainStyledAttributes.recycle();
     }
 
     private void init() {
         setOrientation(1);
-        this.aHl = new FrameLayout(getContext());
-        this.aHl.setClickable(true);
-        addView(this.aHl, new LinearLayout.LayoutParams(-1, (int) this.aHp));
-        this.aHm = new LinearLayout(getContext());
+        this.aHD = new FrameLayout(getContext());
+        this.aHD.setClickable(true);
+        addView(this.aHD, new LinearLayout.LayoutParams(-1, (int) this.aHH));
+        this.aHE = new LinearLayout(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
         layoutParams.setMargins(getResources().getDimensionPixelOffset(a.d.sdk_ds78), 0, getResources().getDimensionPixelOffset(a.d.sdk_ds78), 0);
-        this.aHl.addView(this.aHm, layoutParams);
-        this.aHn = new CustomViewPager(getContext());
-        this.aHn.setOnPageChangeListener(this);
-        addView(this.aHn);
+        this.aHD.addView(this.aHE, layoutParams);
+        this.aHF = new CustomViewPager(getContext());
+        this.aHF.setOnPageChangeListener(this);
+        addView(this.aHF);
     }
 
-    private void x(List<com.baidu.live.j.c> list) {
-        for (com.baidu.live.j.c cVar : list) {
+    private void x(List<com.baidu.live.k.c> list) {
+        for (com.baidu.live.k.c cVar : list) {
             c cVar2 = new c(getContext(), cVar.getTitle());
-            cVar2.setOnClickListener(this.aHE);
+            cVar2.setOnClickListener(this.aHW);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             layoutParams.weight = 1.0f;
-            if (this.aHw != -1) {
-                layoutParams.gravity = this.aHw;
+            if (this.aHO != -1) {
+                layoutParams.gravity = this.aHO;
             }
-            a(cVar2.Ek(), false);
-            a((TextView) cVar2.Ek(), false);
-            this.aHm.addView(cVar2, layoutParams);
+            a(cVar2.Dz(), false);
+            a((TextView) cVar2.Dz(), false);
+            this.aHE.addView(cVar2, layoutParams);
         }
     }
 
     private void a(GradientTextView gradientTextView, boolean z) {
         if (gradientTextView != null) {
             if (!z) {
-                gradientTextView.setGradientTextColor(this.aHr, this.aHr);
-            } else if (this.aHx != 0 || this.aHy != 0) {
-                gradientTextView.setGradientTextColor(this.aHx, this.aHy);
+                gradientTextView.setGradientTextColor(this.aHJ, this.aHJ);
+            } else if (this.aHP != 0 || this.aHQ != 0) {
+                gradientTextView.setGradientTextColor(this.aHP, this.aHQ);
             } else {
-                gradientTextView.setGradientTextColor(this.aHt, this.aHt);
+                gradientTextView.setGradientTextColor(this.aHL, this.aHL);
             }
         }
     }
@@ -152,105 +152,105 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
     private void a(TextView textView, boolean z) {
         if (textView != null) {
             if (!z) {
-                textView.setTextSize(0, this.aHq);
+                textView.setTextSize(0, this.aHI);
             } else {
-                textView.setTextSize(0, this.aHs);
+                textView.setTextSize(0, this.aHK);
             }
         }
     }
 
     private void updateTabStyles() {
-        int childCount = this.aHm.getChildCount();
+        int childCount = this.aHE.getChildCount();
         int i = 0;
         while (i < childCount) {
-            View childAt = this.aHm.getChildAt(i);
+            View childAt = this.aHE.getChildAt(i);
             if (childAt instanceof c) {
-                a(((c) childAt).Ek(), i == this.mCurrentTabIndex);
-                a((TextView) ((c) childAt).Ek(), i == this.mCurrentTabIndex);
+                a(((c) childAt).Dz(), i == this.mCurrentTabIndex);
+                a((TextView) ((c) childAt).Dz(), i == this.mCurrentTabIndex);
             }
             i++;
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        if (this.aHm.getChildCount() != 0 && !this.mIsClicked) {
+        if (this.aHE.getChildCount() != 0 && !this.mIsClicked) {
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.gTh != null) {
-                this.gTh.a(this.mCurrentTabIndex, (com.baidu.live.j.c) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
+            if (this.heU != null) {
+                this.heU.a(this.mCurrentTabIndex, (com.baidu.live.k.c) ListUtils.getItem(this.aHS, this.mCurrentTabIndex));
             }
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         if (this.mIsClicked) {
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.gTh != null) {
-                this.gTh.a(this.mCurrentTabIndex, (com.baidu.live.j.c) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
+            if (this.heU != null) {
+                this.heU.a(this.mCurrentTabIndex, (com.baidu.live.k.c) ListUtils.getItem(this.aHS, this.mCurrentTabIndex));
             }
         }
-        if (this.gTi != null) {
-            this.gTi.onPageSelected(i);
+        if (this.heV != null) {
+            this.heV.onPageSelected(i);
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
-        if (this.aHm.getChildCount() != 0 && this.aHn != null && i == 0) {
+        if (this.aHE.getChildCount() != 0 && this.aHF != null && i == 0) {
             this.mIsClicked = false;
         }
     }
 
     public void setOnPageChangeListener(a aVar) {
-        this.gTh = aVar;
+        this.heU = aVar;
     }
 
     public void setPageSelectedListener(b bVar) {
-        this.gTi = bVar;
+        this.heV = bVar;
     }
 
     public void setAdapter(AlaThroneAndNobleControllerAdapter alaThroneAndNobleControllerAdapter) {
         if (alaThroneAndNobleControllerAdapter != null && !ListUtils.isEmpty(alaThroneAndNobleControllerAdapter.getDataList())) {
-            this.aHn.setAdapter(alaThroneAndNobleControllerAdapter);
-            this.aHA = alaThroneAndNobleControllerAdapter.getDataList();
-            x(this.aHA);
+            this.aHF.setAdapter(alaThroneAndNobleControllerAdapter);
+            this.aHS = alaThroneAndNobleControllerAdapter.getDataList();
+            x(this.aHS);
             getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.guardthrone.view.AlaThroneAndNobleTabHost.2
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     AlaThroneAndNobleTabHost.this.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                    AlaThroneAndNobleTabHost.this.mCurrentTabIndex = AlaThroneAndNobleTabHost.this.aHn.getCurrentItem();
+                    AlaThroneAndNobleTabHost.this.mCurrentTabIndex = AlaThroneAndNobleTabHost.this.aHF.getCurrentItem();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class c extends FrameLayout {
-        private GradientTextView aHG;
+        private GradientTextView aHY;
 
         public c(@NonNull Context context, String str) {
             super(context);
-            gw(str);
+            gf(str);
         }
 
-        private void gw(String str) {
-            this.aHG = new GradientTextView(getContext());
-            this.aHG.setCheckStrEquals(false);
-            this.aHG.setTextSize(0, getContext().getResources().getDimensionPixelSize(a.d.sdk_fontsize32));
-            this.aHG.setText(str);
+        private void gf(String str) {
+            this.aHY = new GradientTextView(getContext());
+            this.aHY.setCheckStrEquals(false);
+            this.aHY.setTextSize(0, getContext().getResources().getDimensionPixelSize(a.d.sdk_fontsize32));
+            this.aHY.setText(str);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.aHG, layoutParams);
+            addView(this.aHY, layoutParams);
         }
 
-        public GradientTextView Ek() {
-            return this.aHG;
+        public GradientTextView Dz() {
+            return this.aHY;
         }
     }
 }

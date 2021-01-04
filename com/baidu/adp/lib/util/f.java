@@ -181,106 +181,102 @@ public class f {
     }
 
     private static void doCopyFile(File file, File file2, boolean z) throws IOException {
+        Throwable th;
         FileChannel fileChannel;
+        FileChannel fileChannel2;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
-        FileChannel fileChannel2 = null;
+        Error e;
         if (file2.exists() && file2.isDirectory()) {
             throw new IOException("Destination '" + file2 + "' exists but is a directory");
         }
         try {
-            FileInputStream fileInputStream2 = new FileInputStream(file);
+            fileInputStream = new FileInputStream(file);
             try {
                 FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
                 try {
-                    FileChannel channel = fileInputStream2.getChannel();
+                    fileChannel2 = fileInputStream.getChannel();
                     try {
-                        FileChannel channel2 = fileOutputStream2.getChannel();
+                        FileChannel channel = fileOutputStream2.getChannel();
                         try {
-                            long size = channel.size();
-                            for (long j = 0; j < size; j += channel2.transferFrom(channel, j, size - j > 31457280 ? 31457280L : size - j)) {
+                            long size = fileChannel2.size();
+                            for (long j = 0; j < size; j += channel.transferFrom(fileChannel2, j, size - j > 31457280 ? 31457280L : size - j)) {
                             }
-                            n.close(channel2);
-                            n.close((OutputStream) fileOutputStream2);
                             n.close(channel);
-                            n.close((InputStream) fileInputStream2);
+                            n.close((OutputStream) fileOutputStream2);
+                            n.close(fileChannel2);
+                            n.close((InputStream) fileInputStream);
                             if (file.length() != file2.length()) {
                                 throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
                             }
                             if (z) {
                                 file2.setLastModified(file.lastModified());
                             }
-                        } catch (Error e) {
+                        } catch (Error e2) {
+                            e = e2;
+                            fileChannel = channel;
                             fileOutputStream = fileOutputStream2;
-                            fileInputStream = fileInputStream2;
-                            fileChannel = channel2;
-                            e = e;
-                            fileChannel2 = channel;
                             try {
                                 throw new IOException("Failed Error to copy contents from '" + file + "' to '" + file2 + "' with " + e.toString());
-                            } catch (Throwable th) {
-                                th = th;
+                            } catch (Throwable th2) {
+                                th = th2;
                                 n.close(fileChannel);
                                 n.close((OutputStream) fileOutputStream);
                                 n.close(fileChannel2);
                                 n.close((InputStream) fileInputStream);
                                 throw th;
                             }
-                        } catch (Throwable th2) {
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileChannel = channel;
                             fileOutputStream = fileOutputStream2;
-                            fileInputStream = fileInputStream2;
-                            fileChannel = channel2;
-                            th = th2;
-                            fileChannel2 = channel;
                             n.close(fileChannel);
                             n.close((OutputStream) fileOutputStream);
                             n.close(fileChannel2);
                             n.close((InputStream) fileInputStream);
                             throw th;
                         }
-                    } catch (Error e2) {
-                        e = e2;
-                        fileOutputStream = fileOutputStream2;
-                        fileInputStream = fileInputStream2;
-                        fileChannel2 = channel;
+                    } catch (Error e3) {
+                        e = e3;
                         fileChannel = null;
-                    } catch (Throwable th3) {
-                        th = th3;
                         fileOutputStream = fileOutputStream2;
-                        fileInputStream = fileInputStream2;
-                        fileChannel2 = channel;
+                    } catch (Throwable th4) {
+                        th = th4;
                         fileChannel = null;
+                        fileOutputStream = fileOutputStream2;
                     }
-                } catch (Error e3) {
-                    e = e3;
+                } catch (Error e4) {
+                    e = e4;
                     fileChannel = null;
+                    fileChannel2 = null;
                     fileOutputStream = fileOutputStream2;
-                    fileInputStream = fileInputStream2;
-                } catch (Throwable th4) {
-                    th = th4;
+                } catch (Throwable th5) {
+                    th = th5;
                     fileChannel = null;
+                    fileChannel2 = null;
                     fileOutputStream = fileOutputStream2;
-                    fileInputStream = fileInputStream2;
                 }
-            } catch (Error e4) {
-                e = e4;
+            } catch (Error e5) {
+                e = e5;
                 fileChannel = null;
+                fileChannel2 = null;
                 fileOutputStream = null;
-                fileInputStream = fileInputStream2;
-            } catch (Throwable th5) {
-                th = th5;
+            } catch (Throwable th6) {
+                th = th6;
                 fileChannel = null;
+                fileChannel2 = null;
                 fileOutputStream = null;
-                fileInputStream = fileInputStream2;
             }
-        } catch (Error e5) {
-            e = e5;
+        } catch (Error e6) {
+            e = e6;
             fileChannel = null;
+            fileChannel2 = null;
             fileOutputStream = null;
             fileInputStream = null;
-        } catch (Throwable th6) {
-            th = th6;
+        } catch (Throwable th7) {
+            th = th7;
             fileChannel = null;
+            fileChannel2 = null;
             fileOutputStream = null;
             fileInputStream = null;
         }
@@ -323,31 +319,34 @@ public class f {
     }
 
     public static long getFileSize(File file) {
+        Throwable th;
         FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         long j = 0;
-        FileInputStream fileInputStream2 = null;
+        FileInputStream fileInputStream3 = null;
         try {
             if (!file.exists()) {
-                fileInputStream = null;
+                fileInputStream2 = null;
             } else {
-                fileInputStream = new FileInputStream(file);
+                fileInputStream2 = new FileInputStream(file);
                 try {
-                    j = fileInputStream.available();
+                    j = fileInputStream2.available();
                 } catch (Exception e) {
-                    fileInputStream2 = fileInputStream;
-                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream2);
+                    fileInputStream3 = fileInputStream2;
+                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream3);
                     return j;
-                } catch (Throwable th) {
-                    fileInputStream2 = fileInputStream;
-                    th = th;
-                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream2);
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileInputStream = fileInputStream2;
+                    com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
                     throw th;
                 }
             }
-            com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
+            com.baidu.adp.lib.f.a.close((InputStream) fileInputStream2);
         } catch (Exception e2) {
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
+            th = th3;
+            fileInputStream = null;
         }
         return j;
     }

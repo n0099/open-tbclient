@@ -1,10 +1,9 @@
 package com.baidu.sofire.ac;
 
 import android.content.Context;
-import android.support.media.ExifInterface;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Pair;
+import androidx.core.app.NotificationCompat;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.c;
@@ -15,7 +14,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class FH {
     public static final int INVOKE_METHOD_ERROR_DEFULT = -1;
     public static final int INVOKE_METHOD_ERROR_ILLGEAL_METHOD_NAME = -3;
@@ -76,11 +75,11 @@ public class FH {
                     if (a2 == null) {
                         return "";
                     }
-                    List<ApkInfo> b = a2.b();
-                    if (b == null || b.size() <= 0) {
+                    List<ApkInfo> b2 = a2.b();
+                    if (b2 == null || b2.size() <= 0) {
                         return "";
                     }
-                    for (ApkInfo apkInfo : b) {
+                    for (ApkInfo apkInfo : b2) {
                         if (apkInfo.key == i) {
                             if (apkInfo.versionName == null) {
                                 return "";
@@ -139,7 +138,6 @@ public class FH {
     }
 
     public static Pair<Integer, String> invokeMethod(Context context, String str) {
-        int i;
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("f");
@@ -149,8 +147,8 @@ public class FH {
             Method method = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("p");
             if (optString.equals("callSync")) {
-                if (c.b == null && context != null) {
-                    c.b = context.getApplicationContext();
+                if (c.f5490b == null && context != null) {
+                    c.f5490b = context.getApplicationContext();
                 }
                 if (optJSONArray != null && optJSONArray.length() == 2) {
                     method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -170,26 +168,25 @@ public class FH {
             } else {
                 Method[] methods = FH.class.getMethods();
                 int length = methods.length;
+                int i = 0;
                 int i2 = 0;
-                int i3 = 0;
-                while (i2 < length) {
-                    Method method2 = methods[i2];
+                while (i < length) {
+                    Method method2 = methods[i];
                     if (optString.equals(method2.getName())) {
                         if (method != null) {
                             method2 = method;
                         }
-                        method = method2;
-                        i = i3 + 1;
+                        i2++;
                     } else {
-                        i = i3;
+                        method2 = method;
                     }
-                    i2++;
-                    i3 = i;
+                    i++;
+                    method = method2;
                 }
-                if (i3 <= 0 || method == null) {
+                if (i2 <= 0 || method == null) {
                     return new Pair<>(-4, "");
                 }
-                if (i3 >= 2) {
+                if (i2 >= 2) {
                     return new Pair<>(-5, "");
                 }
             }
@@ -224,8 +221,8 @@ public class FH {
             boolean equals = "callSync".equals(str);
             int length = (clsArr == null || clsArr.length == 0) ? 0 : clsArr.length;
             Object[] objArr = new Object[length];
-            int i2 = i;
             Class[] clsArr2 = null;
+            int i2 = i;
             for (int i3 = 0; i3 < length; i3++) {
                 if (clsArr == null) {
                     throw new IllegalArgumentException("parameterTypes null");
@@ -234,8 +231,8 @@ public class FH {
                 if (cls.equals(Context.class)) {
                     if (context != null) {
                         objArr[i3] = context;
-                    } else if (c.b != null) {
-                        objArr[i3] = c.b;
+                    } else if (c.f5490b != null) {
+                        objArr[i3] = c.f5490b;
                     } else {
                         throw new IllegalArgumentException("method request context");
                     }
@@ -327,7 +324,7 @@ public class FH {
     }
 
     private static boolean parseBoolean(String str) throws IllegalArgumentException {
-        if (ExifInterface.GPS_DIRECTION_TRUE.equals(str)) {
+        if ("T".equals(str)) {
             return true;
         }
         if ("F".equals(str)) {

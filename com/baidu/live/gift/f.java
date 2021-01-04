@@ -1,11 +1,11 @@
 package com.baidu.live.gift;
 
-import android.content.Context;
-/* loaded from: classes4.dex */
+import android.app.Activity;
+/* loaded from: classes11.dex */
 public class f {
-    public boolean aVA = false;
-    public boolean aVB;
-    public boolean aVr;
-    public Context context;
+    public boolean aWW;
+    public boolean aXg = false;
+    public boolean aXh;
+    public Activity context;
     public String fromType;
 }

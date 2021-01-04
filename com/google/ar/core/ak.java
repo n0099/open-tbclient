@@ -2,25 +2,27 @@ package com.google.ar.core;
 
 import android.util.Log;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes17.dex */
+/* loaded from: classes3.dex */
 final class ak implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ AtomicBoolean f4043a;
-    private final /* synthetic */ aj b;
+    private final /* synthetic */ AtomicBoolean f8155a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private final /* synthetic */ aj f8156b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(aj ajVar, AtomicBoolean atomicBoolean) {
-        this.b = ajVar;
-        this.f4043a = atomicBoolean;
+        this.f8156b = ajVar;
+        this.f8155a = atomicBoolean;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (!this.f4043a.getAndSet(true)) {
+        if (!this.f8155a.getAndSet(true)) {
             Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-            w wVar = this.b.ptE;
-            w.b(this.b.f4042a, this.b.ptp);
+            w wVar = this.f8156b.pKD;
+            w.b(this.f8156b.f8154a, this.f8156b.pKr);
         }
     }
 }

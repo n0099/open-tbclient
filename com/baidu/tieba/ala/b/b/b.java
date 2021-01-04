@@ -1,10 +1,11 @@
 package com.baidu.tieba.ala.b.b;
 
 import android.text.TextUtils;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -21,7 +22,7 @@ public class b {
         byte[] bArr = new byte[1024];
         try {
             FileInputStream fileInputStream = new FileInputStream(str);
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             while (true) {
                 int read = fileInputStream.read(bArr);
                 if (read > 0) {
@@ -36,10 +37,10 @@ public class b {
         }
     }
 
-    public static String es(String str, String str2) {
+    public static String er(String str, String str2) {
         try {
             if (TextUtils.isEmpty(str2)) {
-                str2 = "MD5";
+                str2 = EncryptUtils.ENCRYPT_MD5;
             }
             MessageDigest messageDigest = MessageDigest.getInstance(str2);
             if (TextUtils.isEmpty(str) || messageDigest == null) {
@@ -51,9 +52,9 @@ public class b {
             if (digest == null) {
                 return null;
             }
-            for (byte b : digest) {
-                sb.append(Integer.toHexString((b >> 4) & 15));
-                sb.append(Integer.toHexString(b & 15));
+            for (byte b2 : digest) {
+                sb.append(Integer.toHexString((b2 >> 4) & 15));
+                sb.append(Integer.toHexString(b2 & 15));
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {

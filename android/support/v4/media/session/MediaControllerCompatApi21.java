@@ -12,15 +12,16 @@ import android.media.session.PlaybackState;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
-import android.support.annotation.RequiresApi;
 import android.view.KeyEvent;
+import androidx.annotation.RequiresApi;
 import java.util.ArrayList;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(21)
-/* loaded from: classes19.dex */
-class MediaControllerCompatApi21 {
+/* loaded from: classes3.dex */
+public class MediaControllerCompatApi21 {
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public interface Callback {
         void onAudioInfoChanged(int i, int i2, int i3, int i4, int i5);
 
@@ -37,9 +38,6 @@ class MediaControllerCompatApi21 {
         void onSessionDestroyed();
 
         void onSessionEvent(String str, Bundle bundle);
-    }
-
-    MediaControllerCompatApi21() {
     }
 
     public static Object fromToken(Context context, Object obj) {
@@ -134,7 +132,7 @@ class MediaControllerCompatApi21 {
         return ((MediaController) obj).getPackageName();
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static class TransportControls {
         public static void play(Object obj) {
             ((MediaController.TransportControls) obj).play();
@@ -187,9 +185,12 @@ class MediaControllerCompatApi21 {
         public static void sendCustomAction(Object obj, String str, Bundle bundle) {
             ((MediaController.TransportControls) obj).sendCustomAction(str, bundle);
         }
+
+        private TransportControls() {
+        }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static class PlaybackInfo {
         private static final int FLAG_SCO = 4;
         private static final int STREAM_BLUETOOTH_SCO = 6;
@@ -251,10 +252,14 @@ class MediaControllerCompatApi21 {
                     return 1;
             }
         }
+
+        private PlaybackInfo() {
+        }
     }
 
-    /* loaded from: classes19.dex */
-    static class CallbackProxy<T extends Callback> extends MediaController.Callback {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes3.dex */
+    public static class CallbackProxy<T extends Callback> extends MediaController.Callback {
         protected final T mCallback;
 
         public CallbackProxy(T t) {
@@ -268,6 +273,7 @@ class MediaControllerCompatApi21 {
 
         @Override // android.media.session.MediaController.Callback
         public void onSessionEvent(String str, Bundle bundle) {
+            MediaSessionCompat.ensureClassLoader(bundle);
             this.mCallback.onSessionEvent(str, bundle);
         }
 
@@ -293,6 +299,7 @@ class MediaControllerCompatApi21 {
 
         @Override // android.media.session.MediaController.Callback
         public void onExtrasChanged(Bundle bundle) {
+            MediaSessionCompat.ensureClassLoader(bundle);
             this.mCallback.onExtrasChanged(bundle);
         }
 
@@ -300,5 +307,8 @@ class MediaControllerCompatApi21 {
         public void onAudioInfoChanged(MediaController.PlaybackInfo playbackInfo) {
             this.mCallback.onAudioInfoChanged(playbackInfo.getPlaybackType(), PlaybackInfo.getLegacyAudioStream(playbackInfo), playbackInfo.getVolumeControl(), playbackInfo.getMaxVolume(), playbackInfo.getCurrentVolume());
         }
+    }
+
+    private MediaControllerCompatApi21() {
     }
 }

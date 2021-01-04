@@ -5,15 +5,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class BDStatCore {
     public static final int INVOKE_ACT = 1;
     public static final int INVOKE_API = 0;
@@ -21,8 +21,10 @@ public class BDStatCore {
     public static final int INVOKE_FRAG = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    private static BDStatCore f2464a;
-    private Handler b;
+    private static BDStatCore f3571a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Handler f3572b;
     private SessionAnalysis d;
     private EventAnalysis e;
     private Runnable f;
@@ -32,20 +34,20 @@ public class BDStatCore {
     private volatile boolean h = false;
 
     public static BDStatCore instance() {
-        if (f2464a == null) {
+        if (f3571a == null) {
             synchronized (BDStatCore.class) {
-                if (f2464a == null) {
-                    f2464a = new BDStatCore();
+                if (f3571a == null) {
+                    f3571a = new BDStatCore();
                 }
             }
         }
-        return f2464a;
+        return f3571a;
     }
 
     private BDStatCore() {
         HandlerThread handlerThread = new HandlerThread("BDStatCore", 10);
         handlerThread.start();
-        this.b = new Handler(handlerThread.getLooper());
+        this.f3572b = new Handler(handlerThread.getLooper());
         this.d = new SessionAnalysis();
         this.e = new EventAnalysis();
         HandlerThread handlerThread2 = new HandlerThread("dataAnalyzeThread");
@@ -65,7 +67,7 @@ public class BDStatCore {
         a(context);
         if (!this.c) {
             ActivityLifeTask.registerActivityLifeCallback(context);
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.1
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (!BDStatCore.this.c) {
@@ -98,7 +100,7 @@ public class BDStatCore {
             init(context);
             b(context);
             final long currentTimeMillis = System.currentTimeMillis();
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.12
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.12
                 @Override // java.lang.Runnable
                 public void run() {
                     BDStatCore.this.d.onSessionStart(context, currentTimeMillis, z);
@@ -114,7 +116,7 @@ public class BDStatCore {
                 return;
             }
             init(context);
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.17
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.17
                 @Override // java.lang.Runnable
                 public void run() {
                     BDStatCore.this.d.autoTrackLaunchInfo(launchInfo, z);
@@ -127,7 +129,7 @@ public class BDStatCore {
         if (context != null) {
             init(context);
             final long currentTimeMillis = System.currentTimeMillis();
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.18
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.18
                 @Override // java.lang.Runnable
                 public void run() {
                     BDStatCore.this.d.autoTrackSessionStartTime(context, currentTimeMillis);
@@ -140,7 +142,7 @@ public class BDStatCore {
         if (context != null) {
             init(context);
             final long currentTimeMillis = System.currentTimeMillis();
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.19
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.19
                 @Override // java.lang.Runnable
                 public void run() {
                     BDStatCore.this.d.autoTrackSessionEndTime(context, currentTimeMillis);
@@ -158,14 +160,14 @@ public class BDStatCore {
                     BDStatCore.this.d.doSendLogCheck(context, System.currentTimeMillis());
                 }
             };
-            this.b.postDelayed(this.f, sessionTimeOut);
+            this.f3572b.postDelayed(this.f, sessionTimeOut);
         }
     }
 
     public void cancelSendLogCheck() {
         Runnable runnable = this.f;
         if (runnable != null) {
-            this.b.removeCallbacks(runnable);
+            this.f3572b.removeCallbacks(runnable);
         }
         this.f = null;
     }
@@ -176,7 +178,7 @@ public class BDStatCore {
             b(context);
             final int a2 = a();
             final long currentTimeMillis = System.currentTimeMillis();
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.21
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.21
                 @Override // java.lang.Runnable
                 public void run() {
                     bc.c().a("Start page view " + str);
@@ -193,13 +195,13 @@ public class BDStatCore {
     public void onPageEnd(final Context context, final String str, final ExtraInfo extraInfo, final boolean z) {
         if (context != null && !TextUtils.isEmpty(str)) {
             init(context);
-            final String b = b();
+            final String b2 = b();
             final long currentTimeMillis = System.currentTimeMillis();
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.22
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.22
                 @Override // java.lang.Runnable
                 public void run() {
                     bc.c().a("End page view " + str);
-                    BDStatCore.this.d.onPageEnd(context, str, str, b, currentTimeMillis, extraInfo, z);
+                    BDStatCore.this.d.onPageEnd(context, str, str, b2, currentTimeMillis, extraInfo, z);
                 }
             });
         }
@@ -211,7 +213,7 @@ public class BDStatCore {
             init(applicationContext);
             b(applicationContext);
             final WeakReference weakReference = new WeakReference(activity);
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.23
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.23
                 @Override // java.lang.Runnable
                 public void run() {
                     Class<?> cls;
@@ -236,7 +238,7 @@ public class BDStatCore {
             init(applicationContext);
             b(applicationContext);
             final WeakReference weakReference = new WeakReference(fragment);
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.2
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.2
                 @Override // java.lang.Runnable
                 public void run() {
                     Class<?> cls;
@@ -260,7 +262,7 @@ public class BDStatCore {
             init(applicationContext);
             b(applicationContext);
             final WeakReference weakReference = new WeakReference(fragment);
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.3
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.3
                 @Override // java.lang.Runnable
                 public void run() {
                     Class<?> cls;
@@ -281,7 +283,7 @@ public class BDStatCore {
         if (activity != null && (applicationContext = activity.getApplicationContext()) != null) {
             init(applicationContext);
             final WeakReference weakReference = new WeakReference(activity);
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.4
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.4
                 @Override // java.lang.Runnable
                 public void run() {
                     Class<?> cls;
@@ -307,7 +309,7 @@ public class BDStatCore {
         if (fragment != null && (activity = fragment.getActivity()) != null && (applicationContext = activity.getApplicationContext()) != null) {
             init(applicationContext);
             final WeakReference weakReference = new WeakReference(fragment);
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.5
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.5
                 @Override // java.lang.Runnable
                 public void run() {
                     Fragment fragment2 = (Fragment) weakReference.get();
@@ -331,7 +333,7 @@ public class BDStatCore {
         if (fragment != null && (activity = fragment.getActivity()) != null && (applicationContext = activity.getApplicationContext()) != null) {
             init(applicationContext);
             final WeakReference weakReference = new WeakReference(fragment);
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.6
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.6
                 @Override // java.lang.Runnable
                 public void run() {
                     android.app.Fragment fragment2 = (android.app.Fragment) weakReference.get();
@@ -358,7 +360,7 @@ public class BDStatCore {
             cls = null;
         }
         try {
-            cls2 = Class.forName("android.support.v4.app.Fragment");
+            cls2 = Class.forName("androidx.fragment.app.Fragment");
         } catch (ClassNotFoundException e2) {
             cls2 = null;
         }
@@ -413,7 +415,7 @@ public class BDStatCore {
         if (context != null) {
             init(context);
             final long currentTimeMillis = System.currentTimeMillis();
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.7
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.7
                 @Override // java.lang.Runnable
                 public void run() {
                     String str3 = str2;
@@ -433,7 +435,7 @@ public class BDStatCore {
             init(context);
             b(context);
             final long currentTimeMillis = System.currentTimeMillis();
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.8
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.8
                 @Override // java.lang.Runnable
                 public void run() {
                     String str5 = str2;
@@ -456,7 +458,7 @@ public class BDStatCore {
         if (context != null) {
             init(context);
             b(context);
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.9
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.9
                 @Override // java.lang.Runnable
                 public void run() {
                     String str6 = str2;
@@ -476,7 +478,7 @@ public class BDStatCore {
             init(context);
             b(context);
             final long currentTimeMillis = System.currentTimeMillis();
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.10
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.10
                 @Override // java.lang.Runnable
                 public void run() {
                     String str3 = str2;
@@ -499,7 +501,7 @@ public class BDStatCore {
         if (context != null) {
             init(context);
             final long currentTimeMillis = System.currentTimeMillis();
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.11
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.11
                 @Override // java.lang.Runnable
                 public void run() {
                     String str3 = str2;
@@ -523,7 +525,7 @@ public class BDStatCore {
             init(context);
             b(context);
             final long currentTimeMillis = System.currentTimeMillis();
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.13
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.13
                 @Override // java.lang.Runnable
                 public void run() {
                     String str3 = str2;
@@ -567,7 +569,7 @@ public class BDStatCore {
 
     public void onStat(final Context context, final String str) {
         if (!this.d.isSessionStart()) {
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.14
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.14
                 @Override // java.lang.Runnable
                 public void run() {
                     LogSender.instance().sendEmptyLogData(context, str);
@@ -580,7 +582,7 @@ public class BDStatCore {
         if (!this.d.isSessionStart()) {
             init(context);
             final long currentTimeMillis = System.currentTimeMillis();
-            this.b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.15
+            this.f3572b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.15
                 @Override // java.lang.Runnable
                 public void run() {
                     DataCore.instance().init(context);

@@ -1,25 +1,25 @@
 package com.baidu.tieba.ala.guardthrone.adapter;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.live.tbadk.core.BaseFragment;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class NewThroneAndNobleFragmentAdapter extends FragmentPagerAdapter {
-    private ArrayList<BaseFragment> giT;
+    private ArrayList<BaseFragment> gtq;
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
+    @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (this.giT == null) {
+        if (this.gtq == null) {
             return null;
         }
-        return this.giT.get(i);
+        return this.gtq.get(i);
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.giT != null) {
-            return this.giT.size();
+        if (this.gtq != null) {
+            return this.gtq.size();
         }
         return 0;
     }

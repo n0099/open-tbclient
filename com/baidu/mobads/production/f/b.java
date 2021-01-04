@@ -13,11 +13,10 @@ import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.production.v;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.mobads.production.b implements a {
     private boolean A;
     private boolean B;
@@ -63,7 +62,7 @@ public class b extends com.baidu.mobads.production.b implements a {
 
     @Override // com.baidu.mobads.production.b
     protected void h() {
-        this.m = CoolPraiseGuideLottieView.ANIM_DURATION;
+        this.m = 8000;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProd
@@ -93,10 +92,10 @@ public class b extends com.baidu.mobads.production.b implements a {
             this.e.setBackgroundColor(0);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.topMargin = rect.top;
-            ViewGroup b = b((Context) activity);
+            ViewGroup b2 = b((Context) activity);
             this.D = new RelativeLayout(activity);
             this.D.addView(this.e, layoutParams);
-            b.addView(this.D, new RelativeLayout.LayoutParams(-1, -1));
+            b2.addView(this.D, new RelativeLayout.LayoutParams(-1, -1));
             this.e.setFocusableInTouchMode(true);
             this.e.setFocusable(true);
             this.e.requestFocus();

@@ -3,7 +3,7 @@ package org.apache.http.auth;
 import org.apache.http.Header;
 import org.apache.http.HttpRequest;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public interface AuthScheme {
     Header authenticate(Credentials credentials, HttpRequest httpRequest) throws AuthenticationException;
 

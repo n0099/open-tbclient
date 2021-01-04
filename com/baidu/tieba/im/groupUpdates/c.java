@@ -4,139 +4,140 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
+import com.baidu.adp.base.d;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import java.util.List;
-/* loaded from: classes26.dex */
-public class c extends com.baidu.adp.base.c<UpdatesActivity> {
-    private View fDE;
-    private View kwB;
-    private BdListView kyH;
-    private a kyI;
-    private ProgressBar kyJ;
-    private Button kyK;
-    private Button kyL;
-    private Button kyM;
-    private View kyN;
-    private View kyO;
-    private UpdatesActivity kyx;
+/* loaded from: classes8.dex */
+public class c extends d<UpdatesActivity> {
+    private View fNj;
+    private UpdatesActivity kDS;
+    private View kEc;
+    private BdListView kEd;
+    private a kEe;
+    private ProgressBar kEf;
+    private Button kEg;
+    private Button kEh;
+    private Button kEi;
+    private View kEj;
+    private View kEk;
     private NavigationBar mNavigationBar;
 
     public c(UpdatesActivity updatesActivity) {
         super(updatesActivity.getPageContext());
-        this.kyx = updatesActivity;
+        this.kDS = updatesActivity;
         initView();
-        this.kyI = new a(this.kyx);
-        this.kyH.setAdapter((ListAdapter) this.kyI);
-        this.kyH.setOnScrollListener(this.kyx);
+        this.kEe = new a(this.kDS);
+        this.kEd.setAdapter((ListAdapter) this.kEe);
+        this.kEd.setOnScrollListener(this.kDS);
     }
 
     void initView() {
-        this.fDE = View.inflate(this.kyx.getPageContext().getPageActivity(), R.layout.updates_activity, null);
-        this.kyx.setContentView(this.fDE);
-        this.mNavigationBar = (NavigationBar) this.kyx.findViewById(R.id.view_navigation_bar);
-        this.kwB = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.kyx.getPageContext().getString(R.string.updates_activity_title));
-        this.kyN = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.updates_activity_nav_left, (View.OnClickListener) null);
-        this.kyO = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.updates_activity_nav_right, (View.OnClickListener) null);
-        this.kyM = (Button) this.kyN.findViewById(R.id.btn_delete);
-        this.kyM.setOnClickListener(this.kyx);
-        this.kwB.setOnClickListener(this.kyx);
-        this.kyH = (BdListView) this.fDE.findViewById(R.id.updates_list);
-        this.kyJ = (ProgressBar) this.fDE.findViewById(R.id.pro_load);
-        this.kyK = (Button) this.kyO.findViewById(R.id.btn_edit);
-        this.kyK.setOnClickListener(this.kyx);
-        this.kyL = (Button) this.kyO.findViewById(R.id.btn_cancel);
-        this.kyL.setOnClickListener(this.kyx);
-        Et(0);
-        sJ(false);
+        this.fNj = View.inflate(this.kDS.getPageContext().getPageActivity(), R.layout.updates_activity, null);
+        this.kDS.setContentView(this.fNj);
+        this.mNavigationBar = (NavigationBar) this.kDS.findViewById(R.id.view_navigation_bar);
+        this.kEc = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(this.kDS.getPageContext().getString(R.string.updates_activity_title));
+        this.kEj = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.updates_activity_nav_left, (View.OnClickListener) null);
+        this.kEk = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.updates_activity_nav_right, (View.OnClickListener) null);
+        this.kEi = (Button) this.kEj.findViewById(R.id.btn_delete);
+        this.kEi.setOnClickListener(this.kDS);
+        this.kEc.setOnClickListener(this.kDS);
+        this.kEd = (BdListView) this.fNj.findViewById(R.id.updates_list);
+        this.kEf = (ProgressBar) this.fNj.findViewById(R.id.pro_load);
+        this.kEg = (Button) this.kEk.findViewById(R.id.btn_edit);
+        this.kEg.setOnClickListener(this.kDS);
+        this.kEh = (Button) this.kEk.findViewById(R.id.btn_cancel);
+        this.kEh.setOnClickListener(this.kDS);
+        Eo(0);
+        sN(false);
     }
 
-    @Override // com.baidu.adp.base.c
+    @Override // com.baidu.adp.base.d
     public void destroy() {
         super.destroy();
-        if (this.kyI != null) {
-            this.kyI.destroy();
-            this.kyI = null;
+        if (this.kEe != null) {
+            this.kEe.destroy();
+            this.kEe = null;
         }
-        this.kyx = null;
+        this.kDS = null;
     }
 
-    public a cYu() {
-        return this.kyI;
+    public a cYn() {
+        return this.kEe;
     }
 
-    public void cYv() {
-        this.kyK.setVisibility(8);
-        this.kwB.setVisibility(8);
-        this.kyL.setVisibility(0);
-        this.kyN.setVisibility(0);
-        cXn();
+    public void cYo() {
+        this.kEg.setVisibility(8);
+        this.kEc.setVisibility(8);
+        this.kEh.setVisibility(0);
+        this.kEj.setVisibility(0);
+        cYq();
     }
 
-    public void cYw() {
-        this.kyK.setVisibility(0);
-        this.kwB.setVisibility(0);
-        this.kyL.setVisibility(8);
-        this.kyN.setVisibility(8);
-        Et(0);
-        cXn();
+    public void cYp() {
+        this.kEg.setVisibility(0);
+        this.kEc.setVisibility(0);
+        this.kEh.setVisibility(8);
+        this.kEj.setVisibility(8);
+        Eo(0);
+        cYq();
     }
 
-    public void cXn() {
-        if (this.kyI != null) {
-            this.kyI.notifyDataSetChanged();
+    public void cYq() {
+        if (this.kEe != null) {
+            this.kEe.notifyDataSetChanged();
         }
     }
 
     public void setData(List<UpdatesItemData> list) {
-        if (this.kyI != null) {
-            this.kyI.setData(list);
+        if (this.kEe != null) {
+            this.kEe.setData(list);
         }
     }
 
-    public void Et(int i) {
-        if (this.kyM != null && this.kyx != null) {
-            this.kyM.setText(String.format(this.kyx.getPageContext().getString(R.string.del_count), Integer.valueOf(i)));
+    public void Eo(int i) {
+        if (this.kEi != null && this.kDS != null) {
+            this.kEi.setText(String.format(this.kDS.getPageContext().getString(R.string.del_count), Integer.valueOf(i)));
             if (i == 0) {
-                this.kyM.setEnabled(false);
+                this.kEi.setEnabled(false);
             } else {
-                this.kyM.setEnabled(true);
+                this.kEi.setEnabled(true);
             }
         }
     }
 
-    public void sJ(boolean z) {
-        this.kyJ.setVisibility(z ? 0 : 8);
+    public void sN(boolean z) {
+        this.kEf.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i) {
-        this.kyx.getLayoutMode().setNightMode(i == 1);
-        this.kyx.getLayoutMode().onModeChanged(this.fDE);
-        this.mNavigationBar.onChangeSkinType(this.kyx.getPageContext(), i);
-        ap.setBackgroundResource(this.kyM, R.drawable.btn_delete_groupupdates);
+        this.kDS.getLayoutMode().setNightMode(i == 1);
+        this.kDS.getLayoutMode().onModeChanged(this.fNj);
+        this.mNavigationBar.onChangeSkinType(this.kDS.getPageContext(), i);
+        ao.setBackgroundResource(this.kEi, R.drawable.btn_delete_groupupdates);
     }
 
-    public View cYx() {
-        return this.kwB;
+    public View cYr() {
+        return this.kEc;
     }
 
-    public BdListView cYy() {
-        return this.kyH;
+    public BdListView cYs() {
+        return this.kEd;
     }
 
-    public Button cYz() {
-        return this.kyK;
+    public Button cYt() {
+        return this.kEg;
     }
 
-    public Button cYA() {
-        return this.kyL;
+    public Button cYu() {
+        return this.kEh;
     }
 
-    public Button cYB() {
-        return this.kyM;
+    public Button cYv() {
+        return this.kEi;
     }
 }

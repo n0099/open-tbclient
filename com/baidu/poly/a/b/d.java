@@ -1,5 +1,5 @@
 package com.baidu.poly.a.b;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public final class d {
     private static final String getDomain() {
         return a.q() != 1 ? "https://trade.baidu-int.com/sandbox/tradegateway" : "https://etrade-api.baidu.com";

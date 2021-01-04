@@ -1,23 +1,25 @@
 package com.baidu.helios.channels.csc;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class a {
-    private static final byte[][] awA = {new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
+    private static final byte[][] awV = {new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
 
     /* renamed from: com.baidu.helios.channels.csc.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C0148a {
+    /* loaded from: classes15.dex */
+    public static class C0140a {
 
         /* renamed from: a  reason: collision with root package name */
-        private byte[] f1804a;
-        private int b;
+        private byte[] f2479a;
 
-        public C0148a(byte[] bArr, int i) {
-            this.f1804a = bArr;
-            this.b = i;
+        /* renamed from: b  reason: collision with root package name */
+        private int f2480b;
+
+        public C0140a(byte[] bArr, int i) {
+            this.f2479a = bArr;
+            this.f2480b = i;
         }
 
         public byte[] a() {
-            return this.f1804a;
+            return this.f2479a;
         }
     }
 
@@ -37,32 +39,32 @@ public class a {
     }
 
     public static byte[] a(byte[] bArr, int i) {
-        byte b;
+        byte b2;
         int i2;
         int i3 = i % 3;
         if (i3 == 1) {
             i2 = i + 2;
-            b = 2;
+            b2 = 2;
         } else if (i3 == 2) {
             i2 = i + 1;
-            b = 1;
+            b2 = 1;
         } else {
-            b = 0;
+            b2 = 0;
             i2 = i;
         }
         int i4 = (i2 / 3) * 2;
-        if (b > 0) {
+        if (b2 > 0) {
             i4++;
         }
         byte[] bArr2 = new byte[i4];
         int i5 = 0;
         int i6 = 0;
-        for (byte b2 : bArr) {
+        for (byte b3 : bArr) {
             for (int i7 = 7; i7 >= 0; i7--) {
-                bArr2[i6] = (byte) ((bArr2[i6] << 1) | ((b2 >> i7) & 1));
+                bArr2[i6] = (byte) ((bArr2[i6] << 1) | ((b3 >> i7) & 1));
                 if (i5 % 3 == 2) {
-                    bArr2[i6 + 1] = awA[bArr2[i6]][1];
-                    bArr2[i6] = awA[bArr2[i6]][0];
+                    bArr2[i6 + 1] = awV[bArr2[i6]][1];
+                    bArr2[i6] = awV[bArr2[i6]][0];
                     i6 += 2;
                 }
                 i5++;
@@ -74,46 +76,41 @@ public class a {
                 break;
             }
         }
-        if (b > 0) {
-            bArr2[i6] = (byte) (bArr2[i6] << b);
-            bArr2[i6 + 1] = awA[bArr2[i6]][1];
-            bArr2[i6] = awA[bArr2[i6]][0];
-            bArr2[i6 + 2] = b;
+        if (b2 > 0) {
+            bArr2[i6] = (byte) (bArr2[i6] << b2);
+            bArr2[i6 + 1] = awV[bArr2[i6]][1];
+            bArr2[i6] = awV[bArr2[i6]][0];
+            bArr2[i6 + 2] = b2;
         }
         return bArr2;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v10, types: [int] */
-    /* JADX WARN: Type inference failed for: r6v6, types: [int] */
-    public static C0148a x(byte[] bArr) {
+    public static C0140a u(byte[] bArr) {
         int length = (((bArr.length - 1) / 2) * 3) - (bArr.length % 2 != 0 ? bArr[bArr.length - 1] : 0);
         int i = length / 8;
         if (length % 8 > 0) {
             i++;
         }
         byte[] bArr2 = new byte[i];
-        byte b = 8;
-        int i2 = 0;
-        for (int i3 = 0; i3 < bArr.length - 1; i3 += 2) {
-            byte b2 = (byte) (((bArr[i3] * 3) + bArr[i3 + 1]) & 255);
-            byte b3 = 2;
-            while (b3 >= 0) {
-                if (b <= 0) {
-                    i2++;
-                    b = 8;
+        int i2 = 8;
+        int i3 = 0;
+        for (int i4 = 0; i4 < bArr.length - 1; i4 += 2) {
+            byte b2 = (byte) (((bArr[i4] * 3) + bArr[i4 + 1]) & 255);
+            for (int i5 = 2; i5 >= 0; i5--) {
+                if (i2 <= 0) {
+                    i3++;
+                    i2 = 8;
                 }
-                if (i2 >= i) {
+                if (i3 >= i) {
                     break;
                 }
-                bArr2[i2] = (byte) ((bArr2[i2] << 1) | ((b2 >> b3) & 1));
-                b3--;
-                b--;
+                bArr2[i3] = (byte) ((bArr2[i3] << 1) | ((b2 >> i5) & 1));
+                i2--;
             }
         }
-        if (b > 0 && i2 < i) {
-            bArr2[i2] = (byte) (bArr2[i2] << b);
+        if (i2 > 0 && i3 < i) {
+            bArr2[i3] = (byte) (bArr2[i3] << i2);
         }
-        return new C0148a(bArr2, length);
+        return new C0140a(bArr2, length);
     }
 }

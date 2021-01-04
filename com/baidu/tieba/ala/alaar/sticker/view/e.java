@@ -1,15 +1,15 @@
 package com.baidu.tieba.ala.alaar.sticker.view;
 
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface e {
-    void B(int i, int i2, int i3, int i4);
+    void C(int i, int i2, int i3, int i4);
 
-    void bQY();
+    void bTw();
 
-    boolean bQZ();
+    boolean bTx();
 
-    void e(View view, int i, int i2, int i3, int i4);
+    void g(View view, int i, int i2, int i3, int i4);
 
     void onClick(View view);
 

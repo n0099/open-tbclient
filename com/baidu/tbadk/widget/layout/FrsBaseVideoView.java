@@ -14,10 +14,10 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
@@ -25,24 +25,24 @@ import com.baidu.tieba.play.m;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class FrsBaseVideoView extends LinearLayout implements View.OnClickListener {
-    private TbCyberVideoView aaZ;
-    private by ahA;
-    private CyberPlayerManager.OnErrorListener etz;
-    public FrameLayout fMI;
-    private TextView fMJ;
-    private TbImageView fMK;
-    private ImageView fML;
-    private TextView fMM;
-    private View fMN;
-    private m fMO;
-    private View fMP;
-    private TextView fMQ;
-    private int fMR;
-    private TbImageView.a fMS;
-    private ViewTreeObserver.OnGlobalLayoutListener fMT;
-    private Runnable fMU;
-    private Runnable fMV;
-    private TbCyberVideoView.a fMW;
+    private TbCyberVideoView abK;
+    private bz aim;
+    private CyberPlayerManager.OnErrorListener eDg;
+    private TbCyberVideoView.a fWA;
+    public FrameLayout fWm;
+    private TextView fWn;
+    private TbImageView fWo;
+    private ImageView fWp;
+    private TextView fWq;
+    private View fWr;
+    private m fWs;
+    private View fWt;
+    private TextView fWu;
+    private int fWv;
+    private TbImageView.b fWw;
+    private ViewTreeObserver.OnGlobalLayoutListener fWx;
+    private Runnable fWy;
+    private Runnable fWz;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
     private String mVideoUrl;
@@ -54,54 +54,54 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     public FrsBaseVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.fMR = 1;
-        this.fMS = new TbImageView.a() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.2
-            @Override // com.baidu.tbadk.widget.TbImageView.a
+        this.fWv = 1;
+        this.fWw = new TbImageView.b() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.2
+            @Override // com.baidu.tbadk.widget.TbImageView.b
             public void onComplete(String str, boolean z) {
-                if (z && FrsBaseVideoView.this.fMK != null) {
-                    FrsBaseVideoView.this.fMK.setDefaultBgResource(0);
+                if (z && FrsBaseVideoView.this.fWo != null) {
+                    FrsBaseVideoView.this.fWo.setDefaultBgResource(0);
                 }
             }
 
-            @Override // com.baidu.tbadk.widget.TbImageView.a
+            @Override // com.baidu.tbadk.widget.TbImageView.b
             public void onCancel() {
             }
         };
-        this.etz = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.3
+        this.eDg = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.3
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i, int i2, Object obj) {
-                FrsBaseVideoView.this.w(true, 4);
+                FrsBaseVideoView.this.v(true, 4);
                 return true;
             }
         };
-        this.fMT = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.4
+        this.fWx = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.4
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                if (FrsBaseVideoView.this.fMI != null && FrsBaseVideoView.this.fMI.getLayoutParams() != null && FrsBaseVideoView.this.fMI.getVisibility() != 8) {
-                    FrsBaseVideoView.this.fMI.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                    ViewGroup.LayoutParams layoutParams = FrsBaseVideoView.this.fMI.getLayoutParams();
-                    if (FrsBaseVideoView.this.fMI.getWidth() > 0) {
-                        layoutParams.height = (int) (FrsBaseVideoView.this.fMI.getWidth() * 0.5625d);
-                        FrsBaseVideoView.this.fMI.setLayoutParams(layoutParams);
+                if (FrsBaseVideoView.this.fWm != null && FrsBaseVideoView.this.fWm.getLayoutParams() != null && FrsBaseVideoView.this.fWm.getVisibility() != 8) {
+                    FrsBaseVideoView.this.fWm.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                    ViewGroup.LayoutParams layoutParams = FrsBaseVideoView.this.fWm.getLayoutParams();
+                    if (FrsBaseVideoView.this.fWm.getWidth() > 0) {
+                        layoutParams.height = (int) (FrsBaseVideoView.this.fWm.getWidth() * 0.5625d);
+                        FrsBaseVideoView.this.fWm.setLayoutParams(layoutParams);
                     }
                 }
             }
         };
-        this.fMU = new Runnable() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.5
+        this.fWy = new Runnable() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.5
             @Override // java.lang.Runnable
             public void run() {
-                if (FrsBaseVideoView.this.aaZ != null && !FrsBaseVideoView.this.aaZ.isPlaying()) {
-                    FrsBaseVideoView.this.w(true, 1);
+                if (FrsBaseVideoView.this.abK != null && !FrsBaseVideoView.this.abK.isPlaying()) {
+                    FrsBaseVideoView.this.v(true, 1);
                 }
             }
         };
-        this.fMV = new Runnable() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.6
+        this.fWz = new Runnable() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.6
             @Override // java.lang.Runnable
             public void run() {
-                FrsBaseVideoView.this.w(true, 4);
+                FrsBaseVideoView.this.v(true, 4);
             }
         };
-        this.fMW = new TbCyberVideoView.a() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.7
+        this.fWA = new TbCyberVideoView.a() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.7
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
                 FrsBaseVideoView.this.stopPlay();
@@ -113,48 +113,47 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.base_video_view, this);
         setOrientation(1);
-        this.fMI = (FrameLayout) findViewById(R.id.frame_video);
-        this.fMI.setOnClickListener(this);
-        this.fMI.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.1
+        this.fWm = (FrameLayout) findViewById(R.id.frame_video);
+        this.fWm.setOnClickListener(this);
+        this.fWm.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() { // from class: com.baidu.tbadk.widget.layout.FrsBaseVideoView.1
             @Override // android.view.View.OnAttachStateChangeListener
             public void onViewAttachedToWindow(View view) {
-                if (FrsBaseVideoView.this.fMI != null) {
-                    FrsBaseVideoView.this.fMI.getViewTreeObserver().addOnGlobalLayoutListener(FrsBaseVideoView.this.fMT);
+                if (FrsBaseVideoView.this.fWm != null) {
+                    FrsBaseVideoView.this.fWm.getViewTreeObserver().addOnGlobalLayoutListener(FrsBaseVideoView.this.fWx);
                 }
             }
 
             @Override // android.view.View.OnAttachStateChangeListener
             public void onViewDetachedFromWindow(View view) {
-                if (FrsBaseVideoView.this.fMI != null) {
-                    FrsBaseVideoView.this.fMI.getViewTreeObserver().removeGlobalOnLayoutListener(FrsBaseVideoView.this.fMT);
+                if (FrsBaseVideoView.this.fWm != null) {
+                    FrsBaseVideoView.this.fWm.getViewTreeObserver().removeGlobalOnLayoutListener(FrsBaseVideoView.this.fWx);
                 }
             }
         });
-        this.fMK = (TbImageView) findViewById(R.id.image_video);
-        this.fMK.setDefaultErrorResource(0);
-        this.fMK.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        this.fMK.setEvent(this.fMS);
-        this.fMK.setGifIconSupport(false);
-        this.fMO = new m((ViewGroup) findViewById(R.id.auto_video_loading_container));
-        this.fML = (ImageView) findViewById(R.id.image_video_play);
-        this.aaZ = new TbCyberVideoView(getContext());
-        this.aaZ.setStageType("2003");
-        bIl();
-        this.aaZ.setOnErrorListener(this.etz);
-        this.aaZ.setOnSurfaceDestroyedListener(this.fMW);
-        this.fMP = findViewById(R.id.auto_video_black_mask);
-        this.fMM = (TextView) findViewById(R.id.auto_video_error_tips);
-        this.fMN = findViewById(R.id.auto_video_error_background);
-        this.fMJ = (TextView) findViewById(R.id.text_video_duration);
-        this.fMQ = (TextView) findViewById(R.id.text_video_play_count);
+        this.fWo = (TbImageView) findViewById(R.id.image_video);
+        this.fWo.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+        this.fWo.setEvent(this.fWw);
+        this.fWo.setGifIconSupport(false);
+        this.fWs = new m((ViewGroup) findViewById(R.id.auto_video_loading_container));
+        this.fWp = (ImageView) findViewById(R.id.image_video_play);
+        this.abK = new TbCyberVideoView(getContext());
+        this.abK.setStageType("2003");
+        bKF();
+        this.abK.setOnErrorListener(this.eDg);
+        this.abK.setOnSurfaceDestroyedListener(this.fWA);
+        this.fWt = findViewById(R.id.auto_video_black_mask);
+        this.fWq = (TextView) findViewById(R.id.auto_video_error_tips);
+        this.fWr = findViewById(R.id.auto_video_error_background);
+        this.fWn = (TextView) findViewById(R.id.text_video_duration);
+        this.fWu = (TextView) findViewById(R.id.text_video_play_count);
     }
 
-    private void bIl() {
-        if (this.aaZ != null && this.aaZ.getParent() == null) {
+    private void bKF() {
+        if (this.abK != null && this.abK.getParent() == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
-            this.fMI.addView(this.aaZ.getView(), 0);
-            this.aaZ.getView().setLayoutParams(layoutParams);
+            this.fWm.addView(this.abK.getView(), 0);
+            this.abK.getView().setLayoutParams(layoutParams);
         }
     }
 
@@ -170,25 +169,25 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void w(boolean z, int i) {
-        if (this.fML != null && this.fMK != null && this.fMP != null && this.fMO != null && this.fMN != null && this.fMM != null) {
-            if (z || this.fMR != i) {
-                this.fMR = i;
-                com.baidu.adp.lib.f.e.mY().removeCallbacks(this.fMV);
-                com.baidu.adp.lib.f.e.mY().removeCallbacks(this.fMU);
-                this.fML.setVisibility(0);
-                this.fMK.clearAnimation();
-                this.fMK.setVisibility(0);
-                this.fMP.setVisibility(0);
-                this.fMO.dBW();
-                this.fMN.setVisibility(8);
-                this.fMM.setVisibility(8);
+    public void v(boolean z, int i) {
+        if (this.fWp != null && this.fWo != null && this.fWt != null && this.fWs != null && this.fWr != null && this.fWq != null) {
+            if (z || this.fWv != i) {
+                this.fWv = i;
+                com.baidu.adp.lib.f.e.mB().removeCallbacks(this.fWz);
+                com.baidu.adp.lib.f.e.mB().removeCallbacks(this.fWy);
+                this.fWp.setVisibility(0);
+                this.fWo.clearAnimation();
+                this.fWo.setVisibility(0);
+                this.fWt.setVisibility(0);
+                this.fWs.dBL();
+                this.fWr.setVisibility(8);
+                this.fWq.setVisibility(8);
             }
         }
     }
 
     private void c(VideoInfo videoInfo) {
-        if (this.ahA == null || this.ahA.boP() == null) {
+        if (this.aim == null || this.aim.brq() == null) {
             setVisibility(8);
             return;
         }
@@ -197,63 +196,63 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void bIm() {
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.fMU);
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.fMV);
+    private void bKG() {
+        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.fWy);
+        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.fWz);
     }
 
     private void d(VideoInfo videoInfo) {
-        bIm();
-        if (this.fMK != null && this.fMI != null && this.aaZ != null) {
-            if (k.blV().isShowImages() && this.ahA != null && videoInfo != null) {
-                this.fMI.setVisibility(0);
-                this.fMK.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-                this.fMK.startLoad(videoInfo.thumbnail_url, 10, false);
+        bKG();
+        if (this.fWo != null && this.fWm != null && this.abK != null) {
+            if (k.bou().isShowImages() && this.aim != null && videoInfo != null) {
+                this.fWm.setVisibility(0);
+                this.fWo.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+                this.fWo.startLoad(videoInfo.thumbnail_url, 10, false);
                 stopPlay();
                 this.mVideoUrl = videoInfo.video_url;
                 if (StringUtils.isNull(this.mVideoUrl)) {
-                    w(true, 4);
+                    v(true, 4);
                 }
-                this.fMJ.setText(au.stringForVideoTime(videoInfo.video_duration.intValue() * 1000));
-                this.fMQ.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.play_count), au.numFormatOverWan(videoInfo.play_count.intValue())));
+                this.fWn.setText(at.stringForVideoTime(videoInfo.video_duration.intValue() * 1000));
+                this.fWu.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.play_count), at.numFormatOverWan(videoInfo.play_count.intValue())));
                 return;
             }
-            this.fMI.setVisibility(8);
+            this.fWm.setVisibility(8);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundResource(this, R.drawable.addresslist_item_bg);
-            ap.setImageResource(this.fML, R.drawable.btn_icon_play_video_n);
-            ap.setViewTextColor(this.fMM, R.color.CAM_X0101);
-            ap.setViewTextColor(this.fMJ, R.color.CAM_X0101);
-            ap.setViewTextColor(this.fMQ, R.color.CAM_X0101);
-            ap.setBackgroundColor(this.fMN, R.color.common_color_10014);
-            if (this.fMM != null) {
-                this.fMM.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ap.getDrawable(R.drawable.icon_toast_game_error), (Drawable) null, (Drawable) null);
+            ao.setBackgroundResource(this, R.drawable.addresslist_item_bg);
+            ao.setImageResource(this.fWp, R.drawable.btn_icon_play_video_n);
+            ao.setViewTextColor(this.fWq, R.color.CAM_X0101);
+            ao.setViewTextColor(this.fWn, R.color.CAM_X0101);
+            ao.setViewTextColor(this.fWu, R.color.CAM_X0101);
+            ao.setBackgroundColor(this.fWr, R.color.common_color_10014);
+            if (this.fWq != null) {
+                this.fWq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ao.getDrawable(R.drawable.icon_toast_game_error), (Drawable) null, (Drawable) null);
             }
             this.mSkinType = i;
         }
     }
 
-    public void a(by byVar, VideoInfo videoInfo) {
-        if (byVar != null) {
-            this.ahA = byVar;
+    public void a(bz bzVar, VideoInfo videoInfo) {
+        if (bzVar != null) {
+            this.aim = bzVar;
             c(videoInfo);
         }
     }
 
     public void stopPlay() {
-        bIm();
-        w(true, 1);
-        if (this.aaZ != null) {
-            this.aaZ.stopPlayback();
+        bKG();
+        v(true, 1);
+        if (this.abK != null) {
+            this.abK.stopPlayback();
         }
     }
 
     public View getVideoContainer() {
-        return this.fMI;
+        return this.fWm;
     }
 
     public String getPlayUrl() {
@@ -261,9 +260,9 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     }
 
     public int getCurrentPosition() {
-        if (this.aaZ == null) {
+        if (this.abK == null) {
             return 0;
         }
-        return this.aaZ.getCurrentPosition();
+        return this.abK.getCurrentPosition();
     }
 }

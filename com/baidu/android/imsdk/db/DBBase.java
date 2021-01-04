@@ -11,13 +11,13 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class DBBase {
     public static final String TAG = DBBase.class.getSimpleName();
     protected static Object mSyncLock = new Object();
     protected Context mContext = null;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class UpdateArgs {
         public String[] args;
         public String query;
@@ -73,9 +73,9 @@ public class DBBase {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
     public int updateBatch(String str, List<UpdateArgs> list) {
-        int size;
-        int i = -1;
-        if (!TextUtils.isEmpty(str) && list != null && (size = list.size()) != 0) {
+        int i;
+        int i2 = -1;
+        if (!TextUtils.isEmpty(str) && list != null && list.size() != 0) {
             SQLiteDatabase openDatabase = openDatabase();
             try {
                 if (openDatabase == null) {
@@ -86,19 +86,19 @@ public class DBBase {
                         Iterator<UpdateArgs> it = list.iterator();
                         while (true) {
                             try {
-                                size = i;
+                                i = i2;
                                 if (!it.hasNext()) {
-                                    i = size;
+                                    i2 = i;
                                     break;
                                 }
                                 UpdateArgs next = it.next();
-                                i = openDatabase.update(str, next.values, next.query, next.args);
-                                if (i < 0) {
+                                i2 = openDatabase.update(str, next.values, next.query, next.args);
+                                if (i2 < 0) {
                                     break;
                                 }
                             } catch (Exception e) {
-                                i = size;
                                 e = e;
+                                i2 = i;
                                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                                 LogUtils.e(TAG, String.format("update table %s exception!", str), e);
                                 if (openDatabase != null) {
@@ -109,10 +109,10 @@ public class DBBase {
                                         LogUtils.e(TAG, "updateBatch", e2);
                                     }
                                 }
-                                return i;
+                                return i2;
                             }
                         }
-                        if (i >= 0) {
+                        if (i2 >= 0) {
                             openDatabase.setTransactionSuccessful();
                         }
                     } catch (Exception e3) {
@@ -130,7 +130,7 @@ public class DBBase {
                 }
             }
         }
-        return i;
+        return i2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

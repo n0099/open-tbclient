@@ -6,13 +6,12 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.c;
 import com.baidu.platform.comapi.wnplatform.p.f;
-import com.baidu.tieba.R;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class RGStateNorth2D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
         b.a().T().l();
-        b.a().T().c(R.drawable.aiapps_loading_dark_image_view);
+        b.a().T().c(2130837819);
         if (b.a().M() != 4) {
         }
     }

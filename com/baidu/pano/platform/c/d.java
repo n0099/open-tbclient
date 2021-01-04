@@ -1,8 +1,8 @@
 package com.baidu.pano.platform.c;
 
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
-/* loaded from: classes26.dex */
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.ViewCompat;
+/* loaded from: classes15.dex */
 public class d {
     public static int a(int i, int i2, int i3, int i4) {
         return ((i << 24) & ViewCompat.MEASURED_STATE_MASK) | ((i2 << 16) & 16711680) | ((i3 << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (i4 & 255);

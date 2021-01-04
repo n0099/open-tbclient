@@ -1,10 +1,10 @@
 package com.baidu.spswitch.emotion.view;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-/* loaded from: classes6.dex */
+import androidx.viewpager.widget.ViewPager;
+/* loaded from: classes3.dex */
 public class NoHorizontalScrollerViewPager extends ViewPager {
     public NoHorizontalScrollerViewPager(Context context) {
         super(context);
@@ -14,12 +14,12 @@ public class NoHorizontalScrollerViewPager extends ViewPager {
         super(context, attributeSet);
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
+    @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         return false;
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.View
+    @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         return false;
     }

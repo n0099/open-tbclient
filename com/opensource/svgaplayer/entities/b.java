@@ -1,41 +1,39 @@
 package com.opensource.svgaplayer.entities;
 
 import android.graphics.Path;
-import android.support.media.ExifInterface;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import java.util.Set;
 import java.util.StringTokenizer;
 import kotlin.jvm.internal.p;
 import kotlin.text.l;
 @kotlin.e
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class b {
-    private final String pzK;
-    private Path pzL;
+    private final String pSr;
+    private Path pSs;
 
     public b(String str) {
         p.o(str, "originValue");
-        this.pzK = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
+        this.pSr = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
         p.o(path, "toPath");
-        Path path2 = this.pzL;
+        Path path2 = this.pSs;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.pzK, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.pSr, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
             p.n(nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.pzM;
+                set = c.pSt;
                 if (set.contains(nextToken)) {
                     if (p.l(nextToken, "Z") || p.l(nextToken, MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
                         a(path3, nextToken, new StringTokenizer("", ""));
@@ -47,7 +45,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.pzL = path3;
+        this.pSs = path3;
         path.set(path3);
     }
 
@@ -113,12 +111,12 @@ public final class b {
         } else if (p.l(str, IXAdRequestInfo.COST_NAME)) {
             path.rQuadTo(f, f6, f5, f4);
         }
-        if (p.l(str, IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
+        if (p.l(str, "H")) {
             path.lineTo(f, aVar.getY());
         } else if (p.l(str, "h")) {
             path.rLineTo(f, 0.0f);
         }
-        if (p.l(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
+        if (p.l(str, "V")) {
             path.lineTo(aVar.getX(), f);
         } else if (p.l(str, "v")) {
             path.rLineTo(0.0f, f);

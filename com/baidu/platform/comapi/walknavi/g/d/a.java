@@ -1,27 +1,27 @@
 package com.baidu.platform.comapi.walknavi.g.d;
-
-import com.baidu.tieba.R;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3056a = -1;
-    private static final int[] b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
+    public static int f4549a = -1;
 
-    /* loaded from: classes26.dex */
+    /* renamed from: b  reason: collision with root package name */
+    private static final int[] f4550b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
+
+    /* loaded from: classes15.dex */
     static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f3058a = new a();
+        static final a f4553a = new a();
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface c {
         void a(int i, int i2);
     }
 
     public static a a() {
-        return b.f3058a;
+        return b.f4553a;
     }
 
     private a() {
@@ -29,52 +29,53 @@ public class a {
 
     public void a(int i, c cVar) {
         int i2;
-        int i3 = 0;
+        int i3 = 2;
         if (i > 0 && i < 10) {
             i2 = (int) (i / 2.5d);
-            if (i2 != 1) {
-                if (i2 == 2) {
-                    i3 = 1;
-                } else {
-                    i3 = i2 == 3 ? 2 : -1;
-                }
+            if (i2 == 1) {
+                i3 = 0;
+            } else if (i2 == 2) {
+                i3 = 1;
+            } else if (i2 != 3) {
+                i3 = -1;
             }
         } else if (i >= 10 && i < 20) {
             i2 = 1;
             i3 = 3;
         } else if (i >= 20 && i < 30) {
+            i2 = 1;
             i3 = 4;
-            i2 = 1;
         } else if (i >= 30 && i < 50) {
+            i2 = 1;
             i3 = 5;
-            i2 = 1;
         } else if (i >= 50 && i < 60) {
+            i2 = 1;
             i3 = 6;
-            i2 = 1;
         } else if (i >= 60 && i < 70) {
+            i2 = 1;
             i3 = 7;
-            i2 = 1;
         } else if (i >= 70 && i < 80) {
+            i2 = 1;
             i3 = 8;
-            i2 = 1;
         } else if (i >= 80 && i < 90) {
+            i2 = 1;
             i3 = 9;
-            i2 = 1;
         } else if (i >= 90 && i < 100) {
-            i3 = 10;
             i2 = 1;
+            i3 = 10;
         } else if (i < 100) {
             i2 = 0;
             i3 = -1;
         } else {
             C0301a b2 = b(i);
-            i3 = b2.f3057a;
-            i2 = b2.b;
+            int i4 = b2.f4551a;
+            i2 = b2.f4552b;
+            i3 = i4;
         }
-        if (f3056a != i3) {
+        if (f4549a != i3) {
             cVar.a(i3, i2);
         }
-        f3056a = i3;
+        f4549a = i3;
     }
 
     private C0301a b(int i) {
@@ -82,13 +83,13 @@ public class a {
         int i2 = (i / 10) * 10;
         int i3 = 0;
         while (true) {
-            if (i3 >= b.length) {
+            if (i3 >= f4550b.length) {
                 break;
-            } else if (i2 < b[i3] || i2 % b[i3] != 0) {
+            } else if (i2 < f4550b[i3] || i2 % f4550b[i3] != 0) {
                 i3++;
             } else {
-                c0301a.f3057a = c(b[i3]);
-                c0301a.b = i2 / b[i3];
+                c0301a.f4551a = c(f4550b[i3]);
+                c0301a.f4552b = i2 / f4550b[i3];
                 break;
             }
         }
@@ -140,58 +141,60 @@ public class a {
 
     public int a(int i) {
         if (i == 0 || i == 1 || i == 2) {
-            return R.drawable.aiapps_openlocation_go_my_point_bg_shape;
+            return 2130837850;
         }
         if (i == 3) {
-            return R.drawable.aiapps_openlocation_path_selector;
+            return 2130837851;
         }
         if (i == 4) {
-            return R.drawable.aiapps_person_center_dot;
+            return 2130837853;
         }
         if (i == 5) {
-            return R.drawable.aiapps_new_dot;
+            return 2130837843;
         }
         if (i == 6) {
-            return R.drawable.aiapps_open_app_button_normal;
+            return 2130837848;
         }
         if (i == 7) {
-            return R.drawable.aiapps_open_app_buttion_selector;
+            return 2130837847;
         }
         if (i == 8) {
-            return R.drawable.aiapps_multi_custom_layout_bg;
+            return 2130837842;
         }
         if (i == 9) {
-            return R.drawable.aiapps_no_recommend;
+            return 2130837845;
         }
         if (i == 10) {
-            return R.drawable.aiapps_night_mode_toast_icon;
+            return 2130837844;
         }
         if (i == 11) {
-            return R.drawable.aiapps_permission_denied;
+            return 2130837852;
         }
         if (i == 12) {
-            return R.drawable.aiapps_menu_add_bookmarkdir_pressed;
+            return 2130837841;
         }
         if (i == 13) {
-            return R.drawable.aiapps_menu_add_bookmarkdir;
+            return 2130837840;
         }
         if (i == 14) {
-            return R.drawable.aiapps_open_app_button_pressed;
+            return 2130837849;
         }
         if (i == 15) {
-            return R.drawable.aiapps_normal_toast_view_bg;
+            return 2130837846;
         }
         return -1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class C0301a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3057a;
-        public int b;
+        public int f4551a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f4552b;
 
         C0301a() {
         }

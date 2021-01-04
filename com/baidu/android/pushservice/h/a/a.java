@@ -14,11 +14,11 @@ import com.baidu.android.pushservice.i.m;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final List<a.c> f1094a = new CopyOnWriteArrayList();
+    private static final List<a.c> f1313a = new CopyOnWriteArrayList();
 
     private a.c a(long j, long j2, String str, long j3, long j4, String str2, long j5) {
         return a.c.s().a(a.e.CONNECTION).a(a.j.q().a(j).b(j2).a(str).c(j3).d(j4).b(str2).e(j5).build()).build();
@@ -33,7 +33,7 @@ public final class a {
     }
 
     private a.c a(String str, String str2, long j, String str3, long j2) {
-        return a.c.s().a(a.e.ACK).a(a.C0050a.m().a(str).b(str2).a(j).c(str3).b(j2).build()).build();
+        return a.c.s().a(a.e.ACK).a(a.C0042a.m().a(str).b(str2).a(j).c(str3).b(j2).build()).build();
     }
 
     private a.c a(String str, String str2, String str3, String str4, long j, long j2, long j3, String str5, long j4) {
@@ -41,7 +41,7 @@ public final class a {
     }
 
     private void a(a.c cVar) {
-        f1094a.add(cVar);
+        f1313a.add(cVar);
     }
 
     private a.h c(Context context) {
@@ -54,78 +54,74 @@ public final class a {
         int i2;
         int i3;
         int i4;
-        int i5 = 0;
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         DisplayMetrics displayMetrics = new DisplayMetrics();
         if (windowManager != null) {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             if (displayMetrics.widthPixels > displayMetrics.heightPixels) {
                 i4 = displayMetrics.widthPixels;
-                i3 = displayMetrics.heightPixels;
+                i2 = displayMetrics.heightPixels;
             } else {
-                i3 = displayMetrics.widthPixels;
+                i2 = displayMetrics.widthPixels;
                 i4 = displayMetrics.heightPixels;
             }
-            int i6 = displayMetrics.densityDpi;
-            i2 = i4;
-            i5 = i3;
-            i = i6;
+            i = displayMetrics.densityDpi;
+            i3 = i4;
         } else {
             i = 0;
             i2 = 0;
+            i3 = 0;
         }
-        return a.ac.q().a(a.x.ANDROID).a(Build.VERSION.RELEASE).b(Build.MANUFACTURER.toUpperCase()).c(Build.MODEL).a(i2).b(i5).c(i).build();
+        return a.ac.q().a(a.x.ANDROID).a(Build.VERSION.RELEASE).b(Build.MANUFACTURER.toUpperCase()).c(Build.MODEL).a(i3).b(i2).c(i).build();
     }
 
     private static a.v e(Context context) {
         String str;
-        String str2;
         NetworkInfo activeNetworkInfo;
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+        String str2 = "";
         if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
             str = "";
-            str2 = "";
         } else {
-            String str3 = "" + activeNetworkInfo.getTypeName();
+            str2 = "" + activeNetworkInfo.getTypeName();
             str = "" + activeNetworkInfo.getExtraInfo();
-            str2 = str3;
         }
         return a.v.g().a(str2).b(str).build();
     }
 
     private void f(Context context) {
         for (com.baidu.android.pushservice.c.a.c cVar : e.a(context).a()) {
-            a(a(cVar.b, cVar.f1031a, cVar.c, cVar.d));
+            a(a(cVar.f1208b, cVar.f1207a, cVar.c, cVar.d));
         }
     }
 
     private void g(Context context) {
         for (d dVar : e.a(context).b()) {
-            a(a(dVar.f1033a, dVar.b, dVar.c, dVar.d, dVar.e, dVar.f, dVar.g, dVar.h, dVar.i));
+            a(a(dVar.f1211a, dVar.f1212b, dVar.c, dVar.d, dVar.e, dVar.f, dVar.g, dVar.h, dVar.i));
         }
     }
 
     private void h(Context context) {
         for (com.baidu.android.pushservice.c.a.b bVar : e.a(context).c()) {
-            a(a(bVar.f1029a, bVar.b, bVar.c, bVar.d, bVar.e, bVar.f, bVar.g));
+            a(a(bVar.f1203a, bVar.f1204b, bVar.c, bVar.d, bVar.e, bVar.f, bVar.g));
         }
     }
 
     private void i(Context context) {
         for (com.baidu.android.pushservice.c.a.e eVar : e.a(context).d()) {
-            a(a(eVar.f1034a, eVar.b, eVar.c, eVar.d, eVar.e, eVar.f, eVar.g));
+            a(a(eVar.f1213a, eVar.f1214b, eVar.c, eVar.d, eVar.e, eVar.f, eVar.g));
         }
     }
 
     private void j(Context context) {
         for (com.baidu.android.pushservice.c.a.a aVar : e.a(context).e()) {
-            a(a(aVar.f1027a, aVar.b, aVar.c, aVar.d, aVar.e));
+            a(a(aVar.f1199a, aVar.f1200b, aVar.c, aVar.d, aVar.e));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        f1094a.clear();
+        f1313a.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -137,10 +133,10 @@ public final class a {
             h(context);
             i(context);
             j(context);
-            if (f1094a.size() <= 0) {
+            if (f1313a.size() <= 0) {
                 return null;
             }
-            return a.y.k().a(c(context)).a("push").a(com.baidu.android.pushservice.a.a()).a(f1094a).build().toByteArray();
+            return a.y.k().a(c(context)).a("push").a(com.baidu.android.pushservice.a.a()).a(f1313a).build().toByteArray();
         } catch (Exception e) {
             return null;
         }

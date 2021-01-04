@@ -3,7 +3,7 @@ package com.baidu.searchbox.track.ui;
 import android.app.Activity;
 import android.os.Bundle;
 import com.baidu.searchbox.appframework.SimpleActivityLifeCycle;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TraceActivityCallbacks extends SimpleActivityLifeCycle {
     private TraceManager mTraceManager = TraceManager.getInstance();
     private TraceFragmentCallbackWrapper mTraceFragmentCallbackWrapper = new TraceFragmentCallbackWrapper();

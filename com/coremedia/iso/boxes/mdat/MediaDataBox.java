@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MediaDataBox implements Box {
     private static Logger LOG = Logger.getLogger(MediaDataBox.class.getName());
     public static final String TYPE = "mdat";

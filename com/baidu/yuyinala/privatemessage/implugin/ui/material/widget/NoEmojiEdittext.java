@@ -7,49 +7,49 @@ import android.text.Spannable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.widget.EditText;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class NoEmojiEdittext extends EditText {
     private Context mContext;
-    private int oSE;
-    private String oSF;
-    private boolean oSG;
+    private int oYJ;
+    private String oYK;
+    private boolean oYL;
 
     public NoEmojiEdittext(Context context) {
         super(context);
         this.mContext = context;
-        dxs();
+        dxh();
     }
 
     public NoEmojiEdittext(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        dxs();
+        dxh();
     }
 
     public NoEmojiEdittext(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        dxs();
+        dxh();
     }
 
-    private void dxs() {
+    private void dxh() {
         addTextChangedListener(new TextWatcher() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.NoEmojiEdittext.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (!NoEmojiEdittext.this.oSG) {
-                    NoEmojiEdittext.this.oSE = NoEmojiEdittext.this.getSelectionEnd();
-                    NoEmojiEdittext.this.oSF = charSequence.toString();
+                if (!NoEmojiEdittext.this.oYL) {
+                    NoEmojiEdittext.this.oYJ = NoEmojiEdittext.this.getSelectionEnd();
+                    NoEmojiEdittext.this.oYK = charSequence.toString();
                 }
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 try {
-                    if (NoEmojiEdittext.this.oSG) {
-                        NoEmojiEdittext.this.oSG = false;
-                    } else if (i3 >= 2 && NoEmojiEdittext.this.oSE + i3 <= charSequence.length() && NoEmojiEdittext.containsEmoji(charSequence.subSequence(NoEmojiEdittext.this.oSE, NoEmojiEdittext.this.oSE + i3).toString())) {
-                        NoEmojiEdittext.this.oSG = true;
-                        NoEmojiEdittext.this.setText(NoEmojiEdittext.this.oSF);
+                    if (NoEmojiEdittext.this.oYL) {
+                        NoEmojiEdittext.this.oYL = false;
+                    } else if (i3 >= 2 && NoEmojiEdittext.this.oYJ + i3 <= charSequence.length() && NoEmojiEdittext.containsEmoji(charSequence.subSequence(NoEmojiEdittext.this.oYJ, NoEmojiEdittext.this.oYJ + i3).toString())) {
+                        NoEmojiEdittext.this.oYL = true;
+                        NoEmojiEdittext.this.setText(NoEmojiEdittext.this.oYK);
                         Editable text = NoEmojiEdittext.this.getText();
                         if (text instanceof Spannable) {
                             Selection.setSelection(text, text.length());

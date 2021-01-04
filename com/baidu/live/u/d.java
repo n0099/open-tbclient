@@ -1,9 +1,7 @@
 package com.baidu.live.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface d {
-    boolean Qz();
+    void RC();
 
-    void a(c cVar);
-
-    void b(c cVar);
+    void release();
 }

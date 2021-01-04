@@ -1,11 +1,11 @@
 package com.baidu.swan.games.w.a;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d {
     private final Object data;
     private final String error;
@@ -19,14 +19,14 @@ public class d {
         return this.error == null;
     }
 
-    public String dq(String str, String str2) {
+    public String dp(String str, String str2) {
         if (isSuccess()) {
-            return a.yj(str);
+            return a.yi(str);
         }
-        return a.ae(str, str2, aZJ());
+        return a.ah(str, str2, bcd());
     }
 
-    public String aZJ() {
+    public String bcd() {
         return this.error;
     }
 
@@ -34,11 +34,11 @@ public class d {
         return this.data;
     }
 
-    public static Object aZK() {
+    public static Object bce() {
         return new JsObject();
     }
 
-    public static String mE(int i) {
+    public static String mM(int i) {
         switch (i) {
             case 1:
                 return "boolean";
@@ -66,11 +66,11 @@ public class d {
         }
     }
 
-    public static d ah(@Nullable Object obj) {
+    public static d ai(@Nullable Object obj) {
         return new d(null, obj);
     }
 
-    public static d yk(@NonNull String str) {
+    public static d yj(@NonNull String str) {
         return new d(str, null);
     }
 
@@ -78,8 +78,8 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String ae = a.ae(str, str2, dVar.aZJ());
-        bVar.throwJSException(JSExceptionType.Error, ae);
-        return ae;
+        String ah = a.ah(str, str2, dVar.bcd());
+        bVar.throwJSException(JSExceptionType.Error, ah);
+        return ah;
     }
 }

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public final class PusherMsgInfo extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_ET = "";
@@ -103,7 +103,7 @@ public final class PusherMsgInfo extends Message {
         this.follow_type = builder.follow_type;
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<PusherMsgInfo> {
         public String content;
         public String et;

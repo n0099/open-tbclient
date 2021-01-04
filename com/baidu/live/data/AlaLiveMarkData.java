@@ -1,10 +1,11 @@
 package com.baidu.live.data;
 
 import android.text.TextUtils;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveMarkData implements Serializable {
     public static final String DEFAULT_ANCHOR_USER_ID = "0";
     public static final int NOBLE_LEVEL_BARON = 2;
@@ -19,10 +20,12 @@ public class AlaLiveMarkData implements Serializable {
     public static final int TYPE_FAN = 6;
     public static final int TYPE_USER_ACHIEVE = 103;
     public static final int TYPE_USER_ADMIN = 2;
+    public static final int TYPE_USER_GENDER = 300;
     public static final int TYPE_USER_GUARD_CLUB = 102;
     public static final int TYPE_USER_HORNOR = 104;
     public static final int TYPE_USER_LABEL = 3;
     public static final int TYPE_USER_LEVEL = 1;
+    public static final int TYPE_USER_MYSTERIOUSMAN = 106;
     public static final int TYPE_USER_NOBLE = 105;
     public static final int TYPE_USER_TB_ACTIVITY = 4;
     public String anchor_user_id;
@@ -68,7 +71,7 @@ public class AlaLiveMarkData implements Serializable {
             this.markPicBak = this.mark_pic;
             this.width = jSONObject.optInt("width");
             this.height = jSONObject.optInt("height");
-            this.level = jSONObject.optInt("level", 0);
+            this.level = jSONObject.optInt(MapBundleKey.MapObjKey.OBJ_LEVEL, 0);
             JSONObject optJSONObject = jSONObject.optJSONObject("guard_club");
             if (optJSONObject != null) {
                 this.guardName = optJSONObject.optString("guard_name");
@@ -98,7 +101,7 @@ public class AlaLiveMarkData implements Serializable {
             jSONObject.put("mark_name", this.mark_name);
             jSONObject.put("mark_pic", this.markPicBak);
             jSONObject.put("width", this.width);
-            jSONObject.put("level", this.level);
+            jSONObject.put(MapBundleKey.MapObjKey.OBJ_LEVEL, this.level);
             jSONObject.put("guard_name", this.guardName);
             jSONObject.put("member_guard_level", this.guardLevel);
             jSONObject.put("guard_show_golden_icon", this.guardGold);
@@ -124,7 +127,7 @@ public class AlaLiveMarkData implements Serializable {
                     this.width = this.levelWidth;
                     this.height = this.levelHeight;
                 }
-            } else if (com.baidu.live.ae.a.RB().brA != null && (str = com.baidu.live.ae.a.RB().brA.aOO.get(Integer.valueOf(this.userLevel))) != null) {
+            } else if (com.baidu.live.af.a.SE().bwi != null && (str = com.baidu.live.af.a.SE().bwi.aPv.get(Integer.valueOf(this.userLevel))) != null) {
                 this.mark_pic = str;
                 this.height = 48;
                 if (this.userLevel <= 9) {

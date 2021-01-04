@@ -1,11 +1,11 @@
 package com.baidu.searchbox.logsystem.logsys;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.common.others.java.Supplier;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class LogDiskStoreConfig {
     private static final String DEFAULT_LOG_STORE_ROOT_DIR = "log_store";
     @NonNull
@@ -34,7 +34,7 @@ public class LogDiskStoreConfig {
         return this.mLogStoreRootDirSupplier;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         @NonNull
         private Context mContext;

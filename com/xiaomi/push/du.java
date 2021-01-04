@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class du {
     private static void a(byte[] bArr) {
         if (bArr.length >= 2) {
@@ -15,20 +15,20 @@ public class du {
     }
 
     public static byte[] a(String str, byte[] bArr) {
-        byte[] m155a = bc.m155a(str);
+        byte[] m181a = bc.m181a(str);
         try {
-            a(m155a);
-            return h.a(m155a, bArr);
+            a(m181a);
+            return h.a(m181a, bArr);
         } catch (Exception e) {
             return null;
         }
     }
 
     public static byte[] b(String str, byte[] bArr) {
-        byte[] m155a = bc.m155a(str);
+        byte[] m181a = bc.m181a(str);
         try {
-            a(m155a);
-            return h.b(m155a, bArr);
+            a(m181a);
+            return h.b(m181a, bArr);
         } catch (Exception e) {
             return null;
         }

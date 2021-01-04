@@ -2,24 +2,24 @@ package com.baidu.tieba.ala.floating;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private JSONObject gKj;
-    private JSONObject gKo;
+    private JSONObject gVV;
+    private JSONObject gWa;
 
-    public void dA(JSONObject jSONObject) {
-        this.gKj = jSONObject;
+    public void dJ(JSONObject jSONObject) {
+        this.gVV = jSONObject;
     }
 
-    public void dB(JSONObject jSONObject) {
-        this.gKo = jSONObject;
+    public void dK(JSONObject jSONObject) {
+        this.gWa = jSONObject;
     }
 
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("extra", this.gKj);
-            jSONObject.put("src", this.gKo);
+            jSONObject.put("extra", this.gVV);
+            jSONObject.put("src", this.gWa);
         } catch (JSONException e) {
             e.printStackTrace();
         }

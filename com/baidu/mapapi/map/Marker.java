@@ -9,6 +9,7 @@ import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.InfoWindow;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comjni.tools.ParcelItem;
 import java.nio.ByteBuffer;
@@ -16,12 +17,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class Marker extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2031a;
-    BitmapDescriptor b;
+    LatLng f2852a;
+
+    /* renamed from: b  reason: collision with root package name */
+    BitmapDescriptor f2853b;
     float c;
     float d;
     boolean e;
@@ -58,7 +61,7 @@ public final class Marker extends Overlay {
         while (it.hasNext()) {
             ParcelItem parcelItem = new ParcelItem();
             Bundle bundle2 = new Bundle();
-            Bitmap bitmap = it.next().f2001a;
+            Bitmap bitmap = it.next().f2797a;
             ByteBuffer allocate = ByteBuffer.allocate(bitmap.getWidth() * bitmap.getHeight() * 4);
             bitmap.copyPixelsToBuffer(allocate);
             byte[] array = allocate.array();
@@ -66,7 +69,7 @@ public final class Marker extends Overlay {
             bundle2.putInt("image_width", bitmap.getWidth());
             bundle2.putInt("image_height", bitmap.getHeight());
             try {
-                messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
                 messageDigest = null;
@@ -75,8 +78,8 @@ public final class Marker extends Overlay {
                 messageDigest.update(array, 0, array.length);
                 byte[] digest = messageDigest.digest();
                 StringBuilder sb = new StringBuilder("");
-                for (byte b : digest) {
-                    sb.append(Integer.toString((b & 255) + 256, 16).substring(1));
+                for (byte b2 : digest) {
+                    sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
                 }
                 bundle2.putString("image_hashcode", sb.toString());
             }
@@ -97,10 +100,10 @@ public final class Marker extends Overlay {
     public Bundle a(Bundle bundle) {
         super.a(bundle);
         Bundle bundle2 = new Bundle();
-        if (this.b != null) {
-            bundle.putBundle("image_info", this.b.b());
+        if (this.f2853b != null) {
+            bundle.putBundle("image_info", this.f2853b.b());
         }
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2031a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2852a);
         bundle.putInt("animatetype", this.m);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
@@ -151,7 +154,7 @@ public final class Marker extends Overlay {
     }
 
     public BitmapDescriptor getIcon() {
-        return this.b;
+        return this.f2853b;
     }
 
     public ArrayList<BitmapDescriptor> getIcons() {
@@ -171,7 +174,7 @@ public final class Marker extends Overlay {
     }
 
     public LatLng getPosition() {
-        return this.f2031a;
+        return this.f2852a;
     }
 
     public float getRotate() {
@@ -287,7 +290,7 @@ public final class Marker extends Overlay {
         if (bitmapDescriptor == null) {
             throw new IllegalArgumentException("BDMapSDKException: marker's icon can not be null");
         }
-        this.b = bitmapDescriptor;
+        this.f2853b = bitmapDescriptor;
         this.listener.b(this);
     }
 
@@ -304,16 +307,16 @@ public final class Marker extends Overlay {
                 int i2 = i;
                 if (i2 >= arrayList.size()) {
                     this.p = (ArrayList) arrayList.clone();
-                    this.b = null;
+                    this.f2853b = null;
                     break;
-                } else if (arrayList.get(i2) == null || arrayList.get(i2).f2001a == null) {
+                } else if (arrayList.get(i2) == null || arrayList.get(i2).f2797a == null) {
                     return;
                 } else {
                     i = i2 + 1;
                 }
             }
         } else {
-            this.b = arrayList.get(0);
+            this.f2853b = arrayList.get(0);
         }
         this.listener.b(this);
     }
@@ -335,7 +338,7 @@ public final class Marker extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: marker's position can not be null");
         }
-        this.f2031a = latLng;
+        this.f2852a = latLng;
         this.listener.b(this);
     }
 
@@ -343,7 +346,7 @@ public final class Marker extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: marker's position can not be null");
         }
-        this.f2031a = latLng;
+        this.f2852a = latLng;
         this.listener.b(this);
         if (this.w != null) {
             this.w.setPosition(latLng);
@@ -415,7 +418,7 @@ public final class Marker extends Overlay {
         if (!infoWindow.j) {
             throw new IllegalArgumentException("BDMapSDKException: the SmoothMoveInfoWindow must build with View");
         }
-        if (infoWindow.b == null) {
+        if (infoWindow.f2825b == null) {
             throw new IllegalArgumentException("BDMapSDKException: the SmoothMoveInfoWindow's View can not be null");
         }
         this.w = infoWindow;

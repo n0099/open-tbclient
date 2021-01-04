@@ -4,11 +4,11 @@ import com.baidu.live.tbadk.log.LogConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e {
-    public boolean gIJ;
-    public ArrayList<a> gIK;
-    public long gIr;
+    public long gUd;
+    public boolean gUv;
+    public ArrayList<a> gUw;
     public String portrait;
     public String userName;
 
@@ -18,24 +18,24 @@ public class e {
             this.userName = optJSONObject.optString("user_name");
             this.portrait = optJSONObject.optString("bd_portrait");
         }
-        this.gIJ = jSONObject.optInt("loot_result") == 1;
-        this.gIr = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+        this.gUv = jSONObject.optInt("loot_result") == 1;
+        this.gUd = jSONObject.optLong(LogConfig.LOG_AMOUNT);
         JSONArray optJSONArray = jSONObject.optJSONArray("loot_list");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             int length = optJSONArray.length();
-            this.gIK = new ArrayList<>(length);
+            this.gUw = new ArrayList<>(length);
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                 if (jSONObject2 != null) {
                     a aVar = new a();
                     aVar.parserJson(jSONObject2);
-                    this.gIK.add(aVar);
+                    this.gUw.add(aVar);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public long amount;
         public String portrait;

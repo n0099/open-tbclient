@@ -9,15 +9,15 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     /* loaded from: classes.dex */
     public class a {
         private int msgCount = 0;
-        private boolean flz = false;
-        private int flS = 0;
-        private int flT = 0;
-        private int flU = 0;
-        private int flV = 0;
-        private int flW = 0;
-        private boolean flB = false;
-        private int flX = 0;
-        private boolean flY = false;
+        private boolean fvk = false;
+        private int fvD = 0;
+        private int fvE = 0;
+        private int fvF = 0;
+        private int fvG = 0;
+        private int fvH = 0;
+        private boolean fvm = false;
+        private int fvI = 0;
+        private boolean fvJ = false;
 
         public a() {
         }
@@ -29,11 +29,11 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     }
 
     public int getMsgFansCount() {
-        return this.mData.flV;
+        return this.mData.fvG;
     }
 
     public void setMsgFansCount(int i) {
-        this.mData.flV = i;
+        this.mData.fvG = i;
     }
 
     public int getMsgCount() {
@@ -45,66 +45,66 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     }
 
     public boolean hasMsgRemind() {
-        return this.mData.flz;
+        return this.mData.fvk;
     }
 
     public void setHasMsgRemind(boolean z) {
-        this.mData.flz = z;
+        this.mData.fvk = z;
     }
 
     public int getMsgAgreeCount() {
-        return this.mData.flS;
+        return this.mData.fvD;
     }
 
     public void setMsgAgreeCount(int i) {
-        this.mData.flS = i;
+        this.mData.fvD = i;
     }
 
     public int getMsgReplyCount() {
-        return this.mData.flT;
+        return this.mData.fvE;
     }
 
     public void setMsgReplyCount(int i) {
-        this.mData.flT = i;
+        this.mData.fvE = i;
     }
 
     public int getMsgAtCount() {
-        return this.mData.flU;
+        return this.mData.fvF;
     }
 
     public void setMsgAtCount(int i) {
-        this.mData.flU = i;
+        this.mData.fvF = i;
     }
 
     public int getChatCount() {
-        return this.mData.flW;
+        return this.mData.fvH;
     }
 
     public void setChatCount(int i) {
-        this.mData.flW = i;
+        this.mData.fvH = i;
     }
 
     public boolean hasChatRemind() {
-        return this.mData.flB;
+        return this.mData.fvm;
     }
 
     public void setHasChatRemind(boolean z) {
-        this.mData.flB = z;
+        this.mData.fvm = z;
     }
 
     public int getNotificationCount() {
-        return this.mData.flX;
+        return this.mData.fvI;
     }
 
     public void setNotificationCount(int i) {
-        this.mData.flX = i;
+        this.mData.fvI = i;
     }
 
     public boolean hasNotificationRemind() {
-        return this.mData.flY;
+        return this.mData.fvJ;
     }
 
     public void setHasNotificationRemind(boolean z) {
-        this.mData.flY = z;
+        this.mData.fvJ = z;
     }
 }

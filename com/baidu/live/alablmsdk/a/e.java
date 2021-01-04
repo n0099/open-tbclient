@@ -2,43 +2,43 @@ package com.baidu.live.alablmsdk.a;
 
 import android.os.Handler;
 import android.os.HandlerThread;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e {
-    private static e aBa;
-    private Handler aBb;
-    private HandlerThread aBc = new HandlerThread("blm_work_threads");
+    private static e aBr;
+    private Handler aBs;
+    private HandlerThread aBt = new HandlerThread("blm_work_threads");
 
     private e() {
-        this.aBc.start();
-        this.aBb = new Handler(this.aBc.getLooper());
+        this.aBt.start();
+        this.aBs = new Handler(this.aBt.getLooper());
     }
 
-    public static e BU() {
-        if (aBa == null) {
+    public static e Bl() {
+        if (aBr == null) {
             synchronized (e.class) {
-                if (aBa == null) {
-                    aBa = new e();
+                if (aBr == null) {
+                    aBr = new e();
                 }
             }
         }
-        return aBa;
+        return aBr;
     }
 
     public void post(Runnable runnable) {
-        if (this.aBb != null) {
-            this.aBb.post(runnable);
+        if (this.aBs != null) {
+            this.aBs.post(runnable);
         }
     }
 
     public void release() {
-        if (this.aBb != null) {
-            this.aBb.removeCallbacksAndMessages(null);
-            this.aBb = null;
+        if (this.aBs != null) {
+            this.aBs.removeCallbacksAndMessages(null);
+            this.aBs = null;
         }
-        if (this.aBc != null) {
-            this.aBc.quit();
-            this.aBc = null;
+        if (this.aBt != null) {
+            this.aBt.quit();
+            this.aBt = null;
         }
-        aBa = null;
+        aBr = null;
     }
 }

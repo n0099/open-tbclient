@@ -3,11 +3,11 @@ package com.baidu.tieba.yuyinala.liveroom.f;
 import android.view.View;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.yuyinala.liveroom.views.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
     private TbPageContext mPageContext;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.liveroom.views.b olT;
+    private com.baidu.tieba.yuyinala.liveroom.views.b ooP;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -15,59 +15,59 @@ public class b {
     }
 
     private void init() {
-        this.olT = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
-        this.mRootView = this.olT.getView();
+        this.ooP = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
+        this.mRootView = this.ooP.getView();
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public boolean cew() {
-        return this.olT.cew();
+    public boolean chm() {
+        return this.ooP.chm();
     }
 
-    public boolean cex() {
-        return this.olT.cex();
+    public boolean chn() {
+        return this.ooP.chn();
     }
 
     public String getLiveTitle() {
-        return this.olT.getLiveTitle();
+        return this.ooP.getLiveTitle();
     }
 
-    public boolean cey() {
-        return this.olT.cey();
+    public boolean cho() {
+        return this.ooP.cho();
     }
 
-    public boolean cez() {
-        return this.olT.cez();
+    public boolean chp() {
+        return this.ooP.chp();
     }
 
-    public String ceB() {
-        return this.olT.ceB();
+    public String chr() {
+        return this.ooP.chr();
     }
 
     public void a(d.b bVar) {
-        this.olT.a(bVar);
+        this.ooP.a(bVar);
     }
 
     public void a(d.a aVar) {
-        this.olT.a(aVar);
+        this.ooP.a(aVar);
     }
 
-    public void In(String str) {
-        this.olT.In(str);
+    public void Ip(String str) {
+        this.ooP.Ip(str);
     }
 
-    public void ceE() {
-        if (this.olT != null) {
-            this.olT.ceE();
+    public void chu() {
+        if (this.ooP != null) {
+            this.ooP.chu();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.olT != null) {
-            this.olT.onKeyboardVisibilityChanged(z);
+        if (this.ooP != null) {
+            this.ooP.onKeyboardVisibilityChanged(z);
         }
     }
 }

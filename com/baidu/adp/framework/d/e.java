@@ -5,12 +5,6 @@ import com.baidu.adp.lib.util.j;
 public class e {
     private int[] mTimeOut;
 
-    public e(int i) {
-        this.mTimeOut = null;
-        this.mTimeOut = new int[1];
-        this.mTimeOut[0] = i;
-    }
-
     public e(int i, int i2, int i3) {
         this.mTimeOut = null;
         this.mTimeOut = new int[3];

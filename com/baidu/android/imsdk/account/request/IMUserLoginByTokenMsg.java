@@ -14,13 +14,14 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.h.a;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.i.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static int sRetrytimes = 0;
     private String cFrom;
@@ -99,7 +100,7 @@ public class IMUserLoginByTokenMsg extends Message {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
             jSONObject2.put("os_version", Build.VERSION.SDK_INT + "");
-            jSONObject2.put("platform", "android");
+            jSONObject2.put("platform", HttpConstants.OS_TYPE_VALUE);
             jSONObject2.put("appid", this.mAppid + "");
             jSONObject2.put("from", this.mFrom);
             jSONObject2.put(BdStatsConstant.StatsKey.CURRENT_CHANNEL, this.cFrom);
@@ -160,7 +161,7 @@ public class IMUserLoginByTokenMsg extends Message {
                                 }
                             }
                         }
-                        if (!a.ayO) {
+                        if (!a.aze) {
                             ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                         }
                         str2 = optString;

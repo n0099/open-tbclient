@@ -4,11 +4,11 @@ import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public abstract class ba {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2579a = 2;
+    public static int f3775a = 2;
 
     public abstract String a();
 
@@ -69,7 +69,7 @@ public abstract class ba {
     }
 
     private void a(int i, String str) {
-        if (b() && i >= f2579a) {
+        if (b() && i >= f3775a) {
             Log.println(i, a(), str);
         }
     }

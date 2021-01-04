@@ -14,20 +14,23 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import com.baidu.ar.constants.HttpConstants;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static final int f = -1728053248;
     private static String g;
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f3585a;
-    private boolean b;
+    private final b f5453a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private boolean f5454b;
     private boolean c;
     private View d;
     private View e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         private static final String g = "status_bar_height";
         private static final String h = "navigation_bar_height";
@@ -36,8 +39,10 @@ public class c {
         private static final String k = "config_showNavigationBar";
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f3586a;
-        private final boolean b;
+        private final int f5455a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private final boolean f5456b;
         private final int c;
         private final int d;
         private final boolean e;
@@ -64,7 +69,7 @@ public class c {
         @TargetApi(14)
         private boolean c(Context context) {
             Resources resources = context.getResources();
-            int identifier = resources.getIdentifier(k, "bool", "android");
+            int identifier = resources.getIdentifier(k, "bool", HttpConstants.OS_TYPE_VALUE);
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
                 if ("1".equals(c.g)) {
@@ -79,7 +84,7 @@ public class c {
         }
 
         public boolean d() {
-            return this.b;
+            return this.f5456b;
         }
 
         public boolean e() {
@@ -90,10 +95,10 @@ public class c {
             Resources resources = activity.getResources();
             this.e = resources.getConfiguration().orientation == 1;
             this.f = a(activity);
-            this.f3586a = a(resources, g);
+            this.f5455a = a(resources, g);
             this.c = a((Context) activity);
             this.d = b(activity);
-            this.b = this.c > 0;
+            this.f5456b = this.c > 0;
         }
 
         public int b() {
@@ -105,7 +110,7 @@ public class c {
         }
 
         private int a(Resources resources, String str) {
-            int identifier = resources.getIdentifier(str, "dimen", "android");
+            int identifier = resources.getIdentifier(str, "dimen", HttpConstants.OS_TYPE_VALUE);
             if (identifier > 0) {
                 return resources.getDimensionPixelSize(identifier);
             }
@@ -113,7 +118,7 @@ public class c {
         }
 
         public int c() {
-            return this.f3586a;
+            return this.f5455a;
         }
 
         @SuppressLint({"NewApi"})
@@ -148,12 +153,12 @@ public class c {
         if (Build.VERSION.SDK_INT >= 19) {
             TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
             try {
-                this.b = obtainStyledAttributes.getBoolean(0, false);
+                this.f5454b = obtainStyledAttributes.getBoolean(0, false);
                 this.c = obtainStyledAttributes.getBoolean(1, false);
                 obtainStyledAttributes.recycle();
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 if ((attributes.flags & 67108864) != 0) {
-                    this.b = true;
+                    this.f5454b = true;
                 }
                 if ((attributes.flags & 134217728) != 0) {
                     this.c = true;
@@ -163,11 +168,11 @@ public class c {
                 throw th;
             }
         }
-        this.f3585a = new b(activity, this.b, this.c);
-        if (!this.f3585a.d()) {
+        this.f5453a = new b(activity, this.f5454b, this.c);
+        if (!this.f5453a.d()) {
             this.c = false;
         }
-        if (this.b) {
+        if (this.f5454b) {
             b(activity, viewGroup);
         }
         if (this.c) {
@@ -182,7 +187,7 @@ public class c {
     }
 
     public void b(boolean z) {
-        if (this.b) {
+        if (this.f5454b) {
             this.d.setVisibility(z ? 0 : 8);
         }
     }
@@ -194,23 +199,23 @@ public class c {
     }
 
     public void b(int i) {
-        if (this.b) {
+        if (this.f5454b) {
             this.d.setBackgroundColor(i);
         }
     }
 
     public b a() {
-        return this.f3585a;
+        return this.f5453a;
     }
 
     private void a(Context context, ViewGroup viewGroup) {
         FrameLayout.LayoutParams layoutParams;
         this.e = new View(context);
-        if (this.f3585a.e()) {
-            layoutParams = new FrameLayout.LayoutParams(-1, this.f3585a.a());
+        if (this.f5453a.e()) {
+            layoutParams = new FrameLayout.LayoutParams(-1, this.f5453a.a());
             layoutParams.gravity = 80;
         } else {
-            layoutParams = new FrameLayout.LayoutParams(this.f3585a.b(), -1);
+            layoutParams = new FrameLayout.LayoutParams(this.f5453a.b(), -1);
             layoutParams.gravity = 5;
         }
         this.e.setLayoutParams(layoutParams);
@@ -221,10 +226,10 @@ public class c {
 
     private void b(Context context, ViewGroup viewGroup) {
         this.d = new View(context);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.f3585a.c());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.f5453a.c());
         layoutParams.gravity = 48;
-        if (this.c && !this.f3585a.e()) {
-            layoutParams.rightMargin = this.f3585a.b();
+        if (this.c && !this.f5453a.e()) {
+            layoutParams.rightMargin = this.f5453a.b();
         }
         this.d.setLayoutParams(layoutParams);
         this.d.setBackgroundColor(-1728053248);

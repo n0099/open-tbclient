@@ -3,12 +3,14 @@ package com.vivo.push.c;
 import android.content.Context;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 final class ad implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f4427a;
-    final /* synthetic */ List b;
+    final /* synthetic */ int f13902a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ List f13903b;
     final /* synthetic */ List c;
     final /* synthetic */ String d;
     final /* synthetic */ ac e;
@@ -16,8 +18,8 @@ final class ad implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ac acVar, int i, List list, List list2, String str) {
         this.e = acVar;
-        this.f4427a = i;
-        this.b = list;
+        this.f13902a = i;
+        this.f13903b = list;
         this.c = list2;
         this.d = str;
     }
@@ -25,8 +27,8 @@ final class ad implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        PushMessageCallback pushMessageCallback = this.e.b;
-        context = this.e.f4484a;
-        pushMessageCallback.onSetTags(context, this.f4427a, this.b, this.c, this.d);
+        PushMessageCallback pushMessageCallback = this.e.f13901b;
+        context = this.e.f14008a;
+        pushMessageCallback.onSetTags(context, this.f13902a, this.f13903b, this.c, this.d);
     }
 }

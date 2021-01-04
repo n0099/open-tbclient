@@ -4,7 +4,7 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.n;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class HelpService extends IntentService {
     public HelpService() {
         super("intentService");

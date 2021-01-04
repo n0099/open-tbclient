@@ -3,11 +3,10 @@ package com.baidu.live.tbadk.coreextra.data;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class PhotoUrlData implements Serializable {
     private static final long serialVersionUID = -6994746964706195260L;
     private String bigurl;
@@ -117,7 +116,7 @@ public class PhotoUrlData implements Serializable {
             jSONObject.put("bigurl", photoUrlData.bigurl);
             jSONObject.put("picId", photoUrlData.picId);
             jSONObject.put("toServerPhotoInfo", photoUrlData.toServerPhotoInfo);
-            jSONObject.put(UgcUBCUtils.UGC_TYPE_PIC_BTN, photoUrlData.pic);
+            jSONObject.put("pic", photoUrlData.pic);
             jSONObject.put("width", photoUrlData.width);
             jSONObject.put("height", photoUrlData.height);
             return jSONObject.toString();
@@ -138,7 +137,7 @@ public class PhotoUrlData implements Serializable {
             photoUrlData.bigurl = jSONObject.optString("bigurl");
             photoUrlData.picId = jSONObject.optString("picId");
             photoUrlData.toServerPhotoInfo = jSONObject.optString("toServerPhotoInfo");
-            photoUrlData.pic = jSONObject.optString(UgcUBCUtils.UGC_TYPE_PIC_BTN);
+            photoUrlData.pic = jSONObject.optString("pic");
             photoUrlData.width = jSONObject.optString("width");
             photoUrlData.height = jSONObject.optString("height");
             return photoUrlData;

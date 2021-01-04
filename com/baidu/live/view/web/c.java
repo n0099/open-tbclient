@@ -1,10 +1,11 @@
 package com.baidu.live.view.web;
 
 import android.webkit.JsResult;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class c implements b {
     @Override // com.baidu.live.view.web.b
-    public void is(String str) {
+    /* renamed from: if */
+    public void mo20if(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -12,7 +13,7 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void it(String str) {
+    public void ig(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -20,7 +21,7 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void YL() {
+    public void aab() {
     }
 
     @Override // com.baidu.live.view.web.b
@@ -29,11 +30,11 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void jn(String str) {
+    public void jg(String str) {
     }
 
     @Override // com.baidu.live.view.web.b
-    public boolean jo(String str) {
+    public boolean jh(String str) {
         return false;
     }
 

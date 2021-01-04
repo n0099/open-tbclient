@@ -3,9 +3,7 @@ package org.webrtc;
 import android.graphics.ImageFormat;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
-import com.baidu.lbsapi.panoramaview.PanoramaView;
 import com.baidu.platform.comapi.UIMsg;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbConfig;
 import com.sina.weibo.sdk.constant.WBConstants;
 import io.flutter.plugin.platform.PlatformPlugin;
@@ -14,19 +12,19 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class CameraEnumerationAndroid {
     static final ArrayList<Size> COMMON_RESOLUTIONS = new ArrayList<>(Arrays.asList(new Size(160, 120), new Size(240, 160), new Size(320, 240), new Size(400, 240), new Size(480, 320), new Size(640, EncoderTextureDrawer.X264_WIDTH), new Size(640, 480), new Size(768, 480), new Size(854, 480), new Size(800, 600), new Size(TbConfig.HEAD_IMG_SIZE, UIMsg.MsgDefine.MSG_NETWORK_CHANNEL), new Size(TbConfig.HEAD_IMG_SIZE, 640), new Size(1024, 576), new Size(1024, 600), new Size(PlatformPlugin.DEFAULT_SYSTEM_UI, 720), new Size(PlatformPlugin.DEFAULT_SYSTEM_UI, 1024), new Size(WBConstants.SDK_NEW_PAY_VERSION, 1080), new Size(WBConstants.SDK_NEW_PAY_VERSION, 1440), new Size(2560, 1440), new Size(3840, 2160)));
     private static final String TAG = "CameraEnumerationAndroid";
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class CaptureFormat {
         public final FramerateRange framerate;
         public final int height;
         public final int imageFormat = 17;
         public final int width;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes10.dex */
         public static class FramerateRange {
             public int max;
             public int min;
@@ -45,7 +43,7 @@ public class CameraEnumerationAndroid {
             }
 
             public int hashCode() {
-                return (this.min * PanoramaView.PANOTYPE_INTERIOR) + 1 + this.max;
+                return (this.min * 65537) + 1 + this.max;
             }
 
             public String toString() {
@@ -89,11 +87,11 @@ public class CameraEnumerationAndroid {
         }
 
         public String toString() {
-            return this.width + "x" + this.height + UgcConstant.AT_RULE_TAG + this.framerate;
+            return this.width + "x" + this.height + "@" + this.framerate;
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     private static abstract class ClosestComparator<T> implements Comparator<T> {
         private ClosestComparator() {
         }
@@ -128,7 +126,7 @@ public class CameraEnumerationAndroid {
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // org.webrtc.CameraEnumerationAndroid.ClosestComparator
             public int diff(CaptureFormat.FramerateRange framerateRange) {
-                return progressivePenalty(framerateRange.min, 8000, 1, 4) + progressivePenalty(Math.abs((i * 1000) - framerateRange.max), 5000, 1, 3);
+                return progressivePenalty(framerateRange.min, MIN_FPS_THRESHOLD, 1, 4) + progressivePenalty(Math.abs((i * 1000) - framerateRange.max), 5000, 1, 3);
             }
         });
     }

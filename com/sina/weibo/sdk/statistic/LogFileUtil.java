@@ -118,8 +118,8 @@ public class LogFileUtil {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [137=4] */
     public static synchronized void writeToFile(String str, String str2, boolean z) {
-        FileWriter fileWriter;
         Throwable th;
+        FileWriter fileWriter;
         synchronized (LogFileUtil.class) {
             if (!TextUtils.isEmpty(str)) {
                 LogUtil.i(WBAgent.TAG, "filePath:" + str);
@@ -143,41 +143,42 @@ public class LogFileUtil {
                         } else if (file.lastModified() > 0 && System.currentTimeMillis() - file.lastModified() > 86400000) {
                             z = false;
                         }
-                        fileWriter = new FileWriter(file, z);
-                    } catch (IOException e) {
-                    } catch (Throwable th2) {
-                        fileWriter = null;
-                        th = th2;
-                    }
-                    try {
-                        fileWriter.write(sb.toString());
-                        fileWriter.flush();
-                        if (fileWriter != null) {
-                            try {
-                                fileWriter.close();
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
+                        FileWriter fileWriter3 = new FileWriter(file, z);
+                        try {
+                            fileWriter3.write(sb.toString());
+                            fileWriter3.flush();
+                            if (fileWriter3 != null) {
+                                try {
+                                    fileWriter3.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             }
-                        }
-                    } catch (IOException e3) {
-                        fileWriter2 = fileWriter;
-                        if (fileWriter2 != null) {
-                            try {
-                                fileWriter2.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
+                        } catch (IOException e2) {
+                            fileWriter2 = fileWriter3;
+                            if (fileWriter2 != null) {
+                                try {
+                                    fileWriter2.close();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
+                                }
                             }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            fileWriter = fileWriter3;
+                            if (fileWriter != null) {
+                                try {
+                                    fileWriter.close();
+                                } catch (IOException e4) {
+                                    e4.printStackTrace();
+                                }
+                            }
+                            throw th;
                         }
+                    } catch (IOException e5) {
                     } catch (Throwable th3) {
                         th = th3;
-                        if (fileWriter != null) {
-                            try {
-                                fileWriter.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        throw th;
+                        fileWriter = null;
                     }
                 }
             }

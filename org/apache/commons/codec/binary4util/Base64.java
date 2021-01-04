@@ -1,10 +1,10 @@
 package org.apache.commons.codec.binary4util;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import java.math.BigInteger;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public class Base64 extends BaseNCodec {
     private static final int BITS_PER_ENCODED_BYTE = 6;
     private static final int BYTES_PER_ENCODED_BLOCK = 4;
@@ -160,7 +160,7 @@ public class Base64 extends BaseNCodec {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.apache.commons.codec.binary4util.BaseNCodec
     public void decode(byte[] bArr, int i, int i2, BaseNCodec.Context context) {
-        byte b;
+        byte b2;
         if (!context.eof) {
             if (i2 < 0) {
                 context.eof = true;
@@ -172,14 +172,14 @@ public class Base64 extends BaseNCodec {
                 }
                 byte[] ensureBufferSize = ensureBufferSize(this.decodeSize, context);
                 int i4 = i + 1;
-                byte b2 = bArr[i];
-                if (b2 == this.pad) {
+                byte b3 = bArr[i];
+                if (b3 == this.pad) {
                     context.eof = true;
                     break;
                 }
-                if (b2 >= 0 && b2 < DECODE_TABLE.length && (b = DECODE_TABLE[b2]) >= 0) {
+                if (b3 >= 0 && b3 < DECODE_TABLE.length && (b2 = DECODE_TABLE[b3]) >= 0) {
                     context.modulus = (context.modulus + 1) % 4;
-                    context.ibitWorkArea = b + (context.ibitWorkArea << 6);
+                    context.ibitWorkArea = b2 + (context.ibitWorkArea << 6);
                     if (context.modulus == 0) {
                         int i5 = context.pos;
                         context.pos = i5 + 1;
@@ -227,8 +227,8 @@ public class Base64 extends BaseNCodec {
         return isBase64(bArr);
     }
 
-    public static boolean isBase64(byte b) {
-        return b == 61 || (b >= 0 && b < DECODE_TABLE.length && DECODE_TABLE[b] != -1);
+    public static boolean isBase64(byte b2) {
+        return b2 == 61 || (b2 >= 0 && b2 < DECODE_TABLE.length && DECODE_TABLE[b2] != -1);
     }
 
     public static boolean isBase64(String str) {
@@ -321,7 +321,7 @@ public class Base64 extends BaseNCodec {
     }
 
     @Override // org.apache.commons.codec.binary4util.BaseNCodec
-    protected boolean isInAlphabet(byte b) {
-        return b >= 0 && b < this.decodeTable.length && this.decodeTable[b] != -1;
+    protected boolean isInAlphabet(byte b2) {
+        return b2 >= 0 && b2 < this.decodeTable.length && this.decodeTable[b2] != -1;
     }
 }

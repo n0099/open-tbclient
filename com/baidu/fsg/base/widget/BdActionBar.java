@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class BdActionBar extends RelativeLayout {
     public static final float FOCUS_ALPHA_VALUE = 0.5f;
     public static final float NORMAL_ALPHA_VALUE = 1.0f;
@@ -20,8 +20,10 @@ public class BdActionBar extends RelativeLayout {
     public static final int TEXT_ALIGN_RIGHT = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1542a;
-    private View b;
+    private String f2071a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private View f2072b;
     private View c;
     private ImageView d;
     private TextView e;
@@ -40,25 +42,25 @@ public class BdActionBar extends RelativeLayout {
 
     public BdActionBar(Context context) {
         super(context);
-        this.f1542a = "";
+        this.f2071a = "";
         a();
     }
 
     public BdActionBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1542a = "";
+        this.f2071a = "";
         a();
     }
 
     public BdActionBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1542a = "";
+        this.f2071a = "";
         a();
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), getLayoutId()), this);
-        this.b = findViewById(ResUtils.id(getContext(), "title"));
+        this.f2072b = findViewById(ResUtils.id(getContext(), "title"));
         this.c = findViewById(ResUtils.id(getContext(), "title_left_imgzone2"));
         this.d = (ImageView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_img"));
         this.f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_titlebar_left_imgzone2_close"));
@@ -75,8 +77,8 @@ public class BdActionBar extends RelativeLayout {
         this.j = findViewById(ResUtils.id(getContext(), "title_right_imgzone2"));
         this.k = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img"));
         this.l = (TextView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_notify"));
-        if (!TextUtils.isEmpty(this.f1542a)) {
-            setTitle(this.f1542a);
+        if (!TextUtils.isEmpty(this.f2071a)) {
+            setTitle(this.f2071a);
         }
         this.p = (ImageView) findViewById(ResUtils.id(getContext(), "title_bottom_seperator"));
     }
@@ -88,8 +90,8 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public void setTitlebgColor(int i) {
-        if (this.b != null) {
-            this.b.setBackgroundColor(i);
+        if (this.f2072b != null) {
+            this.f2072b.setBackgroundColor(i);
         }
     }
 
@@ -131,7 +133,7 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public void setTitle(String str) {
-        this.f1542a = str;
+        this.f2071a = str;
         this.mTitleCenterText.setText(str);
     }
 
@@ -302,7 +304,7 @@ public class BdActionBar extends RelativeLayout {
     }
 
     public String getTitle() {
-        return this.f1542a;
+        return this.f2071a;
     }
 
     public void setCloseOnClickListener(View.OnClickListener onClickListener) {

@@ -7,13 +7,15 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class a extends h {
-    public static volatile boolean b = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile boolean f2358b = false;
     public static volatile boolean c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected g f1732a;
+    protected g f2359a;
     protected int d;
     protected CountDownLatch e;
     private String t;
@@ -29,15 +31,15 @@ public class a extends h {
         int a2 = this.j.a();
         int b2 = this.j.b();
         LogUtil.i("previewSize:" + a2 + "," + b2);
-        b = false;
+        f2358b = false;
         c = false;
         int c2 = this.j.c();
         try {
             MediaMuxer mediaMuxer = new MediaMuxer(this.t, 0);
             mediaMuxer.setOrientationHint(c2);
             this.e = new CountDownLatch(1);
-            this.f1732a = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.e);
-            this.f1732a.a(this);
+            this.f2359a = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.e);
+            this.f2359a.a(this);
             this.o.d(c2);
             this.o.a(this.t);
             this.o.a(a2);
@@ -54,8 +56,8 @@ public class a extends h {
         if (this.i) {
             i();
             this.i = false;
-            this.f1732a.c();
-            this.d += this.f1732a.e();
+            this.f2359a.c();
+            this.d += this.f2359a.e();
         }
     }
 
@@ -64,8 +66,8 @@ public class a extends h {
         if (this.i) {
             i();
             this.i = false;
-            this.f1732a.c();
-            this.d += this.f1732a.e();
+            this.f2359a.c();
+            this.d += this.f2359a.e();
         }
     }
 
@@ -99,14 +101,14 @@ public class a extends h {
                 if (this.p) {
                 }
                 return;
-            } else if (!this.f1732a.isAlive()) {
-                if (!this.p && !this.f1732a.b()) {
+            } else if (!this.f2359a.isAlive()) {
+                if (!this.p && !this.f2359a.b()) {
                     a(new RuntimeException("wait record stop" + (System.currentTimeMillis() - currentTimeMillis) + "ms,timeout"));
                     return;
                 }
                 return;
-            } else if (i != this.f1732a.f()) {
-                i = this.f1732a.f();
+            } else if (i != this.f2359a.f()) {
+                i = this.f2359a.f();
                 j = System.currentTimeMillis();
             } else if (System.currentTimeMillis() - j > 10000) {
                 String str = (System.currentTimeMillis() - j) + "ms cannot write finish, record fail";
@@ -120,7 +122,7 @@ public class a extends h {
     @Override // com.baidu.fsg.face.liveness.video.e
     public void a(byte[] bArr, long j) {
         if (this.i && bArr != null && !this.k) {
-            this.f1732a.a(bArr, j);
+            this.f2359a.a(bArr, j);
         }
     }
 
@@ -153,7 +155,7 @@ public class a extends h {
         this.p = false;
         h();
         if (a()) {
-            this.f1732a.start();
+            this.f2359a.start();
             this.m = System.currentTimeMillis();
             this.i = true;
         }

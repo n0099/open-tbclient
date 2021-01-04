@@ -14,7 +14,7 @@ import java.util.TreeSet;
 import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class Headers {
     private final String[] namesAndValues;
 
@@ -62,8 +62,8 @@ public final class Headers {
     }
 
     public List<String> values(String str) {
-        int size = size();
         ArrayList arrayList = null;
+        int size = size();
         for (int i = 0; i < size; i++) {
             if (str.equalsIgnoreCase(name(i))) {
                 if (arrayList == null) {
@@ -213,7 +213,7 @@ public final class Headers {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         final List<String> namesAndValues = new ArrayList(20);
 

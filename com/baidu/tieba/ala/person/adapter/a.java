@@ -6,43 +6,44 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.live.data.AlaLiveInfoData;
-import com.baidu.live.data.bf;
+import com.baidu.live.data.bh;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.person.view.e;
+import com.baidu.tieba.ala.person.view.d;
+import com.baidu.tieba.ala.person.view.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private int gFh;
-    private InterfaceC0706a hJs;
-    private c hJt;
-    private b hJu;
+    private int gQS;
+    private InterfaceC0698a hVE;
+    private c hVF;
+    private b hVG;
     private List mList;
     private int mSkinType;
     private int type;
 
     /* renamed from: com.baidu.tieba.ala.person.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0706a {
-        void a(bf bfVar, View view);
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0698a {
+        void a(bh bhVar, View view);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void a(AlaLiveInfoData alaLiveInfoData, View view);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface c {
-        void b(bf bfVar, View view);
+        void b(bh bhVar, View view);
     }
 
     public a(Context context, int i) {
-        this.gFh = 2;
+        this.gQS = 2;
         this.context = context;
-        this.gFh = i;
+        this.gQS = i;
     }
 
     public void a(boolean z, List list, int i) {
@@ -79,50 +80,50 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        com.baidu.tieba.ala.person.view.c cVar = null;
+        d dVar = null;
         if (view == null) {
             if (this.mList.get(i) != null) {
-                if (this.gFh == 1) {
+                if (this.gQS == 1) {
                     if (this.type == 1 || this.type == 0) {
                         view = LayoutInflater.from(this.context).inflate(a.g.ala_person_list_item_layout, (ViewGroup) null);
-                        cVar = new com.baidu.tieba.ala.person.view.b(view, this.gFh);
+                        dVar = new com.baidu.tieba.ala.person.view.b(view, this.gQS);
                     } else if (this.type == 2) {
                         view = LayoutInflater.from(this.context).inflate(a.g.ala_playbacks_list_item_layout, (ViewGroup) null);
-                        cVar = new e(view, this.gFh);
+                        dVar = new f(view, this.gQS);
                     }
-                } else if (this.gFh == 2) {
+                } else if (this.gQS == 2) {
                     view = LayoutInflater.from(this.context).inflate(a.g.ala_person_card_list_item_layout, (ViewGroup) null);
-                    cVar = new com.baidu.tieba.ala.person.view.b(view, this.gFh);
+                    dVar = new com.baidu.tieba.ala.person.view.b(view, this.gQS);
                 }
-                if (cVar != null) {
-                    cVar.a(this.hJs);
-                    cVar.a(this.hJu);
-                    cVar.a(this.hJt);
+                if (dVar != null) {
+                    dVar.a(this.hVE);
+                    dVar.a(this.hVG);
+                    dVar.a(this.hVF);
                 }
                 if (view != null) {
-                    view.setTag(cVar);
+                    view.setTag(dVar);
                 }
             }
         } else {
-            cVar = (com.baidu.tieba.ala.person.view.c) view.getTag();
+            dVar = (d) view.getTag();
         }
         Object obj = this.mList.get(i);
-        if (cVar != null && obj != null) {
-            cVar.b(obj, this.mSkinType);
+        if (dVar != null && obj != null) {
+            dVar.c(obj, this.mSkinType);
         }
         return view;
     }
 
-    public void aD(String str, boolean z) {
+    public void aE(String str, boolean z) {
         if (str != null && !ListUtils.isEmpty(this.mList)) {
             for (Object obj : this.mList) {
-                if (this.type != 2 && (obj instanceof bf)) {
-                    bf bfVar = (bf) obj;
-                    if (str.equals(bfVar.id)) {
+                if (this.type != 2 && (obj instanceof bh)) {
+                    bh bhVar = (bh) obj;
+                    if (str.equals(bhVar.id)) {
                         if (z) {
-                            bfVar.aQa = 1;
+                            bhVar.aQP = 1;
                         } else {
-                            bfVar.aQa = 0;
+                            bhVar.aQP = 0;
                         }
                         notifyDataSetChanged();
                         return;
@@ -136,15 +137,15 @@ public class a extends BaseAdapter {
         this.mSkinType = i;
     }
 
-    public void a(InterfaceC0706a interfaceC0706a) {
-        this.hJs = interfaceC0706a;
+    public void a(InterfaceC0698a interfaceC0698a) {
+        this.hVE = interfaceC0698a;
     }
 
     public void a(c cVar) {
-        this.hJt = cVar;
+        this.hVF = cVar;
     }
 
     public void a(b bVar) {
-        this.hJu = bVar;
+        this.hVG = bVar;
     }
 }

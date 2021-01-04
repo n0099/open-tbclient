@@ -2,12 +2,14 @@ package com.baidu.webkit.net;
 
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class f {
-    private static final String b = f.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f6029b = f.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    BdNetTask f3977a;
+    BdNetTask f6030a;
     private BdNet c;
     private BdNetEngine d;
 
@@ -21,7 +23,7 @@ public class f {
     }
 
     public final boolean a() {
-        return this.f3977a != null;
+        return this.f6030a != null;
     }
 
     public final boolean a(BdNetTask bdNetTask) {
@@ -29,9 +31,9 @@ public class f {
             return false;
         }
         try {
-            this.f3977a = bdNetTask;
-            this.f3977a.setNet(this.c);
-            this.f3977a.setWorker(this);
+            this.f6030a = bdNetTask;
+            this.f6030a.setNet(this.c);
+            this.f6030a.setWorker(this);
             if (e.a().c == null) {
                 e.a().c = this.c.getContext();
             }
@@ -40,16 +42,16 @@ public class f {
                 this.d.setEventListener(this.c);
                 e.a();
                 if (!e.b()) {
-                    this.d.startDownload(this.f3977a);
-                } else if (this.f3977a.isHigherPriority()) {
-                    this.d.startDownload(this.f3977a);
+                    this.d.startDownload(this.f6030a);
+                } else if (this.f6030a.isHigherPriority()) {
+                    this.d.startDownload(this.f6030a);
                 }
             } else {
                 e.a();
-                if (!e.b() || this.f3977a.isHigherPriority()) {
-                    BdNetTask bdNetTask2 = this.f3977a;
+                if (!e.b() || this.f6030a.isHigherPriority()) {
+                    BdNetTask bdNetTask2 = this.f6030a;
                     if (bdNetTask2.getTaskPriority$78f3a484() == 0) {
-                        e.a().a(bdNetTask2, BdNetTask.b.b - 1);
+                        e.a().a(bdNetTask2, BdNetTask.b.f6024b - 1);
                     } else {
                         e.a().a(bdNetTask2, bdNetTask2.getTaskPriority$78f3a484() - 1);
                     }
@@ -70,13 +72,13 @@ public class f {
 
     public final void b() {
         try {
-            if (this.f3977a != null) {
-                this.f3977a.setWorker(null);
-                this.f3977a.stop();
-                this.f3977a = null;
+            if (this.f6030a != null) {
+                this.f6030a.setWorker(null);
+                this.f6030a.stop();
+                this.f6030a = null;
             }
         } catch (Exception e) {
-            Log.d(b, "stop Exception", e);
+            Log.d(f6029b, "stop Exception", e);
         }
     }
 }

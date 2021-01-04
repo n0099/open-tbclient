@@ -1,9 +1,10 @@
 package com.baidu.swan.facade.requred.openstat.imupload;
 
 import android.annotation.SuppressLint;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
     @SuppressLint({"DefaultLocale"})
     public static String u(String str, long j) {
@@ -12,10 +13,10 @@ public class a {
 
     private static String md5(String str) {
         try {
-            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+            byte[] digest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes());
             StringBuilder sb = new StringBuilder();
-            for (byte b : digest) {
-                int i = b & 255;
+            for (byte b2 : digest) {
+                int i = b2 & 255;
                 if (i < 16) {
                     sb.append(0);
                 }

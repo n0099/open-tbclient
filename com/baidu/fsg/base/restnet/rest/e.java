@@ -3,7 +3,7 @@ package com.baidu.fsg.base.restnet.rest;
 import com.baidu.fsg.base.restnet.http.HttpStatus;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public interface e {
     int a() throws IOException;
 

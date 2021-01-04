@@ -10,12 +10,14 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1055a = "NotificationBuilderManager";
-    private static String b = "notification_builder_storage";
+    private static String f1255a = "NotificationBuilderManager";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f1256b = "notification_builder_storage";
     private static Object c = new Object();
     private static int d = 0;
 
@@ -76,8 +78,7 @@ public class d {
 
     private static PushNotificationBuilder a(Context context, int i) {
         PushNotificationBuilder pushNotificationBuilder;
-        Exception e;
-        String string = context.getSharedPreferences(b, 0).getString("" + i, null);
+        String string = context.getSharedPreferences(f1256b, 0).getString("" + i, null);
         if (string == null) {
             return b(context);
         }
@@ -89,14 +90,14 @@ public class d {
                 objectInputStream.close();
                 byteArrayInputStream.close();
                 return pushNotificationBuilder;
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 new b.c(context).a(Log.getStackTraceString(e)).a();
                 return pushNotificationBuilder;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             pushNotificationBuilder = null;
-            e = e3;
         }
     }
 
@@ -107,7 +108,7 @@ public class d {
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
                 String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(f1256b, 0).edit();
                 edit.putString("" + i, encodeToString);
                 edit.commit();
                 byteArrayOutputStream.close();
@@ -125,7 +126,7 @@ public class d {
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
                 String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(f1256b, 0).edit();
                 edit.putString("" + d, encodeToString);
                 edit.commit();
                 byteArrayOutputStream.close();
@@ -138,8 +139,7 @@ public class d {
 
     private static PushNotificationBuilder b(Context context) {
         PushNotificationBuilder pushNotificationBuilder;
-        Exception e;
-        String string = context.getSharedPreferences(b, 0).getString("" + d, null);
+        String string = context.getSharedPreferences(f1256b, 0).getString("" + d, null);
         if (string == null) {
             return a(context);
         }
@@ -151,14 +151,14 @@ public class d {
                 objectInputStream.close();
                 byteArrayInputStream.close();
                 return pushNotificationBuilder;
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 new b.c(context).a(Log.getStackTraceString(e)).a();
                 return pushNotificationBuilder;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             pushNotificationBuilder = null;
-            e = e3;
         }
     }
 }

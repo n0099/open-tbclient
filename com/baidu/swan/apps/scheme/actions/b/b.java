@@ -6,16 +6,16 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ap.v;
+import com.baidu.swan.apps.ao.v;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class b extends aa {
-    protected String dAW;
-    protected boolean dAX;
+    protected String dJB;
+    protected boolean dJC;
 
     protected abstract void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
 
@@ -23,8 +23,8 @@ public abstract class b extends aa {
 
     public b(j jVar, String str) {
         super(jVar, str);
-        this.dAW = null;
-        this.dAX = false;
+        this.dJB = null;
+        this.dJC = false;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -47,21 +47,21 @@ public abstract class b extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        this.dAX = parseString.optBoolean("isFavorButton", false);
+        this.dJC = parseString.optBoolean("isFavorButton", false);
         if (!b(eVar, unitedSchemeEntity)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params error");
             return false;
         }
         String optString2 = parseString.optString("slaveId");
-        String aCu = com.baidu.swan.apps.v.f.aCp().aCu();
-        if (TextUtils.equals(optString2, com.baidu.swan.apps.v.f.aCp().arl()) && (TextUtils.equals(aCu, "pages/swan-news-showcase/index") || TextUtils.equals(aCu, "pages/swan-operate-news/index"))) {
+        String aDL = com.baidu.swan.apps.v.f.aDG().aDL();
+        if (TextUtils.equals(optString2, com.baidu.swan.apps.v.f.aDG().asD()) && (TextUtils.equals(aDL, "pages/swan-news-showcase/index") || TextUtils.equals(aDL, "pages/swan-operate-news/index"))) {
             b(eVar, unitedSchemeEntity, callbackHandler, optString);
         } else {
-            eVar.aKg().b(context, this.dAX ? "scope_favorite_button" : "mapp_favorite", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
+            eVar.aMw().b(context, this.dJC ? "scope_favorite_button" : "mapp_favorite", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.ap.e.b
+                @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
-                public void M(h<b.d> hVar) {
+                public void L(h<b.d> hVar) {
                     if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString);
                     } else {

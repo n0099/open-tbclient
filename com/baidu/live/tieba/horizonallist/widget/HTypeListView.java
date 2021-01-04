@@ -7,7 +7,7 @@ import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class HTypeListView extends HListView {
     TypeAdapter mTypeAdapter;
 

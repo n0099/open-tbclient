@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class e extends a {
     public String d = "";
     protected boolean e = false;
@@ -9,6 +9,6 @@ public class e extends a {
     }
 
     public String toString() {
-        return "mPackageName: " + this.b + ", mAppId: " + this.f1010a + ", mUserId: " + this.d + ", mPushSDKVersion: " + this.c;
+        return "mPackageName: " + this.f1167b + ", mAppId: " + this.f1166a + ", mUserId: " + this.d + ", mPushSDKVersion: " + this.c;
     }
 }

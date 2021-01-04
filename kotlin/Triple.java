@@ -3,7 +3,7 @@ package kotlin;
 import java.io.Serializable;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class Triple<A, B, C> implements Serializable {
     private final A first;
     private final B second;
@@ -36,8 +36,8 @@ public final class Triple<A, B, C> implements Serializable {
         return this.third;
     }
 
-    public final Triple<A, B, C> copy(A a2, B b, C c) {
-        return new Triple<>(a2, b, c);
+    public final Triple<A, B, C> copy(A a2, B b2, C c) {
+        return new Triple<>(a2, b2, c);
     }
 
     public boolean equals(Object obj) {
@@ -55,15 +55,15 @@ public final class Triple<A, B, C> implements Serializable {
     public int hashCode() {
         A a2 = this.first;
         int hashCode = (a2 != null ? a2.hashCode() : 0) * 31;
-        B b = this.second;
-        int hashCode2 = ((b != null ? b.hashCode() : 0) + hashCode) * 31;
+        B b2 = this.second;
+        int hashCode2 = ((b2 != null ? b2.hashCode() : 0) + hashCode) * 31;
         C c = this.third;
         return hashCode2 + (c != null ? c.hashCode() : 0);
     }
 
-    public Triple(A a2, B b, C c) {
+    public Triple(A a2, B b2, C c) {
         this.first = a2;
-        this.second = b;
+        this.second = b2;
         this.third = c;
     }
 

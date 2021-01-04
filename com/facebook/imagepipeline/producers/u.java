@@ -12,10 +12,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import okhttp3.internal.http.StatusLine;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int plY;
+    private int pBB;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -23,7 +23,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.plY = i;
+        this.pBB = i;
     }
 
     u(ExecutorService executorService) {
@@ -43,125 +43,117 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.ewK().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.eAr().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void ewD() {
+            public void eAk() {
                 if (submit.cancel(false)) {
-                    aVar.epN();
+                    aVar.etQ();
                 }
             }
         });
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [96=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0044 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x000c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0038  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0033 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.net.HttpURLConnection, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r1v2, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r1v7 */
-    /* JADX WARN: Type inference failed for: r5v0, types: [com.facebook.imagepipeline.producers.af$a] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     void b(t tVar, af.a aVar) {
+        InputStream inputStream;
         HttpURLConnection httpURLConnection;
-        ?? r1 = 0;
-        r1 = 0;
-        InputStream inputStream = null;
+        InputStream inputStream2;
         try {
             try {
                 httpURLConnection = c(tVar.getUri(), 5);
                 if (httpURLConnection != null) {
                     try {
-                        r1 = httpURLConnection.getInputStream();
-                        aVar.f(r1, -1);
-                        inputStream = r1;
-                    } catch (IOException e) {
-                        e = e;
-                        aVar.E(e);
-                        if (r1 != 0) {
+                        inputStream2 = httpURLConnection.getInputStream();
+                        try {
+                            aVar.f(inputStream2, -1);
+                        } catch (IOException e) {
+                            e = e;
+                            aVar.D(e);
+                            if (inputStream2 != null) {
+                                try {
+                                    inputStream2.close();
+                                } catch (IOException e2) {
+                                }
+                            }
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                                return;
+                            }
+                            return;
+                        }
+                    } catch (IOException e3) {
+                        e = e3;
+                        inputStream2 = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        inputStream = null;
+                        if (inputStream != null) {
                             try {
-                                r1.close();
-                            } catch (IOException e2) {
+                                inputStream.close();
+                            } catch (IOException e4) {
                             }
                         }
                         if (httpURLConnection != null) {
                             httpURLConnection.disconnect();
-                            return;
                         }
-                        return;
+                        throw th;
                     }
+                } else {
+                    inputStream2 = null;
                 }
-                if (inputStream != null) {
+                if (inputStream2 != null) {
                     try {
-                        inputStream.close();
-                    } catch (IOException e3) {
+                        inputStream2.close();
+                    } catch (IOException e5) {
                     }
                 }
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (0 != 0) {
-                    try {
-                        r1.close();
-                    } catch (IOException e4) {
-                    }
-                }
-                if (0 != 0) {
-                    r1.disconnect();
-                }
-                throw th;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (IOException e5) {
-            e = e5;
+        } catch (IOException e6) {
+            e = e6;
+            inputStream2 = null;
             httpURLConnection = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (0 != 0) {
-            }
-            if (0 != 0) {
-            }
-            throw th;
+        } catch (Throwable th3) {
+            th = th3;
+            inputStream = null;
+            httpURLConnection = null;
         }
     }
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
-        HttpURLConnection aa = aa(uri);
-        aa.setConnectTimeout(this.plY);
-        int responseCode = aa.getResponseCode();
-        if (!Rj(responseCode)) {
-            if (Rk(responseCode)) {
-                String headerField = aa.getHeaderField(Headers.LOCATION);
-                aa.disconnect();
+        HttpURLConnection ae = ae(uri);
+        ae.setConnectTimeout(this.pBB);
+        int responseCode = ae.getResponseCode();
+        if (!Rh(responseCode)) {
+            if (isHttpRedirect(responseCode)) {
+                String headerField = ae.getHeaderField(Headers.LOCATION);
+                ae.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
                 String scheme = uri.getScheme();
                 if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
                     return c(parse, i - 1);
                 }
-                throw new IOException(i == 0 ? k("URL %s follows too many redirects", uri.toString()) : k("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
+                throw new IOException(i == 0 ? m("URL %s follows too many redirects", uri.toString()) : m("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
             }
-            aa.disconnect();
+            ae.disconnect();
             throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
         }
-        return aa;
+        return ae;
     }
 
-    static HttpURLConnection aa(Uri uri) throws IOException {
-        return (HttpURLConnection) com.facebook.common.util.d.L(uri).openConnection();
+    static HttpURLConnection ae(Uri uri) throws IOException {
+        return (HttpURLConnection) com.facebook.common.util.d.M(uri).openConnection();
     }
 
-    private static boolean Rj(int i) {
+    private static boolean Rh(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean Rk(int i) {
+    private static boolean isHttpRedirect(int i) {
         switch (i) {
             case 300:
             case 301:
@@ -178,7 +170,7 @@ public class u extends c<t> {
         }
     }
 
-    private static String k(String str, Object... objArr) {
+    private static String m(String str, Object... objArr) {
         return String.format(Locale.getDefault(), str, objArr);
     }
 }

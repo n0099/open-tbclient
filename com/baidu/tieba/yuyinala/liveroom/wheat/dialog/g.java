@@ -13,15 +13,15 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implements DialogInterface.OnDismissListener, View.OnClickListener {
-    private TextView bTh;
-    private TextView bTi;
-    public CustomMessageListener bgy;
+    private TextView bYR;
+    private TextView bYS;
+    public CustomMessageListener bih;
     private TextView mTitle;
-    private a owi;
+    private a oCW;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onCancel();
 
@@ -30,7 +30,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     public g(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bgy = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
+        this.bih = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,7 +44,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     public g(Activity activity) {
         super(activity);
-        this.bgy = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
+        this.bih = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -57,13 +57,13 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     private void initView() {
         this.mTitle = (TextView) findViewById(a.f.tv_title);
-        this.bTh = (TextView) findViewById(a.f.tv_cancel);
-        this.bTi = (TextView) findViewById(a.f.tv_confirm);
+        this.bYR = (TextView) findViewById(a.f.tv_cancel);
+        this.bYS = (TextView) findViewById(a.f.tv_confirm);
     }
 
     private void initListener() {
-        this.bTh.setOnClickListener(this);
-        this.bTi.setOnClickListener(this);
+        this.bYR.setOnClickListener(this);
+        this.bYS.setOnClickListener(this);
     }
 
     public void setText(String str) {
@@ -72,22 +72,29 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         }
     }
 
-    public void Wn(String str) {
-        if (this.bTh != null && !TextUtils.isEmpty(str)) {
-            this.bTh.setText(str);
+    public void VN(String str) {
+        if (this.bYR != null && !TextUtils.isEmpty(str)) {
+            this.bYR.setText(str);
         }
     }
 
-    public void bV(String str, int i) {
-        if (this.bTi != null) {
-            this.bTi.setText(str);
-            this.bTi.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(i));
+    public void cc(String str, int i) {
+        if (this.bYR != null && !TextUtils.isEmpty(str)) {
+            this.bYR.setText(str);
+            this.bYR.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(i));
         }
     }
 
-    public void efA() {
-        if (this.bTi != null) {
-            this.bTi.getPaint().setFakeBoldText(true);
+    public void cd(String str, int i) {
+        if (this.bYS != null) {
+            this.bYS.setText(str);
+            this.bYS.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(i));
+        }
+    }
+
+    public void efG() {
+        if (this.bYS != null) {
+            this.bYS.getPaint().setFakeBoldText(true);
         }
     }
 
@@ -102,16 +109,16 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
     protected View getView() {
-        return LayoutInflater.from(this.beD).inflate(a.g.yuyin_layout_dialog_connnection_wheat_remind, (ViewGroup) null);
+        return LayoutInflater.from(this.mContext).inflate(a.g.yuyin_layout_dialog_connnection_wheat_remind, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean Ty() {
+    protected boolean UD() {
         return true;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean Tz() {
+    protected boolean UE() {
         return true;
     }
 
@@ -127,7 +134,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        MessageManager.getInstance().registerListener(this.bgy);
+        MessageManager.getInstance().registerListener(this.bih);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -138,25 +145,25 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bTh) {
+        if (view == this.bYR) {
             dismiss();
-            if (this.owi != null) {
-                this.owi.onCancel();
+            if (this.oCW != null) {
+                this.oCW.onCancel();
             }
-        } else if (view == this.bTi) {
+        } else if (view == this.bYS) {
             dismiss();
-            if (this.owi != null) {
-                this.owi.onConfirm();
+            if (this.oCW != null) {
+                this.oCW.onConfirm();
             }
         }
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        MessageManager.getInstance().unRegisterListener(this.bgy);
+        MessageManager.getInstance().unRegisterListener(this.bih);
     }
 
     public void a(a aVar) {
-        this.owi = aVar;
+        this.oCW = aVar;
     }
 }

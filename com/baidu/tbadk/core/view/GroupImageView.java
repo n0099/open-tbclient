@@ -29,7 +29,6 @@ public class GroupImageView extends TbClipImageView {
         setGifIconSupport(false);
         setDrawBorder(true);
         setDefaultResource(this.mDefaultId);
-        setDefaultErrorResource(R.drawable.icon_default_group_120);
         setDefaultBgResource(this.mDefaultBgId);
     }
 }

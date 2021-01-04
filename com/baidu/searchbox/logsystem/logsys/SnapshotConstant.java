@@ -1,8 +1,8 @@
 package com.baidu.searchbox.logsystem.logsys;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class SnapshotConstant {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static final class DeviceConstants {
         public static final String DEVICE_APP_DB_INFO = "pre_d_db_info";
         public static final String DEVICE_APP_LOGCAT_FILE_NAME = "pre_d_logcat_log";
@@ -10,7 +10,7 @@ public class SnapshotConstant {
         public static final String DEVICE_INFO = "pre_d_device_info";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static final class DeviceFilePathConstants {
         public static final String DEVICE_BUILD_CONFIG = "/system/build.prop";
         public static final String DEVICE_ION_HEAP = "/sys/kernel/debug/ion/ion_mm_heap";
@@ -19,18 +19,18 @@ public class SnapshotConstant {
         public static final String DEVICE_VERSION = "/proc/version";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static final class ExtConstant {
         public static final String EXT_FILE_PREFIX = "ext_";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static final class LocalConstants {
         public static final String LOCAL_PREFIX = "local_";
         public static final String LOCAL_PROCESS_PATH_NAME_KEEPER = "local_p_path_name_keeper";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static final class ProcessConstants {
         public static final String PROCESS_LOG_BASIC_DATA = "pre_p_log_basicdata";
         public static final String PROCESS_MEM_STATUS = "pre_p_memory_status";

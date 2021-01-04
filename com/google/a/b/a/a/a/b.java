@@ -2,7 +2,7 @@ package com.google.a.b.a.a.a;
 
 import android.os.IBinder;
 import android.os.IInterface;
-/* loaded from: classes17.dex */
+/* loaded from: classes3.dex */
 public abstract class b extends com.google.a.a.b implements a {
     public static a a(IBinder iBinder) {
         if (iBinder == null) {

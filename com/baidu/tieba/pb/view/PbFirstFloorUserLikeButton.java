@@ -6,13 +6,13 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    protected String fga;
-    protected String fgb;
-    private com.baidu.tbadk.core.view.commonBtn.b men;
-    private com.baidu.tbadk.core.view.commonBtn.b meo;
-    public View.OnClickListener mep;
+    protected String fpJ;
+    protected String fpK;
+    private com.baidu.tbadk.core.view.commonBtn.b mjA;
+    private com.baidu.tbadk.core.view.commonBtn.b mjB;
+    public View.OnClickListener mjC;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -30,19 +30,19 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     private void init() {
-        this.fga = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.fgb = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.fpJ = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.fpK = TbadkCoreApplication.getInst().getString(R.string.attention);
         setTextSize(R.dimen.T_X08);
-        setText(this.fgb);
-        this.men = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.men.rh(R.color.CAM_X0302);
-        this.meo = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.meo.rj(R.color.CAM_X0109);
-        setConfig(this.men);
+        setText(this.fpK);
+        this.mjA = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.mjA.rs(R.color.CAM_X0302);
+        this.mjB = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.mjB.ru(R.color.CAM_X0109);
+        setConfig(this.mjA);
     }
 
     public void setFollowIconSize(int i) {
-        this.men.rc(i);
+        this.mjA.setIconSize(i);
     }
 
     @Override // android.view.View
@@ -50,51 +50,51 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
         super.setVisibility(i);
     }
 
-    public void aP(boolean z) {
-        if (!(this.ffy instanceof Boolean) || ((Boolean) this.ffy).booleanValue() != z) {
-            this.ffy = Boolean.valueOf(z);
+    public void aM(boolean z) {
+        if (!(this.fpg instanceof Boolean) || ((Boolean) this.fpg).booleanValue() != z) {
+            this.fpg = Boolean.valueOf(z);
             if (z) {
                 setVisibility(8);
                 setClickable(false);
-                setText(this.fga);
-                setConfig(this.meo);
+                setText(this.fpJ);
+                setConfig(this.mjB);
             } else {
                 setVisibility(0);
                 setClickable(true);
-                setText(this.fgb);
-                setConfig(this.men);
+                setText(this.fpK);
+                setConfig(this.mjA);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void s(boolean z, int i) {
-        aP(z);
+    public void r(boolean z, int i) {
+        aM(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void a(boolean z, int i, boolean z2) {
-        aP(z);
+    public void c(boolean z, int i, boolean z2) {
+        aM(z);
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void rq(int i) {
+    public void rC(int i) {
     }
 
-    public void bB(View view) {
-        if (this.mep != null) {
-            this.mep.onClick(view);
+    public void bK(View view) {
+        if (this.mjC != null) {
+            this.mjC.onClick(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void h(View.OnClickListener onClickListener) {
+    public void i(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
     public void onChangeSkinType(int i) {
-        bvt();
+        bxO();
     }
 }

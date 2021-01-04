@@ -104,19 +104,17 @@ public class CommentUtils {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [130=4, 131=4, 133=4, 134=4, 136=4, 137=4, 139=4, 140=4] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00a6 A[Catch: Exception -> 0x00af, TryCatch #0 {Exception -> 0x00af, blocks: (B:45:0x00a1, B:47:0x00a6, B:49:0x00ab), top: B:67:0x00a1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00ab A[Catch: Exception -> 0x00af, TRY_LEAVE, TryCatch #0 {Exception -> 0x00af, blocks: (B:45:0x00a1, B:47:0x00a6, B:49:0x00ab), top: B:67:0x00a1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x00a1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00a8 A[Catch: Exception -> 0x00b1, TryCatch #11 {Exception -> 0x00b1, blocks: (B:45:0x00a3, B:47:0x00a8, B:49:0x00ad), top: B:74:0x00a3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00ad A[Catch: Exception -> 0x00b1, TRY_LEAVE, TryCatch #11 {Exception -> 0x00b1, blocks: (B:45:0x00a3, B:47:0x00a8, B:49:0x00ad), top: B:74:0x00a3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x00a3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String writeApk(File file, String str) {
+        RandomAccessFile randomAccessFile;
         ByteArrayOutputStream byteArrayOutputStream;
         ZipFile zipFile;
-        ByteArrayOutputStream byteArrayOutputStream2;
-        ZipFile zipFile2;
-        RandomAccessFile randomAccessFile = null;
-        ByteArrayOutputStream byteArrayOutputStream3 = null;
+        ByteArrayOutputStream byteArrayOutputStream2 = null;
         RandomAccessFile randomAccessFile2 = null;
         try {
             zipFile = new ZipFile(file);
@@ -131,7 +129,7 @@ public class CommentUtils {
                         }
                     }
                     if (0 != 0) {
-                        byteArrayOutputStream3.close();
+                        byteArrayOutputStream2.close();
                     }
                     if (0 != 0) {
                         randomAccessFile2.close();
@@ -145,59 +143,37 @@ public class CommentUtils {
                     byteArrayOutputStream.write(bytes);
                     byteArrayOutputStream.write(short2Stream((short) bytes.length));
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    RandomAccessFile randomAccessFile3 = new RandomAccessFile(file, "rw");
+                    randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
-                        randomAccessFile3.seek(file.length() - 2);
-                        randomAccessFile3.write(short2Stream((short) byteArray.length));
-                        randomAccessFile3.write(byteArray);
-                        if (zipFile != null) {
-                            try {
-                                zipFile.close();
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                                return FrsActivityConfig.GOOD;
-                            }
-                        }
-                        if (byteArrayOutputStream != null) {
-                            byteArrayOutputStream.close();
-                        }
-                        if (randomAccessFile3 != null) {
-                            randomAccessFile3.close();
-                            return FrsActivityConfig.GOOD;
-                        }
-                        return FrsActivityConfig.GOOD;
-                    } catch (IOException e3) {
-                        e = e3;
-                        randomAccessFile = randomAccessFile3;
-                        byteArrayOutputStream2 = byteArrayOutputStream;
-                        zipFile2 = zipFile;
                         try {
-                            e.printStackTrace();
-                            if (zipFile2 != null) {
-                                try {
-                                    zipFile2.close();
-                                } catch (Exception e4) {
-                                    e4.printStackTrace();
-                                    return "bad";
-                                }
-                            }
-                            if (byteArrayOutputStream2 != null) {
-                                byteArrayOutputStream2.close();
-                            }
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return "bad";
-                        } catch (Throwable th) {
-                            th = th;
-                            zipFile = zipFile2;
-                            byteArrayOutputStream = byteArrayOutputStream2;
+                            randomAccessFile.seek(file.length() - 2);
+                            randomAccessFile.write(short2Stream((short) byteArray.length));
+                            randomAccessFile.write(byteArray);
                             if (zipFile != null) {
                                 try {
                                     zipFile.close();
-                                } catch (Exception e5) {
-                                    e5.printStackTrace();
-                                    throw th;
+                                } catch (Exception e2) {
+                                    e2.printStackTrace();
+                                    return FrsActivityConfig.GOOD;
+                                }
+                            }
+                            if (byteArrayOutputStream != null) {
+                                byteArrayOutputStream.close();
+                            }
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                                return FrsActivityConfig.GOOD;
+                            }
+                            return FrsActivityConfig.GOOD;
+                        } catch (IOException e3) {
+                            e = e3;
+                            e.printStackTrace();
+                            if (zipFile != null) {
+                                try {
+                                    zipFile.close();
+                                } catch (Exception e4) {
+                                    e4.printStackTrace();
+                                    return "bad";
                                 }
                             }
                             if (byteArrayOutputStream != null) {
@@ -206,40 +182,57 @@ public class CommentUtils {
                             if (randomAccessFile != null) {
                                 randomAccessFile.close();
                             }
-                            throw th;
+                            return "bad";
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        randomAccessFile = randomAccessFile3;
+                    } catch (Throwable th) {
+                        th = th;
                         if (zipFile != null) {
+                            try {
+                                zipFile.close();
+                            } catch (Exception e5) {
+                                e5.printStackTrace();
+                                throw th;
+                            }
                         }
                         if (byteArrayOutputStream != null) {
+                            byteArrayOutputStream.close();
                         }
                         if (randomAccessFile != null) {
+                            randomAccessFile.close();
                         }
                         throw th;
                     }
                 } catch (IOException e6) {
                     e = e6;
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                    zipFile2 = zipFile;
-                } catch (Throwable th3) {
-                    th = th3;
+                    randomAccessFile = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    randomAccessFile = null;
+                    if (zipFile != null) {
+                    }
+                    if (byteArrayOutputStream != null) {
+                    }
+                    if (randomAccessFile != null) {
+                    }
+                    throw th;
                 }
             } catch (IOException e7) {
                 e = e7;
-                byteArrayOutputStream2 = null;
-                zipFile2 = zipFile;
-            } catch (Throwable th4) {
-                th = th4;
+                randomAccessFile = null;
+                byteArrayOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                randomAccessFile = null;
                 byteArrayOutputStream = null;
             }
         } catch (IOException e8) {
             e = e8;
-            byteArrayOutputStream2 = null;
-            zipFile2 = null;
-        } catch (Throwable th5) {
-            th = th5;
+            randomAccessFile = null;
+            byteArrayOutputStream = null;
+            zipFile = null;
+        } catch (Throwable th4) {
+            th = th4;
+            randomAccessFile = null;
             byteArrayOutputStream = null;
             zipFile = null;
         }

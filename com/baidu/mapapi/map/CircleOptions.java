@@ -1,15 +1,15 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class CircleOptions extends OverlayOptions {
     private static final String d = CircleOptions.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2006a;
+    int f2806a;
     Bundle c;
     private LatLng e;
     private int g;
@@ -19,17 +19,19 @@ public final class CircleOptions extends OverlayOptions {
     private int f = ViewCompat.MEASURED_STATE_MASK;
     private boolean i = false;
     private int j = 0;
-    boolean b = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    boolean f2807b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Circle circle = new Circle();
-        circle.B = this.b;
-        circle.A = this.f2006a;
+        circle.B = this.f2807b;
+        circle.A = this.f2806a;
         circle.C = this.c;
-        circle.b = this.f;
-        circle.f2003a = this.e;
+        circle.f2802b = this.f;
+        circle.f2801a = this.e;
         circle.c = this.g;
         circle.d = this.h;
         circle.e = this.i;
@@ -98,11 +100,11 @@ public final class CircleOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2006a;
+        return this.f2806a;
     }
 
     public boolean isVisible() {
-        return this.b;
+        return this.f2807b;
     }
 
     public CircleOptions radius(int i) {
@@ -116,12 +118,12 @@ public final class CircleOptions extends OverlayOptions {
     }
 
     public CircleOptions visible(boolean z) {
-        this.b = z;
+        this.f2807b = z;
         return this;
     }
 
     public CircleOptions zIndex(int i) {
-        this.f2006a = i;
+        this.f2806a = i;
         return this;
     }
 }

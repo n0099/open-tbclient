@@ -3,7 +3,7 @@ package com.squareup.wire2;
 import java.io.IOException;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class d {
     private final BufferedSink sink;
 
@@ -12,32 +12,34 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int RJ(int i) {
+    public static int RG(int i) {
         return varint32Size(a(i, FieldEncoding.VARINT));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int utf8Length(String str) {
-        int i = 0;
+        int i;
         int length = str.length();
         int i2 = 0;
-        while (i < length) {
-            char charAt = str.charAt(i);
+        int i3 = 0;
+        while (i2 < length) {
+            char charAt = str.charAt(i2);
             if (charAt < 128) {
-                i2++;
+                i = i3 + 1;
             } else if (charAt < 2048) {
-                i2 += 2;
+                i = i3 + 2;
             } else if (charAt < 55296 || charAt > 57343) {
-                i2 += 3;
-            } else if (charAt <= 56319 && i + 1 < length && str.charAt(i + 1) >= 56320 && str.charAt(i + 1) <= 57343) {
-                i2 += 4;
-                i++;
-            } else {
+                i = i3 + 3;
+            } else if (charAt <= 56319 && i2 + 1 < length && str.charAt(i2 + 1) >= 56320 && str.charAt(i2 + 1) <= 57343) {
+                i = i3 + 4;
                 i2++;
+            } else {
+                i = i3 + 1;
             }
-            i++;
+            i2++;
+            i3 = i;
         }
-        return i2;
+        return i3;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

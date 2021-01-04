@@ -2,32 +2,32 @@ package com.baidu.swan.apps.res.widget.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.StyleRes;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+import androidx.annotation.StyleRes;
+/* loaded from: classes9.dex */
 public class c extends Dialog {
-    private boolean mImmersionEnabled;
+    private boolean cUm;
 
     public c(@NonNull Context context, @StyleRes int i) {
         super(context, i);
-        this.mImmersionEnabled = com.baidu.swan.apps.res.widget.a.SUPPORT_IMMERSION;
+        this.cUm = com.baidu.swan.apps.res.widget.a.dDB;
     }
 
-    public void setEnableImmersion(boolean z) {
-        this.mImmersionEnabled = com.baidu.swan.apps.res.widget.a.SUPPORT_IMMERSION && z;
+    public void gP(boolean z) {
+        this.cUm = com.baidu.swan.apps.res.widget.a.dDB && z;
     }
 
     @Override // android.app.Dialog
     public void show() {
-        if (this.mImmersionEnabled) {
-            com.baidu.swan.apps.res.widget.a.setDialogImmersion(this);
+        if (this.cUm) {
+            com.baidu.swan.apps.res.widget.a.e(this);
         }
-        boolean b = com.baidu.swan.apps.res.widget.a.b(this);
-        if (b) {
+        boolean f = com.baidu.swan.apps.res.widget.a.f(this);
+        if (f) {
             getWindow().setFlags(8, 8);
         }
         super.show();
-        if (b) {
+        if (f) {
             getWindow().clearFlags(8);
         }
     }

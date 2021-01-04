@@ -12,14 +12,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class ag extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference f3750a;
+    private final WeakReference f5712a;
 
     public ag(FeedbackEditActivity feedbackEditActivity) {
-        this.f3750a = new WeakReference(feedbackEditActivity);
+        this.f5712a = new WeakReference(feedbackEditActivity);
     }
 
     @Override // android.os.Handler
@@ -49,7 +49,7 @@ final class ag extends Handler {
         SharedPreferences.Editor editor6;
         String str10;
         super.handleMessage(message);
-        FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f3750a.get();
+        FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f5712a.get();
         feedbackEditActivity.a(true);
         com.baidu.ufosdk.f.c.a("msg.what = " + message.what);
         if (feedbackEditActivity == null) {
@@ -66,18 +66,18 @@ final class ag extends Handler {
             if (!TextUtils.isEmpty(str6)) {
                 str9 = feedbackEditActivity.g;
                 if (TextUtils.isEmpty(str9)) {
-                    editor6 = feedbackEditActivity.b;
+                    editor6 = feedbackEditActivity.f5689b;
                     str10 = feedbackEditActivity.t;
                     editor6.putString(str10, "");
                 }
             }
             str7 = feedbackEditActivity.g;
             if (!TextUtils.isEmpty(str7)) {
-                editor5 = feedbackEditActivity.b;
+                editor5 = feedbackEditActivity.f5689b;
                 str8 = feedbackEditActivity.g;
                 editor5.putString(str8, "");
             }
-            editor4 = feedbackEditActivity.b;
+            editor4 = feedbackEditActivity.f5689b;
             editor4.commit();
             view4 = feedbackEditActivity.u;
             view4.setVisibility(8);
@@ -97,18 +97,18 @@ final class ag extends Handler {
             if (!TextUtils.isEmpty(str)) {
                 str4 = feedbackEditActivity.g;
                 if (TextUtils.isEmpty(str4)) {
-                    editor3 = feedbackEditActivity.b;
+                    editor3 = feedbackEditActivity.f5689b;
                     str5 = feedbackEditActivity.t;
                     editor3.putString(str5, "");
                 }
             }
             str2 = feedbackEditActivity.g;
             if (!TextUtils.isEmpty(str2)) {
-                editor2 = feedbackEditActivity.b;
+                editor2 = feedbackEditActivity.f5689b;
                 str3 = feedbackEditActivity.g;
                 editor2.putString(str3, "");
             }
-            editor = feedbackEditActivity.b;
+            editor = feedbackEditActivity.f5689b;
             editor.commit();
             view2 = feedbackEditActivity.u;
             view2.setVisibility(8);

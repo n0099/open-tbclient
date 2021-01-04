@@ -3,73 +3,75 @@ package com.baidu.tbadk.core.view.a;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.style.ReplacementSpan;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends ReplacementSpan {
-    private int fgB;
-    private boolean fgC;
-    private Drawable fgt;
-    private Drawable fgu;
-    private int fgv;
-    private int fgw;
-    private int fgx;
-    private int fgy;
-    private int fgz;
+    private Drawable fqc;
+    private Drawable fqd;
+    private int fqe;
+    private int fqf;
+    private int fqg;
+    private int fqh;
+    private int fqi;
+    private int fqk;
+    private boolean fql;
     private int mSize;
-    private int fgp = R.drawable.icon_pure_evaluation_star24_n;
-    private int fgq = R.color.CAM_X0112;
-    private int fgr = R.drawable.icon_pure_evaluation_star24_n;
-    private int fgs = R.color.CAM_X0305;
-    private int fgA = 5;
+    private int fpY = R.drawable.icon_pure_evaluation_star24_n;
+    private int fpZ = R.color.CAM_X0112;
+    private int fqa = R.drawable.icon_pure_evaluation_star24_n;
+    private int fqb = R.color.CAM_X0305;
+    private int fqj = 5;
 
     public c(int i, int i2, int i3, int i4, int i5, boolean z) {
-        this.fgB = i;
-        this.fgv = i2;
-        this.fgw = i3;
-        this.fgx = i4;
-        this.fgz = i5;
-        this.fgC = z;
+        this.fqk = i;
+        this.fqe = i2;
+        this.fqf = i3;
+        this.fqg = i4;
+        this.fqi = i5;
+        this.fql = z;
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.mSize = (this.fgA * this.fgw) + (this.fgv * (this.fgA - 1)) + this.fgx + this.fgz;
+        this.mSize = (this.fqj * this.fqf) + (this.fqe * (this.fqj - 1)) + this.fqg + this.fqi;
         return this.mSize;
     }
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
         int dimenPixelSize;
-        bwe();
-        this.fgy = (int) paint.getTextSize();
-        int i6 = this.fgz + ((int) f);
+        byy();
+        this.fqh = (int) paint.getTextSize();
+        int i6 = this.fqi + ((int) f);
         Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-        if (!com.baidu.tbadk.core.elementsMaven.view.a.k(charSequence)) {
-            dimenPixelSize = 0 + UtilHelper.getDimenPixelSize(R.dimen.tbds3);
-        } else {
+        if (com.baidu.tbadk.core.elementsMaven.view.a.k(charSequence)) {
             com.baidu.tbadk.core.elementsMaven.view.a.a(fontMetricsInt, (int) paint.getTextSize());
             dimenPixelSize = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
+        } else {
+            dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds3) + 0;
         }
-        int max = fontMetricsInt.ascent + i4 + dimenPixelSize + Math.max(0, (this.fgC ? (i5 - i4) / 2 : 0) + ((this.fgy - this.fgw) / 2));
-        for (int i7 = 0; i7 < this.fgB; i7++) {
-            this.fgu.setBounds(i6, max, this.fgw + i6, this.fgw + max);
-            this.fgu.draw(canvas);
-            i6 += this.fgv + this.fgw;
+        int max = fontMetricsInt.ascent + i4 + dimenPixelSize + Math.max(0, (this.fql ? (i5 - i4) / 2 : 0) + ((this.fqh - this.fqf) / 2));
+        int i7 = i6;
+        for (int i8 = 0; i8 < this.fqk; i8++) {
+            this.fqd.setBounds(i7, max, this.fqf + i7, this.fqf + max);
+            this.fqd.draw(canvas);
+            i7 += this.fqe + this.fqf;
         }
-        for (int i8 = this.fgB; i8 < this.fgA; i8++) {
-            this.fgt.setBounds(i6, max, this.fgw + i6, this.fgw + max);
-            this.fgt.draw(canvas);
-            i6 += this.fgv + this.fgw;
+        int i9 = i7;
+        for (int i10 = this.fqk; i10 < this.fqj; i10++) {
+            this.fqc.setBounds(i9, max, this.fqf + i9, this.fqf + max);
+            this.fqc.draw(canvas);
+            i9 += this.fqe + this.fqf;
         }
     }
 
-    private void bwe() {
-        this.fgt = SvgManager.btW().a(this.fgp, this.fgq, (SvgManager.SvgResourceStateType) null);
-        this.fgu = SvgManager.btW().a(this.fgr, this.fgs, (SvgManager.SvgResourceStateType) null);
+    private void byy() {
+        this.fqc = SvgManager.bwq().a(this.fpY, this.fpZ, (SvgManager.SvgResourceStateType) null);
+        this.fqd = SvgManager.bwq().a(this.fqa, this.fqb, (SvgManager.SvgResourceStateType) null);
     }
 }

@@ -8,19 +8,21 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class a implements b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1359a = Boolean.toString(true);
-    private InterfaceC0109a b;
+    private static final String f1775a = Boolean.toString(true);
+
+    /* renamed from: b  reason: collision with root package name */
+    private InterfaceC0101a f1776b;
     private String c;
     private String d;
     private ArrayList<String> e = null;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    public interface InterfaceC0109a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0101a {
         void a(String str, long j);
 
         void a(String str, long j, int i, String str2);
@@ -32,7 +34,7 @@ public class a implements b.a {
 
     private String a() {
         File file;
-        String str = f1359a;
+        String str = f1775a;
         try {
             file = new File(this.d, this.c);
             try {
@@ -102,7 +104,7 @@ public class a implements b.a {
 
     private static String a(String str, ArrayList<String> arrayList) {
         File file;
-        String str2 = f1359a;
+        String str2 = f1775a;
         if (arrayList != null) {
             for (int i = 0; i < arrayList.size(); i++) {
                 try {
@@ -134,7 +136,7 @@ public class a implements b.a {
     }
 
     private String b() {
-        String str = f1359a;
+        String str = f1775a;
         try {
             if (this.e != null) {
                 CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----start");
@@ -161,25 +163,25 @@ public class a implements b.a {
 
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void a(String str, long j) {
-        this.b.a(str, j);
+        this.f1776b.a(str, j);
     }
 
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void a(String str, long j, long j2) {
-        this.b.a(str, j, j2);
+        this.f1776b.a(str, j, j2);
     }
 
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void a(String str, long j, String str2) {
-        this.b.a(str, j, -1, str2 + ",networkstatus:" + n.i() + ",url:" + str);
+        this.f1776b.a(str, j, -1, str2 + ",networkstatus:" + n.i() + ",url:" + str);
     }
 
-    public void a(String str, String str2, String str3, InterfaceC0109a interfaceC0109a) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0109a == null) {
+    public void a(String str, String str2, String str3, InterfaceC0101a interfaceC0101a) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0101a == null) {
             return;
         }
         this.c = str2;
-        this.b = interfaceC0109a;
+        this.f1776b = interfaceC0101a;
         this.d = str3;
         n.b(this.d);
         CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);
@@ -194,23 +196,23 @@ public class a implements b.a {
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void b(String str, long j) {
         String a2 = a();
-        if (!f1359a.equals(a2)) {
+        if (!f1775a.equals(a2)) {
             n.a(this.d, this.e);
-            this.b.a(str, j, -2, a2);
+            this.f1776b.a(str, j, -2, a2);
             return;
         }
-        String b = b();
-        if (!f1359a.equals(b)) {
+        String b2 = b();
+        if (!f1775a.equals(b2)) {
             n.a(this.d, this.e);
-            this.b.a(str, j, -3, b);
+            this.f1776b.a(str, j, -3, b2);
             return;
         }
         String a3 = a(this.d, this.e);
-        if (f1359a.equals(a3)) {
-            this.b.a(str, j, this.e);
+        if (f1775a.equals(a3)) {
+            this.f1776b.a(str, j, this.e);
             return;
         }
         n.a(this.d, this.e);
-        this.b.a(str, j, -6, a3);
+        this.f1776b.a(str, j, -6, a3);
     }
 }

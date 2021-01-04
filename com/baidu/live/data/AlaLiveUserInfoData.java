@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
     public static final int ALA_AUTHENT_STATUS_NOT = 0;
@@ -28,10 +28,12 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public String clubGuardName;
     public int clubMemberLevel;
     public int contribution;
+    public String contributionStr;
     public int createTime;
     public String description;
     public int disableClick;
     public long enterLiveId;
+    public JSONObject extInfoJson;
     public JSONObject extraUserInfo;
     public int fansCount;
     public int followCount;
@@ -86,6 +88,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public boolean isNewGiftPriceStrategy = false;
     public int logined = 0;
     public AlaVideoBCChatData videoBCEnterData = new AlaVideoBCChatData();
+    public boolean isMysteriousMan = false;
 
     public boolean isGold() {
         return this.guardGold == 1;
@@ -126,6 +129,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             this.charmCount = jSONObject.optLong("charm_count");
             this.totalPrice = jSONObject.optLong("total_price");
             this.contribution = jSONObject.optInt("contribution");
+            this.contributionStr = jSONObject.optString("contribution_charm");
             this.userStatus = jSONObject.optInt("user_status");
             this.liveStatus = jSONObject.optInt("live_status");
             this.isLogin = jSONObject.optInt(ImageViewerConfig.IS_LOGIN);
@@ -174,6 +178,12 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             }
             if (jSONObject.has("pub_show_two_switch")) {
                 this.videoBCEnterData.parserJson(jSONObject);
+            }
+            this.extInfoJson = jSONObject.optJSONObject("ext_info");
+            if (this.extInfoJson != null) {
+                this.isMysteriousMan = this.extInfoJson.optInt("is_mysterious_man") == 1;
+            } else {
+                this.isMysteriousMan = false;
             }
             this.throneUid = jSONObject.optString("is_guard_seat");
             this.rank = jSONObject.optInt("rank");
@@ -300,6 +310,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             if (this.extraUserInfo != null) {
                 jSONObject.put(TbConfig.getSubappType() + "_info", this.extraUserInfo);
             }
+            jSONObject.put("ext_info", this.extInfoJson);
         } catch (JSONException e) {
             e.printStackTrace();
         }

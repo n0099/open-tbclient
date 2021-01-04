@@ -8,7 +8,7 @@ import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ObservableFlatMapCompletable<T> extends a<T, T> {
     final boolean delayErrors;
     final h<? super T, ? extends e> mapper;
@@ -18,7 +18,7 @@ public final class ObservableFlatMapCompletable<T> extends a<T, T> {
         this.source.subscribe(new FlatMapCompletableMainObserver(uVar, this.mapper, this.delayErrors));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class FlatMapCompletableMainObserver<T> extends BasicIntQueueDisposable<T> implements u<T> {
         private static final long serialVersionUID = 8443155186132538303L;
         final u<? super T> actual;
@@ -54,7 +54,7 @@ public final class ObservableFlatMapCompletable<T> extends a<T, T> {
                     eVar.a(innerObserver);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 this.d.dispose();
                 onError(th);
             }
@@ -133,7 +133,7 @@ public final class ObservableFlatMapCompletable<T> extends a<T, T> {
             onError(th);
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements c, io.reactivex.disposables.b {
             private static final long serialVersionUID = 8606673141535671828L;
 

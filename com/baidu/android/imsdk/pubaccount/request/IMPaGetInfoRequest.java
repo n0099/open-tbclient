@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.db.TableDefine;
@@ -22,7 +21,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMPaGetInfoRequest extends PaBaseHttpRequest {
     private static final String TAG = IMPaGetInfoRequest.class.getSimpleName();
     private long mAppid;
@@ -77,11 +76,10 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             int i3 = jSONObject.getInt("error_code");
-            String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+            str = jSONObject.optString("error_msg", "");
             if (i3 == 0) {
                 if (!jSONObject.has("response_params")) {
                     list = null;
-                    str = optString;
                 } else {
                     JSONArray jSONArray = jSONObject.getJSONArray("response_params");
                     list = new ArrayList<>();
@@ -108,11 +106,11 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                                 paInfo.setStatus(jSONObject2.optInt("status", 0));
                                 paInfo.setMarkTopTime(jSONObject2.optLong("upmark_time"));
                                 paInfo.setMarkTop(jSONObject2.optInt("is_upmark", 0));
-                                String optString2 = jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_PA_EXT, "");
-                                paInfo.setPaExt(optString2);
-                                if (!TextUtils.isEmpty(optString2)) {
+                                String optString = jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_PA_EXT, "");
+                                paInfo.setPaExt(optString);
+                                if (!TextUtils.isEmpty(optString)) {
                                     try {
-                                        paInfo.setSubsetType(new JSONObject(optString2).optInt("sub_pa_type", 0));
+                                        paInfo.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
                                     } catch (JSONException e) {
                                         LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e);
                                     }
@@ -129,11 +127,10 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                         }
                     }
                     localSyncSubscribedPaList(this.mContext, list);
-                    str = optString;
                 }
             } else {
-                list = PaInfoDBManager.getInstance(this.mContext).querySubscribedPaList();
                 str = "query from local db";
+                list = PaInfoDBManager.getInstance(this.mContext).querySubscribedPaList();
             }
             i2 = i3;
         } catch (JSONException e3) {

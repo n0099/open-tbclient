@@ -7,26 +7,26 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.wnplatform.walkmap.f;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class a implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RGStateEntry f3015a;
+    final /* synthetic */ RGStateEntry f4493a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(RGStateEntry rGStateEntry) {
-        this.f3015a = rGStateEntry;
+        this.f4493a = rGStateEntry;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.walkmap.f
     public void a() {
         int i;
         int i2;
-        i = this.f3015a.b;
+        i = this.f4493a.f4490b;
         if (i != 1) {
-            i2 = this.f3015a.b;
+            i2 = this.f4493a.f4490b;
             if (i2 != 2) {
-                this.f3015a.b = 0;
+                this.f4493a.f4490b = 0;
                 b.a().J().a((f) null);
                 b.a().I().run("[3D车头向上]按钮点击");
                 return;
@@ -41,7 +41,7 @@ class a implements f {
                     b.a().J().a(builder.build());
                 }
             }
-            this.f3015a.b = 0;
+            this.f4493a.f4490b = 0;
             b.a().G().a(false);
             b.a().J().a((f) null);
             b.a().a(1000, "Car3D");
@@ -61,6 +61,6 @@ class a implements f {
             builder2.target(new LatLng(d, d2));
             b.a().J().a(builder2.build(), 500);
         }
-        this.f3015a.b = 2;
+        this.f4493a.f4490b = 2;
     }
 }

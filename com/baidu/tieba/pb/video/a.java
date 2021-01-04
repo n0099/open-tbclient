@@ -5,13 +5,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.o;
-/* loaded from: classes22.dex */
-public class a extends o<b, c> {
-    public View.OnClickListener gcS;
+import com.baidu.tieba.pb.pb.main.l;
+/* loaded from: classes2.dex */
+public class a extends l<b, GodReplyMoreViewHolder> {
+    public View.OnClickListener gmj;
 
     public a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
@@ -20,31 +20,31 @@ public class a extends o<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cv */
-    public c c(ViewGroup viewGroup) {
-        return new c(LayoutInflater.from(this.mContext).inflate(R.layout.pb_god_reply_look_more_item, viewGroup, false));
+    /* renamed from: cH */
+    public GodReplyMoreViewHolder e(ViewGroup viewGroup) {
+        return new GodReplyMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.pb_god_reply_look_more_item, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.o, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
-        super.a(i, view, viewGroup, (ViewGroup) bVar, (b) cVar);
-        if (cVar != null && cVar.ijN != null) {
-            if (this.gcS != null) {
-                cVar.ijN.setOnClickListener(this.gcS);
+    @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, b bVar, GodReplyMoreViewHolder godReplyMoreViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) bVar, (b) godReplyMoreViewHolder);
+        if (godReplyMoreViewHolder != null && godReplyMoreViewHolder.iwi != null) {
+            if (this.gmj != null) {
+                godReplyMoreViewHolder.iwi.setOnClickListener(this.gmj);
             }
-            if (cVar.aku != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.aku = TbadkCoreApplication.getInst().getSkinType();
-                ap.setViewTextColor(cVar.ijN, R.color.CAM_X0106);
-                ap.setBackgroundResource(cVar.ijN, R.drawable.more_all);
-                ap.setBackgroundResource(cVar.dividerLine, R.color.CAM_X0204);
+            if (godReplyMoreViewHolder.akW != TbadkCoreApplication.getInst().getSkinType()) {
+                godReplyMoreViewHolder.akW = TbadkCoreApplication.getInst().getSkinType();
+                ao.setViewTextColor(godReplyMoreViewHolder.iwi, R.color.CAM_X0106);
+                ao.setBackgroundResource(godReplyMoreViewHolder.iwi, R.drawable.more_all);
+                ao.setBackgroundResource(godReplyMoreViewHolder.dividerLine, R.color.CAM_X0204);
             }
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.gcS = onClickListener;
+        this.gmj = onClickListener;
     }
 }

@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public final /* synthetic */ class VideoEncoder_CC {
     @CalledByNative
     public static long $default$createNativeVideoEncoder(VideoEncoder videoEncoder) {

@@ -2,54 +2,54 @@ package com.baidu.tieba.homepage.concern;
 
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.x;
 import java.util.List;
 import tbclient.DiscoverHotForum;
 import tbclient.DiscoverTabCard;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static void a(View view, com.baidu.tbadk.core.data.a aVar, int i) {
-        if (view != null && aVar != null && aVar.bmn() != null && !StringUtils.isNull(aVar.bmn().getTid())) {
-            ar arVar = new ar("c12352");
-            by bmn = aVar.bmn();
-            if (bmn.isLinkThread()) {
-                arVar.al("obj_type", 4);
-            } else if (bmn.isShareThread) {
-                arVar.al("obj_type", 5);
-            } else if (bmn.bnx()) {
-                arVar.al("obj_type", 6);
-            } else if (bmn.bqM()) {
-                arVar.al("obj_type", 7);
-            } else if (bmn.bny()) {
-                arVar.al("obj_type", 8);
-            } else if (bmn.bqN()) {
-                arVar.al("obj_type", 9);
-            } else if (bmn.getType() == by.eIS) {
-                arVar.al("obj_type", 1);
-            } else if (bmn.bnv()) {
-                arVar.al("obj_type", 2);
+        if (view != null && aVar != null && aVar.boO() != null && !StringUtils.isNull(aVar.boO().getTid())) {
+            aq aqVar = new aq("c12352");
+            bz boO = aVar.boO();
+            if (boO.isLinkThread()) {
+                aqVar.an("obj_type", 4);
+            } else if (boO.isShareThread) {
+                aqVar.an("obj_type", 5);
+            } else if (boO.bpX()) {
+                aqVar.an("obj_type", 6);
+            } else if (boO.bto()) {
+                aqVar.an("obj_type", 7);
+            } else if (boO.bpY()) {
+                aqVar.an("obj_type", 8);
+            } else if (boO.btp()) {
+                aqVar.an("obj_type", 9);
+            } else if (boO.getType() == bz.eSL) {
+                aqVar.an("obj_type", 1);
+            } else if (boO.bpV()) {
+                aqVar.an("obj_type", 2);
             }
-            arVar.al("obj_locate", i);
-            arVar.dY("tid", aVar.bmn().getTid());
-            arVar.w("fid", aVar.bmn().getFid());
-            arVar.al("obj_source", 1);
+            aqVar.an("obj_locate", i);
+            aqVar.dX("tid", aVar.boO().getTid());
+            aqVar.w("fid", aVar.boO().getFid());
+            aqVar.an("obj_source", 1);
             if (aVar instanceof com.baidu.tieba.card.data.b) {
-                arVar.al("obj_param1", ((com.baidu.tieba.card.data.b) aVar).csy() ? 2 : 1);
+                aqVar.an("obj_param1", ((com.baidu.tieba.card.data.b) aVar).cvr() ? 2 : 1);
             }
-            if (aVar.bmn().boP() != null) {
-                arVar.dY("uid", aVar.bmn().boP().getUserId());
+            if (aVar.boO().brq() != null) {
+                aqVar.dX("uid", aVar.boO().brq().getUserId());
             }
-            if (bmn.getBaijiahaoData() != null) {
-                arVar.dY("obj_id", bmn.getBaijiahaoData().oriUgcNid);
+            if (boO.getBaijiahaoData() != null) {
+                aqVar.dX("obj_id", boO.getBaijiahaoData().oriUgcNid);
             } else {
-                arVar.dY("obj_id", bmn.getTid());
+                aqVar.dX("obj_id", boO.getTid());
             }
-            TiebaStatic.log(arVar);
-            d(bmn, i);
+            TiebaStatic.log(aqVar);
+            d(boO, i);
         }
     }
 
@@ -58,13 +58,13 @@ public class c {
             return false;
         }
         List<DiscoverTabCard> list = builder.tab_list;
-        if (y.isEmpty(list)) {
+        if (x.isEmpty(list)) {
             return false;
         }
         for (int i = 0; i < list.size(); i++) {
             DiscoverTabCard.Builder builder2 = new DiscoverTabCard.Builder(list.get(i));
             List<RecommendForumInfo> list2 = builder2.forum_list;
-            if (!y.isEmpty(list2)) {
+            if (!x.isEmpty(list2)) {
                 for (int i2 = 0; i2 < list2.size(); i2++) {
                     RecommendForumInfo.Builder builder3 = new RecommendForumInfo.Builder(list2.get(i2));
                     int i3 = z ? 1 : 0;
@@ -81,13 +81,13 @@ public class c {
         return false;
     }
 
-    private static void d(by byVar, int i) {
-        ar arVar = null;
+    private static void d(bz bzVar, int i) {
+        aq aqVar = null;
         switch (i) {
             case 1:
-                arVar = com.baidu.tieba.t.a.a("c13692", byVar, 3);
+                aqVar = com.baidu.tieba.s.a.a("c13692", bzVar, 3);
                 break;
         }
-        TiebaStatic.log(arVar);
+        TiebaStatic.log(aqVar);
     }
 }

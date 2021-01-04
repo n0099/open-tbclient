@@ -1,24 +1,24 @@
 package kotlin.coroutines.experimental;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public interface d {
 
     @kotlin.e
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
     }
 
     @kotlin.e
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public interface b extends d {
         @Override // kotlin.coroutines.experimental.d
         <E extends b> E a(c<E> cVar);
 
-        c<?> eDV();
+        c<?> eMd();
     }
 
     @kotlin.e
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public interface c<E extends b> {
     }
 

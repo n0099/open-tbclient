@@ -1,61 +1,61 @@
 package com.baidu.swan.apps.core.g;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.swan.games.f.g;
 import com.baidu.swan.games.f.h;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.a cLR;
-    private com.baidu.swan.games.binding.a cRr = new com.baidu.swan.games.binding.a();
-    private b cRs;
+    private com.baidu.swan.games.f.a cQM;
+    private com.baidu.swan.games.binding.a cWo = new com.baidu.swan.games.binding.a();
+    private b cWp;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void c(com.baidu.swan.games.f.a aVar);
     }
 
     public d(@NonNull String str, @NonNull String str2) {
-        this.cLR = g.a(asr(), new a(str, str2), null);
+        this.cQM = g.a(atI(), new a(str, str2), null);
     }
 
     public void setCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        this.cLR.setCodeCacheSetting(codeCacheSetting);
+        this.cQM.setCodeCacheSetting(codeCacheSetting);
     }
 
     public void a(V8EngineConfiguration.JSCacheCallback jSCacheCallback) {
-        this.cLR.a(jSCacheCallback);
+        this.cQM.a(jSCacheCallback);
     }
 
     public com.baidu.swan.games.f.a getV8Engine() {
-        return this.cLR;
+        return this.cQM;
     }
 
-    public String asq() {
-        return this.cLR.dYN;
+    public String atH() {
+        return this.cQM.ehK;
     }
 
     public void finish() {
-        this.cLR.finish();
+        this.cQM.finish();
     }
 
-    private h asr() {
-        return new h.a().my(1).xk(com.baidu.swan.apps.core.g.a.a.next()).aXu();
+    private h atI() {
+        return new h.a().mG(1).xj(com.baidu.swan.apps.core.g.a.a.next()).aZO();
     }
 
-    public void F(Activity activity) {
-        this.cRr.V(activity);
+    public void E(Activity activity) {
+        this.cWo.X(activity);
     }
 
     public void a(b bVar) {
-        this.cRs = bVar;
+        this.cWp = bVar;
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     private class a extends com.baidu.swan.games.f.d.a {
         private String mBasePath;
         private String mFileName;
@@ -70,12 +70,12 @@ public class d {
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         @Nullable
-        public V8EngineConfiguration.CodeCacheSetting ass() {
-            if (com.baidu.swan.apps.t.a.azd().hM(0)) {
+        public V8EngineConfiguration.CodeCacheSetting atJ() {
+            if (com.baidu.swan.apps.t.a.aAu().hG(0)) {
                 if (d.DEBUG) {
                     Log.d("SwanAppV8Master", "pathList item: " + this.mBasePath);
                 }
-                return com.baidu.swan.apps.core.b.a.by("appframe", this.mBasePath);
+                return com.baidu.swan.apps.core.b.a.bx("appframe", this.mBasePath);
             }
             return null;
         }
@@ -86,19 +86,19 @@ public class d {
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
-        public String ast() {
+        public String atK() {
             return this.mFileName;
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         public void a(com.baidu.swan.games.f.a aVar) {
-            d.this.cRr.a(aVar, com.baidu.swan.apps.t.a.aza());
+            d.this.cWo.a(aVar, com.baidu.swan.apps.t.a.aAr());
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
         public void b(com.baidu.swan.games.f.a aVar) {
-            if (d.this.cRs != null) {
-                d.this.cRs.c(aVar);
+            if (d.this.cWp != null) {
+                d.this.cWp.c(aVar);
             }
             aVar.onLoad();
         }

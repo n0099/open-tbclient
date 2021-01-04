@@ -12,7 +12,7 @@ import com.sina.weibo.sdk.utils.WbAuthConstants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public final class h {
     private static String c = "api.tuisong.baidu.com";
     private static String[] d = {"api0.tuisong.baidu.com", "api1.tuisong.baidu.com", "api2.tuisong.baidu.com", "api3.tuisong.baidu.com", "api4.tuisong.baidu.com", "api5.tuisong.baidu.com", "api6.tuisong.baidu.com", "api7.tuisong.baidu.com", "api8.tuisong.baidu.com", "api9.tuisong.baidu.com"};
@@ -20,12 +20,14 @@ public final class h {
     private static String[] f = {"sa0.tuisong.baidu.com", "sa1.tuisong.baidu.com", "sa2.tuisong.baidu.com", "sa3.tuisong.baidu.com", "sa4.tuisong.baidu.com", "sa5.tuisong.baidu.com", "sa6.tuisong.baidu.com", "sa7.tuisong.baidu.com", "sa8.tuisong.baidu.com", "sa9.tuisong.baidu.com"};
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1093a = 5287;
-    public static int b = 5288;
+    public static int f1311a = 5287;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f1312b = 5288;
     private static boolean g = false;
 
     public static int a(Context context) {
-        return m.o(context) ? b : f1093a;
+        return m.o(context) ? f1312b : f1311a;
     }
 
     public static String a() {
@@ -37,7 +39,9 @@ public final class h {
     }
 
     public static void b(Context context) {
+        Throwable th;
         FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         if (!context.getPackageName().startsWith("com.baidu.push")) {
             String a2 = PushSettings.a(context);
             if (TextUtils.isEmpty(a2) || a2.length() <= 0) {
@@ -58,19 +62,18 @@ public final class h {
             return;
         }
         Properties properties = new Properties();
-        FileInputStream fileInputStream2 = null;
         try {
             if (m.k(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                fileInputStream = new FileInputStream(file);
+                fileInputStream2 = new FileInputStream(file);
                 try {
-                    properties.load(fileInputStream);
+                    properties.load(fileInputStream2);
                 } catch (Exception e3) {
-                    com.baidu.android.pushservice.e.b.a(context, fileInputStream);
-                    return;
-                } catch (Throwable th) {
-                    fileInputStream2 = fileInputStream;
-                    th = th;
                     com.baidu.android.pushservice.e.b.a(context, fileInputStream2);
+                    return;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileInputStream = fileInputStream2;
+                    com.baidu.android.pushservice.e.b.a(context, fileInputStream);
                     throw th;
                 }
             } else {
@@ -81,7 +84,7 @@ public final class h {
                     properties.put("socket_server_port", WbAuthConstants.AUTH_FAILED_QUICK_NULL_TOKEN_ERROR_CODE);
                 }
                 properties.put("socket_server", "10.95.41.15");
-                fileInputStream = null;
+                fileInputStream2 = null;
             }
             String property = properties.getProperty("http_server");
             if (!TextUtils.isEmpty(property)) {
@@ -97,26 +100,27 @@ public final class h {
             if (m.o(context)) {
                 String property3 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property3)) {
-                    b = Integer.parseInt(property3);
+                    f1312b = Integer.parseInt(property3);
                 }
             } else {
                 String property4 = properties.getProperty("socket_server_port");
                 if (!TextUtils.isEmpty(property4)) {
-                    f1093a = Integer.parseInt(property4);
+                    f1311a = Integer.parseInt(property4);
                 }
             }
-            if (f.f1078a == 0) {
+            if (f.f1288a == 0) {
                 String property5 = properties.getProperty(Constants.API_KEY);
                 if (TextUtils.equals(properties.getProperty("pkg_name"), context.getPackageName()) && !TextUtils.isEmpty(property5)) {
-                    f.b = property5;
+                    f.f1289b = property5;
                 }
             }
             g = true;
-            com.baidu.android.pushservice.e.b.a(context, fileInputStream);
+            com.baidu.android.pushservice.e.b.a(context, fileInputStream2);
         } catch (Exception e4) {
+            fileInputStream2 = null;
+        } catch (Throwable th3) {
+            th = th3;
             fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 

@@ -12,15 +12,16 @@ import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.ala.adp.lib.util.BdLog;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
-import com.baidu.live.adp.lib.util.BdLog;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TargetApi(16)
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class CameraUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final String TAG;
@@ -32,56 +33,40 @@ public class CameraUtils {
 
     public static Camera.Size choosePreviewSize(Camera.Parameters parameters, int i, int i2) {
         List<Camera.Size> supportedPreviewSizes;
-        double d;
-        Camera.Size size;
-        double d2;
-        double d3;
-        Camera.Size size2;
         if (parameters == null || (supportedPreviewSizes = parameters.getSupportedPreviewSizes()) == null) {
             return null;
         }
-        double d4 = i / i2;
-        Camera.Size size3 = null;
-        double d5 = Double.MAX_VALUE;
-        for (Camera.Size size4 : supportedPreviewSizes) {
-            if (Math.abs((size4.width / size4.height) - d4) <= 0.1d) {
-                if (Math.abs(size4.height - i2) < d5) {
-                    d3 = Math.abs(size4.height - i2);
-                    size2 = size4;
+        double d = i / i2;
+        Camera.Size size = null;
+        double d2 = Double.MAX_VALUE;
+        for (Camera.Size size2 : supportedPreviewSizes) {
+            if (Math.abs((size2.width / size2.height) - d) <= 0.1d) {
+                if (Math.abs(size2.height - i2) < d2) {
+                    d2 = Math.abs(size2.height - i2);
                 } else {
-                    d3 = d5;
-                    size2 = size3;
+                    size2 = size;
                 }
-                size3 = size2;
-                d5 = d3;
+                size = size2;
             }
         }
-        if (size3 == null) {
-            double d6 = Double.MAX_VALUE;
-            double d7 = Double.MAX_VALUE;
-            for (Camera.Size size5 : supportedPreviewSizes) {
-                double abs = Math.abs((size5.width / size5.height) - d4);
-                if (abs > d7 || Math.abs(size5.height - i2) >= d6) {
-                    double d8 = d7;
-                    d = d6;
+        if (size == null) {
+            double d3 = Double.MAX_VALUE;
+            double d4 = Double.MAX_VALUE;
+            for (Camera.Size size3 : supportedPreviewSizes) {
+                double abs = Math.abs((size3.width / size3.height) - d);
+                if (abs <= d4 && Math.abs(size3.height - i2) < d3) {
+                    d3 = Math.abs(size3.height - i2);
+                    d4 = abs;
                     size = size3;
-                    d2 = d8;
-                } else {
-                    d = Math.abs(size5.height - i2);
-                    size = size5;
-                    d2 = abs;
                 }
-                size3 = size;
-                d6 = d;
-                d7 = d2;
             }
         }
-        Camera.Size size6 = size3;
-        if (size6 != null) {
-            parameters.setPreviewSize(size6.width, size6.height);
-            return size6;
+        Camera.Size size4 = size;
+        if (size4 != null) {
+            parameters.setPreviewSize(size4.width, size4.height);
+            return size4;
         }
-        return size6;
+        return size4;
     }
 
     public static void chooseFixedPreviewFps(Camera.Parameters parameters, int i) {
@@ -116,7 +101,7 @@ public class CameraUtils {
                 i2 = 180;
                 break;
             case 3:
-                i2 = 270;
+                i2 = SubsamplingScaleImageView.ORIENTATION_270;
                 break;
         }
         if (cameraInfo.facing == 1) {
@@ -236,24 +221,20 @@ public class CameraUtils {
     }
 
     public static int determineDisplayOrientation(Activity activity, int i) {
-        int i2;
-        int i3 = 0;
+        int i2 = 0;
         try {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
             Camera.getCameraInfo(i, cameraInfo);
             int rotationAngle = getRotationAngle(activity);
             if (cameraInfo.facing == 1) {
-                i3 = (cameraInfo.orientation + rotationAngle) % EncoderTextureDrawer.X264_WIDTH;
-                i2 = (360 - i3) % EncoderTextureDrawer.X264_WIDTH;
+                i2 = (360 - ((cameraInfo.orientation + rotationAngle) % EncoderTextureDrawer.X264_WIDTH)) % EncoderTextureDrawer.X264_WIDTH;
             } else {
                 i2 = ((cameraInfo.orientation - rotationAngle) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
             }
-            return i2;
         } catch (RuntimeException e) {
-            int i4 = i3;
             BdLog.e(e);
-            return i4;
         }
+        return i2;
     }
 
     public static int getRotationAngle(Activity activity) {
@@ -266,7 +247,7 @@ public class CameraUtils {
             case 2:
                 return 180;
             case 3:
-                return 270;
+                return SubsamplingScaleImageView.ORIENTATION_270;
         }
     }
 

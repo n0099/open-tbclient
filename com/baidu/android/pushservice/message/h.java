@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.message;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public enum h {
     TYPE_INVALUE(-1),
     MSG_ID_HANDSHAKE(1),

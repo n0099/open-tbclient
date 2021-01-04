@@ -5,19 +5,21 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1584a = "UTF-8";
-    private static final String b = "AES/CBC/NoPadding";
+    private static final String f2134a = "UTF-8";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f2135b = "AES/CBC/NoPadding";
     private static final String c = "AES";
     private String d;
     private String e;
     private String f;
 
     public a() {
-        this("AES", b, "UTF-8");
+        this("AES", f2135b, "UTF-8");
     }
 
     public a(String str, String str2) {
@@ -26,7 +28,7 @@ public class a {
 
     public a(String str, String str2, String str3) {
         this.d = "UTF-8";
-        this.e = b;
+        this.e = f2135b;
         this.f = "AES";
         this.f = str;
         this.e = str2;

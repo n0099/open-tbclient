@@ -1,15 +1,14 @@
 package com.baidu.swan.apps.api.module.e;
 
 import android.content.DialogInterface;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.ap.ak;
-import com.baidu.swan.apps.ap.j;
+import com.baidu.swan.apps.ao.ak;
+import com.baidu.swan.apps.ao.j;
 import com.baidu.swan.apps.res.ui.BdMultiPicker;
 import com.baidu.swan.apps.res.widget.dialog.d;
 import com.baidu.swan.apps.res.widget.dialog.e;
@@ -19,25 +18,25 @@ import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class e extends com.baidu.swan.apps.api.a.d {
-    private com.baidu.swan.apps.res.widget.dialog.h cEc;
+    private com.baidu.swan.apps.res.widget.dialog.h cIS;
 
     public e(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lv(String str) {
+    public com.baidu.swan.apps.api.c.b lo(String str) {
         if (TextUtils.isEmpty(str)) {
             return new com.baidu.swan.apps.api.c.b(202);
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bp = com.baidu.swan.apps.api.d.b.bp("showDatePickerView", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bp.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bo = com.baidu.swan.apps.api.d.b.bo("showDatePickerView", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bo.first;
         if (!bVar.isSuccess()) {
             com.baidu.swan.apps.console.c.e("Api-Base", "parse fail");
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) bp.second;
+        JSONObject jSONObject = (JSONObject) bo.second;
         if (jSONObject == null) {
             com.baidu.swan.apps.console.c.e("Api-Base", "paramsJson is null");
             return new com.baidu.swan.apps.api.c.b(1001);
@@ -63,15 +62,15 @@ public class e extends com.baidu.swan.apps.api.a.d {
         }
         switch (c) {
             case 0:
-                return aG(jSONObject);
+                return aO(jSONObject);
             case 1:
-                return aH(jSONObject);
+                return aP(jSONObject);
             default:
                 return new com.baidu.swan.apps.api.c.b(202);
         }
     }
 
-    private com.baidu.swan.apps.api.c.b aG(JSONObject jSONObject) {
+    private com.baidu.swan.apps.api.c.b aO(JSONObject jSONObject) {
         final boolean optBoolean = jSONObject.optBoolean("disabled", false);
         String optString = jSONObject.optString("start");
         String optString2 = jSONObject.optString("end");
@@ -83,13 +82,13 @@ public class e extends com.baidu.swan.apps.api.a.d {
         if (TextUtils.isEmpty(optString2)) {
             optString2 = "23:59";
         }
-        final Date lz = lz(optString);
-        final Date lz2 = lz(optString2);
-        final Date lz3 = lz(optString3);
-        if (lz3 == null) {
-            lz3 = lz(new SimpleDateFormat("HH:mm").format(new Date()));
+        final Date ls = ls(optString);
+        final Date ls2 = ls(optString2);
+        final Date ls3 = ls(optString3);
+        if (ls3 == null) {
+            ls3 = ls(new SimpleDateFormat("HH:mm").format(new Date()));
         }
-        if (lz == null || lz2 == null || lz2.before(lz) || lz3 == null) {
+        if (ls == null || ls2 == null || ls2.before(ls) || ls3 == null) {
             return new com.baidu.swan.apps.api.c.b(202);
         }
         final String optString5 = jSONObject.optString("cb");
@@ -102,9 +101,9 @@ public class e extends com.baidu.swan.apps.api.a.d {
             public void run() {
                 i.a aVar = new i.a(e.this.getContext());
                 if (!TextUtils.isEmpty(optString4)) {
-                    aVar.su(optString4);
+                    aVar.sq(optString4);
                 }
-                aVar.i(lz).j(lz2).k(lz3).gQ(optBoolean).gP(true).f(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.api.module.e.e.1.3
+                aVar.i(ls).j(ls2).k(ls3).hc(optBoolean).hb(true).f(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.api.module.e.e.1.3
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
@@ -128,26 +127,26 @@ public class e extends com.baidu.swan.apps.api.a.d {
                         e.this.a(optString5, new com.baidu.swan.apps.api.c.b(0));
                         dialogInterface.dismiss();
                     }
-                }).b(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.api.module.e.e.1.1
+                }).c(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.api.module.e.e.1.1
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         e.this.a(optString5, new com.baidu.swan.apps.api.c.b(0));
                         dialogInterface.dismiss();
                     }
-                }).aJD();
+                }).aLC();
             }
         });
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    private com.baidu.swan.apps.api.c.b aH(JSONObject jSONObject) {
+    private com.baidu.swan.apps.api.c.b aP(JSONObject jSONObject) {
         final Date date;
         final boolean optBoolean = jSONObject.optBoolean("disabled", false);
         String optString = jSONObject.optString("start");
         String optString2 = jSONObject.optString("end");
         String optString3 = jSONObject.optString("value");
         final String optString4 = jSONObject.optString("fields");
-        String[] strArr = {ControlShowManager.DAY_TIME_FORMAT, "yyyy-MM", "yyyy"};
+        String[] strArr = {"yyyy-MM-dd", "yyyy-MM", "yyyy"};
         final Date a2 = a(optString, strArr, "1900-01-01");
         final Date a3 = a(optString2, strArr, "2099-12-31");
         if (a2 == null || a3 == null || a3.before(a2)) {
@@ -172,17 +171,17 @@ public class e extends com.baidu.swan.apps.api.a.d {
             public void run() {
                 d.a aVar = new d.a(e.this.getContext());
                 if (!TextUtils.isEmpty(optString4)) {
-                    aVar.ss(optString4);
+                    aVar.so(optString4);
                 }
-                aVar.f(a2).g(a3).h(date).gE(optBoolean).gP(true).f(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.api.module.e.e.2.3
+                aVar.f(a2).g(a3).h(date).gQ(optBoolean).hb(true).f(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.api.module.e.e.2.3
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
                         if (dialogInterface instanceof com.baidu.swan.apps.res.widget.dialog.d) {
-                            String aJs = ((com.baidu.swan.apps.res.widget.dialog.d) dialogInterface).aJs();
+                            String aLn = ((com.baidu.swan.apps.res.widget.dialog.d) dialogInterface).aLn();
                             JSONObject jSONObject2 = new JSONObject();
                             try {
-                                jSONObject2.put("value", aJs);
+                                jSONObject2.put("value", aLn);
                                 if (com.baidu.swan.apps.api.a.d.DEBUG) {
                                     Log.d("Api-Base", "handleShowDatePicker params = " + jSONObject2.toString());
                                 }
@@ -201,13 +200,13 @@ public class e extends com.baidu.swan.apps.api.a.d {
                         e.this.a(optString5, new com.baidu.swan.apps.api.c.b(0));
                         dialogInterface.dismiss();
                     }
-                }).b(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.api.module.e.e.2.1
+                }).c(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.api.module.e.e.2.1
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         e.this.a(optString5, new com.baidu.swan.apps.api.c.b(0));
                         dialogInterface.dismiss();
                     }
-                }).aJD();
+                }).aLC();
             }
         });
         return new com.baidu.swan.apps.api.c.b(0);
@@ -216,25 +215,25 @@ public class e extends com.baidu.swan.apps.api.a.d {
     private Date a(String str, String[] strArr, String str2) {
         Date date = null;
         if (!TextUtils.isEmpty(str)) {
-            date = j.e(str, strArr);
+            date = j.f(str, strArr);
         }
         if (date == null && !TextUtils.isEmpty(str2)) {
-            return j.e(str2, strArr);
+            return j.f(str2, strArr);
         }
         return date;
     }
 
-    public com.baidu.swan.apps.api.c.b lw(String str) {
+    public com.baidu.swan.apps.api.c.b lp(String str) {
         if (TextUtils.isEmpty(str)) {
             return new com.baidu.swan.apps.api.c.b(202);
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bp = com.baidu.swan.apps.api.d.b.bp("showDatePickerView", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bp.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bo = com.baidu.swan.apps.api.d.b.bo("showDatePickerView", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bo.first;
         if (!bVar.isSuccess()) {
             com.baidu.swan.apps.console.c.e("Api-Base", "parse fail");
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) bp.second;
+        JSONObject jSONObject = (JSONObject) bo.second;
         if (jSONObject == null) {
             return new com.baidu.swan.apps.api.c.b(202);
         }
@@ -250,30 +249,30 @@ public class e extends com.baidu.swan.apps.api.a.d {
         try {
             jSONObject.put(com.baidu.fsg.base.statistics.b.j, jSONArray);
             jSONObject.put("current", jSONArray2);
-            return b(jSONObject, true);
+            return d(jSONObject, true);
         } catch (JSONException e) {
             return new com.baidu.swan.apps.api.c.b(1001);
         }
     }
 
-    public com.baidu.swan.apps.api.c.b lx(String str) {
+    public com.baidu.swan.apps.api.c.b lq(String str) {
         if (TextUtils.isEmpty(str)) {
             return new com.baidu.swan.apps.api.c.b(202);
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bp = com.baidu.swan.apps.api.d.b.bp("showDatePickerView", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bp.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> bo = com.baidu.swan.apps.api.d.b.bo("showDatePickerView", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) bo.first;
         if (!bVar.isSuccess()) {
             com.baidu.swan.apps.console.c.e("Api-Base", "parse fail");
             return bVar;
         }
-        return b((JSONObject) bp.second, false);
+        return d((JSONObject) bo.second, false);
     }
 
-    public com.baidu.swan.apps.api.c.b ly(String str) {
+    public com.baidu.swan.apps.api.c.b lr(String str) {
         if (TextUtils.isEmpty(str)) {
             return new com.baidu.swan.apps.api.c.b(202);
         }
-        if (this.cEc == null) {
+        if (this.cIS == null) {
             return new com.baidu.swan.apps.api.c.b(1001);
         }
         try {
@@ -290,8 +289,8 @@ public class e extends com.baidu.swan.apps.api.a.d {
                 ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.e.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (e.this.cEc != null) {
-                            ((com.baidu.swan.apps.res.widget.dialog.e) e.this.cEc).a(optInt, optJSONArray, optInt2);
+                        if (e.this.cIS != null) {
+                            ((com.baidu.swan.apps.res.widget.dialog.e) e.this.cIS).a(optInt, optJSONArray, optInt2);
                         }
                     }
                 });
@@ -306,8 +305,8 @@ public class e extends com.baidu.swan.apps.api.a.d {
         }
     }
 
-    private com.baidu.swan.apps.api.c.b b(final JSONObject jSONObject, final boolean z) {
-        if (this.cEc != null) {
+    private com.baidu.swan.apps.api.c.b d(final JSONObject jSONObject, final boolean z) {
+        if (this.cIS != null) {
             return new com.baidu.swan.apps.api.c.b(1001);
         }
         if (DEBUG) {
@@ -329,7 +328,7 @@ public class e extends com.baidu.swan.apps.api.a.d {
             @Override // java.lang.Runnable
             public void run() {
                 e.a aVar = new e.a(e.this.getContext());
-                e.this.cEc = aVar.F(jSONArray).G(jSONArray2).gG(z).a(new BdMultiPicker.a() { // from class: com.baidu.swan.apps.api.module.e.e.4.4
+                e.this.cIS = aVar.F(jSONArray).G(jSONArray2).gS(z).a(new BdMultiPicker.a() { // from class: com.baidu.swan.apps.api.module.e.e.4.4
                     @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.a
                     public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject2) {
                         if (com.baidu.swan.apps.api.a.d.DEBUG) {
@@ -346,11 +345,11 @@ public class e extends com.baidu.swan.apps.api.a.d {
                             e.this.a(str, new com.baidu.swan.apps.api.c.b(202));
                         }
                     }
-                }).gP(true).f(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.api.module.e.e.4.3
+                }).hb(true).f(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.api.module.e.e.4.3
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        e.this.cEc = null;
+                        e.this.cIS = null;
                         try {
                             JSONArray currentIndex = ((com.baidu.swan.apps.res.widget.dialog.e) dialogInterface).getCurrentIndex();
                             JSONObject jSONObject2 = new JSONObject();
@@ -377,12 +376,12 @@ public class e extends com.baidu.swan.apps.api.a.d {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         e.this.a(dialogInterface, z, str);
                     }
-                }).b(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.api.module.e.e.4.1
+                }).c(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.api.module.e.e.4.1
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         e.this.a(dialogInterface, z, str);
                     }
-                }).aJD();
+                }).aLC();
             }
         });
         return new com.baidu.swan.apps.api.c.b(0);
@@ -391,7 +390,7 @@ public class e extends com.baidu.swan.apps.api.a.d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DialogInterface dialogInterface, boolean z, String str) {
         dialogInterface.dismiss();
-        this.cEc = null;
+        this.cIS = null;
         if (z) {
             a(str, new com.baidu.swan.apps.api.c.b(0));
             return;
@@ -408,10 +407,9 @@ public class e extends com.baidu.swan.apps.api.a.d {
         }
     }
 
-    private Date lz(String str) {
+    private Date ls(String str) {
         String[] split;
         Date date;
-        NumberFormatException e;
         if (TextUtils.isEmpty(str)) {
             return new Date();
         }
@@ -420,9 +418,9 @@ public class e extends com.baidu.swan.apps.api.a.d {
         }
         try {
             date = new Date();
-        } catch (NumberFormatException e2) {
+        } catch (NumberFormatException e) {
+            e = e;
             date = null;
-            e = e2;
         }
         try {
             int parseInt = Integer.parseInt(split[0]);
@@ -435,8 +433,8 @@ public class e extends com.baidu.swan.apps.api.a.d {
                 return date;
             }
             return date;
-        } catch (NumberFormatException e3) {
-            e = e3;
+        } catch (NumberFormatException e2) {
+            e = e2;
             if (DEBUG) {
                 e.printStackTrace();
                 return date;

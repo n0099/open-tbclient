@@ -1,10 +1,11 @@
 package com.baidu.swan.apps.statistic;
 
 import android.text.TextUtils;
-import com.baidu.swan.apps.ap.p;
+import com.baidu.swan.apps.ao.p;
+import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c {
     private c() {
     }
@@ -30,22 +31,22 @@ public class c {
                     jSONObject.put("page", aVar.page);
                 }
                 boolean isEmpty = TextUtils.isEmpty(aVar.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(aVar.dES);
+                boolean isEmpty2 = TextUtils.isEmpty(aVar.dNw);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
                         jSONObject2.put("appid", aVar.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", aVar.dES);
+                        jSONObject2.put("info", aVar.dNw);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
-                p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.1
+                p.a(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.1
                     @Override // java.lang.Runnable
                     public void run() {
                         b.onEvent("777", jSONObject);
-                        com.baidu.swan.apps.console.c.bt("SwanAppBusinessUbc", jSONObject.toString());
+                        com.baidu.swan.apps.console.c.bs("SwanAppBusinessUbc", jSONObject.toString());
                     }
                 }, "SwanAppBusinessUbcRunnable");
             } catch (JSONException e) {
@@ -56,43 +57,43 @@ public class c {
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         private String appId;
-        private String dES;
+        private String dNw;
         private String page;
         private String source;
         private String type;
         private String value;
-        private c dER = new c();
-        private String from = "swan";
+        private c dNv = new c();
+        private String from = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
 
         public a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public a tw(String str) {
+        public a tt(String str) {
             this.source = str;
             return this;
         }
 
-        public a tx(String str) {
+        public a tu(String str) {
             this.page = str;
             return this;
         }
 
-        public a ty(String str) {
+        public a tv(String str) {
             this.appId = str;
             return this;
         }
 
-        public a tz(String str) {
-            this.dES = str;
+        public a tw(String str) {
+            this.dNw = str;
             return this;
         }
 
-        public void awr() {
-            this.dER.a(this);
+        public void axJ() {
+            this.dNv.a(this);
         }
     }
 }

@@ -6,12 +6,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
 import android.support.v4.media.MediaDescriptionCompatApi21;
 import android.support.v4.media.MediaDescriptionCompatApi23;
+import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
-/* loaded from: classes19.dex */
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+/* loaded from: classes3.dex */
 public final class MediaDescriptionCompat implements Parcelable {
     public static final long BT_FOLDER_TYPE_ALBUMS = 2;
     public static final long BT_FOLDER_TYPE_ARTISTS = 3;
@@ -70,10 +71,11 @@ public final class MediaDescriptionCompat implements Parcelable {
         this.mTitle = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
         this.mSubtitle = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
         this.mDescription = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        this.mIcon = (Bitmap) parcel.readParcelable(null);
-        this.mIconUri = (Uri) parcel.readParcelable(null);
-        this.mExtras = parcel.readBundle();
-        this.mMediaUri = (Uri) parcel.readParcelable(null);
+        ClassLoader classLoader = getClass().getClassLoader();
+        this.mIcon = (Bitmap) parcel.readParcelable(classLoader);
+        this.mIconUri = (Uri) parcel.readParcelable(classLoader);
+        this.mExtras = parcel.readBundle(classLoader);
+        this.mMediaUri = (Uri) parcel.readParcelable(classLoader);
     }
 
     @Nullable
@@ -168,12 +170,13 @@ public final class MediaDescriptionCompat implements Parcelable {
         return this.mDescriptionObj;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x007a  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x007b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static MediaDescriptionCompat fromMediaDescription(Object obj) {
+        Uri uri;
         Bundle bundle;
         if (obj == null || Build.VERSION.SDK_INT < 21) {
             return null;
@@ -186,7 +189,12 @@ public final class MediaDescriptionCompat implements Parcelable {
         builder.setIconBitmap(MediaDescriptionCompatApi21.getIconBitmap(obj));
         builder.setIconUri(MediaDescriptionCompatApi21.getIconUri(obj));
         Bundle extras = MediaDescriptionCompatApi21.getExtras(obj);
-        Uri uri = extras == null ? null : (Uri) extras.getParcelable(DESCRIPTION_KEY_MEDIA_URI);
+        if (extras != null) {
+            MediaSessionCompat.ensureClassLoader(extras);
+            uri = (Uri) extras.getParcelable(DESCRIPTION_KEY_MEDIA_URI);
+        } else {
+            uri = null;
+        }
         if (uri != null) {
             if (!extras.containsKey(DESCRIPTION_KEY_NULL_BUNDLE_FLAG) || extras.size() != 2) {
                 extras.remove(DESCRIPTION_KEY_MEDIA_URI);
@@ -213,7 +221,7 @@ public final class MediaDescriptionCompat implements Parcelable {
         return build2;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         private CharSequence mDescription;
         private Bundle mExtras;

@@ -5,33 +5,33 @@ import android.os.Bundle;
 import com.baidu.helios.channels.b;
 import com.baidu.helios.ids.b;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class a {
-    protected C0137a avF;
-    protected b avG;
+    protected C0129a awc;
+    protected b awd;
 
     /* renamed from: com.baidu.helios.bridge.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0137a {
+    /* loaded from: classes5.dex */
+    public static class C0129a {
         public Context applicationContext;
-        public b.a avH;
-        public b.a avI;
-        public ExecutorService avJ;
-        public ExecutorService avK;
+        public b.a awe;
+        public b.a awf;
+        public ExecutorService awg;
+        public ExecutorService awh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class b {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface c<T> {
         void a(int i, Exception exc, Bundle bundle);
 
         void a(T t, Bundle bundle);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class d {
         public int errCode;
         public Exception exception;
@@ -53,7 +53,7 @@ public abstract class a {
             return dVar;
         }
 
-        public static d fw(String str) {
+        public static d fh(String str) {
             d dVar = new d();
             dVar.errCode = 0;
             dVar.id = str;
@@ -65,12 +65,12 @@ public abstract class a {
         }
     }
 
-    public void a(C0137a c0137a) {
-        this.avF = c0137a;
+    public void a(C0129a c0129a) {
+        this.awc = c0129a;
     }
 
     public void a(b bVar) {
-        this.avG = bVar;
+        this.awd = bVar;
         b(bVar);
     }
 
@@ -80,5 +80,5 @@ public abstract class a {
 
     public abstract d c(String str, Bundle bundle);
 
-    public abstract boolean fv(String str);
+    public abstract boolean fg(String str);
 }

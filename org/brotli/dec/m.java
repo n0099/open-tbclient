@@ -1,8 +1,8 @@
 package org.brotli.dec;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int Sf(int i) {
+    public static int Ty(int i) {
         if (i >= 12) {
             return (i - 12) + 1;
         }
@@ -10,7 +10,7 @@ final class m {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int Sg(int i) {
+    public static int Tz(int i) {
         if (i <= 9) {
             return (i - 1) + 1;
         }

@@ -12,7 +12,7 @@ import com.baidu.ala.recorder.video.RecorderHandler;
 import com.baidu.ala.recorder.video.VideoFormat;
 import com.baidu.ala.recorder.video.hardware.EncoderOutputStream;
 import com.baidu.ala.recorder.video.hardware.HardH264Encoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaScreenRecorder implements IVideoRecorder {
     private static volatile AlaScreenRecorder mInstance;
     private Context mContext;
@@ -70,16 +70,16 @@ public class AlaScreenRecorder implements IVideoRecorder {
     };
     private IVideoRecorder.IVideoDataCallBack mTransDataCallback = new IVideoRecorder.IVideoDataCallBack() { // from class: com.baidu.ala.recorder.video.screen.AlaScreenRecorder.3
         @Override // com.baidu.ala.recorder.video.IVideoRecorder.IVideoDataCallBack
-        public void onRawVideoFrameReceived(byte[] bArr, int i, int i2, int i3) {
+        public void onRawVideoFrameReceived(byte[] bArr, int i, int i2, int i3, long j) {
             if (AlaScreenRecorder.this.mEncoder != null) {
                 AlaScreenRecorder.this.mEncoder.inputEncoderBuffer(bArr);
             } else if (AlaScreenRecorder.this.mVideoDataCallback != null) {
-                AlaScreenRecorder.this.mVideoDataCallback.onRawVideoFrameReceived(bArr, i, i2, i3);
+                AlaScreenRecorder.this.mVideoDataCallback.onRawVideoFrameReceived(bArr, i, i2, i3, j);
             }
         }
 
         @Override // com.baidu.ala.recorder.video.IVideoRecorder.IVideoDataCallBack
-        public void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j, long j2) {
+        public void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j, long j2, int i4) {
         }
 
         @Override // com.baidu.ala.recorder.video.IVideoRecorder.IVideoDataCallBack
@@ -179,7 +179,7 @@ public class AlaScreenRecorder implements IVideoRecorder {
     }
 
     @Override // com.baidu.ala.recorder.video.IVideoRecorder
-    public boolean isForeBackgroundSwitchEnable() {
+    public boolean dealBackground() {
         return false;
     }
 
@@ -264,9 +264,5 @@ public class AlaScreenRecorder implements IVideoRecorder {
             return this.mVideoConfig.getBitStream();
         }
         return 0;
-    }
-
-    @Override // com.baidu.ala.recorder.video.IVideoRecorder
-    public void startGetDataToSend() {
     }
 }

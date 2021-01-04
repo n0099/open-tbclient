@@ -39,7 +39,7 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "apply_join_success";
             } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
                 str2 = "kick_out";
-            } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY)) {
+            } else if (str.equals("101")) {
                 str2 = "group_name_change";
             } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY)) {
                 str2 = "group_notice_change";

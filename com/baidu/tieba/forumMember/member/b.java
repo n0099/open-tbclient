@@ -1,14 +1,14 @@
 package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes23.dex */
-public class b implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId iOU = BdUniqueId.gen();
-    public int iOV;
+/* loaded from: classes8.dex */
+public class b implements com.baidu.adp.widget.ListView.n {
+    public static final BdUniqueId jbg = BdUniqueId.gen();
+    public int jbh;
     public String mUrl;
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return iOU;
+        return jbg;
     }
 }

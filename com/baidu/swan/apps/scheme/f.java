@@ -1,9 +1,8 @@
 package com.baidu.swan.apps.scheme;
 
-import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.a;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class f {
     public static String getErrMessage(int i) {
         switch (i) {
@@ -18,9 +17,9 @@ public class f {
             case 2005:
             default:
                 return AppRuntime.getAppContext().getString(a.h.aiapps_scheme_err_message_file_not_exist);
-            case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND /* 2006 */:
+            case 2006:
                 return AppRuntime.getAppContext().getString(a.h.aiapps_scheme_err_message_file_path_invalid);
-            case UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE /* 2007 */:
+            case 2007:
                 return AppRuntime.getAppContext().getString(a.h.aiapps_scheme_err_message_ab_switch_off);
         }
     }

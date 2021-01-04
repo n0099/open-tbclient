@@ -1,23 +1,23 @@
 package com.sdk.mobile.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public final class c implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ a f4291a;
+    private /* synthetic */ a f13182a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.f4291a = aVar;
+        this.f13182a = aVar;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, int i2, String str) {
-        this.f4291a.a(i, i2, str);
+        this.f13182a.a(i, i2, str);
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, String str, int i2, T t, String str2) {
-        this.f4291a.a(i, str, i2, t, str2);
+        this.f13182a.a(i, str, i2, t, str2);
     }
 }

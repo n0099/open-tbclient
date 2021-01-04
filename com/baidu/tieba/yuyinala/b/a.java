@@ -13,49 +13,49 @@ import com.baidu.tieba.yuyinala.data.g;
 import com.baidu.tieba.yuyinala.data.i;
 import com.baidu.tieba.yuyinala.message.AlaGetRoomRankListResponseMessage;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a implements d {
-    private String ohF;
-    private AlaRankListActivity oib;
-    private b okq;
-    private com.baidu.tieba.yuyinala.view.b okr;
-    private i oks;
+    private AlaRankListActivity ojJ;
+    private String ojm;
+    private b ome;
+    private com.baidu.tieba.yuyinala.view.b omf;
+    private i omg;
 
     public a(AlaRankListActivity alaRankListActivity, String str) {
-        this.oib = alaRankListActivity;
-        this.ohF = str;
-        bVH();
+        this.ojJ = alaRankListActivity;
+        this.ojm = str;
+        bYm();
     }
 
-    private View bVH() {
-        this.okr = new com.baidu.tieba.yuyinala.view.b(this.oib, this.ohF);
-        mE(true);
-        return this.okr.getView();
+    private View bYm() {
+        this.omf = new com.baidu.tieba.yuyinala.view.b(this.ojJ, this.ojm);
+        ne(true);
+        return this.omf.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mE(final boolean z) {
-        if (this.okq == null) {
-            this.okq = new b(this.oib.getUniqueId());
-            this.okq.a(new com.baidu.tieba.yuyinala.c.d() { // from class: com.baidu.tieba.yuyinala.b.a.1
+    public void ne(final boolean z) {
+        if (this.ome == null) {
+            this.ome = new b(this.ojJ.getUniqueId());
+            this.ome.a(new com.baidu.tieba.yuyinala.c.d() { // from class: com.baidu.tieba.yuyinala.b.a.1
                 @Override // com.baidu.tieba.yuyinala.c.d
                 public void a(int i, String str, Object obj) {
                     if (obj != null && (obj instanceof AlaGetRoomRankListResponseMessage)) {
                         AlaGetRoomRankListResponseMessage alaGetRoomRankListResponseMessage = (AlaGetRoomRankListResponseMessage) obj;
-                        i egs = alaGetRoomRankListResponseMessage.egs();
+                        i egX = alaGetRoomRankListResponseMessage.egX();
                         if (alaGetRoomRankListResponseMessage.getOrginalMessage() != null) {
                             if (i == 0 || StringUtils.isNull(str)) {
-                                a.this.oks = egs;
-                                a.this.okr.Yb();
-                                a.this.a(a.this.oks);
-                            } else if (a.this.okr != null) {
-                                a.this.okr.dG(false);
-                                a.this.okr.cpt();
-                                a.this.okr.Yb();
-                                a.this.okr.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.1.1
+                                a.this.omg = egX;
+                                a.this.omf.Zi();
+                                a.this.a(a.this.omg);
+                            } else if (a.this.omf != null) {
+                                a.this.omf.dM(false);
+                                a.this.omf.csm();
+                                a.this.omf.Zi();
+                                a.this.omf.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.1.1
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view) {
-                                        a.this.mE(true);
+                                        a.this.ne(true);
                                     }
                                 });
                             }
@@ -66,19 +66,19 @@ public class a implements d {
         }
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             if (z) {
-                this.okq.Xf(this.ohF);
+                this.ome.WR(this.ojm);
             }
-        } else if (this.okr != null) {
-            this.okr.Yb();
-            this.okr.dG(false);
-            this.okr.cpt();
-            this.okr.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.2
+        } else if (this.omf != null) {
+            this.omf.Zi();
+            this.omf.dM(false);
+            this.omf.csm();
+            this.omf.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        a.this.mE(z);
+                        a.this.ne(z);
                     } else {
-                        a.this.oib.getPageContext().showToast(a.this.oib.getResources().getString(a.h.sdk_no_network_guide));
+                        a.this.ojJ.getPageContext().showToast(a.this.ojJ.getResources().getString(a.h.sdk_no_network_guide));
                     }
                 }
             });
@@ -88,67 +88,67 @@ public class a implements d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(i iVar) {
         if (iVar == null) {
-            if (this.okr != null) {
-                this.okr.cpt();
-                this.okr.Yb();
-                this.okr.setDatas(new ArrayList<>());
-                this.okr.xN(0);
-                this.okr.dG(false);
-                this.okr.xM(8);
-                this.okr.gV(8);
-                this.okr.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.3
+            if (this.omf != null) {
+                this.omf.csm();
+                this.omf.Zi();
+                this.omf.setDatas(new ArrayList<>());
+                this.omf.ya(0);
+                this.omf.dM(false);
+                this.omf.xZ(8);
+                this.omf.gW(8);
+                this.omf.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.mE(true);
+                        a.this.ne(true);
                     }
                 });
             }
         } else if (iVar.getList() == null || iVar.getList().size() <= 0) {
-            this.okr.Yb();
-            this.okr.gV(0);
-            this.okr.setDatas(new ArrayList<>());
-            this.okr.xN(0);
-            this.okr.dG(true);
-            this.okr.xM(8);
-            if (this.okr != null) {
+            this.omf.Zi();
+            this.omf.gW(0);
+            this.omf.setDatas(new ArrayList<>());
+            this.omf.ya(0);
+            this.omf.dM(true);
+            this.omf.xZ(8);
+            if (this.omf != null) {
                 g gVar = new g();
-                gVar.aJb = 0L;
-                gVar.cover = this.oib.getIntent().getStringExtra("room_cover");
-                gVar.room_name = this.oib.getIntent().getStringExtra(DpStatConstants.KEY_ROOM_NAME);
-                this.okr.b(gVar);
+                gVar.aJz = 0L;
+                gVar.cover = this.ojJ.getIntent().getStringExtra("room_cover");
+                gVar.room_name = this.ojJ.getIntent().getStringExtra(DpStatConstants.KEY_ROOM_NAME);
+                this.omf.b(gVar);
             }
         } else if (iVar.getList() != null && iVar.getList().size() > 0) {
-            this.okr.gV(0);
-            this.okr.Yb();
-            if (this.okr != null) {
-                this.okr.c(iVar);
-                g ecU = iVar.ecU();
-                ecU.by(iVar.getList().size() == 1);
+            this.omf.gW(0);
+            this.omf.Zi();
+            if (this.omf != null) {
+                this.omf.c(iVar);
+                g ebQ = iVar.ebQ();
+                ebQ.bv(iVar.getList().size() == 1);
                 for (int i = 0; i < iVar.getList().size(); i++) {
                     if (iVar.getList().get(i).rank == 10) {
-                        ecU.aL(iVar.getList().get(i).aJg);
+                        ebQ.aK(iVar.getList().get(i).aJE);
                     }
                 }
                 if (iVar.getList().size() == 1) {
-                    this.okr.setDatas(new ArrayList<>());
-                    this.okr.dG(false);
+                    this.omf.setDatas(new ArrayList<>());
+                    this.omf.dM(false);
                 } else if (iVar.getList().size() > 1) {
                     int size = iVar.getList().size();
                     ArrayList<c> arrayList = new ArrayList<>();
                     for (int i2 = 1; i2 < size; i2++) {
                         arrayList.add(iVar.getList().get(i2));
                     }
-                    this.okr.setDatas(arrayList);
+                    this.omf.setDatas(arrayList);
                 }
-                this.okr.xN(0);
-                this.okr.xM(0);
-                if (this.okr != null) {
-                    this.okr.b(ecU);
+                this.omf.ya(0);
+                this.omf.xZ(0);
+                if (this.omf != null) {
+                    this.omf.b(ebQ);
                 }
-                if (iVar.getList().size() < iVar.ecV()) {
-                    this.okr.Xg(this.oib.getPageContext().getResources().getString(a.h.rank_nomore_text));
+                if (iVar.getList().size() < iVar.ebR()) {
+                    this.omf.WT(this.ojJ.getPageContext().getResources().getString(a.h.rank_nomore_text));
                 } else {
-                    this.okr.Xg(this.oib.getPageContext().getResources().getString(a.h.rank_ten_text));
+                    this.omf.WT(this.ojJ.getPageContext().getResources().getString(a.h.rank_ten_text));
                 }
             }
         }
@@ -156,7 +156,7 @@ public class a implements d {
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        return this.okr.getView();
+        return this.omf.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -165,12 +165,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String MK() {
+    public String Mh() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short ML() {
+    public short Mi() {
         return (short) 0;
     }
 
@@ -184,11 +184,11 @@ public class a implements d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.okq != null) {
-            this.okq.destory();
+        if (this.ome != null) {
+            this.ome.destory();
         }
-        if (this.okr != null) {
-            this.okr.release();
+        if (this.omf != null) {
+            this.omf.release();
         }
     }
 

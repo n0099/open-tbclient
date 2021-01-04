@@ -13,23 +13,23 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class MaybeConcatIterable<T> extends g<T> {
-    final Iterable<? extends o<? extends T>> pFe;
+    final Iterable<? extends o<? extends T>> qgG;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         try {
-            ConcatMaybeObserver concatMaybeObserver = new ConcatMaybeObserver(cVar, (Iterator) io.reactivex.internal.functions.a.m(this.pFe.iterator(), "The sources Iterable returned a null Iterator"));
+            ConcatMaybeObserver concatMaybeObserver = new ConcatMaybeObserver(cVar, (Iterator) io.reactivex.internal.functions.a.m(this.qgG.iterator(), "The sources Iterable returned a null Iterator"));
             cVar.onSubscribe(concatMaybeObserver);
             concatMaybeObserver.drain();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ConcatMaybeObserver<T> extends AtomicInteger implements m<T>, d {
         private static final long serialVersionUID = 3520831347801429610L;
         final c<? super T> actual;
@@ -108,7 +108,7 @@ public final class MaybeConcatIterable<T> extends g<T> {
                                     try {
                                         ((o) io.reactivex.internal.functions.a.m(this.sources.next(), "The source Iterator returned a null MaybeSource")).a(this);
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.J(th);
+                                        io.reactivex.exceptions.a.O(th);
                                         cVar.onError(th);
                                         return;
                                     }
@@ -116,7 +116,7 @@ public final class MaybeConcatIterable<T> extends g<T> {
                                     cVar.onComplete();
                                 }
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.J(th2);
+                                io.reactivex.exceptions.a.O(th2);
                                 cVar.onError(th2);
                                 return;
                             }

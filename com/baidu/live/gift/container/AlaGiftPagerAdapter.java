@@ -1,49 +1,49 @@
 package com.baidu.live.gift.container;
 
-import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.live.gift.container.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaGiftPagerAdapter extends PagerAdapter {
-    private List<View> bas;
+    private List<View> bbZ;
 
     public AlaGiftPagerAdapter(List<View> list) {
-        this.bas = new ArrayList();
-        this.bas = list;
+        this.bbZ = new ArrayList();
+        this.bbZ = list;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.bas == null) {
+        if (this.bbZ == null) {
             return 0;
         }
-        return this.bas.size();
+        return this.bbZ.size();
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
         return view == obj;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            View view = this.bas.get(i);
+            View view = this.bbZ.get(i);
             P(view);
             viewGroup.removeView(view);
         }
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.bas.get(i);
+        View view = this.bbZ.get(i);
         viewGroup.addView(view);
         return view;
     }
@@ -61,8 +61,8 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
                             View childAt = gridView.getChildAt(i3);
                             if (childAt != null) {
                                 Object tag = childAt.getTag();
-                                if (tag instanceof a.C0187a) {
-                                    ((a.C0187a) tag).recycle();
+                                if (tag instanceof a.C0181a) {
+                                    ((a.C0181a) tag).recycle();
                                 }
                             }
                             i = i3 + 1;

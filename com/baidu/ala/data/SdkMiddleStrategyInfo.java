@@ -1,8 +1,9 @@
 package com.baidu.ala.data;
 
 import com.baidu.ar.gesture.GestureAR;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class SdkMiddleStrategyInfo {
     public DisplayStrategy displayStrategy;
     public int score;
@@ -26,7 +27,7 @@ public class SdkMiddleStrategyInfo {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class DisplayStrategy {
         public String attention;
         public int imageNum;
@@ -44,7 +45,7 @@ public class SdkMiddleStrategyInfo {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class StrategyExtra {
         public int click;
         public String ctr_fea;
@@ -69,7 +70,7 @@ public class SdkMiddleStrategyInfo {
                 this.source = jSONObject.optInt("source");
                 this.vertical_type = jSONObject.optInt("vertical_type");
                 this.ctr_fea = jSONObject.optString("ctr_fea");
-                this.source_from = jSONObject.optString("source_from");
+                this.source_from = jSONObject.optString(VideoPlayActivityConfig.SOURCE_FROM);
                 this.gbdt_score = jSONObject.optDouble("gbdt_score");
                 this.mark = jSONObject.optInt("mark");
                 this.public_time = jSONObject.optInt("public_time");

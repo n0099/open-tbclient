@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.upload.action.track.Request;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class BIMRtcTrackDatabase {
     private static final String DB_NAME = "bimrtc_track.db";
     private static final int DB_VERSION = 1;
@@ -24,7 +24,7 @@ public class BIMRtcTrackDatabase {
     public static final Object myLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes6.dex */
     public enum RequestEnum {
         id,
         method,
@@ -91,30 +91,18 @@ public class BIMRtcTrackDatabase {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [104=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0064 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0066 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x000e */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [android.content.Context] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v11 */
-    /* JADX WARN: Type inference failed for: r1v12 */
-    /* JADX WARN: Type inference failed for: r1v2, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    /* JADX WARN: Type inference failed for: r1v8 */
     public List<Request> getRequests() {
-        ArrayList arrayList;
+        Throwable th;
         Cursor cursor;
-        Exception e;
+        ArrayList arrayList;
         List<Request> list = null;
         synchronized (myLock) {
-            ?? r1 = this.context;
-            SQLiteDatabase db = getDb(r1);
+            SQLiteDatabase db = getDb(this.context);
             if (db != null) {
                 try {
                     arrayList = new ArrayList();
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
                 try {
                     cursor = db.rawQuery("select * from request limit 1000", null);
@@ -124,26 +112,24 @@ public class BIMRtcTrackDatabase {
                             cursor.close();
                         }
                         db.close();
-                        r1 = cursor;
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         LogUtils.e(TAG, "BIMRtcTrack getRequests error " + e.getMessage());
                         if (cursor != null) {
                             cursor.close();
                         }
                         db.close();
                         list = arrayList;
-                        r1 = cursor;
                         return list;
                     }
-                } catch (Exception e3) {
+                } catch (Exception e2) {
+                    e = e2;
                     cursor = null;
-                    e = e3;
-                } catch (Throwable th2) {
-                    r1 = 0;
-                    th = th2;
-                    if (r1 != 0) {
-                        r1.close();
+                } catch (Throwable th3) {
+                    th = th3;
+                    cursor = null;
+                    if (cursor != null) {
+                        cursor.close();
                     }
                     db.close();
                     throw th;
@@ -154,30 +140,18 @@ public class BIMRtcTrackDatabase {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [132=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0082 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0084 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x000e */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [android.content.Context] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v16 */
-    /* JADX WARN: Type inference failed for: r1v17 */
-    /* JADX WARN: Type inference failed for: r1v2, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    /* JADX WARN: Type inference failed for: r1v8 */
     public List<Request> getRequestsByAliasId(long j) {
-        ArrayList arrayList;
+        Throwable th;
         Cursor cursor;
-        Exception e;
+        ArrayList arrayList;
         List<Request> list = null;
         synchronized (myLock) {
-            ?? r1 = this.context;
-            SQLiteDatabase db = getDb(r1);
+            SQLiteDatabase db = getDb(this.context);
             if (db != null) {
                 try {
                     arrayList = new ArrayList();
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
                 try {
                     cursor = db.rawQuery("select * from request limit 1000 where " + RequestEnum.aliasId + " = " + j, null);
@@ -187,26 +161,24 @@ public class BIMRtcTrackDatabase {
                             cursor.close();
                         }
                         db.close();
-                        r1 = cursor;
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         LogUtils.e(TAG, "BIMRtcTrack getRequests error " + e.getMessage());
                         if (cursor != null) {
                             cursor.close();
                         }
                         db.close();
                         list = arrayList;
-                        r1 = cursor;
                         return list;
                     }
-                } catch (Exception e3) {
+                } catch (Exception e2) {
+                    e = e2;
                     cursor = null;
-                    e = e3;
-                } catch (Throwable th2) {
-                    r1 = 0;
-                    th = th2;
-                    if (r1 != 0) {
-                        r1.close();
+                } catch (Throwable th3) {
+                    th = th3;
+                    cursor = null;
+                    if (cursor != null) {
+                        cursor.close();
                     }
                     db.close();
                     throw th;
@@ -297,7 +269,7 @@ public class BIMRtcTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes6.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         private static final String SQL_TABLE_CREATE_REQUEST = "CREATE TABLE request (" + RequestEnum.id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RequestEnum.method.name() + " TEXT, " + RequestEnum.requestId.name() + " TEXT, " + RequestEnum.timestamp.name() + " LONG, " + RequestEnum.responseTime.name() + " LONG, " + RequestEnum.errorCode.name() + " LONG, " + RequestEnum.ext.name() + " TEXT, " + RequestEnum.aliasId.name() + " LONG NOT NULL);";
         private Context context;

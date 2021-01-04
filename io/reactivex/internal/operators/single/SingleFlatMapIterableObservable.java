@@ -8,7 +8,7 @@ import io.reactivex.q;
 import io.reactivex.u;
 import io.reactivex.y;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final aa<T> source;
@@ -18,7 +18,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
         this.source.a(new FlatMapIterableObserver(uVar, this.mapper));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class FlatMapIterableObserver<T, R> extends BasicIntQueueDisposable<R> implements y<T> {
         private static final long serialVersionUID = -8938804753851907758L;
         final u<? super R> actual;
@@ -64,7 +64,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
                                         return;
                                     }
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.J(th);
+                                    io.reactivex.exceptions.a.O(th);
                                     uVar.onError(th);
                                     return;
                                 }
@@ -72,14 +72,14 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
                                 return;
                             }
                         } catch (Throwable th2) {
-                            io.reactivex.exceptions.a.J(th2);
+                            io.reactivex.exceptions.a.O(th2);
                             uVar.onError(th2);
                             return;
                         }
                     }
                 }
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.J(th3);
+                io.reactivex.exceptions.a.O(th3);
                 this.actual.onError(th3);
             }
         }

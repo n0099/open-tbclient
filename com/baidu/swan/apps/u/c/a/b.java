@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.u.c.a;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import com.baidu.swan.apps.ap.aq;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.ao.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class b<ValueT> {
-    private final ValueT dej;
+    private final ValueT dje;
 
     protected abstract ValueT a(Bundle bundle, String str, ValueT valuet);
 
@@ -17,30 +17,30 @@ public abstract class b<ValueT> {
     }
 
     public b(ValueT valuet) {
-        this.dej = valuet;
+        this.dje = valuet;
     }
 
     public ValueT a(c cVar, String str) {
-        return a(cVar, str, (String) this.dej);
+        return a(cVar, str, (String) this.dje);
     }
 
     public ValueT a(c cVar, String str, ValueT valuet) {
-        return a(cVar.aBB(), str, (String) valuet);
+        return a(cVar.aCS(), str, (String) valuet);
     }
 
     public void b(@NonNull final c cVar, final String str, final ValueT valuet) {
-        aq aBC = cVar.aBC();
-        if (aBC.aPK()) {
-            b(cVar.aBB(), str, (String) valuet);
-            aBC.aPL();
+        aq aCT = cVar.aCT();
+        if (aCT.aSc()) {
+            b(cVar.aCS(), str, (String) valuet);
+            aCT.aSd();
             return;
         }
-        aBC.n(new Runnable() { // from class: com.baidu.swan.apps.u.c.a.b.1
+        aCT.m(new Runnable() { // from class: com.baidu.swan.apps.u.c.a.b.1
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.u.c.a.b */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {
-                b.this.b(cVar.aBB(), str, (String) valuet);
+                b.this.b(cVar.aCS(), str, (String) valuet);
             }
         });
     }

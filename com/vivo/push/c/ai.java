@@ -2,7 +2,7 @@ package com.vivo.push.c;
 
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.mapapi.UIMsg;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class ai {
     public static com.vivo.push.v a(com.vivo.push.y yVar) {
         switch (yVar.b()) {
@@ -52,9 +52,9 @@ public final class ai {
                 return new b(yVar);
             case 101:
                 return new c(yVar);
-            case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND /* 2006 */:
+            case 2006:
                 return new a(yVar);
-            case UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE /* 2007 */:
+            case 2007:
                 return new ak(yVar);
             default:
                 return null;

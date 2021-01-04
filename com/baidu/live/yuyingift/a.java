@@ -1,6 +1,6 @@
 package com.baidu.live.yuyingift;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,62 +15,62 @@ import com.baidu.live.gift.f;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.live.utils.r;
+import com.baidu.live.utils.s;
 import com.baidu.live.yuyingift.AlaGiftShowPanel;
 import com.baidu.live.yuyingift.a.c;
-import com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a implements ad {
-    public boolean aVr;
-    private boolean aXc = false;
-    private boolean aXd = false;
-    CustomMessageListener aXe = new CustomMessageListener(2501063) { // from class: com.baidu.live.yuyingift.a.2
+    public static int bYE = 1;
+    public static int bYF = 2;
+    public boolean aWW;
+    private AlaGiftShowPanel bYA;
+    private com.baidu.live.yuyingift.biggift.a bYB;
+    private com.baidu.live.yuyingift.graffitigift.a bYC;
+    private com.baidu.live.yuyingift.yuyinhousegift.b bYD;
+    private Activity mContext;
+    private boolean isDestroyed = false;
+    private boolean aYI = false;
+    CustomMessageListener aYJ = new CustomMessageListener(2501063) { // from class: com.baidu.live.yuyingift.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof c)) {
                 c cVar = (c) customResponsedMessage.getData();
-                a.this.a(cVar, cVar.bcM);
+                a.this.a(cVar, cVar.bew);
             }
         }
     };
-    CustomMessageListener aXf = new CustomMessageListener(2501064) { // from class: com.baidu.live.yuyingift.a.3
+    CustomMessageListener bYG = new CustomMessageListener(2501075) { // from class: com.baidu.live.yuyingift.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c cVar;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof c) && (cVar = (c) customResponsedMessage.getData()) != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
-                a.this.d(cVar);
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && a.this.bYD != null) {
+                a.this.bYD.dL(((Boolean) customResponsedMessage.getData()).booleanValue());
             }
         }
     };
-    private AlaGiftShowPanel bST;
-    private com.baidu.live.yuyingift.biggift.a bSU;
-    private com.baidu.live.yuyingift.graffitigift.a bSV;
-    private com.baidu.live.yuyingift.yuyinhousegift.a bSW;
-    private Context mContext;
 
     public a(f fVar) {
         this.mContext = fVar.context;
-        this.aVr = fVar.aVr;
-        this.bST = (AlaGiftShowPanel) LayoutInflater.from(fVar.context).inflate(a.g.yuyingift_popshow_contain_layout, (ViewGroup) null);
-        this.bSU = new com.baidu.live.yuyingift.biggift.a(this.mContext, this);
-        this.bSV = new com.baidu.live.yuyingift.graffitigift.a(this.mContext, this);
-        this.bSW = new com.baidu.live.yuyingift.yuyinhousegift.a(this.mContext, this);
-        HH();
+        this.aWW = fVar.aWW;
+        this.bYA = (AlaGiftShowPanel) LayoutInflater.from(fVar.context).inflate(a.g.yuyingift_popshow_contain_layout, (ViewGroup) null);
+        this.bYB = new com.baidu.live.yuyingift.biggift.a(this.mContext, this);
+        this.bYC = new com.baidu.live.yuyingift.graffitigift.a(this.mContext, this);
+        this.bYD = new com.baidu.live.yuyingift.yuyinhousegift.b(this.mContext, this);
+        Hi();
     }
 
-    private void HH() {
-        MessageManager.getInstance().registerListener(this.aXe);
-        MessageManager.getInstance().registerListener(this.aXf);
-        this.bST.setConfigurationChangedListener(new AlaGiftShowPanel.a() { // from class: com.baidu.live.yuyingift.a.1
+    private void Hi() {
+        MessageManager.getInstance().registerListener(this.bYG);
+        MessageManager.getInstance().registerListener(this.aYJ);
+        this.bYA.setConfigurationChangedListener(new AlaGiftShowPanel.a() { // from class: com.baidu.live.yuyingift.a.1
             @Override // com.baidu.live.yuyingift.AlaGiftShowPanel.a
             public void onConfigurationChanged(Configuration configuration) {
-                a.this.bSU.IM();
-                a.this.bSU.IR();
-                a.this.bSV.KB();
+                a.this.bYB.In();
+                a.this.bYB.Is();
+                a.this.bYC.Kc();
             }
         });
     }
@@ -78,12 +78,12 @@ public class a implements ad {
     public void a(c cVar, boolean z) {
         boolean z2 = false;
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
-            boolean z3 = a(cVar) || cVar.bda;
-            if (!z3 || cVar.bda || z || !this.aXd || UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
+            boolean z3 = a(cVar) || cVar.beI;
+            if (!z3 || cVar.beI || z || !this.aYI || UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
                 z2 = z3;
             }
             if (z2) {
-                if (!cVar.bda || cVar.priority == 1) {
+                if (!cVar.beI || cVar.priority == 1) {
                     if (z) {
                         cVar.priority = 9;
                     } else {
@@ -97,7 +97,7 @@ public class a implements ad {
             }
             if (z2) {
                 c(cVar);
-            } else if (cVar.bcN.aWg != null && cVar.bcU >= 2 && !ListUtils.isEmpty(cVar.bcN.aWg.aXp)) {
+            } else if (cVar.bex.aXM != null && cVar.beC >= 2 && !ListUtils.isEmpty(cVar.bex.aXM.aYU)) {
                 e(cVar);
             } else {
                 d(cVar);
@@ -113,60 +113,59 @@ public class a implements ad {
     }
 
     private boolean b(c cVar) {
-        if (cVar == null || cVar.bcN == null) {
+        if (cVar == null || cVar.bex == null) {
             return false;
         }
-        return com.baidu.live.yuyingift.b.b.Zu().hm(cVar.bcN.GX());
+        return com.baidu.live.yuyingift.b.b.aaZ().gX(cVar.bex.Gx());
     }
 
     private void c(c cVar) {
-        this.bSW.h(cVar);
-        List<r.a> jf = r.jf(cVar.bnb);
-        int size = jf != null ? jf.size() : 0;
-        if (cVar.bda) {
+        this.bYD.h(cVar);
+        List<s.a> iV = s.iV(cVar.boI);
+        int size = iV != null ? iV.size() : 0;
+        if (cVar.beI) {
             size = 1;
-            cVar.bcU = 1L;
+            cVar.beC = 1L;
         }
-        for (int i = 0; i < size * cVar.bcU; i++) {
-            this.bSU.h(cVar);
-            this.bSU.IL();
+        for (int i = 0; i < size * cVar.beC; i++) {
+            this.bYB.h(cVar);
+            this.bYB.aaB();
         }
     }
 
-    public void HJ() {
-        this.bSV.HJ();
+    public void Hk() {
+        this.bYC.Hk();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(c cVar) {
-        this.bSW.h(cVar);
+    private void d(c cVar) {
+        this.bYD.h(cVar);
     }
 
     private void e(c cVar) {
-        if (cVar != null && cVar.bcN != null && cVar.bcN.aWg != null && cVar.bcN.aWg.aXp != null) {
-            if (cVar.bcN.aWg.aXp.size() == 1) {
-                this.bSW.h(cVar);
-            } else if (cVar.bcN.aWg.aXp.size() > 1) {
+        if (cVar != null && cVar.bex != null && cVar.bex.aXM != null && cVar.bex.aXM.aYU != null) {
+            if (cVar.bex.aXM.aYU.size() == 1) {
+                this.bYD.h(cVar);
+            } else if (cVar.bex.aXM.aYU.size() > 1) {
                 b.g(cVar);
             }
         }
-        this.bSV.e(cVar);
+        this.bYC.e(cVar);
     }
 
-    public void HL() {
+    public void Hm() {
         int i = 0;
-        if (this.bST != null) {
-            int childCount = this.bST.getChildCount();
+        if (this.bYA != null) {
+            int childCount = this.bYA.getChildCount();
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < childCount; i2++) {
-                if (this.bST.getChildAt(i2) instanceof com.baidu.live.yuyingift.biggift.c) {
-                    arrayList.add(this.bST.getChildAt(i2));
+                if (this.bYA.getChildAt(i2) instanceof com.baidu.live.yuyingift.biggift.c) {
+                    arrayList.add(this.bYA.getChildAt(i2));
                 }
             }
             while (true) {
                 int i3 = i;
                 if (i3 < arrayList.size()) {
-                    this.bST.removeView((View) arrayList.get(i3));
+                    this.bYA.removeView((View) arrayList.get(i3));
                     i = i3 + 1;
                 } else {
                     arrayList.clear();
@@ -176,42 +175,22 @@ public class a implements ad {
         }
     }
 
-    public void Zm() {
-        int i = 0;
-        if (this.bST != null) {
-            int childCount = this.bST.getChildCount();
-            ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                if (this.bST.getChildAt(i2) instanceof YuyinAlaRoomGiftView) {
-                    arrayList.add(this.bST.getChildAt(i2));
-                }
-            }
-            while (true) {
-                int i3 = i;
-                if (i3 < arrayList.size()) {
-                    this.bST.removeView((View) arrayList.get(i3));
-                    i = i3 + 1;
-                } else {
-                    arrayList.clear();
-                    return;
-                }
-            }
+    public void an(View view) {
+        if (this.bYA != null && this.bYA.indexOfChild(view) > 0) {
+            this.bYA.removeView(view);
         }
     }
 
     public void M(View view) {
-        if (this.bST.indexOfChild(view) < 0) {
-            this.bST.addView(view);
+        if (this.bYA.indexOfChild(view) < 0) {
+            this.bYA.addView(view);
         }
     }
 
     public void a(View view, RelativeLayout.LayoutParams layoutParams) {
-        if (view != null && view.getParent() != null && (view.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) view.getParent()).removeView(view);
-        }
         if (layoutParams != null) {
-            if (this.bST.indexOfChild(view) < 0) {
-                this.bST.addView(view, layoutParams);
+            if (this.bYA.indexOfChild(view) < 0) {
+                this.bYA.addView(view, layoutParams);
                 return;
             }
             return;
@@ -221,68 +200,68 @@ public class a implements ad {
 
     @Override // com.baidu.live.gift.ad
     public void onDestroy() {
-        if (!this.aXc) {
-            this.aXc = true;
-            if (this.bSU != null) {
-                this.bSU.onDestroy();
+        if (!this.isDestroyed) {
+            this.isDestroyed = true;
+            if (this.bYB != null) {
+                this.bYB.onDestroy();
             }
-            if (this.bSV != null) {
-                this.bSV.onDestroy();
+            if (this.bYC != null) {
+                this.bYC.onDestroy();
             }
-            if (this.bSW != null) {
-                this.bSW.onDestory();
+            if (this.bYD != null) {
+                this.bYD.onDestory();
             }
-            if (this.bST != null) {
-                this.bST.clearAnimation();
-                this.bST.setConfigurationChangedListener(null);
-                this.bST.removeAllViews();
+            if (this.bYA != null) {
+                this.bYA.clearAnimation();
+                this.bYA.setConfigurationChangedListener(null);
+                this.bYA.removeAllViews();
             }
-            MessageManager.getInstance().unRegisterListener(this.aXe);
-            MessageManager.getInstance().unRegisterListener(this.aXf);
+            MessageManager.getInstance().unRegisterListener(this.bYG);
+            MessageManager.getInstance().unRegisterListener(this.aYJ);
             this.mContext = null;
         }
     }
 
     @Override // com.baidu.live.gift.ad
-    public View HM() {
-        return this.bST;
+    public View Hn() {
+        return this.bYA;
     }
 
     @Override // com.baidu.live.gift.ad
-    public View HN() {
+    public View Ho() {
         return null;
     }
 
     @Override // com.baidu.live.gift.ad
-    public void HO() {
-        if (this.bST != null) {
-            this.bST.onConfigurationChanged(null);
+    public void Hp() {
+        if (this.bYA != null) {
+            this.bYA.onConfigurationChanged(null);
         }
     }
 
     @Override // com.baidu.live.gift.ad
-    public void bC(boolean z) {
-        this.aXd = z;
-        if (this.bSV != null) {
-            this.bSV.bC(z);
+    public void bA(boolean z) {
+        this.aYI = z;
+        if (this.bYC != null) {
+            this.bYC.bA(z);
         }
-        if (this.bSU != null) {
-            this.bSU.bC(z);
-        }
-    }
-
-    @Override // com.baidu.live.gift.ad
-    public void HP() {
-        if (this.bSV != null) {
-            this.bSV.HP();
+        if (this.bYB != null) {
+            this.bYB.bA(z);
         }
     }
 
     @Override // com.baidu.live.gift.ad
-    public void ek(int i) {
+    public void Hq() {
+        if (this.bYC != null) {
+            this.bYC.Hq();
+        }
     }
 
     @Override // com.baidu.live.gift.ad
-    public void el(int i) {
+    public void ei(int i) {
+    }
+
+    @Override // com.baidu.live.gift.ad
+    public void ej(int i) {
     }
 }

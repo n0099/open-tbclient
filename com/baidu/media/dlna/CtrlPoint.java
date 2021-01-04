@@ -12,46 +12,48 @@ import com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider;
 import com.baidu.media.duplayer.Keep;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class CtrlPoint extends CtrlPointProvider {
     String c;
-    CtrlPointProvider.CtrlPointListener cca;
+    CtrlPointProvider.CtrlPointListener ciL;
     private long d;
-    String b = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    String f3225b = null;
     private Handler e = new Handler(Looper.getMainLooper()) { // from class: com.baidu.media.dlna.CtrlPoint.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    if (CtrlPoint.this.cca != null) {
-                        CtrlPoint.this.cca.onPrepared();
+                    if (CtrlPoint.this.ciL != null) {
+                        CtrlPoint.this.ciL.onPrepared();
                         break;
                     }
                     break;
                 case 2:
-                    if (CtrlPoint.this.cca != null) {
-                        CtrlPoint.this.cca.onComplete();
+                    if (CtrlPoint.this.ciL != null) {
+                        CtrlPoint.this.ciL.onComplete();
                         break;
                     }
                     break;
                 case 3:
-                    if (CtrlPoint.this.cca != null) {
-                        CtrlPoint.this.cca.onError(message.arg1, message.arg2);
+                    if (CtrlPoint.this.ciL != null) {
+                        CtrlPoint.this.ciL.onError(message.arg1, message.arg2);
                         break;
                     }
                     break;
                 case 4:
-                    if (CtrlPoint.this.cca != null) {
+                    if (CtrlPoint.this.ciL != null) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("url", CtrlPoint.this.b);
+                        hashMap.put("url", CtrlPoint.this.f3225b);
                         hashMap.put("uuid", CtrlPoint.this.c);
-                        CtrlPoint.this.cca.onInfo(message.arg1, message.arg2, hashMap);
+                        CtrlPoint.this.ciL.onInfo(message.arg1, message.arg2, hashMap);
                         break;
                     }
                     break;
                 case 5:
-                    if (CtrlPoint.this.cca != null) {
-                        CtrlPoint.this.cca.onSeekCompleted(message.arg1, message.arg2);
+                    if (CtrlPoint.this.ciL != null) {
+                        CtrlPoint.this.ciL.onSeekCompleted(message.arg1, message.arg2);
                         break;
                     }
                     break;
@@ -219,13 +221,13 @@ public class CtrlPoint extends CtrlPointProvider {
             return;
         }
         nativeCtrlPointSetAVTransportURI(this.d, str);
-        this.b = str;
+        this.f3225b = str;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
         if (this.d != 0) {
-            this.cca = ctrlPointListener;
+            this.ciL = ctrlPointListener;
             nativeCtrlPointSetListener(this.d, new WeakReference(this));
         }
     }

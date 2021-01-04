@@ -8,7 +8,7 @@ import com.baidu.live.d.x;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaCharmCardActivityConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ALaCharmInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaCharmCardActivityConfig.class, ALaCharmCardActivity.class);
@@ -19,14 +19,14 @@ public class ALaCharmInitialize {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.d.a)) {
                     com.baidu.live.liveroom.d.a aVar = (com.baidu.live.liveroom.d.a) customResponsedMessage.getData();
-                    if (aVar.bqR != null && aVar.bqR.context != null) {
-                        TbPageContext tbPageContext = (TbPageContext) IScrollableHelper.getBbPageContext(aVar.bqR.context);
-                        if (aVar.bqR.bqT != null && aVar.bqR.bqT.mLiveInfo != null) {
-                            com.baidu.tieba.ala.charm.a.a Hj = new com.baidu.tieba.ala.charm.a.a(tbPageContext).Hi(String.valueOf(aVar.bqR.bqT.mLiveInfo.group_id)).Hj(String.valueOf(aVar.bqR.bqT.mLiveInfo.live_id));
-                            if (aVar.bqR.bqT.aJV != null) {
-                                Hj.Hl(String.valueOf(aVar.bqR.bqT.aJV.charmCount)).Hk(String.valueOf(String.valueOf(aVar.bqR.bqT.aJV.userId)));
+                    if (aVar.bsL != null && aVar.bsL.context != null) {
+                        TbPageContext tbPageContext = (TbPageContext) IScrollableHelper.getBbPageContext(aVar.bsL.context);
+                        if (aVar.bsL.bsN != null && aVar.bsL.bsN.mLiveInfo != null) {
+                            com.baidu.tieba.ala.charm.a.a Hi = new com.baidu.tieba.ala.charm.a.a(tbPageContext).Hh(String.valueOf(aVar.bsL.bsN.mLiveInfo.group_id)).Hi(String.valueOf(aVar.bsL.bsN.mLiveInfo.live_id));
+                            if (aVar.bsL.bsN.aKu != null) {
+                                Hi.Hk(String.valueOf(aVar.bsL.bsN.aKu.charmCount)).Hj(String.valueOf(String.valueOf(aVar.bsL.bsN.aKu.userId)));
                             }
-                            aVar.a(Hj);
+                            aVar.a(Hi);
                         }
                     }
                 }

@@ -1,7 +1,7 @@
 package com.cmic.sso.sdk.c.c;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public interface d {
-    void j(String str, String str2, JSONObject jSONObject);
+    void i(String str, String str2, JSONObject jSONObject);
 }

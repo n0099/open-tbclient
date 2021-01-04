@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.data.ah;
 import com.baidu.tieba.R;
@@ -18,97 +18,97 @@ import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.SerializableItemInfo;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private com.baidu.tbadk.core.view.a fEW = null;
-    private final NewWriteModel.d fwI = new NewWriteModel.d() { // from class: com.baidu.tieba.frs.examination.c.1
+    private NewWriteModel fGa;
+    private final BaseFragmentActivity iJr;
+    private WriteData jsI;
+    private a jsJ;
+    private final ForumWriteData jst;
+    private final SerializableItemInfo jsv;
+    private InputMethodManager mInputManager;
+    private com.baidu.tbadk.core.view.a fOA = null;
+    private final NewWriteModel.d fGo = new NewWriteModel.d() { // from class: com.baidu.tieba.frs.examination.c.1
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ah ahVar, WriteData writeData, AntiData antiData) {
             c.this.closeLoadingDialog();
             if (postWriteCallBackData != null) {
                 if (!z) {
-                    c.this.ixe.showToast(postWriteCallBackData.getErrorString());
+                    c.this.iJr.showToast(postWriteCallBackData.getErrorString());
                     return;
                 }
-                TiebaStatic.log(new ar("c13723").dY("tid", postWriteCallBackData.getThreadId()).dY("fid", c.this.jfT.forumId).dY("fname", c.this.jfT.forumName).dY("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new aq("c13723").dX("tid", postWriteCallBackData.getThreadId()).dX("fid", c.this.jst.forumId).dX("fname", c.this.jst.forumName).dX("uid", TbadkCoreApplication.getCurrentAccount()));
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                 intent.putExtras(bundle);
-                c.this.ixe.setResult(-1, intent);
-                c.this.ixe.finish();
+                c.this.iJr.setResult(-1, intent);
+                c.this.iJr.finish();
             }
         }
     };
-    private NewWriteModel fwu;
-    private final BaseFragmentActivity ixe;
-    private final ForumWriteData jfT;
-    private final SerializableItemInfo jfV;
-    private WriteData jgi;
-    private a jgj;
-    private InputMethodManager mInputManager;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(InputMethodManager inputMethodManager);
     }
 
     public c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
         this.mInputManager = null;
-        this.ixe = baseFragmentActivity;
-        this.jfT = forumWriteData;
-        this.jfV = serializableItemInfo;
+        this.iJr = baseFragmentActivity;
+        this.jst = forumWriteData;
+        this.jsv = serializableItemInfo;
         this.mInputManager = (InputMethodManager) baseFragmentActivity.getSystemService("input_method");
         initUI();
         initData();
     }
 
     private void initUI() {
-        this.fEW = new com.baidu.tbadk.core.view.a(this.ixe);
+        this.fOA = new com.baidu.tbadk.core.view.a(this.iJr);
     }
 
     private void initData() {
-        this.fwu = new NewWriteModel();
-        this.jgi = new WriteData();
-        this.fwu.b(this.fwI);
+        this.fGa = new NewWriteModel();
+        this.jsI = new WriteData();
+        this.fGa.b(this.fGo);
     }
 
     public void a(String str, String str2, ForumWriteData forumWriteData) {
         if (!j.isNetWorkAvailable()) {
-            l.showToast(this.ixe, R.string.neterror);
+            l.showToast(this.iJr, R.string.neterror);
         }
-        if (this.jfV != null) {
-            this.jgi.setItem_id(String.valueOf(this.jfV.id));
+        if (this.jsv != null) {
+            this.jsI.setItem_id(String.valueOf(this.jsv.id));
         }
-        this.jgi.setForumName(forumWriteData.forumName);
-        this.jgi.setContent(str);
-        this.jgi.setComment_head(str2);
-        this.jgi.setForumId(forumWriteData.forumId);
-        this.jgi.setTitle("");
-        this.jgi.setIsNoTitle(true);
-        if (this.jgj != null) {
-            this.jgj.a(this.mInputManager);
+        this.jsI.setForumName(forumWriteData.forumName);
+        this.jsI.setContent(str);
+        this.jsI.setComment_head(str2);
+        this.jsI.setForumId(forumWriteData.forumId);
+        this.jsI.setTitle("");
+        this.jsI.setIsNoTitle(true);
+        if (this.jsJ != null) {
+            this.jsJ.a(this.mInputManager);
         }
-        cGw();
+        cJv();
     }
 
-    private void cGw() {
-        this.fwu.e(this.jgi);
-        this.fwu.dQE();
+    private void cJv() {
+        this.fGa.f(this.jsI);
+        this.fGa.dQB();
         showLoadingDialog();
     }
 
     public void showLoadingDialog() {
-        this.fEW.setCancelListener(null);
-        this.fEW.setTipString(R.string.sending);
-        this.fEW.setDialogVisiable(true);
+        this.fOA.setCancelListener(null);
+        this.fOA.setTipString(R.string.sending);
+        this.fOA.setDialogVisiable(true);
     }
 
     public void closeLoadingDialog() {
-        this.fEW.setDialogVisiable(false);
+        this.fOA.setDialogVisiable(false);
     }
 
     public void a(a aVar) {
-        this.jgj = aVar;
+        this.jsJ = aVar;
     }
 }

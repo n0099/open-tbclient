@@ -8,10 +8,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.megapp.ma.MAApplication;
 import java.util.Calendar;
 /* loaded from: classes.dex */
-public class BdBaseApplication extends MAApplication {
+public class BdBaseApplication extends Application {
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
     private static BdBaseApplication sApp = null;
     protected Handler mAppInitHandler;
@@ -32,7 +31,7 @@ public class BdBaseApplication extends MAApplication {
                 BdBaseApplication.this.handleInitMessage(message);
             }
         };
-        g.li().setHostResources(super.getResources());
+        h.kE().setHostResources(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
@@ -46,7 +45,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.pL().init();
+        com.baidu.adp.plugin.c.a.pn().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -105,11 +104,11 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.oh().initial(this.mContext);
+        com.baidu.adp.lib.util.d.nI().initial(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.lg().releaseAllPossibleAcitivities();
+        b.kC().releaseAllPossibleAcitivities();
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGcTime > 30000) {
             this.lastGcTime = currentTimeMillis;
@@ -121,16 +120,16 @@ public class BdBaseApplication extends MAApplication {
     }
 
     public void setActivityStackMaxSize(int i) {
-        a.lg().setActivityStackMaxSize(i);
+        b.kC().setActivityStackMaxSize(i);
     }
 
     public int getActivityStackMaxSize() {
-        return a.lg().getActivityStackMaxSize();
+        return b.kC().getActivityStackMaxSize();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.li().getResources();
+        Resources resources = h.kE().getResources();
         return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
     }
 

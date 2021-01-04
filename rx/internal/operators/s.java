@@ -1,59 +1,69 @@
 package rx.internal.operators;
 
-import rx.exceptions.CompositeException;
+import java.util.NoSuchElementException;
+import rx.d;
 import rx.h;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class s<T> implements h.a<T> {
-    final rx.h<T> pSV;
-    final rx.functions.b<? super T> pSW;
-    final rx.functions.b<Throwable> pSX;
+    final d.a<T> quz;
 
-    public s(rx.h<T> hVar, rx.functions.b<? super T> bVar, rx.functions.b<Throwable> bVar2) {
-        this.pSV = hVar;
-        this.pSW = bVar;
-        this.pSX = bVar2;
+    public s(d.a<T> aVar) {
+        this.quz = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     /* renamed from: b */
     public void call(rx.i<? super T> iVar) {
-        a aVar = new a(iVar, this.pSW, this.pSX);
+        a aVar = new a(iVar);
         iVar.add(aVar);
-        this.pSV.a(aVar);
+        this.quz.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
-    public static final class a<T> extends rx.i<T> {
+    /* loaded from: classes15.dex */
+    public static final class a<T> extends rx.j<T> {
         final rx.i<? super T> actual;
-        final rx.functions.b<? super T> pSW;
-        final rx.functions.b<Throwable> pSX;
+        int state;
+        T value;
 
-        a(rx.i<? super T> iVar, rx.functions.b<? super T> bVar, rx.functions.b<Throwable> bVar2) {
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public a(rx.i<? super T> iVar) {
             this.actual = iVar;
-            this.pSW = bVar;
-            this.pSX = bVar2;
         }
 
-        @Override // rx.i
-        public void onSuccess(T t) {
-            try {
-                this.pSW.call(t);
-                this.actual.onSuccess(t);
-            } catch (Throwable th) {
-                rx.exceptions.a.a(th, this, t);
+        @Override // rx.e
+        public void onNext(T t) {
+            int i = this.state;
+            if (i == 0) {
+                this.state = 1;
+                this.value = t;
+            } else if (i == 1) {
+                this.state = 2;
+                this.actual.onError(new IndexOutOfBoundsException("The upstream produced more than one value"));
             }
         }
 
-        @Override // rx.i
+        @Override // rx.e
         public void onError(Throwable th) {
-            try {
-                this.pSX.call(th);
-                this.actual.onError(th);
-            } catch (Throwable th2) {
-                rx.exceptions.a.J(th2);
-                this.actual.onError(new CompositeException(th, th2));
+            if (this.state == 2) {
+                rx.c.c.onError(th);
+                return;
+            }
+            this.value = null;
+            this.actual.onError(th);
+        }
+
+        @Override // rx.e
+        public void onCompleted() {
+            int i = this.state;
+            if (i == 0) {
+                this.actual.onError(new NoSuchElementException());
+            } else if (i == 1) {
+                this.state = 2;
+                T t = this.value;
+                this.value = null;
+                this.actual.onSuccess(t);
             }
         }
     }

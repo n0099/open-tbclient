@@ -1,5 +1,5 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class NormalizeGuestAccountDTO extends SapiWebDTO {
     public String bduss;
     public String description;

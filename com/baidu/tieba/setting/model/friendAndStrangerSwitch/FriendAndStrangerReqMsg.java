@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.model.friendAndStrangerSwitch;
 
 import com.baidu.adp.framework.message.HttpMessage;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class FriendAndStrangerReqMsg extends HttpMessage {
     public static final int MASK_ALL = 3;
     public static final int MASK_STRANGER = 1;

@@ -1,14 +1,14 @@
 package com.baidu.swan.apps.inlinewidget.rtcroom.a.b;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class y extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String aya() {
+    public String azr() {
         return "setRemoteVideoPlayState";
     }
 
@@ -21,8 +21,8 @@ public class y extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
             if (jSONObject.has("status") && jSONObject.has(TbEnum.SystemMessage.KEY_USER_ID)) {
                 long optLong = jSONObject.optLong(TbEnum.SystemMessage.KEY_USER_ID, -1L);
                 boolean optBoolean = jSONObject.optBoolean("status");
-                if (com.baidu.swan.apps.inlinewidget.rtcroom.b.a.cf(optLong)) {
-                    bVar.e(optLong, optBoolean);
+                if (com.baidu.swan.apps.inlinewidget.rtcroom.b.a.cg(optLong)) {
+                    bVar.f(optLong, optBoolean);
                 }
             }
         }

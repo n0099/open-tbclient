@@ -1,5 +1,5 @@
 package com.baidu.live.liveroom.middleware;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface f {
-    a Pl();
+    a OZ();
 }

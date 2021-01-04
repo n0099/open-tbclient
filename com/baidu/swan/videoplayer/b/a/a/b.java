@@ -1,63 +1,63 @@
 package com.baidu.swan.videoplayer.b.a.a;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import com.baidu.swan.videoplayer.media.a.a;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b extends a {
-    private com.baidu.swan.videoplayer.media.a.a etJ;
-    private int etK;
+    private com.baidu.swan.videoplayer.media.a.a eDq;
+    private int eDr;
 
     public b(ZeusPluginFactory.Invoker invoker, String str) {
         super(invoker, str);
-        this.etK = 0;
-        this.etJ = new com.baidu.swan.videoplayer.media.a.a();
-        this.etJ.register(this.mContext);
-        this.etJ.a(new a.InterfaceC0577a() { // from class: com.baidu.swan.videoplayer.b.a.a.b.1
-            @Override // com.baidu.swan.videoplayer.media.a.a.InterfaceC0577a
-            public void aJ(int i, int i2) {
-                b.this.bhh();
+        this.eDr = 0;
+        this.eDq = new com.baidu.swan.videoplayer.media.a.a();
+        this.eDq.register(this.mContext);
+        this.eDq.a(new a.InterfaceC0568a() { // from class: com.baidu.swan.videoplayer.b.a.a.b.1
+            @Override // com.baidu.swan.videoplayer.media.a.a.InterfaceC0568a
+            public void aG(int i, int i2) {
+                b.this.bjD();
             }
         });
     }
 
     @Override // com.baidu.swan.videoplayer.b.a.a.a, com.baidu.swan.apps.inlinewidget.f.c.a
-    public int ayL() {
-        return this.etK;
+    public int aAc() {
+        return this.eDr;
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.f.c.a
-    public void pt(String str) {
+    public void pm(String str) {
     }
 
     @Override // com.baidu.swan.videoplayer.b.a.a.a, com.baidu.swan.apps.inlinewidget.f.c.a
     public boolean prepareAsync() {
         if (DEBUG) {
-            Log.d("SwanInlineLiveWidget", this.dga + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " start prepareAsync");
+            Log.d("SwanInlineLiveWidget", this.dkT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " start prepareAsync");
         }
-        c(this.mContext, new com.baidu.swan.apps.ap.e.b<Integer>() { // from class: com.baidu.swan.videoplayer.b.a.a.b.2
+        c(this.mContext, new com.baidu.swan.apps.ao.e.b<Integer>() { // from class: com.baidu.swan.videoplayer.b.a.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.ap.e.b
-            /* renamed from: d */
-            public void M(Integer num) {
+            @Override // com.baidu.swan.apps.ao.e.b
+            /* renamed from: f */
+            public void L(Integer num) {
                 if (num.intValue() == 2) {
                     if (a.DEBUG) {
-                        Log.d("SwanInlineLiveWidget", b.this.dga + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " authorize deny => onError 0");
+                        Log.d("SwanInlineLiveWidget", b.this.dkT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " authorize deny => onError 0");
                     }
-                    if (b.this.dbV != null) {
-                        b.this.dbV.onError(0);
+                    if (b.this.dgQ != null) {
+                        b.this.dgQ.onError(0);
                         return;
                     }
                     return;
                 }
                 if (a.DEBUG) {
-                    Log.d("SwanInlineLiveWidget", b.this.dga + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " real do prepareAsync");
+                    Log.d("SwanInlineLiveWidget", b.this.dkT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " real do prepareAsync");
                 }
                 b.super.prepareAsync();
             }
@@ -65,34 +65,34 @@ public class b extends a {
         return true;
     }
 
-    private void c(@NonNull Context context, @NonNull final com.baidu.swan.apps.ap.e.b<Integer> bVar) {
+    private void c(@NonNull Context context, @NonNull final com.baidu.swan.apps.ao.e.b<Integer> bVar) {
         if (DEBUG) {
-            Log.d("SwanInlineLiveWidget", this.dga + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " start authorize");
+            Log.d("SwanInlineLiveWidget", this.dkT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " start authorize");
         }
-        e aJV = e.aJV();
-        if (aJV == null) {
+        e aMl = e.aMl();
+        if (aMl == null) {
             if (DEBUG) {
                 throw new RuntimeException("inline live authorize: swan app is null");
             }
-            bVar.M(0);
-        } else if (com.baidu.swan.apps.ad.a.a.aHj()) {
-            this.etK = 1;
+            bVar.L(0);
+        } else if (com.baidu.swan.apps.ad.a.a.aIC()) {
+            this.eDr = 1;
             if (DEBUG) {
-                Log.d("SwanInlineLiveWidget", this.dga + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " authorize debug: true");
+                Log.d("SwanInlineLiveWidget", this.dkT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " authorize debug: true");
             }
-            bVar.M(Integer.valueOf(this.etK));
+            bVar.L(Integer.valueOf(this.eDr));
         } else {
-            aJV.aKg().b(context, "mapp_i_live_player", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.videoplayer.b.a.a.b.3
+            aMl.aMw().b(context, "mapp_i_live_player", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.videoplayer.b.a.a.b.3
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.ap.e.b
+                @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
-                public void M(h<b.d> hVar) {
-                    boolean b = com.baidu.swan.apps.setting.oauth.c.b(hVar);
+                public void L(h<b.d> hVar) {
+                    boolean b2 = com.baidu.swan.apps.setting.oauth.c.b(hVar);
                     if (a.DEBUG) {
-                        Log.d("SwanInlineLiveWidget", b.this.dga + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " authorize: " + b);
+                        Log.d("SwanInlineLiveWidget", b.this.dkT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " authorize: " + b2);
                     }
-                    b.this.etK = b ? 1 : 2;
-                    bVar.M(Integer.valueOf(b.this.etK));
+                    b.this.eDr = b2 ? 1 : 2;
+                    bVar.L(Integer.valueOf(b.this.eDr));
                 }
             });
         }
@@ -101,14 +101,14 @@ public class b extends a {
     @Override // com.baidu.swan.videoplayer.b.a.a.a, com.baidu.swan.apps.inlinewidget.f.c.a
     public void release() {
         super.release();
-        if (this.etJ != null) {
-            this.etJ.unregister();
-            this.etJ = null;
+        if (this.eDq != null) {
+            this.eDq.unregister();
+            this.eDq = null;
         }
     }
 
     @Override // com.baidu.swan.videoplayer.b.a.a.a
-    public void bhg() {
+    public void bjC() {
     }
 
     @Override // com.baidu.swan.videoplayer.b.a.a.a

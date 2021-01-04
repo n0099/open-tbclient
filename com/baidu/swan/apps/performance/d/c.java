@@ -2,66 +2,66 @@ package com.baidu.swan.apps.performance.d;
 
 import android.view.View;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b dpx;
+    private b duw;
     private long mCostTime;
     private long mStartTime;
 
     public c() {
         if (isOn()) {
-            this.dpx = new b();
-        }
-    }
-
-    @Override // com.baidu.swan.apps.performance.d.a
-    public void cA(long j) {
-        if (isOn() && this.dpx != null) {
-            this.dpx.cD(j - this.mStartTime);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.performance.d.a
-    public void bZ(long j) {
-        if (isOn() && this.dpx != null) {
-            this.dpx.cC(j - this.mStartTime);
+            this.duw = new b();
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
     public void cB(long j) {
-        if (isOn() && this.dpx != null) {
-            this.dpx.cE(j - this.mStartTime);
+        if (isOn() && this.duw != null) {
+            this.duw.cE(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
-    public void bY(long j) {
-        if (isOn() && this.dpx != null) {
-            this.dpx.cF(j - this.mStartTime);
+    public void ca(long j) {
+        if (isOn() && this.duw != null) {
+            this.duw.cD(j - this.mStartTime);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.performance.d.a
+    public void cC(long j) {
+        if (isOn() && this.duw != null) {
+            this.duw.cF(j - this.mStartTime);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.performance.d.a
+    public void bZ(long j) {
+        if (isOn() && this.duw != null) {
+            this.duw.cG(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
     public void start(long j) {
-        if (isOn() && this.dpx != null) {
+        if (isOn() && this.duw != null) {
             this.mStartTime = j;
-            this.dpx.reset();
+            this.duw.reset();
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
-    public void cw(long j) {
-        if (isOn() && this.dpx != null) {
+    public void cx(long j) {
+        if (isOn() && this.duw != null) {
             this.mCostTime = j;
-            this.dpx.j(this.mStartTime, this.mCostTime);
-            this.dpx.done();
+            this.duw.m(this.mStartTime, this.mCostTime);
+            this.duw.done();
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
-    public void bindView(View view) {
+    public void aG(View view) {
         if (DEBUG && view != null) {
             view.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.swan.apps.performance.d.c.1
                 @Override // android.view.View.OnLongClickListener
@@ -80,17 +80,17 @@ public class c implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void turnOn() {
         AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
-        if (this.dpx == null) {
-            this.dpx = new b();
+        if (this.duw == null) {
+            this.duw = new b();
         }
-        this.dpx.aGM();
+        this.duw.aIf();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void turnOff() {
         AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
-        if (this.dpx != null) {
-            this.dpx.aGN();
+        if (this.duw != null) {
+            this.duw.aIg();
         }
     }
 

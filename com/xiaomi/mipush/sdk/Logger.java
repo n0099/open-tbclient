@@ -6,7 +6,7 @@ import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.push.dl;
 import com.xiaomi.push.dm;
 import java.io.File;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class Logger {
     private static boolean sDisablePushLog = false;
     private static LoggerInterface sUserLogger = null;
@@ -68,12 +68,13 @@ public class Logger {
     }
 
     public static void setPushLog(Context context) {
-        boolean z = false;
+        boolean z;
         boolean z2 = sUserLogger != null;
         if (sDisablePushLog) {
+            z = false;
             z2 = false;
-        } else if (hasWritePermission(context)) {
-            z = true;
+        } else {
+            z = hasWritePermission(context);
         }
         com.xiaomi.channel.commonutils.logger.b.a(new dl(z2 ? sUserLogger : null, z ? new dm(context) : null));
     }

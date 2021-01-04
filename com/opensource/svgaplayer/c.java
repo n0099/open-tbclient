@@ -6,50 +6,50 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import java.util.HashMap;
 @kotlin.e
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class c {
-    private boolean pyD;
-    private HashMap<String, Boolean> pyw = new HashMap<>();
-    private HashMap<String, Bitmap> pyx = new HashMap<>();
-    private HashMap<String, String> pyy = new HashMap<>();
-    private HashMap<String, TextPaint> pyz = new HashMap<>();
-    private HashMap<String, StaticLayout> pyA = new HashMap<>();
-    private HashMap<String, kotlin.jvm.a.c<Canvas, Integer, Boolean>> pyB = new HashMap<>();
-    private HashMap<String, kotlin.jvm.a.d<Canvas, Integer, Integer, Integer, Boolean>> pyC = new HashMap<>();
+    private HashMap<String, Boolean> pRb = new HashMap<>();
+    private HashMap<String, Bitmap> pRc = new HashMap<>();
+    private HashMap<String, String> pRd = new HashMap<>();
+    private HashMap<String, TextPaint> pRe = new HashMap<>();
+    private HashMap<String, StaticLayout> pRf = new HashMap<>();
+    private HashMap<String, kotlin.jvm.a.c<Canvas, Integer, Boolean>> pRg = new HashMap<>();
+    private HashMap<String, kotlin.jvm.a.d<Canvas, Integer, Integer, Integer, Boolean>> pRh = new HashMap<>();
+    private boolean pRi;
 
-    public final HashMap<String, Boolean> ezC() {
-        return this.pyw;
+    public final HashMap<String, Boolean> eDu() {
+        return this.pRb;
     }
 
-    public final HashMap<String, Bitmap> ezD() {
-        return this.pyx;
+    public final HashMap<String, Bitmap> eDv() {
+        return this.pRc;
     }
 
-    public final HashMap<String, String> ezE() {
-        return this.pyy;
+    public final HashMap<String, String> eDw() {
+        return this.pRd;
     }
 
-    public final HashMap<String, TextPaint> ezF() {
-        return this.pyz;
+    public final HashMap<String, TextPaint> eDx() {
+        return this.pRe;
     }
 
-    public final HashMap<String, StaticLayout> ezG() {
-        return this.pyA;
+    public final HashMap<String, StaticLayout> eDy() {
+        return this.pRf;
     }
 
-    public final HashMap<String, kotlin.jvm.a.c<Canvas, Integer, Boolean>> ezH() {
-        return this.pyB;
+    public final HashMap<String, kotlin.jvm.a.c<Canvas, Integer, Boolean>> eDz() {
+        return this.pRg;
     }
 
-    public final HashMap<String, kotlin.jvm.a.d<Canvas, Integer, Integer, Integer, Boolean>> ezI() {
-        return this.pyC;
+    public final HashMap<String, kotlin.jvm.a.d<Canvas, Integer, Integer, Integer, Boolean>> eDA() {
+        return this.pRh;
     }
 
-    public final void Bi(boolean z) {
-        this.pyD = z;
+    public final void Bs(boolean z) {
+        this.pRi = z;
     }
 
-    public final boolean ezJ() {
-        return this.pyD;
+    public final boolean eDB() {
+        return this.pRi;
     }
 }

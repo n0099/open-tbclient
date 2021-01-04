@@ -2,19 +2,19 @@ package com.baidu.turbonet.base;
 
 import android.util.Log;
 import java.util.Locale;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class a {
     private a() {
     }
 
-    private static String g(String str, Object... objArr) {
+    private static String formatLog(String str, Object... objArr) {
         if (objArr != null && objArr.length != 0) {
             return String.format(Locale.US, str, objArr);
         }
         return str;
     }
 
-    public static String Xi(String str) {
+    public static String normalizeTag(String str) {
         if (!str.startsWith("cr_")) {
             int i = 0;
             if (str.startsWith("cr.")) {
@@ -25,17 +25,17 @@ public class a {
         return str;
     }
 
-    private static String h(String str, Object... objArr) {
-        return "[" + egM() + "] " + g(str, objArr);
+    private static String g(String str, Object... objArr) {
+        return "[" + ehr() + "] " + formatLog(str, objArr);
     }
 
     private static void debug(String str, String str2, Object... objArr) {
-        String h = h(str2, objArr);
-        Throwable L = L(objArr);
-        if (L != null) {
-            Log.d(Xi(str), h, L);
+        String g = g(str2, objArr);
+        Throwable throwableToLog = getThrowableToLog(objArr);
+        if (throwableToLog != null) {
+            Log.d(normalizeTag(str), g, throwableToLog);
         } else {
-            Log.d(Xi(str), h);
+            Log.d(normalizeTag(str), g);
         }
     }
 
@@ -43,27 +43,27 @@ public class a {
         debug(str, str2, new Object[0]);
     }
 
-    public static void f(String str, String str2, Object... objArr) {
-        String g = g(str2, objArr);
-        Throwable L = L(objArr);
-        if (L != null) {
-            Log.i(Xi(str), g, L);
+    public static void i(String str, String str2, Object... objArr) {
+        String formatLog = formatLog(str2, objArr);
+        Throwable throwableToLog = getThrowableToLog(objArr);
+        if (throwableToLog != null) {
+            Log.i(normalizeTag(str), formatLog, throwableToLog);
         } else {
-            Log.i(Xi(str), g);
+            Log.i(normalizeTag(str), formatLog);
         }
     }
 
-    public static void g(String str, String str2, Object... objArr) {
-        String g = g(str2, objArr);
-        Throwable L = L(objArr);
-        if (L != null) {
-            Log.e(Xi(str), g, L);
+    public static void e(String str, String str2, Object... objArr) {
+        String formatLog = formatLog(str2, objArr);
+        Throwable throwableToLog = getThrowableToLog(objArr);
+        if (throwableToLog != null) {
+            Log.e(normalizeTag(str), formatLog, throwableToLog);
         } else {
-            Log.e(Xi(str), g);
+            Log.e(normalizeTag(str), formatLog);
         }
     }
 
-    private static Throwable L(Object[] objArr) {
+    private static Throwable getThrowableToLog(Object[] objArr) {
         if (objArr == null || objArr.length == 0) {
             return null;
         }
@@ -74,7 +74,7 @@ public class a {
         return null;
     }
 
-    private static String egM() {
+    private static String ehr() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         String name = a.class.getName();
         int i = 0;

@@ -11,33 +11,35 @@ import android.os.Looper;
 import android.os.Parcel;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class ap implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f4567a;
+    private static boolean f14159a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f107a;
+    private Context f185a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ServiceConnection f108a;
+    private ServiceConnection f186a;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile int f106a = 0;
+    private volatile int f184a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile String f110a = null;
+    private volatile String f188a = null;
 
     /* renamed from: b  reason: collision with other field name */
-    private volatile boolean f111b = false;
-    private volatile String b = null;
+    private volatile boolean f189b = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    private volatile String f14160b = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Object f109a = new Object();
+    private final Object f187a = new Object();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public class a implements ServiceConnection {
         private a() {
         }
@@ -46,31 +48,31 @@ public class ap implements ar {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                ap.this.f110a = b.a(iBinder);
-                ap.this.f111b = b.m129a(iBinder);
+                ap.this.f188a = b.a(iBinder);
+                ap.this.f189b = b.m155a(iBinder);
                 ap.this.b();
-                ap.this.f106a = 2;
-                synchronized (ap.this.f109a) {
+                ap.this.f184a = 2;
+                synchronized (ap.this.f187a) {
                     try {
-                        ap.this.f109a.notifyAll();
+                        ap.this.f187a.notifyAll();
                     } catch (Exception e) {
                     }
                 }
             } catch (Exception e2) {
                 ap.this.b();
-                ap.this.f106a = 2;
-                synchronized (ap.this.f109a) {
+                ap.this.f184a = 2;
+                synchronized (ap.this.f187a) {
                     try {
-                        ap.this.f109a.notifyAll();
+                        ap.this.f187a.notifyAll();
                     } catch (Exception e3) {
                     }
                 }
             } catch (Throwable th) {
                 ap.this.b();
-                ap.this.f106a = 2;
-                synchronized (ap.this.f109a) {
+                ap.this.f184a = 2;
+                synchronized (ap.this.f187a) {
                     try {
-                        ap.this.f109a.notifyAll();
+                        ap.this.f187a.notifyAll();
                     } catch (Exception e4) {
                     }
                     throw th;
@@ -83,7 +85,7 @@ public class ap implements ar {
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     private static class b {
         static String a(IBinder iBinder) {
             Parcel obtain = Parcel.obtain();
@@ -100,7 +102,7 @@ public class ap implements ar {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        static boolean m129a(IBinder iBinder) {
+        static boolean m155a(IBinder iBinder) {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -116,7 +118,7 @@ public class ap implements ar {
     }
 
     public ap(Context context) {
-        this.f107a = context;
+        this.f185a = context;
         a();
     }
 
@@ -131,36 +133,36 @@ public class ap implements ar {
     }
 
     private void a() {
-        this.f108a = new a();
+        this.f186a = new a();
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
         boolean z = false;
         try {
-            z = this.f107a.bindService(intent, this.f108a, 1);
+            z = this.f185a.bindService(intent, this.f186a, 1);
         } catch (Exception e) {
         }
-        this.f106a = z ? 1 : 2;
+        this.f184a = z ? 1 : 2;
     }
 
     private void a(String str) {
-        if (this.f106a != 1 || Looper.myLooper() == Looper.getMainLooper()) {
+        if (this.f184a != 1 || Looper.myLooper() == Looper.getMainLooper()) {
             return;
         }
-        synchronized (this.f109a) {
+        synchronized (this.f187a) {
             try {
-                com.xiaomi.channel.commonutils.logger.b.m47a("huawei's " + str + " wait...");
-                this.f109a.wait(IMConnection.RETRY_DELAY_TIMES);
+                com.xiaomi.channel.commonutils.logger.b.m73a("huawei's " + str + " wait...");
+                this.f187a.wait(IMConnection.RETRY_DELAY_TIMES);
             } catch (Exception e) {
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m127a(Context context) {
+    public static boolean m153a(Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.huawei.hwid", 128);
             boolean z = (packageInfo.applicationInfo.flags & 1) != 0;
-            f4567a = packageInfo.versionCode >= 20602000;
+            f14159a = packageInfo.versionCode >= 20602000;
             if (z) {
                 return true;
             }
@@ -171,9 +173,9 @@ public class ap implements ar {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.f108a != null) {
+        if (this.f186a != null) {
             try {
-                this.f107a.unbindService(this.f108a);
+                this.f185a.unbindService(this.f186a);
             } catch (Exception e) {
             }
         }
@@ -186,14 +188,14 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return f4567a;
+        return f14159a;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b  reason: collision with other method in class */
-    public String mo128b() {
+    public String mo154b() {
         a("getOAID");
-        return this.f110a;
+        return this.f188a;
     }
 
     @Override // com.xiaomi.push.ar
@@ -203,13 +205,13 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        if (this.b == null) {
+        if (this.f14160b == null) {
             synchronized (this) {
-                if (this.b == null) {
-                    this.b = a(this.f107a);
+                if (this.f14160b == null) {
+                    this.f14160b = a(this.f185a);
                 }
             }
         }
-        return this.b;
+        return this.f14160b;
     }
 }

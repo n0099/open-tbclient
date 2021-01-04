@@ -4,27 +4,27 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.tbadkCore.v;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.tieba.homepage.a.a.a {
-    private com.baidu.tieba.lego.c.a jIH;
+    private com.baidu.tieba.lego.c.a jVR;
 
     public void a(com.baidu.tieba.lego.c.a aVar) {
-        this.jIH = aVar;
+        this.jVR = aVar;
         update();
-        cNq();
+        cQw();
     }
 
     private void update() {
-        if (this.jIH != null && this.jIH.hasData()) {
-            List<ICardInfo> deO = this.jIH.deO();
+        if (this.jVR != null && this.jVR.hasData()) {
+            List<ICardInfo> dez = this.jVR.dez();
             this.mThreadList = new ArrayList();
-            this.mThreadList.addAll(deO);
-            this.mHasMore = this.jIH.hasMore();
-            this.pn = this.jIH.getPn();
+            this.mThreadList.addAll(dez);
+            this.mHasMore = this.jVR.hasMore();
+            this.pn = this.jVR.getPn();
         }
     }
 
-    private void cNq() {
+    private void cQw() {
         if (this.mThreadList != null) {
             v.y(this.mThreadList, 2);
         }

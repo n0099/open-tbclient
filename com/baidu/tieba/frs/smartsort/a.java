@@ -5,88 +5,88 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.be;
+import com.baidu.tieba.frs.bb;
 import com.baidu.tieba.frs.q;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private int czk;
-    private TextView jlc;
-    private be jqF;
-    private final FrsFragment jrm;
-    private boolean jtr;
-    private int jts = -1;
+    private int cEd;
+    private final FrsFragment jDI;
+    private bb jDb;
+    private boolean jFM;
+    private int jFN = -1;
+    private TextView jxB;
 
     public a(FrsFragment frsFragment) {
-        this.czk = 0;
+        this.cEd = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.jrm = frsFragment;
+        this.jDI = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.czk = UtilHelper.getStatusBarHeight();
+            this.cEd = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void cJE() {
-        if (this.jtr && this.jts >= 0) {
-            Bq(this.jts);
+    public void cME() {
+        if (this.jFM && this.jFN >= 0) {
+            BC(this.jFN);
         }
-        this.jtr = false;
+        this.jFM = false;
     }
 
-    public void Bp(int i) {
+    public void BB(int i) {
         if (i >= 0) {
-            qS(true);
-            Br(i);
+            rq(true);
+            BD(i);
             return;
         }
-        qS(false);
-        Br(i);
+        rq(false);
+        BD(i);
     }
 
-    private void Bq(int i) {
+    private void BC(int i) {
         FrameLayout frameLayout;
         String string;
-        q cCf = this.jrm.cCf();
-        if (cCf != null && cCf.getListView() != null && (frameLayout = (FrameLayout) cCf.cDG()) != null) {
-            if (this.jlc == null && this.jrm.getPageContext() != null) {
-                this.jlc = new TextView(this.jrm.getPageContext().getPageActivity());
-                this.jlc.setTextSize(0, this.jrm.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.jlc.setGravity(17);
+        q cEZ = this.jDI.cEZ();
+        if (cEZ != null && cEZ.getListView() != null && (frameLayout = (FrameLayout) cEZ.cGA()) != null) {
+            if (this.jxB == null && this.jDI.getPageContext() != null) {
+                this.jxB = new TextView(this.jDI.getPageContext().getPageActivity());
+                this.jxB.setTextSize(0, this.jDI.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.jxB.setGravity(17);
             }
-            if (this.jlc != null) {
+            if (this.jxB != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.jlc.setText(string);
+                this.jxB.setText(string);
             }
-            ap.setBackgroundResource(this.jlc, R.color.CAM_X0302);
-            ap.setViewTextColor(this.jlc, R.color.CAM_X0112);
+            ao.setBackgroundResource(this.jxB, R.color.CAM_X0302);
+            ao.setViewTextColor(this.jxB, R.color.CAM_X0112);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.jqF == null) {
-                this.jqF = new be();
+            if (this.jDb == null) {
+                this.jDb = new bb();
             }
-            this.jqF.a(this.jlc, frameLayout, layoutParams, 2000);
-            this.jts = -1;
+            this.jDb.a(this.jxB, frameLayout, layoutParams, 2000);
+            this.jFN = -1;
         }
     }
 
-    public void qS(boolean z) {
-        this.jtr = z;
+    public void rq(boolean z) {
+        this.jFM = z;
     }
 
-    public void Br(int i) {
-        this.jts = i;
+    public void BD(int i) {
+        this.jFN = i;
     }
 
     public void onDestroy() {
-        if (this.jqF != null) {
-            this.jqF.onDestroy();
+        if (this.jDb != null) {
+            this.jDb.onDestroy();
         }
     }
 }

@@ -1,23 +1,17 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class by {
-    public int aRJ = 7;
-    public int aRK;
-    public String aRL;
-    public String aRM;
+    public String downloadUrl = "";
+    public String aSv = "";
+    public String videoPath = "";
+    public String videoMd5 = "";
 
-    public by(JSONObject jSONObject) {
-        parseData(jSONObject);
-    }
-
-    private void parseData(JSONObject jSONObject) {
+    public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aRJ = jSONObject.optInt("show_days");
-            this.aRK = jSONObject.optInt("live_recommend_switch");
-            this.aRL = jSONObject.optString("live_recommend_enter_text");
-            this.aRM = jSONObject.optString("live_recommend_text");
+            this.downloadUrl = jSONObject.optString("poke_video_url", "");
+            this.aSv = jSONObject.optString("poke_video_md5", "");
         }
     }
 }

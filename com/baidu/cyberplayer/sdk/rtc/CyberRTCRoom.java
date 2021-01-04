@@ -8,14 +8,14 @@ import com.baidu.cyberplayer.sdk.rtc.CyberRTCAudioSamples;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCSetting;
 import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 @Keep
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class CyberRTCRoom {
 
     /* renamed from: a  reason: collision with root package name */
-    private RTCRoomProvider f1421a;
+    private RTCRoomProvider f1867a;
 
     public CyberRTCRoom(boolean z) {
-        this.f1421a = a.a().a(z);
+        this.f1867a = a.a().a(z);
     }
 
     public static void setRTCVerbose(boolean z) {
@@ -23,244 +23,244 @@ public class CyberRTCRoom {
     }
 
     public void changeSurfaceSize(long j, int i, int i2) {
-        if (this.f1421a != null) {
-            this.f1421a.changeSurfaceSize(j, i, i2);
+        if (this.f1867a != null) {
+            this.f1867a.changeSurfaceSize(j, i, i2);
         }
     }
 
     public boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, RTCRoomProvider.CyberRtcLiveTransferMode cyberRtcLiveTransferMode) {
-        if (this.f1421a != null) {
-            return this.f1421a.configLiveServerWithUrl(str, z, z2, str2, cyberRtcLiveTransferMode);
+        if (this.f1867a != null) {
+            return this.f1867a.configLiveServerWithUrl(str, z, z2, str2, cyberRtcLiveTransferMode);
         }
         return false;
     }
 
     public void destroy() {
-        if (this.f1421a != null) {
-            this.f1421a.destroy();
+        if (this.f1867a != null) {
+            this.f1867a.destroy();
         }
-        this.f1421a = null;
+        this.f1867a = null;
     }
 
     public void destroyExternalSurface(long j, Surface surface) {
-        if (this.f1421a != null) {
-            this.f1421a.destroyExternalSurface(j, surface);
+        if (this.f1867a != null) {
+            this.f1867a.destroyExternalSurface(j, surface);
         }
     }
 
     public void disbandRoom() {
-        if (this.f1421a != null) {
-            this.f1421a.disbandRoom();
+        if (this.f1867a != null) {
+            this.f1867a.disbandRoom();
         }
     }
 
     public void enableAgc(boolean z) {
-        if (this.f1421a != null) {
-            this.f1421a.enableAgc(z);
+        if (this.f1867a != null) {
+            this.f1867a.enableAgc(z);
         }
     }
 
     public void enableAns(boolean z) {
-        if (this.f1421a != null) {
-            this.f1421a.enableAns(z);
+        if (this.f1867a != null) {
+            this.f1867a.enableAns(z);
         }
     }
 
     public void enableExternalVideoCapturer(boolean z) {
-        if (this.f1421a != null) {
-            this.f1421a.enableExternalVideoCapturer(z);
+        if (this.f1867a != null) {
+            this.f1867a.enableExternalVideoCapturer(z);
         }
     }
 
     public void enableStatsToServer(boolean z, String str) {
-        if (this.f1421a != null) {
-            this.f1421a.enableStatsToServer(z, str);
+        if (this.f1867a != null) {
+            this.f1867a.enableStatsToServer(z, str);
         }
     }
 
     public RTCRoomProvider getProvider() {
-        return this.f1421a;
+        return this.f1867a;
     }
 
     public RTCRoomProvider.CyberRtcRoomAudioLevel[] getRemoteAudioLevels() {
-        return this.f1421a != null ? this.f1421a.getRemoteAudioLevels() : new RTCRoomProvider.CyberRtcRoomAudioLevel[0];
+        return this.f1867a != null ? this.f1867a.getRemoteAudioLevels() : new RTCRoomProvider.CyberRtcRoomAudioLevel[0];
     }
 
     public RTCRoomProvider.CyberRtcRoomVideoDimension getRemoteVideoDimension(long j) {
-        return this.f1421a != null ? this.f1421a.getRemoteVideoDimension(j) : new RTCRoomProvider.CyberRtcRoomVideoDimension();
+        return this.f1867a != null ? this.f1867a.getRemoteVideoDimension(j) : new RTCRoomProvider.CyberRtcRoomVideoDimension();
     }
 
     public void getUserAttribute(long j) {
-        if (this.f1421a != null) {
-            this.f1421a.getUserAttribute(j);
+        if (this.f1867a != null) {
+            this.f1867a.getUserAttribute(j);
         }
     }
 
     public RTCRoomProvider.CyberRtcRoomUserInfo[] getUserListOfRoom() {
-        return this.f1421a != null ? this.f1421a.getUserListOfRoom() : new RTCRoomProvider.CyberRtcRoomUserInfo[0];
+        return this.f1867a != null ? this.f1867a.getUserListOfRoom() : new RTCRoomProvider.CyberRtcRoomUserInfo[0];
     }
 
     public synchronized boolean initWithAppID(Context context, String str, String str2, String str3, boolean z) {
-        return this.f1421a != null ? this.f1421a.initWithAppID(context, str, str2, str3, z) : false;
+        return this.f1867a != null ? this.f1867a.initWithAppID(context, str, str2, str3, z) : false;
     }
 
     public void kickOffUserWithID(long j) {
-        if (this.f1421a != null) {
-            this.f1421a.kickOffUserWithID(j);
+        if (this.f1867a != null) {
+            this.f1867a.kickOffUserWithID(j);
         }
     }
 
     public boolean loginRtcRoomWithRoomName(String str, long j, String str2) {
-        if (this.f1421a != null) {
-            return this.f1421a.loginRtcRoomWithRoomName(str, j, str2);
+        if (this.f1867a != null) {
+            return this.f1867a.loginRtcRoomWithRoomName(str, j, str2);
         }
         return false;
     }
 
     public boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z) {
-        if (this.f1421a != null) {
-            return this.f1421a.loginRtcRoomWithRoomName(str, j, str2, z);
+        if (this.f1867a != null) {
+            return this.f1867a.loginRtcRoomWithRoomName(str, j, str2, z);
         }
         return false;
     }
 
     public boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z, boolean z2) {
-        if (this.f1421a != null) {
-            return this.f1421a.loginRtcRoomWithRoomName(str, j, str2, z, z2);
+        if (this.f1867a != null) {
+            return this.f1867a.loginRtcRoomWithRoomName(str, j, str2, z, z2);
         }
         return false;
     }
 
     public boolean logoutRtcRoom() {
-        if (this.f1421a != null) {
-            return this.f1421a.logoutRtcRoom();
+        if (this.f1867a != null) {
+            return this.f1867a.logoutRtcRoom();
         }
         return false;
     }
 
     public void muteCamera(boolean z) {
-        if (this.f1421a != null) {
-            this.f1421a.muteCamera(z);
+        if (this.f1867a != null) {
+            this.f1867a.muteCamera(z);
         }
     }
 
     public void muteMicphone(boolean z) {
-        if (this.f1421a != null) {
-            this.f1421a.muteMicphone(z);
+        if (this.f1867a != null) {
+            this.f1867a.muteMicphone(z);
         }
     }
 
     public void presetLoudSpeaker(boolean z) {
-        if (this.f1421a != null) {
-            this.f1421a.presetLoudSpeaker(z);
+        if (this.f1867a != null) {
+            this.f1867a.presetLoudSpeaker(z);
         }
     }
 
     public void publishStreaming() {
-        if (this.f1421a != null) {
-            this.f1421a.publishStreaming();
+        if (this.f1867a != null) {
+            this.f1867a.publishStreaming();
         }
     }
 
     public void sendMessageToUser(String str, long j) {
-        if (this.f1421a != null) {
-            this.f1421a.sendMessageToUser(str, j);
+        if (this.f1867a != null) {
+            this.f1867a.sendMessageToUser(str, j);
         }
     }
 
     public void setAudioRecordDelegate(CyberRTCAudioSamples.CyberRTCSamplesReadyCallback cyberRTCSamplesReadyCallback) {
-        if (this.f1421a != null) {
-            this.f1421a.setAudioRecordDelegate(cyberRTCSamplesReadyCallback);
+        if (this.f1867a != null) {
+            this.f1867a.setAudioRecordDelegate(cyberRTCSamplesReadyCallback);
         }
     }
 
     public void setCyberRTCRoomDelegate(RTCRoomProvider.CyberRtcRoomDelegate cyberRtcRoomDelegate) {
-        if (this.f1421a != null) {
-            this.f1421a.setCyberRTCRoomDelegate(cyberRtcRoomDelegate);
+        if (this.f1867a != null) {
+            this.f1867a.setCyberRTCRoomDelegate(cyberRtcRoomDelegate);
         }
     }
 
     public void setExternalSurface(long j, Surface surface) {
-        if (this.f1421a != null) {
-            this.f1421a.setExternalSurface(j, surface);
+        if (this.f1867a != null) {
+            this.f1867a.setExternalSurface(j, surface);
         }
     }
 
     public void setParamSettings(CyberRTCSetting cyberRTCSetting, CyberRTCSetting.CyberRTCSettingType cyberRTCSettingType) {
-        if (this.f1421a != null) {
-            this.f1421a.setParamSettings(cyberRTCSetting, cyberRTCSettingType);
+        if (this.f1867a != null) {
+            this.f1867a.setParamSettings(cyberRTCSetting, cyberRTCSettingType);
         }
     }
 
     public void setRemoteAudioPlayState(boolean z, long j) {
-        if (this.f1421a != null) {
-            this.f1421a.setRemoteAudioPlayState(z, j);
+        if (this.f1867a != null) {
+            this.f1867a.setRemoteAudioPlayState(z, j);
         }
     }
 
     public void setRemoteDisplay(CyberRTCVideoView cyberRTCVideoView) {
-        if (this.f1421a != null) {
-            this.f1421a.setRemoteDisplay(cyberRTCVideoView);
+        if (this.f1867a != null) {
+            this.f1867a.setRemoteDisplay(cyberRTCVideoView);
         }
     }
 
     public void setRemoteVideoPlayState(boolean z, long j) {
-        if (this.f1421a != null) {
-            this.f1421a.setRemoteVideoPlayState(z, j);
+        if (this.f1867a != null) {
+            this.f1867a.setRemoteVideoPlayState(z, j);
         }
     }
 
     public void setSoundMod(RTCRoomProvider.CyberRtcSoundMode cyberRtcSoundMode) {
-        if (this.f1421a != null) {
-            this.f1421a.setSoundMod(cyberRtcSoundMode);
+        if (this.f1867a != null) {
+            this.f1867a.setSoundMod(cyberRtcSoundMode);
         }
     }
 
     public void setUserAttribute(String str) {
-        if (this.f1421a != null) {
-            this.f1421a.setUserAttribute(str);
+        if (this.f1867a != null) {
+            this.f1867a.setUserAttribute(str);
         }
     }
 
     public void shutUpUserWithID(long j) {
-        if (this.f1421a != null) {
-            this.f1421a.shutUpUserWithID(j);
+        if (this.f1867a != null) {
+            this.f1867a.shutUpUserWithID(j);
         }
     }
 
     public void shutUpUserWithID(long j, boolean z) {
-        if (this.f1421a != null) {
-            this.f1421a.shutUpUserWithID(j, z);
+        if (this.f1867a != null) {
+            this.f1867a.shutUpUserWithID(j, z);
         }
     }
 
     public void startPublish() {
-        if (this.f1421a != null) {
-            this.f1421a.startPublish();
+        if (this.f1867a != null) {
+            this.f1867a.startPublish();
         }
     }
 
     public void stopPublish() {
-        if (this.f1421a != null) {
-            this.f1421a.stopPublish();
+        if (this.f1867a != null) {
+            this.f1867a.stopPublish();
         }
     }
 
     public void stopSubscribeStreaming(long j) {
-        if (this.f1421a != null) {
-            this.f1421a.stopSubscribeStreaming(j);
+        if (this.f1867a != null) {
+            this.f1867a.stopSubscribeStreaming(j);
         }
     }
 
     public void subscribeStreaming(int i, long j) {
-        if (this.f1421a != null) {
-            this.f1421a.subscribeStreaming(i, j);
+        if (this.f1867a != null) {
+            this.f1867a.subscribeStreaming(i, j);
         }
     }
 
     public void switchCamera() {
-        if (this.f1421a != null) {
-            this.f1421a.switchCamera();
+        if (this.f1867a != null) {
+            this.f1867a.switchCamera();
         }
     }
 }

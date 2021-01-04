@@ -7,7 +7,7 @@ import android.view.KeyEvent;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.f;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -26,14 +26,14 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             return;
         }
         initLoadingView(stringExtra);
-        PluginPackageManager.pV().a(stringExtra, new b() { // from class: com.baidu.adp.plugin.proxy.activity.LoadingActivity.1
+        PluginPackageManager.px().a(stringExtra, new b() { // from class: com.baidu.adp.plugin.proxy.activity.LoadingActivity.1
             @Override // com.baidu.adp.plugin.install.b
             public void A(String str, String str2) {
                 LoadingActivity.this.showToast(PluginCenter.getInstance().getCommonErrorShowText());
             }
 
             @Override // com.baidu.adp.plugin.install.b
-            public void cu(String str) {
+            public void cn(String str) {
                 final Plugin plugin2 = PluginCenter.getInstance().getPlugin(str);
                 if (plugin2 != null) {
                     plugin2.asyncInit(str, new c() { // from class: com.baidu.adp.plugin.proxy.activity.LoadingActivity.1.1
@@ -72,8 +72,8 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
         return super.onKeyDown(i, keyEvent);
     }
 
-    @Override // com.baidu.adp.base.f
-    public e<LoadingActivity> getPageContext() {
+    @Override // com.baidu.adp.base.g
+    public f<LoadingActivity> getPageContext() {
         return null;
     }
 }

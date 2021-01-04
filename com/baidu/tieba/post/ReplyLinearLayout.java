@@ -11,15 +11,15 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams hXD;
+    private static ViewGroup.LayoutParams ikc;
+    private List<TextView> mBK;
     private View.OnClickListener mOnItemClickListener;
-    private List<TextView> mww;
 
     public ReplyLinearLayout(Context context) {
         this(context, null);
@@ -45,24 +45,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.mww = new ArrayList();
+        this.mBK = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (hXD == null) {
-            hXD = new LinearLayout.LayoutParams(-1, -2);
+        if (ikc == null) {
+            ikc = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.mww.size();
+        int size2 = size - this.mBK.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.mww.add(textView);
+            this.mBK.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.mww.size(); i3++) {
-            TextView textView2 = this.mww.get(i3);
+        for (int i3 = 0; i3 < this.mBK.size(); i3++) {
+            TextView textView2 = this.mBK.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -83,20 +83,20 @@ public class ReplyLinearLayout extends LinearLayout {
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(hXD);
-                    ap.setViewTextColor(textView2, R.color.CAM_X0105, 1);
+                    textView2.setLayoutParams(ikc);
+                    ao.setViewTextColor(textView2, R.color.CAM_X0105, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
-                    ap.setBackgroundResource(textView2, R.color.CAM_X0204);
+                    ao.setBackgroundResource(textView2, R.color.CAM_X0204);
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(hXD);
-                    ap.setViewTextColor(textView2, R.color.CAM_X0106, 1);
+                    textView2.setLayoutParams(ikc);
+                    ao.setViewTextColor(textView2, R.color.CAM_X0106, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(hXD);
-                    ap.setViewTextColor(textView2, R.color.CAM_X0109, 1);
+                    textView2.setLayoutParams(ikc);
+                    ao.setViewTextColor(textView2, R.color.CAM_X0109, 1);
                 }
                 textView2.setVisibility(0);
             } else {
@@ -107,13 +107,13 @@ public class ReplyLinearLayout extends LinearLayout {
 
     private void i(TextView textView, int i) {
         if (i == 0) {
-            ap.setViewTextColor(textView, R.color.common_color_10039, 1);
+            ao.setViewTextColor(textView, R.color.common_color_10039, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f));
         } else if (i % 3 == 2) {
-            ap.setViewTextColor(textView, R.color.common_color_10081, 1);
+            ao.setViewTextColor(textView, R.color.common_color_10081, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 2.0f));
         } else if (i % 3 == 0) {
-            ap.setViewTextColor(textView, R.color.common_color_10005, 1);
+            ao.setViewTextColor(textView, R.color.common_color_10005, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 2.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f));
         }
     }

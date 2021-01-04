@@ -10,11 +10,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class bj {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f4853a = new Object();
+    public static final Object f14574a = new Object();
 
     public static void a(Context context, hq hqVar) {
         if (bi.a(hqVar.e())) {
@@ -26,13 +26,13 @@ public class bj {
         String a2 = com.xiaomi.push.p.a(context).a("mipush", "td_key", "");
         if (TextUtils.isEmpty(a2)) {
             a2 = com.xiaomi.push.bf.a(20);
-            com.xiaomi.push.p.a(context).m496a("mipush", "td_key", a2);
+            com.xiaomi.push.p.a(context).m522a("mipush", "td_key", a2);
         }
         return a(a2);
     }
 
     private static byte[] a(String str) {
-        byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bc.m155a(str), 16);
+        byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bc.m181a(str), 16);
         copyOf[0] = 68;
         copyOf[15] = 84;
         return copyOf;
@@ -42,10 +42,10 @@ public class bj {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:35:0x0043 -> B:9:0x0043). Please submit an issue!!! */
     public static void c(Context context, hq hqVar) {
         BufferedOutputStream bufferedOutputStream;
-        byte[] b;
+        byte[] b2;
         try {
             try {
-                b = com.xiaomi.push.h.b(a(context), iw.a(hqVar));
+                b2 = com.xiaomi.push.h.b(a(context), iw.a(hqVar));
             } catch (Throwable th) {
                 th = th;
                 com.xiaomi.push.y.a((Closeable) null);
@@ -65,19 +65,19 @@ public class bj {
             com.xiaomi.push.y.a(bufferedOutputStream);
             throw th;
         }
-        if (b == null || b.length < 1) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("TinyData write to cache file failed case encryption fail item:" + hqVar.d() + "  ts:" + System.currentTimeMillis());
+        if (b2 == null || b2.length < 1) {
+            com.xiaomi.channel.commonutils.logger.b.m73a("TinyData write to cache file failed case encryption fail item:" + hqVar.d() + "  ts:" + System.currentTimeMillis());
             com.xiaomi.push.y.a((Closeable) null);
             com.xiaomi.push.y.a((Closeable) null);
-        } else if (b.length > 10240) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("TinyData write to cache file failed case too much data content item:" + hqVar.d() + "  ts:" + System.currentTimeMillis());
+        } else if (b2.length > 10240) {
+            com.xiaomi.channel.commonutils.logger.b.m73a("TinyData write to cache file failed case too much data content item:" + hqVar.d() + "  ts:" + System.currentTimeMillis());
             com.xiaomi.push.y.a((Closeable) null);
             com.xiaomi.push.y.a((Closeable) null);
         } else {
             bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(context.getFilesDir(), "tiny_data.data"), true));
             try {
-                bufferedOutputStream.write(com.xiaomi.push.ac.a(b.length));
-                bufferedOutputStream.write(b);
+                bufferedOutputStream.write(com.xiaomi.push.ac.a(b2.length));
+                bufferedOutputStream.write(b2);
                 bufferedOutputStream.flush();
                 com.xiaomi.push.y.a((Closeable) null);
                 com.xiaomi.push.y.a(bufferedOutputStream);

@@ -3,26 +3,26 @@ package com.baidu.yuyinala.privatemessage.implugin.f;
 import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class j {
     private static JSONObject mData;
     private static String mType;
-    private static String oOu;
-    private static int oOv;
-    private static int oOw;
-    private static int oOx = -1;
+    private static String oUE;
+    private static int oUF;
+    private static int oUG;
+    private static int oUH = -1;
 
-    public static void YB(String str) {
+    public static void Yl(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            oOx = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-            if (oOx == 0) {
+            oUH = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            if (oUH == 0) {
                 mData = jSONObject.optJSONObject("data");
                 if (mData != null) {
                     mType = mData.optString("type");
-                    oOu = mData.optString("third_id");
-                    oOv = mData.optInt("has_sub");
-                    oOw = mData.optInt("notify");
+                    oUE = mData.optString("third_id");
+                    oUF = mData.optInt("has_sub");
+                    oUG = mData.optInt("notify");
                 }
             }
         } catch (JSONException e) {
@@ -30,14 +30,14 @@ public class j {
         }
     }
 
-    private static void bjF() {
+    private static void OH() {
         if (mData != null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("type", mType);
-                jSONObject.put("third_id", oOu);
-                jSONObject.put("has_sub", "" + oOv);
-                jSONObject.put("notify", "" + oOw);
+                jSONObject.put("third_id", oUE);
+                jSONObject.put("has_sub", "" + oUF);
+                jSONObject.put("notify", "" + oUG);
                 mData = jSONObject;
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -46,28 +46,28 @@ public class j {
     }
 
     public static String getType() {
-        return YC("type") ? mType : "";
+        return Ym("type") ? mType : "";
     }
 
     public static void Av(boolean z) {
-        oOv = z ? 1 : 0;
-        bjF();
+        oUF = z ? 1 : 0;
+        OH();
     }
 
-    public static boolean elm() {
-        return YC("has_sub") && oOv == 1;
+    public static boolean elq() {
+        return Ym("has_sub") && oUF == 1;
     }
 
-    public static String ell() {
-        return YC("third_id") ? oOu : "";
+    public static String elp() {
+        return Ym("third_id") ? oUE : "";
     }
 
     public static boolean isNeedNotify() {
-        return YC("notify") && oOw == 1;
+        return Ym("notify") && oUG == 1;
     }
 
     private static boolean isDataValid() {
-        return oOx == 0;
+        return oUH == 0;
     }
 
     public static JSONObject getData() {
@@ -77,7 +77,7 @@ public class j {
         return null;
     }
 
-    private static boolean YC(String str) {
+    private static boolean Ym(String str) {
         return isDataValid() && mData != null && mData.has(str);
     }
 }

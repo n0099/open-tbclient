@@ -1,148 +1,276 @@
 package com.baidu.live.yuyingift.c;
 
 import android.text.TextUtils;
+import com.baidu.live.adp.base.BdBaseModel;
+import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.CustomMessage;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.gift.YuyinGiftPackageConsumeHttpResponsedMessage;
+import com.baidu.live.adp.lib.safe.JavaTypesHelper;
+import com.baidu.live.adp.lib.util.BdNetTypeUtil;
+import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.d.ad;
+import com.baidu.live.gift.an;
+import com.baidu.live.gift.ao;
 import com.baidu.live.gift.ap;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.live.tbadk.ubc.UbcStatisticItem;
-import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
-import com.baidu.live.tbadk.ubc.UbcStatisticManager;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.util.StatisticItem;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.log.LogManager;
+import com.baidu.live.tbadk.statics.AlaStaticItem;
+import com.baidu.live.tbadk.statics.AlaStaticsManager;
+import com.baidu.live.tbadk.statics.HKStaticKeys;
+import com.baidu.live.tbadk.statics.QMStaticKeys;
+import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.live.utils.s;
-import com.baidu.live.yuyingift.c.b;
-import com.baidu.live.yuyingift.http.GiftPackageListHttpResponsedMessage;
-import com.baidu.webkit.internal.ETAG;
-import com.xiaomi.mipush.sdk.PushMessageHelper;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class c implements b {
-    private b.a bUR;
-    private HttpMessageListener bgp;
-    private HttpMessageListener bgq;
+import com.baidu.live.utils.t;
+import com.baidu.live.yuyingift.message.YuyinAlaGiftFreeSendHttpResponseMessage;
+import com.baidu.live.yuyingift.message.YuyinAlaGiftSendHttpResponseMessage;
+/* loaded from: classes11.dex */
+public class c extends BdBaseModel {
+    private BdPageContext bha;
+    private HttpMessageListener bhc;
+    private HttpMessageListener bhe;
+    private a caJ;
+    private HttpMessageListener caK;
+    public boolean mIsSending;
 
-    public c() {
-        registerListener();
+    /* loaded from: classes11.dex */
+    public interface a {
+        void b(int i, String str, int i2, Object obj, long j);
     }
 
-    public void a(b.a aVar) {
-        this.bUR = aVar;
-    }
-
-    @Override // com.baidu.live.yuyingift.c.b
-    public void hQ(String str) {
-        com.baidu.live.yuyingift.message.a aVar = new com.baidu.live.yuyingift.message.a(str);
-        aVar.addParam("scene_from", s.WB());
-        aVar.addParam("platform", "2");
-        MessageManager.getInstance().sendMessage(aVar);
-        UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_REQ, UbcStatConstant.ContentType.UBC_TYPE_GIFT_PACKAGE_LIST, UbcStatConstant.Page.VOICE_ROOM, null));
-    }
-
-    @Override // com.baidu.live.yuyingift.c.b
-    public void a(String str, String str2, String str3, String str4, int i, int i2, String str5, String str6, long j) {
-        ap apVar = new ap();
-        apVar.c(str, str2, str3, str4, i, i2, str5, str6);
-        apVar.aWT = j;
-        apVar.aWV.put(Long.valueOf(j), Long.valueOf(i));
-        MessageManager.getInstance().sendMessage(apVar);
-    }
-
-    @Override // com.baidu.live.yuyingift.c.b
-    public void release() {
-        this.bUR = null;
-        unregisterListener();
-    }
-
-    private void registerListener() {
-        KO();
-        KP();
-    }
-
-    private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.bgp);
-        MessageManager.getInstance().unRegisterListener(this.bgq);
-    }
-
-    private void KO() {
-        this.bgp = new HttpMessageListener(1031065) { // from class: com.baidu.live.yuyingift.c.c.1
+    public c(BdPageContext bdPageContext) {
+        super(bdPageContext);
+        this.mIsSending = false;
+        this.bhc = new HttpMessageListener(1031055) { // from class: com.baidu.live.yuyingift.c.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage instanceof GiftPackageListHttpResponsedMessage) {
-                    GiftPackageListHttpResponsedMessage giftPackageListHttpResponsedMessage = (GiftPackageListHttpResponsedMessage) httpResponsedMessage;
-                    if (c.this.bUR != null) {
-                        c.this.bUR.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.KG(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.KH());
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031055) {
+                    if (c.this.caJ != null) {
+                        if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage() instanceof an)) {
+                            an anVar = (an) httpResponsedMessage.getOrginalMessage();
+                            if (com.baidu.live.yuyingift.b.b.aaZ().gX(anVar.giftId)) {
+                                TiebaInitialize.log(new StatisticItem("c12793").param("obj_id", anVar.giftId).param("obj_param1", anVar.aYv).param("obj_locate", BdNetTypeUtil.isWifiNet() ? 1 : 0).param(TiebaInitialize.Params.OBJ_PARAM2, com.baidu.live.yuyingift.b.b.aaZ().gV(anVar.giftId) ? 1 : 0));
+                            }
+                        }
+                        c.this.caJ.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, Long.valueOf(((YuyinAlaGiftSendHttpResponseMessage) httpResponsedMessage).Kl()), ((YuyinAlaGiftSendHttpResponseMessage) httpResponsedMessage).Km());
+                        com.baidu.live.yuyingift.a.a aba = ((YuyinAlaGiftSendHttpResponseMessage) httpResponsedMessage).aba();
+                        if (aba != null) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ad(c.this.bha.getPageActivity(), aba.beo, aba.bep, aba.beq, aba.ber)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913024));
+                        }
                     }
-                    c.this.a(giftPackageListHttpResponsedMessage);
-                }
-            }
-        };
-        MessageManager.getInstance().registerListener(this.bgp);
-    }
-
-    private void KP() {
-        this.bgq = new HttpMessageListener(1031057) { // from class: com.baidu.live.yuyingift.c.c.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage instanceof YuyinGiftPackageConsumeHttpResponsedMessage) {
-                    YuyinGiftPackageConsumeHttpResponsedMessage yuyinGiftPackageConsumeHttpResponsedMessage = (YuyinGiftPackageConsumeHttpResponsedMessage) httpResponsedMessage;
-                    c.this.a(httpResponsedMessage, yuyinGiftPackageConsumeHttpResponsedMessage);
-                    if (c.this.bUR != null) {
-                        c.this.bUR.a(!yuyinGiftPackageConsumeHttpResponsedMessage.hasError() && yuyinGiftPackageConsumeHttpResponsedMessage.getError() == 0, yuyinGiftPackageConsumeHttpResponsedMessage.getError(), yuyinGiftPackageConsumeHttpResponsedMessage.getErrorString(), yuyinGiftPackageConsumeHttpResponsedMessage.aXU, yuyinGiftPackageConsumeHttpResponsedMessage.aXV);
+                    c.this.mIsSending = false;
+                    if (httpResponsedMessage.getError() == 0 && !httpResponsedMessage.hasError() && (httpResponsedMessage.getOrginalMessage() instanceof an)) {
+                        an anVar2 = (an) httpResponsedMessage.getOrginalMessage();
+                        c.this.a(anVar2.liveId, anVar2.roomId, anVar2.aYx, anVar2.aYw, anVar2.giftId, anVar2.giftName, anVar2.otherParams);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913189, "consumeSuc"));
+                        com.baidu.live.yuyingift.b.a.a(anVar2);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bgq);
+        this.caK = new HttpMessageListener(1031088) { // from class: com.baidu.live.yuyingift.c.c.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                c.this.mIsSending = false;
+            }
+        };
+        this.bhe = new HttpMessageListener(1031056) { // from class: com.baidu.live.yuyingift.c.c.3
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031056) {
+                    if (c.this.caJ != null) {
+                        c.this.caJ.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 2, Long.valueOf(((YuyinAlaGiftFreeSendHttpResponseMessage) httpResponsedMessage).Kk()), 0L);
+                    }
+                    c.this.mIsSending = false;
+                    if (httpResponsedMessage.getError() == 0 && !httpResponsedMessage.hasError() && (httpResponsedMessage.getOrginalMessage() instanceof ap)) {
+                        ap apVar = (ap) httpResponsedMessage.getOrginalMessage();
+                    } else if (httpResponsedMessage.getOrginalMessage() instanceof ap) {
+                        ap apVar2 = (ap) httpResponsedMessage.getOrginalMessage();
+                    }
+                }
+            }
+        };
+        this.bha = bdPageContext;
+    }
+
+    public void initListener() {
+        MessageManager.getInstance().registerListener(this.bhc);
+        MessageManager.getInstance().registerListener(this.caK);
+        MessageManager.getInstance().registerListener(this.bhe);
+    }
+
+    public void a(a aVar) {
+        this.caJ = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(GiftPackageListHttpResponsedMessage giftPackageListHttpResponsedMessage) {
-        JSONObject jSONObject;
-        if (giftPackageListHttpResponsedMessage != null) {
-            JSONObject jSONObject2 = new JSONObject();
-            if (giftPackageListHttpResponsedMessage.getError() != 0) {
-                JSONObject jSONObject3 = new JSONObject();
-                try {
-                    jSONObject3.put(PushMessageHelper.ERROR_TYPE, ETAG.KEY_NET_ERROR);
-                    jSONObject2.put("result", jSONObject3);
-                    jSONObject = jSONObject3;
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                    jSONObject = jSONObject3;
+    public void a(String str, String str2, String str3, long j, String str4, String str5, String str6) {
+        if (TbadkCoreApplication.getInst().isHaokan()) {
+            AlaStaticItem alaStaticItem = new AlaStaticItem(HKStaticKeys.HK_STATIC_SUC_SEND_GIFTS);
+            alaStaticItem.addParams("live_id", str);
+            alaStaticItem.addParams("room_id", str2);
+            alaStaticItem.addParams("feed_id", str3);
+            alaStaticItem.addParams(SdkStaticKeys.KEY_GIFTS_ID, str4);
+            alaStaticItem.addParams("gifts_value", j + "");
+            alaStaticItem.addParams("other_params", str6);
+            AlaStaticsManager.getInst().onStatic(alaStaticItem);
+        } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
+            AlaStaticItem alaStaticItem2 = new AlaStaticItem(QMStaticKeys.QM_STATIC_SUC_SEND_GIFTS);
+            alaStaticItem2.addParams("live_id", str);
+            alaStaticItem2.addParams("room_id", str2);
+            alaStaticItem2.addParams("gifts_value", j + "");
+            alaStaticItem2.addParams(SdkStaticKeys.KEY_GIFTS_ID, str4);
+            alaStaticItem2.addParams(QMStaticKeys.KEY_QM_GIFTS_NAME, str5);
+            alaStaticItem2.addParams("feed_id", str3);
+            alaStaticItem2.addParams("other_params", str6);
+            AlaStaticsManager.getInst().onStatic(alaStaticItem2);
+        }
+    }
+
+    public void a(String str, long j, int i, String str2, String str3) {
+        if (j > 0) {
+            ao aoVar = new ao();
+            aoVar.addParam("benefit_info", s.iW(str3));
+            aoVar.addParam("ala_live_id", str2);
+            aoVar.addParam(LogConfig.LOG_GIFT_ID, str);
+            aoVar.addParam("combo_groupid", j);
+            aoVar.addParam("combo_count_total", i);
+            this.mIsSending = true;
+            MessageManager.getInstance().sendMessage(aoVar);
+        }
+    }
+
+    public void a(com.baidu.live.yuyingift.a.b bVar) {
+        long j;
+        if (StringUtils.isNull(bVar.userId) || StringUtils.isNull(bVar.userName)) {
+            bVar.userId = TbadkCoreApplication.getCurrentAccountId() + "";
+            bVar.userName = TbadkCoreApplication.getCurrentAccountName();
+        }
+        if (TextUtils.isEmpty(bVar.userName)) {
+            bVar.userName = "某人";
+        }
+        if (bVar != null && !StringUtils.isNull(bVar.userId) && !StringUtils.isNull(bVar.userName)) {
+            this.mIsSending = true;
+            if (bVar.Jj()) {
+                an anVar = new an();
+                anVar.aZQ = bVar.bZL;
+                anVar.aYv = bVar.bes;
+                anVar.giftId = bVar.aPa;
+                anVar.giftName = "手绘礼物";
+                anVar.liveId = bVar.liveId;
+                anVar.roomId = bVar.roomId;
+                anVar.aYx = bVar.aYx;
+                anVar.otherParams = bVar.otherParams;
+                anVar.aYy = bVar.aYy;
+                anVar.aYz = bVar.aYz;
+                anVar.aYB.putAll(bVar.bev);
+                anVar.aYw = JavaTypesHelper.toLong(bVar.bdZ != null ? bVar.bdZ.getPrice() : "0", 0L) * bVar.bes;
+                long j2 = anVar.aYw;
+                anVar.sceneFrom = bVar.sceneFrom;
+                anVar.aZR = bVar.boI;
+                anVar.addParam("scene_from", t.XF());
+                anVar.addParam(LogConfig.LOG_GIFT_ID, bVar.aPa);
+                anVar.addParam("benefit_username", bVar.userName);
+                anVar.addParam("benefit_userid", bVar.userId);
+                anVar.addParam("num", bVar.bes);
+                anVar.addParam("ala_live_id", bVar.liveId);
+                anVar.addParam("is_combo", bVar.aZB);
+                anVar.addParam("benefit_info", s.iW(bVar.boI));
+                if (bVar.bdZ != null && bVar.bdZ.aXM != null) {
+                    anVar.addParam("gift_mul", bVar.bdZ.aXM.Hs());
+                    anVar.addParam("attach_new", bVar.bdZ.aXM.Hr());
                 }
-            } else if (giftPackageListHttpResponsedMessage.KG() == null || giftPackageListHttpResponsedMessage.KG().isEmpty() || giftPackageListHttpResponsedMessage.getCategoryList() == null || giftPackageListHttpResponsedMessage.getCategoryList().isEmpty()) {
-                JSONObject jSONObject4 = new JSONObject();
-                try {
-                    jSONObject4.put(PushMessageHelper.ERROR_TYPE, "list_empty");
-                    jSONObject2.put("result", jSONObject4);
-                    jSONObject = jSONObject4;
-                } catch (JSONException e2) {
-                    BdLog.e(e2);
-                    jSONObject = jSONObject4;
-                }
+                MessageManager.getInstance().sendMessage(anVar);
+                j = j2;
+            } else if (bVar.GJ()) {
+                ap apVar = new ap();
+                apVar.aYv = bVar.bes;
+                apVar.aZQ = bVar.bZL;
+                apVar.giftId = bVar.aPa;
+                apVar.giftName = bVar.mGiftName;
+                apVar.liveId = bVar.liveId;
+                apVar.roomId = bVar.roomId;
+                apVar.aYx = bVar.aYx;
+                apVar.otherParams = bVar.otherParams;
+                apVar.aYy = bVar.aYy;
+                apVar.aYz = bVar.aYz;
+                apVar.aYB.putAll(bVar.bev);
+                apVar.aYw = JavaTypesHelper.toLong(bVar.bdZ != null ? bVar.bdZ.getPrice() : "0", 0L) * bVar.bes;
+                long j3 = apVar.aYw;
+                apVar.sceneFrom = bVar.sceneFrom;
+                apVar.aZR = bVar.boI;
+                apVar.addParam("scene_from", t.XF());
+                apVar.addParam(LogConfig.LOG_GIFT_ID, bVar.aPa);
+                apVar.addParam("benefit_username", bVar.userName);
+                apVar.addParam("benefit_userid", bVar.userId);
+                apVar.addParam("num", bVar.bes);
+                apVar.addParam("ala_live_id", bVar.liveId);
+                apVar.addParam("is_combo", bVar.aZB);
+                apVar.addParam("tbs", bVar.beu);
+                apVar.addParam("benefit_info", s.iW(bVar.boI));
+                MessageManager.getInstance().sendMessage(apVar);
+                j = j3;
             } else {
-                jSONObject = null;
+                an anVar2 = new an();
+                anVar2.aZQ = bVar.bZL;
+                anVar2.aYv = bVar.bes;
+                anVar2.giftId = bVar.aPa;
+                anVar2.giftName = bVar.mGiftName;
+                anVar2.liveId = bVar.liveId;
+                anVar2.roomId = bVar.roomId;
+                anVar2.aYx = bVar.aYx;
+                anVar2.otherParams = bVar.otherParams;
+                anVar2.aYy = bVar.aYy;
+                anVar2.aYz = bVar.aYz;
+                anVar2.aYB.putAll(bVar.bev);
+                anVar2.aYw = JavaTypesHelper.toLong(bVar.bdZ != null ? bVar.bdZ.getPrice() : "0", 0L) * bVar.bes;
+                long j4 = anVar2.aYw;
+                anVar2.aZR = bVar.boI;
+                anVar2.sceneFrom = bVar.sceneFrom;
+                anVar2.addParam("scene_from", t.XF());
+                anVar2.addParam(LogConfig.LOG_GIFT_ID, bVar.aPa);
+                anVar2.addParam("benefit_username", bVar.userName);
+                anVar2.addParam("benefit_userid", bVar.userId);
+                anVar2.addParam("num", bVar.bes);
+                anVar2.addParam("ala_live_id", bVar.liveId);
+                anVar2.addParam("is_combo", bVar.aZB);
+                anVar2.addParam("is_comboGift", bVar.aXv);
+                anVar2.addParam("combo_groupid", bVar.bZL);
+                anVar2.addParam("tbs", bVar.beu);
+                anVar2.addParam("benefit_info", s.iW(bVar.boI));
+                MessageManager.getInstance().sendMessage(anVar2);
+                j = j4;
             }
-            if (jSONObject != null) {
-                if (!TextUtils.isEmpty(giftPackageListHttpResponsedMessage.KI())) {
-                    try {
-                        jSONObject.put("req_loc", giftPackageListHttpResponsedMessage.KI());
-                        jSONObject2.put("result", jSONObject);
-                    } catch (JSONException e3) {
-                        e3.printStackTrace();
-                    }
-                }
-                UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_RESP, UbcStatConstant.ContentType.UBC_TYPE_GIFT_PACKAGE_LIST, UbcStatConstant.Page.VOICE_ROOM, null).setContentExt(jSONObject2), giftPackageListHttpResponsedMessage, true);
+            if (BdNetTypeUtil.isNetWorkAvailable()) {
+                LogManager.getGiftLogger().doNoticeLiveGiftSendRequest(bVar.liveId, bVar.roomId, bVar.aYx, bVar.aPa, bVar.aPa, j + "", bVar.otherParams);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(HttpResponsedMessage httpResponsedMessage, YuyinGiftPackageConsumeHttpResponsedMessage yuyinGiftPackageConsumeHttpResponsedMessage) {
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    protected boolean loadData() {
+        return false;
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void onDestroy() {
+        this.mIsSending = false;
+        MessageManager.getInstance().unRegisterListener(this.bhc);
+        MessageManager.getInstance().unRegisterListener(this.caK);
+        MessageManager.getInstance().unRegisterListener(this.bhe);
     }
 }

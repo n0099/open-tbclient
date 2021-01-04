@@ -6,23 +6,25 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1838a;
-    private List<HashMap<String, String>> b = null;
+    private Context f2537a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private List<HashMap<String, String>> f2538b = null;
     private a<String> c = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface a<Result> {
         void a(Result result);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(Context context) {
-        this.f1838a = context;
+        this.f2537a = context;
     }
 
     private List<HashMap<String, String>> a(HashMap<String, String> hashMap, String[] strArr) {
@@ -108,7 +110,7 @@ class e {
             }
             com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i2 + "  start!!!");
             HashMap<String, String> hashMap = list.get(i2);
-            g gVar = new g(this.f1838a);
+            g gVar = new g(this.f2537a);
             if (gVar.a()) {
                 String a2 = gVar.a(hashMap);
                 if (a2 == null) {
@@ -137,7 +139,7 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(HashMap<String, String> hashMap, String[] strArr, a<String> aVar) {
-        this.b = a(hashMap, strArr);
+        this.f2538b = a(hashMap, strArr);
         this.c = aVar;
         new Thread(new f(this)).start();
     }

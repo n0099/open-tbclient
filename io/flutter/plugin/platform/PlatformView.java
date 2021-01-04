@@ -2,14 +2,15 @@ package io.flutter.plugin.platform;
 
 import android.annotation.SuppressLint;
 import android.view.View;
-/* loaded from: classes9.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes6.dex */
 public interface PlatformView {
     void dispose();
 
     View getView();
 
     @SuppressLint({"NewApi"})
-    void onFlutterViewAttached(View view);
+    void onFlutterViewAttached(@NonNull View view);
 
     @SuppressLint({"NewApi"})
     void onFlutterViewDetached();

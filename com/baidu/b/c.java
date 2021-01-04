@@ -17,10 +17,12 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class c {
-    private com.baidu.b.c.d.d aen;
-    private List<b> b;
+    private com.baidu.b.c.d.d afb;
+
+    /* renamed from: b  reason: collision with root package name */
+    private List<b> f1591b;
 
     public c() {
         a();
@@ -31,18 +33,34 @@ public class c {
             throw new IllegalArgumentException("Argument b ( byte array ) is null! ");
         }
         String str = "";
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        int i = 0;
+        while (i < bArr.length) {
+            String hexString = Integer.toHexString(bArr[i] & 255);
+            i++;
             str = hexString.length() == 1 ? str + "0" + hexString : str + hexString;
         }
         return str.toLowerCase();
     }
 
     private void a() {
-        this.aen = new com.baidu.b.c.d.e(e.a(), e.b());
+        this.afb = new com.baidu.b.c.d.e(e.a(), e.b());
     }
 
-    private boolean a(String[] strArr, String[] strArr2) {
+    private static byte[] a(byte[] bArr, com.baidu.b.c.d.d dVar) {
+        com.baidu.b.c.d.a so = com.baidu.b.c.d.a.so();
+        so.a(2, dVar);
+        return so.a(bArr);
+    }
+
+    private String[] a(Signature[] signatureArr) {
+        String[] strArr = new String[signatureArr.length];
+        for (int i = 0; i < strArr.length; i++) {
+            strArr[i] = a(com.baidu.b.d.c.a(signatureArr[i].toByteArray()));
+        }
+        return strArr;
+    }
+
+    private boolean b(String[] strArr, String[] strArr2) {
         if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
             return false;
         }
@@ -55,31 +73,6 @@ public class c {
             hashSet2.add(str2);
         }
         return hashSet.equals(hashSet2);
-    }
-
-    private static byte[] a(byte[] bArr, com.baidu.b.c.d.d dVar) {
-        com.baidu.b.c.d.a sO = com.baidu.b.c.d.a.sO();
-        sO.a(2, dVar);
-        return sO.a(bArr);
-    }
-
-    private String[] a(Signature[] signatureArr) {
-        String[] strArr = new String[signatureArr.length];
-        for (int i = 0; i < strArr.length; i++) {
-            strArr[i] = a(com.baidu.b.d.c.a(signatureArr[i].toByteArray()));
-        }
-        return strArr;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<b> O(Context context) {
-        if (this.b != null) {
-            return this.b;
-        }
-        a(context);
-        List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-        this.b = a2;
-        return a2;
     }
 
     List<b> a(Context context, Intent intent, boolean z) {
@@ -97,8 +90,8 @@ public class c {
                                 byte[] a2 = com.baidu.b.d.a.a(string.getBytes("utf-8"));
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 b bVar = new b();
-                                bVar.b = jSONObject.getInt("priority");
-                                bVar.adT = resolveInfo.activityInfo.applicationInfo;
+                                bVar.f1573b = jSONObject.getInt("priority");
+                                bVar.aeJ = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     bVar.d = true;
                                 }
@@ -111,8 +104,8 @@ public class c {
                                         for (int i = 0; i < strArr.length; i++) {
                                             strArr[i] = jSONArray.getString(i);
                                         }
-                                        if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.b.d.a.a(string2.getBytes()), this.aen);
+                                        if (b(strArr, a(packageInfo.signatures))) {
+                                            byte[] a3 = a(com.baidu.b.d.a.a(string2.getBytes()), this.afb);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.b.d.c.a(a2))) {
                                                 bVar.c = true;
                                             }
@@ -147,5 +140,16 @@ public class c {
             }
         }
         return z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public List<b> b(Context context) {
+        if (this.f1591b != null) {
+            return this.f1591b;
+        }
+        a(context);
+        List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
+        this.f1591b = a2;
+        return a2;
     }
 }

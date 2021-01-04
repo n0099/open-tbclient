@@ -6,13 +6,15 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public abstract class BaseGLMapView extends GLSurfaceView implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener {
     private static final String d = BaseGLMapView.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    protected e f2680a;
-    protected Context b;
+    protected e f3958a;
+
+    /* renamed from: b  reason: collision with root package name */
+    protected Context f3959b;
     public GLSurfaceView.Renderer c;
     private GestureDetector e;
     private boolean f;
@@ -21,7 +23,7 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
         super(context, attributeSet);
         this.f = false;
         this.c = new a(this);
-        this.b = context;
+        this.f3959b = context;
         a();
         b();
         setZOrderMediaOverlay(true);
@@ -29,25 +31,25 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
     }
 
     private void a() {
-        if (this.f2680a == null) {
-            this.f2680a = new e(this.b);
+        if (this.f3958a == null) {
+            this.f3958a = new e(this.f3959b);
         }
     }
 
     private void b() {
-        this.e = new GestureDetector(this.b, this);
+        this.e = new GestureDetector(this.f3959b, this);
         this.e.setOnDoubleTapListener(this);
         setLongClickable(true);
     }
 
     @Override // android.opengl.GLSurfaceView
     public void onResume() {
-        this.f2680a.d();
+        this.f3958a.d();
     }
 
     @Override // android.opengl.GLSurfaceView
     public void onPause() {
-        this.f2680a.e();
+        this.f3958a.e();
     }
 
     @Override // android.opengl.GLSurfaceView, android.view.SurfaceHolder.Callback
@@ -62,7 +64,7 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
 
     @Override // android.opengl.GLSurfaceView, android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        this.f2680a.a(surfaceHolder.getSurface(), i2, i3, com.baidu.pano.platform.c.h.b(this.b));
+        this.f3958a.a(surfaceHolder.getSurface(), i2, i3, com.baidu.pano.platform.c.h.b(this.f3959b));
     }
 
     @Override // android.view.View
@@ -70,11 +72,11 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
         boolean z;
         boolean z2;
         if ((motionEvent.getAction() & 255) == 5) {
-            z = this.f2680a.c(motionEvent);
+            z = this.f3958a.c(motionEvent);
             z2 = false;
         } else if (this.e != null) {
             z2 = this.e.onTouchEvent(motionEvent);
-            z = this.f2680a.c(motionEvent);
+            z = this.f3958a.c(motionEvent);
         } else {
             z = false;
             z2 = false;
@@ -84,8 +86,8 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onDown(MotionEvent motionEvent) {
-        if (this.f2680a != null) {
-            return this.f2680a.a(motionEvent);
+        if (this.f3958a != null) {
+            return this.f3958a.a(motionEvent);
         }
         return false;
     }
@@ -101,8 +103,8 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.f2680a != null) {
-            return this.f2680a.a(motionEvent, motionEvent2, f, f2);
+        if (this.f3958a != null) {
+            return this.f3958a.a(motionEvent, motionEvent2, f, f2);
         }
         return false;
     }
@@ -113,22 +115,22 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.f2680a != null) {
-            return this.f2680a.b(motionEvent, motionEvent2, f, f2);
+        if (this.f3958a != null) {
+            return this.f3958a.b(motionEvent, motionEvent2, f, f2);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        this.f2680a.c(motionEvent.getX(), motionEvent.getY());
+        this.f3958a.c(motionEvent.getX(), motionEvent.getY());
         return true;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.f2680a != null) {
-            return this.f2680a.b(motionEvent);
+        if (this.f3958a != null) {
+            return this.f3958a.b(motionEvent);
         }
         return false;
     }

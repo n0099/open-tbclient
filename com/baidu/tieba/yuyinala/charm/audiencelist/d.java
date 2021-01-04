@@ -5,25 +5,24 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
-    private HttpMessageListener gET;
-    private b oij;
-    private a oik;
+    private HttpMessageListener gQE;
+    private b ojU;
+    private a ojV;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(long j, b bVar);
 
-        void t(int i, String str);
+        void v(int i, String str);
     }
 
     public d(TbPageContext<YuyinALaAudiencesActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.gET = new HttpMessageListener(1031031) { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.d.1
+        this.gQE = new HttpMessageListener(1031031) { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -33,23 +32,23 @@ public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
                     b bVar = null;
                     if (httpResponsedMessage instanceof OnlineListHttpResponseMessage) {
                         OnlineListHttpResponseMessage onlineListHttpResponseMessage = (OnlineListHttpResponseMessage) httpResponsedMessage;
-                        j = onlineListHttpResponseMessage.bUt();
-                        bVar = onlineListHttpResponseMessage.ecO();
+                        j = onlineListHttpResponseMessage.bWX();
+                        bVar = onlineListHttpResponseMessage.ebK();
                     }
                     if (error == 0) {
-                        d.this.oij = bVar;
-                        if (d.this.oik != null) {
-                            d.this.oik.a(j, d.this.oij);
+                        d.this.ojU = bVar;
+                        if (d.this.ojV != null) {
+                            d.this.ojV.a(j, d.this.ojU);
                         }
-                    } else if (d.this.oik != null) {
-                        d.this.oik.t(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    } else if (d.this.ojV != null) {
+                        d.this.ojV.v(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.oik = aVar;
-        MessageManager.getInstance().registerListener(this.gET);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031031, TbConfig.SERVER_ADDRESS + "ala/audio/live/getAudienceInfo");
+        this.ojV = aVar;
+        MessageManager.getInstance().registerListener(this.gQE);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031031, com.baidu.live.a.aAH + "ala/audio/live/getAudienceInfo");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -58,14 +57,14 @@ public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Wh(String str) {
+    public void VH(String str) {
         HttpMessage httpMessage = new HttpMessage(1031031);
         httpMessage.addParam("live_id", str);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gET);
+        MessageManager.getInstance().unRegisterListener(this.gQE);
         MessageManager.getInstance().unRegisterTask(1031031);
         cancelMessage();
     }

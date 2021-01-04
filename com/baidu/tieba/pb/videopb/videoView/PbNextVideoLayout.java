@@ -2,7 +2,6 @@ package com.baidu.tieba.pb.videopb.videoView;
 
 import android.content.Context;
 import android.os.CountDownTimer;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,107 +9,108 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class PbNextVideoLayout extends RelativeLayout {
-    private final int mcL;
-    private int mcM;
-    private TbImageView mcN;
-    private TextView mcO;
-    private TextView mcP;
-    private ImageView mcQ;
-    private ProgressBar mcR;
-    private boolean mcS;
-    public boolean mcT;
-    private a mcU;
+    private final int mhX;
+    private int mhY;
+    private TbImageView mhZ;
+    private TextView mia;
+    private TextView mib;
+    private ImageView mic;
+    private ProgressBar mie;
+    private boolean mif;
+    public boolean mig;
+    private a mih;
 
     public PbNextVideoLayout(Context context) {
         super(context);
-        this.mcL = 5000;
-        this.mcM = 50;
-        this.mcS = true;
-        this.mcT = true;
+        this.mhX = 5000;
+        this.mhY = 50;
+        this.mif = true;
+        this.mig = true;
         init(context);
     }
 
     public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mcL = 5000;
-        this.mcM = 50;
-        this.mcS = true;
-        this.mcT = true;
+        this.mhX = 5000;
+        this.mhY = 50;
+        this.mif = true;
+        this.mig = true;
         init(context);
     }
 
     public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mcL = 5000;
-        this.mcM = 50;
-        this.mcS = true;
-        this.mcT = true;
+        this.mhX = 5000;
+        this.mhY = 50;
+        this.mif = true;
+        this.mig = true;
         init(context);
     }
 
     private void init(Context context) {
         inflate(context, R.layout.pb_next_video_layout, this);
-        this.mcN = (TbImageView) findViewById(R.id.pb_next_video_img);
-        this.mcO = (TextView) findViewById(R.id.pb_next_video_txt);
-        this.mcP = (TextView) findViewById(R.id.pb_next_video_title);
-        this.mcQ = (ImageView) findViewById(R.id.pb_next_video_close);
-        this.mcR = (ProgressBar) findViewById(R.id.pb_next_video_progress_bar);
-        SvgManager.btW().a(this.mcQ, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0622, (SvgManager.SvgResourceStateType) null);
+        this.mhZ = (TbImageView) findViewById(R.id.pb_next_video_img);
+        this.mia = (TextView) findViewById(R.id.pb_next_video_txt);
+        this.mib = (TextView) findViewById(R.id.pb_next_video_title);
+        this.mic = (ImageView) findViewById(R.id.pb_next_video_close);
+        this.mie = (ProgressBar) findViewById(R.id.pb_next_video_progress_bar);
+        SvgManager.bwq().a(this.mic, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0622, (SvgManager.SvgResourceStateType) null);
     }
 
-    public void as(boolean z, boolean z2) {
+    public void au(boolean z, boolean z2) {
         getLayoutParams().height = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds156 : R.dimen.tbds267);
-        this.mcN.getLayoutParams().width = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
-        this.mcP.setTextSize(0, l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
-        ((LinearLayout.LayoutParams) this.mcP.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
-        ((RelativeLayout.LayoutParams) this.mcQ.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds20 : R.dimen.tbds42);
-        ((RelativeLayout.LayoutParams) this.mcQ.getLayoutParams()).rightMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds52);
-        this.mcM = (!z2 || z) ? 50 : 25;
+        this.mhZ.getLayoutParams().width = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
+        this.mib.setTextSize(0, l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
+        ((LinearLayout.LayoutParams) this.mib.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
+        ((RelativeLayout.LayoutParams) this.mic.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds20 : R.dimen.tbds42);
+        ((RelativeLayout.LayoutParams) this.mic.getLayoutParams()).rightMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds52);
+        this.mhY = (!z2 || z) ? 50 : 25;
     }
 
-    public void setDate(by byVar) {
-        if (byVar != null && byVar.bph() != null) {
-            this.mcN.startLoad(byVar.bph().thumbnail_url, 10, false);
-            this.mcO.setText(R.string.pb_video_next_play);
-            this.mcP.setText(byVar.getTitle());
-            this.mcR.setProgress(0);
+    public void setDate(bz bzVar) {
+        if (bzVar != null && bzVar.brH() != null) {
+            this.mhZ.startLoad(bzVar.brH().thumbnail_url, 10, false);
+            this.mia.setText(R.string.pb_video_next_play);
+            this.mib.setText(bzVar.getTitle());
+            this.mie.setProgress(0);
         }
     }
 
-    private void stopProgress() {
-        this.mcS = false;
-        if (this.mcU != null) {
-            this.mcU.cancel();
+    private void sh() {
+        this.mif = false;
+        if (this.mih != null) {
+            this.mih.cancel();
         }
-        this.mcO.setText(R.string.pb_video_next_video);
-        this.mcR.setProgress(0);
+        this.mia.setText(R.string.pb_video_next_video);
+        this.mie.setProgress(0);
     }
 
-    private void dwY() {
-        this.mcS = true;
-        this.mcO.setText(R.string.pb_video_next_play);
-        if (this.mcU != null) {
-            this.mcU.cancel();
+    private void dwN() {
+        this.mif = true;
+        this.mia.setText(R.string.pb_video_next_play);
+        if (this.mih != null) {
+            this.mih.cancel();
         }
-        this.mcU = new a(5000 - this.mcR.getProgress(), this.mcM);
-        this.mcU.start();
+        this.mih = new a(5000 - this.mie.getProgress(), this.mhY);
+        this.mih.start();
     }
 
     public void setIsCountDownValid(boolean z) {
-        if (this.mcS != z) {
-            this.mcS = z;
+        if (this.mif != z) {
+            this.mif = z;
             if (getVisibility() == 0) {
                 if (z) {
-                    dwY();
+                    dwN();
                 } else {
-                    stopProgress();
+                    sh();
                 }
             }
         }
@@ -120,42 +120,42 @@ public class PbNextVideoLayout extends RelativeLayout {
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            if (this.mcS) {
-                dwY();
+            if (this.mif) {
+                dwN();
                 return;
             } else {
-                stopProgress();
+                sh();
                 return;
             }
         }
-        this.mcR.setProgress(0);
-        if (this.mcU != null) {
-            this.mcU.cancel();
+        this.mie.setProgress(0);
+        if (this.mih != null) {
+            this.mih.cancel();
         }
     }
 
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        this.mcQ.setOnClickListener(onClickListener);
+        this.mic.setOnClickListener(onClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public class a extends CountDownTimer {
         a(long j, long j2) {
             super(j, j2);
-            PbNextVideoLayout.this.mcT = true;
+            PbNextVideoLayout.this.mig = true;
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            PbNextVideoLayout.this.mcR.setProgress(((int) (5000 - j)) * 2);
+            PbNextVideoLayout.this.mie.setProgress(((int) (5000 - j)) * 2);
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            PbNextVideoLayout.this.mcT = false;
+            PbNextVideoLayout.this.mig = false;
             PbNextVideoLayout.this.performClick();
         }
     }

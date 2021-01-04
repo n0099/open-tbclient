@@ -11,7 +11,7 @@ import com.baidu.ar.bus.CallBack;
 import com.baidu.ar.c.c;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class StretchDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = StretchDetector.class.getSimpleName();
     private int oU = -1;
@@ -48,7 +48,7 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
                 if (strArr == null || strArr.length == 0) {
                     return -1;
                 }
-                return aVar.f1195tv ? ARMdlInterfaceJNI.initBodyKeyPointFromAssetDir(strArr[0]) : ARMdlInterfaceJNI.initBodyKeyPoint(strArr[0]);
+                return aVar.f1486tv ? ARMdlInterfaceJNI.initBodyKeyPointFromAssetDir(strArr[0]) : ARMdlInterfaceJNI.initBodyKeyPoint(strArr[0]);
             }
 
             @Override // com.baidu.ar.c.a

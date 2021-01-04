@@ -39,18 +39,20 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class f {
     private String c;
     private boolean d;
     private static f e = null;
     private static Application f = null;
     private static Random g = new Random();
-    public static List<Integer> b = new ArrayList();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static List<Integer> f5510b = new ArrayList();
     private Map<String, ApkInfo> h = new ConcurrentHashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, ApkInfo> f3618a = new ConcurrentHashMap();
+    public Map<String, ApkInfo> f5511a = new ConcurrentHashMap();
     private Map<String, MyReceiver> i = new HashMap();
 
     public static f a(Context context) {
@@ -108,7 +110,7 @@ public final class f {
         ApkInfo apkInfo;
         String a2;
         MyReceiver myReceiver;
-        if (gVar.d != null && (apkInfo = this.f3618a.get(gVar.f3619a)) != null) {
+        if (gVar.d != null && (apkInfo = this.f5511a.get(gVar.f5512a)) != null) {
             if (apkInfo.intentFilters == null) {
                 apkInfo.intentFilters = new ArrayList();
             }
@@ -221,7 +223,7 @@ public final class f {
     public final synchronized void b(g gVar) {
         try {
             if (gVar.d != null) {
-                ApkInfo apkInfo = this.f3618a.get(gVar.f3619a);
+                ApkInfo apkInfo = this.f5511a.get(gVar.f5512a);
                 if (apkInfo != null && apkInfo.intentFilters != null) {
                     ArrayList<Integer> arrayList = new ArrayList();
                     for (int i = 0; i < apkInfo.intentFilters.size(); i++) {
@@ -276,8 +278,8 @@ public final class f {
     public final List<ApkInfo> b() {
         try {
             ArrayList arrayList = new ArrayList();
-            for (String str : this.f3618a.keySet()) {
-                arrayList.add(this.f3618a.get(str));
+            for (String str : this.f5511a.keySet()) {
+                arrayList.add(this.f5511a.get(str));
             }
             return arrayList;
         } catch (Throwable th) {
@@ -339,7 +341,7 @@ public final class f {
                             f(str2);
                             a(apkInfo, str2, str);
                             this.h.put(apkInfo.pkgPath, apkInfo);
-                            this.f3618a.put(apkInfo.packageName, apkInfo);
+                            this.f5511a.put(apkInfo.packageName, apkInfo);
                             a(apkInfo, apkInfo.className);
                             z = false;
                         } else {
@@ -382,7 +384,7 @@ public final class f {
                             f(str4);
                             a(apkInfo, str4, str3);
                             this.h.put(apkInfo.pkgPath, apkInfo);
-                            this.f3618a.put(apkInfo.packageName, apkInfo);
+                            this.f5511a.put(apkInfo.packageName, apkInfo);
                             a(apkInfo, packageInfo.applicationInfo.className);
                         } else {
                             z2 = false;
@@ -585,7 +587,7 @@ public final class f {
         ApkInfo apkInfo = this.h.get(str);
         if (apkInfo != null) {
             this.h.remove(str);
-            this.f3618a.remove(apkInfo.packageName);
+            this.f5511a.remove(apkInfo.packageName);
             com.baidu.sofire.mutiprocess.b.b(apkInfo.packageName);
             com.baidu.sofire.i.e.d(apkInfo.dataDir);
             if (f != null) {
@@ -597,10 +599,10 @@ public final class f {
     }
 
     public final boolean b(String str) {
-        ApkInfo apkInfo = this.f3618a.get(str);
+        ApkInfo apkInfo = this.f5511a.get(str);
         if (apkInfo != null) {
             this.h.remove(apkInfo.pkgPath);
-            this.f3618a.remove(str);
+            this.f5511a.remove(str);
             com.baidu.sofire.mutiprocess.b.b(str);
             com.baidu.sofire.i.e.d(apkInfo.dataDir);
             if (f != null) {
@@ -608,7 +610,7 @@ public final class f {
             }
             new StringBuilder().append(this.h.size());
             com.baidu.sofire.b.a();
-            new StringBuilder().append(this.f3618a.size());
+            new StringBuilder().append(this.f5511a.size());
             com.baidu.sofire.b.a();
             return true;
         }
@@ -626,7 +628,7 @@ public final class f {
 
     public final ApkInfo d(String str) {
         try {
-            return this.f3618a.get(str);
+            return this.f5511a.get(str);
         } catch (Throwable th) {
             com.baidu.sofire.i.e.a();
             return null;
@@ -926,98 +928,96 @@ public final class f {
         L5:
             return r0
         L6:
-            java.io.InputStream r4 = r7.getInputStream(r8)     // Catch: java.lang.Throwable -> L79
-            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L7c
-            r2.<init>(r9)     // Catch: java.lang.Throwable -> L7c
+            java.io.InputStream r4 = r7.getInputStream(r8)     // Catch: java.lang.Throwable -> L77
+            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L7b
+            r2.<init>(r9)     // Catch: java.lang.Throwable -> L7b
             r3 = 4096(0x1000, float:5.74E-42)
             byte[] r3 = new byte[r3]     // Catch: java.lang.Throwable -> L1e
         L13:
             int r5 = r4.read(r3)     // Catch: java.lang.Throwable -> L1e
-            if (r5 <= 0) goto L34
+            if (r5 <= 0) goto L33
             r6 = 0
             r2.write(r3, r6, r5)     // Catch: java.lang.Throwable -> L1e
             goto L13
         L1e:
             r1 = move-exception
             r1 = r2
-            r3 = r4
-        L21:
-            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L75
-            if (r3 == 0) goto L29
-            r3.close()     // Catch: java.lang.Throwable -> L53
-        L29:
+        L20:
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L74
+            if (r4 == 0) goto L28
+            r4.close()     // Catch: java.lang.Throwable -> L52
+        L28:
             if (r1 == 0) goto L5
-            r1.close()     // Catch: java.lang.Throwable -> L2f
+            r1.close()     // Catch: java.lang.Throwable -> L2e
             goto L5
-        L2f:
+        L2e:
             r1 = move-exception
             com.baidu.sofire.i.e.a()
             goto L5
-        L34:
+        L33:
             r2.flush()     // Catch: java.lang.Throwable -> L1e
             java.lang.String r3 = r9.getAbsolutePath()     // Catch: java.lang.Throwable -> L1e
             r5 = 1
             com.baidu.sofire.i.e.a(r3, r5)     // Catch: java.lang.Throwable -> L1e
-            if (r4 == 0) goto L44
-            r4.close()     // Catch: java.lang.Throwable -> L49
-        L44:
-            r2.close()     // Catch: java.lang.Throwable -> L4e
-        L47:
+            if (r4 == 0) goto L43
+            r4.close()     // Catch: java.lang.Throwable -> L48
+        L43:
+            r2.close()     // Catch: java.lang.Throwable -> L4d
+        L46:
             r0 = r1
             goto L5
-        L49:
+        L48:
             r0 = move-exception
             com.baidu.sofire.i.e.a()
-            goto L44
-        L4e:
+            goto L43
+        L4d:
             r0 = move-exception
             com.baidu.sofire.i.e.a()
-            goto L47
-        L53:
+            goto L46
+        L52:
             r2 = move-exception
             com.baidu.sofire.i.e.a()
-            goto L29
-        L58:
+            goto L28
+        L57:
             r0 = move-exception
             r2 = r3
             r4 = r3
-        L5b:
-            if (r4 == 0) goto L60
-            r4.close()     // Catch: java.lang.Throwable -> L66
-        L60:
-            if (r2 == 0) goto L65
-            r2.close()     // Catch: java.lang.Throwable -> L6b
-        L65:
+        L5a:
+            if (r4 == 0) goto L5f
+            r4.close()     // Catch: java.lang.Throwable -> L65
+        L5f:
+            if (r2 == 0) goto L64
+            r2.close()     // Catch: java.lang.Throwable -> L6a
+        L64:
             throw r0
-        L66:
+        L65:
             r1 = move-exception
             com.baidu.sofire.i.e.a()
-            goto L60
-        L6b:
+            goto L5f
+        L6a:
             r1 = move-exception
             com.baidu.sofire.i.e.a()
-            goto L65
-        L70:
+            goto L64
+        L6f:
             r0 = move-exception
             r2 = r3
-            goto L5b
-        L73:
+            goto L5a
+        L72:
             r0 = move-exception
-            goto L5b
-        L75:
+            goto L5a
+        L74:
             r0 = move-exception
             r2 = r1
+            goto L5a
+        L77:
+            r1 = move-exception
+            r1 = r3
             r4 = r3
-            goto L5b
-        L79:
+            goto L20
+        L7b:
             r1 = move-exception
             r1 = r3
-            goto L21
-        L7c:
-            r1 = move-exception
-            r1 = r3
-            r3 = r4
-            goto L21
+            goto L20
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.core.f.a(java.util.zip.ZipFile, java.util.zip.ZipEntry, java.io.File):boolean");
     }
@@ -1162,8 +1162,8 @@ public final class f {
             r0 = 1
             r1 = 0
             r3 = 0
-            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L4f
-            r2.<init>(r6)     // Catch: java.lang.Throwable -> L4f
+            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L50
+            r2.<init>(r6)     // Catch: java.lang.Throwable -> L50
             r3 = 4096(0x1000, float:5.74E-42)
             byte[] r3 = new byte[r3]     // Catch: java.lang.Throwable -> L17
         Lc:
@@ -1176,7 +1176,7 @@ public final class f {
             r0 = move-exception
             r0 = r2
         L19:
-            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L4b
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L4d
             if (r0 == 0) goto L21
             r0.close()     // Catch: java.lang.Throwable -> L37
         L21:
@@ -1200,25 +1200,26 @@ public final class f {
             goto L21
         L3c:
             r0 = move-exception
+            r1 = r0
             r2 = r3
-        L3e:
-            if (r2 == 0) goto L43
-            r2.close()     // Catch: java.lang.Throwable -> L44
-        L43:
-            throw r0
+        L3f:
+            if (r2 == 0) goto L44
+            r2.close()     // Catch: java.lang.Throwable -> L45
         L44:
-            r1 = move-exception
-            com.baidu.sofire.i.e.a()
-            goto L43
-        L49:
+            throw r1
+        L45:
             r0 = move-exception
-            goto L3e
-        L4b:
+            com.baidu.sofire.i.e.a()
+            goto L44
+        L4a:
+            r0 = move-exception
+            r1 = r0
+            goto L3f
+        L4d:
             r1 = move-exception
             r2 = r0
-            r0 = r1
-            goto L3e
-        L4f:
+            goto L3f
+        L50:
             r0 = move-exception
             r0 = r3
             goto L19
@@ -1228,7 +1229,7 @@ public final class f {
 
     public final boolean e(String str) {
         try {
-            ApkInfo apkInfo = this.f3618a.get(str);
+            ApkInfo apkInfo = this.f5511a.get(str);
             if (apkInfo != null) {
                 Class<?> a2 = ((e) apkInfo.classLoader).a("com.baidu.sofire.engine.EngineImpl");
                 Object invoke = a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, f);
@@ -1236,7 +1237,7 @@ public final class f {
                     com.baidu.sofire.i.e.a(invoke, "unload", (Class<?>[]) null, new Object[0]);
                 }
                 this.h.remove(apkInfo.pkgPath);
-                this.f3618a.remove(str);
+                this.f5511a.remove(str);
                 return true;
             }
             return false;

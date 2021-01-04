@@ -11,16 +11,21 @@ import com.baidu.live.adp.lib.stats.AlaStatManager;
 import com.baidu.live.adp.lib.stats.AlaStatsItem;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
+import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.tieba.ala.messages.CancelPkResponseMessage;
-/* loaded from: classes4.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
 public class k extends BdBaseModel {
     private HttpMessageListener messageListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void bn(int i, String str);
+        void bp(int i, String str);
 
-        void cmf();
+        void coW();
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -40,7 +45,7 @@ public class k extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        cmd();
+        coU();
         b(aVar);
     }
 
@@ -52,21 +57,29 @@ public class k extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021212 && (httpResponsedMessage instanceof CancelPkResponseMessage)) {
                     CancelPkResponseMessage cancelPkResponseMessage = (CancelPkResponseMessage) httpResponsedMessage;
                     if (cancelPkResponseMessage.getError() != 0 || !cancelPkResponseMessage.isSuccess()) {
-                        aVar.bn(cancelPkResponseMessage.getError(), cancelPkResponseMessage.getErrorString());
+                        aVar.bp(cancelPkResponseMessage.getError(), cancelPkResponseMessage.getErrorString());
                         return;
                     }
-                    aVar.cmf();
+                    aVar.coW();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue("lodId", Long.valueOf(cancelPkResponseMessage.getLogId()));
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(cancelPkResponseMessage.getError()));
                     AlaStatManager.getInstance().debug("pk_competition_cancel_match", alaStatsItem);
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.putOpt("lodId", Long.valueOf(cancelPkResponseMessage.getLogId()));
+                        jSONObject.putOpt(BaseJsonData.TAG_ERRNO, Integer.valueOf(cancelPkResponseMessage.getError()));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_PK_RANK, "pk_competition_cancel_match", "author_liveroom", "").setContentExt(jSONObject));
                 }
             }
         };
         registerListener(this.messageListener);
     }
 
-    private void cmd() {
+    private void coU() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021212, TbConfig.SERVER_ADDRESS + "ala/pksolo/cancelPk");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -76,7 +89,7 @@ public class k extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cme() {
+    public void coV() {
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021212);
     }

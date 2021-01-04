@@ -5,7 +5,7 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class Code93Writer extends OneDimensionalCodeWriter {
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter, com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
@@ -58,19 +58,18 @@ public class Code93Writer extends OneDimensionalCodeWriter {
     }
 
     private static int computeChecksumIndex(String str, int i) {
-        int i2 = 1;
+        int i2 = 0;
         int length = str.length() - 1;
-        int i3 = 0;
+        int i3 = 1;
         while (length >= 0) {
-            int indexOf = ("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%abcd*".indexOf(str.charAt(length)) * i2) + i3;
-            int i4 = i2 + 1;
+            i2 += "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%abcd*".indexOf(str.charAt(length)) * i3;
+            int i4 = i3 + 1;
             if (i4 > i) {
                 i4 = 1;
             }
             length--;
-            i2 = i4;
-            i3 = indexOf;
+            i3 = i4;
         }
-        return i3 % 47;
+        return i2 % 47;
     }
 }

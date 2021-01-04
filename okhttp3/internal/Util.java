@@ -1,6 +1,5 @@
 package okhttp3.internal;
 
-import android.support.v4.media.session.PlaybackStateCompat;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -41,7 +40,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class Util {
     private static final Pattern VERIFY_AS_IP_ADDRESS;
     private static final Method addSuppressedExceptionMethod;
@@ -154,7 +153,7 @@ public final class Util {
         source.timeout().deadlineNanoTime(Math.min(deadlineNanoTime, timeUnit.toNanos(i)) + nanoTime);
         try {
             Buffer buffer = new Buffer();
-            while (source.read(buffer, PlaybackStateCompat.ACTION_PLAY_FROM_URI) != -1) {
+            while (source.read(buffer, 8192L) != -1) {
                 buffer.clear();
             }
             if (deadlineNanoTime == Long.MAX_VALUE) {
@@ -449,10 +448,10 @@ public final class Util {
         return c - '0';
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:63:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:64:?, code lost:
         return null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0044  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0045  */
     @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -470,54 +469,55 @@ public final class Util {
                 if (i8 != bArr.length) {
                     if (i5 + 2 <= i2 && str.regionMatches(i5, "::", 0, 2)) {
                         if (i7 == -1) {
-                            i5 += 2;
-                            i7 = i8 + 2;
-                            if (i5 != i2) {
-                                i8 = i7;
-                                int i9 = 0;
-                                i3 = i5;
+                            i6 = i5 + 2;
+                            int i9 = i8 + 2;
+                            if (i6 != i2) {
+                                i7 = i9;
+                                i8 = i9;
+                                int i10 = 0;
+                                i3 = i6;
                                 while (i3 < i2) {
                                 }
-                                i4 = i3 - i5;
+                                i4 = i3 - i6;
                                 if (i4 == 0) {
                                     break;
                                 }
                                 break;
                             }
-                            i8 = i7;
+                            i7 = i9;
+                            i8 = i9;
                             break;
                         }
                         return null;
                     }
-                    if (i8 != 0) {
-                        if (str.regionMatches(i5, ":", 0, 1)) {
-                            i5++;
-                        } else {
-                            if (str.regionMatches(i5, ".", 0, 1) && decodeIpv4Suffix(str, i6, i2, bArr, i8 - 2)) {
-                                i8 += 2;
-                            }
-                            return null;
+                    if (i8 == 0) {
+                        i6 = i5;
+                    } else if (str.regionMatches(i5, ":", 0, 1)) {
+                        i6 = i5 + 1;
+                    } else {
+                        if (str.regionMatches(i5, ".", 0, 1) && decodeIpv4Suffix(str, i6, i2, bArr, i8 - 2)) {
+                            i8 += 2;
                         }
+                        return null;
                     }
-                    int i92 = 0;
-                    i3 = i5;
+                    int i102 = 0;
+                    i3 = i6;
                     while (i3 < i2) {
                         int decodeHexDigit = decodeHexDigit(str.charAt(i3));
                         if (decodeHexDigit == -1) {
                             break;
                         }
-                        i92 = (i92 << 4) + decodeHexDigit;
+                        i102 = (i102 << 4) + decodeHexDigit;
                         i3++;
                     }
-                    i4 = i3 - i5;
+                    i4 = i3 - i6;
                     if (i4 == 0 || i4 > 4) {
                         break;
                     }
-                    int i10 = i8 + 1;
-                    bArr[i8] = (byte) ((i92 >>> 8) & 255);
-                    i8 = i10 + 1;
-                    bArr[i10] = (byte) (i92 & 255);
-                    i6 = i5;
+                    int i11 = i8 + 1;
+                    bArr[i8] = (byte) ((i102 >>> 8) & 255);
+                    i8 = i11 + 1;
+                    bArr[i11] = (byte) (i102 & 255);
                     i5 = i3;
                 } else {
                     return null;
@@ -569,34 +569,34 @@ public final class Util {
                 return false;
             }
             bArr[i5] = (byte) i6;
-            i5++;
             i4 = i7;
+            i5++;
         }
         return i5 == i3 + 4;
     }
 
     private static String inet6AddressToAscii(byte[] bArr) {
         int i = 0;
-        int i2 = 0;
-        int i3 = -1;
+        int i2 = -1;
+        int i3 = 0;
         int i4 = 0;
-        while (i4 < bArr.length) {
-            int i5 = i4;
+        while (i3 < bArr.length) {
+            int i5 = i3;
             while (i5 < 16 && bArr[i5] == 0 && bArr[i5 + 1] == 0) {
                 i5 += 2;
             }
-            int i6 = i5 - i4;
-            if (i6 > i2 && i6 >= 4) {
-                i2 = i6;
-                i3 = i4;
+            int i6 = i5 - i3;
+            if (i6 > i4 && i6 >= 4) {
+                i4 = i6;
+                i2 = i3;
             }
-            i4 = i5 + 2;
+            i3 = i5 + 2;
         }
         Buffer buffer = new Buffer();
         while (i < bArr.length) {
-            if (i == i3) {
+            if (i == i2) {
                 buffer.writeByte(58);
-                i += i2;
+                i += i4;
                 if (i == 16) {
                     buffer.writeByte(58);
                 }

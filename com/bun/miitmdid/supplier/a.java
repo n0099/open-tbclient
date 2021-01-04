@@ -1,5 +1,5 @@
 package com.bun.miitmdid.supplier;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class a implements IdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {

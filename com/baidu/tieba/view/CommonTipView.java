@@ -10,22 +10,22 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
-    private Animation bQk;
-    private TranslateAnimation bQl;
-    private Runnable bQm;
+    private Animation bVo;
+    private TranslateAnimation bVp;
+    private Runnable bVq;
     private int mDuration;
     private Runnable mRunnable;
 
     public CommonTipView(Context context) {
         super(context);
         this.mDuration = 4000;
-        this.bQk = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.bQl = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.bQm = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
+        this.bVo = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.bVp = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.bVq = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
             public void run() {
                 CommonTipView.this.hideTip();
@@ -46,9 +46,9 @@ public class CommonTipView extends TextView {
     public CommonTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mDuration = 4000;
-        this.bQk = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.bQl = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.bQm = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
+        this.bVo = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.bVp = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.bVq = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
             public void run() {
                 CommonTipView.this.hideTip();
@@ -69,9 +69,9 @@ public class CommonTipView extends TextView {
     public CommonTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDuration = 4000;
-        this.bQk = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.bQl = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.bQm = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
+        this.bVo = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.bVp = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.bVq = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
             public void run() {
                 CommonTipView.this.hideTip();
@@ -92,7 +92,7 @@ public class CommonTipView extends TextView {
     private void init() {
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds24));
         setGravity(17);
-        this.bQk.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.3
+        this.bVo.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.3
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -101,22 +101,22 @@ public class CommonTipView extends TextView {
             public void onAnimationEnd(Animation animation) {
                 CommonTipView.this.onDestroy();
                 CommonTipView.this.setVisibility(8);
-                com.baidu.adp.lib.f.e.mY().postDelayed(CommonTipView.this.mRunnable, 600L);
+                com.baidu.adp.lib.f.e.mB().postDelayed(CommonTipView.this.mRunnable, 600L);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.bQl.setDuration(400L);
-        this.bQl.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.4
+        this.bVp.setDuration(400L);
+        this.bVp.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                CommonTipView.this.postDelayed(CommonTipView.this.bQm, CommonTipView.this.mDuration);
+                CommonTipView.this.postDelayed(CommonTipView.this.bVq, CommonTipView.this.mDuration);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -127,9 +127,9 @@ public class CommonTipView extends TextView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideTip() {
-        removeCallbacks(this.bQm);
+        removeCallbacks(this.bVq);
         if (this != null && getParent() != null) {
-            startAnimation(this.bQk);
+            startAnimation(this.bVo);
         }
     }
 
@@ -139,7 +139,7 @@ public class CommonTipView extends TextView {
             layoutParams.gravity = 48;
             linearLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.bQl);
+            startAnimation(this.bVp);
         }
     }
 
@@ -149,7 +149,7 @@ public class CommonTipView extends TextView {
             layoutParams.setMargins(0, 0, 0, 0);
             frameLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.bQl);
+            startAnimation(this.bVp);
         }
     }
 
@@ -167,13 +167,13 @@ public class CommonTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        ap.setBackgroundResource(this, R.color.common_color_10260, i);
-        ap.setViewTextColor(this, R.color.CAM_X0111, 1, i);
+        ao.setBackgroundResource(this, R.color.common_color_10260, i);
+        ao.setViewTextColor(this, R.color.CAM_X0111, 1, i);
     }
 
     public void onDestroy() {
-        removeCallbacks(this.bQm);
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.mRunnable);
+        removeCallbacks(this.bVq);
+        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mRunnable);
         hide();
     }
 }

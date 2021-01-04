@@ -14,17 +14,17 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Shader;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
+import androidx.core.view.ViewCompat;
 import com.baidu.l.a.a;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.lang.ref.WeakReference;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class c extends View implements com.baidu.pass.ecommerce.d.d {
     private static final String O = "VoiceSinWaveView";
     private static final int P = 4097;
@@ -45,8 +45,10 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
     private boolean N;
 
     /* renamed from: a  reason: collision with root package name */
-    private float f2780a;
-    private float b;
+    private float f4119a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private float f4120b;
     private long c;
     private Paint d;
     private Paint e;
@@ -72,27 +74,29 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
     private ValueAnimator y;
     private ValueAnimator z;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     class a implements ValueAnimator.AnimatorUpdateListener {
         a() {
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            c.this.b = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+            c.this.f4120b = ((Float) valueAnimator.getAnimatedValue()).floatValue();
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     class b implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ int[] f2782a;
-        final /* synthetic */ float[] b;
+        final /* synthetic */ int[] f4122a;
+
+        /* renamed from: b  reason: collision with root package name */
+        final /* synthetic */ float[] f4123b;
 
         b(int[] iArr, float[] fArr) {
-            this.f2782a = iArr;
-            this.b = fArr;
+            this.f4122a = iArr;
+            this.f4123b = fArr;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -104,12 +108,12 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
                 }
                 c.this.D = true;
             }
-            c.this.g.setShader(new LinearGradient(c.this.K, 0.0f, c.this.q - c.this.K, 0.0f, this.f2782a, this.b, Shader.TileMode.MIRROR));
+            c.this.g.setShader(new LinearGradient(c.this.K, 0.0f, c.this.q - c.this.K, 0.0f, this.f4122a, this.f4123b, Shader.TileMode.MIRROR));
         }
     }
 
     /* renamed from: com.baidu.pass.ecommerce.d.c$c  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     class C0287c extends AnimatorListenerAdapter {
         C0287c() {
         }
@@ -123,33 +127,33 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     class d implements ValueAnimator.AnimatorUpdateListener {
         d() {
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            c.this.b = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+            c.this.f4120b = ((Float) valueAnimator.getAnimatedValue()).floatValue();
             c cVar = c.this;
-            cVar.f2780a = cVar.b;
+            cVar.f4119a = cVar.f4120b;
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     private static class e extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<c> f2785a;
+        private WeakReference<c> f4126a;
 
         public e(c cVar) {
-            this.f2785a = new WeakReference<>(cVar);
+            this.f4126a = new WeakReference<>(cVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             c cVar;
-            if (message.what != 4097 || (cVar = this.f2785a.get()) == null) {
+            if (message.what != 4097 || (cVar = this.f4126a.get()) == null) {
                 return;
             }
             cVar.g();
@@ -158,25 +162,27 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     private static class f extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f2786a = false;
-        private WeakReference<c> b;
+        private boolean f4127a = false;
+
+        /* renamed from: b  reason: collision with root package name */
+        private WeakReference<c> f4128b;
 
         public f(c cVar) {
-            this.b = new WeakReference<>(cVar);
+            this.f4128b = new WeakReference<>(cVar);
         }
 
         public synchronized void a(boolean z) {
-            this.f2786a = z;
+            this.f4127a = z;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             while (!a()) {
-                c cVar = this.b.get();
+                c cVar = this.f4128b.get();
                 if (cVar != null) {
                     cVar.H.sendEmptyMessage(4097);
                     try {
@@ -189,11 +195,11 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
 
         public synchronized boolean a() {
-            return this.f2786a;
+            return this.f4127a;
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public interface g {
         void a();
 
@@ -301,7 +307,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
     public void g() {
         int i;
         if (!this.N) {
-            this.n = (this.b / 100.0f) * 0.8f;
+            this.n = (this.f4120b / 100.0f) * 0.8f;
             this.n = Math.max(0.05f, this.n);
             this.h.rewind();
             this.i.rewind();
@@ -372,8 +378,8 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
     @Override // com.baidu.pass.ecommerce.d.d
     public void c() {
         Log.d(O, "reset.");
-        this.b = 0.0f;
-        this.f2780a = 0.0f;
+        this.f4120b = 0.0f;
+        this.f4119a = 0.0f;
         this.c = 0L;
         this.w = 0.0f;
         this.x = 3.5f;
@@ -413,8 +419,8 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
 
     public c(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f2780a = 0.0f;
-        this.b = 0.0f;
+        this.f4119a = 0.0f;
+        this.f4120b = 0.0f;
         this.c = 0L;
         this.k = 2;
         this.l = 2;
@@ -458,7 +464,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
                 valueAnimator.cancel();
                 this.y = null;
             }
-            float f2 = this.b;
+            float f2 = this.f4120b;
             if (f2 > 10.0f) {
                 this.y = ValueAnimator.ofFloat(f2, 10.0f);
                 this.y.setDuration(this.A);
@@ -489,7 +495,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
                 valueAnimator.cancel();
                 this.y = null;
             }
-            this.y = ValueAnimator.ofFloat(this.f2780a, f2);
+            this.y = ValueAnimator.ofFloat(this.f4119a, f2);
             this.y.setDuration(j2);
             this.y.setInterpolator(this.M);
             this.y.addUpdateListener(new d());

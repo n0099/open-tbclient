@@ -26,51 +26,52 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
+import com.baidu.live.utils.l;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private boolean aVA;
-    private j aYB;
-    private int bdZ;
-    private int bea;
-    private int beb;
-    private boolean bfT;
-    private ArrayList<c> bfU;
-    private b bgW;
-    private b bgX;
-    private AlaSmallGiftView bgY;
-    private AlaSmallGiftView bgZ;
-    private b.a bha;
+    private boolean aXg;
+    private j bah;
+    private int bfM;
+    private int bfN;
+    private int bfO;
+    private boolean bhC;
+    private ArrayList<c> bhD;
+    private b biE;
+    private b biF;
+    private AlaSmallGiftView biG;
+    private AlaSmallGiftView biH;
+    private b.a biI;
     private Context mContext;
     private View mRootView;
 
     public a(Context context, j jVar) {
-        this.bfT = false;
-        this.bha = new b.a() { // from class: com.baidu.live.gift.smallgift.a.1
-            @Override // com.baidu.live.gift.smallgift.b.a
-            public void u(c cVar) {
-                if (cVar != null) {
-                    a.this.i(cVar);
-                }
-            }
-
-            @Override // com.baidu.live.gift.smallgift.b.a
-            public void Ln() {
-                if (!a.this.Lm()) {
-                    a.this.IN();
-                }
-            }
-
+        this.bhC = false;
+        this.biI = new b.a() { // from class: com.baidu.live.gift.smallgift.a.1
             @Override // com.baidu.live.gift.smallgift.b.a
             public void v(c cVar) {
-                if (cVar != null && cVar.bcV < cVar.bcU) {
-                    a.this.i(cVar);
-                    cVar.bde = true;
-                    if (a.this.aYB.a(cVar)) {
+                if (cVar != null) {
+                    a.this.j(cVar);
+                }
+            }
+
+            @Override // com.baidu.live.gift.smallgift.b.a
+            public void KM() {
+                if (!a.this.KL()) {
+                    a.this.Io();
+                }
+            }
+
+            @Override // com.baidu.live.gift.smallgift.b.a
+            public void w(c cVar) {
+                if (cVar != null && cVar.beD < cVar.beC) {
+                    a.this.j(cVar);
+                    cVar.beM = true;
+                    if (a.this.bah.a(cVar)) {
                         if (cVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                             cVar.priority = 10;
                         } else {
@@ -81,45 +82,45 @@ public class a {
                     } else {
                         cVar.priority = 2;
                     }
-                    a.this.t(cVar);
+                    a.this.u(cVar);
                 }
             }
         };
         this.mContext = context;
-        this.aYB = jVar;
+        this.bah = jVar;
         initData();
         initView();
     }
 
     public a(Context context, j jVar, boolean z) {
         this(context, jVar);
-        this.aVA = z;
-        this.bgY.setMode(z);
-        this.bgZ.setMode(z);
+        this.aXg = z;
+        this.biG.setMode(z);
+        this.biH.setMode(z);
     }
 
     private void initData() {
-        this.bfU = new ArrayList<>();
+        this.bhD = new ArrayList<>();
         Resources resources = this.mContext.getResources();
-        this.bdZ = (int) resources.getDimension(a.d.sdk_ds650);
-        this.bea = resources.getDimensionPixelOffset(a.d.sdk_ds12) + (resources.getDimensionPixelOffset(a.d.sdk_ds136) * 2) + resources.getDimensionPixelOffset(a.d.sdk_ds46);
+        this.bfM = (int) resources.getDimension(a.d.sdk_ds650);
+        this.bfN = resources.getDimensionPixelOffset(a.d.sdk_ds12) + (resources.getDimensionPixelOffset(a.d.sdk_ds136) * 2) + resources.getDimensionPixelOffset(a.d.sdk_ds46);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_small_gift_panel_layout, (ViewGroup) null);
-        this.bgY = (AlaSmallGiftView) this.mRootView.findViewById(a.f.alaSmallGift1);
-        this.bgZ = (AlaSmallGiftView) this.mRootView.findViewById(a.f.alaSmallGift2);
-        this.bgW = new b(this.bgY);
-        this.bgW.a(this.bha);
-        this.bgX = new b(this.bgZ);
-        this.bgX.a(this.bha);
+        this.biG = (AlaSmallGiftView) this.mRootView.findViewById(a.f.alaSmallGift1);
+        this.biH = (AlaSmallGiftView) this.mRootView.findViewById(a.f.alaSmallGift2);
+        this.biE = new b(this.biG);
+        this.biE.a(this.biI);
+        this.biF = new b(this.biH);
+        this.biF.a(this.biI);
         setRootViewParam(UtilHelper.getRealScreenOrientation(this.mContext));
-        this.aYB.M(this.mRootView);
+        this.bah.M(this.mRootView);
     }
 
     private void setRootViewParam(int i) {
         if (i == 2) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bdZ, this.bea);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bfM, this.bfN);
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams.removeRule(12);
             } else {
@@ -130,7 +131,7 @@ public class a {
             layoutParams.topMargin = (int) this.mContext.getResources().getDimension(a.d.sdk_ds160);
             this.mRootView.setLayoutParams(layoutParams);
         } else if (i == 1) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.bea);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.bfN);
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams2.removeRule(10);
             } else {
@@ -138,68 +139,68 @@ public class a {
             }
             layoutParams2.topMargin = 0;
             layoutParams2.addRule(12);
-            layoutParams2.bottomMargin = this.beb;
+            layoutParams2.bottomMargin = this.bfO;
             this.mRootView.setLayoutParams(layoutParams2);
         }
     }
 
-    public void eN(int i) {
-        this.beb = i;
+    public void eL(int i) {
+        this.bfO = i;
         ViewGroup.LayoutParams layoutParams = this.mRootView.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = this.beb;
+            ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = this.bfO;
             this.mRootView.setLayoutParams(layoutParams);
         }
     }
 
-    public void IR() {
+    public void Is() {
         setRootViewParam(UtilHelper.getRealScreenOrientation(this.mContext));
-        if (this.bgW != null) {
-            this.bgW.IR();
+        if (this.biE != null) {
+            this.biE.Is();
         }
-        if (this.bgX != null) {
-            this.bgX.IR();
+        if (this.biF != null) {
+            this.biF.Is();
         }
     }
 
-    public void HI() {
-        this.bfT = true;
-        if (this.bgW != null) {
-            this.bgW.HI();
+    public void Hj() {
+        this.bhC = true;
+        if (this.biE != null) {
+            this.biE.Hj();
         }
-        if (this.bgX != null) {
-            this.bgX.HI();
+        if (this.biF != null) {
+            this.biF.Hj();
         }
-        this.aYB.HK();
+        this.bah.Hl();
     }
 
-    public void HJ() {
-        this.bfT = false;
-        this.aYB.M(this.mRootView);
-        if (this.bgW != null) {
-            this.bgW.HJ();
+    public void Hk() {
+        this.bhC = false;
+        this.bah.M(this.mRootView);
+        if (this.biE != null) {
+            this.biE.Hk();
         }
-        if (this.bgX != null) {
-            this.bgX.HJ();
+        if (this.biF != null) {
+            this.biF.Hk();
         }
     }
 
     private void c(c cVar, boolean z) {
         if (cVar != null) {
-            g gVar = cVar.bcN;
-            if (!cVar.bda && !cVar.bdb) {
-                if (cVar.bcX || cVar.bcM) {
+            g gVar = cVar.bex;
+            if (!cVar.beI && !cVar.beJ) {
+                if (cVar.beF || cVar.bew) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.putOpt(LogConfig.LOG_GIFT_ID, gVar.GX());
-                        jSONObject.putOpt("gift_name", gVar.GY());
+                        jSONObject.putOpt(LogConfig.LOG_GIFT_ID, gVar.Gx());
+                        jSONObject.putOpt("gift_name", gVar.Gy());
                         jSONObject.putOpt(LogConfig.LOG_GIFT_VALUE, gVar.getPrice());
-                        jSONObject.putOpt("gift_num", Long.valueOf(cVar.bcU));
+                        jSONObject.putOpt("gift_num", Long.valueOf(cVar.beC));
                         jSONObject.putOpt("is_down", Integer.valueOf(z ? 1 : 0));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", cVar.bcX ? "author_liveroom" : "liveroom", "giftplay_show").setContentExt(null, "popup", jSONObject));
+                    UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", cVar.beF ? "author_liveroom" : "liveroom", "giftplay_show").setContentExt(null, "popup", jSONObject));
                 }
             }
         }
@@ -208,22 +209,22 @@ public class a {
     public void d(c cVar) {
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
             boolean z = false;
-            if (this.bgW.z(cVar)) {
+            if (this.biE.A(cVar)) {
                 z = true;
-            } else if (this.bgX.z(cVar)) {
+            } else if (this.biF.A(cVar)) {
                 z = true;
             }
             c(cVar, true);
             if (!z) {
-                q(cVar);
+                r(cVar);
             }
         }
     }
 
-    private void q(c cVar) {
+    private void r(c cVar) {
         boolean z;
         boolean z2 = false;
-        Iterator<c> it = this.bfU.iterator();
+        Iterator<c> it = this.bhD.iterator();
         while (true) {
             z = z2;
             if (!it.hasNext()) {
@@ -237,154 +238,161 @@ public class a {
             z2 = z;
         }
         if (!z) {
-            r(cVar);
+            s(cVar);
         }
     }
 
     public static boolean c(c cVar, c cVar2) {
-        return cVar != null && !StringUtils.isNull(cVar.bcO) && cVar.bcO.equals(cVar2.bcO) && Math.abs(cVar2.JI() - cVar.JI()) <= IMConnection.RETRY_DELAY_TIMES && cVar2.bcU <= 99;
+        return cVar != null && !StringUtils.isNull(cVar.bey) && cVar.bey.equals(cVar2.bey) && Math.abs(cVar2.Jk() - cVar.Jk()) <= IMConnection.RETRY_DELAY_TIMES && cVar2.beC <= 99;
     }
 
     public static void d(c cVar, c cVar2) {
         w.a(cVar, cVar2);
-        cVar.bcU += cVar2.bcU;
-        cVar.aQ(cVar2.JI());
+        cVar.beC += cVar2.beC;
+        cVar.aP(cVar2.Jk());
     }
 
-    private void r(c cVar) {
+    private void s(c cVar) {
         if (cVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-            s(cVar);
+            t(cVar);
             return;
         }
-        this.bfU.add(cVar);
-        if (cVar.bcX) {
+        this.bhD.add(cVar);
+        if (cVar.beF) {
             LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "");
         }
         try {
-            IK();
+            Im();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        IN();
+        Io();
     }
 
-    public void s(c cVar) {
-        if (this.bfT) {
-            t(cVar);
-        } else if (!this.bgW.LB() && this.bgW.w(cVar)) {
-            this.bgW.y(cVar);
-        } else if (!this.bgX.LB() && this.bgX.w(cVar)) {
-            this.bgX.y(cVar);
+    public void t(c cVar) {
+        if (this.bhC) {
+            u(cVar);
+        } else if (!this.biE.La() && this.biE.x(cVar)) {
+            this.biE.z(cVar);
+        } else if (!this.biF.La() && this.biF.x(cVar)) {
+            this.biF.z(cVar);
         } else {
-            t(cVar);
-            IN();
+            u(cVar);
+            Io();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void t(c cVar) {
+    public void u(c cVar) {
         int i;
         int i2 = 0;
         while (true) {
             i = i2;
-            if (i >= this.bfU.size()) {
+            if (i >= this.bhD.size()) {
                 i = -1;
                 break;
-            } else if (cVar.priority > this.bfU.get(i).priority) {
+            } else if (cVar.priority > this.bhD.get(i).priority) {
                 break;
             } else {
                 i2 = i + 1;
             }
         }
         if (i == -1) {
-            this.bfU.add(cVar);
+            this.bhD.add(cVar);
         } else {
-            this.bfU.add(i, cVar);
+            this.bhD.add(i, cVar);
         }
         try {
-            IK();
+            Im();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void IK() {
-        if (this.bfU != null) {
-            int i = com.baidu.live.ae.a.RB().brA != null ? com.baidu.live.ae.a.RB().brA.aOp : 0;
-            if (i > 0 && this.bfU.size() >= i) {
-                Collections.sort(this.bfU, new c.a());
-                ArrayList arrayList = new ArrayList(this.bfU.subList(0, Math.max((int) (i * 0.7f), 1)));
-                this.bfU.clear();
-                this.bfU.addAll(arrayList);
+    private void Im() {
+        if (this.bhD != null) {
+            int i = com.baidu.live.af.a.SE().bwi != null ? com.baidu.live.af.a.SE().bwi.aOW : 0;
+            if (i > 0 && this.bhD.size() >= i) {
+                Collections.sort(this.bhD, new c.a());
+                ArrayList arrayList = new ArrayList(this.bhD.subList(0, Math.max((int) (i * 0.7f), 1)));
+                if (this.bhD.removeAll(arrayList)) {
+                    Iterator<c> it = this.bhD.iterator();
+                    while (it.hasNext()) {
+                        c next = it.next();
+                        l.a(next.giftId, next.userId, next.msgId, next.beF);
+                    }
+                }
+                this.bhD.clear();
+                this.bhD.addAll(arrayList);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IN() {
-        if (!this.bfU.isEmpty() && !this.bfT) {
-            if (this.bgW.isReady() || this.bgX.isReady()) {
-                c remove = this.bfU.remove(0);
+    public void Io() {
+        if (!this.bhD.isEmpty() && !this.bhC) {
+            if (this.biE.isReady() || this.biF.isReady()) {
+                c remove = this.bhD.remove(0);
                 if (remove != null) {
-                    remove.aQ(System.currentTimeMillis());
-                    n(remove);
-                    IN();
+                    remove.aP(System.currentTimeMillis());
+                    o(remove);
+                    Io();
                     return;
                 }
-                IN();
+                Io();
             }
         }
     }
 
-    private void n(c cVar) {
-        if (this.bgW.isReady()) {
-            this.bgW.x(cVar);
-        } else if (this.bgX.isReady()) {
-            this.bgX.x(cVar);
+    private void o(c cVar) {
+        if (this.biE.isReady()) {
+            this.biE.y(cVar);
+        } else if (this.biF.isReady()) {
+            this.biF.y(cVar);
         }
-        if (cVar.bcX) {
+        if (cVar.beF) {
             LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "");
         }
     }
 
-    public boolean Lm() {
-        return this.bfU.isEmpty();
+    public boolean KL() {
+        return this.bhD.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void i(c cVar) {
-        if (cVar != null && cVar.bcX) {
+    public void j(c cVar) {
+        if (cVar != null && cVar.beF) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(LogConfig.LOG_GIFT_ID, cVar.giftId);
-                jSONObject.put("gift_count", cVar.bcV);
+                jSONObject.put("gift_count", cVar.beD);
                 jSONObject.put("sender_uk", EncryptionHelper.getEncryptionUserId(cVar.userId));
-                jSONObject.put("show_stime", cVar.JI());
+                jSONObject.put("show_stime", cVar.Jk());
                 jSONObject.put("show_ctime", System.currentTimeMillis());
-                if (cVar.bde) {
+                if (cVar.beM) {
                     jSONObject.put("from_recovery", 1);
                 }
             } catch (JSONException e) {
                 BdLog.e(e);
             }
-            UbcStatisticManager.getInstance().debugException(new UbcDebugItem("author_liveroom", UbcStatConstant.DebugContentValue.GIFT, jSONObject), "gift_show");
+            UbcStatisticManager.getInstance().debugException(new UbcDebugItem("author_liveroom", UbcStatConstant.DebugContentValue.GIFT, jSONObject), UbcStatConstant.ContentType.UBC_TYPE_GIFT_SHOW);
         }
     }
 
-    public View HN() {
+    public View Ho() {
         return this.mRootView;
     }
 
     public void onDestroy() {
-        this.bfT = false;
-        if (this.bfU != null) {
-            this.bfU.clear();
+        this.bhC = false;
+        if (this.bhD != null) {
+            this.bhD.clear();
         }
-        if (this.bgW != null) {
-            this.bgW.onDestroy();
+        if (this.biE != null) {
+            this.biE.onDestroy();
         }
-        if (this.bgX != null) {
-            this.bgX.onDestroy();
+        if (this.biF != null) {
+            this.biF.onDestroy();
         }
         this.mContext = null;
     }

@@ -1,10 +1,11 @@
 package com.baidu.fsg.base.restnet.beans.business.core.utils;
 
 import android.text.TextUtils;
+import com.bytedance.sdk.openadsdk.preload.falconx.statistic.StatisticData;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.regex.Pattern;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class StringUtils {
     public static String[] toStringArray(Collection<String> collection) {
         if (collection == null) {
@@ -50,7 +51,7 @@ public abstract class StringUtils {
             str = "0";
         }
         try {
-            return new BigDecimal(str).multiply(new BigDecimal("100")).setScale(0);
+            return new BigDecimal(str).multiply(new BigDecimal(StatisticData.ERROR_CODE_NOT_FOUND)).setScale(0);
         } catch (Exception e) {
             return BigDecimal.ZERO;
         }
@@ -90,7 +91,7 @@ public abstract class StringUtils {
             str = "0";
         }
         try {
-            return String.valueOf(new BigDecimal(str).multiply(new BigDecimal("100")).setScale(0));
+            return String.valueOf(new BigDecimal(str).multiply(new BigDecimal(StatisticData.ERROR_CODE_NOT_FOUND)).setScale(0));
         } catch (Exception e) {
             return "0";
         }

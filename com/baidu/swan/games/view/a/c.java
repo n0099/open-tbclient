@@ -4,72 +4,72 @@ import android.view.View;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.v.f;
 import com.baidu.swan.games.view.d;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c {
-    private static int dRu = com.baidu.swan.apps.t.a.azd().aiP();
+    private static int eaq = com.baidu.swan.apps.t.a.aAu().ajX();
 
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aCt = f.aCp().aCt();
-        return aCt != null && aCt.a(view, aVar);
+        d aDK = f.aDG().aDK();
+        return aDK != null && aDK.a(view, aVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aCt = f.aCp().aCt();
-        return aCt != null && aCt.b(view, aVar);
+        d aDK = f.aDG().aDK();
+        return aDK != null && aDK.b(view, aVar);
     }
 
     public static boolean removeView(View view) {
-        d aCt = f.aCp().aCt();
-        if (aCt == null) {
+        d aDK = f.aDG().aDK();
+        if (aDK == null) {
             return false;
         }
-        if (aCt.baA()) {
-            SwanAppActivity aBZ = f.aCp().aBZ();
-            if (aBZ != null) {
-                aBZ.setRequestedOrientation(0);
+        if (aDK.bcT()) {
+            SwanAppActivity aDq = f.aDG().aDq();
+            if (aDq != null) {
+                aDq.setRequestedOrientation(0);
             }
-            aCt.hY(false);
+            aDK.iq(false);
         }
-        return aCt.removeView(view);
+        return aDK.removeView(view);
     }
 
-    public static boolean aP(View view) {
-        d aCt = f.aCp().aCt();
-        return aCt != null && aCt.aO(view);
+    public static boolean aY(View view) {
+        d aDK = f.aDG().aDK();
+        return aDK != null && aDK.aX(view);
     }
 
     public static boolean isLandScape() {
-        d aCt = f.aCp().aCt();
-        return (aCt == null || !aCt.isLandScape() || aCt.baA()) ? false : true;
+        d aDK = f.aDG().aDK();
+        return (aDK == null || !aDK.isLandScape() || aDK.bcT()) ? false : true;
     }
 
-    public static int baF() {
-        return ((Integer) f.aCp().aCc().first).intValue();
+    public static int bcX() {
+        return ((Integer) f.aDG().aDt().first).intValue();
     }
 
-    public static int baG() {
-        return ((Integer) f.aCp().aCc().second).intValue();
+    public static int bcY() {
+        return ((Integer) f.aDG().aDt().second).intValue();
     }
 
-    public static boolean baH() {
-        return dRu == 3;
+    public static boolean bcZ() {
+        return eaq == 3;
     }
 
-    public static boolean baI() {
-        return dRu == 2;
+    public static boolean bda() {
+        return eaq == 2;
     }
 
     public static void a(com.baidu.swan.games.view.a aVar) {
-        d aCt = f.aCp().aCt();
-        if (aCt != null) {
-            aCt.a(aVar);
+        d aDK = f.aDG().aDK();
+        if (aDK != null) {
+            aDK.a(aVar);
         }
     }
 
     public static void b(com.baidu.swan.games.view.a aVar) {
-        d aCt = f.aCp().aCt();
-        if (aCt != null) {
-            aCt.b(aVar);
+        d aDK = f.aDG().aDK();
+        if (aDK != null) {
+            aDK.b(aVar);
         }
     }
 }

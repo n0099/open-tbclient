@@ -14,123 +14,60 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class e {
-    public static final String fzl = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
-    private b fzm;
-    private boolean fzn;
-    private ImageFileInfo fzo;
-    private d fzp;
-    private d fzq;
-    private d fzr;
-    private d fzs;
-
-    public e() {
-        this.fzn = false;
-        this.fzp = new d() { // from class: com.baidu.tbadk.img.e.1
-            @Override // com.baidu.tbadk.img.d
-            public String a(ImageFileInfo imageFileInfo) {
-                String a2;
-                if (imageFileInfo == null) {
+    public static final String fIQ = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
+    private b fIR;
+    private ImageFileInfo fIT;
+    private boolean fIS = false;
+    private d fIU = new d() { // from class: com.baidu.tbadk.img.e.1
+        @Override // com.baidu.tbadk.img.d
+        public String a(ImageFileInfo imageFileInfo) {
+            String a2;
+            if (imageFileInfo == null) {
+                return null;
+            }
+            if (e.this.fIR == null) {
+                e.this.fIR = new b();
+            }
+            String filePath = imageFileInfo.getFilePath();
+            LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
+            imageFileInfo.setPageActionsList(null);
+            com.baidu.adp.widget.ImageView.a a3 = e.this.fIR.a(imageFileInfo, true);
+            if (a3 == null) {
+                Bitmap b2 = e.this.b(imageFileInfo);
+                if (b2 == null) {
                     return null;
                 }
-                if (e.this.fzm == null) {
-                    e.this.fzm = new b();
+                int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
+                if (readPictureDegree != 0) {
+                    b2 = BitmapHelper.rotateBitmapBydegree(b2, readPictureDegree);
                 }
-                String filePath = imageFileInfo.getFilePath();
-                LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
-                imageFileInfo.setPageActionsList(null);
-                com.baidu.adp.widget.ImageView.a a3 = e.this.fzm.a(imageFileInfo, true);
-                if (a3 == null) {
-                    Bitmap b = e.this.b(imageFileInfo);
-                    if (b == null) {
-                        return null;
-                    }
-                    int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
-                    if (readPictureDegree != 0) {
-                        b = BitmapHelper.rotateBitmapBydegree(b, readPictureDegree);
-                    }
-                    a2 = e.this.a(b, ImageUploadStrategy.FILE_SIZE_5M, 100);
-                } else {
-                    a2 = e.this.a(a3.getRawBitmap(), ImageUploadStrategy.FILE_SIZE_5M, 100);
-                }
-                imageFileInfo.setPageActionsList(pageActionsList);
-                return a2;
+                a2 = e.this.a(b2, ImageUploadStrategy.FILE_SIZE_5M, 100);
+            } else {
+                a2 = e.this.a(a3.getRawBitmap(), ImageUploadStrategy.FILE_SIZE_5M, 100);
             }
-        };
-        this.fzq = new d() { // from class: com.baidu.tbadk.img.e.2
-            @Override // com.baidu.tbadk.img.d
-            public String a(ImageFileInfo imageFileInfo) {
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                return e.this.compressOriginalImageFile(imageFileInfo.getFilePath());
+            imageFileInfo.setPageActionsList(pageActionsList);
+            return a2;
+        }
+    };
+    private d fIV = new d() { // from class: com.baidu.tbadk.img.e.2
+        @Override // com.baidu.tbadk.img.d
+        public String a(ImageFileInfo imageFileInfo) {
+            if (imageFileInfo == null) {
+                return null;
             }
-        };
-        this.fzr = this.fzq;
-        this.fzs = new d() { // from class: com.baidu.tbadk.img.e.3
-            @Override // com.baidu.tbadk.img.d
-            public String a(ImageFileInfo imageFileInfo) {
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                return e.this.a(e.this.getUploadFileBitmap(imageFileInfo.getFilePath()), ImageUploadStrategy.FILE_SIZE_5M, 100);
+            return e.this.compressOriginalImageFile(imageFileInfo.getFilePath());
+        }
+    };
+    private d fIW = this.fIV;
+    private d fIX = new d() { // from class: com.baidu.tbadk.img.e.3
+        @Override // com.baidu.tbadk.img.d
+        public String a(ImageFileInfo imageFileInfo) {
+            if (imageFileInfo == null) {
+                return null;
             }
-        };
-    }
-
-    public e(boolean z) {
-        this.fzn = false;
-        this.fzp = new d() { // from class: com.baidu.tbadk.img.e.1
-            @Override // com.baidu.tbadk.img.d
-            public String a(ImageFileInfo imageFileInfo) {
-                String a2;
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                if (e.this.fzm == null) {
-                    e.this.fzm = new b();
-                }
-                String filePath = imageFileInfo.getFilePath();
-                LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
-                imageFileInfo.setPageActionsList(null);
-                com.baidu.adp.widget.ImageView.a a3 = e.this.fzm.a(imageFileInfo, true);
-                if (a3 == null) {
-                    Bitmap b = e.this.b(imageFileInfo);
-                    if (b == null) {
-                        return null;
-                    }
-                    int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
-                    if (readPictureDegree != 0) {
-                        b = BitmapHelper.rotateBitmapBydegree(b, readPictureDegree);
-                    }
-                    a2 = e.this.a(b, ImageUploadStrategy.FILE_SIZE_5M, 100);
-                } else {
-                    a2 = e.this.a(a3.getRawBitmap(), ImageUploadStrategy.FILE_SIZE_5M, 100);
-                }
-                imageFileInfo.setPageActionsList(pageActionsList);
-                return a2;
-            }
-        };
-        this.fzq = new d() { // from class: com.baidu.tbadk.img.e.2
-            @Override // com.baidu.tbadk.img.d
-            public String a(ImageFileInfo imageFileInfo) {
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                return e.this.compressOriginalImageFile(imageFileInfo.getFilePath());
-            }
-        };
-        this.fzr = this.fzq;
-        this.fzs = new d() { // from class: com.baidu.tbadk.img.e.3
-            @Override // com.baidu.tbadk.img.d
-            public String a(ImageFileInfo imageFileInfo) {
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                return e.this.a(e.this.getUploadFileBitmap(imageFileInfo.getFilePath()), ImageUploadStrategy.FILE_SIZE_5M, 100);
-            }
-        };
-        this.fzn = z;
-    }
+            return e.this.a(e.this.getUploadFileBitmap(imageFileInfo.getFilePath()), ImageUploadStrategy.FILE_SIZE_5M, 100);
+        }
+    };
 
     public String c(ImageFileInfo imageFileInfo, boolean z) {
         d dVar;
@@ -138,28 +75,28 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        this.fzo = imageFileInfo;
+        this.fIT = imageFileInfo;
         String filePath = imageFileInfo.getFilePath();
         boolean checkIsLongImage = n.checkIsLongImage(filePath);
-        boolean BL = n.BL(filePath);
-        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !BL)) {
+        boolean BK = n.BK(filePath);
+        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !BK)) {
             if (checkIsLongImage) {
-                dVar = this.fzr;
+                dVar = this.fIW;
                 str = "原始·长图";
             } else {
-                dVar = this.fzq;
+                dVar = this.fIV;
                 str = "原始·图";
             }
         } else if (checkIsLongImage) {
-            dVar = this.fzs;
+            dVar = this.fIX;
             str = "正常·长图";
         } else {
-            dVar = this.fzp;
+            dVar = this.fIU;
             str = "正常·图";
         }
         if (isDebugMode()) {
             int[] imageFileWH = n.getImageFileWH(filePath);
-            Log.d("UPLOAD_IMG", "" + filePath + "\n   w =" + imageFileWH[0] + " h =" + imageFileWH[1] + "  size =" + (((float) n.getFileSize(filePath)) / 1048576.0f) + "MB\n   isLongImage =" + checkIsLongImage + "  isHeifImage =" + BL + " resize =" + imageFileInfo.hasActionsWithoutResize() + " uploadStrategy =" + str);
+            Log.d("UPLOAD_IMG", "" + filePath + "\n   w =" + imageFileWH[0] + " h =" + imageFileWH[1] + "  size =" + (((float) n.getFileSize(filePath)) / 1048576.0f) + "MB\n   isLongImage =" + checkIsLongImage + "  isHeifImage =" + BK + " resize =" + imageFileInfo.hasActionsWithoutResize() + " uploadStrategy =" + str);
         }
         String a2 = dVar.a(imageFileInfo);
         if (isDebugMode()) {
@@ -172,19 +109,19 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap b(ImageFileInfo imageFileInfo) {
-        com.baidu.adp.lib.e.e ax;
+        com.baidu.adp.lib.e.e ay;
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.fzm == null) {
-            this.fzm = new b();
+        if (this.fIR == null) {
+            this.fIR = new b();
         }
         if (imageFileInfo.getImageType() == 0) {
-            return this.fzm.b(imageFileInfo, true);
+            return this.fIR.b(imageFileInfo, true);
         }
-        if (imageFileInfo.getImageType() == 1 && (ax = com.baidu.adp.lib.e.c.mS().ax(20)) != null) {
+        if (imageFileInfo.getImageType() == 1 && (ay = com.baidu.adp.lib.e.d.mx().ay(20)) != null) {
             try {
-                Object a2 = ax.a(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), false, null);
+                Object a2 = ay.a(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, (com.baidu.adp.lib.e.b) null, null, imageFileInfo.getFilePath(), false, null);
                 if (a2 instanceof com.baidu.adp.widget.ImageView.a) {
                     return ((com.baidu.adp.widget.ImageView.a) a2).getRawBitmap();
                 }
@@ -233,18 +170,18 @@ public class e {
         }
         Bitmap loadBitmap = BitmapHelper.loadBitmap(str);
         if (loadBitmap == null || loadBitmap.isRecycled()) {
-            int i3 = 0;
-            int i4 = 2;
+            int i3 = 2;
+            int i4 = 0;
             while (true) {
-                int i5 = i3;
+                int i5 = i4;
                 if (i5 >= 3) {
                     return null;
                 }
-                newSizeBitmapOptions.inSampleSize = i4;
+                newSizeBitmapOptions.inSampleSize = i3;
                 Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, newSizeBitmapOptions);
                 if (loadBitmap2 == null || loadBitmap2.isRecycled()) {
-                    i4 *= 2;
-                    i3 = i5 + 1;
+                    i3 *= 2;
+                    i4 = i5 + 1;
                 } else {
                     return loadBitmap2;
                 }
@@ -263,16 +200,16 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(Bitmap bitmap, long j, int i) {
-        if (this.fzn) {
-            if (this.fzo != null && !TextUtils.isEmpty(this.fzo.getFilePath())) {
-                return n.a(fzl, s.toMd5(this.fzo.toCachedKey(false)) + Ej(this.fzo.getFilePath()), bitmap, (float) j, i);
+        if (this.fIS) {
+            if (this.fIT != null && !TextUtils.isEmpty(this.fIT.getFilePath())) {
+                return n.a(fIQ, s.toMd5(this.fIT.toCachedKey(false)) + Eg(this.fIT.getFilePath()), bitmap, (float) j, i);
             }
             return "";
         }
         return n.compressBitmapToFile("img_upload_temp_file.temp", bitmap, (float) j, i);
     }
 
-    private String Ej(String str) {
+    private String Eg(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.media.a.b;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface b {
-    void amS();
+    void aoc();
 }

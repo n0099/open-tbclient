@@ -2,23 +2,23 @@ package com.baidu.tieba.ala.liveroom.n;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class a extends Dialog {
-    public InterfaceC0694a hsQ;
-    public String hsR;
+    public InterfaceC0686a hEL;
+    public String hEM;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.n.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0694a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0686a {
         void onConfirm();
     }
 
-    public abstract void eA(String str, String str2);
+    public abstract void ez(String str, String str2);
 
     public abstract void initView();
 
@@ -29,16 +29,16 @@ public abstract class a extends Dialog {
 
     public void init() {
         initView();
-        Ki();
+        JK();
     }
 
-    private void Ki() {
+    private void JK() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        cfS();
+        ciI();
     }
 
-    public void cfS() {
+    public void ciI() {
         show();
         Window window = getWindow();
         if (window != null) {
@@ -56,11 +56,11 @@ public abstract class a extends Dialog {
         }
     }
 
-    public void a(InterfaceC0694a interfaceC0694a) {
-        this.hsQ = interfaceC0694a;
+    public void a(InterfaceC0686a interfaceC0686a) {
+        this.hEL = interfaceC0686a;
     }
 
-    public String cfT() {
-        return this.hsR;
+    public String ciJ() {
+        return this.hEM;
     }
 }

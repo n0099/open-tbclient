@@ -3,25 +3,25 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutt
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static int oUh = 256;
-    private static int oUi = 7;
-    private static int oUj = 16;
+    private static int pan = 256;
+    private static int pao = 7;
+    private static int pap = 16;
     private int mFrom;
-    private b oUl;
-    private int oUm;
-    private int oUn;
+    private b par;
+    private int pas;
+    private int pat;
     private boolean isAnimating = false;
-    private int bFu = oUi;
-    private HandlerC0972a oUk = new HandlerC0972a();
+    private int bKi = pao;
+    private HandlerC0948a paq = new HandlerC0948a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface b {
-        boolean enj();
+        boolean enl();
 
-        void enk();
+        void enm();
 
         void onAnimationStart();
 
@@ -32,7 +32,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a eni() {
+    public static a enk() {
         return new a();
     }
 
@@ -41,42 +41,42 @@ public class a {
         if (bVar == null) {
             com.baidu.yuyinala.privatemessage.implugin.util.c.e("SwitchButtonAnimationController", "onAnimateListener can not be null");
         } else {
-            this.oUl = bVar;
+            this.par = bVar;
         }
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class HandlerC0972a extends Handler {
-        private HandlerC0972a() {
+    /* loaded from: classes11.dex */
+    public static class HandlerC0948a extends Handler {
+        private HandlerC0948a() {
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what == a.oUh && message.obj != null) {
+            if (message.what == a.pan && message.obj != null) {
                 ((Runnable) message.obj).run();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dU(int i, int i2) {
+    public void dS(int i, int i2) {
         this.isAnimating = true;
         this.mFrom = i;
-        this.oUn = i2;
-        this.oUm = this.bFu;
-        if (this.oUn > this.mFrom) {
-            this.oUm = Math.abs(this.bFu);
-        } else if (this.oUn < this.mFrom) {
-            this.oUm = -Math.abs(this.bFu);
+        this.pat = i2;
+        this.pas = this.bKi;
+        if (this.pat > this.mFrom) {
+            this.pas = Math.abs(this.bKi);
+        } else if (this.pat < this.mFrom) {
+            this.pas = -Math.abs(this.bKi);
         } else {
             this.isAnimating = false;
-            this.oUl.enk();
+            this.par.enm();
             return;
         }
-        this.oUl.onAnimationStart();
+        this.par.onAnimationStart();
         new c().run();
     }
 
@@ -84,15 +84,15 @@ public class a {
         this.isAnimating = false;
     }
 
-    public void Pp(int i) {
+    public void Pd(int i) {
         if (i <= 0) {
-            this.bFu = oUi;
+            this.bKi = pao;
         } else {
-            this.bFu = i;
+            this.bKi = i;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     class c implements Runnable {
         c() {
         }
@@ -100,25 +100,25 @@ public class a {
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.isAnimating) {
-                enl();
-                a.this.oUl.onFrameUpdate(a.this.oUm);
-                if (a.this.oUl.enj()) {
-                    enm();
+                enn();
+                a.this.par.onFrameUpdate(a.this.pas);
+                if (a.this.par.enl()) {
+                    eno();
                     return;
                 }
                 a.this.stopAnimation();
-                a.this.oUl.enk();
+                a.this.par.enm();
             }
         }
 
-        private void enl() {
+        private void enn() {
         }
 
-        private void enm() {
-            Message obtainMessage = a.this.oUk.obtainMessage();
-            obtainMessage.what = a.oUh;
+        private void eno() {
+            Message obtainMessage = a.this.paq.obtainMessage();
+            obtainMessage.what = a.pan;
             obtainMessage.obj = this;
-            a.this.oUk.sendMessageDelayed(obtainMessage, a.oUj);
+            a.this.paq.sendMessageDelayed(obtainMessage, a.pap);
         }
     }
 }

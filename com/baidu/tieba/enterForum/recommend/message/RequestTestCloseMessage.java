@@ -2,15 +2,15 @@ package com.baidu.tieba.enterForum.recommend.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.CommonReq;
 import tbclient.TestClose.DataReq;
 import tbclient.TestClose.TestCloseReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class RequestTestCloseMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3684common;
+    private CommonReq f5612common;
     private long fromPage;
     private long testId;
 
@@ -19,7 +19,7 @@ public class RequestTestCloseMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f3684common = commonReq;
+        this.f5612common = commonReq;
     }
 
     public void setTestId(long j) {
@@ -33,11 +33,11 @@ public class RequestTestCloseMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f5137common = this.f3684common;
+        builder.f14930common = this.f5612common;
         builder.test_id = Long.valueOf(this.testId);
         builder.from_page = Long.valueOf(this.fromPage);
         if (z) {
-            u.a(builder, true);
+            t.b(builder, true);
         }
         TestCloseReqIdl.Builder builder2 = new TestCloseReqIdl.Builder();
         builder2.data = builder.build(false);

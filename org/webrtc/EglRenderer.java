@@ -8,8 +8,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.view.Surface;
+import androidx.annotation.Nullable;
 import java.nio.ByteBuffer;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class EglRenderer implements VideoSink {
     private static final long LOG_INTERVAL_SEC = 4;
     private static final String TAG = "EglRenderer";
@@ -67,7 +67,7 @@ public class EglRenderer implements VideoSink {
     private final EglSurfaceCreation eglSurfaceCreationRunnable = new EglSurfaceCreation();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public class EglSurfaceCreation implements Runnable {
         private Object surface;
 
@@ -98,13 +98,13 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public interface FrameListener {
         void onFrame(Bitmap bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class FrameListenerAndParams {
         public final boolean applyFpsReduction;
         public final RendererCommon.GlDrawer drawer;
@@ -120,7 +120,7 @@ public class EglRenderer implements VideoSink {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class HandlerWithExceptionCallback extends Handler {
         private final Runnable exceptionCallback;
 

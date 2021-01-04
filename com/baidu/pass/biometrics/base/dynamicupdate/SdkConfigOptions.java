@@ -9,14 +9,16 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class SdkConfigOptions {
     public static final String HOST_VERSION = "3.0.0";
     public static final String TAG = "SdkConfigOptions";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2698a = "face_sdk";
-    private static final String b = "host_version";
+    private static final String f3985a = "face_sdk";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f3986b = "host_version";
     private static final String c = "zip_version";
     private static final String d = "updateFail";
     private static final String e = "distributedSdk";
@@ -36,12 +38,14 @@ public class SdkConfigOptions {
     public boolean updateFail;
     public String zipVersion;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static class DistributedFile {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2699a = "name";
-        private static final String b = "url";
+        private static final String f3987a = "name";
+
+        /* renamed from: b  reason: collision with root package name */
+        private static final String f3988b = "url";
         private static final String c = "hash";
         public String fileName = null;
         public String downloadUrl = null;
@@ -95,7 +99,7 @@ public class SdkConfigOptions {
         int i2 = 0;
         SdkConfigOptions sdkConfigOptions = new SdkConfigOptions();
         sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject);
-        JSONArray optJSONArray = jSONObject.optJSONArray(f2698a);
+        JSONArray optJSONArray = jSONObject.optJSONArray(f3985a);
         if (optJSONArray == null) {
             return sdkConfigOptions;
         }
@@ -164,7 +168,7 @@ public class SdkConfigOptions {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public static class LivenessConfigOption {
         private static final int A = 10;
         private static final int B = 6;
@@ -176,8 +180,10 @@ public class SdkConfigOptions {
         public static final int LIVENESS_RECOG_TYPE_OPEN_MOUTH = 2;
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2700a = "min_face_size";
-        private static final String b = "illum_thr";
+        private static final String f3989a = "min_face_size";
+
+        /* renamed from: b  reason: collision with root package name */
+        private static final String f3990b = "illum_thr";
         private static final String c = "track_interval";
         private static final String d = "detect_interval";
         private static final String e = "yaw";
@@ -235,8 +241,8 @@ public class SdkConfigOptions {
         public static LivenessConfigOption fromJson(JSONObject jSONObject) {
             LivenessConfigOption livenessConfigOption = new LivenessConfigOption();
             if (jSONObject != null) {
-                livenessConfigOption.minFaceSize = jSONObject.optString(f2700a);
-                livenessConfigOption.D = jSONObject.optString(b);
+                livenessConfigOption.minFaceSize = jSONObject.optString(f3989a);
+                livenessConfigOption.D = jSONObject.optString(f3990b);
                 livenessConfigOption.E = jSONObject.optString(c);
                 livenessConfigOption.F = jSONObject.optString(d);
                 livenessConfigOption.G = jSONObject.optString(e);
@@ -464,8 +470,8 @@ public class SdkConfigOptions {
         public JSONObject toJSON() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f2700a, this.minFaceSize);
-                jSONObject.put(b, this.D);
+                jSONObject.put(f3989a, this.minFaceSize);
+                jSONObject.put(f3990b, this.D);
                 jSONObject.put(c, this.E);
                 jSONObject.put(d, this.F);
                 jSONObject.put(e, this.G);

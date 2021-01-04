@@ -2,15 +2,12 @@ package android.support.v4.media.session;
 
 import android.media.session.PlaybackState;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import java.util.Iterator;
 import java.util.List;
 @RequiresApi(22)
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 class PlaybackStateCompatApi22 {
-    PlaybackStateCompatApi22() {
-    }
-
     public static Bundle getExtras(Object obj) {
         return ((PlaybackState) obj).getExtras();
     }
@@ -28,5 +25,8 @@ class PlaybackStateCompatApi22 {
         builder.setActiveQueueItemId(j5);
         builder.setExtras(bundle);
         return builder.build();
+    }
+
+    private PlaybackStateCompatApi22() {
     }
 }

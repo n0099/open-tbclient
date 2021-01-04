@@ -1,7 +1,7 @@
 package com.baidu.live.adp.lib.cache;
 
 import com.baidu.live.adp.lib.cache.BdKVCache;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdKVEmptyCacheImpl<T> implements BdKVCache<T> {
     @Override // com.baidu.live.adp.lib.cache.BdKVCache
     public T get(String str) {

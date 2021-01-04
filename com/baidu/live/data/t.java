@@ -1,31 +1,28 @@
 package com.baidu.live.data;
 
 import com.baidu.live.tbadk.core.data.BaseData;
-import com.baidu.mobstat.Config;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class t extends BaseData {
-    public boolean aKj = true;
-    public List<s> aKk;
-    public int pn;
+    public AlaLiveInfoData mLiveInfo;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
-        JSONObject optJSONObject;
         if (jSONObject != null) {
-            this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
-            this.aKj = jSONObject.optInt("has_more") == 1;
-            this.aKk = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("live");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length() && (optJSONObject = optJSONArray.optJSONObject(i)) != null; i++) {
-                    s sVar = new s();
-                    sVar.parserJson(optJSONObject);
-                    this.aKk.add(sVar);
-                }
+            this.mLiveInfo = new AlaLiveInfoData();
+            JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
+            if (optJSONObject != null) {
+                this.mLiveInfo.parserJson(optJSONObject);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("author");
+            if (optJSONObject2 != null) {
+                long optLong = optJSONObject2.optLong("id");
+                String optString = optJSONObject2.optString("name");
+                String optString2 = optJSONObject2.optString("name_show");
+                optJSONObject2.optString("portrait");
+                this.mLiveInfo.user_id = optLong;
+                this.mLiveInfo.user_name = optString;
+                this.mLiveInfo.user_nickname = optString2;
             }
         }
     }

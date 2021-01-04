@@ -15,7 +15,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
     public static final AwtCodec instance = new AwtCodec();
 
@@ -49,7 +49,7 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
             Color color = (Color) obj;
             serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, '{'), "r", color.getRed());
             serializeWriter.writeFieldValue(',', IXAdRequestInfo.GPS, color.getGreen());
-            serializeWriter.writeFieldValue(',', b.f2755a, color.getBlue());
+            serializeWriter.writeFieldValue(',', b.f4080a, color.getBlue());
             if (color.getAlpha() > 0) {
                 serializeWriter.writeFieldValue(',', "alpha", color.getAlpha());
             }
@@ -99,9 +99,9 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
     }
 
     protected Font parseFont(DefaultJSONParser defaultJSONParser) {
-        int i = 0;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         String str = null;
+        int i = 0;
         int i2 = 0;
         while (jSONLexer.token() != 13) {
             if (jSONLexer.token() == 4) {
@@ -143,11 +143,12 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
     }
 
     protected Color parseColor(DefaultJSONParser defaultJSONParser) {
-        int i = 0;
+        int i;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         int i2 = 0;
         int i3 = 0;
         int i4 = 0;
+        int i5 = 0;
         while (jSONLexer.token() != 13) {
             if (jSONLexer.token() == 4) {
                 String stringVal = jSONLexer.stringVal();
@@ -156,19 +157,23 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
                     int intValue = jSONLexer.intValue();
                     jSONLexer.nextToken();
                     if (stringVal.equalsIgnoreCase("r")) {
-                        i4 = intValue;
+                        i = i3;
+                        i5 = intValue;
                     } else if (stringVal.equalsIgnoreCase(IXAdRequestInfo.GPS)) {
-                        i3 = intValue;
-                    } else if (stringVal.equalsIgnoreCase(b.f2755a)) {
-                        i2 = intValue;
+                        i = i3;
+                        i4 = intValue;
+                    } else if (stringVal.equalsIgnoreCase(b.f4080a)) {
+                        i = intValue;
                     } else if (!stringVal.equalsIgnoreCase("alpha")) {
                         throw new JSONException("syntax error, " + stringVal);
                     } else {
-                        i = intValue;
+                        i2 = intValue;
+                        i = i3;
                     }
                     if (jSONLexer.token() == 16) {
                         jSONLexer.nextToken(4);
                     }
+                    i3 = i;
                 } else {
                     throw new JSONException("syntax error");
                 }
@@ -177,57 +182,64 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
             }
         }
         jSONLexer.nextToken();
-        return new Color(i4, i3, i2, i);
+        return new Color(i5, i4, i3, i2);
     }
 
     protected Rectangle parseRectangle(DefaultJSONParser defaultJSONParser) {
         int floatValue;
-        int i = 0;
+        int i;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         int i2 = 0;
         int i3 = 0;
         int i4 = 0;
+        int i5 = 0;
         while (jSONLexer.token() != 13) {
             if (jSONLexer.token() == 4) {
                 String stringVal = jSONLexer.stringVal();
                 jSONLexer.nextTokenWithColon(2);
-                int i5 = jSONLexer.token();
-                if (i5 == 2) {
-                    floatValue = jSONLexer.intValue();
+                int i6 = jSONLexer.token();
+                if (i6 == 2) {
+                    int intValue = jSONLexer.intValue();
                     jSONLexer.nextToken();
-                } else if (i5 == 3) {
+                    floatValue = intValue;
+                } else if (i6 == 3) {
+                    jSONLexer.nextToken();
                     floatValue = (int) jSONLexer.floatValue();
-                    jSONLexer.nextToken();
                 } else {
                     throw new JSONException("syntax error");
                 }
                 if (stringVal.equalsIgnoreCase("x")) {
-                    i4 = floatValue;
+                    i = i3;
+                    i5 = floatValue;
                 } else if (stringVal.equalsIgnoreCase("y")) {
-                    i3 = floatValue;
+                    i = i3;
+                    i4 = floatValue;
                 } else if (stringVal.equalsIgnoreCase("width")) {
-                    i2 = floatValue;
+                    i = floatValue;
                 } else if (!stringVal.equalsIgnoreCase("height")) {
                     throw new JSONException("syntax error, " + stringVal);
                 } else {
-                    i = floatValue;
+                    i2 = floatValue;
+                    i = i3;
                 }
                 if (jSONLexer.token() == 16) {
                     jSONLexer.nextToken(4);
                 }
+                i3 = i;
             } else {
                 throw new JSONException("syntax error");
             }
         }
         jSONLexer.nextToken();
-        return new Rectangle(i4, i3, i2, i);
+        return new Rectangle(i5, i4, i3, i2);
     }
 
     protected Point parsePoint(DefaultJSONParser defaultJSONParser, Object obj) {
         int floatValue;
-        int i = 0;
+        int i;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         int i2 = 0;
+        int i3 = 0;
         while (jSONLexer.token() != 13) {
             if (jSONLexer.token() == 4) {
                 String stringVal = jSONLexer.stringVal();
@@ -237,33 +249,36 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
                     return (Point) parseRef(defaultJSONParser, obj);
                 } else {
                     jSONLexer.nextTokenWithColon(2);
-                    int i3 = jSONLexer.token();
-                    if (i3 == 2) {
-                        floatValue = jSONLexer.intValue();
+                    int i4 = jSONLexer.token();
+                    if (i4 == 2) {
+                        int intValue = jSONLexer.intValue();
                         jSONLexer.nextToken();
-                    } else if (i3 == 3) {
+                        floatValue = intValue;
+                    } else if (i4 == 3) {
+                        jSONLexer.nextToken();
                         floatValue = (int) jSONLexer.floatValue();
-                        jSONLexer.nextToken();
                     } else {
                         throw new JSONException("syntax error : " + jSONLexer.tokenName());
                     }
                     if (stringVal.equalsIgnoreCase("x")) {
-                        i2 = floatValue;
+                        i = floatValue;
                     } else if (!stringVal.equalsIgnoreCase("y")) {
                         throw new JSONException("syntax error, " + stringVal);
                     } else {
-                        i = floatValue;
+                        i2 = floatValue;
+                        i = i3;
                     }
                     if (jSONLexer.token() == 16) {
                         jSONLexer.nextToken(4);
                     }
+                    i3 = i;
                 }
             } else {
                 throw new JSONException("syntax error");
             }
         }
         jSONLexer.nextToken();
-        return new Point(i2, i);
+        return new Point(i3, i2);
     }
 
     private Object parseRef(DefaultJSONParser defaultJSONParser, Object obj) {

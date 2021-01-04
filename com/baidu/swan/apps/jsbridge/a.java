@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.swan.apps.b;
 import java.lang.ref.WeakReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static final boolean DEBUG = b.DEBUG;
     private WeakReference<Activity> mActivityRef;

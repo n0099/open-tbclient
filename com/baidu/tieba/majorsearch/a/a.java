@@ -1,118 +1,157 @@
 package com.baidu.tieba.majorsearch.a;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
+import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.majorsearch.SearchMajorActivity;
+import com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter;
 import java.util.List;
-/* loaded from: classes24.dex */
-public class a extends RecyclerView.Adapter<b> {
-    private String ejE;
-    private InterfaceC0809a lbu;
-    private Context mContext;
-    private List<String> mDataList;
+/* loaded from: classes8.dex */
+public class a {
+    private String esI;
+    private SearchMajorActivity lgQ;
+    private com.baidu.tieba.majorsearch.a lhc;
+    private View mRootView;
 
-    /* renamed from: com.baidu.tieba.majorsearch.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes24.dex */
-    public interface InterfaceC0809a {
-        void OJ(String str);
+    public a(SearchMajorActivity searchMajorActivity) {
+        this.lgQ = searchMajorActivity;
+        init();
     }
 
-    public a(Context context) {
-        this.mContext = context;
+    private void init() {
+        this.mRootView = LayoutInflater.from(this.lgQ).inflate(R.layout.search_major_main, (ViewGroup) null);
+        this.lgQ.setContentView(this.mRootView);
+        this.lhc = new com.baidu.tieba.majorsearch.a(this.mRootView, this.lgQ);
+        dgG();
+        dgt();
+        this.esI = "";
+        dgH();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    @NonNull
-    /* renamed from: I */
-    public b onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new b(LayoutInflater.from(this.mContext).inflate(R.layout.search_major_item_layout, viewGroup, false));
+    public void dgG() {
+        View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.majorsearch.a.a.1
+            @Override // android.view.View.OnFocusChangeListener
+            public void onFocusChange(View view, boolean z) {
+                if (!z) {
+                    l.hideSoftKeyPad(a.this.lgQ.getPageContext().getPageActivity(), view);
+                } else {
+                    a.this.dgH();
+                }
+            }
+        };
+        TextView.OnEditorActionListener onEditorActionListener = new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.majorsearch.a.a.2
+            @Override // android.widget.TextView.OnEditorActionListener
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == 3) {
+                    a.this.dgH();
+                    return true;
+                }
+                return false;
+            }
+        };
+        TextWatcher textWatcher = new TextWatcher() { // from class: com.baidu.tieba.majorsearch.a.a.3
+            @Override // android.text.TextWatcher
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            }
+
+            @Override // android.text.TextWatcher
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            }
+
+            @Override // android.text.TextWatcher
+            public void afterTextChanged(Editable editable) {
+                if (editable != null) {
+                    a.this.esI = editable.toString();
+                    a.this.dgH();
+                    a.this.lhc.pi(!StringUtils.isNull(editable.toString()));
+                }
+            }
+        };
+        this.lhc.a(onFocusChangeListener);
+        this.lhc.a(onEditorActionListener);
+        this.lhc.d(textWatcher);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: a */
-    public void onBindViewHolder(@NonNull b bVar, int i) {
-        if (this.mDataList != null) {
-            final String str = this.mDataList.get(i);
-            if (!StringUtils.isNull(str)) {
-                bVar.lbx.setText(str);
-                ap.setViewTextColor(bVar.lbx, R.color.CAM_X0105);
-                ap.setBackgroundResource(bVar.itemView, R.drawable.more_pop_item_bg_selector);
-                d(bVar.lbx, str);
-                bVar.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.a.a.1
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        if (a.this.lbu != null) {
-                            a.this.lbu.OJ(str);
-                        }
-                    }
-                });
+    private void dgt() {
+        SearchMajorResultItemAdapter.a aVar = new SearchMajorResultItemAdapter.a() { // from class: com.baidu.tieba.majorsearch.a.a.4
+            @Override // com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter.a
+            public void Or(String str) {
+                Intent intent = new Intent();
+                intent.putExtra(IntentConfig.SEARCH_MAJOR_NAME, str);
+                a.this.lgQ.Z(intent);
+            }
+        };
+        RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.majorsearch.a.a.5
+            @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+            public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+                if (i == 1 || i == 2) {
+                    l.hideSoftKeyPad(a.this.lgQ.getPageContext().getPageActivity(), recyclerView);
+                }
+            }
+
+            @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+            public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+            }
+        };
+        this.lhc.a(aVar);
+        this.lhc.a(onScrollListener);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void dgH() {
+        if (this.lgQ != null) {
+            if (j.isNetWorkAvailable()) {
+                if (this.esI != null) {
+                    HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_MAJOR);
+                    httpMessage.addParam("keyword", this.esI.trim());
+                    this.lgQ.sendMessage(httpMessage);
+                }
+            } else if (this.lhc != null) {
+                d(new ErrorData());
+                this.lgQ.getRefreshView().sP(R.drawable.new_pic_emotion_05);
+                this.lgQ.showNetRefreshViewNoClick(this.lhc.dgD(), null);
+                this.lgQ.getRefreshView().Eh(this.lgQ.getString(R.string.im_error_default));
             }
         }
     }
 
-    @Override // android.support.v7.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        if (this.mDataList == null) {
-            return 0;
-        }
-        return this.mDataList.size();
-    }
-
-    public void b(InterfaceC0809a interfaceC0809a) {
-        this.lbu = interfaceC0809a;
-    }
-
-    public void setData(List<String> list) {
-        this.mDataList = list;
-        notifyDataSetChanged();
-    }
-
-    public void dgT() {
-        if (this.mDataList != null) {
-            this.mDataList.clear();
-            notifyDataSetChanged();
+    public void eS(List<String> list) {
+        if (this.lhc != null) {
+            this.lhc.q(list, this.esI);
         }
     }
 
-    public void OB(String str) {
-        this.ejE = str;
-    }
-
-    /* loaded from: classes24.dex */
-    public class b extends RecyclerView.ViewHolder {
-        TextView lbx;
-
-        public b(View view) {
-            super(view);
-            this.lbx = (TextView) view.findViewById(R.id.tv_major_name);
+    public void d(ErrorData errorData) {
+        if (this.lhc != null) {
+            this.lhc.c(errorData);
         }
     }
 
-    private void d(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.ejE)) {
-            String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.ejE.toLowerCase();
-            if (!lowerCase.contains(lowerCase2)) {
-                textView.setText(str);
-                return;
-            }
-            int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0301));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.ejE.length() + indexOf, 33);
-            textView.setText(spannableStringBuilder);
+    public void onResume() {
+        if (this.lhc != null) {
+            this.lhc.onResume();
         }
+    }
+
+    public void onChangeSkinType(int i) {
+        this.lhc.onChangeSkinType(i);
+    }
+
+    public com.baidu.tieba.majorsearch.a dgI() {
+        return this.lhc;
     }
 }

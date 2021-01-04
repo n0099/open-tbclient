@@ -14,17 +14,17 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class b {
-    private static b JO = null;
+    private static b Jo = null;
 
-    public static b lx() {
-        if (JO == null) {
+    public static b kT() {
+        if (Jo == null) {
             synchronized (b.class) {
-                if (JO == null) {
-                    JO = new b();
+                if (Jo == null) {
+                    Jo = new b();
                 }
             }
         }
-        return JO;
+        return Jo;
     }
 
     private b() {
@@ -53,7 +53,7 @@ public class b {
                 encodeInBackGround = compressGzip(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = u.encryptWithAES(d.ly().getSecretKey(), encodeInBackGround);
+                encodeInBackGround = u.encryptWithAES(d.kU().getSecretKey(), encodeInBackGround);
             }
             return a.wrapHeaderIntoBody(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         } catch (Throwable th) {
@@ -62,16 +62,16 @@ public class b {
     }
 
     public c a(c cVar) throws CoderException {
-        if (cVar == null || cVar.JP == null || cVar.body == null) {
+        if (cVar == null || cVar.Jp == null || cVar.body == null) {
             throw new CoderException(h.CODEC_INVALID_MSG);
         }
-        a aVar = cVar.JP;
+        a aVar = cVar.Jp;
         if (aVar.getEncryptType() && cVar.bodyLength > 0) {
-            if (d.ly().getSecretKey() == null) {
+            if (d.kU().getSecretKey() == null) {
                 throw new CoderException(h.CODEC_SECURE_KEY_NOT_READY);
             }
             try {
-                cVar.body = u.decryptWithAES(d.ly().getSecretKey(), cVar.body, cVar.bodyOffset, cVar.bodyLength);
+                cVar.body = u.decryptWithAES(d.kU().getSecretKey(), cVar.body, cVar.bodyOffset, cVar.bodyLength);
                 cVar.bodyOffset = 0;
                 cVar.bodyLength = cVar.body.length;
             } catch (Exception e) {
@@ -100,7 +100,7 @@ public class b {
             throw new CoderException(h.CODEC_INVALID_MSG);
         }
         c cVar = new c();
-        cVar.JP = j;
+        cVar.Jp = j;
         cVar.body = bArr;
         cVar.bodyOffset = headerLengthInBytes;
         cVar.bodyLength = bArr.length - headerLengthInBytes;

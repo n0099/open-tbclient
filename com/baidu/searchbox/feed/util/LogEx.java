@@ -1,10 +1,10 @@
 package com.baidu.searchbox.feed.util;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.util.IllegalFormatException;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public final class LogEx {
     private static final boolean ENABLE_LOG = true;
     private static final int LARGE_STRING_LIMIT = 1000;

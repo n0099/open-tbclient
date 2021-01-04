@@ -13,7 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import java.util.HashMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes4.dex */
 public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
     private final String TAG = "GoogleSSOLoginActivity";
     private final int SIGN_IN_REQUEST_CODE = 1000;

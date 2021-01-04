@@ -10,20 +10,22 @@ import com.baidu.mapapi.map.Overlay;
 import com.baidu.platform.comjni.map.basemap.NABaseMap;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.net.BdNetTask;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class WNaviBaiduMap {
-    private static long b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static long f4704b;
     private static WNaviBaiduMap c;
 
     /* renamed from: a  reason: collision with root package name */
-    private NABaseMap f3158a = new NABaseMap();
+    private NABaseMap f4705a = new NABaseMap();
 
     public void setId(long j) {
-        b = j;
+        f4704b = j;
     }
 
     public static long getId() {
-        return b;
+        return f4704b;
     }
 
     public float getZoomLevel() {
@@ -121,6 +123,6 @@ public class WNaviBaiduMap {
         bundle.putInt("hasHW", 1);
         bundle.putInt("width", i);
         bundle.putInt("height", i2);
-        return this.f3158a.getZoomToBound(b, bundle, i, i2);
+        return this.f4705a.getZoomToBound(f4704b, bundle, i, i2);
     }
 }

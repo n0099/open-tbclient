@@ -6,55 +6,54 @@ import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends BdBaseModel {
-    private Context bJK;
-    private BdUniqueId brR = BdUniqueId.gen();
-    private final HttpMessageListener bxC;
-    private InterfaceC0924a olI;
+    private final HttpMessageListener bCn;
+    private Context bOy;
+    private BdUniqueId bwz = BdUniqueId.gen();
+    private InterfaceC0898a ooC;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.chooselover.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0924a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0898a {
         void a(ChooseLoverHttpResponseMessage chooseLoverHttpResponseMessage);
 
         void onFail(int i, String str);
     }
 
-    public void a(InterfaceC0924a interfaceC0924a) {
-        this.olI = interfaceC0924a;
+    public void a(InterfaceC0898a interfaceC0898a) {
+        this.ooC = interfaceC0898a;
     }
 
     public a(Context context) {
-        setUniqueId(this.brR);
-        this.bJK = context;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031080, TbConfig.SERVER_ADDRESS + "ala/audio/xiangqin/chooser");
+        setUniqueId(this.bwz);
+        this.bOy = context;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031080, com.baidu.live.a.aAH + "ala/audio/xiangqin/chooser");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(ChooseLoverHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bxC = new HttpMessageListener(1031080) { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.a.1
+        this.bCn = new HttpMessageListener(1031080) { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChooseLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId() && a.this.olI != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChooseLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId() && a.this.ooC != null) {
                     ChooseLoverHttpResponseMessage chooseLoverHttpResponseMessage = (ChooseLoverHttpResponseMessage) httpResponsedMessage;
                     if (chooseLoverHttpResponseMessage.getError() != 0 || !chooseLoverHttpResponseMessage.isSuccess()) {
-                        a.this.olI.onFail(chooseLoverHttpResponseMessage.getError(), chooseLoverHttpResponseMessage.getErrorString());
+                        a.this.ooC.onFail(chooseLoverHttpResponseMessage.getError(), chooseLoverHttpResponseMessage.getErrorString());
                     } else {
-                        a.this.olI.a(chooseLoverHttpResponseMessage);
+                        a.this.ooC.a(chooseLoverHttpResponseMessage);
                     }
                 }
             }
         };
-        registerListener(this.bxC);
+        registerListener(this.bCn);
     }
 
-    public void h(String str, String str2, String str3, int i) {
+    public void m(String str, String str2, String str3, int i) {
         c cVar = new c(str, str2, str3, i);
-        cVar.setTag(this.brR);
+        cVar.setTag(this.bwz);
         sendMessage(cVar);
     }
 

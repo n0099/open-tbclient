@@ -1,13 +1,13 @@
 package com.baidu.helios.common.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class b {
-    private com.baidu.helios.common.a.a.b.b axl = new com.baidu.helios.common.a.a.b.b(32);
+    private com.baidu.helios.common.a.a.b.b axE = new com.baidu.helios.common.a.a.b.b(32);
 
-    public byte[] A(byte[] bArr) {
-        return this.axl.b(bArr);
+    public byte[] x(byte[] bArr) {
+        return this.axE.b(bArr);
     }
 
-    public byte[] B(byte[] bArr) {
-        return this.axl.a(bArr);
+    public byte[] y(byte[] bArr) {
+        return this.axE.a(bArr);
     }
 }

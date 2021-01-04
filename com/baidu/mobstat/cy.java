@@ -3,21 +3,23 @@ package com.baidu.mobstat;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class cy implements cu {
 
     /* renamed from: a  reason: collision with root package name */
-    private byte[] f2614a;
-    private TreeMap<String, String> b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+    private byte[] f3840a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private TreeMap<String, String> f3841b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
     @Override // com.baidu.mobstat.cx
     public Iterator<String> b() {
-        return Collections.unmodifiableSet(this.b.keySet()).iterator();
+        return Collections.unmodifiableSet(this.f3841b.keySet()).iterator();
     }
 
     @Override // com.baidu.mobstat.cx
     public String b(String str) {
-        String str2 = this.b.get(str);
+        String str2 = this.f3841b.get(str);
         if (str2 == null) {
             return "";
         }
@@ -26,16 +28,16 @@ public class cy implements cu {
 
     @Override // com.baidu.mobstat.cx
     public byte[] c() {
-        return this.f2614a;
+        return this.f3840a;
     }
 
     @Override // com.baidu.mobstat.cu
     public void a(String str, String str2) {
-        this.b.put(str, str2);
+        this.f3841b.put(str, str2);
     }
 
     @Override // com.baidu.mobstat.cx
     public boolean c(String str) {
-        return this.b.containsKey(str);
+        return this.f3841b.containsKey(str);
     }
 }

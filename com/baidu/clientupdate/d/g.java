@@ -1,15 +1,16 @@
 package com.baidu.clientupdate.d;
 
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static char[] f1332a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    protected static char[] f1728a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String a(File file) {
         return a(file, 131072);
@@ -18,7 +19,7 @@ public class g {
     public static String a(File file, int i) {
         MessageDigest messageDigest = null;
         try {
-            messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         } catch (NoSuchAlgorithmException e) {
         }
         if (messageDigest == null) {
@@ -54,9 +55,9 @@ public class g {
         return stringBuffer.toString();
     }
 
-    private static void a(byte b, StringBuffer stringBuffer) {
-        char c = f1332a[(b & 240) >> 4];
-        char c2 = f1332a[b & 15];
+    private static void a(byte b2, StringBuffer stringBuffer) {
+        char c = f1728a[(b2 & 240) >> 4];
+        char c2 = f1728a[b2 & 15];
         stringBuffer.append(c);
         stringBuffer.append(c2);
     }

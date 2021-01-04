@@ -1,8 +1,6 @@
 package com.baidu.fsg.face.liveness.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,19 +15,23 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LivenessVideoUploadView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f1753a;
-    private LivenessCircleProgressView b;
+    private ImageView f2393a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private LivenessCircleProgressView f2394b;
     private TextView c;
     private LinearLayout d;
     private LinearLayout e;
     private a f;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -50,9 +52,9 @@ public class LivenessVideoUploadView extends FrameLayout {
 
     private void a() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_liveness_video_upload_view, (ViewGroup) this, true);
-        this.b = (LivenessCircleProgressView) inflate.findViewById(R.id.uploading_file_view);
+        this.f2394b = (LivenessCircleProgressView) inflate.findViewById(R.id.uploading_file_view);
         this.c = (TextView) inflate.findViewById(R.id.uploading_tv);
-        this.f1753a = (ImageView) inflate.findViewById(R.id.img_canvas_view);
+        this.f2393a = (ImageView) inflate.findViewById(R.id.img_canvas_view);
         this.d = (LinearLayout) inflate.findViewById(R.id.cancle_upload);
         this.e = (LinearLayout) inflate.findViewById(R.id.confirm_upload);
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoUploadView.1
@@ -74,7 +76,7 @@ public class LivenessVideoUploadView extends FrameLayout {
     }
 
     public void updateProgress(int i) {
-        this.b.updateProgress(i);
+        this.f2394b.updateProgress(i);
     }
 
     public void showBackgroundBitmap() {
@@ -141,7 +143,7 @@ public class LivenessVideoUploadView extends FrameLayout {
                 LivenessVideoUploadView.this.e.setVisibility(8);
                 LivenessVideoUploadView.this.d.setVisibility(8);
                 if (LivenessVideoUploadView.this.f != null) {
-                    LivenessVideoUploadView.this.b.setVisibility(0);
+                    LivenessVideoUploadView.this.f2394b.setVisibility(0);
                     LivenessVideoUploadView.this.c.setVisibility(0);
                     LivenessVideoUploadView.this.f.c();
                 }
@@ -151,7 +153,7 @@ public class LivenessVideoUploadView extends FrameLayout {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        float[] fArr = {this.b.getX() + (this.b.getWidth() / 2), this.b.getY() + (this.b.getHeight() / 2)};
+        float[] fArr = {this.f2394b.getX() + (this.f2394b.getWidth() / 2), this.f2394b.getY() + (this.f2394b.getHeight() / 2)};
         float[] fArr2 = {this.d.getX() + (this.d.getWidth() / 2), this.d.getY() + (this.d.getHeight() / 2)};
         float[] fArr3 = {this.e.getX() + (this.e.getWidth() / 2), this.e.getY() + (this.e.getHeight() / 2)};
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, fArr[0] - fArr2[0], 0.0f, fArr[1] - fArr2[1]);

@@ -24,7 +24,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static Method d = null;
     private static Method e = null;
@@ -33,11 +33,13 @@ public class a {
     private static char[] n = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.".toCharArray();
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2351a;
-    private TelephonyManager b;
+    private Context f3388a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private TelephonyManager f3389b;
     private WifiManager h;
     private String m;
-    private C0270a c = new C0270a();
+    private C0271a c = new C0271a();
     private b i = null;
     private long j = 0;
     private String k = null;
@@ -45,20 +47,20 @@ public class a {
 
     public a(Context context) {
         String str;
-        this.f2351a = null;
-        this.b = null;
+        this.f3388a = null;
+        this.f3389b = null;
         this.h = null;
         this.m = null;
-        this.f2351a = context.getApplicationContext();
-        String packageName = this.f2351a.getPackageName();
+        this.f3388a = context.getApplicationContext();
+        String packageName = this.f3388a.getPackageName();
         try {
-            this.b = (TelephonyManager) this.f2351a.getSystemService("phone");
-            str = (String) XAdSDKFoundationFacade.getInstance().getCommonUtils().a(this.b, XAdSDKFoundationFacade.getInstance().getBase64().decodeStr("uvNYwANvpyP-iyfb"), new Object[0]);
+            this.f3389b = (TelephonyManager) this.f3388a.getSystemService("phone");
+            str = (String) XAdSDKFoundationFacade.getInstance().getCommonUtils().a(this.f3389b, XAdSDKFoundationFacade.getInstance().getBase64().decodeStr("uvNYwANvpyP-iyfb"), new Object[0]);
         } catch (Exception e2) {
             str = null;
         }
         this.m = ETAG.ITEM_SEPARATOR + packageName + ETAG.ITEM_SEPARATOR + str;
-        this.h = (WifiManager) this.f2351a.getSystemService("wifi");
+        this.h = (WifiManager) this.f3388a.getSystemService("wifi");
     }
 
     public String a() {
@@ -76,9 +78,9 @@ public class a {
             i = 3;
         }
         try {
-            C0270a b2 = b();
+            C0271a b2 = b();
             if (b2 == null || !b2.b()) {
-                a(this.b.getCellLocation());
+                a(this.f3389b.getCellLocation());
             } else {
                 this.c = b2;
             }
@@ -108,9 +110,9 @@ public class a {
 
     private void a(CellLocation cellLocation) {
         int i = 0;
-        if (cellLocation != null && this.b != null) {
-            C0270a c0270a = new C0270a();
-            String networkOperator = this.b.getNetworkOperator();
+        if (cellLocation != null && this.f3389b != null) {
+            C0271a c0271a = new C0271a();
+            String networkOperator = this.f3389b.getNetworkOperator();
             if (networkOperator != null && networkOperator.length() > 0) {
                 try {
                     if (networkOperator.length() >= 3) {
@@ -118,7 +120,7 @@ public class a {
                         if (intValue < 0) {
                             intValue = this.c.c;
                         }
-                        c0270a.c = intValue;
+                        c0271a.c = intValue;
                     }
                     String substring = networkOperator.substring(3);
                     if (substring != null) {
@@ -131,16 +133,16 @@ public class a {
                     if (intValue2 < 0) {
                         intValue2 = this.c.d;
                     }
-                    c0270a.d = intValue2;
+                    c0271a.d = intValue2;
                 } catch (Exception e2) {
                 }
             }
             if (cellLocation instanceof GsmCellLocation) {
-                c0270a.f2352a = ((GsmCellLocation) cellLocation).getLac();
-                c0270a.b = ((GsmCellLocation) cellLocation).getCid();
-                c0270a.e = 'g';
+                c0271a.f3390a = ((GsmCellLocation) cellLocation).getLac();
+                c0271a.f3391b = ((GsmCellLocation) cellLocation).getCid();
+                c0271a.e = 'g';
             } else if (cellLocation instanceof CdmaCellLocation) {
-                c0270a.e = 'w';
+                c0271a.e = 'w';
                 if (g == null) {
                     try {
                         g = Class.forName("android.telephony.cdma.CdmaCellLocation");
@@ -158,35 +160,35 @@ public class a {
                         if (intValue3 < 0) {
                             intValue3 = this.c.d;
                         }
-                        c0270a.d = intValue3;
-                        c0270a.b = ((Integer) d.invoke(cellLocation, new Object[0])).intValue();
-                        c0270a.f2352a = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
+                        c0271a.d = intValue3;
+                        c0271a.f3391b = ((Integer) d.invoke(cellLocation, new Object[0])).intValue();
+                        c0271a.f3390a = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
                     } catch (Exception e4) {
                         return;
                     }
                 }
             }
-            if (c0270a.b()) {
-                this.c = c0270a;
+            if (c0271a.b()) {
+                this.c = c0271a;
             }
         }
     }
 
-    private C0270a b() {
+    private C0271a b() {
         if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return null;
         }
         try {
             try {
-                List<CellInfo> allCellInfo = this.b.getAllCellInfo();
+                List<CellInfo> allCellInfo = this.f3389b.getAllCellInfo();
                 if (allCellInfo == null || allCellInfo.size() <= 0) {
                     return null;
                 }
-                C0270a c0270a = null;
+                C0271a c0271a = null;
                 for (CellInfo cellInfo : allCellInfo) {
                     try {
                         if (cellInfo.isRegistered()) {
-                            C0270a a2 = a(cellInfo);
+                            C0271a a2 = a(cellInfo);
                             if (a2 != null) {
                                 try {
                                     if (!a2.b()) {
@@ -197,13 +199,13 @@ public class a {
                                     return a2;
                                 }
                             }
-                            c0270a = a2;
+                            c0271a = a2;
                         }
                     } catch (Exception e3) {
-                        return c0270a;
+                        return c0271a;
                     }
                 }
-                return c0270a;
+                return c0271a;
             } catch (NoSuchMethodError e4) {
                 return null;
             }
@@ -212,51 +214,51 @@ public class a {
         }
     }
 
-    private C0270a a(CellInfo cellInfo) {
+    private C0271a a(CellInfo cellInfo) {
         int intValue = Integer.valueOf(Build.VERSION.SDK_INT).intValue();
         if (intValue < 17) {
             return null;
         }
-        C0270a c0270a = new C0270a();
+        C0271a c0271a = new C0271a();
         boolean z = false;
         if (cellInfo instanceof CellInfoGsm) {
             CellIdentityGsm cellIdentity = ((CellInfoGsm) cellInfo).getCellIdentity();
-            c0270a.c = b(cellIdentity.getMcc());
-            c0270a.d = b(cellIdentity.getMnc());
-            c0270a.f2352a = b(cellIdentity.getLac());
-            c0270a.b = b(cellIdentity.getCid());
-            c0270a.e = 'g';
+            c0271a.c = b(cellIdentity.getMcc());
+            c0271a.d = b(cellIdentity.getMnc());
+            c0271a.f3390a = b(cellIdentity.getLac());
+            c0271a.f3391b = b(cellIdentity.getCid());
+            c0271a.e = 'g';
             z = true;
         } else if (cellInfo instanceof CellInfoCdma) {
             CellIdentityCdma cellIdentity2 = ((CellInfoCdma) cellInfo).getCellIdentity();
-            c0270a.d = b(cellIdentity2.getSystemId());
-            c0270a.f2352a = b(cellIdentity2.getNetworkId());
-            c0270a.b = b(cellIdentity2.getBasestationId());
-            c0270a.e = 'w';
+            c0271a.d = b(cellIdentity2.getSystemId());
+            c0271a.f3390a = b(cellIdentity2.getNetworkId());
+            c0271a.f3391b = b(cellIdentity2.getBasestationId());
+            c0271a.e = 'w';
             z = true;
         } else if (cellInfo instanceof CellInfoLte) {
             CellIdentityLte cellIdentity3 = ((CellInfoLte) cellInfo).getCellIdentity();
-            c0270a.c = b(cellIdentity3.getMcc());
-            c0270a.d = b(cellIdentity3.getMnc());
-            c0270a.f2352a = b(cellIdentity3.getTac());
-            c0270a.b = b(cellIdentity3.getCi());
-            c0270a.e = 'g';
+            c0271a.c = b(cellIdentity3.getMcc());
+            c0271a.d = b(cellIdentity3.getMnc());
+            c0271a.f3390a = b(cellIdentity3.getTac());
+            c0271a.f3391b = b(cellIdentity3.getCi());
+            c0271a.e = 'g';
             z = true;
         }
         if (intValue >= 18 && !z) {
             try {
                 if (cellInfo instanceof CellInfoWcdma) {
                     CellIdentityWcdma cellIdentity4 = ((CellInfoWcdma) cellInfo).getCellIdentity();
-                    c0270a.c = b(cellIdentity4.getMcc());
-                    c0270a.d = b(cellIdentity4.getMnc());
-                    c0270a.f2352a = b(cellIdentity4.getLac());
-                    c0270a.b = b(cellIdentity4.getCid());
-                    c0270a.e = 'g';
+                    c0271a.c = b(cellIdentity4.getMcc());
+                    c0271a.d = b(cellIdentity4.getMnc());
+                    c0271a.f3390a = b(cellIdentity4.getLac());
+                    c0271a.f3391b = b(cellIdentity4.getCid());
+                    c0271a.e = 'g';
                 }
             } catch (Exception e2) {
             }
         }
-        return c0270a;
+        return c0271a;
     }
 
     private int b(int i) {
@@ -268,19 +270,21 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mobads.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C0270a {
+    /* loaded from: classes3.dex */
+    public class C0271a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2352a;
-        public int b;
+        public int f3390a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f3391b;
         public int c;
         public int d;
         public char e;
 
-        private C0270a() {
-            this.f2352a = -1;
-            this.b = -1;
+        private C0271a() {
+            this.f3390a = -1;
+            this.f3391b = -1;
             this.c = -1;
             this.d = -1;
             this.e = (char) 0;
@@ -288,7 +292,7 @@ public class a {
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean b() {
-            return this.f2352a > -1 && this.b > 0;
+            return this.f3390a > -1 && this.f3391b > 0;
         }
 
         public String a() {
@@ -301,39 +305,37 @@ public class a {
             if (this.c != 460) {
                 stringBuffer.append(this.c);
             }
-            stringBuffer.append(String.format(Locale.CHINA, "h%xh%xh%x", Integer.valueOf(this.d), Integer.valueOf(this.f2352a), Integer.valueOf(this.b)));
+            stringBuffer.append(String.format(Locale.CHINA, "h%xh%xh%x", Integer.valueOf(this.d), Integer.valueOf(this.f3390a), Integer.valueOf(this.f3391b)));
             return stringBuffer.toString();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<ScanResult> f2353a;
+        public List<ScanResult> f3392a;
         private long c;
 
         public b(List<ScanResult> list) {
-            this.f2353a = null;
+            this.f3392a = null;
             this.c = 0L;
-            this.f2353a = list;
+            this.f3392a = list;
             this.c = System.currentTimeMillis();
             b();
         }
 
         public int a() {
-            if (this.f2353a == null) {
+            if (this.f3392a == null) {
                 return 0;
             }
-            return this.f2353a.size();
+            return this.f3392a.size();
         }
 
         public String a(int i) {
             boolean z;
-            boolean z2;
             int i2;
-            boolean z3;
             if (a() < 1) {
                 return null;
             }
@@ -345,28 +347,21 @@ public class a {
                 z = true;
             }
             StringBuffer stringBuffer = new StringBuffer(512);
-            int size = this.f2353a.size();
+            int size = this.f3392a.size();
             int i3 = 0;
             int i4 = 0;
-            boolean z4 = true;
-            boolean z5 = z;
-            while (true) {
-                if (i3 >= size) {
-                    z2 = z4;
-                    break;
-                }
-                if (this.f2353a.get(i3).level == 0) {
+            boolean z2 = true;
+            boolean z3 = z;
+            while (i3 < size) {
+                if (this.f3392a.get(i3).level == 0) {
                     i2 = i4;
-                    z2 = z4;
-                    z3 = z5;
                 } else {
-                    String str = this.f2353a.get(i3).BSSID;
-                    int i5 = this.f2353a.get(i3).level;
+                    String str = this.f3392a.get(i3).BSSID;
+                    int i5 = this.f3392a.get(i3).level;
                     String replace = str.replace(":", "");
                     if (a.this.k != null && replace.equals(a.this.k)) {
                         a.this.l = StrictMath.abs(i5);
                         i2 = i4;
-                        z2 = z4;
                         z3 = true;
                     } else {
                         if (i4 < i) {
@@ -378,17 +373,13 @@ public class a {
                             z2 = false;
                         } else {
                             i2 = i4;
-                            z2 = z4;
                         }
-                        if (i2 > i && z5) {
+                        if (i2 > i && z3) {
                             break;
                         }
-                        z3 = z5;
                     }
                 }
                 i3++;
-                z5 = z3;
-                z4 = z2;
                 i4 = i2;
             }
             String str2 = c ? "h" + a.this.k + "km" + a.this.l : null;
@@ -402,13 +393,13 @@ public class a {
             boolean z;
             if (a() >= 1) {
                 boolean z2 = true;
-                for (int size = this.f2353a.size() - 1; size >= 1 && z2; size--) {
+                for (int size = this.f3392a.size() - 1; size >= 1 && z2; size--) {
                     int i = 0;
                     z2 = false;
                     while (i < size) {
-                        if (this.f2353a.get(i).level < this.f2353a.get(i + 1).level) {
-                            this.f2353a.set(i + 1, this.f2353a.get(i));
-                            this.f2353a.set(i, this.f2353a.get(i + 1));
+                        if (this.f3392a.get(i).level < this.f3392a.get(i + 1).level) {
+                            this.f3392a.set(i + 1, this.f3392a.get(i));
+                            this.f3392a.set(i, this.f3392a.get(i + 1));
                             z = true;
                         } else {
                             z = z2;
@@ -449,7 +440,6 @@ public class a {
     }
 
     private static String a(String str) {
-        int i = 0;
         if (str == null) {
             return null;
         }
@@ -458,6 +448,7 @@ public class a {
         byte nextInt2 = (byte) new Random().nextInt(255);
         byte[] bArr = new byte[bytes.length + 2];
         int length = bytes.length;
+        int i = 0;
         int i2 = 0;
         while (i < length) {
             bArr[i2] = (byte) (bytes[i] ^ nextInt);

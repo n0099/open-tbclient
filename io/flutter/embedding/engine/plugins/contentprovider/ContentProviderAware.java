@@ -1,7 +1,9 @@
 package io.flutter.embedding.engine.plugins.contentprovider;
-/* loaded from: classes9.dex */
+
+import androidx.annotation.NonNull;
+/* loaded from: classes6.dex */
 public interface ContentProviderAware {
-    void onAttachedToContentProvider(ContentProviderPluginBinding contentProviderPluginBinding);
+    void onAttachedToContentProvider(@NonNull ContentProviderPluginBinding contentProviderPluginBinding);
 
     void onDetachedFromContentProvider();
 }

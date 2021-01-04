@@ -3,17 +3,17 @@ package com.google.ar.core;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes3.dex */
 public final class v extends AnimatorListenerAdapter {
-    private final /* synthetic */ InstallActivity ptw;
+    private final /* synthetic */ InstallActivity pKw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(InstallActivity installActivity) {
-        this.ptw = installActivity;
+        this.pKw = installActivity;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public final void onAnimationEnd(Animator animator) {
-        this.ptw.exY();
+        this.pKw.eBJ();
     }
 }

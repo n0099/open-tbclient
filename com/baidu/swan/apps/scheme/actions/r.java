@@ -14,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class r extends aa {
     public r(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openStatisticFlowJar");
@@ -59,7 +59,7 @@ public class r extends aa {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.performance.i.aGg().aP(v(optParamsAsJo.optJSONArray("data"))).aFM();
+                com.baidu.swan.apps.performance.i.aHz().aS(v(optParamsAsJo.optJSONArray("data"))).aHg();
                 break;
             case 1:
                 w(optParamsAsJo.optJSONArray("data"));
@@ -78,22 +78,22 @@ public class r extends aa {
     List<UbcFlowEvent> v(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
-            UbcFlowEvent aV = aV(jSONArray.optJSONObject(i));
-            if (aV != null) {
-                aV.rB("FE");
-                arrayList.add(aV);
+            UbcFlowEvent bd = bd(jSONArray.optJSONObject(i));
+            if (bd != null) {
+                bd.ru("FE");
+                arrayList.add(bd);
             }
         }
         return arrayList;
     }
 
-    UbcFlowEvent aV(JSONObject jSONObject) {
+    UbcFlowEvent bd(JSONObject jSONObject) {
         String optString = jSONObject.optString("actionId");
         long optLong = jSONObject.optLong("timestamp");
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        return new UbcFlowEvent(optString).cx(optLong);
+        return new UbcFlowEvent(optString).cy(optLong);
     }
 
     private void w(JSONArray jSONArray) {
@@ -110,7 +110,7 @@ public class r extends aa {
                     SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
                     searchFlowEvent.timestamp = Long.valueOf(optString3).longValue();
                     searchFlowEvent.data = optString2;
-                    searchFlowEvent.dFO = SearchFlowEvent.EventType.END;
+                    searchFlowEvent.dOs = SearchFlowEvent.EventType.END;
                     com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
                 }
             } catch (NumberFormatException e) {
@@ -123,8 +123,8 @@ public class r extends aa {
 
     private void x(JSONArray jSONArray) {
         long longValue;
-        com.baidu.swan.apps.core.d.e arC = com.baidu.swan.apps.v.f.aCp().arC();
-        if (arC != null) {
+        com.baidu.swan.apps.core.d.e asU = com.baidu.swan.apps.v.f.aDG().asU();
+        if (asU != null) {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(0);
                 if (jSONObject != null) {
@@ -136,10 +136,10 @@ public class r extends aa {
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
-                        arC.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                        asU.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                     }
                     longValue = 0;
-                    arC.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                    asU.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

@@ -25,39 +25,39 @@ import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.utils.i;
-import com.baidu.live.utils.q;
+import com.baidu.live.utils.r;
 import com.baidu.tieba.ala.liveroom.challenge.adapter.AlaChallengeShowAllJinzhuPagerAdapter;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements View.OnTouchListener {
-    private long brr;
-    private long ggl;
-    private AlaLiveRoomPanelTabHost hiF;
-    private AlaChallengeShowAllJinzhuPagerAdapter hiG;
-    private long hiH;
+    private long bvY;
+    private long gqJ;
+    private AlaLiveRoomPanelTabHost huA;
+    private AlaChallengeShowAllJinzhuPagerAdapter huB;
+    private long huC;
     private boolean mIsHost;
     private View mRootView;
     private int mScreenWidth;
     private int mType;
     private Handler mHandler = new Handler();
-    private boolean aWv = false;
-    private boolean baH = false;
-    private boolean baI = false;
-    private final CustomMessageListener aWL = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.liveroom.challenge.AlaChallengeShowAllJinzhuActivity.3
+    private boolean aYb = false;
+    private boolean bco = false;
+    private boolean bcp = false;
+    private final CustomMessageListener aYr = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.liveroom.challenge.AlaChallengeShowAllJinzhuActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaChallengeShowAllJinzhuActivity.this.closeActivity();
         }
     };
-    private final CustomMessageListener bJk = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.liveroom.challenge.AlaChallengeShowAllJinzhuActivity.4
+    private final CustomMessageListener bNY = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.liveroom.challenge.AlaChallengeShowAllJinzhuActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaChallengeShowAllJinzhuActivity.this.closeActivity();
         }
     };
-    private ViewTreeObserver.OnGlobalLayoutListener baD = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.AlaChallengeShowAllJinzhuActivity.5
+    private ViewTreeObserver.OnGlobalLayoutListener bck = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.AlaChallengeShowAllJinzhuActivity.5
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(AlaChallengeShowAllJinzhuActivity.this.getPageContext().getPageActivity());
@@ -69,7 +69,7 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
                         public void run() {
                             if (AlaChallengeShowAllJinzhuActivity.this.mRootView != null) {
                                 i.ae(AlaChallengeShowAllJinzhuActivity.this.mRootView);
-                                q.e(AlaChallengeShowAllJinzhuActivity.this.getActivity(), false);
+                                r.e(AlaChallengeShowAllJinzhuActivity.this.getActivity(), false);
                             }
                         }
                     }, 300L);
@@ -79,57 +79,57 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
     };
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(true);
         super.onCreate(bundle);
         if (!isFinishing()) {
             initData(bundle);
-            registerListener(this.bJk);
-            registerListener(this.aWL);
+            registerListener(this.bNY);
+            registerListener(this.aYr);
             initView();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            this.baH = false;
+            this.bco = false;
             this.mRootView.setVisibility(4);
-            if (this.mType == 2 && this.hiG.getCount() > 1) {
-                this.hiF.setCurrentIndex(1);
+            if (this.mType == 2 && this.huB.getCount() > 1) {
+                this.huA.setCurrentIndex(1);
             } else {
-                this.hiF.setCurrentIndex(0);
+                this.huA.setCurrentIndex(0);
             }
         }
     }
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.hiH = bundle.getLong("challengeid");
-            this.brr = bundle.getLong(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
-            this.ggl = bundle.getLong("anchorid");
+            this.huC = bundle.getLong("challengeid");
+            this.bvY = bundle.getLong(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
+            this.gqJ = bundle.getLong("anchorid");
             this.mType = bundle.getInt("type", 1);
             this.mIsHost = bundle.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
             return;
         }
-        this.hiH = getIntent().getLongExtra("challengeid", 0L);
-        this.brr = getIntent().getLongExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, 0L);
-        this.ggl = getIntent().getLongExtra("anchorid", 0L);
+        this.huC = getIntent().getLongExtra("challengeid", 0L);
+        this.bvY = getIntent().getLongExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, 0L);
+        this.gqJ = getIntent().getLongExtra("anchorid", 0L);
         this.mType = getIntent().getIntExtra("type", 1);
         this.mIsHost = getIntent().getBooleanExtra(AlaPersonCenterExpActivityConfig.IS_HOST, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aWv) {
+        if (!this.aYb) {
             this.mRootView.setVisibility(0);
-            Je();
-            this.aWv = true;
+            IG();
+            this.aYb = true;
         }
     }
 
-    private void Je() {
-        this.baH = true;
-        Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0205a.sdk_in_from_bottom);
+    private void IG() {
+        this.bco = true;
+        Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0203a.sdk_in_from_bottom);
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.AlaChallengeShowAllJinzhuActivity.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
@@ -137,7 +137,7 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaChallengeShowAllJinzhuActivity.this.baH = false;
+                AlaChallengeShowAllJinzhuActivity.this.bco = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -147,9 +147,9 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void Jf() {
-        if (!this.baI && !this.baH) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0205a.sdk_out_to_bottom);
+    private void IH() {
+        if (!this.bcp && !this.bco) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0203a.sdk_out_to_bottom);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.AlaChallengeShowAllJinzhuActivity.2
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
@@ -165,28 +165,28 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.baI = true;
+            this.bcp = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        Jf();
+        IH();
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
         if (this.mRootView != null) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
                 i.ae(this.mRootView);
-                q.e(getActivity(), false);
+                r.e(getActivity(), false);
             } else {
                 i.af(this.mRootView);
-                q.e(getActivity(), true);
+                r.e(getActivity(), true);
             }
-            Wi();
+            Xk();
         }
     }
 
@@ -197,12 +197,12 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putLong("challengeid", this.hiH);
-        bundle.putLong(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, this.brr);
-        bundle.putLong("anchorid", this.ggl);
+        bundle.putLong("challengeid", this.huC);
+        bundle.putLong(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, this.bvY);
+        bundle.putLong("anchorid", this.gqJ);
         bundle.putInt("type", this.mType);
         bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, this.mIsHost);
     }
@@ -216,10 +216,10 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Wi();
+        Xk();
     }
 
-    private void Wi() {
+    private void Xk() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -233,7 +233,7 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
             }
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.baD);
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.bck);
             if (this.mRootView.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
                 layoutParams.width = screenDimensions[0];
@@ -258,22 +258,22 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
     }
 
     private void initTabSpec() {
-        this.hiG = new AlaChallengeShowAllJinzhuPagerAdapter(getPageContext(), this.hiH, this.brr, this.ggl, this.mIsHost);
-        this.hiF = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_jinzhu_tab_host);
-        this.hiF.setIndicatorWidthAuto(true);
-        this.hiF.setData(this.hiG.getDataList());
+        this.huB = new AlaChallengeShowAllJinzhuPagerAdapter(getPageContext(), this.huC, this.bvY, this.gqJ, this.mIsHost);
+        this.huA = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_jinzhu_tab_host);
+        this.huA.setIndicatorWidthAuto(true);
+        this.huA.setData(this.huB.getDataList());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Iterator<com.baidu.live.liveroom.d.d> it = this.hiG.getDataList().iterator();
+        Iterator<com.baidu.live.liveroom.d.d> it = this.huB.getDataList().iterator();
         while (it.hasNext()) {
             it.next().onDestroy();
         }
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.baD);
-        this.baD = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.bck);
+        this.bck = null;
     }
 }

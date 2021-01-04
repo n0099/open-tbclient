@@ -1,7 +1,7 @@
 package com.baidu.yuyinala.privatemessage.model.group;
 
 import com.baidu.android.imsdk.group.GroupMember;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class QMGroupMember extends GroupMember {
     private String descprition;
     private String ext;

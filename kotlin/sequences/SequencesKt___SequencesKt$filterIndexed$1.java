@@ -5,7 +5,7 @@ import kotlin.collections.x;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda implements kotlin.jvm.a.b<x<? extends T>, Boolean> {
     final /* synthetic */ kotlin.jvm.a.c $predicate;
 

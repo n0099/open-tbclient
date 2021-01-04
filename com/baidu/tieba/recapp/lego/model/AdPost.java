@@ -4,13 +4,13 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.lego.card.b.b;
+import com.baidu.tieba.lego.card.a.b;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.recapp.c.a;
+import com.baidu.tieba.recapp.b.a;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert, b, a {
     public PostAdBaseData.a adData;
     public PostAdBaseData.b feedData;
@@ -32,13 +32,13 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             e.printStackTrace();
             jSONObject2 = null;
         }
-        this.feedData = PostAdBaseData.b.eu(jSONObject2);
+        this.feedData = PostAdBaseData.b.eI(jSONObject2);
         try {
             jSONObject3 = jSONObject.getJSONObject("ad_content");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.adData = PostAdBaseData.a.et(jSONObject3);
+        this.adData = PostAdBaseData.a.eH(jSONObject3);
         try {
             this.preloadLegoCardStr = jSONObject.getString(LegoListActivityConfig.PRE_LOAD);
         } catch (JSONException e3) {
@@ -60,7 +60,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
         this.appInfo = advertAppInfo;
         this.feedData.updataThreadData(this.appInfo);
-        this.adData.j(this.appInfo);
+        this.adData.k(this.appInfo);
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
@@ -79,7 +79,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return 21;
         }
         if (this.adData.type == 2) {
-            return this.adData.Jj(i);
+            return this.adData.Jd(i);
         }
         return 0;
     }
@@ -99,27 +99,27 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
         return (iCardInfo instanceof AdPost) && getCardType() == ((AdPost) iCardInfo).getCardType();
     }
 
-    @Override // com.baidu.tieba.recapp.c.a
+    @Override // com.baidu.tieba.recapp.b.a
     public String getTitle() {
         return this.feedData.title;
     }
 
-    @Override // com.baidu.tieba.recapp.c.a
+    @Override // com.baidu.tieba.recapp.b.a
     public String getAbstract() {
         return this.feedData.content;
     }
 
-    @Override // com.baidu.tieba.recapp.c.a
+    @Override // com.baidu.tieba.recapp.b.a
     public String getImageUrl() {
         return this.feedData.portrait;
     }
 
-    @Override // com.baidu.tieba.recapp.c.a
+    @Override // com.baidu.tieba.recapp.b.a
     public AdvertAppInfo getThreadData() {
         return getAdvertAppInfo();
     }
 
-    @Override // com.baidu.tieba.recapp.c.a
+    @Override // com.baidu.tieba.recapp.b.a
     public String getShareLink() {
         Uri parse = Uri.parse(this.feedData.scheme);
         if ("pb".equalsIgnoreCase(parse.getAuthority())) {
@@ -133,7 +133,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
         return this.feedData.scheme;
     }
 
-    @Override // com.baidu.tieba.lego.card.b.b
+    @Override // com.baidu.tieba.lego.card.a.b
     public b.a getParallelCharge() {
         return this.parallelChargeInfo;
     }

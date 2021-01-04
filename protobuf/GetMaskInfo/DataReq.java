@@ -2,7 +2,7 @@ package protobuf.GetMaskInfo;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public final class DataReq extends Message {
     public static final Integer DEFAULT_TYPE = 0;
     @ProtoField(tag = 1, type = Message.Datatype.UINT32)
@@ -22,7 +22,7 @@ public final class DataReq extends Message {
         this.type = builder.type;
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer type;
 

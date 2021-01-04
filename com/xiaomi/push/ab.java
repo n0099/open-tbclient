@@ -1,16 +1,18 @@
 package com.xiaomi.push;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f4556a;
+    private static int f14146a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f92a;
+    public static final String f170a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final boolean f93a;
-    public static final boolean b;
+    public static final boolean f171a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final boolean f14147b;
     public static final boolean c;
     public static final boolean d;
     public static boolean e;
@@ -19,41 +21,41 @@ public class ab {
 
     static {
         boolean z = false;
-        f92a = ae.f94a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
-        f93a = f92a.contains("2A2FE0D7");
-        b = f93a || "DEBUG".equalsIgnoreCase(f92a);
-        c = "LOGABLE".equalsIgnoreCase(f92a);
-        d = f92a.contains("YY");
-        e = f92a.equalsIgnoreCase("TEST");
-        f = "BETA".equalsIgnoreCase(f92a);
-        if (f92a != null && f92a.startsWith("RC")) {
+        f170a = ae.f172a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
+        f171a = f170a.contains("2A2FE0D7");
+        f14147b = f171a || "DEBUG".equalsIgnoreCase(f170a);
+        c = "LOGABLE".equalsIgnoreCase(f170a);
+        d = f170a.contains("YY");
+        e = f170a.equalsIgnoreCase("TEST");
+        f = "BETA".equalsIgnoreCase(f170a);
+        if (f170a != null && f170a.startsWith("RC")) {
             z = true;
         }
         g = z;
-        f4556a = 1;
-        if (f92a.equalsIgnoreCase("SANDBOX")) {
-            f4556a = 2;
-        } else if (f92a.equalsIgnoreCase("ONEBOX")) {
-            f4556a = 3;
+        f14146a = 1;
+        if (f170a.equalsIgnoreCase("SANDBOX")) {
+            f14146a = 2;
+        } else if (f170a.equalsIgnoreCase("ONEBOX")) {
+            f14146a = 3;
         } else {
-            f4556a = 1;
+            f14146a = 1;
         }
     }
 
     public static int a() {
-        return f4556a;
+        return f14146a;
     }
 
     public static void a(int i) {
-        f4556a = i;
+        f14146a = i;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m118a() {
-        return f4556a == 2;
+    public static boolean m144a() {
+        return f14146a == 2;
     }
 
     public static boolean b() {
-        return f4556a == 3;
+        return f14146a == 3;
     }
 }

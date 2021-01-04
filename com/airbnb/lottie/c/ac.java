@@ -3,17 +3,17 @@ package com.airbnb.lottie.c;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class ac implements aj<com.airbnb.lottie.e.d> {
-    public static final ac HR = new ac();
+    public static final ac HA = new ac();
 
     private ac() {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.c.aj
-    /* renamed from: l */
-    public com.airbnb.lottie.e.d b(JsonReader jsonReader, float f) throws IOException {
+    /* renamed from: q */
+    public com.airbnb.lottie.e.d g(JsonReader jsonReader, float f) throws IOException {
         boolean z = jsonReader.peek() == JsonToken.BEGIN_ARRAY;
         if (z) {
             jsonReader.beginArray();

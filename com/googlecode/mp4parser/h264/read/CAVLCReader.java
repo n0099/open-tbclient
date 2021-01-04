@@ -1,11 +1,10 @@
 package com.googlecode.mp4parser.h264.read;
 
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.googlecode.mp4parser.h264.BTree;
 import com.googlecode.mp4parser.h264.Debug;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CAVLCReader extends BitstreamReader {
     public CAVLCReader(InputStream inputStream) throws IOException {
         super(inputStream);
@@ -106,7 +105,7 @@ public class CAVLCReader extends BitstreamReader {
         StringBuilder sb = new StringBuilder();
         String valueOf = String.valueOf(BitstreamReader.bitsRead - this.debugBits.length());
         int length = 8 - valueOf.length();
-        sb.append(UgcConstant.AT_RULE_TAG + valueOf);
+        sb.append("@" + valueOf);
         for (int i = 0; i < length; i++) {
             sb.append(' ');
         }

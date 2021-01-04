@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class CommonReq extends Message {
     public static final String DEFAULT_APID = "";
     public static final String DEFAULT_BDUSS = "";
@@ -256,7 +256,7 @@ public final class CommonReq extends Message {
         this.brand_type = builder.brand_type;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<CommonReq> {
         public String BDUSS;
         public String _client_id;

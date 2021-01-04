@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.android.util.media.MimeType;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.beans.BeanManager;
@@ -61,9 +60,11 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LivenessVideoActivity extends LivenessCameraBaseActivity {
-    private static final String b = "CONSTRASTBEANTAG";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f2251b = "CONSTRASTBEANTAG";
     private static final String c = "LivenessVideoActivity";
     private static final int d = -1;
     private static final int e = 0;
@@ -266,7 +267,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         rect.top = iArr[1];
         rect.right = this.j.getWidth() - rect.left;
         rect.bottom = rect.top + rect.width();
-        this.faceRectGroup.f1585a = rect;
+        this.faceRectGroup.f2136a = rect;
         this.j.setFocusViewRect(rect);
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
         layoutParams.width = rect.width();
@@ -333,91 +334,93 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [408=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
+        Throwable th;
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2 = null;
+        FileInputStream fileInputStream2;
         try {
-            fileInputStream = new FileInputStream(g.b(getActivity()));
-        } catch (Exception e2) {
-            fileInputStream = null;
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            byte[] bArr = new byte[fileInputStream.available()];
-            fileInputStream.read(bArr);
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
-                }
-            }
-            this.T = bArr.length;
-            int i2 = this.T / 1048576;
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("" + c.a().b(getApplicationContext()));
-            arrayList.add(String.valueOf(this.T));
-            arrayList.add(this.S + "");
-            if (this.livenessRecogDTO != null) {
-                arrayList.add(this.livenessRecogDTO.getSpno() + "");
-                arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-            }
-            RimStatisticsUtil.onEventWithValues(com.baidu.fsg.face.liveness.d.ac, arrayList);
-            if (this.T == 0) {
-                t();
-            } else if (i2 >= this.S) {
-                RimStatisticsUtil.onEventWithValues(com.baidu.fsg.face.liveness.d.aa, arrayList);
-                int b2 = (int) (c.a().b(getApplicationContext()) / ((i2 / this.S) + 0.5f));
-                RimStatisticsUtil.onEventWithValue(com.baidu.fsg.face.liveness.d.ab, b2 + "");
-                c.a().a(getApplicationContext(), b2);
-                u();
-            } else {
-                RimStatisticsUtil.onEventStart(com.baidu.fsg.face.liveness.d.W);
-                LogUtil.d("hello", "onEventStart(StatServiceEvent.VIDEOUPLOAD):  视频上传接口开始");
-                com.baidu.fsg.face.liveness.beans.a aVar = (com.baidu.fsg.face.liveness.beans.a) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 11, c);
-                UploadBean.UploadFileModel uploadFileModel = new UploadBean.UploadFileModel();
-                uploadFileModel.contentType = MimeType.Video.MP4;
-                uploadFileModel.filedata = bArr;
-                uploadFileModel.fileName = "video.mp4";
-                uploadFileModel.name = "file";
-                aVar.addFile(uploadFileModel);
-                aVar.a(this.K.getLrcStartTimeOffset());
-                aVar.b(this.Q ? "0" : "1");
-                aVar.setProgressListener(new RestMultipartEntity.ProgressListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.19
-                    @Override // com.baidu.fsg.base.restnet.RestMultipartEntity.ProgressListener
-                    public void transferred(final long j, final long j2) {
-                        LogUtil.d("hello", "uploadvideo:   num: " + j + "  total:" + j2);
-                        LogUtil.d("hello", "progress:  " + ((int) ((((float) j) / ((float) j2)) * 100.0f)));
-                        LivenessVideoActivity.this.runOnUiThread(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.19.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                LivenessVideoActivity.this.r.updateProgress((int) ((((float) j) / ((float) j2)) * 100.0f));
-                            }
-                        });
+            fileInputStream2 = new FileInputStream(g.b(getActivity()));
+            try {
+                byte[] bArr = new byte[fileInputStream2.available()];
+                fileInputStream2.read(bArr);
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
-                });
-                aVar.setResponseCallback(this);
-                aVar.execBean();
-            }
-        } catch (Exception e4) {
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
                 }
-            }
-        } catch (Throwable th2) {
-            fileInputStream2 = fileInputStream;
-            th = th2;
-            if (fileInputStream2 != null) {
-                try {
-                    fileInputStream2.close();
-                } catch (IOException e6) {
-                    e6.printStackTrace();
+                this.T = bArr.length;
+                int i2 = this.T / 1048576;
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("" + c.a().b(getApplicationContext()));
+                arrayList.add(String.valueOf(this.T));
+                arrayList.add(this.S + "");
+                if (this.livenessRecogDTO != null) {
+                    arrayList.add(this.livenessRecogDTO.getSpno() + "");
+                    arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
                 }
+                RimStatisticsUtil.onEventWithValues(com.baidu.fsg.face.liveness.d.ac, arrayList);
+                if (this.T == 0) {
+                    t();
+                } else if (i2 >= this.S) {
+                    RimStatisticsUtil.onEventWithValues(com.baidu.fsg.face.liveness.d.aa, arrayList);
+                    int b2 = (int) (c.a().b(getApplicationContext()) / ((i2 / this.S) + 0.5f));
+                    RimStatisticsUtil.onEventWithValue(com.baidu.fsg.face.liveness.d.ab, b2 + "");
+                    c.a().a(getApplicationContext(), b2);
+                    u();
+                } else {
+                    RimStatisticsUtil.onEventStart(com.baidu.fsg.face.liveness.d.W);
+                    LogUtil.d("hello", "onEventStart(StatServiceEvent.VIDEOUPLOAD):  视频上传接口开始");
+                    com.baidu.fsg.face.liveness.beans.a aVar = (com.baidu.fsg.face.liveness.beans.a) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 11, c);
+                    UploadBean.UploadFileModel uploadFileModel = new UploadBean.UploadFileModel();
+                    uploadFileModel.contentType = "video/mp4";
+                    uploadFileModel.filedata = bArr;
+                    uploadFileModel.fileName = "video.mp4";
+                    uploadFileModel.name = "file";
+                    aVar.addFile(uploadFileModel);
+                    aVar.a(this.K.getLrcStartTimeOffset());
+                    aVar.b(this.Q ? "0" : "1");
+                    aVar.setProgressListener(new RestMultipartEntity.ProgressListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.19
+                        @Override // com.baidu.fsg.base.restnet.RestMultipartEntity.ProgressListener
+                        public void transferred(final long j, final long j2) {
+                            LogUtil.d("hello", "uploadvideo:   num: " + j + "  total:" + j2);
+                            LogUtil.d("hello", "progress:  " + ((int) ((((float) j) / ((float) j2)) * 100.0f)));
+                            LivenessVideoActivity.this.runOnUiThread(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.19.1
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    LivenessVideoActivity.this.r.updateProgress((int) ((((float) j) / ((float) j2)) * 100.0f));
+                                }
+                            });
+                        }
+                    });
+                    aVar.setResponseCallback(this);
+                    aVar.execBean();
+                }
+            } catch (Exception e3) {
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream = fileInputStream2;
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
             }
-            throw th;
+        } catch (Exception e6) {
+            fileInputStream2 = null;
+        } catch (Throwable th3) {
+            th = th3;
+            fileInputStream = null;
         }
     }
 
@@ -446,7 +449,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     private class a extends AsyncTask<Void, Void, String> {
         private a() {
         }
@@ -757,7 +760,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
     private void m() {
         RimStatisticsUtil.onEventStart(com.baidu.fsg.face.liveness.d.O);
         LogUtil.d("hello", "onEventStart(StatServiceEvent.FACEMATCH):  对比接口开始");
-        n nVar = (n) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 10, b);
+        n nVar = (n) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 10, f2251b);
         if (this.livenessRecogDTO != null) {
             nVar.a(this.livenessRecogDTO);
         }
@@ -1142,6 +1145,6 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
             this.j.release();
         }
         BeanManager.getInstance().removeAllBeans(c);
-        BeanManager.getInstance().removeAllBeans(b);
+        BeanManager.getInstance().removeAllBeans(f2251b);
     }
 }

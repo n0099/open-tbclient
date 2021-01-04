@@ -3,6 +3,7 @@ package com.baidu.fsg.face.liveness.beans;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.fsg.base.EnvConfig;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.beans.business.UploadBean;
@@ -17,19 +18,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class a extends UploadBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1712a;
-    private String b;
+    private String f2316a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2317b;
     private String c;
     private String d;
     private String e;
     private LivenessRecogDTO f;
 
     public void a(String str) {
-        this.f1712a = str;
+        this.f2316a = str;
     }
 
     public void b(String str) {
@@ -51,8 +54,8 @@ public class a extends UploadBean {
         if (this.f != null && this.files != null && this.files.get(0) != null && this.files.get(0).filedata != null) {
             setSpParameter(this.f.spParams);
             arrayList.add(new RestNameValuePair("processid", this.f.processid));
-            if (!TextUtils.isEmpty(this.b)) {
-                arrayList.add(new RestNameValuePair("image_callbackkey", this.b));
+            if (!TextUtils.isEmpty(this.f2317b)) {
+                arrayList.add(new RestNameValuePair("image_callbackkey", this.f2317b));
             }
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(this.files.get(0).filedata);
             arrayList.add(new RestNameValuePair("videomd5", Md5Utils.getMd5FromInputStream(byteArrayInputStream)));
@@ -85,13 +88,13 @@ public class a extends UploadBean {
                 arrayList.add(new RestNameValuePair("exuid", this.f.exUid));
             }
         }
-        arrayList.add(new RestNameValuePair("client", "android"));
+        arrayList.add(new RestNameValuePair("client", HttpConstants.OS_TYPE_VALUE));
         if (!TextUtils.isEmpty(this.d)) {
             arrayList.add(new RestNameValuePair("zid2", this.d));
         } else if (!TextUtils.isEmpty(this.c)) {
             arrayList.add(new RestNameValuePair("zid", this.c));
         }
-        if (!TextUtils.isEmpty(this.f1712a)) {
+        if (!TextUtils.isEmpty(this.f2316a)) {
             arrayList.add(new RestNameValuePair("audioStartTime", "0"));
         }
         if (!TextUtils.isEmpty(this.e)) {

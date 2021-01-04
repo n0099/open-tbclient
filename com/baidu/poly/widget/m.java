@@ -27,70 +27,70 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class m extends FrameLayout implements View.OnClickListener {
     private boolean G;
     private boolean H;
     private int I;
     private TextView S;
     private TextView U;
-    private a.b ciC;
-    private Bundle ciF;
-    private com.baidu.poly.widget.coupon.a cjX;
-    private View ckG;
-    private PolyFrameLayout ckH;
-    private TipView ckI;
-    private ViewGroup ckJ;
-    private ProgressButton ckK;
-    private o ckL;
-    private o[] ckM;
-    private l ckN;
-    private Animation ckO;
-    private Animation ckP;
-    private HostMarketView ckQ;
-    private View ckR;
-    private CouponEntranceView ckS;
-    private View ckT;
-    private View ckU;
-    private com.baidu.poly.widget.coupon.l ckV;
-    private Long ckW;
-    private Long ckX;
-    private com.baidu.poly.a.j.c ckY;
-    private com.baidu.poly.widget.c ckZ;
-    private com.baidu.poly.a.l.c ckt;
-    private Runnable ckv;
-    private String cla;
-    private boolean clb;
-    private boolean clc;
+    private a.b cpF;
+    private Bundle cpI;
+    private View crJ;
+    private PolyFrameLayout crK;
+    private TipView crL;
+    private ViewGroup crM;
+    private ProgressButton crN;
+    private o crO;
+    private o[] crP;
+    private l crQ;
+    private Animation crR;
+    private Animation crS;
+    private HostMarketView crT;
+    private View crU;
+    private CouponEntranceView crV;
+    private View crW;
+    private View crX;
+    private com.baidu.poly.widget.coupon.l crY;
+    private Long crZ;
+    private com.baidu.poly.widget.coupon.a cra;
+    private com.baidu.poly.a.l.c crw;
+    private Runnable cry;
+    private Long csa;
+    private com.baidu.poly.a.j.c csb;
+    private com.baidu.poly.widget.c csc;
+    private String csd;
+    private boolean cse;
+    private boolean csf;
     private boolean la;
     private boolean ma;
     private String qa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class a implements com.baidu.poly.a.k.a {
-        final /* synthetic */ com.baidu.poly.a.k.a cii;
+        final /* synthetic */ com.baidu.poly.a.k.a cpk;
 
         a(com.baidu.poly.a.k.a aVar) {
-            this.cii = aVar;
+            this.cpk = aVar;
         }
 
         @Override // com.baidu.poly.a.k.a
         public void a(a.C0318a c0318a) {
             if (c0318a.statusCode == 0) {
-                m.this.ckW = Long.valueOf(c0318a.cig);
-                m.this.adZ();
-                if (m.this.ckL != null && m.this.ckL.P() == 1) {
-                    m.this.ckL.l(c0318a.cih);
+                m.this.crZ = Long.valueOf(c0318a.cpi);
+                m.this.afU();
+                if (m.this.crO != null && m.this.crO.P() == 1) {
+                    m.this.crO.l(c0318a.cpj);
                 }
             }
-            this.cii.a(c0318a);
-            m.this.ckS.h();
+            this.cpk.a(c0318a);
+            m.this.crV.h();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class b extends com.baidu.poly.a.a.a<JSONObject> {
         b() {
         }
@@ -98,7 +98,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         public void a(JSONObject jSONObject) {
-            m.this.ckW = Long.valueOf(jSONObject.optLong("payMoney"));
+            m.this.crZ = Long.valueOf(jSONObject.optLong("payMoney"));
             JSONArray optJSONArray = jSONObject.optJSONArray("payChannels");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 o[] oVarArr = new o[optJSONArray.length()];
@@ -109,38 +109,38 @@ public class m extends FrameLayout implements View.OnClickListener {
                     }
                     oVarArr[i] = oVar;
                 }
-                m.this.ckM = oVarArr;
-                m.this.cjX = new com.baidu.poly.widget.coupon.a(jSONObject.optJSONArray("coupons"));
-                m.this.ckS.a(m.this.cjX);
-                if (m.this.ckV != null) {
-                    m.this.ckV.a(m.this.cjX.cka);
+                m.this.crP = oVarArr;
+                m.this.cra = new com.baidu.poly.widget.coupon.a(jSONObject.optJSONArray("coupons"));
+                m.this.crV.a(m.this.cra);
+                if (m.this.crY != null) {
+                    m.this.crY.a(m.this.cra.cre);
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("marketChannels");
                 if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    m.this.ckL = new o(optJSONArray2.optJSONObject(0));
+                    m.this.crO = new o(optJSONArray2.optJSONObject(0));
                 }
                 com.baidu.poly.a.h.a.j("7");
-                if (m.this.ckM.length != 1 || m.this.ckS.getVisibility() != 8 || m.this.ckL != null || m.this.ckM[0] == null) {
-                    m.this.adZ();
-                    if (m.this.ckL != null || m.this.ckS.getVisibility() != 8) {
-                        m.this.ckR.setVisibility(0);
+                if (m.this.crP.length != 1 || m.this.crV.getVisibility() != 8 || m.this.crO != null || m.this.crP[0] == null) {
+                    m.this.afU();
+                    if (m.this.crO != null || m.this.crV.getVisibility() != 8) {
+                        m.this.crU.setVisibility(0);
                     } else {
-                        m.this.ckR.setVisibility(8);
+                        m.this.crU.setVisibility(8);
                     }
-                    m.this.adY();
+                    m.this.afT();
                     m mVar = m.this;
-                    mVar.b(mVar.a(mVar.ckM));
-                    m.this.ckI.j();
-                    m.this.adW();
-                    m.this.clc = true;
-                    m.this.aeb();
+                    mVar.b(mVar.a(mVar.crP));
+                    m.this.crL.j();
+                    m.this.afR();
+                    m.this.csf = true;
+                    m.this.afW();
                     return;
                 }
-                m.this.clc = true;
-                m.this.aeb();
-                m.this.ckI.b(m.this.ckM[0].Q(), "即将进入" + m.this.ckM[0].getDisplayName() + "…");
+                m.this.csf = true;
+                m.this.afW();
+                m.this.crL.b(m.this.crP[0].Q(), "即将进入" + m.this.crP[0].getDisplayName() + "…");
                 m mVar2 = m.this;
-                mVar2.b(mVar2.ckM[0]);
+                mVar2.b(mVar2.crP[0]);
                 return;
             }
             com.baidu.poly.a.h.a.a("7", null, null);
@@ -149,37 +149,37 @@ public class m extends FrameLayout implements View.OnClickListener {
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            if (m.this.ckM == null) {
+            if (m.this.crP == null) {
                 m mVar = m.this;
                 mVar.n(mVar.getResources().getString(b.g.common_error_tips));
                 m.this.onResult(3, "request channel list fail");
                 m.this.detach();
-                com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("1").kb(new com.baidu.poly.a.i.a("gatewaylist error --> " + str, th).U()));
+                com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("1").jX(new com.baidu.poly.a.i.a("gatewaylist error --> " + str, th).U()));
             }
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     class c implements Runnable {
         c() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            m.this.adX();
+            m.this.afS();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class d implements Animation.AnimationListener {
         d() {
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            m.this.clb = true;
-            m.this.aeb();
+            m.this.cse = true;
+            m.this.afW();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -192,23 +192,23 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class e implements HostMarketView.a {
         e() {
         }
 
         @Override // com.baidu.poly.widget.hostmarket.HostMarketView.a
         public void a(boolean z, o oVar, com.baidu.poly.a.k.a aVar) {
-            m.this.ckH.a(true);
+            m.this.crK.a(true);
             m mVar = m.this;
-            mVar.postDelayed(mVar.ckv, 500L);
+            mVar.postDelayed(mVar.cry, 500L);
             if (oVar != null) {
                 ArrayList arrayList = new ArrayList();
                 if (z) {
                     arrayList.add(oVar.O());
                 }
-                if (m.this.ckS.getSelectedItem() != null) {
-                    arrayList.add(m.this.ckS.getSelectedItem().ckf);
+                if (m.this.crV.getSelectedItem() != null) {
+                    arrayList.add(m.this.crV.getSelectedItem().crj);
                 }
                 m.this.a(arrayList, aVar);
             }
@@ -216,15 +216,15 @@ public class m extends FrameLayout implements View.OnClickListener {
 
         @Override // com.baidu.poly.widget.hostmarket.HostMarketView.a
         public void b(a.C0318a c0318a) {
-            m.this.ckH.a(false);
+            m.this.crK.a(false);
             m mVar = m.this;
-            mVar.removeCallbacks(mVar.ckv);
+            mVar.removeCallbacks(mVar.cry);
             m.this.e();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class f implements Runnable {
         f() {
         }
@@ -233,14 +233,14 @@ public class m extends FrameLayout implements View.OnClickListener {
         public void run() {
             if (m.this.getParent() instanceof ViewGroup) {
                 m mVar = m.this;
-                mVar.startAnimation(mVar.ckP);
+                mVar.startAnimation(mVar.crS);
                 ((ViewGroup) m.this.getParent()).removeView(m.this);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class g implements Runnable {
         g() {
         }
@@ -252,22 +252,22 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class h implements View.OnClickListener {
         h() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (m.this.ckZ == null || !m.this.ckZ.isShowing()) {
+            if (m.this.csc == null || !m.this.csc.isShowing()) {
                 return;
             }
-            m.this.ckZ.dismiss();
+            m.this.csc.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class i implements c.b {
         i() {
         }
@@ -279,29 +279,29 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class j implements a.InterfaceC0323a {
-        final /* synthetic */ o[] ckE;
-        final /* synthetic */ o ckF;
+        final /* synthetic */ o[] crH;
+        final /* synthetic */ o crI;
 
         j(o[] oVarArr, o oVar) {
-            this.ckE = oVarArr;
-            this.ckF = oVar;
+            this.crH = oVarArr;
+            this.crI = oVar;
         }
 
         @Override // com.baidu.poly.widget.a.InterfaceC0323a
         public void a() {
-            o[] oVarArr = this.ckE;
+            o[] oVarArr = this.crH;
             int length = oVarArr.length;
             for (int i = 0; i < length; i++) {
                 o oVar = oVarArr[i];
-                oVar.i(oVar == this.ckF ? 1 : 0);
+                oVar.i(oVar == this.crI ? 1 : 0);
             }
-            m.this.b(this.ckE);
+            m.this.b(this.crH);
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public interface l {
         void onClose();
     }
@@ -310,130 +310,130 @@ public class m extends FrameLayout implements View.OnClickListener {
         super(polyActivity);
         this.la = true;
         this.ma = false;
-        this.ckv = new c();
-        this.clb = false;
-        this.clc = false;
-        adV();
+        this.cry = new c();
+        this.cse = false;
+        this.csf = false;
+        afQ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aa() {
-        com.baidu.poly.widget.c cVar = this.ckZ;
+        com.baidu.poly.widget.c cVar = this.csc;
         boolean z = ((cVar != null && cVar.isShowing()) || this.H || this.G) ? false : true;
-        if ((!TextUtils.isEmpty(this.cla) && (TextUtils.equals(this.cla, "BAIDU-ALIPAY-WISE") || TextUtils.equals(this.cla, "BAIDU-ALIPAY-WISE-HUABEI-PAY"))) || this.ma) {
+        if ((!TextUtils.isEmpty(this.csd) && (TextUtils.equals(this.csd, "BAIDU-ALIPAY-WISE") || TextUtils.equals(this.csd, "BAIDU-ALIPAY-WISE-HUABEI-PAY"))) || this.ma) {
             com.baidu.poly.util.d.info("ChannelListView->confirmViewClose() ali pay channel");
             z &= this.la;
         }
         com.baidu.poly.util.d.info("ChannelListView->confirmViewClose() canFinishActivity = " + z);
-        if (!z || this.ckN == null) {
+        if (!z || this.crQ == null) {
             return;
         }
         com.baidu.poly.util.d.info("ChannelListView->confirmViewClose() finish activity");
-        this.ckN.onClose();
-        this.ckN = null;
+        this.crQ.onClose();
+        this.crQ = null;
     }
 
-    private void adV() {
-        this.ckO = AnimationUtils.loadAnimation(getContext(), b.a.slide_in_bottom);
-        this.ckP = AnimationUtils.loadAnimation(getContext(), b.a.slide_out_bottom);
+    private void afQ() {
+        this.crR = AnimationUtils.loadAnimation(getContext(), b.a.slide_in_bottom);
+        this.crS = AnimationUtils.loadAnimation(getContext(), b.a.slide_out_bottom);
         LayoutInflater.from(getContext()).inflate(b.f.view_channel_list, this);
-        this.ckG = findViewById(b.e.bg_view);
-        this.ckH = (PolyFrameLayout) findViewById(b.e.popup_view);
-        this.ckT = findViewById(b.e.pay_money_layout);
-        this.ckU = findViewById(b.e.channel_list_scroll_view);
-        this.ckI = (TipView) findViewById(b.e.tip_view);
-        this.ckJ = (ViewGroup) findViewById(b.e.channel_list_view);
-        this.ckK = (ProgressButton) findViewById(b.e.pay_button);
-        this.ckR = findViewById(b.e.line);
+        this.crJ = findViewById(b.e.bg_view);
+        this.crK = (PolyFrameLayout) findViewById(b.e.popup_view);
+        this.crW = findViewById(b.e.pay_money_layout);
+        this.crX = findViewById(b.e.channel_list_scroll_view);
+        this.crL = (TipView) findViewById(b.e.tip_view);
+        this.crM = (ViewGroup) findViewById(b.e.channel_list_view);
+        this.crN = (ProgressButton) findViewById(b.e.pay_button);
+        this.crU = findViewById(b.e.line);
         findViewById(b.e.close_button).setOnClickListener(this);
-        this.ckK.setOnClickListener(this);
-        this.ckQ = (HostMarketView) findViewById(b.e.hostmarket);
-        this.ckS = (CouponEntranceView) findViewById(b.e.coupon);
-        this.ckS.setOnClickListener(this);
+        this.crN.setOnClickListener(this);
+        this.crT = (HostMarketView) findViewById(b.e.hostmarket);
+        this.crV = (CouponEntranceView) findViewById(b.e.coupon);
+        this.crV.setOnClickListener(this);
         this.S = (TextView) findViewById(b.e.money);
         this.U = (TextView) findViewById(b.e.cut);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adW() {
+    public void afR() {
         if (this.I <= 0) {
-            this.ckK.setVisibility(4);
+            this.crN.setVisibility(4);
             return;
         }
-        this.ckK.setVisibility(0);
-        this.ckK.setEnable(true);
+        this.crN.setVisibility(0);
+        this.crN.setEnable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adX() {
+    public void afS() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        this.ckt = com.baidu.poly.a.l.a.a(this.ckH, layoutParams, "加载中", -1L);
+        this.crw = com.baidu.poly.a.l.a.a(this.crK, layoutParams, "加载中", -1L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adY() {
-        this.ckQ.a(this.ckL);
-        this.ckQ.setListener(new e());
+    public void afT() {
+        this.crT.a(this.crO);
+        this.crT.setListener(new e());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adZ() {
+    public void afU() {
         Long l2;
-        Long l3 = this.ckX;
-        if (l3 != null && (l2 = this.ckW) != null) {
+        Long l3 = this.csa;
+        if (l3 != null && (l2 = this.crZ) != null) {
             if (l3.equals(l2)) {
-                this.S.setText(a(this.ckW.longValue()));
+                this.S.setText(a(this.crZ.longValue()));
                 this.U.setVisibility(8);
             } else {
                 this.U.setVisibility(0);
-                this.S.setText(a(this.ckW.longValue()));
-                this.U.setText(" ¥" + a(this.ckX.longValue()));
+                this.S.setText(a(this.crZ.longValue()));
+                this.U.setText(" ¥" + a(this.csa.longValue()));
             }
-            if (this.ckT.getVisibility() != 0) {
-                this.ckT.setVisibility(0);
+            if (this.crW.getVisibility() != 0) {
+                this.crW.setVisibility(0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aea() {
-        com.baidu.poly.a.b.b.adr().a(this.ciF, new b());
+    public void afV() {
+        com.baidu.poly.a.b.b.afn().a(this.cpI, new b());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aeb() {
-        if (this.clb && this.clc) {
+    public void afW() {
+        if (this.cse && this.csf) {
             com.baidu.poly.a.h.a.F();
         }
     }
 
     private void da() {
         List<a.C0325a> list;
-        com.baidu.poly.widget.coupon.a aVar = this.cjX;
-        if (aVar != null && (list = aVar.cka) != null && list.size() > 0) {
-            this.ckV = new com.baidu.poly.widget.coupon.l(getContext());
-            this.ckV.a(this.ckH.getMeasuredHeight());
-            this.ckV.setListener(new k());
-            this.ckV.a(this.cjX.cka);
-            this.ckV.a(this.ckH);
+        com.baidu.poly.widget.coupon.a aVar = this.cra;
+        if (aVar != null && (list = aVar.cre) != null && list.size() > 0) {
+            this.crY = new com.baidu.poly.widget.coupon.l(getContext());
+            this.crY.a(this.crK.getMeasuredHeight());
+            this.crY.setListener(new k());
+            this.crY.a(this.cra.cre);
+            this.crY.a(this.crK);
         }
     }
 
     private void ha() {
-        this.ckG.setVisibility(0);
-        this.ckH.setVisibility(0);
-        this.ckG.setAlpha(0.0f);
-        this.ckG.animate().alpha(0.65f).setDuration(240L).start();
-        this.ckH.startAnimation(this.ckO);
-        this.ckO.setAnimationListener(new d());
-        adW();
+        this.crJ.setVisibility(0);
+        this.crK.setVisibility(0);
+        this.crJ.setAlpha(0.0f);
+        this.crJ.animate().alpha(0.65f).setDuration(240L).start();
+        this.crK.startAnimation(this.crR);
+        this.crR.setAnimationListener(new d());
+        afR();
     }
 
     public void detach() {
         if (this.G) {
             this.G = false;
-            this.ckG.animate().alpha(0.0f).setDuration(240L).start();
+            this.crJ.animate().alpha(0.0f).setDuration(240L).start();
             postDelayed(new f(), 240L);
             postDelayed(new g(), 480L);
         }
@@ -445,7 +445,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     public boolean onBackPressed() {
-        com.baidu.poly.widget.coupon.l lVar = this.ckV;
+        com.baidu.poly.widget.coupon.l lVar = this.crY;
         if (lVar != null) {
             lVar.onBackPressed();
             return true;
@@ -470,10 +470,10 @@ public class m extends FrameLayout implements View.OnClickListener {
             com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("6"));
         } else if (view.getId() == b.e.pay_button) {
             if (this.I != 0) {
-                this.ckK.startLoading();
+                this.crN.startLoading();
                 this.H = true;
                 this.la = false;
-                o[] oVarArr = this.ckM;
+                o[] oVarArr = this.crP;
                 int length = oVarArr.length;
                 int i2 = 0;
                 while (true) {
@@ -500,10 +500,10 @@ public class m extends FrameLayout implements View.OnClickListener {
     public void onResult(int i2, String str) {
         com.baidu.poly.util.d.info("ChannelListView->onResult() statusCode = " + i2 + " result = " + str);
         this.la = true;
-        a.b bVar = this.ciC;
+        a.b bVar = this.cpF;
         if (bVar != null) {
             bVar.onResult(i2, str);
-            this.ciC = null;
+            this.cpF = null;
         }
         com.baidu.poly.a.h.d.b(i2, str);
         if (((PolyActivity) getContext()).isFinishing()) {
@@ -513,7 +513,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     public void setCloseListener(l lVar) {
-        this.ckN = lVar;
+        this.crQ = lVar;
     }
 
     public void setIsPreparePaying(boolean z) {
@@ -523,11 +523,11 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     public void setResultListener(a.b bVar) {
-        this.ciC = bVar;
+        this.cpF = bVar;
     }
 
     public void setWalletList(com.baidu.poly.a.j.c cVar) {
-        this.ckY = cVar;
+        this.csb = cVar;
     }
 
     public void setWechatH5Pay(boolean z) {
@@ -539,22 +539,22 @@ public class m extends FrameLayout implements View.OnClickListener {
         if (TextUtils.isEmpty(str)) {
             str = getResources().getString(b.g.common_error_tips);
         }
-        if (this.ckZ == null) {
-            View inflate = View.inflate(this.ckJ.getContext(), b.f.default_pop_window, null);
+        if (this.csc == null) {
+            View inflate = View.inflate(this.crM.getContext(), b.f.default_pop_window, null);
             ((TextView) inflate.findViewById(b.e.pop_title)).setText("支付失败");
             ((TextView) inflate.findViewById(b.e.pop_tips)).setText(str.trim());
-            this.ckZ = new com.baidu.poly.widget.c(inflate, -1, -1, true);
-            this.ckZ.setClippingEnabled(false);
-            this.ckZ.setOutsideTouchable(false);
-            this.ckZ.setBackgroundDrawable(new ColorDrawable(0));
+            this.csc = new com.baidu.poly.widget.c(inflate, -1, -1, true);
+            this.csc.ei(false);
+            this.csc.eh(false);
+            this.csc.setBackgroundDrawable(new ColorDrawable(0));
             ((TextView) inflate.findViewById(b.e.pop_button)).setOnClickListener(new h());
-            this.ckZ.a(new i());
+            this.csc.a(new i());
         }
         PolyActivity polyActivity = (PolyActivity) getContext();
         if (polyActivity.isFinishing()) {
             return;
         }
-        this.ckZ.showAtLocation(polyActivity.getWindow().getDecorView(), 0, 0, 0);
+        this.csc.showAtLocation(polyActivity.getWindow().getDecorView(), 0, 0, 0);
     }
 
     private void o(String str) {
@@ -564,16 +564,16 @@ public class m extends FrameLayout implements View.OnClickListener {
             jSONObject.put("selected", str);
         } catch (JSONException e2) {
         }
-        com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("5").ap(jSONObject));
+        com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("5").ax(jSONObject));
     }
 
-    public m aec() {
+    public m afX() {
         if (!this.G) {
             this.G = true;
             if (!(getContext() instanceof Activity)) {
                 throw new IllegalStateException("can not attach to context " + getContext());
             }
-            this.ckI.a("收银台加载中...");
+            this.crL.a("收银台加载中...");
             com.baidu.poly.util.d.info("ChannelListView->attach()");
             ha();
         }
@@ -581,40 +581,40 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     public void e() {
-        com.baidu.poly.a.l.a.a(this.ckt);
-        this.ckt = null;
+        com.baidu.poly.a.l.a.a(this.crw);
+        this.crw = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class k implements l.h {
         k() {
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
         public void b() {
-            m.this.aea();
+            m.this.afV();
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
         public void d() {
-            if (m.this.ckV != null) {
-                m.this.ckV.b(m.this.ckH);
+            if (m.this.crY != null) {
+                m.this.crY.b(m.this.crK);
             }
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
         public void onDetach() {
-            m.this.ckV = null;
+            m.this.crY = null;
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
         public void a(a.C0325a c0325a, com.baidu.poly.a.k.a aVar) {
             if (c0325a != null) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(c0325a.ckf);
-                if (m.this.ckL != null && m.this.ckL.P() == 1) {
-                    arrayList.add(m.this.ckL.O());
+                arrayList.add(c0325a.crj);
+                if (m.this.crO != null && m.this.crO.P() == 1) {
+                    arrayList.add(m.this.crO.O());
                 }
                 m.this.a(arrayList, aVar);
             }
@@ -623,13 +623,13 @@ public class m extends FrameLayout implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(o[] oVarArr) {
-        this.ckU.setMinimumHeight(0);
+        this.crX.setMinimumHeight(0);
         if (oVarArr != null) {
-            this.ckJ.removeAllViews();
+            this.crM.removeAllViews();
             for (o oVar : oVarArr) {
                 com.baidu.poly.widget.a aVar = new com.baidu.poly.widget.a(getContext());
                 aVar.a(oVar, new j(oVarArr, oVar));
-                this.ckJ.addView(aVar);
+                this.crM.addView(aVar);
             }
         }
     }
@@ -668,16 +668,16 @@ public class m extends FrameLayout implements View.OnClickListener {
             try {
                 String string = bundle.getString("totalAmount");
                 if (TextUtils.isEmpty(string)) {
-                    this.ckX = -1L;
+                    this.csa = -1L;
                 } else {
-                    this.ckX = Long.valueOf(Long.parseLong(string));
+                    this.csa = Long.valueOf(Long.parseLong(string));
                 }
             } catch (Exception e2) {
                 com.baidu.poly.util.d.info("totalAmount is not long");
             }
         }
-        this.ciF = bundle;
-        aea();
+        this.cpI = bundle;
+        afV();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -686,34 +686,34 @@ public class m extends FrameLayout implements View.OnClickListener {
             com.baidu.poly.a.h.a.d(Long.valueOf(System.currentTimeMillis()));
             JSONArray jSONArray = new JSONArray();
             try {
-                if (this.ckL != null && this.ckL.P() == 1 && !TextUtils.isEmpty(this.ckL.O())) {
-                    jSONArray.put(new JSONObject(this.ckL.O()));
+                if (this.crO != null && this.crO.P() == 1 && !TextUtils.isEmpty(this.crO.O())) {
+                    jSONArray.put(new JSONObject(this.crO.O()));
                 }
-                if (this.ckS.getSelectedItem() != null && !TextUtils.isEmpty(this.ckS.getSelectedItem().ckf)) {
-                    jSONArray.put(new JSONObject(this.ckS.getSelectedItem().ckf));
+                if (this.crV.getSelectedItem() != null && !TextUtils.isEmpty(this.crV.getSelectedItem().crj)) {
+                    jSONArray.put(new JSONObject(this.crV.getSelectedItem().crj));
                 }
             } catch (Exception e2) {
             }
             if (jSONArray.length() > 0) {
-                this.ciF.putString("hostMarketingDetail", jSONArray.toString());
+                this.cpI.putString("hostMarketingDetail", jSONArray.toString());
             }
-            if (this.ckY != null) {
-                this.cla = oVar.R();
-                this.ckY.b(this.ciF, oVar.R(), this);
+            if (this.csb != null) {
+                this.csd = oVar.R();
+                this.csb.b(this.cpI, oVar.R(), this);
             }
         }
     }
 
     public void c(Bundle bundle, String str) {
-        this.cla = str;
-        if (this.ckY != null) {
+        this.csd = str;
+        if (this.csb != null) {
             this.H = true;
             this.la = false;
             com.baidu.poly.a.h.a.d(Long.valueOf(System.currentTimeMillis()));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            this.ckt = com.baidu.poly.a.l.a.a(this, layoutParams, getResources().getString(b.g.poly_fast_pay_loading), -1L);
-            this.ckY.b(bundle, str, this);
+            this.crw = com.baidu.poly.a.l.a.a(this, layoutParams, getResources().getString(b.g.poly_fast_pay_loading), -1L);
+            this.csb.b(bundle, str, this);
         }
     }
 
@@ -740,7 +740,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         if (aVar == null) {
             return;
         }
-        com.baidu.poly.a.k.b.a(this.ciF.getString("bduss"), this.ciF.getString("appKey"), this.ckX + "", list, new a(aVar));
+        com.baidu.poly.a.k.b.a(this.cpI.getString("bduss"), this.cpI.getString("appKey"), this.csa + "", list, new a(aVar));
     }
 
     private String a(long j2) {

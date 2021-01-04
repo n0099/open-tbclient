@@ -1,24 +1,22 @@
 package com.facebook.c;
-
-import com.baidu.android.util.media.WebpUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class b {
-    public static final c piU = new c("JPEG", "jpeg");
-    public static final c piV = new c("PNG", "png");
-    public static final c piW = new c("GIF", "gif");
-    public static final c piX = new c("BMP", "bmp");
-    public static final c piY = new c("WEBP_SIMPLE", WebpUtils.TYPE_IMG_WEBP);
-    public static final c piZ = new c("WEBP_LOSSLESS", WebpUtils.TYPE_IMG_WEBP);
-    public static final c pja = new c("WEBP_EXTENDED", WebpUtils.TYPE_IMG_WEBP);
-    public static final c pjb = new c("WEBP_EXTENDED_WITH_ALPHA", WebpUtils.TYPE_IMG_WEBP);
-    public static final c pjc = new c("WEBP_ANIMATED", WebpUtils.TYPE_IMG_WEBP);
-    public static final c pjd = new c("HEIF", "heif");
+    public static final c pyV = new c("JPEG", "jpeg");
+    public static final c pyW = new c("PNG", "png");
+    public static final c pyX = new c("GIF", "gif");
+    public static final c pyY = new c("BMP", "bmp");
+    public static final c pyZ = new c("WEBP_SIMPLE", "webp");
+    public static final c pza = new c("WEBP_LOSSLESS", "webp");
+    public static final c pzb = new c("WEBP_EXTENDED", "webp");
+    public static final c pzc = new c("WEBP_EXTENDED_WITH_ALPHA", "webp");
+    public static final c pzd = new c("WEBP_ANIMATED", "webp");
+    public static final c pze = new c("HEIF", "heif");
 
     public static boolean a(c cVar) {
-        return b(cVar) || cVar == pjc;
+        return b(cVar) || cVar == pzd;
     }
 
     public static boolean b(c cVar) {
-        return cVar == piY || cVar == piZ || cVar == pja || cVar == pjb;
+        return cVar == pyZ || cVar == pza || cVar == pzb || cVar == pzc;
     }
 }

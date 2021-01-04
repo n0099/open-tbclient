@@ -1,24 +1,24 @@
 package com.baidu.live.liveroom.middleware;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class k {
-    private f bqN;
+    private f bsH;
 
-    public static k Po() {
-        return a.bqO;
+    public static k Pc() {
+        return a.bsI;
     }
 
     private k() {
     }
 
-    public com.baidu.live.liveroom.middleware.a Pp() {
-        if (this.bqN == null) {
+    public com.baidu.live.liveroom.middleware.a Pd() {
+        if (this.bsH == null) {
             throw new RuntimeException("IMasterMiddleWareControllerBuilder must not be null! should invoke MasterMiddleWareControllerManager.init() first~");
         }
-        return this.bqN.Pl();
+        return this.bsH.OZ();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        private static final k bqO = new k();
+        private static final k bsI = new k();
     }
 }

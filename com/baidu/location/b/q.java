@@ -2,43 +2,49 @@ package com.baidu.location.b;
 
 import android.annotation.TargetApi;
 import android.location.GnssNavigationMessage;
-import android.support.media.ExifInterface;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
+import com.kwad.sdk.core.response.model.SdkConfigData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final double[] f1908a = {1999.0d, 8.0d, 22.0d, 0.0d, 0.0d, 0.0d};
-    private HashMap<String, c> b = new HashMap<>();
+    private static final double[] f2650a = {1999.0d, 8.0d, 22.0d, 0.0d, 0.0d, 0.0d};
+
+    /* renamed from: b  reason: collision with root package name */
+    private HashMap<String, c> f2651b = new HashMap<>();
     private HashMap<String, String> c = new HashMap<>();
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static q f1909a = new q();
+        private static q f2652a = new q();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        int f1910a = 0;
-        double b = 0.0d;
+        int f2653a = 0;
+
+        /* renamed from: b  reason: collision with root package name */
+        double f2654b = 0.0d;
 
         public b() {
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     private class c {
-        private boolean b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private boolean f2656b;
         private boolean c;
         private long d;
         private int e;
@@ -62,10 +68,10 @@ public class q {
         }
 
         private b a(int i, double d) {
-            b a2 = a(q.f1908a);
+            b a2 = a(q.f2650a);
             d = (d < -1.0E9d || 1.0E9d < d) ? 0.0d : 0.0d;
-            a2.f1910a += (604800 * i) + ((int) d);
-            a2.b = d - ((int) d);
+            a2.f2653a += (604800 * i) + ((int) d);
+            a2.f2654b = d - ((int) d);
             return a2;
         }
 
@@ -84,8 +90,8 @@ public class q {
                 i = 0;
             }
             int floor = (int) Math.floor(dArr[5]);
-            bVar.f1910a = ((i + i5) * 86400) + (((int) dArr[3]) * 3600) + (((int) dArr[4]) * 60) + floor;
-            bVar.b = dArr[5] - floor;
+            bVar.f2653a = ((i + i5) * 86400) + (((int) dArr[3]) * SdkConfigData.DEFAULT_REQUEST_INTERVAL) + (((int) dArr[4]) * 60) + floor;
+            bVar.f2654b = dArr[5] - floor;
             return bVar;
         }
 
@@ -152,7 +158,7 @@ public class q {
             }
             this.e = i;
             this.f = i2;
-            this.b = false;
+            this.f2656b = false;
             this.c = false;
             this.d = 0L;
         }
@@ -164,7 +170,7 @@ public class q {
             int svid = gnssNavigationMessage.getSvid();
             int submessageId = gnssNavigationMessage.getSubmessageId();
             byte[] data = gnssNavigationMessage.getData();
-            if (j - this.d > 1200 || this.b || this.g.size() == 0 || type != this.f || svid != this.e) {
+            if (j - this.d > 1200 || this.f2656b || this.g.size() == 0 || type != this.f || svid != this.e) {
                 a(svid, type);
             }
             if (this.g.size() == 0) {
@@ -174,13 +180,13 @@ public class q {
             if (i < this.g.size()) {
                 StringBuilder sb = new StringBuilder();
                 boolean z = true;
-                for (byte b : data) {
+                for (byte b2 : data) {
                     if (z) {
                         z = false;
                     } else {
                         sb.append(',');
                     }
-                    sb.append((int) b);
+                    sb.append((int) b2);
                 }
                 this.g.set(i, sb.toString());
                 if (this.f == 1537) {
@@ -214,28 +220,23 @@ public class q {
 
         /* JADX INFO: Access modifiers changed from: private */
         public String b() {
-            boolean z;
             StringBuilder sb = new StringBuilder();
             if (this.c) {
                 if (this.f == 1537) {
                     c();
                 }
-                sb.append(this.m.f1910a);
+                sb.append(this.m.f2653a);
                 sb.append('|');
-                int i = 0;
-                boolean z2 = true;
-                while (i < this.g.size()) {
-                    if (z2) {
+                boolean z = true;
+                for (int i = 0; i < this.g.size(); i++) {
+                    if (z) {
                         z = false;
                     } else {
                         sb.append(',');
-                        z = z2;
                     }
                     sb.append(this.g.get(i));
-                    i++;
-                    z2 = z;
                 }
-                this.b = true;
+                this.f2656b = true;
                 return sb.toString();
             }
             return sb.toString();
@@ -249,7 +250,7 @@ public class q {
         private void c() {
             b a2;
             b a3 = a(this.h, this.i);
-            double d = ((a2.f1910a - a3.f1910a) + a(this.h, this.j).b) - a3.b;
+            double d = ((a2.f2653a - a3.f2653a) + a(this.h, this.j).f2654b) - a3.f2654b;
             if (d > 302400.0d) {
                 this.h--;
             } else if (d < -302400.0d) {
@@ -269,7 +270,7 @@ public class q {
     }
 
     public static q a() {
-        return a.f1909a;
+        return a.f2652a;
     }
 
     @TargetApi(24)
@@ -291,25 +292,25 @@ public class q {
                 str = "CT";
                 break;
             case 1537:
-                str = ExifInterface.LONGITUDE_EAST;
+                str = "E";
                 break;
             default:
                 str = "none";
                 break;
         }
         String str2 = str + svid;
-        if (str2.contains("none") || this.b == null) {
+        if (str2.contains("none") || this.f2651b == null) {
             return;
         }
-        if (!this.b.containsKey(str2)) {
-            this.b.put(str2, new c(svid, type));
+        if (!this.f2651b.containsKey(str2)) {
+            this.f2651b.put(str2, new c(svid, type));
         }
-        this.b.get(str2).a(gnssNavigationMessage, j);
+        this.f2651b.get(str2).a(gnssNavigationMessage, j);
     }
 
     public ArrayList<String> b() {
         ArrayList<String> arrayList = new ArrayList<>();
-        for (Map.Entry<String, c> entry : this.b.entrySet()) {
+        for (Map.Entry<String, c> entry : this.f2651b.entrySet()) {
             String key = entry.getKey();
             c value = entry.getValue();
             String b2 = value.b();

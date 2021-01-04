@@ -8,10 +8,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.c;
+import com.baidu.adp.widget.ListView.b;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
-public class NormalSkinPbListView extends c {
+/* loaded from: classes10.dex */
+public class NormalSkinPbListView extends b {
     private ImageView lineView;
     private LinearLayout mContainer;
     private Context mContext;
@@ -23,13 +23,13 @@ public class NormalSkinPbListView extends c {
     private TextView mTextView;
     private LinearLayout mTopExtraView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public enum IconType {
         ICON_DOWN_WARD,
         ICON_UP_WARD
     }
 
-    @Override // com.baidu.adp.widget.ListView.c
+    @Override // com.baidu.adp.widget.ListView.b
     public View createView() {
         this.mRoot = LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.mContainer = (LinearLayout) this.mRoot.findViewById(R.id.pb_more_view);
@@ -46,7 +46,7 @@ public class NormalSkinPbListView extends c {
         return this.mRoot;
     }
 
-    @Override // com.baidu.adp.widget.ListView.c
+    @Override // com.baidu.adp.widget.ListView.b
     public void onClick() {
         if (this.mOnClickListener != null) {
             this.mOnClickListener.onClick(this.mRoot);

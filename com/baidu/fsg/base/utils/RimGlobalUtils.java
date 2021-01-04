@@ -14,21 +14,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.fsg.base.activity.BaseActivity;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class RimGlobalUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1529a;
+    private static String f2049a;
 
     private RimGlobalUtils() {
     }
 
     public static String getMsg() {
-        return f1529a;
+        return f2049a;
     }
 
     public static void setMsg(String str) {
-        f1529a = str;
+        f2049a = str;
     }
 
     public static void hideKeyboard(Activity activity) {
@@ -75,7 +75,7 @@ public final class RimGlobalUtils {
     }
 
     public static void safeShowDialog(BaseActivity baseActivity, int i, String str) {
-        f1529a = str;
+        f2049a = str;
         try {
             baseActivity.getActivity().showDialog(i);
         } catch (Exception e) {

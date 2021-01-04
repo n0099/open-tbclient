@@ -8,7 +8,7 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableThrottleFirstTimed<T> extends a<T, T> {
     final v scheduler;
     final long timeout;
@@ -16,10 +16,10 @@ public final class FlowableThrottleFirstTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pFi.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.eCW()));
+        this.qgK.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.eLe()));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class DebounceTimedSubscriber<T> extends AtomicLong implements j<T>, Runnable, d {
         private static final long serialVersionUID = -9102637559663639004L;
         final org.a.c<? super T> actual;

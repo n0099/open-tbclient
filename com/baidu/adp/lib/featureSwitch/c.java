@@ -6,91 +6,91 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    public static String LX = "_crashtime";
-    public static String LY = "_crashtype";
-    private int LZ;
-    private int Ma;
-    private b Mb;
+    public static String Ls = "_crashtime";
+    public static String Lt = "_crashtype";
+    private int Lu;
+    private int Lv;
+    private b Lw;
 
     public c(b bVar) {
-        this.LZ = 0;
-        this.Ma = 0;
-        this.Mb = null;
+        this.Lu = 0;
+        this.Lv = 0;
+        this.Lw = null;
         if (bVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.Mb = bVar;
-        if (this.Mb.getMaxCrashTimes() > 0 && this.Mb.me() != null) {
-            this.LZ = mh();
-            if (this.LZ == -1) {
+        this.Lw = bVar;
+        if (this.Lw.getMaxCrashTimes() > 0 && this.Lw.lC() != null) {
+            this.Lu = lF();
+            if (this.Lu == -1) {
                 reset();
             }
         }
-        if (!bVar.md()) {
-            this.Ma = mg();
+        if (!bVar.lB()) {
+            this.Lv = lE();
         }
-        this.Mb.k(this.Ma, true);
+        this.Lw.k(this.Lv, true);
     }
 
-    public b mf() {
-        return this.Mb;
+    public b lD() {
+        return this.Lw;
     }
 
     public String getName() {
-        return this.Mb.getName();
+        return this.Lw.getName();
     }
 
     public int getDefaultType() {
-        return this.Mb.getDefaultType();
+        return this.Lw.getDefaultType();
     }
 
     public int getType() {
-        return this.Ma;
+        return this.Lv;
     }
 
     public boolean ai(int i) {
-        if (this.Mb.getMaxCrashTimes() >= 0 && this.LZ >= this.Mb.getMaxCrashTimes() + 2) {
-            i = this.Mb.getOffType();
+        if (this.Lw.getMaxCrashTimes() >= 0 && this.Lu >= this.Lw.getMaxCrashTimes() + 2) {
+            i = this.Lw.getOffType();
         }
-        if (i == this.Ma) {
+        if (i == this.Lv) {
             return false;
         }
-        this.Ma = i;
-        this.Mb.k(this.Ma, false);
+        this.Lv = i;
+        this.Lw.k(this.Lv, false);
         aj(i);
         return true;
     }
 
-    public boolean bK(String str) {
+    public boolean bE(String str) {
         String[] switchLibs;
-        String[] me;
-        if (str == null || this.Mb.getMaxCrashTimes() <= 0) {
+        String[] lC;
+        if (str == null || this.Lw.getMaxCrashTimes() <= 0) {
             return false;
         }
-        if (this.Mb.me() != null) {
-            for (String str2 : this.Mb.me()) {
+        if (this.Lw.lC() != null) {
+            for (String str2 : this.Lw.lC()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.LZ++;
-                    ak(this.LZ);
-                    if (this.LZ >= this.Mb.getMaxCrashTimes()) {
-                        aj(this.Mb.getOffType());
-                        this.Ma = this.Mb.getOffType();
-                        this.Mb.k(this.Mb.getOffType(), false);
+                    this.Lu++;
+                    ak(this.Lu);
+                    if (this.Lu >= this.Lw.getMaxCrashTimes()) {
+                        aj(this.Lw.getOffType());
+                        this.Lv = this.Lw.getOffType();
+                        this.Lw.k(this.Lw.getOffType(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.Mb.getSwitchLibs() != null) {
-            for (String str3 : this.Mb.getSwitchLibs()) {
+        if (this.Lw.getSwitchLibs() != null) {
+            for (String str3 : this.Lw.getSwitchLibs()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.LZ++;
-                    ak(this.LZ);
-                    if (this.LZ >= this.Mb.getMaxCrashTimes()) {
-                        aj(this.Mb.getOffType());
-                        this.Ma = this.Mb.getOffType();
-                        this.Mb.k(this.Mb.getOffType(), false);
+                    this.Lu++;
+                    ak(this.Lu);
+                    if (this.Lu >= this.Lw.getMaxCrashTimes()) {
+                        aj(this.Lw.getOffType());
+                        this.Lv = this.Lw.getOffType();
+                        this.Lw.k(this.Lw.getOffType(), false);
                         return true;
                     }
                     return true;
@@ -102,29 +102,29 @@ public class c {
 
     private void aj(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.Mb.getName() + LY, i);
+        edit.putInt(this.Lw.getName() + Lt, i);
         edit.commit();
     }
 
-    private int mg() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.Mb.getName() + LY, this.Mb.getDefaultType());
+    private int lE() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.Lw.getName() + Lt, this.Lw.getDefaultType());
     }
 
-    private int mh() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.Mb.getName() + LX, -1);
+    private int lF() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.Lw.getName() + Ls, -1);
     }
 
     private void ak(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.Mb.getName() + LX, i);
+        edit.putInt(this.Lw.getName() + Ls, i);
         edit.commit();
     }
 
     public void reset() {
-        this.LZ = 0;
+        this.Lu = 0;
     }
 
     public void al(int i) {
-        this.LZ = i;
+        this.Lu = i;
     }
 }

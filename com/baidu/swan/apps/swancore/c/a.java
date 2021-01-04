@@ -13,91 +13,91 @@ import java.io.File;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static C0497a dGu;
-    private static C0497a dGv;
+    private static C0490a dOY;
+    private static C0490a dOZ;
 
-    public static void l(boolean z, int i) {
-        h.aNr().putBoolean(lg(i), z);
+    public static void k(boolean z, int i) {
+        h.aPH().putBoolean(ll(i), z);
     }
 
-    public static boolean lf(int i) {
-        return h.aNr().getBoolean(lg(i), false) || !i(i, lh(i)).isAvailable();
+    public static boolean lk(int i) {
+        return h.aPH().getBoolean(ll(i), false) || !i(i, lm(i)).isAvailable();
     }
 
-    private static String lg(int i) {
+    private static String ll(int i) {
         return i == 1 ? "aigames_preset_update_key" : "aiapps_preset_update_key";
     }
 
-    public static long lh(int i) {
-        return h.aNr().getLong(lm(i), 0L);
+    public static long lm(int i) {
+        return h.aPH().getLong(lr(i), 0L);
     }
 
-    public static void li(int i) {
-        h.aNr().putLong(lm(i), 0L);
+    public static void ln(int i) {
+        h.aPH().putLong(lr(i), 0L);
     }
 
-    public static C0497a lj(int i) {
-        return i == 1 ? aNB() : aNC();
+    public static C0490a lo(int i) {
+        return i == 1 ? aPR() : aPS();
     }
 
-    private static C0497a aNB() {
-        if (dGv == null) {
-            dGv = C0497a.c(lo(1), 1);
+    private static C0490a aPR() {
+        if (dOZ == null) {
+            dOZ = C0490a.c(lt(1), 1);
         }
-        return dGv;
+        return dOZ;
     }
 
-    private static C0497a aNC() {
-        if (dGu == null) {
-            dGu = C0497a.c(lo(0), 0);
+    private static C0490a aPS() {
+        if (dOY == null) {
+            dOY = C0490a.c(lt(0), 0);
         }
-        return dGu;
+        return dOY;
     }
 
-    public static synchronized Exception lk(int i) {
-        Exception l;
+    public static synchronized Exception lp(int i) {
+        Exception n;
         synchronized (a.class) {
             if (DEBUG) {
                 Log.d("PresetSwanCoreControl", "onPresetUpdate start.");
             }
-            if (!lf(i)) {
-                l = null;
+            if (!lk(i)) {
+                n = null;
             } else {
-                C0497a lj = lj(i);
-                long j = h.aNr().getLong(ll(i), 0L);
-                long ur = com.baidu.swan.apps.swancore.b.ur(lj.aND());
+                C0490a lo = lo(i);
+                long j = h.aPH().getLong(lq(i), 0L);
+                long uo = com.baidu.swan.apps.swancore.b.uo(lo.aPT());
                 if (DEBUG) {
-                    Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + ur);
+                    Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + uo);
                 }
-                l = l(ur, i);
+                n = n(uo, i);
             }
         }
-        return l;
+        return n;
     }
 
-    private static Exception l(long j, int i) {
-        c.bt("PresetSwanCoreControl", "doPresetUpdate.");
-        String ll = ll(i);
-        if (!d.dF(ll, m(j, i).getPath())) {
-            Exception exc = new Exception("PresetSwanCoreControl doPresetUpdate: failed by unzip file path = " + ll);
-            c.f("PresetSwanCoreControl", "doPresetUpdate unzip failed: ", exc);
+    private static Exception n(long j, int i) {
+        c.bs("PresetSwanCoreControl", "doPresetUpdate.");
+        String lq = lq(i);
+        if (!d.dE(lq, o(j, i).getPath())) {
+            Exception exc = new Exception("PresetSwanCoreControl doPresetUpdate: failed by unzip file path = " + lq);
+            c.g("PresetSwanCoreControl", "doPresetUpdate unzip failed: ", exc);
             return exc;
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(Long.valueOf(j));
-        com.baidu.swan.apps.swancore.b.b(ln(i), arrayList);
-        h.aNr().putLong(lm(i), j);
+        com.baidu.swan.apps.swancore.b.b(ls(i), arrayList);
+        h.aPH().putLong(lr(i), j);
         if (i == 0) {
             SwanJSVersionUpdateEvent.sendEvent(j);
         }
-        l(false, i);
+        k(false, i);
         if (DEBUG) {
-            String md5 = e.toMd5(new File(ll(i)), false);
-            if (!TextUtils.isEmpty(md5)) {
-                h.aNr().putString(com.baidu.swan.apps.swancore.a.kU(i), md5);
+            String e = e.e(new File(lq(i)), false);
+            if (!TextUtils.isEmpty(e)) {
+                h.aPH().putString(com.baidu.swan.apps.swancore.a.kZ(i), e);
             }
         }
         return null;
@@ -105,33 +105,33 @@ public final class a {
 
     public static SwanCoreVersion i(int i, long j) {
         SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
-        swanCoreVersion.swanCorePath = m(j, i).getPath();
+        swanCoreVersion.swanCorePath = o(j, i).getPath();
         swanCoreVersion.swanCoreType = 0;
         swanCoreVersion.swanCoreVersion = j;
         return swanCoreVersion;
     }
 
-    private static String ll(int i) {
+    private static String lq(int i) {
         return i == 1 ? "aigames/game-core.zip" : "aiapps/swan-core.zip";
     }
 
-    private static String lm(int i) {
+    private static String lr(int i) {
         return i == 1 ? "aigames_cur_preset_ver_key" : "aiapps_cur_preset_ver_key";
     }
 
-    private static File ln(int i) {
-        return new File(com.baidu.swan.apps.swancore.b.lc(i), "preset");
+    private static File ls(int i) {
+        return new File(com.baidu.swan.apps.swancore.b.lh(i), "preset");
     }
 
-    private static File m(long j, int i) {
-        return new File(ln(i), String.valueOf(j));
+    private static File o(long j, int i) {
+        return new File(ls(i), String.valueOf(j));
     }
 
-    private static JSONObject lo(int i) {
+    private static JSONObject lt(int i) {
         if (DEBUG) {
             Log.d("PresetSwanCoreControl", "readPresetConfig start.");
         }
-        String readAssetData = d.readAssetData(AppRuntime.getAppContext(), lp(i));
+        String readAssetData = d.readAssetData(AppRuntime.getAppContext(), lu(i));
         if (TextUtils.isEmpty(readAssetData)) {
             return null;
         }
@@ -149,29 +149,29 @@ public final class a {
         }
     }
 
-    private static String lp(int i) {
+    private static String lu(int i) {
         return i == 1 ? "aigames/game-config.json" : "aiapps/swan-config.json";
     }
 
     /* renamed from: com.baidu.swan.apps.swancore.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public static class C0497a {
-        private String dGw;
+    /* loaded from: classes9.dex */
+    public static class C0490a {
+        private String dPa;
 
-        public static C0497a c(JSONObject jSONObject, int i) {
-            C0497a c0497a = new C0497a();
+        public static C0490a c(JSONObject jSONObject, int i) {
+            C0490a c0490a = new C0490a();
             if (jSONObject != null) {
-                c0497a.dGw = jSONObject.optString(kX(i));
+                c0490a.dPa = jSONObject.optString(lc(i));
             }
-            return c0497a;
+            return c0490a;
         }
 
-        private static String kX(int i) {
+        private static String lc(int i) {
             return i == 1 ? "game-core-version" : "swan-core-version";
         }
 
-        public String aND() {
-            return TextUtils.isEmpty(this.dGw) ? "0" : this.dGw;
+        public String aPT() {
+            return TextUtils.isEmpty(this.dPa) ? "0" : this.dPa;
         }
     }
 }

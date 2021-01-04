@@ -5,40 +5,40 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.al;
 /* loaded from: classes.dex */
 public class d extends BaseCardInfo implements al, p {
-    private boolean eEu;
-    public String fFV;
-    public AdvertAppInfo imP;
+    private boolean eOk;
+    public String fPy;
+    public AdvertAppInfo izk;
     public String mPageType;
     public int mPn;
 
     public d(AdvertAppInfo advertAppInfo) {
-        this.fFV = "";
+        this.fPy = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.eEu = false;
-        this.imP = advertAppInfo;
+        this.eOk = false;
+        this.izk = advertAppInfo;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d() {
-        this.fFV = "";
+        this.fPy = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.eEu = false;
-        this.imP = null;
+        this.eOk = false;
+        this.izk = null;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        if (this.imP != null && this.imP.getType() == AdvertAppInfo.eDM) {
-            return AdvertAppInfo.eDS;
+        if (this.izk != null && this.izk.getType() == AdvertAppInfo.eNz) {
+            return AdvertAppInfo.eNF;
         }
-        if (this.imP != null && this.imP.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.eDV;
-            switch (this.imP.legoCard.getGoodsStyle()) {
+        if (this.izk != null && this.izk.legoCard != null) {
+            BdUniqueId bdUniqueId = AdvertAppInfo.eNI;
+            switch (this.izk.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.eDW;
+                    return AdvertAppInfo.eNM;
                 case 3:
                 case 4:
                 case 5:
@@ -48,14 +48,14 @@ public class d extends BaseCardInfo implements al, p {
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.eDX;
+                    return AdvertAppInfo.eNN;
                 case 7:
                 case 14:
-                    return AdvertAppInfo.eDY;
+                    return AdvertAppInfo.eNO;
                 case 12:
-                    return AdvertAppInfo.eEa;
+                    return AdvertAppInfo.eNQ;
                 case 13:
-                    return AdvertAppInfo.eDZ;
+                    return AdvertAppInfo.eNP;
             }
         }
         return null;
@@ -63,45 +63,45 @@ public class d extends BaseCardInfo implements al, p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.f.b.toInt(this.imP != null ? this.imP.adPosition : "-1", -1);
+        return com.baidu.adp.lib.f.b.toInt(this.izk != null ? this.izk.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean csD() {
+    public boolean cvw() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void pa(boolean z) {
+    public void py(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void pb(boolean z) {
+    public void pz(boolean z) {
     }
 
-    public AdvertAppInfo csE() {
-        return this.imP;
+    public AdvertAppInfo cvx() {
+        return this.izk;
     }
 
     @Override // com.baidu.tbadk.core.data.al
-    public AdvertAppInfo bmI() {
-        return this.imP;
+    public AdvertAppInfo bpi() {
+        return this.izk;
     }
 
     @Override // com.baidu.tbadk.core.data.al
     public void setPosition(int i) {
         this.position = i;
-        this.imP.position = i;
-        this.eEu = true;
+        this.izk.position = i;
+        this.eOk = true;
     }
 
     @Override // com.baidu.tbadk.core.data.al
-    public int bmJ() {
+    public int bpj() {
         return this.position;
     }
 
     @Override // com.baidu.tbadk.core.data.al
-    public boolean bmK() {
-        return this.eEu;
+    public boolean bpk() {
+        return this.eOk;
     }
 }

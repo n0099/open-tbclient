@@ -1,51 +1,47 @@
 package com.baidu.tieba.recapp.report;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.j;
-import com.baidu.live.adp.framework.MessageConfig;
-import com.baidu.tbadk.switchs.AdUploadSwitch;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.tbadkCore.data.o;
 /* loaded from: classes.dex */
 public class d {
-    private static d mNx;
-    private CustomMessageListener mNz = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.d.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.mNy != null) {
-                d.this.mNy.dGi();
+    public static void a(o oVar, int i) {
+        a(oVar, i, AdCard.INVALID_NUM, AdCard.INVALID_NUM);
+    }
+
+    public static void a(o oVar, int i, int i2, int i3) {
+        if (oVar != null && oVar.dOR() != null && oVar.dOR().goods != null && oVar.dOR().goods.goods_style != 1001 && oVar.dOR().goods.goods_style != -1001) {
+            c b2 = h.b(oVar, 5);
+            b2.Jm(i);
+            if (i2 != -999) {
+                b2.Jn(i2);
+            }
+            if (i3 != -999) {
+                b2.Jo(i3);
+            }
+            e.dFV().a(b2);
+            if (oVar != null && oVar.dOR() != null) {
+                oVar.dOR().mDiscardReason = i;
             }
         }
-    };
-    private e mNy = new h();
+    }
 
-    public static d dGg() {
-        if (mNx == null) {
-            synchronized (d.class) {
-                if (mNx == null) {
-                    mNx = new d();
-                }
+    public static void a(AdvertAppInfo advertAppInfo, int i, int i2) {
+        a(advertAppInfo, i, i2, AdCard.INVALID_NUM, AdCard.INVALID_NUM);
+    }
+
+    public static void a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4) {
+        if (advertAppInfo != null && advertAppInfo.eOc != null && advertAppInfo.eOc.eOq != 1001 && advertAppInfo.eOc.eOq != -1001) {
+            c a2 = h.a(advertAppInfo, 5, i, i2);
+            if (i3 != -999) {
+                a2.Jn(i3);
             }
-        }
-        return mNx;
-    }
-
-    private boolean dGh() {
-        return SwitchManager.getInstance().findType(AdUploadSwitch.KEY) != 0;
-    }
-
-    private d() {
-        MessageManager.getInstance().registerListener(this.mNz);
-    }
-
-    public void a(c cVar) {
-        if (dGh() && cVar != null && this.mNy != null) {
-            if (j.isNetWorkAvailable()) {
-                this.mNy.b(cVar);
-            } else {
-                this.mNy.c(cVar);
+            if (i4 != -999) {
+                a2.Jo(i4);
+            }
+            e.dFV().a(a2);
+            if (advertAppInfo.eOj != null) {
+                advertAppInfo.eOj.mDiscardReason = 2;
             }
         }
     }

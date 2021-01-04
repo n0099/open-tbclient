@@ -2,16 +2,15 @@ package com.baidu.tieba.hottopic.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.q;
 import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
-/* loaded from: classes21.dex */
-public class c implements q {
-    public static final BdUniqueId kdo = BdUniqueId.gen();
-    private long kdk;
-    private String kdl;
-    private int kdp = -1;
-    private String kdq;
+/* loaded from: classes8.dex */
+public class c implements com.baidu.adp.widget.ListView.n {
+    public static final BdUniqueId kqA = BdUniqueId.gen();
+    private int kqB = -1;
+    private String kqC;
+    private long kqw;
+    private String kqx;
     private long mId;
     private String mName;
     private int mTag;
@@ -19,7 +18,7 @@ public class c implements q {
     String rule_jump_url;
     String tips;
 
-    public String cRP() {
+    public String cUV() {
         return this.module_title;
     }
 
@@ -27,12 +26,12 @@ public class c implements q {
         return this.tips;
     }
 
-    public String cRQ() {
+    public String cUW() {
         return this.rule_jump_url;
     }
 
-    public long cRR() {
-        return this.kdk;
+    public long cUX() {
+        return this.kqw;
     }
 
     public int getTag() {
@@ -47,12 +46,12 @@ public class c implements q {
         return this.mName;
     }
 
-    public int cRS() {
-        return this.kdp;
+    public int cUY() {
+        return this.kqB;
     }
 
-    public void Dr(int i) {
-        this.kdp = i;
+    public void DF(int i) {
+        this.kqB = i;
     }
 
     public void a(TopicList topicList) {
@@ -60,9 +59,9 @@ public class c implements q {
             this.mId = topicList.topic_id.longValue();
             this.mName = topicList.topic_name;
             this.mTag = topicList.tag.intValue();
-            this.kdk = topicList.discuss_num.longValue();
-            this.kdl = topicList.topic_desc;
-            this.kdq = topicList.topic_pic;
+            this.kqw = topicList.discuss_num.longValue();
+            this.kqx = topicList.topic_desc;
+            this.kqC = topicList.topic_pic;
         }
     }
 
@@ -76,8 +75,8 @@ public class c implements q {
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return kdo;
+        return kqA;
     }
 }

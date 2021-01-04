@@ -13,12 +13,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import org.a.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class MaybeMergeArray<T> extends g<T> {
     final o<? extends T>[] sources;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface a<T> extends f<T> {
         int consumerIndex();
 
@@ -37,7 +37,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         a clqSimpleQueue;
         o[] oVarArr = this.sources;
         int length = oVarArr.length;
-        if (length <= eCS()) {
+        if (length <= eLa()) {
             clqSimpleQueue = new MpscFillOnceSimpleQueue(length);
         } else {
             clqSimpleQueue = new ClqSimpleQueue();
@@ -54,7 +54,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class MergeMaybeObserver<T> extends BasicIntQueueSubscription<T> implements m<T> {
         private static final long serialVersionUID = -660395290758764731L;
         final c<? super T> actual;
@@ -196,11 +196,10 @@ public final class MaybeMergeArray<T> extends g<T> {
                     }
                 }
                 this.consumed = j3;
-                int addAndGet = addAndGet(-i);
-                if (addAndGet == 0) {
+                i = addAndGet(-i);
+                if (i == 0) {
                     return;
                 }
-                i = addAndGet;
                 j = j3;
             }
         }
@@ -244,7 +243,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class MpscFillOnceSimpleQueue<T> extends AtomicReferenceArray<T> implements a<T> {
         private static final long serialVersionUID = -7969063454040569579L;
         int consumerIndex;
@@ -326,7 +325,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ClqSimpleQueue<T> extends ConcurrentLinkedQueue<T> implements a<T> {
         private static final long serialVersionUID = -4025173261791142821L;
         int consumerIndex;

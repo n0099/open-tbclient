@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.view.a;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.style.ReplacementSpan;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes.dex */
 public class b extends ReplacementSpan {
     private final Paint mPaint;

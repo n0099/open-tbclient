@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.HorseRace;
 
 import java.io.Serializable;
 import tbclient.GetHorseRaceLampList.LiveList;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class LiveHorseRaceData implements Serializable {
     public Integer amount;
     public Long live_id;

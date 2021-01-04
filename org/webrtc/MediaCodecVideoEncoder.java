@@ -10,10 +10,12 @@ import android.media.MediaFormat;
 import android.opengl.GLES20;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.Surface;
+import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.core.data.ConstantData;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,7 +29,7 @@ import org.webrtc.EglBase14;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
 @Deprecated
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class MediaCodecVideoEncoder {
     private static final int BITRATE_ADJUSTMENT_FPS = 30;
     private static final double BITRATE_CORRECTION_MAX_SCALE = 4.0d;
@@ -117,7 +119,7 @@ public class MediaCodecVideoEncoder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: org.webrtc.MediaCodecVideoEncoder$1CaughtException  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public class C1CaughtException {
         Exception e;
 
@@ -125,14 +127,14 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum BitrateAdjustmentType {
         NO_ADJUSTMENT,
         FRAMERATE_ADJUSTMENT,
         DYNAMIC_ADJUSTMENT
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class EncoderProperties {
         public final BitrateAdjustmentType bitrateAdjustmentType;
         public final String codecName;
@@ -145,7 +147,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum H264Profile {
         CONSTRAINED_BASELINE(0),
         BASELINE(1),
@@ -165,7 +167,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class HwEncoderFactory implements VideoEncoderFactory {
         private final VideoCodecInfo[] supportedHardwareCodecs = getSupportedHardwareCodecs();
 
@@ -240,7 +242,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class MediaCodecProperties {
         public final BitrateAdjustmentType bitrateAdjustmentType;
         public final String codecPrefix;
@@ -253,12 +255,12 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public interface MediaCodecVideoEncoderErrorCallback {
         void onMediaCodecVideoEncoderCriticalError(int i);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     static class OutputBufferInfo {
         public final ByteBuffer buffer;
         public final int index;
@@ -293,7 +295,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum VideoCodecType {
         VIDEO_CODEC_UNKNOWN,
         VIDEO_CODEC_VP8,
@@ -356,8 +358,8 @@ public class MediaCodecVideoEncoder {
     private static EncoderProperties findHwEncoder(String str, MediaCodecProperties[] mediaCodecPropertiesArr, int[] iArr, int i, int i2) {
         MediaCodecInfo mediaCodecInfo;
         String str2;
-        BitrateAdjustmentType bitrateAdjustmentType;
         boolean z;
+        BitrateAdjustmentType bitrateAdjustmentType;
         int[] iArr2;
         int[] iArr3;
         if (Build.VERSION.SDK_INT < 19) {
@@ -398,8 +400,8 @@ public class MediaCodecVideoEncoder {
                     int i5 = 0;
                     while (true) {
                         if (i5 >= length2) {
-                            bitrateAdjustmentType = bitrateAdjustmentType2;
                             z = false;
+                            bitrateAdjustmentType = bitrateAdjustmentType2;
                             break;
                         }
                         MediaCodecProperties mediaCodecProperties = mediaCodecPropertiesArr[i5];
@@ -411,8 +413,8 @@ public class MediaCodecVideoEncoder {
                                     bitrateAdjustmentType2 = mediaCodecProperties.bitrateAdjustmentType;
                                     Logging.w(TAG, "Codec " + str2 + " requires bitrate adjustment: " + bitrateAdjustmentType2);
                                 }
-                                bitrateAdjustmentType = bitrateAdjustmentType2;
                                 z = true;
+                                bitrateAdjustmentType = bitrateAdjustmentType2;
                             }
                         }
                         i5++;
@@ -657,8 +659,8 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    @CalledByNativeUnchecked
     @Nullable
+    @CalledByNativeUnchecked
     OutputBufferInfo dequeueOutputBuffer() {
         checkOnMediaCodecThread();
         try {
@@ -787,18 +789,18 @@ public class MediaCodecVideoEncoder {
         return inputBuffers;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0098  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x012a  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x008f  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0116  */
     @CalledByNativeUnchecked
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     boolean initEncode(VideoCodecType videoCodecType, int i, int i2, int i3, int i4, int i5, boolean z) {
-        boolean z2;
-        EncoderProperties encoderProperties;
-        String str;
-        boolean z3;
         EncoderProperties findHwEncoder;
+        boolean z2;
+        boolean z3;
+        String str;
+        EncoderProperties findHwEncoder2;
         String str2;
         int parseInt;
         Logging.d(TAG, "Java initEncode: " + videoCodecType + ". Profile: " + i + " : " + i2 + " x " + i3 + ". @ " + i4 + " kbps. Fps: " + i5 + ". Encode from texture : " + z);
@@ -812,33 +814,32 @@ public class MediaCodecVideoEncoder {
         }
         int i6 = 100;
         if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP8) {
-            findHwEncoder = findHwEncoder(VP8_MIME_TYPE, vp8HwList(), z ? supportedSurfaceColorList : supportedColorList, i2, i3);
+            findHwEncoder2 = findHwEncoder(VP8_MIME_TYPE, vp8HwList(), z ? supportedSurfaceColorList : supportedColorList, i2, i3);
             str2 = VP8_MIME_TYPE;
         } else if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP9) {
-            findHwEncoder = findHwEncoder(VP9_MIME_TYPE, vp9HwList, z ? supportedSurfaceColorList : supportedColorList, i2, i3);
+            findHwEncoder2 = findHwEncoder(VP9_MIME_TYPE, vp9HwList, z ? supportedSurfaceColorList : supportedColorList, i2, i3);
             str2 = VP9_MIME_TYPE;
         } else if (videoCodecType != VideoCodecType.VIDEO_CODEC_H264) {
             throw new RuntimeException("initEncode: Non-supported codec " + videoCodecType);
         } else {
-            EncoderProperties findHwEncoder2 = findHwEncoder("video/avc", h264HwList(), z ? supportedSurfaceColorList : supportedColorList, i2, i3);
+            findHwEncoder = findHwEncoder("video/avc", h264HwList(), z ? supportedSurfaceColorList : supportedColorList, i2, i3);
             if (i == H264Profile.CONSTRAINED_HIGH.getValue()) {
                 if (findHwEncoder("video/avc", h264HighProfileHwList, z ? supportedSurfaceColorList : supportedColorList, i2, i3) != null) {
                     Logging.d(TAG, "High profile H.264 encoder supported.");
                     z2 = true;
-                    encoderProperties = findHwEncoder2;
                     i6 = 20;
-                    str = "video/avc";
                     z3 = z2;
-                    if (encoderProperties == null) {
+                    str = "video/avc";
+                    if (findHwEncoder == null) {
                         throw new RuntimeException("Can not find HW encoder for " + videoCodecType);
                     }
                     runningInstance = this;
-                    this.colorFormat = encoderProperties.colorFormat;
-                    this.bitrateAdjustmentType = encoderProperties.bitrateAdjustmentType;
+                    this.colorFormat = findHwEncoder.colorFormat;
+                    this.bitrateAdjustmentType = findHwEncoder.bitrateAdjustmentType;
                     int min = this.bitrateAdjustmentType != BitrateAdjustmentType.FRAMERATE_ADJUSTMENT ? Math.min(i5, 30) : 30;
                     this.forcedKeyFrameMs = 0L;
                     this.lastKeyFrameMs = -1L;
-                    if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP8 && encoderProperties.codecName.startsWith(qcomVp8HwProperties.codecPrefix)) {
+                    if (videoCodecType == VideoCodecType.VIDEO_CODEC_VP8 && findHwEncoder.codecName.startsWith(qcomVp8HwProperties.codecPrefix)) {
                         if (Build.VERSION.SDK_INT == 21 || Build.VERSION.SDK_INT == 22) {
                             this.forcedKeyFrameMs = 15000L;
                         } else if (Build.VERSION.SDK_INT == 23) {
@@ -860,17 +861,17 @@ public class MediaCodecVideoEncoder {
                     this.mediaCodecThread = Thread.currentThread();
                     try {
                         MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i2, i3);
-                        createVideoFormat.setInteger("bitrate", this.targetBitrateBps);
+                        createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.targetBitrateBps);
                         createVideoFormat.setInteger("bitrate-mode", bitrateMode);
-                        createVideoFormat.setInteger("color-format", encoderProperties.colorFormat);
+                        createVideoFormat.setInteger("color-format", findHwEncoder.colorFormat);
                         createVideoFormat.setInteger("frame-rate", this.targetFps);
                         createVideoFormat.setInteger("i-frame-interval", i6);
                         if (z3) {
                             createVideoFormat.setInteger(ConstantData.VideoLocationType.PERSON_PROFILE, 8);
-                            createVideoFormat.setInteger("level", 256);
+                            createVideoFormat.setInteger(MapBundleKey.MapObjKey.OBJ_LEVEL, 256);
                         }
                         Logging.d(TAG, "  Format: " + createVideoFormat);
-                        this.mediaCodec = createByCodecName(encoderProperties.codecName);
+                        this.mediaCodec = createByCodecName(findHwEncoder.codecName);
                         this.type = videoCodecType;
                         if (this.mediaCodec == null) {
                             Logging.e(TAG, "Can not create media encoder");
@@ -897,17 +898,16 @@ public class MediaCodecVideoEncoder {
                 Logging.d(TAG, "High profile H.264 encoder requested, but not supported. Use baseline.");
             }
             z2 = false;
-            encoderProperties = findHwEncoder2;
             i6 = 20;
-            str = "video/avc";
             z3 = z2;
-            if (encoderProperties == null) {
+            str = "video/avc";
+            if (findHwEncoder == null) {
             }
         }
-        encoderProperties = findHwEncoder;
         z3 = false;
         str = str2;
-        if (encoderProperties == null) {
+        findHwEncoder = findHwEncoder2;
+        if (findHwEncoder == null) {
         }
     }
 

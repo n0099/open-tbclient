@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.format.Formatter;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -16,58 +17,47 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1488a = "utf-8";
-    private static final String b = "c82c403505338808201aad86f8194734";
+    private static final String f1981a = "utf-8";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f1982b = "c82c403505338808201aad86f8194734";
 
     a() {
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [41=4] */
     public static void a(Context context, String str, String str2, boolean z) {
-        FileOutputStream fileOutputStream;
-        Throwable th;
-        if (context == null) {
-            return;
-        }
-        FileOutputStream fileOutputStream2 = null;
-        try {
+        if (context != null) {
+            FileOutputStream fileOutputStream = null;
             try {
-                FileOutputStream openFileOutput = context.openFileOutput(str, z ? 32768 : 0);
-                if (openFileOutput != null) {
+                fileOutputStream = context.openFileOutput(str, z ? 32768 : 0);
+                if (fileOutputStream != null) {
+                    fileOutputStream.write(str2.getBytes(f1981a));
+                }
+                if (fileOutputStream != null) {
                     try {
-                        openFileOutput.write(str2.getBytes(f1488a));
-                    } catch (Throwable th2) {
-                        fileOutputStream = openFileOutput;
-                        th = th2;
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (Exception e) {
-                            }
-                        }
-                        throw th;
+                        fileOutputStream.close();
+                    } catch (Exception e) {
                     }
                 }
-                if (openFileOutput != null) {
+            } catch (Exception e2) {
+                if (fileOutputStream != null) {
                     try {
-                        openFileOutput.close();
-                    } catch (Exception e2) {
+                        fileOutputStream.close();
+                    } catch (Exception e3) {
                     }
                 }
-            } catch (Throwable th3) {
-                fileOutputStream = null;
-                th = th3;
-            }
-        } catch (Exception e3) {
-            if (0 != 0) {
-                try {
-                    fileOutputStream2.close();
-                } catch (Exception e4) {
+            } catch (Throwable th) {
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (Exception e4) {
+                    }
                 }
+                throw th;
             }
         }
     }
@@ -81,7 +71,7 @@ public class a {
             if (b2 == null) {
                 return "";
             }
-            return new String(b2, f1488a);
+            return new String(b2, f1981a);
         } catch (Exception e) {
             return "";
         }
@@ -90,54 +80,69 @@ public class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [86=4, 87=4] */
     static byte[] b(Context context, String str) {
         FileInputStream fileInputStream;
-        Throwable th;
-        byte[] bArr = null;
+        byte[] bArr;
+        byte[] bArr2;
         try {
             fileInputStream = context.openFileInput(str);
             if (fileInputStream != null) {
                 try {
-                    bArr = new byte[fileInputStream.available()];
-                    fileInputStream.read(bArr);
-                } catch (FileNotFoundException e) {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e2) {
+                    try {
+                        bArr2 = new byte[fileInputStream.available()];
+                    } catch (Throwable th) {
+                        th = th;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e) {
+                            }
                         }
+                        throw th;
                     }
-                    return bArr;
+                } catch (FileNotFoundException e2) {
+                    bArr = null;
                 } catch (IOException e3) {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e4) {
-                        }
-                    }
-                    return bArr;
-                } catch (Throwable th2) {
-                    th = th2;
+                    bArr = null;
+                }
+                try {
+                    fileInputStream.read(bArr2);
+                    bArr = bArr2;
+                } catch (FileNotFoundException e4) {
+                    bArr = bArr2;
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
                         } catch (IOException e5) {
                         }
                     }
-                    throw th;
+                    return bArr;
+                } catch (IOException e6) {
+                    bArr = bArr2;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e7) {
+                        }
+                    }
+                    return bArr;
                 }
+            } else {
+                bArr = null;
             }
             if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
-                } catch (IOException e6) {
+                } catch (IOException e8) {
                 }
             }
-        } catch (FileNotFoundException e7) {
+        } catch (FileNotFoundException e9) {
             fileInputStream = null;
-        } catch (IOException e8) {
+            bArr = null;
+        } catch (IOException e10) {
             fileInputStream = null;
-        } catch (Throwable th3) {
+            bArr = null;
+        } catch (Throwable th2) {
+            th = th2;
             fileInputStream = null;
-            th = th3;
         }
         return bArr;
     }
@@ -152,7 +157,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(byte[] bArr, boolean z) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.reset();
             messageDigest.update(bArr);
             return a(messageDigest.digest(), "", z);

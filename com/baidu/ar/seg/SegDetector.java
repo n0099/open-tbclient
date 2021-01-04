@@ -13,8 +13,9 @@ import com.baidu.ar.databasic.AlgoHandleAdapter;
 import com.baidu.ar.databasic.ReserveHandleData;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class SegDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = SegDetector.class.getSimpleName();
     protected boolean mIsFrontCamera;
@@ -105,15 +106,22 @@ public class SegDetector extends com.baidu.ar.b.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int gb() {
+        int i = SubsamplingScaleImageView.ORIENTATION_270;
         switch (this.vO) {
             case -90:
                 return 0;
             case 90:
                 return 180;
             case 180:
-                return !this.mIsFrontCamera ? 270 : 90;
+                if (this.mIsFrontCamera) {
+                    return 90;
+                }
+                return SubsamplingScaleImageView.ORIENTATION_270;
             default:
-                return this.mIsFrontCamera ? 270 : 90;
+                if (!this.mIsFrontCamera) {
+                    i = 90;
+                }
+                return i;
         }
     }
 
@@ -126,14 +134,14 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                 switch (SegDetector.this.oU) {
                     case 2:
                         int[] iArr = new int[2];
-                        return aVar.f1195tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
+                        return aVar.f1486tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
                     case 3:
                     default:
                         return -1;
                     case 4:
-                        return aVar.f1195tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
+                        return aVar.f1486tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
                     case 5:
-                        return aVar.f1195tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
+                        return aVar.f1486tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
                 }
             }
 
@@ -267,10 +275,10 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                         break;
                     case 3:
                     default:
+                        i = degree;
                         i2 = 0;
                         i3 = 0;
                         bArr = null;
-                        i = degree;
                         break;
                     case 4:
                         byte[] bArr4 = new byte[SegDetector.this.vI * SegDetector.this.vJ];
@@ -365,6 +373,8 @@ public class SegDetector extends com.baidu.ar.b.a.a {
     @CallBack
     public void onMdlResult(b bVar) {
         String str;
+        int i;
+        int i2;
         int width = bVar.gd().getWidth();
         int height = bVar.gd().getHeight();
         byte[] gc = bVar.gd().gc();
@@ -382,13 +392,16 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                     break;
             }
             if (orientation == 0 || orientation == 180 || orientation == 2) {
-                width = height;
-                height = width;
+                i = width;
+                i2 = height;
+            } else {
+                i = height;
+                i2 = width;
             }
             o oVar = new o();
             oVar.r(str);
-            oVar.setWidth(width);
-            oVar.setHeight(height);
+            oVar.setWidth(i2);
+            oVar.setHeight(i);
             oVar.a(gc);
             bVar.g(oVar);
         }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.realauthen.b;
 
-import android.support.v4.view.InputDeviceCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -9,14 +10,14 @@ import java.util.Collections;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public final class b {
-    private static char[] mGW = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static char[] mMn = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String toMD5(String str, String str2) {
         if (str != null) {
             try {
-                return ak(str.getBytes(str2));
+                return ag(str.getBytes(str2));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -52,16 +53,16 @@ public final class b {
         }
     }
 
-    private static synchronized String ak(byte[] bArr) {
+    private static synchronized String ag(byte[] bArr) {
         String str;
         synchronized (b.class) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 messageDigest.update(bArr);
                 byte[] digest = messageDigest.digest();
                 StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    sb.append(Integer.toHexString((b & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
+                for (byte b2 : digest) {
+                    sb.append(Integer.toHexString((b2 & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
                 }
                 str = sb.toString();
             } catch (NoSuchAlgorithmException e) {

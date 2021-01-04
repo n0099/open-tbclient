@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class ShowMessageFromWX {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class Req extends BaseReq {
         public String country;
         public String lang;
@@ -51,7 +51,7 @@ public class ShowMessageFromWX {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class Resp extends BaseResp {
         public Resp() {
         }

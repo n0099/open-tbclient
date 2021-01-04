@@ -2,7 +2,7 @@ package org.apache.http.auth.params;
 
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public final class AuthParams {
     AuthParams() {
         throw new RuntimeException("Stub!");

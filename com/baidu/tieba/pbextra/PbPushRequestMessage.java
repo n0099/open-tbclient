@@ -2,10 +2,10 @@ package com.baidu.tieba.pbextra;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.PushThread.DataReq;
 import tbclient.PushThread.PushThreadReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class PbPushRequestMessage extends NetMessage {
     private long mForumId;
     private int mPushType;
@@ -45,7 +45,7 @@ public class PbPushRequestMessage extends NetMessage {
         builder.push_type = Integer.valueOf(this.mPushType);
         builder.user_id = Long.valueOf(this.mUserId);
         if (z) {
-            u.a(builder, true);
+            t.b(builder, true);
         }
         PushThreadReqIdl.Builder builder2 = new PushThreadReqIdl.Builder();
         builder2.data = builder.build(false);

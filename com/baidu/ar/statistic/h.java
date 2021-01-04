@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Process;
 import java.lang.ref.WeakReference;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 class h implements Runnable {
     private Object mLock;
     private int wC;
@@ -23,8 +23,8 @@ class h implements Runnable {
         this.wE = iVarArr;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x007b  */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x0082 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0079  */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x0080 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:94:0x000d A[SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
@@ -32,6 +32,7 @@ class h implements Runnable {
     */
     public void run() {
         i iVar;
+        List<List<a>> list;
         int i;
         int i2;
         if (this.wE.length == 0) {
@@ -43,24 +44,25 @@ class h implements Runnable {
             int length = iVarArr.length;
             int i3 = 0;
             boolean z = false;
-            List<List<a>> list = null;
+            List<List<a>> list2 = null;
             while (true) {
                 if (i3 >= length) {
                     iVar = null;
+                    list = list2;
                     break;
                 }
                 i iVar2 = iVarArr[i3];
-                List<List<a>> gn = iVar2.gn();
+                list = iVar2.gn();
                 if (iVar2.go()) {
                     z = true;
                 }
-                if (gn != null && gn.size() > 0) {
+                if (list != null && list.size() > 0) {
                     iVar = iVar2;
-                    list = gn;
                     break;
+                } else {
+                    i3++;
+                    list2 = list;
                 }
-                i3++;
-                list = gn;
             }
             if (list != null && list.size() > 0 && iVar != null) {
                 Context context = this.wn.get();
@@ -69,10 +71,10 @@ class h implements Runnable {
                 }
                 try {
                     i2 = 0;
-                    for (List<a> list2 : list) {
+                    for (List<a> list3 : list) {
                         try {
-                            iVar.a(context, list2);
-                            i2 += list2.size();
+                            iVar.a(context, list3);
+                            i2 += list3.size();
                         } catch (Exception e) {
                             e = e;
                             i = i2;

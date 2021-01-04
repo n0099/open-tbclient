@@ -11,26 +11,26 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class CompletableUsing<R> extends a {
     final g<? super R> disposer;
     final boolean eager;
-    final Callable<R> pFg;
-    final h<? super R, ? extends e> pFh;
+    final Callable<R> qgI;
+    final h<? super R, ? extends e> qgJ;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
         try {
-            R call = this.pFg.call();
+            R call = this.qgI.call();
             try {
-                ((e) io.reactivex.internal.functions.a.m(this.pFh.apply(call), "The completableFunction returned a null CompletableSource")).a(new UsingObserver(cVar, call, this.disposer, this.eager));
+                ((e) io.reactivex.internal.functions.a.m(this.qgJ.apply(call), "The completableFunction returned a null CompletableSource")).a(new UsingObserver(cVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 if (this.eager) {
                     try {
                         this.disposer.accept(call);
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.J(th2);
+                        io.reactivex.exceptions.a.O(th2);
                         EmptyDisposable.error(new CompositeException(th, th2), cVar);
                         return;
                     }
@@ -40,18 +40,18 @@ public final class CompletableUsing<R> extends a {
                     try {
                         this.disposer.accept(call);
                     } catch (Throwable th3) {
-                        io.reactivex.exceptions.a.J(th3);
+                        io.reactivex.exceptions.a.O(th3);
                         io.reactivex.d.a.onError(th3);
                     }
                 }
             }
         } catch (Throwable th4) {
-            io.reactivex.exceptions.a.J(th4);
+            io.reactivex.exceptions.a.O(th4);
             EmptyDisposable.error(th4, cVar);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class UsingObserver<R> extends AtomicReference<Object> implements c, b {
         private static final long serialVersionUID = -674404550052917487L;
         final c actual;
@@ -79,7 +79,7 @@ public final class CompletableUsing<R> extends a {
                 try {
                     this.disposer.accept(andSet);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.J(th);
+                    io.reactivex.exceptions.a.O(th);
                     io.reactivex.d.a.onError(th);
                 }
             }
@@ -107,7 +107,7 @@ public final class CompletableUsing<R> extends a {
                     try {
                         this.disposer.accept(andSet);
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.J(th2);
+                        io.reactivex.exceptions.a.O(th2);
                         th = new CompositeException(th, th2);
                     }
                 } else {
@@ -129,7 +129,7 @@ public final class CompletableUsing<R> extends a {
                     try {
                         this.disposer.accept(andSet);
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.J(th);
+                        io.reactivex.exceptions.a.O(th);
                         this.actual.onError(th);
                         return;
                     }

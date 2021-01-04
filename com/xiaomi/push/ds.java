@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 final class ds implements dw {
     private void a(Context context, String str, String str2) {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
@@ -40,18 +40,18 @@ final class ds implements dw {
                 if (du.a(context, String.valueOf(12), 1L) || !a2) {
                     return;
                 }
-                if (TextUtils.isEmpty(ec.f4641a)) {
-                    ec.f4641a += dv.f230a + ":";
+                if (TextUtils.isEmpty(ec.f14259a)) {
+                    ec.f14259a += dv.f308a + ":";
                 }
-                ec.f4641a += str + "(" + currentTimeMillis + "),";
+                ec.f14259a += str + "(" + currentTimeMillis + "),";
             } else if (TextUtils.equals("android.intent.action.PACKAGE_CHANGED", intent.getAction())) {
                 if (du.a(context, String.valueOf(12), 1L) || !a2) {
                     return;
                 }
-                if (TextUtils.isEmpty(ec.b)) {
-                    ec.b += dv.b + ":";
+                if (TextUtils.isEmpty(ec.f14260b)) {
+                    ec.f14260b += dv.f14255b + ":";
                 }
-                ec.b += str + "(" + currentTimeMillis + "),";
+                ec.f14260b += str + "(" + currentTimeMillis + "),";
             } else if (TextUtils.equals("android.intent.action.PACKAGE_ADDED", intent.getAction())) {
                 if (intent.getExtras().getBoolean("android.intent.extra.REPLACING") || !a2) {
                     return;

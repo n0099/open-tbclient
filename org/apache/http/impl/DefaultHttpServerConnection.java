@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.Socket;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class DefaultHttpServerConnection extends SocketHttpServerConnection {
     public DefaultHttpServerConnection() {
         throw new RuntimeException("Stub!");

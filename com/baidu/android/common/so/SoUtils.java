@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public final class SoUtils {
     public static final boolean DEBUG = false;
     private static final String EXT = ".so";
@@ -17,7 +17,7 @@ public final class SoUtils {
     private static SoUbcLoggable sUbcImpl;
     public static String[] uris = {"lib/armeabi", "lib/x86", "lib/mips"};
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes.dex */
     public static final class SOLOG {
         public static final String SO_LOAD_LIBRARY = "SO_LOAD_LIBRARY";
         public static final String SO_LOAD_TAG = "SO_LOAD_TAG";
@@ -26,7 +26,7 @@ public final class SoUtils {
         public static final String SO_RELEASE_LIB_LOAD = "SO_RELEASE_LIB_LOAD";
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes.dex */
     public interface SoUbcLoggable {
         void onEvent(String str, String str2);
     }

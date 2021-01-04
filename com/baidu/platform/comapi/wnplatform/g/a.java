@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.wnplatform.g;
 import android.os.Bundle;
 import com.baidu.mapapi.bikenavi.model.BikeRouteDetailInfo;
 import java.math.BigDecimal;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
     public static BikeRouteDetailInfo a(Bundle bundle) {
         BikeRouteDetailInfo bikeRouteDetailInfo = new BikeRouteDetailInfo();

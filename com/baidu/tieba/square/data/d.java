@@ -4,18 +4,18 @@ import java.util.List;
 import tbclient.GetForumSquare.DataRes;
 import tbclient.Page;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class d {
     public String className;
     public List<RecommendForumInfo> forumList;
-    public List<String> neZ;
+    public List<String> nkF;
     public Page page;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.className = dataRes.class_name;
             this.page = dataRes.page;
-            this.neZ = dataRes.page_structure;
+            this.nkF = dataRes.page_structure;
             this.forumList = dataRes.forum_info;
         }
     }

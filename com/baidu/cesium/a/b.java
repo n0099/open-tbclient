@@ -8,12 +8,14 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.LongBuffer;
 import java.util.Arrays;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class b implements Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f1294a;
-    private static final int b = 6;
+    static final /* synthetic */ boolean f1664a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final int f1665b = 6;
     private static final int c = 64;
     private static final int d = 63;
     private static final long e = -1;
@@ -24,7 +26,7 @@ public class b implements Serializable, Cloneable {
     private transient boolean i;
 
     static {
-        f1294a = !b.class.desiredAssertionStatus();
+        f1664a = !b.class.desiredAssertionStatus();
         f = new ObjectStreamField[]{new ObjectStreamField("bits", long[].class)};
     }
 
@@ -126,13 +128,13 @@ public class b implements Serializable, Cloneable {
     }
 
     private void h() {
-        if (!f1294a && this.h != 0 && this.g[this.h - 1] == 0) {
+        if (!f1664a && this.h != 0 && this.g[this.h - 1] == 0) {
             throw new AssertionError();
         }
-        if (!f1294a && (this.h < 0 || this.h > this.g.length)) {
+        if (!f1664a && (this.h < 0 || this.h > this.g.length)) {
             throw new AssertionError();
         }
-        if (!f1294a && this.h != this.g.length && this.g[this.h] != 0) {
+        if (!f1664a && this.h != this.g.length && this.g[this.h] != 0) {
             throw new AssertionError();
         }
     }
@@ -526,10 +528,15 @@ public class b implements Serializable, Cloneable {
 
     public int f() {
         int i = 0;
-        for (int i2 = 0; i2 < this.h; i2++) {
-            i += Long.bitCount(this.g[i2]);
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 >= this.h) {
+                return i3;
+            }
+            i = Long.bitCount(this.g[i2]) + i3;
+            i2++;
         }
-        return i;
     }
 
     public int f(int i) {

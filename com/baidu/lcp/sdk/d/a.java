@@ -14,13 +14,14 @@ import com.baidu.down.utils.Constants;
 import com.baidu.lcp.sdk.a.a;
 import com.baidu.lcp.sdk.pb.LcmPb;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.sapi2.SapiContext;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static Object h(Context context, boolean z) {
         String valueOf = String.valueOf(System.currentTimeMillis());
@@ -30,17 +31,17 @@ public class a {
         String appVersionName = TextUtils.isEmpty(getAppVersionName(context)) ? "" : getAppVersionName(context);
         long currentTimeMillis = System.currentTimeMillis();
         String appId = e.getAppId(context);
-        String aO = e.aO(context);
+        String aN = e.aN(context);
         try {
             if (z) {
-                if (TextUtils.isEmpty(appId) || TextUtils.isEmpty(aO)) {
-                    d.e("LCPCommon", "getData appId : " + appId + ", cuid :" + aO);
+                if (TextUtils.isEmpty(appId) || TextUtils.isEmpty(aN)) {
+                    d.e("LCPCommon", "getData appId : " + appId + ", cuid :" + aN);
                     return null;
                 }
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("request_id", valueOf);
-                jSONObject.put("cuid", aO);
-                jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
+                jSONObject.put("cuid", aN);
+                jSONObject.put(HttpConstants.DEVICE_TYPE, HttpConstants.OS_TYPE_VALUE);
                 jSONObject.put("os_version", str);
                 jSONObject.put("manufacture", str2);
                 jSONObject.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, str3);
@@ -48,7 +49,7 @@ public class a {
                 jSONObject.put("app_version", appVersionName);
                 jSONObject.put(SapiContext.KEY_SDK_VERSION, "2240016");
                 jSONObject.put("ts", currentTimeMillis);
-                jSONObject.put("sign", b(appId, aO, "android", currentTimeMillis));
+                jSONObject.put("sign", b(appId, aN, HttpConstants.OS_TYPE_VALUE, currentTimeMillis));
                 return jSONObject;
             }
             String str4 = "nonNet";
@@ -59,7 +60,7 @@ public class a {
                     str4 = RequsetNetworkUtils.getMobileType(context);
                 }
             }
-            return LcmPb.Common.newBuilder().fM(aO).fN("android").fO(str).fP(str2).fQ(str3).fR(appId).fS(appVersionName).fT("2240016").fU(str4).fV(aI(context)).build();
+            return LcmPb.Common.newBuilder().fw(aN).fx(HttpConstants.OS_TYPE_VALUE).fy(str).fz(str2).fA(str3).fB(appId).fC(appVersionName).fD("2240016").fE(str4).fF(aH(context)).build();
         } catch (Exception e) {
             d.e("LCPCommon", "getData :", e);
             return null;
@@ -82,10 +83,10 @@ public class a {
 
     private static String md5(String str) {
         try {
-            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+            byte[] digest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes());
             StringBuilder sb = new StringBuilder();
-            for (byte b : digest) {
-                int i = b & 255;
+            for (byte b2 : digest) {
+                int i = b2 & 255;
                 if (i < 16) {
                     sb.append(0);
                 }
@@ -97,7 +98,7 @@ public class a {
         }
     }
 
-    public static String aI(Context context) {
+    public static String aH(Context context) {
         String str;
         String str2;
         String str3 = "";
@@ -176,7 +177,7 @@ public class a {
 
     public static void a(Context context, long j, String str, String str2) {
         try {
-            new a.b(context).fH(str).fI("1").Z(j).fJ(str2).aa(501112L).build();
+            new a.b(context).fr(str).fs("1").Y(j).ft(str2).Z(501112L).build();
         } catch (Exception e) {
             d.e("LCPCommon", "businessEvent exception ", e);
         }

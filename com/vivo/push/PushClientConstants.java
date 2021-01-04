@@ -1,5 +1,5 @@
 package com.vivo.push;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class PushClientConstants {
     public static final String PUSH_APP_ALIAS = "com.vivo.pushservice.app.alias";
     public static final String PUSH_APP_TAGS = "com.vivo.pushservice.app.tags";

@@ -3,29 +3,29 @@ package com.vivo.push.b;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class ad extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<String> f4406a;
+    private ArrayList<String> f13868a;
 
     public ad(boolean z, String str, String str2, ArrayList<String> arrayList) {
         super(z ? 2004 : 2005, str, str2);
-        this.f4406a = arrayList;
+        this.f13868a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a(CommandMessage.TYPE_TAGS, (Serializable) this.f4406a);
+        aVar.a(CommandMessage.TYPE_TAGS, (Serializable) this.f13868a);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f4406a = aVar.b(CommandMessage.TYPE_TAGS);
+        this.f13868a = aVar.b(CommandMessage.TYPE_TAGS);
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y

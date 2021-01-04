@@ -6,7 +6,7 @@ import android.net.http.AndroidHttpClient;
 import android.os.Build;
 import com.baidu.pano.platform.a.p;
 import java.io.File;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class n {
     public static p a(Context context, i iVar, int i) {
         p pVar;

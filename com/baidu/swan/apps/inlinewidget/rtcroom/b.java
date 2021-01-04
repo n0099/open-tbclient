@@ -1,6 +1,6 @@
 package com.baidu.swan.apps.inlinewidget.rtcroom;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.inlinewidget.rtcroom.a.b.aa;
 import com.baidu.swan.apps.inlinewidget.rtcroom.a.b.ab;
 import com.baidu.swan.apps.inlinewidget.rtcroom.a.b.ac;
@@ -31,59 +31,59 @@ import com.baidu.swan.apps.inlinewidget.rtcroom.a.b.y;
 import com.baidu.swan.apps.inlinewidget.rtcroom.a.b.z;
 import com.baidu.swan.apps.inlinewidget.rtcroom.c.b;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
-    private b.a dbC;
+    private b.a dgx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(@NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         super(bVar);
-        this.dbC = new b.a() { // from class: com.baidu.swan.apps.inlinewidget.rtcroom.b.1
+        this.dgx = new b.a() { // from class: com.baidu.swan.apps.inlinewidget.rtcroom.b.1
         };
-        bVar.a(this.dbC);
-        this.daY.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.a());
-        this.daY.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.b());
-        this.daY.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.c());
-        this.daY.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.e());
-        this.daY.a(new g());
-        this.daY.a(new h());
-        this.daY.a(new i());
-        this.daY.a(new j());
-        this.daY.a(new k());
-        this.daY.a(new l());
-        this.daY.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.d());
-        this.daY.a(new f());
-        this.daY.a(new m());
-        this.daY.a(new n());
-        this.daY.a(new o());
-        this.daY.a(new q());
-        this.daY.a(new p());
-        this.daY.a(new r());
-        this.daY.a(new s());
-        this.daY.a(new t());
-        this.daY.a(new u());
-        this.daY.a(new v());
-        this.daY.a(new w());
-        this.daY.a(new x());
-        this.daY.a(new y());
-        this.daY.a(new z());
-        this.daY.a(new aa());
-        this.daY.a(new ab());
-        this.daY.a(new ac());
-        this.daY.a(new ad());
-        this.daY.a(new ae());
-        this.daY.a(new ag());
-        this.daY.a(new af());
+        bVar.a(this.dgx);
+        this.dfT.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.a());
+        this.dfT.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.b());
+        this.dfT.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.c());
+        this.dfT.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.e());
+        this.dfT.a(new g());
+        this.dfT.a(new h());
+        this.dfT.a(new i());
+        this.dfT.a(new j());
+        this.dfT.a(new k());
+        this.dfT.a(new l());
+        this.dfT.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.b.d());
+        this.dfT.a(new f());
+        this.dfT.a(new m());
+        this.dfT.a(new n());
+        this.dfT.a(new o());
+        this.dfT.a(new q());
+        this.dfT.a(new p());
+        this.dfT.a(new r());
+        this.dfT.a(new s());
+        this.dfT.a(new t());
+        this.dfT.a(new u());
+        this.dfT.a(new v());
+        this.dfT.a(new w());
+        this.dfT.a(new x());
+        this.dfT.a(new y());
+        this.dfT.a(new z());
+        this.dfT.a(new aa());
+        this.dfT.a(new ab());
+        this.dfT.a(new ac());
+        this.dfT.a(new ad());
+        this.dfT.a(new ae());
+        this.dfT.a(new ag());
+        this.dfT.a(new af());
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.b, com.baidu.webkit.sdk.plugin.ZeusPlugin
     public void sendCommand(ZeusPlugin.Command command) {
         String str = command == null ? "" : command.what;
-        if (((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.dba).abU()) {
+        if (((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.dfV).adH()) {
             com.baidu.swan.apps.console.c.i("InlineRtcRoomController", "isReleased command：" + str);
             return;
         }
-        com.baidu.swan.apps.console.c.i("InlineRtcRoomController", "authorize type：" + ((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.dba).ayt() + " command：" + str);
+        com.baidu.swan.apps.console.c.i("InlineRtcRoomController", "authorize type：" + ((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.dfV).azK() + " command：" + str);
         super.sendCommand(command);
     }
 }

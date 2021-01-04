@@ -8,26 +8,26 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class ShareCardView extends LinearLayout {
-    private TbImageView fzX;
-    private EditText jCt;
-    private TextView khi;
-    private ShareFromTopicMsgData khj;
+    private TbImageView fJD;
+    private EditText jOV;
+    private TextView kuu;
+    private ShareFromTopicMsgData kuv;
     private LinearLayout mRootView;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.jCt;
+        return this.jOV;
     }
 
     public void aQ(String str, boolean z) {
-        if (this.fzX != null) {
-            this.fzX.startLoad(str, z ? 17 : 18, false);
+        if (this.fJD != null) {
+            this.fJD.startLoad(str, z ? 17 : 18, false);
         }
     }
 
@@ -46,26 +46,26 @@ public class ShareCardView extends LinearLayout {
         setOrientation(1);
         this.mRootView = (LinearLayout) findViewById(R.id.share_content);
         this.title = (TextView) findViewById(R.id.share_title_view);
-        this.jCt = (EditText) findViewById(R.id.chat_msg);
-        this.fzX = (TbImageView) findViewById(R.id.chat_group_img);
-        this.khi = (TextView) findViewById(R.id.chat_group_desc);
-        ap.setViewTextColor(this.title, R.color.CAM_X0105, 1);
-        ap.setViewTextColor(this.jCt, R.color.CAM_X0105, 2);
-        ap.setViewTextColor(this.khi, R.color.CAM_X0106, 1);
-        this.jCt.setHintTextColor(ap.getColor(R.color.CAM_X0110));
-        this.jCt.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        cMh();
+        this.jOV = (EditText) findViewById(R.id.chat_msg);
+        this.fJD = (TbImageView) findViewById(R.id.chat_group_img);
+        this.kuu = (TextView) findViewById(R.id.chat_group_desc);
+        ao.setViewTextColor(this.title, R.color.CAM_X0105, 1);
+        ao.setViewTextColor(this.jOV, R.color.CAM_X0105, 2);
+        ao.setViewTextColor(this.kuu, R.color.CAM_X0106, 1);
+        this.jOV.setHintTextColor(ao.getColor(R.color.CAM_X0110));
+        this.jOV.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        cPk();
     }
 
-    public void cMh() {
+    public void cPk() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.jCt != null) {
-            return k.charSequence2String(this.jCt.getText(), null);
+        if (this.jOV != null) {
+            return k.charSequence2String(this.jOV.getText(), null);
         }
         return null;
     }
@@ -78,15 +78,15 @@ public class ShareCardView extends LinearLayout {
     }
 
     public void setData(ShareFromTopicMsgData shareFromTopicMsgData) {
-        this.khj = shareFromTopicMsgData;
+        this.kuv = shareFromTopicMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.title.setText(this.khj.getTitle());
-        BdLog.e("mData.getImageUrl()的图片URL" + this.khj.getImageUrl());
-        this.fzX.setTag(this.khj.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.khj.getContent());
-        this.khi.setText(this.khj.getContent());
+        this.title.setText(this.kuv.getTitle());
+        BdLog.e("mData.getImageUrl()的图片URL" + this.kuv.getImageUrl());
+        this.fJD.setTag(this.kuv.getImageUrl());
+        BdLog.e("mData.getContent()的Content" + this.kuv.getContent());
+        this.kuu.setText(this.kuv.getContent());
     }
 }

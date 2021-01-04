@@ -1,111 +1,52 @@
 package com.baidu.tieba.frs.forumRule.c;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
-import java.util.List;
-import tbclient.BawuRoleInfoPub;
-import tbclient.ForumInfo;
-import tbclient.ForumRule;
-import tbclient.ForumRuleDetail.DataRes;
-/* loaded from: classes22.dex */
-public class b implements q {
-    public static BdUniqueId TYPE = BdUniqueId.gen();
-    private String audit_opinion;
-    private BawuRoleInfoPub bazhu;
-    private String cur_time;
-    private ForumInfo forum;
-    private Long forum_rule_id;
-    private int jhJ;
-    private boolean jhK;
-    private d jhL;
-    private a jhM;
-    private String preface;
-    private String publish_time;
-    private List<ForumRule> rules;
-    private String title;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.c;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tieba.R;
+/* loaded from: classes2.dex */
+public class b {
+    private EMTextView jtR;
+    private View juw;
+    private Context mContext;
 
-    public void a(DataRes dataRes) {
-        if (dataRes != null) {
-            this.forum = dataRes.forum;
-            this.title = dataRes.title;
-            this.preface = dataRes.preface;
-            this.rules = dataRes.rules;
-            this.jhJ = dataRes.audit_status.intValue();
-            this.audit_opinion = dataRes.audit_opinion;
-            this.jhK = dataRes.is_manager.intValue() == 1;
-            this.forum_rule_id = dataRes.forum_rule_id;
-            this.publish_time = dataRes.publish_time;
-            this.bazhu = dataRes.bazhu;
-            this.cur_time = dataRes.cur_time;
-            this.jhL = new d();
-            this.jhL.a(dataRes);
-            this.jhM = new a();
-            this.jhM.a(dataRes);
+    public b(Context context) {
+        this.mContext = context;
+        eO(context);
+    }
+
+    private void eO(Context context) {
+        if (this.juw == null) {
+            this.juw = LayoutInflater.from(context).inflate(R.layout.forum_rules_title_area, (ViewGroup) null);
+            this.jtR = (EMTextView) this.juw.findViewById(R.id.forum_rules_title);
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public ForumInfo cGD() {
-        return this.forum;
+    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
+        if (bdTypeRecyclerView != null && this.juw != null) {
+            this.juw.setVisibility(0);
+            bdTypeRecyclerView.addHeaderView(this.juw);
+        }
     }
 
-    public String getTitle() {
-        return this.title;
+    public void e(BdTypeRecyclerView bdTypeRecyclerView) {
+        if (bdTypeRecyclerView != null && this.juw != null) {
+            this.juw.setVisibility(8);
+            bdTypeRecyclerView.removeHeaderView(this.juw);
+        }
     }
 
-    public String getPreface() {
-        return this.preface;
+    public void setTitle(String str) {
+        this.jtR.setText(str);
     }
 
-    public List<ForumRule> cGE() {
-        return this.rules;
-    }
-
-    public int cGF() {
-        return this.jhJ;
-    }
-
-    public String cGG() {
-        return this.audit_opinion;
-    }
-
-    public boolean cGH() {
-        return this.jhK;
-    }
-
-    public String cGC() {
-        return this.publish_time;
-    }
-
-    public BawuRoleInfoPub cGI() {
-        return this.bazhu;
-    }
-
-    public void a(ForumInfo forumInfo) {
-        this.forum = forumInfo;
-    }
-
-    public void setPreface(String str) {
-        this.preface = str;
-    }
-
-    public void qE(boolean z) {
-        this.jhK = z;
-    }
-
-    public void b(BawuRoleInfoPub bawuRoleInfoPub) {
-        this.bazhu = bawuRoleInfoPub;
-    }
-
-    public String cGJ() {
-        return this.cur_time;
-    }
-
-    public a cGK() {
-        return this.jhM;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return TYPE;
+    public void onChangeSkinType(int i) {
+        c.bv(this.jtR).pE(R.string.F_X02).pC(R.color.CAM_X0105);
     }
 }

@@ -40,7 +40,6 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.atomdata.YuyinAlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.data.AlaBroadcastGiftToastData;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.StatisticItem;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
@@ -50,25 +49,25 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.view.f;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a implements ab {
-    private HeadImageView aGa;
-    private AlaBroadcastGiftToastData aYN;
-    private boolean aYP;
-    private AlaLiveUserInfoData aYS;
-    private boolean aYU;
-    private LinearLayout aYV;
-    private RelativeLayout aYW;
-    private TextView aYX;
-    private RelativeLayout aYY;
-    private AnimatorSet aYZ;
-    private TranslateAnimation aZa;
-    private TbImageView aZb;
-    private LinearLayout aZc;
-    private LinearLayout aZd;
-    private TbImageView aZe;
-    private TextView aZf;
-    private View aaj;
+    private HeadImageView aGr;
+    private View aaS;
+    private boolean baB;
+    private LinearLayout baC;
+    private RelativeLayout baD;
+    private TextView baE;
+    private RelativeLayout baF;
+    private AnimatorSet baG;
+    private TranslateAnimation baH;
+    private TbImageView baI;
+    private LinearLayout baJ;
+    private LinearLayout baK;
+    private TbImageView baL;
+    private TextView baM;
+    private AlaBroadcastGiftToastData bau;
+    private boolean baw;
+    private AlaLiveUserInfoData baz;
     private int ds10;
     private int ds20;
     private int ds3;
@@ -83,23 +82,23 @@ public class a implements ab {
     private Context mContext;
     private Paint mPaint;
     private int mScreenWidth;
-    private ArrayList<AlaBroadcastGiftToastData> aYM = new ArrayList<>();
-    private boolean aYO = false;
-    private long aYQ = -1;
-    private long aYR = -1;
-    private long aYT = 0;
-    private final String aZg = "#ffffff";
-    private final String aZh = "#ff5460";
-    private final String aZi = "#D565A9";
-    private HttpMessageListener aZj = new HttpMessageListener(1021119) { // from class: com.baidu.live.gift.broadcastgift.a.3
+    private ArrayList<AlaBroadcastGiftToastData> bat = new ArrayList<>();
+    private boolean bav = false;
+    private long bax = -1;
+    private long bay = -1;
+    private long baA = 0;
+    private final String baN = "#ffffff";
+    private final String baO = "#ff5460";
+    private final String baP = "#D565A9";
+    private HttpMessageListener baQ = new HttpMessageListener(1021119) { // from class: com.baidu.live.gift.broadcastgift.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AlaGetBroadcastGiftResponseMessage) {
                 AlaGetBroadcastGiftResponseMessage alaGetBroadcastGiftResponseMessage = (AlaGetBroadcastGiftResponseMessage) httpResponsedMessage;
-                a.this.aYT = alaGetBroadcastGiftResponseMessage.aZo;
-                a.this.l(alaGetBroadcastGiftResponseMessage.aZn);
-                a.this.IS();
+                a.this.baA = alaGetBroadcastGiftResponseMessage.baV;
+                a.this.l(alaGetBroadcastGiftResponseMessage.baU);
+                a.this.It();
             }
         }
     };
@@ -107,24 +106,24 @@ public class a implements ab {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag() != null && (view.getTag() instanceof AlaLiveInfoCoreData)) {
-                if (!TbadkCoreApplication.getInst().isMobileBaidu() || com.baidu.live.ae.a.RB().brA.aNV) {
+                if (!TbadkCoreApplication.getInst().isMobileBaidu() || com.baidu.live.af.a.SE().bwi.aOz) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) view.getTag();
                     if (alaLiveInfoCoreData.localBroadcastType == 2) {
                         LogManager.getCommonLogger().doClickHourRankConfirmNoticeLog(alaLiveInfoCoreData.feed_id, alaLiveInfoCoreData.otherParams);
                     }
-                    if (a.this.aYQ != alaLiveInfoCoreData.liveID && !a.this.aYP) {
-                        ListUtils.add(a.this.aYM, 0, a.this.aYN);
-                        if (ListUtils.getCount(a.this.aYM) > 20) {
-                            ListUtils.removeSubList(a.this.aYM, 21, ListUtils.getCount(a.this.aYM));
+                    if (a.this.bax != alaLiveInfoCoreData.liveID && !a.this.baw) {
+                        ListUtils.add(a.this.bat, 0, a.this.bau);
+                        if (ListUtils.getCount(a.this.bat) > 20) {
+                            ListUtils.removeSubList(a.this.bat, 21, ListUtils.getCount(a.this.bat));
                         }
                         AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
                         alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_BROADCAST);
-                        alaLastLiveroomInfo.setLastLiveId(a.this.aYQ);
-                        alaLastLiveroomInfo.setLastRoomId(a.this.aYR);
-                        if (a.this.aYS != null) {
-                            alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(a.this.aYS.userId));
-                            alaLastLiveroomInfo.setLastAnchorUname(a.this.aYS.nickName);
-                            alaLastLiveroomInfo.setLastAnchorPortrait(a.this.aYS.portrait);
+                        alaLastLiveroomInfo.setLastLiveId(a.this.bax);
+                        alaLastLiveroomInfo.setLastRoomId(a.this.bay);
+                        if (a.this.baz != null) {
+                            alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(a.this.baz.userId));
+                            alaLastLiveroomInfo.setLastAnchorUname(a.this.baz.nickName);
+                            alaLastLiveroomInfo.setLastAnchorPortrait(a.this.baz.portrait);
                             if (!TextUtils.isEmpty(alaLiveInfoCoreData.liveCover)) {
                                 alaLastLiveroomInfo.setLastCover(alaLiveInfoCoreData.liveCover);
                             }
@@ -137,14 +136,15 @@ public class a implements ab {
                             }
                         }
                         if (alaLiveInfoCoreData.isAudio == 1) {
-                            YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(a.this.mContext, alaLiveInfoCoreData.liveID, "", a.this.aYM);
+                            YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(a.this.mContext, alaLiveInfoCoreData.liveID, "", a.this.bat);
                             yuyinAlaLiveRoomActivityConfig.addLastLiveInfoParams(alaLastLiveroomInfo);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2501018, yuyinAlaLiveRoomActivityConfig));
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501059, "close_video_activity"));
                         } else {
-                            AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(a.this.mContext, alaLiveInfoCoreData.liveID, "", a.this.aYM);
+                            com.baidu.live.liveroom.a.OO().a(com.baidu.live.liveroom.a.OO().OP().hW(String.valueOf(alaLiveInfoCoreData.liveID)));
+                            AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(a.this.mContext, alaLiveInfoCoreData.liveID, "", a.this.bat);
                             alaLiveRoomActivityConfig.addLastLiveInfoParams(alaLastLiveroomInfo);
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, alaLiveRoomActivityConfig));
+                            com.baidu.live.liveroom.a.OO().a(alaLiveRoomActivityConfig);
                         }
                         TiebaInitialize.log(new StatisticItem("c13060"));
                     }
@@ -154,30 +154,30 @@ public class a implements ab {
     };
 
     public a(com.baidu.live.gift.a aVar) {
-        this.aYU = true;
+        this.baB = true;
         if (aVar != null && aVar.context != null) {
             this.mContext = aVar.context;
-            this.aYP = aVar.aVr;
-            this.aYU = true;
-            this.aYV = (LinearLayout) LayoutInflater.from(this.mContext).inflate(a.g.broadcast_gift_toast_container, (ViewGroup) null);
-            this.aZc = (LinearLayout) this.aYV.findViewById(a.f.outter_layout);
-            this.aYW = (RelativeLayout) this.aYV.findViewById(a.f.container_layout);
-            this.aYY = (RelativeLayout) this.aYV.findViewById(a.f.msg_background);
-            this.aYY.setOnClickListener(this.mOnClickListener);
-            this.aYW.setVisibility(4);
-            this.aaj = this.aYV.findViewById(a.f.bg_view);
-            this.aYX = (TextView) this.aYV.findViewById(a.f.msg_content);
-            this.aYX.setMaxLines(1);
-            this.aZd = (LinearLayout) this.aYV.findViewById(a.f.content_layout);
-            this.aGa = (HeadImageView) this.aYV.findViewById(a.f.avatar_cast_toast);
-            this.aGa.setIsRound(true);
-            this.aGa.setAutoChangeStyle(false);
-            this.aGa.setDefaultBgResource(a.e.sdk_icon_default_avatar100_bg);
-            this.aZb = (TbImageView) this.aYV.findViewById(a.f.leftIcon_imageView);
-            this.aZb.setDefaultBgResource(a.e.sdk_shape_transparent);
-            this.aZe = (TbImageView) this.aYV.findViewById(a.f.rightIcon_imageView);
-            this.aZe.setDefaultBgResource(a.e.sdk_shape_transparent);
-            this.aZf = (TextView) this.aYV.findViewById(a.f.guide_textView);
+            this.baw = aVar.aWW;
+            this.baB = true;
+            this.baC = (LinearLayout) LayoutInflater.from(this.mContext).inflate(a.g.broadcast_gift_toast_container, (ViewGroup) null);
+            this.baJ = (LinearLayout) this.baC.findViewById(a.f.outter_layout);
+            this.baD = (RelativeLayout) this.baC.findViewById(a.f.container_layout);
+            this.baF = (RelativeLayout) this.baC.findViewById(a.f.msg_background);
+            this.baF.setOnClickListener(this.mOnClickListener);
+            this.baD.setVisibility(4);
+            this.aaS = this.baC.findViewById(a.f.bg_view);
+            this.baE = (TextView) this.baC.findViewById(a.f.msg_content);
+            this.baE.setMaxLines(1);
+            this.baK = (LinearLayout) this.baC.findViewById(a.f.content_layout);
+            this.aGr = (HeadImageView) this.baC.findViewById(a.f.avatar_cast_toast);
+            this.aGr.setIsRound(true);
+            this.aGr.setAutoChangeStyle(false);
+            this.aGr.setDefaultBgResource(a.e.sdk_icon_default_avatar100_bg);
+            this.baI = (TbImageView) this.baC.findViewById(a.f.leftIcon_imageView);
+            this.baI.setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.baL = (TbImageView) this.baC.findViewById(a.f.rightIcon_imageView);
+            this.baL.setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.baM = (TextView) this.baC.findViewById(a.f.guide_textView);
             this.mScreenWidth = BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels;
             this.ds3 = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds3);
             this.ds4 = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds4);
@@ -192,26 +192,26 @@ public class a implements ab {
             this.ds630 = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds630);
             this.mPaint = new Paint();
             this.mPaint.setTextSize(this.ds20);
-            MessageManager.getInstance().registerListener(this.aZj);
-            if (!StringUtils.isNull(aVar.fromType) && aVar.fromType.equals("broadcast_gift_toast") && !ListUtils.isEmpty(aVar.aVs)) {
-                this.aYM.addAll(aVar.aVs);
-                AlaBroadcastGiftToastData alaBroadcastGiftToastData = (AlaBroadcastGiftToastData) ListUtils.getItem(this.aYM, 0);
-                ListUtils.remove(this.aYM, 0);
-                g hr = ac.hr(String.valueOf(alaBroadcastGiftToastData.gift_id));
+            MessageManager.getInstance().registerListener(this.baQ);
+            if (!StringUtils.isNull(aVar.fromType) && aVar.fromType.equals("broadcast_gift_toast") && !ListUtils.isEmpty(aVar.aWX)) {
+                this.bat.addAll(aVar.aWX);
+                AlaBroadcastGiftToastData alaBroadcastGiftToastData = (AlaBroadcastGiftToastData) ListUtils.getItem(this.bat, 0);
+                ListUtils.remove(this.bat, 0);
+                g hc = ac.hc(String.valueOf(alaBroadcastGiftToastData.gift_id));
                 c cVar = new c();
-                cVar.giftId = hr.GX();
-                cVar.aWP = 1L;
-                cVar.giftName = hr.GY();
-                cVar.aWS = hr.getThumbnail_url();
-                cVar.boV = "";
+                cVar.giftId = hc.Gx();
+                cVar.aYv = 1L;
+                cVar.giftName = hc.Gy();
+                cVar.aYy = hc.getThumbnail_url();
+                cVar.beQ = "";
                 cVar.isDynamic = false;
                 com.baidu.live.data.a aVar2 = new com.baidu.live.data.a();
                 aVar2.userId = alaBroadcastGiftToastData.sender;
                 aVar2.portrait = alaBroadcastGiftToastData.sender_portrait;
                 aVar2.userName = alaBroadcastGiftToastData.sender;
                 ac.b(cVar, aVar2, String.valueOf(alaBroadcastGiftToastData.live_id), "", false, "", "", true, true, "", "", -1L);
-                IS();
-                aM(alaBroadcastGiftToastData.msg_id);
+                It();
+                aL(alaBroadcastGiftToastData.msg_id);
             }
         }
     }
@@ -220,9 +220,9 @@ public class a implements ab {
         long j = alaBroadcastGiftToastData.enterTime * 1000;
         long j2 = alaBroadcastGiftToastData.quitTime * 1000;
         long j3 = (alaBroadcastGiftToastData.stop1Time * 1000) + j + (alaBroadcastGiftToastData.maxRollTime * 1000) + (alaBroadcastGiftToastData.stop2Time * 1000) + j2;
-        this.aYZ = new AnimatorSet();
-        this.aYZ.setDuration(j3);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aYV, "TranslationX", this.mScreenWidth, -this.mScreenWidth);
+        this.baG = new AnimatorSet();
+        this.baG.setDuration(j3);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.baC, "TranslationX", this.mScreenWidth, -this.mScreenWidth);
         ofFloat.setDuration(j3);
         final float f = (((float) j) * 1.0f) / ((float) j3);
         final float f2 = (((float) (j3 - j2)) * 1.0f) / ((float) j3);
@@ -238,18 +238,18 @@ public class a implements ab {
                 return 0.5f;
             }
         });
-        this.aYZ.play(ofFloat);
-        this.aYZ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.gift.broadcastgift.a.2
+        this.baG.play(ofFloat);
+        this.baG.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.gift.broadcastgift.a.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                a.this.aYO = true;
-                a.this.aYW.setVisibility(0);
+                a.this.bav = true;
+                a.this.baD.setVisibility(0);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                a.this.IT();
-                a.this.IS();
+                a.this.Iu();
+                a.this.It();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -263,33 +263,33 @@ public class a implements ab {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IS() {
-        if (!this.aYO && !ListUtils.isEmpty(this.aYM)) {
-            this.aYN = (AlaBroadcastGiftToastData) ListUtils.getItem(this.aYM, 0);
-            ListUtils.remove(this.aYM, 0);
-            c(this.aYN);
+    public void It() {
+        if (!this.bav && !ListUtils.isEmpty(this.bat)) {
+            this.bau = (AlaBroadcastGiftToastData) ListUtils.getItem(this.bat, 0);
+            ListUtils.remove(this.bat, 0);
+            c(this.bau);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IT() {
-        this.aYO = false;
-        this.aZd.clearAnimation();
-        this.aYV.clearAnimation();
-        this.aYW.setVisibility(4);
+    public void Iu() {
+        this.bav = false;
+        this.baK.clearAnimation();
+        this.baC.clearAnimation();
+        this.baD.setVisibility(4);
     }
 
     private void c(AlaBroadcastGiftToastData alaBroadcastGiftToastData) {
         if (alaBroadcastGiftToastData != null) {
-            if (alaBroadcastGiftToastData.broad_type == 6 && alaBroadcastGiftToastData.live_id != this.aYQ && !com.baidu.live.ae.a.RB().bxq.aQY.contains(alaBroadcastGiftToastData.gift_id + "")) {
-                IT();
-                IS();
+            if (alaBroadcastGiftToastData.broad_type == 6 && alaBroadcastGiftToastData.live_id != this.bax && !com.baidu.live.af.a.SE().bCb.aRN.contains(alaBroadcastGiftToastData.gift_id + "")) {
+                Iu();
+                It();
                 return;
             }
             SpannableStringBuilder h = h(alaBroadcastGiftToastData);
             if (h == null || h.length() <= 0) {
-                IT();
-                IS();
+                Iu();
+                It();
                 return;
             }
             a(alaBroadcastGiftToastData, h);
@@ -301,72 +301,72 @@ public class a implements ab {
             return false;
         }
         boolean z = alaBroadcastGiftToastData.showPortrait && !TextUtils.isEmpty(alaBroadcastGiftToastData.sender_portrait);
-        this.aYY.setPadding(z ? 0 : this.ds20, this.aYY.getPaddingTop(), this.aYY.getPaddingRight(), this.aYY.getPaddingBottom());
+        this.baF.setPadding(z ? 0 : this.ds20, this.baF.getPaddingTop(), this.baF.getPaddingRight(), this.baF.getPaddingBottom());
         if (z) {
-            this.aGa.setVisibility(0);
-            this.aGa.startLoad(alaBroadcastGiftToastData.sender_portrait, 12, false, false);
-            this.aZb.setVisibility(8);
+            this.aGr.setVisibility(0);
+            this.aGr.startLoad(alaBroadcastGiftToastData.sender_portrait, 12, false, false);
+            this.baI.setVisibility(8);
         } else {
-            this.aGa.setVisibility(8);
+            this.aGr.setVisibility(8);
         }
         return z;
     }
 
-    private void er(int i) {
+    private void ep(int i) {
         if (i == 0) {
-            this.aZb.setVisibility(8);
+            this.baI.setVisibility(8);
             return;
         }
-        this.aZb.getLayoutParams().width = (int) ((this.aZb.getLayoutParams().height * 18.0f) / 23.0f);
-        this.aZb.setLayoutParams(this.aZb.getLayoutParams());
-        this.aZb.stopLoad();
-        this.aZb.setImageResource(i);
-        this.aZb.setVisibility(0);
+        this.baI.getLayoutParams().width = (int) ((this.baI.getLayoutParams().height * 18.0f) / 23.0f);
+        this.baI.setLayoutParams(this.baI.getLayoutParams());
+        this.baI.stopLoad();
+        this.baI.setImageResource(i);
+        this.baI.setVisibility(0);
     }
 
     private void e(AlaBroadcastGiftToastData alaBroadcastGiftToastData) {
         if (!TextUtils.isEmpty(alaBroadcastGiftToastData.leftIcon)) {
-            int i = this.aZb.getLayoutParams().height;
+            int i = this.baI.getLayoutParams().height;
             if (alaBroadcastGiftToastData.leftIconWidth > 0 && alaBroadcastGiftToastData.leftIconHeight > 0) {
                 i = (int) (((i * 1.0f) * alaBroadcastGiftToastData.leftIconWidth) / alaBroadcastGiftToastData.leftIconHeight);
             }
-            this.aZb.getLayoutParams().width = i;
-            this.aZb.setLayoutParams(this.aZb.getLayoutParams());
-            this.aZb.setImageResource(0);
-            this.aZb.stopLoad();
-            this.aZb.startLoad(alaBroadcastGiftToastData.leftIcon, 10, false);
-            this.aZb.setVisibility(0);
+            this.baI.getLayoutParams().width = i;
+            this.baI.setLayoutParams(this.baI.getLayoutParams());
+            this.baI.setImageResource(0);
+            this.baI.stopLoad();
+            this.baI.startLoad(alaBroadcastGiftToastData.leftIcon, 10, false);
+            this.baI.setVisibility(0);
             return;
         }
-        this.aZb.setVisibility(8);
+        this.baI.setVisibility(8);
     }
 
     private void f(AlaBroadcastGiftToastData alaBroadcastGiftToastData) {
         if (!TextUtils.isEmpty(alaBroadcastGiftToastData.rightIcon)) {
-            int i = this.aZe.getLayoutParams().height;
+            int i = this.baL.getLayoutParams().height;
             if (alaBroadcastGiftToastData.rightIconWidth > 0 && alaBroadcastGiftToastData.rightIconHeight > 0) {
                 i = (int) (((i * 1.0f) * alaBroadcastGiftToastData.rightIconWidth) / alaBroadcastGiftToastData.rightIconHeight);
             }
-            this.aZe.getLayoutParams().width = i;
-            this.aZe.setLayoutParams(this.aZe.getLayoutParams());
-            this.aZe.stopLoad();
-            this.aZe.startLoad(alaBroadcastGiftToastData.rightIcon, 10, false);
-            this.aZe.setVisibility(0);
+            this.baL.getLayoutParams().width = i;
+            this.baL.setLayoutParams(this.baL.getLayoutParams());
+            this.baL.stopLoad();
+            this.baL.startLoad(alaBroadcastGiftToastData.rightIcon, 10, false);
+            this.baL.setVisibility(0);
             return;
         }
-        this.aZe.setVisibility(8);
+        this.baL.setVisibility(8);
     }
 
     private void g(AlaBroadcastGiftToastData alaBroadcastGiftToastData) {
-        if (!TextUtils.isEmpty(alaBroadcastGiftToastData.guideButtonText) && !this.aYP) {
+        if (!TextUtils.isEmpty(alaBroadcastGiftToastData.guideButtonText) && !this.baw) {
             com.baidu.live.gift.e.a aVar = new com.baidu.live.gift.e.a(this.mContext, alaBroadcastGiftToastData.guideButtonText, alaBroadcastGiftToastData.guideButtonGroundColor, alaBroadcastGiftToastData.guideButtonGroundColor, alaBroadcastGiftToastData.guideButtonFontColor, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_fontsize24));
             SpannableString spannableString = new SpannableString(" b");
             spannableString.setSpan(aVar, 1, spannableString.length(), 33);
-            this.aZf.setText(spannableString);
-            this.aZf.setVisibility(0);
+            this.baM.setText(spannableString);
+            this.baM.setVisibility(0);
             return;
         }
-        this.aZf.setVisibility(8);
+        this.baM.setVisibility(8);
     }
 
     private void a(AlaBroadcastGiftToastData alaBroadcastGiftToastData, SpannableStringBuilder spannableStringBuilder) {
@@ -376,30 +376,30 @@ public class a implements ab {
         b(alaBroadcastGiftToastData);
         if (alaBroadcastGiftToastData.localBroadcastType == 1 || alaBroadcastGiftToastData.localBroadcastType == 2) {
             if (alaBroadcastGiftToastData.localBroadcastType == 1) {
-                this.aYY.setClickable(false);
+                this.baF.setClickable(false);
                 if (!d(alaBroadcastGiftToastData)) {
-                    er(a.e.icon_live_remind_white_n);
+                    ep(a.e.icon_live_remind_white_n);
                 }
             } else if (alaBroadcastGiftToastData.localBroadcastType == 2) {
-                if (this.aYQ == alaBroadcastGiftToastData.live_id || this.aYP) {
-                    this.aYY.setClickable(false);
+                if (this.bax == alaBroadcastGiftToastData.live_id || this.baw) {
+                    this.baF.setClickable(false);
                 } else {
-                    this.aYY.setClickable(true);
+                    this.baF.setClickable(true);
                 }
                 if (!d(alaBroadcastGiftToastData)) {
-                    er(a.e.champion_icon);
+                    ep(a.e.champion_icon);
                 }
             }
-            this.aZe.setVisibility(8);
-            this.aZf.setVisibility(8);
-            this.aaj.setBackgroundResource(a.e.ala_broadcast_gift_toast_bg);
+            this.baL.setVisibility(8);
+            this.baM.setVisibility(8);
+            this.aaS.setBackgroundResource(a.e.ala_broadcast_gift_toast_bg);
         } else {
             if (!d(alaBroadcastGiftToastData)) {
                 e(alaBroadcastGiftToastData);
             }
             f(alaBroadcastGiftToastData);
             g(alaBroadcastGiftToastData);
-            this.aYY.setClickable(alaBroadcastGiftToastData.isJump);
+            this.baF.setClickable(alaBroadcastGiftToastData.isJump);
             int i2 = 0;
             try {
                 if (!TextUtils.isEmpty(alaBroadcastGiftToastData.startBgColor)) {
@@ -423,7 +423,7 @@ public class a implements ab {
             f fVar = new f();
             fVar.setCornerRadius(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds40));
             fVar.N(parseColor, parseColor2);
-            this.aaj.setBackgroundDrawable(fVar);
+            this.aaS.setBackgroundDrawable(fVar);
         }
         long j = alaBroadcastGiftToastData.enterTime * 1000;
         long j2 = alaBroadcastGiftToastData.stop1Time * 1000;
@@ -434,33 +434,33 @@ public class a implements ab {
         alaLiveInfoCoreData.feed_id = alaBroadcastGiftToastData.feed_id;
         alaLiveInfoCoreData.otherParams = alaBroadcastGiftToastData.otherParams;
         alaLiveInfoCoreData.isAudio = alaBroadcastGiftToastData.is_jiaoyou;
-        this.aYY.setTag(alaLiveInfoCoreData);
-        this.aYX.setText(spannableStringBuilder);
-        if (this.aZb.getVisibility() == 0 && alaBroadcastGiftToastData.leftIconModel == 1) {
-            this.aYY.getLayoutParams().height = this.ds68;
-            this.aZb.getLayoutParams().height = this.ds68;
-            this.aYY.setPadding(0, 0, this.ds20, 0);
+        this.baF.setTag(alaLiveInfoCoreData);
+        this.baE.setText(spannableStringBuilder);
+        if (this.baI.getVisibility() == 0 && alaBroadcastGiftToastData.leftIconModel == 1) {
+            this.baF.getLayoutParams().height = this.ds68;
+            this.baI.getLayoutParams().height = this.ds68;
+            this.baF.setPadding(0, 0, this.ds20, 0);
             int i3 = this.ds68;
             if (alaBroadcastGiftToastData.leftIconWidth > 0 && alaBroadcastGiftToastData.leftIconHeight > 0) {
                 i3 = (int) (((i3 * 1.0f) * alaBroadcastGiftToastData.leftIconWidth) / alaBroadcastGiftToastData.leftIconHeight);
             }
-            this.aZb.getLayoutParams().width = i3;
-            ((LinearLayout.LayoutParams) this.aYW.getLayoutParams()).topMargin = (this.ds56 - this.ds68) / 2;
+            this.baI.getLayoutParams().width = i3;
+            ((LinearLayout.LayoutParams) this.baD.getLayoutParams()).topMargin = (this.ds56 - this.ds68) / 2;
         } else {
-            this.aYY.getLayoutParams().height = this.ds56;
-            this.aZb.getLayoutParams().height = this.ds32;
-            this.aYY.setPadding(alaBroadcastGiftToastData.showPortrait && !TextUtils.isEmpty(alaBroadcastGiftToastData.sender_portrait) ? 0 : this.ds20, this.aYY.getPaddingTop(), this.aYY.getPaddingRight(), this.aYY.getPaddingBottom());
+            this.baF.getLayoutParams().height = this.ds56;
+            this.baI.getLayoutParams().height = this.ds32;
+            this.baF.setPadding(alaBroadcastGiftToastData.showPortrait && !TextUtils.isEmpty(alaBroadcastGiftToastData.sender_portrait) ? 0 : this.ds20, this.baF.getPaddingTop(), this.baF.getPaddingRight(), this.baF.getPaddingBottom());
             int i4 = this.ds32;
             if (alaBroadcastGiftToastData.leftIconWidth > 0 && alaBroadcastGiftToastData.leftIconHeight > 0) {
                 i4 = (int) (((i4 * 1.0f) * alaBroadcastGiftToastData.leftIconWidth) / alaBroadcastGiftToastData.leftIconHeight);
             }
-            this.aZb.getLayoutParams().width = i4;
-            ((LinearLayout.LayoutParams) this.aYW.getLayoutParams()).topMargin = 0;
+            this.baI.getLayoutParams().width = i4;
+            ((LinearLayout.LayoutParams) this.baD.getLayoutParams()).topMargin = 0;
         }
         if (spannableStringBuilder != null) {
-            int textWidth = BdUtilHelper.getTextWidth(this.aYX.getPaint(), spannableStringBuilder.toString());
+            int textWidth = BdUtilHelper.getTextWidth(this.baE.getPaint(), spannableStringBuilder.toString());
             int i5 = 0;
-            if (this.aZe.getVisibility() == 0) {
+            if (this.baL.getVisibility() == 0) {
                 if (alaBroadcastGiftToastData.rightIconWidth > 0 && alaBroadcastGiftToastData.rightIconHeight > 0) {
                     i = (int) (((1.0f * this.ds40) * alaBroadcastGiftToastData.rightIconWidth) / alaBroadcastGiftToastData.rightIconHeight);
                 } else {
@@ -469,36 +469,36 @@ public class a implements ab {
                 i5 = i + this.ds4;
             }
             int i6 = 0;
-            if (this.aZf.getVisibility() == 0) {
-                this.aZf.measure(0, 0);
-                i6 = this.aZf.getMeasuredWidth();
+            if (this.baM.getVisibility() == 0) {
+                this.baM.measure(0, 0);
+                i6 = this.baM.getMeasuredWidth();
             }
-            this.aZc.setPadding(0, 0, i6, 0);
-            int paddingLeft = ((this.ds630 - this.ds20) - i6) - this.aYY.getPaddingLeft();
-            if (this.aZb.getVisibility() == 0 || this.aGa.getVisibility() == 0) {
-                if (this.aZb.getVisibility() == 0) {
-                    paddingLeft = (paddingLeft - this.aZb.getLayoutParams().width) - this.ds10;
+            this.baJ.setPadding(0, 0, i6, 0);
+            int paddingLeft = ((this.ds630 - this.ds20) - i6) - this.baF.getPaddingLeft();
+            if (this.baI.getVisibility() == 0 || this.aGr.getVisibility() == 0) {
+                if (this.baI.getVisibility() == 0) {
+                    paddingLeft = (paddingLeft - this.baI.getLayoutParams().width) - this.ds10;
                 } else {
                     paddingLeft = ((paddingLeft - this.ds52) - this.ds3) - this.ds8;
                 }
             }
             int i7 = textWidth + i5;
             float f = -(((i7 - paddingLeft) * 1.0f) / (i6 + paddingLeft));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aZd.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.baK.getLayoutParams();
             if (i7 < paddingLeft) {
                 layoutParams.width = -2;
-                this.aZd.setLayoutParams(layoutParams);
+                this.baK.setLayoutParams(layoutParams);
             } else {
                 layoutParams.width = i7;
-                this.aZd.setLayoutParams(layoutParams);
-                this.aZa = new TranslateAnimation(2, 0.0f, 2, f, 1, 0.0f, 1, 0.0f);
-                this.aZa.setStartOffset(j + j2);
-                this.aZa.setDuration(j3);
-                this.aZa.setFillAfter(true);
-                this.aZd.startAnimation(this.aZa);
+                this.baK.setLayoutParams(layoutParams);
+                this.baH = new TranslateAnimation(2, 0.0f, 2, f, 1, 0.0f, 1, 0.0f);
+                this.baH.setStartOffset(j + j2);
+                this.baH.setDuration(j3);
+                this.baH.setFillAfter(true);
+                this.baK.startAnimation(this.baH);
             }
         }
-        this.aYZ.start();
+        this.baG.start();
         TiebaInitialize.log(new StatisticItem("c13059"));
     }
 
@@ -510,7 +510,7 @@ public class a implements ab {
             while (it.hasNext()) {
                 AlaBroadcastGiftToastData next = it.next();
                 if (next != null) {
-                    Iterator<AlaBroadcastGiftToastData> it2 = this.aYM.iterator();
+                    Iterator<AlaBroadcastGiftToastData> it2 = this.bat.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -521,7 +521,7 @@ public class a implements ab {
                         }
                     }
                     if (!z) {
-                        this.aYM.add(next);
+                        this.bat.add(next);
                     }
                 }
             }
@@ -531,13 +531,13 @@ public class a implements ab {
     @Override // com.baidu.live.gift.ab
     public void a(AlaBroadcastGiftToastData alaBroadcastGiftToastData) {
         if (alaBroadcastGiftToastData != null) {
-            this.aYM.add(alaBroadcastGiftToastData);
-            IS();
+            this.bat.add(alaBroadcastGiftToastData);
+            It();
         }
     }
 
     @Override // com.baidu.live.gift.ab
-    public void en(int i) {
+    public void el(int i) {
     }
 
     public SpannableStringBuilder h(AlaBroadcastGiftToastData alaBroadcastGiftToastData) {
@@ -575,53 +575,53 @@ public class a implements ab {
         }
     }
 
-    private void aM(long j) {
+    private void aL(long j) {
         HttpMessage httpMessage = new HttpMessage(1021119);
         httpMessage.addParam("msg_id", j);
-        httpMessage.addParam("is_host", this.aYP ? 1 : 0);
-        httpMessage.addParam("live_id", this.aYQ);
+        httpMessage.addParam("is_host", this.baw ? 1 : 0);
+        httpMessage.addParam("live_id", this.bax);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     @Override // com.baidu.live.gift.ab
     public void onDestroy() {
-        this.aYO = false;
-        MessageManager.getInstance().unRegisterListener(this.aZj);
-        IT();
-        if (this.aZd != null) {
-            this.aZd.clearAnimation();
+        this.bav = false;
+        MessageManager.getInstance().unRegisterListener(this.baQ);
+        Iu();
+        if (this.baK != null) {
+            this.baK.clearAnimation();
         }
-        if (this.aGa != null) {
-            this.aGa.stopLoad();
+        if (this.aGr != null) {
+            this.aGr.stopLoad();
         }
-        this.aYM.clear();
+        this.bat.clear();
         com.baidu.live.gift.a.broadGiftMsgId = 0L;
     }
 
     @Override // com.baidu.live.gift.ab
     public void a(AlaLiveInfoData alaLiveInfoData, AlaLiveUserInfoData alaLiveUserInfoData) {
         if (alaLiveInfoData != null) {
-            this.aYQ = alaLiveInfoData.live_id;
-            this.aYR = alaLiveInfoData.room_id;
-            this.aYS = alaLiveUserInfoData;
-            if (this.aYP) {
-                if (this.aYT != alaLiveInfoData.broadGiftMsgId) {
-                    aM(this.aYT);
+            this.bax = alaLiveInfoData.live_id;
+            this.bay = alaLiveInfoData.room_id;
+            this.baz = alaLiveUserInfoData;
+            if (this.baw) {
+                if (this.baA != alaLiveInfoData.broadGiftMsgId) {
+                    aL(this.baA);
                 }
-            } else if (this.aYU) {
+            } else if (this.baB) {
                 long j = com.baidu.live.gift.a.broadGiftMsgId;
                 if (alaLiveInfoData.broadGiftMsgId > j) {
-                    aM(j);
-                    this.aYU = false;
+                    aL(j);
+                    this.baB = false;
                 }
-            } else if (this.aYT < alaLiveInfoData.broadGiftMsgId) {
-                aM(this.aYT);
+            } else if (this.baA < alaLiveInfoData.broadGiftMsgId) {
+                aL(this.baA);
             }
         }
     }
 
     @Override // com.baidu.live.gift.ab
-    public View Ip() {
-        return this.aYV;
+    public View HQ() {
+        return this.baC;
     }
 }

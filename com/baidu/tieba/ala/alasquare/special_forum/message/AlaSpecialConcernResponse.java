@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     public List<d> followList;
     public boolean hasMore;
@@ -39,7 +39,7 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject2 = jSONObject2.optJSONObject("ala_live_info");
                     if (optJSONObject != null && optJSONObject2 != null) {
                         d dVar = new d();
-                        dVar.e(optJSONObject, optJSONObject2);
+                        dVar.d(optJSONObject, optJSONObject2);
                         this.followList.add(dVar);
                     }
                 }
@@ -52,7 +52,7 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject4 = jSONObject3.optJSONObject("ala_live_info");
                     if (optJSONObject3 != null && optJSONObject4 != null) {
                         d dVar2 = new d();
-                        dVar2.e(optJSONObject3, optJSONObject4);
+                        dVar2.d(optJSONObject3, optJSONObject4);
                         this.recommendList.add(dVar2);
                     }
                 }

@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.chatmessage.sync;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class SyncManager {
     private static boolean sSyncDone = false;
     private static ArrayList<ISyncStateListener> sSyncStateListeners = new ArrayList<>();

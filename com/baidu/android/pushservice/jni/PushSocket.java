@@ -3,27 +3,29 @@ package com.baidu.android.pushservice.jni;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.message.h;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class PushSocket {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1159a;
-    private static byte[] b = null;
+    public static boolean f1433a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static byte[] f1434b = null;
     private static int c = 0;
     private static String d = "PushSocket";
     private static int e = 36;
     private static int f = 32;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public interface OnCreateSocketListener {
         void onConnect(int i);
     }
 
     static {
-        f1159a = false;
+        f1433a = false;
         try {
             System.loadLibrary("bdpush_V3_3");
-            f1159a = true;
+            f1433a = true;
         } catch (Throwable th) {
         }
     }
@@ -33,26 +35,26 @@ public class PushSocket {
     }
 
     public static void a(int i) {
-        b = null;
+        f1434b = null;
         c = 0;
         closeSocket(i);
     }
 
     public static boolean a() {
-        if (!f1159a) {
+        if (!f1433a) {
             try {
                 System.loadLibrary("bdpush_V3_3");
-                f1159a = true;
+                f1433a = true;
             } catch (Throwable th) {
                 Log.e("BDPushSDK-" + d, "Native library not found! Please copy libbdpush_V3_3.so into your project!");
             }
         }
-        return f1159a;
+        return f1433a;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
         r0 = new byte[2];
-        java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.b, com.baidu.android.pushservice.jni.PushSocket.c, r0, 0, r0.length);
+        java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.f1434b, com.baidu.android.pushservice.jni.PushSocket.c, r0, 0, r0.length);
      */
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0042, code lost:
         if (r2 != com.baidu.android.pushservice.message.h.MSG_ID_TINY_HEARTBEAT_SERVER.b()) goto L49;
@@ -71,22 +73,22 @@ public class PushSocket {
     */
     public static byte[] a(Context context, int i) {
         while (true) {
-            if (b != null) {
-                int length = b.length;
+            if (f1434b != null) {
+                int length = f1434b.length;
                 if (length == c) {
-                    b = null;
+                    f1434b = null;
                     c = 0;
                 } else if (length - c > 1) {
-                    short a2 = a(b, c);
+                    short a2 = a(f1434b, c);
                     if (a2 == h.MSG_ID_TINY_HEARTBEAT_CLIENT.b() || a2 == h.MSG_ID_TINY_HEARTBEAT_SERVER.b()) {
                         break;
                     } else if (length - c < e && !b(i)) {
                         return null;
                     } else {
-                        int b2 = b(b, c + f);
+                        int b2 = b(f1434b, c + f);
                         if (c + b2 + e <= length - c) {
                             byte[] bArr = new byte[e + b2];
-                            System.arraycopy(b, c, bArr, 0, bArr.length);
+                            System.arraycopy(f1434b, c, bArr, 0, bArr.length);
                             c += b2 + e;
                             return bArr;
                         } else if (!b(i)) {
@@ -111,13 +113,13 @@ public class PushSocket {
         if (rcvMsg == null || rcvMsg.length == 0) {
             return false;
         }
-        if (b == null) {
-            b = rcvMsg;
+        if (f1434b == null) {
+            f1434b = rcvMsg;
         } else {
-            byte[] bArr = new byte[b.length + rcvMsg.length];
-            System.arraycopy(b, c, bArr, 0, b.length - c);
-            System.arraycopy(rcvMsg, 0, bArr, b.length, rcvMsg.length);
-            b = bArr;
+            byte[] bArr = new byte[f1434b.length + rcvMsg.length];
+            System.arraycopy(f1434b, c, bArr, 0, f1434b.length - c);
+            System.arraycopy(rcvMsg, 0, bArr, f1434b.length, rcvMsg.length);
+            f1434b = bArr;
         }
         return true;
     }

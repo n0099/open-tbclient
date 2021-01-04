@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class dz extends ed {
     public dz(Context context, int i) {
         super(context, i);
@@ -9,19 +9,19 @@ public class dz extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo159a() {
+    public int mo185a() {
         return 5;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo159a() {
+    public ho mo185a() {
         return ho.AppActiveList;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo159a() {
+    public String mo185a() {
         return null;
     }
 }

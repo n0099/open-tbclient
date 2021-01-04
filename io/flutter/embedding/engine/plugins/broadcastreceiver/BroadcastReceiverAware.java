@@ -1,7 +1,9 @@
 package io.flutter.embedding.engine.plugins.broadcastreceiver;
-/* loaded from: classes9.dex */
+
+import androidx.annotation.NonNull;
+/* loaded from: classes6.dex */
 public interface BroadcastReceiverAware {
-    void onAttachedToBroadcastReceiver(BroadcastReceiverPluginBinding broadcastReceiverPluginBinding);
+    void onAttachedToBroadcastReceiver(@NonNull BroadcastReceiverPluginBinding broadcastReceiverPluginBinding);
 
     void onDetachedFromBroadcastReceiver();
 }

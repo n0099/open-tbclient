@@ -2,7 +2,7 @@ package com.baidu.live.adp.widget;
 
 import android.content.Context;
 import android.view.animation.Interpolator;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public final class AnimationConfig {
     public static final int ANIMATION_FRAME_DURATION = 16;
     private static final int MAX_VELOCITY = 1000;

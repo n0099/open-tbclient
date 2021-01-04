@@ -7,7 +7,9 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.Closeable;
@@ -42,7 +44,7 @@ public final class FileUtils {
     }
 
     @TargetApi(8)
-    public static String getCacheDir(Context context) {
+    public static String getCacheDir(@NonNull Context context) {
         if (TextUtils.isEmpty(sCacheDir)) {
             sCacheDir = getDeviceCacheDir(context.getApplicationContext());
         }
@@ -304,60 +306,50 @@ public final class FileUtils {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [524=4] */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.io.OutputStream, java.io.Closeable, java.io.FileOutputStream] */
     public static long copy(File file, File file2) {
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
-        ?? fileOutputStream;
-        FileInputStream fileInputStream3 = null;
+        FileOutputStream fileOutputStream;
         long j = 0;
-        if (file != null && file2 != null && file.exists()) {
+        if (file != null && file2 != null) {
             try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    fileOutputStream = new FileOutputStream(file2);
-                } catch (Exception e) {
-                    e = e;
-                    fileInputStream2 = null;
-                    fileInputStream3 = fileInputStream;
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    j = copyStream(fileInputStream, fileOutputStream);
-                    Closeables.closeSafely(fileInputStream);
-                    Closeables.closeSafely((Closeable) fileOutputStream);
-                } catch (Exception e2) {
-                    e = e2;
-                    fileInputStream3 = fileInputStream;
-                    fileInputStream2 = fileOutputStream;
+                if (file.exists()) {
                     try {
-                        e.printStackTrace();
-                        Closeables.closeSafely(fileInputStream3);
-                        Closeables.closeSafely(fileInputStream2);
-                        return j;
+                        fileInputStream = new FileInputStream(file);
+                    } catch (Exception e) {
+                        e = e;
+                        fileOutputStream = null;
+                        fileInputStream = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = null;
+                        fileInputStream = null;
+                    }
+                    try {
+                        fileOutputStream = new FileOutputStream(file2);
+                        try {
+                            j = copyStream(fileInputStream, fileOutputStream);
+                            Closeables.closeSafely(fileInputStream);
+                            Closeables.closeSafely(fileOutputStream);
+                        } catch (Exception e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            Closeables.closeSafely(fileInputStream);
+                            Closeables.closeSafely(fileOutputStream);
+                            return j;
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        fileOutputStream = null;
                     } catch (Throwable th2) {
                         th = th2;
-                        fileInputStream = fileInputStream3;
-                        fileInputStream3 = fileInputStream2;
+                        fileOutputStream = null;
                         Closeables.closeSafely(fileInputStream);
-                        Closeables.closeSafely(fileInputStream3);
+                        Closeables.closeSafely(fileOutputStream);
                         throw th;
                     }
-                } catch (Throwable th3) {
-                    th = th3;
-                    fileInputStream3 = fileOutputStream;
-                    Closeables.closeSafely(fileInputStream);
-                    Closeables.closeSafely(fileInputStream3);
-                    throw th;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                fileInputStream2 = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileInputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
             }
         }
         return j;
@@ -409,54 +401,60 @@ public final class FileUtils {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [625=4] */
     public static void saveToGzip(byte[] bArr, File file) {
+        Closeable closeable;
         GZIPOutputStream gZIPOutputStream;
-        ByteArrayInputStream byteArrayInputStream = null;
-        if (bArr == null || bArr.length <= 0 || file == null) {
+        ByteArrayInputStream byteArrayInputStream;
+        if (bArr == null || bArr.length <= 0) {
             return;
         }
         try {
-            gZIPOutputStream = new GZIPOutputStream(new FileOutputStream(file, false));
+            if (file == null) {
+                return;
+            }
             try {
-                try {
-                    byte[] bArr2 = new byte[1024];
-                    ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(bArr);
-                    while (true) {
-                        try {
-                            int read = byteArrayInputStream2.read(bArr2, 0, 1024);
-                            if (read <= 0) {
-                                gZIPOutputStream.finish();
-                                Closeables.closeSafely(gZIPOutputStream);
-                                Closeables.closeSafely(byteArrayInputStream2);
-                                return;
-                            }
-                            gZIPOutputStream.write(bArr2, 0, read);
-                        } catch (IOException e) {
-                            e = e;
-                            byteArrayInputStream = byteArrayInputStream2;
-                            e.printStackTrace();
+                gZIPOutputStream = new GZIPOutputStream(new FileOutputStream(file, false));
+            } catch (IOException e) {
+                e = e;
+                gZIPOutputStream = null;
+                byteArrayInputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                gZIPOutputStream = null;
+                closeable = null;
+            }
+            try {
+                byte[] bArr2 = new byte[1024];
+                byteArrayInputStream = new ByteArrayInputStream(bArr);
+                while (true) {
+                    try {
+                        int read = byteArrayInputStream.read(bArr2, 0, 1024);
+                        if (read <= 0) {
+                            gZIPOutputStream.finish();
                             Closeables.closeSafely(gZIPOutputStream);
                             Closeables.closeSafely(byteArrayInputStream);
                             return;
-                        } catch (Throwable th) {
-                            th = th;
-                            byteArrayInputStream = byteArrayInputStream2;
-                            Closeables.closeSafely(gZIPOutputStream);
-                            Closeables.closeSafely(byteArrayInputStream);
-                            throw th;
                         }
+                        gZIPOutputStream.write(bArr2, 0, read);
+                    } catch (IOException e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        Closeables.closeSafely(gZIPOutputStream);
+                        Closeables.closeSafely(byteArrayInputStream);
+                        return;
                     }
-                } catch (IOException e2) {
-                    e = e2;
                 }
+            } catch (IOException e3) {
+                e = e3;
+                byteArrayInputStream = null;
             } catch (Throwable th2) {
                 th = th2;
+                closeable = null;
+                Closeables.closeSafely(gZIPOutputStream);
+                Closeables.closeSafely(closeable);
+                throw th;
             }
-        } catch (IOException e3) {
-            e = e3;
-            gZIPOutputStream = null;
         } catch (Throwable th3) {
             th = th3;
-            gZIPOutputStream = null;
         }
     }
 
@@ -640,10 +638,8 @@ public final class FileUtils {
     @Deprecated
     public static boolean unGzipFile(File file, File file2) {
         GZIPInputStream gZIPInputStream;
-        FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
         FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2 = null;
+        FileInputStream fileInputStream;
         if (file == null) {
             return false;
         }
@@ -654,9 +650,10 @@ public final class FileUtils {
                 try {
                     fileOutputStream = new FileOutputStream(file2);
                 } catch (Exception e) {
-                    fileInputStream2 = fileInputStream;
+                    fileOutputStream = null;
                 } catch (Throwable th) {
                     th = th;
+                    fileOutputStream = null;
                 }
                 try {
                     byte[] bArr = new byte[8192];
@@ -672,33 +669,33 @@ public final class FileUtils {
                         fileOutputStream.write(bArr, 0, read);
                     }
                 } catch (Exception e2) {
-                    fileOutputStream2 = fileOutputStream;
-                    fileInputStream2 = fileInputStream;
-                    Closeables.closeSafely(fileInputStream2);
-                    Closeables.closeSafely(fileOutputStream2);
+                    Closeables.closeSafely(fileInputStream);
+                    Closeables.closeSafely(fileOutputStream);
                     Closeables.closeSafely(gZIPInputStream);
                     return false;
                 } catch (Throwable th2) {
                     th = th2;
-                    fileOutputStream2 = fileOutputStream;
                     Closeables.closeSafely(fileInputStream);
-                    Closeables.closeSafely(fileOutputStream2);
+                    Closeables.closeSafely(fileOutputStream);
                     Closeables.closeSafely(gZIPInputStream);
                     throw th;
                 }
             } catch (Exception e3) {
                 gZIPInputStream = null;
-                fileInputStream2 = fileInputStream;
+                fileOutputStream = null;
             } catch (Throwable th3) {
                 th = th3;
                 gZIPInputStream = null;
+                fileOutputStream = null;
             }
         } catch (Exception e4) {
             gZIPInputStream = null;
-            fileInputStream2 = null;
+            fileOutputStream = null;
+            fileInputStream = null;
         } catch (Throwable th4) {
             th = th4;
             gZIPInputStream = null;
+            fileOutputStream = null;
             fileInputStream = null;
         }
     }
@@ -716,8 +713,8 @@ public final class FileUtils {
     @Deprecated
     public static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (z) {
                 hexString = hexString.toUpperCase(Locale.getDefault());
             }
@@ -809,7 +806,7 @@ public final class FileUtils {
         if (j < 1048576) {
             str = "KB";
             valueOf = Float.valueOf(((float) j) / 1024.0f);
-        } else if (j < 1073741824) {
+        } else if (j < KsMediaMeta.AV_CH_STEREO_RIGHT) {
             str = "MB";
             valueOf = Float.valueOf(((float) j) / 1048576.0f);
         } else {
@@ -821,12 +818,12 @@ public final class FileUtils {
 
     public static long getDirectorySize(File file) throws IOException {
         long length;
+        long j = 0;
         File[] listFiles = file.listFiles();
         if (listFiles == null) {
             return file.length();
         }
         int length2 = listFiles.length;
-        long j = 0;
         for (int i = 0; i < length2; i++) {
             if (listFiles[i].isDirectory()) {
                 length = getDirectorySize(listFiles[i]);
@@ -840,13 +837,13 @@ public final class FileUtils {
 
     public static long getDirectorySize(String str) throws IOException {
         long length;
+        long j = 0;
         File file = new File(str);
         File[] listFiles = file.listFiles();
         if (listFiles == null) {
             return file.length();
         }
         int length2 = listFiles.length;
-        long j = 0;
         for (int i = 0; i < length2; i++) {
             if (listFiles[i].isDirectory()) {
                 length = getDirectorySize(listFiles[i]);

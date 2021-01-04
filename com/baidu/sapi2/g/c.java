@@ -9,7 +9,7 @@ import android.os.CancellationSignal;
 import android.view.View;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c extends FingerprintManager.AuthenticationCallback {
     private static final int i = 0;
     private static final int j = -2;
@@ -19,8 +19,10 @@ public class c extends FingerprintManager.AuthenticationCallback {
     private static final int n = 5;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3462a;
-    private char b = 5;
+    private int f5241a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private char f5242b = 5;
     private Context c;
     private FingerprintManager d;
     private FingerprintManager.CryptoObject e;
@@ -29,7 +31,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
     private com.baidu.sapi2.g.b h;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         a() {
         }
@@ -42,7 +44,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         b() {
         }
@@ -56,9 +58,9 @@ public class c extends FingerprintManager.AuthenticationCallback {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.g.c$c  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class View$OnClickListenerC0345c implements View.OnClickListener {
-        View$OnClickListenerC0345c() {
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC0342c implements View.OnClickListener {
+        View$OnClickListenerC0342c() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -69,7 +71,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         d() {
         }
@@ -100,7 +102,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
 
     private void c() {
         a((Activity) this.c, (Dialog) this.h);
-        this.h.a("再试一次", "请验证已有手机指纹").a(2).a(PayHelper.STATUS_CANCEL_DESC, new d()).b("换个登录方式", new View$OnClickListenerC0345c()).b();
+        this.h.a("再试一次", "请验证已有手机指纹").a(2).a(PayHelper.STATUS_CANCEL_DESC, new d()).b("换个登录方式", new View$OnClickListenerC0342c()).b();
     }
 
     private void d() {
@@ -113,7 +115,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
         super.onAuthenticationError(i2, charSequence);
         Log.i(m, "Authentication error:" + i2 + ((Object) charSequence));
         a();
-        this.b = (char) 5;
+        this.f5242b = (char) 5;
         if (i2 == 7) {
             com.baidu.sapi2.g.a aVar = this.g;
             if (aVar != null) {
@@ -132,10 +134,10 @@ public class c extends FingerprintManager.AuthenticationCallback {
     public void onAuthenticationFailed() {
         super.onAuthenticationFailed();
         Log.i(m, "Authentication failed ");
-        char c = (char) (this.b - 1);
-        this.b = c;
+        char c = (char) (this.f5242b - 1);
+        this.f5242b = c;
         if (c > 0) {
-            if (this.f3462a == 3) {
+            if (this.f5241a == 3) {
                 c();
                 return;
             } else {
@@ -144,7 +146,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
             }
         }
         a();
-        this.b = (char) 5;
+        this.f5242b = (char) 5;
     }
 
     @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
@@ -166,7 +168,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
 
     public void a(int i2, com.baidu.sapi2.g.a aVar) {
         Log.i(m, "startAuthenticate");
-        this.f3462a = i2;
+        this.f5241a = i2;
         this.g = aVar;
         if (Build.VERSION.SDK_INT >= 16 && this.f.isCanceled()) {
             this.f = new CancellationSignal();

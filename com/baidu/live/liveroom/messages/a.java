@@ -5,7 +5,7 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends HttpMessage {
     private long mAudienceCount;
     private List<Long> mIds;
@@ -15,6 +15,10 @@ public class a extends HttpMessage {
         super(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS);
         this.mOriginDatas = new ArrayList();
         this.mAudienceCount = 0L;
+    }
+
+    public List<Long> getIds() {
+        return this.mIds;
     }
 
     public void setListIds(List<Long> list) {

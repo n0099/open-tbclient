@@ -3,66 +3,66 @@ package com.baidu.tieba.tbadvert.view;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
-import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.core.view.ViewCompat;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadvert.view.CountDownTextView;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private FrameLayout ajk;
+    private FrameLayout ajW;
     private Context mContext;
-    private ImageView nqw;
-    private InterfaceC0873a nqx;
+    private ImageView nwu;
+    private InterfaceC0857a nwv;
 
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
-    public interface InterfaceC0873a {
-        void dQP();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0857a {
+        void dRa();
 
-        void dQQ();
+        void dRb();
     }
 
-    public a(Context context, InterfaceC0873a interfaceC0873a) {
-        this.nqx = interfaceC0873a;
+    public a(Context context, InterfaceC0857a interfaceC0857a) {
+        this.nwv = interfaceC0857a;
         this.mContext = context;
-        this.ajk = new FrameLayout(context);
+        this.ajW = new FrameLayout(context);
     }
 
     public View getView() {
-        return this.ajk;
+        return this.ajW;
     }
 
-    public void f(Object obj, int i) {
+    public void e(Object obj, int i) {
         if (obj instanceof com.baidu.adp.widget.ImageView.a) {
-            j((com.baidu.adp.widget.ImageView.a) obj);
+            i((com.baidu.adp.widget.ImageView.a) obj);
         }
-        dQW();
-        Ln(i);
+        dRh();
+        Lj(i);
     }
 
-    private void j(com.baidu.adp.widget.ImageView.a aVar) {
-        this.nqw = new ImageView(this.mContext);
-        this.nqw.setScaleType(ImageView.ScaleType.CENTER_CROP);
+    private void i(com.baidu.adp.widget.ImageView.a aVar) {
+        this.nwu = new ImageView(this.mContext);
+        this.nwu.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.nqw.setImageBitmap(aVar.getRawBitmap());
+            this.nwu.setImageBitmap(aVar.getRawBitmap());
         }
-        this.nqw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
+        this.nwu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.nqx != null) {
-                    a.this.nqx.dQP();
+                if (a.this.nwv != null) {
+                    a.this.nwv.dRa();
                 }
             }
         });
-        this.ajk.addView(this.nqw);
+        this.ajW.addView(this.nwu);
     }
 
-    private void dQW() {
+    private void dRh() {
         TextView textView = new TextView(this.mContext);
         textView.setText(R.string.tb_ad_label);
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds28);
@@ -78,10 +78,10 @@ public class a {
         textView.setBackgroundDrawable(gradientDrawable);
         layoutParams.gravity = 83;
         layoutParams.setMargins(dimension, 0, 0, (int) this.mContext.getResources().getDimension(R.dimen.ds28));
-        this.ajk.addView(textView, layoutParams);
+        this.ajW.addView(textView, layoutParams);
     }
 
-    private void Ln(int i) {
+    private void Lj(int i) {
         CountDownTextView countDownTextView = new CountDownTextView(this.mContext);
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds22);
         int dimension2 = (int) this.mContext.getResources().getDimension(R.dimen.ds36);
@@ -97,23 +97,23 @@ public class a {
         gradientDrawable.setCornerRadius(this.mContext.getResources().getDimension(R.dimen.ds4));
         gradientDrawable.setStroke(1, ViewCompat.MEASURED_STATE_MASK);
         countDownTextView.setBackgroundDrawable(gradientDrawable);
-        countDownTextView.aA(string, i);
+        countDownTextView.aC(string, i);
         layoutParams.gravity = 53;
         layoutParams.setMargins(0, statusBarHeight, (int) this.mContext.getResources().getDimension(R.dimen.ds32), 0);
-        this.ajk.addView(countDownTextView, layoutParams);
+        this.ajW.addView(countDownTextView, layoutParams);
         countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.nqx != null) {
-                    a.this.nqx.dQQ();
+                if (a.this.nwv != null) {
+                    a.this.nwv.dRb();
                 }
             }
         });
         countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.tbadvert.view.a.3
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
-            public void ca(View view) {
-                if (a.this.nqx != null) {
-                    a.this.nqx.dQQ();
+            public void cj(View view) {
+                if (a.this.nwv != null) {
+                    a.this.nwv.dRb();
                 }
             }
         });

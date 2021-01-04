@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.base;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public abstract class PassBiometricFactory {
     public static PassBiometricFactory getDefaultFactory() {
         return PassBiometricDefaultFactory.getInstance();

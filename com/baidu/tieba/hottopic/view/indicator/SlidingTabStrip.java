@@ -7,15 +7,15 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class SlidingTabStrip extends LinearLayout {
-    private final int kic;
-    private final Paint kie;
-    private int kif;
-    private int kig;
-    private final Paint mSelectedIndicatorPaint;
+    private final Paint Zy;
+    private final int kvn;
+    private final Paint kvo;
+    private int kvp;
+    private int kvq;
     private int mSelectedPosition;
 
     public SlidingTabStrip(Context context) {
@@ -25,11 +25,11 @@ public class SlidingTabStrip extends LinearLayout {
     public SlidingTabStrip(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setWillNotDraw(false);
-        this.kic = getResources().getDimensionPixelSize(R.dimen.ds5);
-        this.mSelectedIndicatorPaint = new Paint();
-        this.mSelectedIndicatorPaint.setColor(ap.getSkinColor(null, R.color.CAM_X0105));
-        this.kie = new Paint();
-        this.kie.setColor(ap.getColor(R.color.CAM_X0204));
+        this.kvn = getResources().getDimensionPixelSize(R.dimen.ds5);
+        this.Zy = new Paint();
+        this.Zy.setColor(ao.getSkinColor(null, R.color.CAM_X0105));
+        this.kvo = new Paint();
+        this.kvo.setColor(ao.getColor(R.color.CAM_X0204));
     }
 
     public void j(int i, float f) {
@@ -42,15 +42,15 @@ public class SlidingTabStrip extends LinearLayout {
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds64);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.ds14);
         if (i == 0) {
-            this.kif = childAt.getLeft();
+            this.kvp = childAt.getLeft();
         } else {
-            this.kif = childAt.getLeft() + dimensionPixelSize2;
+            this.kvp = childAt.getLeft() + dimensionPixelSize2;
         }
-        this.kig = this.kif + dimensionPixelSize;
+        this.kvq = this.kvp + dimensionPixelSize;
         if (f >= 0.0f && i < getChildCount() - 1) {
             View childAt2 = getChildAt(i + 1);
-            this.kif = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f) + ((1.0f - f) * this.kif));
-            this.kig = (int) (((childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize) * f) + ((1.0f - f) * this.kig));
+            this.kvp = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f) + ((1.0f - f) * this.kvp));
+            this.kvq = (int) (((childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize) * f) + ((1.0f - f) * this.kvq));
         }
     }
 
@@ -61,28 +61,28 @@ public class SlidingTabStrip extends LinearLayout {
         int left = childAt.getLeft();
         float left2 = (childAt2.getLeft() - left) * f;
         if (this.mSelectedPosition == 0) {
-            this.kif = (int) (left + left2);
+            this.kvp = (int) (left + left2);
         } else {
-            this.kif = (int) (dimensionPixelSize + left + left2);
+            this.kvp = (int) (dimensionPixelSize + left + left2);
         }
-        this.kig = getResources().getDimensionPixelSize(R.dimen.ds64) + this.kif;
+        this.kvq = getResources().getDimensionPixelSize(R.dimen.ds64) + this.kvp;
         invalidate();
     }
 
-    public void cS(int i, int i2) {
+    public void cQ(int i, int i2) {
         if (i != i2) {
             this.mSelectedPosition = i;
             int childCount = getChildCount();
             if (i >= 0 && i < childCount) {
                 View childAt = getChildAt(i);
                 if (childAt instanceof TabItemView) {
-                    ap.setViewTextColor(((TabItemView) childAt).getTextView(), R.color.CAM_X0105, 1);
+                    ao.setViewTextColor(((TabItemView) childAt).getTextView(), R.color.CAM_X0105, 1);
                 }
             }
             if (i2 >= 0 && i2 < childCount) {
                 View childAt2 = getChildAt(i2);
                 if (childAt2 instanceof TabItemView) {
-                    ap.setViewTextColor(((TabItemView) childAt2).getTextView(), R.color.CAM_X0107, 1);
+                    ao.setViewTextColor(((TabItemView) childAt2).getTextView(), R.color.CAM_X0107, 1);
                 }
             }
         }
@@ -101,15 +101,15 @@ public class SlidingTabStrip extends LinearLayout {
     }
 
     private void c(Canvas canvas, int i) {
-        if (this.kig <= 0 && this.mSelectedPosition >= 0 && this.mSelectedPosition < getChildCount()) {
-            this.kig = getChildAt(this.mSelectedPosition).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
+        if (this.kvq <= 0 && this.mSelectedPosition >= 0 && this.mSelectedPosition < getChildCount()) {
+            this.kvq = getChildAt(this.mSelectedPosition).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
         }
-        canvas.drawRoundRect(new RectF(this.kif, i - this.kic, this.kig, i), 10.0f, 10.0f, this.mSelectedIndicatorPaint);
+        canvas.drawRoundRect(new RectF(this.kvp, i - this.kvn, this.kvq, i), 10.0f, 10.0f, this.Zy);
     }
 
     public void onChangeSkinType(int i) {
-        this.mSelectedIndicatorPaint.setColor(ap.getSkinColor(null, R.color.CAM_X0105));
-        this.kie.setColor(ap.getColor(R.color.CAM_X0204));
+        this.Zy.setColor(ao.getSkinColor(null, R.color.CAM_X0105));
+        this.kvo.setColor(ao.getColor(R.color.CAM_X0204));
         invalidate();
         int childCount = getChildCount();
         if (childCount > 0) {
@@ -119,9 +119,9 @@ public class SlidingTabStrip extends LinearLayout {
                     TabItemView tabItemView = (TabItemView) childAt;
                     tabItemView.onChangeSkinType();
                     if (i2 == this.mSelectedPosition) {
-                        ap.setViewTextColor(tabItemView.getTextView(), R.color.CAM_X0105, 1);
+                        ao.setViewTextColor(tabItemView.getTextView(), R.color.CAM_X0105, 1);
                     } else {
-                        ap.setViewTextColor(tabItemView.getTextView(), R.color.CAM_X0107, 1);
+                        ao.setViewTextColor(tabItemView.getTextView(), R.color.CAM_X0107, 1);
                     }
                 }
             }

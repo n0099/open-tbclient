@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class HttpRequest {
     private static final String TAG = HttpRequest.class.getSimpleName();
 
@@ -23,156 +23,53 @@ public class HttpRequest {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [86=7, 87=7, 89=7, 90=7, 92=7, 93=7, 95=7, 96=7, 98=7, 99=7] */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x017b A[Catch: IOException -> 0x0189, TryCatch #7 {IOException -> 0x0189, blocks: (B:100:0x0176, B:102:0x017b, B:104:0x0180, B:106:0x0185), top: B:168:0x0176 }] */
-    /* JADX WARN: Removed duplicated region for block: B:104:0x0180 A[Catch: IOException -> 0x0189, TryCatch #7 {IOException -> 0x0189, blocks: (B:100:0x0176, B:102:0x017b, B:104:0x0180, B:106:0x0185), top: B:168:0x0176 }] */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0185 A[Catch: IOException -> 0x0189, TRY_LEAVE, TryCatch #7 {IOException -> 0x0189, blocks: (B:100:0x0176, B:102:0x017b, B:104:0x0180, B:106:0x0185), top: B:168:0x0176 }] */
-    /* JADX WARN: Removed duplicated region for block: B:168:0x0176 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private static String httpUrlConnectionPost(String str, String str2) {
+        Throwable th;
+        ByteArrayOutputStream byteArrayOutputStream;
         InputStream inputStream;
         OutputStream outputStream;
         HttpURLConnection httpURLConnection;
-        ByteArrayOutputStream byteArrayOutputStream;
-        OutputStream outputStream2;
-        HttpURLConnection httpURLConnection2;
-        ByteArrayOutputStream byteArrayOutputStream2;
-        ByteArrayOutputStream byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        r3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        r3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        InputStream inputStream2 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
-        byteArrayOutputStream3 = null;
+        Exception e;
+        IOException e2;
+        ProtocolException e3;
+        MalformedURLException e4;
+        UnsupportedEncodingException e5;
         StringBuilder sb = new StringBuilder("");
         try {
             try {
                 String str3 = "data=" + URLEncoder.encode(str2, "UTF-8");
-                HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL(str).openConnection();
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
                 try {
                     System.setProperty("sun.net.client.defaultConnectTimeout", WbAuthConstants.AUTH_FAILED_NOT_INSTALL_CODE);
                     System.setProperty("sun.net.client.defaultReadTimeout", WbAuthConstants.AUTH_FAILED_NOT_INSTALL_CODE);
-                    httpURLConnection3.setDoOutput(true);
-                    httpURLConnection3.setDoInput(true);
-                    httpURLConnection3.setRequestMethod("POST");
-                    httpURLConnection3.setUseCaches(false);
-                    httpURLConnection3.setInstanceFollowRedirects(true);
-                    httpURLConnection3.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                    httpURLConnection3.connect();
-                    outputStream = httpURLConnection3.getOutputStream();
+                    httpURLConnection2.setDoOutput(true);
+                    httpURLConnection2.setDoInput(true);
+                    httpURLConnection2.setRequestMethod("POST");
+                    httpURLConnection2.setUseCaches(false);
+                    httpURLConnection2.setInstanceFollowRedirects(true);
+                    httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                    httpURLConnection2.connect();
+                    outputStream = httpURLConnection2.getOutputStream();
                     try {
                         outputStream.write(str3.getBytes());
                         outputStream.flush();
                         outputStream.close();
-                        if (200 == httpURLConnection3.getResponseCode()) {
-                            inputStream = httpURLConnection3.getInputStream();
+                        if (200 == httpURLConnection2.getResponseCode()) {
+                            inputStream = httpURLConnection2.getInputStream();
                             try {
                                 byte[] bArr = new byte[1024];
-                                byteArrayOutputStream2 = new ByteArrayOutputStream();
+                                byteArrayOutputStream = new ByteArrayOutputStream();
                                 while (true) {
                                     try {
                                         int read = inputStream.read(bArr);
                                         if (read == -1) {
                                             break;
                                         }
-                                        byteArrayOutputStream2.write(bArr, 0, read);
-                                    } catch (UnsupportedEncodingException e) {
-                                        byteArrayOutputStream3 = byteArrayOutputStream2;
-                                        httpURLConnection = httpURLConnection3;
-                                        e = e;
-                                        e.printStackTrace();
-                                        if (outputStream != null) {
-                                            try {
-                                                outputStream.close();
-                                            } catch (IOException e2) {
-                                                e2.printStackTrace();
-                                                return sb.toString();
-                                            }
-                                        }
-                                        if (byteArrayOutputStream3 != null) {
-                                            byteArrayOutputStream3.close();
-                                        }
-                                        if (inputStream != null) {
-                                            inputStream.close();
-                                        }
-                                        if (httpURLConnection != null) {
-                                            httpURLConnection.disconnect();
-                                        }
-                                        return sb.toString();
-                                    } catch (MalformedURLException e3) {
-                                        inputStream2 = inputStream;
-                                        httpURLConnection2 = httpURLConnection3;
-                                        e = e3;
-                                        byteArrayOutputStream = byteArrayOutputStream2;
-                                        outputStream2 = outputStream;
-                                        try {
-                                            e.printStackTrace();
-                                            if (outputStream2 != null) {
-                                                try {
-                                                    outputStream2.close();
-                                                } catch (IOException e4) {
-                                                    e4.printStackTrace();
-                                                }
-                                            }
-                                            if (byteArrayOutputStream != null) {
-                                                byteArrayOutputStream.close();
-                                            }
-                                            if (inputStream2 != null) {
-                                                inputStream2.close();
-                                            }
-                                            if (httpURLConnection2 != null) {
-                                                httpURLConnection2.disconnect();
-                                            }
-                                            return sb.toString();
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            outputStream = outputStream2;
-                                            InputStream inputStream3 = inputStream2;
-                                            byteArrayOutputStream3 = byteArrayOutputStream;
-                                            httpURLConnection = httpURLConnection2;
-                                            inputStream = inputStream3;
-                                            if (outputStream != null) {
-                                                try {
-                                                    outputStream.close();
-                                                } catch (IOException e5) {
-                                                    e5.printStackTrace();
-                                                    throw th;
-                                                }
-                                            }
-                                            if (byteArrayOutputStream3 != null) {
-                                                byteArrayOutputStream3.close();
-                                            }
-                                            if (inputStream != null) {
-                                                inputStream.close();
-                                            }
-                                            if (httpURLConnection != null) {
-                                                httpURLConnection.disconnect();
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (ProtocolException e6) {
-                                        byteArrayOutputStream3 = byteArrayOutputStream2;
-                                        httpURLConnection = httpURLConnection3;
-                                        e = e6;
-                                        e.printStackTrace();
+                                        byteArrayOutputStream.write(bArr, 0, read);
+                                    } catch (UnsupportedEncodingException e6) {
+                                        e5 = e6;
+                                        httpURLConnection = httpURLConnection2;
+                                        e5.printStackTrace();
                                         if (outputStream != null) {
                                             try {
                                                 outputStream.close();
@@ -181,8 +78,8 @@ public class HttpRequest {
                                                 return sb.toString();
                                             }
                                         }
-                                        if (byteArrayOutputStream3 != null) {
-                                            byteArrayOutputStream3.close();
+                                        if (byteArrayOutputStream != null) {
+                                            byteArrayOutputStream.close();
                                         }
                                         if (inputStream != null) {
                                             inputStream.close();
@@ -191,11 +88,10 @@ public class HttpRequest {
                                             httpURLConnection.disconnect();
                                         }
                                         return sb.toString();
-                                    } catch (IOException e8) {
-                                        byteArrayOutputStream3 = byteArrayOutputStream2;
-                                        httpURLConnection = httpURLConnection3;
-                                        e = e8;
-                                        e.printStackTrace();
+                                    } catch (MalformedURLException e8) {
+                                        e4 = e8;
+                                        httpURLConnection = httpURLConnection2;
+                                        e4.printStackTrace();
                                         if (outputStream != null) {
                                             try {
                                                 outputStream.close();
@@ -204,8 +100,8 @@ public class HttpRequest {
                                                 return sb.toString();
                                             }
                                         }
-                                        if (byteArrayOutputStream3 != null) {
-                                            byteArrayOutputStream3.close();
+                                        if (byteArrayOutputStream != null) {
+                                            byteArrayOutputStream.close();
                                         }
                                         if (inputStream != null) {
                                             inputStream.close();
@@ -214,11 +110,10 @@ public class HttpRequest {
                                             httpURLConnection.disconnect();
                                         }
                                         return sb.toString();
-                                    } catch (Exception e10) {
-                                        byteArrayOutputStream3 = byteArrayOutputStream2;
-                                        httpURLConnection = httpURLConnection3;
-                                        e = e10;
-                                        e.printStackTrace();
+                                    } catch (ProtocolException e10) {
+                                        e3 = e10;
+                                        httpURLConnection = httpURLConnection2;
+                                        e3.printStackTrace();
                                         if (outputStream != null) {
                                             try {
                                                 outputStream.close();
@@ -227,8 +122,52 @@ public class HttpRequest {
                                                 return sb.toString();
                                             }
                                         }
-                                        if (byteArrayOutputStream3 != null) {
-                                            byteArrayOutputStream3.close();
+                                        if (byteArrayOutputStream != null) {
+                                            byteArrayOutputStream.close();
+                                        }
+                                        if (inputStream != null) {
+                                            inputStream.close();
+                                        }
+                                        if (httpURLConnection != null) {
+                                            httpURLConnection.disconnect();
+                                        }
+                                        return sb.toString();
+                                    } catch (IOException e12) {
+                                        e2 = e12;
+                                        httpURLConnection = httpURLConnection2;
+                                        e2.printStackTrace();
+                                        if (outputStream != null) {
+                                            try {
+                                                outputStream.close();
+                                            } catch (IOException e13) {
+                                                e13.printStackTrace();
+                                                return sb.toString();
+                                            }
+                                        }
+                                        if (byteArrayOutputStream != null) {
+                                            byteArrayOutputStream.close();
+                                        }
+                                        if (inputStream != null) {
+                                            inputStream.close();
+                                        }
+                                        if (httpURLConnection != null) {
+                                            httpURLConnection.disconnect();
+                                        }
+                                        return sb.toString();
+                                    } catch (Exception e14) {
+                                        e = e14;
+                                        httpURLConnection = httpURLConnection2;
+                                        e.printStackTrace();
+                                        if (outputStream != null) {
+                                            try {
+                                                outputStream.close();
+                                            } catch (IOException e15) {
+                                                e15.printStackTrace();
+                                                return sb.toString();
+                                            }
+                                        }
+                                        if (byteArrayOutputStream != null) {
+                                            byteArrayOutputStream.close();
                                         }
                                         if (inputStream != null) {
                                             inputStream.close();
@@ -238,151 +177,179 @@ public class HttpRequest {
                                         }
                                         return sb.toString();
                                     } catch (Throwable th2) {
-                                        byteArrayOutputStream3 = byteArrayOutputStream2;
-                                        httpURLConnection = httpURLConnection3;
                                         th = th2;
+                                        httpURLConnection = httpURLConnection2;
                                         if (outputStream != null) {
+                                            try {
+                                                outputStream.close();
+                                            } catch (IOException e16) {
+                                                e16.printStackTrace();
+                                                throw th;
+                                            }
                                         }
-                                        if (byteArrayOutputStream3 != null) {
+                                        if (byteArrayOutputStream != null) {
+                                            byteArrayOutputStream.close();
                                         }
                                         if (inputStream != null) {
+                                            inputStream.close();
                                         }
                                         if (httpURLConnection != null) {
+                                            httpURLConnection.disconnect();
                                         }
                                         throw th;
                                     }
                                 }
-                                sb.append(new String(byteArrayOutputStream2.toByteArray(), "utf-8"));
-                                byteArrayOutputStream2.flush();
-                            } catch (UnsupportedEncodingException e12) {
-                                httpURLConnection = httpURLConnection3;
-                                e = e12;
-                            } catch (MalformedURLException e13) {
-                                outputStream2 = outputStream;
-                                inputStream2 = inputStream;
-                                httpURLConnection2 = httpURLConnection3;
-                                e = e13;
+                                sb.append(new String(byteArrayOutputStream.toByteArray(), "utf-8"));
+                                byteArrayOutputStream.flush();
+                            } catch (UnsupportedEncodingException e17) {
+                                e5 = e17;
                                 byteArrayOutputStream = null;
-                            } catch (ProtocolException e14) {
-                                httpURLConnection = httpURLConnection3;
-                                e = e14;
-                            } catch (IOException e15) {
-                                httpURLConnection = httpURLConnection3;
-                                e = e15;
-                            } catch (Exception e16) {
-                                httpURLConnection = httpURLConnection3;
-                                e = e16;
+                                httpURLConnection = httpURLConnection2;
+                            } catch (MalformedURLException e18) {
+                                e4 = e18;
+                                byteArrayOutputStream = null;
+                                httpURLConnection = httpURLConnection2;
+                            } catch (ProtocolException e19) {
+                                e3 = e19;
+                                byteArrayOutputStream = null;
+                                httpURLConnection = httpURLConnection2;
+                            } catch (IOException e20) {
+                                e2 = e20;
+                                byteArrayOutputStream = null;
+                                httpURLConnection = httpURLConnection2;
+                            } catch (Exception e21) {
+                                e = e21;
+                                byteArrayOutputStream = null;
+                                httpURLConnection = httpURLConnection2;
                             } catch (Throwable th3) {
-                                httpURLConnection = httpURLConnection3;
                                 th = th3;
+                                byteArrayOutputStream = null;
+                                httpURLConnection = httpURLConnection2;
                             }
                         } else {
-                            byteArrayOutputStream2 = null;
+                            byteArrayOutputStream = null;
                             inputStream = null;
                         }
                         if (outputStream != null) {
                             try {
                                 outputStream.close();
-                            } catch (IOException e17) {
-                                e17.printStackTrace();
+                            } catch (IOException e22) {
+                                e22.printStackTrace();
                             }
                         }
-                        if (byteArrayOutputStream2 != null) {
-                            byteArrayOutputStream2.close();
+                        if (byteArrayOutputStream != null) {
+                            byteArrayOutputStream.close();
                         }
                         if (inputStream != null) {
                             inputStream.close();
                         }
-                        if (httpURLConnection3 != null) {
-                            httpURLConnection3.disconnect();
+                        if (httpURLConnection2 != null) {
+                            httpURLConnection2.disconnect();
                         }
-                    } catch (UnsupportedEncodingException e18) {
-                        inputStream = null;
-                        httpURLConnection = httpURLConnection3;
-                        e = e18;
-                    } catch (MalformedURLException e19) {
-                        outputStream2 = outputStream;
-                        httpURLConnection2 = httpURLConnection3;
-                        e = e19;
+                    } catch (UnsupportedEncodingException e23) {
+                        e5 = e23;
                         byteArrayOutputStream = null;
-                    } catch (ProtocolException e20) {
                         inputStream = null;
-                        httpURLConnection = httpURLConnection3;
-                        e = e20;
-                    } catch (IOException e21) {
+                        httpURLConnection = httpURLConnection2;
+                    } catch (MalformedURLException e24) {
+                        e4 = e24;
+                        byteArrayOutputStream = null;
                         inputStream = null;
-                        httpURLConnection = httpURLConnection3;
-                        e = e21;
-                    } catch (Exception e22) {
+                        httpURLConnection = httpURLConnection2;
+                    } catch (ProtocolException e25) {
+                        e3 = e25;
+                        byteArrayOutputStream = null;
                         inputStream = null;
-                        httpURLConnection = httpURLConnection3;
-                        e = e22;
+                        httpURLConnection = httpURLConnection2;
+                    } catch (IOException e26) {
+                        e2 = e26;
+                        byteArrayOutputStream = null;
+                        inputStream = null;
+                        httpURLConnection = httpURLConnection2;
+                    } catch (Exception e27) {
+                        e = e27;
+                        byteArrayOutputStream = null;
+                        inputStream = null;
+                        httpURLConnection = httpURLConnection2;
                     } catch (Throwable th4) {
-                        inputStream = null;
-                        httpURLConnection = httpURLConnection3;
                         th = th4;
+                        byteArrayOutputStream = null;
+                        inputStream = null;
+                        httpURLConnection = httpURLConnection2;
                     }
-                } catch (UnsupportedEncodingException e23) {
-                    inputStream = null;
-                    outputStream = null;
-                    httpURLConnection = httpURLConnection3;
-                    e = e23;
-                } catch (MalformedURLException e24) {
-                    outputStream2 = null;
-                    httpURLConnection2 = httpURLConnection3;
-                    e = e24;
+                } catch (UnsupportedEncodingException e28) {
+                    e5 = e28;
                     byteArrayOutputStream = null;
-                } catch (ProtocolException e25) {
                     inputStream = null;
                     outputStream = null;
-                    httpURLConnection = httpURLConnection3;
-                    e = e25;
-                } catch (IOException e26) {
+                    httpURLConnection = httpURLConnection2;
+                } catch (MalformedURLException e29) {
+                    e4 = e29;
+                    byteArrayOutputStream = null;
                     inputStream = null;
                     outputStream = null;
-                    httpURLConnection = httpURLConnection3;
-                    e = e26;
-                } catch (Exception e27) {
+                    httpURLConnection = httpURLConnection2;
+                } catch (ProtocolException e30) {
+                    e3 = e30;
+                    byteArrayOutputStream = null;
                     inputStream = null;
                     outputStream = null;
-                    httpURLConnection = httpURLConnection3;
-                    e = e27;
+                    httpURLConnection = httpURLConnection2;
+                } catch (IOException e31) {
+                    e2 = e31;
+                    byteArrayOutputStream = null;
+                    inputStream = null;
+                    outputStream = null;
+                    httpURLConnection = httpURLConnection2;
+                } catch (Exception e32) {
+                    e = e32;
+                    byteArrayOutputStream = null;
+                    inputStream = null;
+                    outputStream = null;
+                    httpURLConnection = httpURLConnection2;
                 } catch (Throwable th5) {
+                    th = th5;
+                    byteArrayOutputStream = null;
                     inputStream = null;
                     outputStream = null;
-                    httpURLConnection = httpURLConnection3;
-                    th = th5;
+                    httpURLConnection = httpURLConnection2;
                 }
             } catch (Throwable th6) {
                 th = th6;
             }
-        } catch (UnsupportedEncodingException e28) {
-            e = e28;
-            inputStream = null;
-            outputStream = null;
-            httpURLConnection = null;
-        } catch (MalformedURLException e29) {
-            e = e29;
+        } catch (UnsupportedEncodingException e33) {
+            e5 = e33;
             byteArrayOutputStream = null;
-            outputStream2 = null;
-            httpURLConnection2 = null;
-        } catch (ProtocolException e30) {
-            e = e30;
             inputStream = null;
             outputStream = null;
             httpURLConnection = null;
-        } catch (IOException e31) {
-            e = e31;
+        } catch (MalformedURLException e34) {
+            e4 = e34;
+            byteArrayOutputStream = null;
             inputStream = null;
             outputStream = null;
             httpURLConnection = null;
-        } catch (Exception e32) {
-            e = e32;
+        } catch (ProtocolException e35) {
+            e3 = e35;
+            byteArrayOutputStream = null;
+            inputStream = null;
+            outputStream = null;
+            httpURLConnection = null;
+        } catch (IOException e36) {
+            e2 = e36;
+            byteArrayOutputStream = null;
+            inputStream = null;
+            outputStream = null;
+            httpURLConnection = null;
+        } catch (Exception e37) {
+            e = e37;
+            byteArrayOutputStream = null;
             inputStream = null;
             outputStream = null;
             httpURLConnection = null;
         } catch (Throwable th7) {
             th = th7;
+            byteArrayOutputStream = null;
             inputStream = null;
             outputStream = null;
             httpURLConnection = null;

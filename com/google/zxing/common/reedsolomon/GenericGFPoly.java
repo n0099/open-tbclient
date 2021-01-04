@@ -1,6 +1,6 @@
 package com.google.zxing.common.reedsolomon;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class GenericGFPoly {
     private final int[] coefficients;
     private final GenericGF field;
@@ -50,35 +50,28 @@ public final class GenericGFPoly {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int evaluateAt(int i) {
-        int i2 = 0;
         if (i == 0) {
             return getCoefficient(0);
         }
         if (i == 1) {
-            int[] iArr = this.coefficients;
-            int length = iArr.length;
-            int i3 = 0;
-            while (i2 < length) {
-                int addOrSubtract = GenericGF.addOrSubtract(i3, iArr[i2]);
-                i2++;
-                i3 = addOrSubtract;
+            int i2 = 0;
+            for (int i3 : this.coefficients) {
+                i2 = GenericGF.addOrSubtract(i2, i3);
             }
-            return i3;
+            return i2;
         }
         int i4 = this.coefficients[0];
-        int length2 = this.coefficients.length;
-        int i5 = i4;
-        int i6 = 1;
-        while (i6 < length2) {
-            int addOrSubtract2 = GenericGF.addOrSubtract(this.field.multiply(i, i5), this.coefficients[i6]);
-            i6++;
-            i5 = addOrSubtract2;
+        int length = this.coefficients.length;
+        for (int i5 = 1; i5 < length; i5++) {
+            i4 = GenericGF.addOrSubtract(this.field.multiply(i, i4), this.coefficients[i5]);
         }
-        return i5;
+        return i4;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public GenericGFPoly addOrSubtract(GenericGFPoly genericGFPoly) {
+        int[] iArr;
+        int[] iArr2;
         if (!this.field.equals(genericGFPoly.field)) {
             throw new IllegalArgumentException("GenericGFPolys do not have same GenericGF field");
         }
@@ -86,19 +79,22 @@ public final class GenericGFPoly {
             if (genericGFPoly.isZero()) {
                 return this;
             }
-            int[] iArr = this.coefficients;
-            int[] iArr2 = genericGFPoly.coefficients;
-            if (iArr.length <= iArr2.length) {
-                iArr2 = iArr;
-                iArr = iArr2;
+            int[] iArr3 = this.coefficients;
+            int[] iArr4 = genericGFPoly.coefficients;
+            if (iArr3.length > iArr4.length) {
+                iArr = iArr3;
+                iArr2 = iArr4;
+            } else {
+                iArr = iArr4;
+                iArr2 = iArr3;
             }
-            int[] iArr3 = new int[iArr.length];
+            int[] iArr5 = new int[iArr.length];
             int length = iArr.length - iArr2.length;
-            System.arraycopy(iArr, 0, iArr3, 0, length);
+            System.arraycopy(iArr, 0, iArr5, 0, length);
             for (int i = length; i < iArr.length; i++) {
-                iArr3[i] = GenericGF.addOrSubtract(iArr2[i - length], iArr[i]);
+                iArr5[i] = GenericGF.addOrSubtract(iArr2[i - length], iArr[i]);
             }
-            return new GenericGFPoly(this.field, iArr3);
+            return new GenericGFPoly(this.field, iArr5);
         }
         return genericGFPoly;
     }
@@ -167,16 +163,15 @@ public final class GenericGFPoly {
         }
         GenericGFPoly zero = this.field.getZero();
         int inverse = this.field.inverse(genericGFPoly.getCoefficient(genericGFPoly.getDegree()));
-        GenericGFPoly genericGFPoly2 = zero;
-        GenericGFPoly genericGFPoly3 = this;
-        while (genericGFPoly3.getDegree() >= genericGFPoly.getDegree() && !genericGFPoly3.isZero()) {
-            int degree = genericGFPoly3.getDegree() - genericGFPoly.getDegree();
-            int multiply = this.field.multiply(genericGFPoly3.getCoefficient(genericGFPoly3.getDegree()), inverse);
+        GenericGFPoly genericGFPoly2 = this;
+        while (genericGFPoly2.getDegree() >= genericGFPoly.getDegree() && !genericGFPoly2.isZero()) {
+            int degree = genericGFPoly2.getDegree() - genericGFPoly.getDegree();
+            int multiply = this.field.multiply(genericGFPoly2.getCoefficient(genericGFPoly2.getDegree()), inverse);
             GenericGFPoly multiplyByMonomial = genericGFPoly.multiplyByMonomial(degree, multiply);
-            genericGFPoly2 = genericGFPoly2.addOrSubtract(this.field.buildMonomial(degree, multiply));
-            genericGFPoly3 = genericGFPoly3.addOrSubtract(multiplyByMonomial);
+            zero = zero.addOrSubtract(this.field.buildMonomial(degree, multiply));
+            genericGFPoly2 = genericGFPoly2.addOrSubtract(multiplyByMonomial);
         }
-        return new GenericGFPoly[]{genericGFPoly2, genericGFPoly3};
+        return new GenericGFPoly[]{zero, genericGFPoly2};
     }
 
     public String toString() {

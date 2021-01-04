@@ -2,10 +2,10 @@ package com.baidu.tieba.homepage.topic.topicdetail.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.homepage.topic.topicdetail.b.a;
+import com.baidu.tieba.homepage.topic.topicdetail.a.a;
 import com.squareup.wire.Wire;
 import tbclient.NewHottopic.NewHottopicResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
     private a mTopicDetailData;
 

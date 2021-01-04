@@ -5,13 +5,13 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaAirDropInitialize {
     static {
-        bOO();
+        bRh();
     }
 
-    private static void bOO() {
+    private static void bRh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913271, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.AlaAirDropInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<TbPageContext> customMessage) {

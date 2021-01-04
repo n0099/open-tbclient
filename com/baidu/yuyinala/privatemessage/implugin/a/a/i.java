@@ -12,26 +12,26 @@ import com.baidu.android.imsdk.chatmessage.messages.SignleGraphicTextMsg;
 import com.baidu.live.sdk.a;
 import com.baidu.sumeru.universalimageloader.core.ImageLoader;
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.DarkImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class i extends c {
     public View mContentView;
     public Context mContext;
     public View mConvertView;
-    public TextView oMp;
-    public View oMq;
-    public TextView oMr;
+    public TextView oSx;
+    public View oSy;
+    public TextView oSz;
 
     public i(Context context, LayoutInflater layoutInflater) {
-        this.oMp = null;
+        this.oSx = null;
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_push_graphic_txt, (ViewGroup) null);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_push_content_view);
-        this.oMc = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oMd = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_title);
-        this.oMp = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_content);
-        this.oMe = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chating_push_image);
-        this.oMq = this.mConvertView.findViewById(a.f.bd_im_seperator);
-        this.oMr = (TextView) this.mConvertView.findViewById(a.f.bd_im_readfulltxt);
+        this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oSl = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_title);
+        this.oSx = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_push_content);
+        this.oSm = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chating_push_image);
+        this.oSy = this.mConvertView.findViewById(a.f.bd_im_seperator);
+        this.oSz = (TextView) this.mConvertView.findViewById(a.f.bd_im_readfulltxt);
         this.mConvertView.setTag(this);
     }
 
@@ -54,31 +54,31 @@ public class i extends c {
         if (chatMsg instanceof SignleGraphicTextMsg) {
             SignleGraphicTextMsg signleGraphicTextMsg = (SignleGraphicTextMsg) chatMsg;
             Rect rect = new Rect();
-            this.oMe.getWindowVisibleDisplayFrame(rect);
+            this.oSm.getWindowVisibleDisplayFrame(rect);
             int width = (int) (rect.width() - (4.0f * context.getResources().getDimension(a.d.bd_im_push_lf)));
-            ViewGroup.LayoutParams layoutParams = this.oMe.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.oSm.getLayoutParams();
             layoutParams.width = width;
-            layoutParams.height = (int) (width / com.baidu.yuyinala.privatemessage.implugin.util.a.b.oVA);
-            this.oMe.setLayoutParams(layoutParams);
-            this.oMd.setText(signleGraphicTextMsg.getTitle());
-            this.oMp.setText(signleGraphicTextMsg.getDigest());
-            com.baidu.yuyinala.privatemessage.implugin.util.f.i(context, signleGraphicTextMsg.getMsgTime());
+            layoutParams.height = (int) (width / com.baidu.yuyinala.privatemessage.implugin.util.a.b.pbF);
+            this.oSm.setLayoutParams(layoutParams);
+            this.oSl.setText(signleGraphicTextMsg.getTitle());
+            this.oSx.setText(signleGraphicTextMsg.getDigest());
+            com.baidu.yuyinala.privatemessage.implugin.util.f.j(context, signleGraphicTextMsg.getMsgTime());
             String cover = signleGraphicTextMsg.getCover();
             if (TextUtils.isEmpty(cover) || cover.length() < 6) {
-                this.oMe.setVisibility(8);
-                int paddingLeft = this.oMp.getPaddingLeft();
-                int paddingRight = this.oMp.getPaddingRight();
-                this.oMp.getPaddingTop();
-                this.oMp.setPadding(paddingLeft, 0, paddingRight, this.oMp.getPaddingBottom());
+                this.oSm.setVisibility(8);
+                int paddingLeft = this.oSx.getPaddingLeft();
+                int paddingRight = this.oSx.getPaddingRight();
+                this.oSx.getPaddingTop();
+                this.oSx.setPadding(paddingLeft, 0, paddingRight, this.oSx.getPaddingBottom());
             } else {
-                com.baidu.yuyinala.privatemessage.implugin.util.b.hr(context);
-                ImageLoader.getInstance().displayImage(cover, this.oMe, com.baidu.yuyinala.privatemessage.implugin.util.b.enR());
+                com.baidu.yuyinala.privatemessage.implugin.util.b.hE(context);
+                ImageLoader.getInstance().displayImage(cover, this.oSm, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
             }
         }
-        ekZ();
+        eld();
         super.b(context, chatMsg);
     }
 
-    private void ekZ() {
+    private void eld() {
     }
 }

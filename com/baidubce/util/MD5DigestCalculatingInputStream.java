@@ -1,17 +1,18 @@
 package com.baidubce.util;
 
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class MD5DigestCalculatingInputStream extends FilterInputStream {
     private MessageDigest digest;
 
     public MD5DigestCalculatingInputStream(InputStream inputStream) throws NoSuchAlgorithmException {
         super(inputStream);
-        this.digest = MessageDigest.getInstance("MD5");
+        this.digest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
     }
 
     public byte[] getMd5Digest() {
@@ -21,7 +22,7 @@ public class MD5DigestCalculatingInputStream extends FilterInputStream {
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized void reset() throws IOException {
         try {
-            this.digest = MessageDigest.getInstance("MD5");
+            this.digest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         } catch (NoSuchAlgorithmException e) {
         }
         this.in.reset();

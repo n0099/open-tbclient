@@ -1,7 +1,7 @@
 package com.baidu.searchbox.v8engine.bean;
 
 import android.graphics.Bitmap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ImageBitmapBean {
     private static final boolean DEBUG = false;
     private static final String TAG = "ImageBitmapBean";

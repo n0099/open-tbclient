@@ -1,12 +1,13 @@
 package com.baidu.live.im.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public boolean bps = false;
-    public boolean bpt = true;
+    public boolean bra = false;
+    public boolean brb = true;
     public boolean isNormal = true;
-    public boolean bpu = false;
-    public boolean bpv = false;
-    public boolean bpw = false;
-    public boolean bpx = false;
-    public boolean bpy = false;
+    public boolean brc = false;
+    public boolean brd = false;
+    public boolean bre = false;
+    public boolean brf = false;
+    public boolean brg = false;
+    public boolean isMysteriousMan = false;
 }

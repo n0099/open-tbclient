@@ -1,23 +1,11 @@
 package com.baidu.tbadk.widget;
 
 import android.content.Context;
-import android.graphics.Paint;
 import android.os.Build;
 import android.util.AttributeSet;
-import com.baidu.tieba.compatible.CompatibleUtile;
-import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class TbClipImageView extends TbImageView {
-    private static Method setLayerTypeMethod;
     private boolean canClipPath;
-
-    static {
-        setLayerTypeMethod = null;
-        try {
-            setLayerTypeMethod = TbClipImageView.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
-        } catch (NoSuchMethodException e) {
-        }
-    }
 
     public TbClipImageView(Context context) {
         this(context, null, 0);
@@ -36,7 +24,6 @@ public class TbClipImageView extends TbImageView {
     private void init(Context context, AttributeSet attributeSet, int i) {
         boolean z;
         boolean z2;
-        boolean z3;
         String trim = Build.MODEL.trim();
         if (trim != null) {
             String[] strArr = {"M040", "M045"};
@@ -44,10 +31,10 @@ public class TbClipImageView extends TbImageView {
             int i2 = 0;
             while (true) {
                 if (i2 >= length) {
-                    z3 = false;
+                    z2 = false;
                     break;
                 } else if (strArr[i2].equalsIgnoreCase(trim)) {
-                    z3 = true;
+                    z2 = true;
                     break;
                 } else {
                     i2++;
@@ -58,11 +45,9 @@ public class TbClipImageView extends TbImageView {
             int i3 = 0;
             while (true) {
                 if (i3 >= length2) {
-                    z2 = z3;
                     z = false;
                     break;
                 } else if (strArr2[i3].equalsIgnoreCase(trim)) {
-                    z2 = z3;
                     z = true;
                     break;
                 } else {
@@ -72,15 +57,6 @@ public class TbClipImageView extends TbImageView {
         } else {
             z = false;
             z2 = false;
-        }
-        if (Build.VERSION.SDK_INT >= 11) {
-            CompatibleUtile.getInstance().closeViewGpu(this);
-            try {
-                if (setLayerTypeMethod != null) {
-                    setLayerTypeMethod.invoke(this, 1, null);
-                }
-            } catch (Exception e) {
-            }
         }
         if (z2 || z) {
             this.canClipPath = false;

@@ -3,7 +3,7 @@ package org.apache.http.conn;
 import java.io.IOException;
 import java.io.InputStream;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class EofSensorInputStream extends InputStream implements ConnectionReleaseTrigger {
     protected InputStream wrappedStream;
 

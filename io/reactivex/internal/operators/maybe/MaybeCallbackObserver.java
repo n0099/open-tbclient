@@ -6,7 +6,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.m;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
     private static final long serialVersionUID = -6076952298809384986L;
     final io.reactivex.b.a onComplete;
@@ -40,7 +40,7 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex
         try {
             this.onSuccess.accept(t);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             io.reactivex.d.a.onError(th);
         }
     }
@@ -51,7 +51,7 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            io.reactivex.exceptions.a.J(th2);
+            io.reactivex.exceptions.a.O(th2);
             io.reactivex.d.a.onError(new CompositeException(th, th2));
         }
     }
@@ -62,12 +62,12 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex
         try {
             this.onComplete.run();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             io.reactivex.d.a.onError(th);
         }
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.pER;
+        return this.onError != Functions.qgt;
     }
 }

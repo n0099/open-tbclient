@@ -4,104 +4,104 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class f extends a {
-    private static boolean pfK = true;
+    private static boolean pwQ = true;
     int mAlpha;
+    int mDurationMs;
     long mStartTimeMs;
-    int pfE;
-    int pfF;
-    int[] pfG;
-    int[] pfH;
-    boolean[] pfI;
-    int pfJ;
-    private final Drawable[] pfs;
+    int pwL;
+    int[] pwM;
+    int[] pwN;
+    boolean[] pwO;
+    int pwP;
+    private final Drawable[] pwz;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
-        com.facebook.common.internal.g.d(drawableArr.length >= 1, "At least one layer required!");
-        this.pfs = drawableArr;
-        this.pfG = new int[drawableArr.length];
-        this.pfH = new int[drawableArr.length];
+        com.facebook.common.internal.g.checkState(drawableArr.length >= 1, "At least one layer required!");
+        this.pwz = drawableArr;
+        this.pwM = new int[drawableArr.length];
+        this.pwN = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.pfI = new boolean[drawableArr.length];
-        this.pfJ = 0;
+        this.pwO = new boolean[drawableArr.length];
+        this.pwP = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.pfJ == 0) {
+        if (this.pwP == 0) {
             super.invalidateSelf();
         }
     }
 
-    public void erD() {
-        this.pfJ++;
+    public void evF() {
+        this.pwP++;
     }
 
-    public void erE() {
-        this.pfJ--;
+    public void evG() {
+        this.pwP--;
         invalidateSelf();
     }
 
-    public void Qf(int i) {
-        this.pfF = i;
-        if (this.pfE == 1) {
-            this.pfE = 0;
+    public void Qo(int i) {
+        this.mDurationMs = i;
+        if (this.pwL == 1) {
+            this.pwL = 0;
         }
     }
 
     private void resetInternal() {
-        this.pfE = 2;
-        Arrays.fill(this.pfG, 0);
-        this.pfG[0] = 255;
-        Arrays.fill(this.pfH, 0);
-        this.pfH[0] = 255;
-        Arrays.fill(this.pfI, false);
-        this.pfI[0] = true;
+        this.pwL = 2;
+        Arrays.fill(this.pwM, 0);
+        this.pwM[0] = 255;
+        Arrays.fill(this.pwN, 0);
+        this.pwN[0] = 255;
+        Arrays.fill(this.pwO, false);
+        this.pwO[0] = true;
     }
 
-    public void Qg(int i) {
-        this.pfE = 0;
-        this.pfI[i] = true;
+    public void Qp(int i) {
+        this.pwL = 0;
+        this.pwO[i] = true;
         invalidateSelf();
     }
 
-    public void Qh(int i) {
-        this.pfE = 0;
-        this.pfI[i] = false;
+    public void Qq(int i) {
+        this.pwL = 0;
+        this.pwO[i] = false;
         invalidateSelf();
     }
 
-    public void erF() {
-        this.pfE = 0;
-        Arrays.fill(this.pfI, true);
+    public void evH() {
+        this.pwL = 0;
+        Arrays.fill(this.pwO, true);
         invalidateSelf();
     }
 
-    public void erG() {
-        this.pfE = 2;
-        for (int i = 0; i < this.pfs.length; i++) {
-            this.pfH[i] = this.pfI[i] ? 255 : 0;
+    public void evI() {
+        this.pwL = 2;
+        for (int i = 0; i < this.pwz.length; i++) {
+            this.pwN[i] = this.pwO[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
-    private boolean bs(float f) {
+    private boolean bE(float f) {
         boolean z = true;
-        for (int i = 0; i < this.pfs.length; i++) {
-            this.pfH[i] = (int) (((this.pfI[i] ? 1 : -1) * 255 * f) + this.pfG[i]);
-            if (this.pfH[i] < 0) {
-                this.pfH[i] = 0;
+        for (int i = 0; i < this.pwz.length; i++) {
+            this.pwN[i] = (int) (((this.pwO[i] ? 1 : -1) * 255 * f) + this.pwM[i]);
+            if (this.pwN[i] < 0) {
+                this.pwN[i] = 0;
             }
-            if (this.pfH[i] > 255) {
-                this.pfH[i] = 255;
+            if (this.pwN[i] > 255) {
+                this.pwN[i] = 255;
             }
-            if (this.pfI[i] && this.pfH[i] < 255) {
+            if (this.pwO[i] && this.pwN[i] < 255) {
                 z = false;
             }
-            if (!this.pfI[i] && this.pfH[i] > 0) {
+            if (!this.pwO[i] && this.pwN[i] > 0) {
                 z = false;
             }
         }
@@ -111,26 +111,26 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.pfE) {
+        switch (this.pwL) {
             case 0:
-                System.arraycopy(this.pfH, 0, this.pfG, 0, this.pfs.length);
-                this.mStartTimeMs = erH();
-                if (pfK && this.pfF != 0) {
+                System.arraycopy(this.pwN, 0, this.pwM, 0, this.pwz.length);
+                this.mStartTimeMs = evJ();
+                if (pwQ && this.mDurationMs != 0) {
                     r0 = 0.0f;
                 }
-                boolean bs = bs(r0);
-                this.pfE = bs ? 2 : 1;
-                z = bs;
+                boolean bE = bE(r0);
+                this.pwL = bE ? 2 : 1;
+                z = bE;
                 break;
             case 1:
-                com.facebook.common.internal.g.checkState(this.pfF > 0);
-                boolean bs2 = bs(pfK ? ((float) (erH() - this.mStartTimeMs)) / this.pfF : 1.0f);
-                this.pfE = bs2 ? 2 : 1;
-                z = bs2;
+                com.facebook.common.internal.g.checkState(this.mDurationMs > 0);
+                boolean bE2 = bE(pwQ ? ((float) (evJ() - this.mStartTimeMs)) / this.mDurationMs : 1.0f);
+                this.pwL = bE2 ? 2 : 1;
+                z = bE2;
                 break;
         }
-        for (int i = 0; i < this.pfs.length; i++) {
-            a(canvas, this.pfs[i], (this.pfH[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.pwz.length; i++) {
+            a(canvas, this.pwz[i], (this.pwN[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -139,9 +139,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.pfJ++;
+            this.pwP++;
             drawable.mutate().setAlpha(i);
-            this.pfJ--;
+            this.pwP--;
             drawable.draw(canvas);
         }
     }
@@ -159,7 +159,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long erH() {
+    protected long evJ() {
         return SystemClock.uptimeMillis();
     }
 }

@@ -4,18 +4,18 @@ import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.support.v4.util.Pools;
 import android.util.Pair;
+import androidx.core.util.Pools;
 import com.facebook.common.internal.g;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    private static final Pools.SynchronizedPool<ByteBuffer> pqQ = new Pools.SynchronizedPool<>(12);
+    private static final Pools.SynchronizedPool<ByteBuffer> pGq = new Pools.SynchronizedPool<>(12);
 
     @SuppressLint({"NewApi"})
-    public static int am(@Nullable Bitmap bitmap) {
+    public static int ak(@Nullable Bitmap bitmap) {
         if (bitmap == null) {
             return 0;
         }
@@ -32,10 +32,10 @@ public final class a {
     }
 
     @Nullable
-    public static Pair<Integer, Integer> y(InputStream inputStream) {
+    public static Pair<Integer, Integer> B(InputStream inputStream) {
         Pair<Integer, Integer> pair = null;
         g.checkNotNull(inputStream);
-        ByteBuffer acquire = pqQ.acquire();
+        ByteBuffer acquire = pGq.acquire();
         if (acquire == null) {
             acquire = ByteBuffer.allocate(16384);
         }
@@ -49,38 +49,38 @@ public final class a {
             }
             return pair;
         } finally {
-            pqQ.release(acquire);
+            pGq.release(acquire);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.facebook.d.a$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] pqR = new int[Bitmap.Config.values().length];
+        static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config = new int[Bitmap.Config.values().length];
 
         static {
             try {
-                pqR[Bitmap.Config.ARGB_8888.ordinal()] = 1;
+                $SwitchMap$android$graphics$Bitmap$Config[Bitmap.Config.ARGB_8888.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                pqR[Bitmap.Config.ALPHA_8.ordinal()] = 2;
+                $SwitchMap$android$graphics$Bitmap$Config[Bitmap.Config.ALPHA_8.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                pqR[Bitmap.Config.ARGB_4444.ordinal()] = 3;
+                $SwitchMap$android$graphics$Bitmap$Config[Bitmap.Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                pqR[Bitmap.Config.RGB_565.ordinal()] = 4;
+                $SwitchMap$android$graphics$Bitmap$Config[Bitmap.Config.RGB_565.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
         }
     }
 
-    public static int d(Bitmap.Config config) {
-        switch (AnonymousClass1.pqR[config.ordinal()]) {
+    public static int f(Bitmap.Config config) {
+        switch (AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()]) {
             case 1:
                 return 4;
             case 2:
@@ -93,7 +93,7 @@ public final class a {
         }
     }
 
-    public static int e(int i, int i2, Bitmap.Config config) {
-        return i * i2 * d(config);
+    public static int g(int i, int i2, Bitmap.Config config) {
+        return i * i2 * f(config);
     }
 }

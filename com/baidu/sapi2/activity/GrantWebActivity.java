@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.fsg.base.statistics.h;
 import com.baidu.l.a.a;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
@@ -24,7 +25,7 @@ import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.k;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class GrantWebActivity extends BaseActivity {
     private static final String u = GrantWebActivity.class.getSimpleName();
     private static final String v = "openapp";
@@ -48,7 +49,7 @@ public class GrantWebActivity extends BaseActivity {
         }
         String str = SapiAccountManager.getInstance().getConfignation().environment.getWap() + "/passport/login";
         HashMap hashMap = new HashMap();
-        hashMap.put("client", "android");
+        hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
         hashMap.put("clientfrom", "native");
         hashMap.put("suppcheck", "1");
         hashMap.put("adapter", "3");

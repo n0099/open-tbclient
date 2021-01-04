@@ -1,12 +1,12 @@
 package com.baidu.ar.arrender;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class i extends com.baidu.ar.ability.c {
     private String hS;
     private String hT;
     private Object hU;
     private a hV;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         INT,
         FLOAT,

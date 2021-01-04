@@ -8,26 +8,26 @@ import android.os.Message;
 import android.provider.Settings;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tieba.e.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private SensorManager bGk;
-    private a bGl;
-    private Sensor bGm;
-    private c bGp;
+    private a bKZ;
+    private c bLc;
     private Activity mActivity;
-    private boolean bGn = false;
-    private boolean bGo = false;
-    private boolean bGq = false;
-    private boolean bGr = false;
+    private Sensor mSensor;
+    private SensorManager mSensorManager;
+    private boolean bLa = false;
+    private boolean bLb = false;
+    private boolean bLd = false;
+    private boolean bLe = false;
     private Handler mHandler = new Handler() { // from class: com.baidu.live.tieba.e.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message != null && b.this.mActivity != null && b.this.bGr) {
+            if (message != null && b.this.mActivity != null && b.this.bLe) {
                 switch (message.what) {
                     case 1:
                         int requestedOrientation = b.this.mActivity.getRequestedOrientation();
                         int i = message.arg1;
-                        if (!b.this.bGq) {
+                        if (!b.this.bLd) {
                             if (i > 225 && i < 315) {
                                 if (requestedOrientation == 8) {
                                     BdUtilHelper.hideSoftKeyPad(b.this.mActivity, b.this.mActivity.getWindow().getDecorView());
@@ -43,7 +43,7 @@ public class b {
                                 return;
                             }
                         } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                            if (!b.this.bGo) {
+                            if (!b.this.bLb) {
                                 if (i > 55 && i < 125) {
                                     if (requestedOrientation != 8) {
                                         BdUtilHelper.hideSoftKeyPad(b.this.mActivity, b.this.mActivity.getWindow().getDecorView());
@@ -54,14 +54,14 @@ public class b {
                                     b.this.mActivity.setRequestedOrientation(0);
                                 }
                             }
-                            b.this.bGn = false;
+                            b.this.bLa = false;
                             return;
                         } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
-                            if (!b.this.bGn && requestedOrientation != 1) {
+                            if (!b.this.bLa && requestedOrientation != 1) {
                                 BdUtilHelper.hideSoftKeyPad(b.this.mActivity, b.this.mActivity.getWindow().getDecorView());
                                 b.this.mActivity.setRequestedOrientation(1);
                             }
-                            b.this.bGo = false;
+                            b.this.bLb = false;
                             return;
                         } else {
                             return;
@@ -72,71 +72,71 @@ public class b {
             }
         }
     };
-    private c.a bGs = new c.a() { // from class: com.baidu.live.tieba.e.b.2
+    private c.a bLf = new c.a() { // from class: com.baidu.live.tieba.e.b.2
         @Override // com.baidu.live.tieba.e.c.a
         public void onChange(boolean z) {
-            b.this.bGq = z;
+            b.this.bLd = z;
         }
     };
 
     public b(Activity activity) {
         if (activity != null) {
             this.mActivity = activity;
-            this.bGk = (SensorManager) activity.getSystemService("sensor");
-            this.bGm = this.bGk.getDefaultSensor(1);
-            this.bGl = new a(this.mHandler);
-            this.bGp = new c(this.mActivity, this.mHandler);
-            this.bGp.a(this.bGs);
-            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.bGp);
+            this.mSensorManager = (SensorManager) activity.getSystemService("sensor");
+            this.mSensor = this.mSensorManager.getDefaultSensor(1);
+            this.bKZ = new a(this.mHandler);
+            this.bLc = new c(this.mActivity, this.mHandler);
+            this.bLc.a(this.bLf);
+            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.bLc);
         }
     }
 
-    public void Vh() {
+    public void Wl() {
         if (this.mActivity != null) {
             BdUtilHelper.hideSoftKeyPad(this.mActivity, this.mActivity.getWindow().getDecorView());
             if (this.mActivity.getRequestedOrientation() == 0) {
                 this.mActivity.setRequestedOrientation(1);
-                this.bGo = true;
+                this.bLb = true;
                 return;
             }
             this.mActivity.setRequestedOrientation(0);
-            this.bGn = true;
+            this.bLa = true;
         }
     }
 
-    public void Vi() {
+    public void Wm() {
         if (this.mActivity != null) {
             BdUtilHelper.hideSoftKeyPad(this.mActivity, this.mActivity.getWindow().getDecorView());
             this.mActivity.setRequestedOrientation(0);
-            this.bGn = true;
+            this.bLa = true;
         }
     }
 
-    public void Vj() {
+    public void Wn() {
         if (this.mActivity != null) {
             BdUtilHelper.hideSoftKeyPad(this.mActivity, this.mActivity.getWindow().getDecorView());
             this.mActivity.setRequestedOrientation(1);
-            this.bGo = true;
+            this.bLb = true;
         }
     }
 
     public void start() {
-        if (this.bGk != null) {
-            this.bGk.registerListener(this.bGl, this.bGm, 2);
+        if (this.mSensorManager != null) {
+            this.mSensorManager.registerListener(this.bKZ, this.mSensor, 2);
         }
     }
 
     public void stop() {
-        if (this.bGk != null) {
-            this.bGk.unregisterListener(this.bGl);
+        if (this.mSensorManager != null) {
+            this.mSensorManager.unregisterListener(this.bKZ);
         }
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mActivity != null) {
-            this.mActivity.getContentResolver().unregisterContentObserver(this.bGp);
+            this.mActivity.getContentResolver().unregisterContentObserver(this.bLc);
         }
     }
 
-    public void da(boolean z) {
-        this.bGr = z;
+    public void dd(boolean z) {
+        this.bLe = z;
     }
 }

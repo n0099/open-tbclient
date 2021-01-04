@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.inlinewidget.a.a;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.a.c> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String aya() {
+    public String azr() {
         return "hidekeyboard";
     }
 
@@ -14,6 +14,6 @@ public class a extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     @Override // com.baidu.swan.apps.inlinewidget.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.a.c cVar) {
         a(cVar, command.what, null, false);
-        cVar.aye();
+        cVar.azv();
     }
 }

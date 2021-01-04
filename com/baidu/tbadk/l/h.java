@@ -9,50 +9,50 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class h extends a {
-    protected TextView bhK;
-    private int faD;
-    private int faE;
-    protected TBSpecificationBtn fzB;
-    private LinearLayout fzC;
-    protected ImageView fzI;
-    private int fzJ;
+    protected TextView bjt;
+    protected TBSpecificationBtn fJh;
+    private LinearLayout fJi;
+    protected ImageView fJo;
+    private int fJp;
+    private int fkh;
+    private int fki;
     protected TextView subTextView;
-    private static final int faF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds312);
-    private static final int faG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds84);
-    private static final int faH = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds62);
-    private static final int faI = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds32);
-    private static final int alz = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
+    private static final int fkj = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds312);
+    private static final int fkk = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds84);
+    private static final int fkl = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds62);
+    private static final int fkm = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds32);
+    private static final int amb = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
 
     public TextView getTitleView() {
-        return this.bhK;
+        return this.bjt;
     }
 
-    public View bDZ() {
-        return this.fzB;
+    public View bGt() {
+        return this.fJh;
     }
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null));
-        this.fzI = (ImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.fJo = (ImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.subTextView = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.bhK = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.fzC = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.fzB = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
+        this.bjt = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.fJi = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.fJh = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
         com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
-        this.fzB.setText(context.getResources().getString(R.string.refresh_view_button_text));
-        this.fzB.setTextSize(R.dimen.T_X05);
-        this.fzB.setConfig(aVar);
-        this.fzJ = R.drawable.new_pic_emotion_08;
-        this.faD = R.color.CAM_X0107;
-        this.faE = R.color.CAM_X0109;
-        this.fzB.setOnClickListener(onClickListener);
+        this.fJh.setText(context.getResources().getString(R.string.refresh_view_button_text));
+        this.fJh.setTextSize(R.dimen.T_X05);
+        this.fJh.setConfig(aVar);
+        this.fJp = R.drawable.new_pic_emotion_08;
+        this.fkh = R.color.CAM_X0107;
+        this.fki = R.color.CAM_X0109;
+        this.fJh.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
-        sE(0);
+        sQ(0);
     }
 
     public void setSubText(String str) {
@@ -62,35 +62,35 @@ public class h extends a {
             this.subTextView.setVisibility(0);
             this.subTextView.setText(str);
         }
-        bvc();
+        bxx();
     }
 
     public void setTitle(String str) {
         if (str != null) {
-            this.bhK.setText(str);
+            this.bjt.setText(str);
         }
     }
 
-    public void Ek(String str) {
+    public void Eh(String str) {
         if (str != null) {
-            this.bhK.setText(str);
-            this.bhK.setVisibility(0);
-            bvc();
+            this.bjt.setText(str);
+            this.bjt.setVisibility(0);
+            bxx();
         }
     }
 
-    public void sC(int i) {
-        this.fzJ = i;
+    public void sO(int i) {
+        this.fJp = i;
     }
 
-    public void sD(int i) {
-        this.fzJ = i;
-        ap.setImageResource(this.fzI, i);
+    public void sP(int i) {
+        this.fJp = i;
+        ao.setImageResource(this.fJo, i);
     }
 
     public void setButtonText(String str) {
         if (str != null) {
-            this.fzB.setText(str);
+            this.fJh.setText(str);
         }
     }
 
@@ -105,19 +105,19 @@ public class h extends a {
     @Override // com.baidu.tbadk.l.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.fzI.setImageResource(0);
+        this.fJo.setImageResource(0);
     }
 
     public void setLayoutMargin(int i) {
-        ViewGroup.LayoutParams layoutParams = this.fzI.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.fJo.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.fzI.setLayoutParams(marginLayoutParams);
+            this.fJo.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void sE(int i) {
+    public void sQ(int i) {
         int i2;
         if (i < 0) {
             i = 0;
@@ -128,35 +128,35 @@ public class h extends a {
         } else {
             i2 = (int) (equipmentHeight * 0.16d);
         }
-        ViewGroup.LayoutParams layoutParams = this.fzI.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.fJo.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i2 + i;
-            this.fzI.setLayoutParams(marginLayoutParams);
+            this.fJo.setLayoutParams(marginLayoutParams);
         }
     }
 
     public void showRefreshButton() {
-        this.fzB.setVisibility(0);
-        this.bhK.setVisibility(0);
-        ap.setViewTextColor(this.subTextView, R.color.CAM_X0109, 1);
-        bvc();
+        this.fJh.setVisibility(0);
+        this.bjt.setVisibility(0);
+        ao.setViewTextColor(this.subTextView, R.color.CAM_X0109, 1);
+        bxx();
     }
 
     public void hideRefreshButton() {
-        this.fzB.setVisibility(8);
-        this.bhK.setVisibility(8);
-        ap.setViewTextColor(this.subTextView, R.color.CAM_X0109, 1);
-        bvc();
+        this.fJh.setVisibility(8);
+        this.bjt.setVisibility(8);
+        ao.setViewTextColor(this.subTextView, R.color.CAM_X0109, 1);
+        bxx();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        ap.setImageResource(this.fzI, this.fzJ);
-        ap.setViewTextColor(this.subTextView, this.faE, 1, skinType);
-        ap.setViewTextColor(this.bhK, this.faD, 1, skinType);
-        if (this.fzB != null) {
-            this.fzB.bvt();
+        ao.setImageResource(this.fJo, this.fJp);
+        ao.setViewTextColor(this.subTextView, this.fki, 1, skinType);
+        ao.setViewTextColor(this.bjt, this.fkh, 1, skinType);
+        if (this.fJh != null) {
+            this.fJh.bxO();
         }
     }
 
@@ -164,56 +164,56 @@ public class h extends a {
         return this.attachedView;
     }
 
-    private void bvc() {
-        if (this.fzB.getVisibility() == 0) {
-            ViewGroup.LayoutParams layoutParams = this.fzC.getLayoutParams();
+    private void bxx() {
+        if (this.fJh.getVisibility() == 0) {
+            ViewGroup.LayoutParams layoutParams = this.fJi.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.topMargin = faG;
-                this.fzC.setLayoutParams(marginLayoutParams);
+                marginLayoutParams.topMargin = fkk;
+                this.fJi.setLayoutParams(marginLayoutParams);
             }
             this.subTextView.setVisibility(8);
-            this.faD = R.color.CAM_X0107;
+            this.fkh = R.color.CAM_X0107;
         } else if (this.subTextView.getVisibility() == 8) {
-            ViewGroup.LayoutParams layoutParams2 = this.fzC.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.fJi.getLayoutParams();
             if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
-                marginLayoutParams2.topMargin = faG;
-                this.fzC.setLayoutParams(marginLayoutParams2);
+                marginLayoutParams2.topMargin = fkk;
+                this.fJi.setLayoutParams(marginLayoutParams2);
             }
-            this.faD = R.color.CAM_X0107;
-        } else if (this.bhK.getVisibility() == 0) {
-            ViewGroup.LayoutParams layoutParams3 = this.fzC.getLayoutParams();
+            this.fkh = R.color.CAM_X0107;
+        } else if (this.bjt.getVisibility() == 0) {
+            ViewGroup.LayoutParams layoutParams3 = this.fJi.getLayoutParams();
             if (layoutParams3 instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams3 = (ViewGroup.MarginLayoutParams) layoutParams3;
-                marginLayoutParams3.topMargin = faI;
-                this.fzC.setLayoutParams(marginLayoutParams3);
+                marginLayoutParams3.topMargin = fkm;
+                this.fJi.setLayoutParams(marginLayoutParams3);
             }
-            ViewGroup.LayoutParams layoutParams4 = this.bhK.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams4 = this.bjt.getLayoutParams();
             if (layoutParams4 instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams4 = (ViewGroup.MarginLayoutParams) layoutParams4;
-                marginLayoutParams4.topMargin = alz;
-                this.bhK.setLayoutParams(marginLayoutParams4);
+                marginLayoutParams4.topMargin = amb;
+                this.bjt.setLayoutParams(marginLayoutParams4);
             }
-            this.faD = R.color.CAM_X0107;
-            this.faE = R.color.CAM_X0109;
+            this.fkh = R.color.CAM_X0107;
+            this.fki = R.color.CAM_X0109;
         } else {
-            ViewGroup.LayoutParams layoutParams5 = this.fzI.getLayoutParams();
-            layoutParams5.width = faF;
-            layoutParams5.height = faF;
-            this.fzI.setLayoutParams(layoutParams5);
-            ViewGroup.LayoutParams layoutParams6 = this.fzC.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams5 = this.fJo.getLayoutParams();
+            layoutParams5.width = fkj;
+            layoutParams5.height = fkj;
+            this.fJo.setLayoutParams(layoutParams5);
+            ViewGroup.LayoutParams layoutParams6 = this.fJi.getLayoutParams();
             if (layoutParams6 instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams5 = (ViewGroup.MarginLayoutParams) layoutParams6;
-                marginLayoutParams5.topMargin = faH;
-                this.fzC.setLayoutParams(marginLayoutParams5);
+                marginLayoutParams5.topMargin = fkl;
+                this.fJi.setLayoutParams(marginLayoutParams5);
             }
-            this.faE = R.color.CAM_X0109;
+            this.fki = R.color.CAM_X0109;
         }
         onChangeSkinType();
     }
 
     public void setBackGroundColor(int i) {
-        ap.setBackgroundColor(this.attachedView, i);
+        ao.setBackgroundColor(this.attachedView, i);
     }
 }

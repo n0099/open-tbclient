@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.liveroom.o;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface c {
     void endAnimation();
 

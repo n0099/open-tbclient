@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,49 +20,50 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tieba.d.a;
 import com.baidu.live.tieba.d.b;
-/* loaded from: classes4.dex */
-public class AlaTopTipView extends TextView {
-    private a.InterfaceC0220a bDm;
-    private Animation bQk;
-    private Runnable bQm;
-    private Animation hCI;
-    private a hCJ;
-    private b hCK;
+/* loaded from: classes11.dex */
+public class AlaTopTipView extends FrameLayout {
+    private a.InterfaceC0218a bHY;
+    private Animation bVo;
+    private Runnable bVq;
+    private boolean epJ;
+    private TextView hOH;
+    private Animation hOI;
+    private a hOJ;
+    private b hOK;
     private int mDuration;
-    private boolean mIsShowing;
     private int mType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void ct(View view);
+        void cC(View view);
     }
 
     public AlaTopTipView(Context context) {
         super(context);
         this.mDuration = 2000;
-        this.bQm = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.1
+        this.bVq = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaTopTipView.this.hideTip();
             }
         };
-        this.bDm = new a.InterfaceC0220a() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.2
-            @Override // com.baidu.live.tieba.d.a.InterfaceC0220a
+        this.bHY = new a.InterfaceC0218a() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.2
+            @Override // com.baidu.live.tieba.d.a.InterfaceC0218a
             public void G(int i, int i2) {
             }
 
-            @Override // com.baidu.live.tieba.d.a.InterfaceC0220a
+            @Override // com.baidu.live.tieba.d.a.InterfaceC0218a
             public void H(int i, int i2) {
-                if (ay(i2) && AlaTopTipView.this.mIsShowing) {
+                if (aA(i2) && AlaTopTipView.this.epJ) {
                     AlaTopTipView.this.hideTip();
                 }
             }
 
-            @Override // com.baidu.live.tieba.d.a.InterfaceC0220a
+            @Override // com.baidu.live.tieba.d.a.InterfaceC0218a
             public void I(int i, int i2) {
             }
 
-            private boolean ay(float f) {
+            private boolean aA(float f) {
                 return Math.abs(f) >= 2.0f;
             }
         };
@@ -71,29 +73,29 @@ public class AlaTopTipView extends TextView {
     public AlaTopTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mDuration = 2000;
-        this.bQm = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.1
+        this.bVq = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaTopTipView.this.hideTip();
             }
         };
-        this.bDm = new a.InterfaceC0220a() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.2
-            @Override // com.baidu.live.tieba.d.a.InterfaceC0220a
+        this.bHY = new a.InterfaceC0218a() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.2
+            @Override // com.baidu.live.tieba.d.a.InterfaceC0218a
             public void G(int i, int i2) {
             }
 
-            @Override // com.baidu.live.tieba.d.a.InterfaceC0220a
+            @Override // com.baidu.live.tieba.d.a.InterfaceC0218a
             public void H(int i, int i2) {
-                if (ay(i2) && AlaTopTipView.this.mIsShowing) {
+                if (aA(i2) && AlaTopTipView.this.epJ) {
                     AlaTopTipView.this.hideTip();
                 }
             }
 
-            @Override // com.baidu.live.tieba.d.a.InterfaceC0220a
+            @Override // com.baidu.live.tieba.d.a.InterfaceC0218a
             public void I(int i, int i2) {
             }
 
-            private boolean ay(float f) {
+            private boolean aA(float f) {
                 return Math.abs(f) >= 2.0f;
             }
         };
@@ -103,29 +105,29 @@ public class AlaTopTipView extends TextView {
     public AlaTopTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDuration = 2000;
-        this.bQm = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.1
+        this.bVq = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaTopTipView.this.hideTip();
             }
         };
-        this.bDm = new a.InterfaceC0220a() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.2
-            @Override // com.baidu.live.tieba.d.a.InterfaceC0220a
+        this.bHY = new a.InterfaceC0218a() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.2
+            @Override // com.baidu.live.tieba.d.a.InterfaceC0218a
             public void G(int i2, int i22) {
             }
 
-            @Override // com.baidu.live.tieba.d.a.InterfaceC0220a
+            @Override // com.baidu.live.tieba.d.a.InterfaceC0218a
             public void H(int i2, int i22) {
-                if (ay(i22) && AlaTopTipView.this.mIsShowing) {
+                if (aA(i22) && AlaTopTipView.this.epJ) {
                     AlaTopTipView.this.hideTip();
                 }
             }
 
-            @Override // com.baidu.live.tieba.d.a.InterfaceC0220a
+            @Override // com.baidu.live.tieba.d.a.InterfaceC0218a
             public void I(int i2, int i22) {
             }
 
-            private boolean ay(float f) {
+            private boolean aA(float f) {
                 return Math.abs(f) >= 2.0f;
             }
         };
@@ -133,22 +135,29 @@ public class AlaTopTipView extends TextView {
     }
 
     private void init() {
-        this.hCK = new b(getContext());
-        this.hCK.a(this.bDm);
+        cnv();
+        cnu();
+        initAnimation();
+    }
+
+    private void cnu() {
+        this.hOK = new b(getContext());
+        this.hOK.a(this.bHY);
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
                     view.getParent().requestDisallowInterceptTouchEvent(true);
                 }
-                return AlaTopTipView.this.hCK.onTouchEvent(motionEvent);
+                return AlaTopTipView.this.hOK.onTouchEvent(motionEvent);
             }
         });
-        setupPaddings();
-        this.hCI = AnimationUtils.loadAnimation(getContext(), a.C0205a.sdk_push_top_in);
-        this.bQk = AnimationUtils.loadAnimation(getContext(), a.C0205a.sdk_push_top_out);
-        setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds28));
-        this.bQk.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.4
+    }
+
+    private void initAnimation() {
+        this.hOI = AnimationUtils.loadAnimation(getContext(), a.C0203a.sdk_push_top_in);
+        this.bVo = AnimationUtils.loadAnimation(getContext(), a.C0203a.sdk_push_top_out);
+        this.bVo.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -160,8 +169,8 @@ public class AlaTopTipView extends TextView {
                 if (viewGroup != null) {
                     viewGroup.removeView(AlaTopTipView.this);
                 }
-                if (AlaTopTipView.this.hCJ != null) {
-                    AlaTopTipView.this.hCJ.ct(AlaTopTipView.this);
+                if (AlaTopTipView.this.hOJ != null) {
+                    AlaTopTipView.this.hOJ.cC(AlaTopTipView.this);
                 }
             }
 
@@ -169,8 +178,8 @@ public class AlaTopTipView extends TextView {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.hCI.setDuration(400L);
-        this.hCI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.5
+        this.hOI.setDuration(400L);
+        this.hOI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -178,7 +187,7 @@ public class AlaTopTipView extends TextView {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 if (AlaTopTipView.this.mDuration > 0) {
-                    AlaTopTipView.this.postDelayed(AlaTopTipView.this.bQm, AlaTopTipView.this.mDuration);
+                    AlaTopTipView.this.postDelayed(AlaTopTipView.this.bVq, AlaTopTipView.this.mDuration);
                 }
             }
 
@@ -188,17 +197,49 @@ public class AlaTopTipView extends TextView {
         });
     }
 
-    private void setupPaddings() {
-        int dimensionPixelOffset = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds30);
-        int statusBarHeight = (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getContext()) == 1) ? UtilHelper.getStatusBarHeight() + dimensionPixelOffset : dimensionPixelOffset;
-        int dimensionPixelOffset2 = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds34);
-        setPadding(dimensionPixelOffset2, statusBarHeight, dimensionPixelOffset2, dimensionPixelOffset);
+    private void cnv() {
+        if (getContext() != null) {
+            this.hOH = new TextView(getContext());
+            this.hOH.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds28));
+            int dimensionPixelOffset = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds30);
+            int statusBarHeight = (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getContext()) == 1) ? UtilHelper.getStatusBarHeight() + dimensionPixelOffset : dimensionPixelOffset;
+            int dimensionPixelOffset2 = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds34);
+            this.hOH.setPadding(dimensionPixelOffset2, statusBarHeight, dimensionPixelOffset2, dimensionPixelOffset);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            if (this.hOH != null && this.hOH.getParent() != null) {
+                ((ViewGroup) this.hOH.getParent()).removeView(this.hOH);
+            }
+            addView(this.hOH, layoutParams);
+        }
     }
 
-    @Override // android.widget.TextView, android.view.View
+    public void cnw() {
+        if (getContext() != null) {
+            int dimensionPixelOffset = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds20);
+            int dimensionPixelOffset2 = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds30);
+            if (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getContext()) == 1) {
+                dimensionPixelOffset2 += UtilHelper.getStatusBarHeight() - dimensionPixelOffset;
+            }
+            int dimensionPixelOffset3 = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds35) + (dimensionPixelOffset * 2);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelOffset3, dimensionPixelOffset3);
+            layoutParams.gravity = 5;
+            ImageView imageView = new ImageView(getContext());
+            layoutParams.setMargins(0, dimensionPixelOffset2, getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds34) - dimensionPixelOffset, 0);
+            imageView.setImageResource(a.e.ala_live_icon_audio_switch_close);
+            imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.6
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    AlaTopTipView.this.hideTip();
+                }
+            });
+            imageView.setPadding(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset);
+            addView(imageView, layoutParams);
+        }
+    }
+
+    @Override // android.view.View
     protected void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        setupPaddings();
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = getRealWidth();
         setLayoutParams(layoutParams);
@@ -210,11 +251,11 @@ public class AlaTopTipView extends TextView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideTip() {
-        this.mIsShowing = false;
-        removeCallbacks(this.bQm);
+        this.epJ = false;
+        removeCallbacks(this.bVq);
         if (this != null && getParent() != null) {
             clearAnimation();
-            startAnimation(this.bQk);
+            startAnimation(this.bVo);
         }
     }
 
@@ -226,7 +267,7 @@ public class AlaTopTipView extends TextView {
         return screenDimensions[0];
     }
 
-    public void r(ViewGroup viewGroup, int i) {
+    public void v(ViewGroup viewGroup, int i) {
         if (viewGroup instanceof RelativeLayout) {
             a((RelativeLayout) viewGroup, i);
         } else if (viewGroup instanceof FrameLayout) {
@@ -246,8 +287,8 @@ public class AlaTopTipView extends TextView {
             layoutParams.gravity = 48;
             linearLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.hCI);
-            this.mIsShowing = true;
+            startAnimation(this.hOI);
+            this.epJ = true;
         }
     }
 
@@ -261,8 +302,8 @@ public class AlaTopTipView extends TextView {
             layoutParams.addRule(10);
             relativeLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.hCI);
-            this.mIsShowing = true;
+            startAnimation(this.hOI);
+            this.epJ = true;
         }
     }
 
@@ -276,20 +317,20 @@ public class AlaTopTipView extends TextView {
             layoutParams.setMargins(0, 0, 0, 0);
             frameLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.hCI);
-            this.mIsShowing = true;
+            startAnimation(this.hOI);
+            this.epJ = true;
         }
     }
 
-    public void gz(boolean z) {
-        this.mIsShowing = false;
+    public void gI(boolean z) {
+        this.epJ = false;
         onDestroy();
         ViewGroup viewGroup = (ViewGroup) getParent();
         if (viewGroup != null) {
             viewGroup.removeView(this);
         }
-        if (z && this.hCJ != null) {
-            this.hCJ.ct(this);
+        if (z && this.hOJ != null) {
+            this.hOJ.cC(this);
         }
     }
 
@@ -299,8 +340,7 @@ public class AlaTopTipView extends TextView {
         }
     }
 
-    public void ckG() {
-        setupPaddings();
+    public void cnx() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = getRealWidth();
         setLayoutParams(layoutParams);
@@ -308,16 +348,20 @@ public class AlaTopTipView extends TextView {
 
     public void onChangeSkinType(int i) {
         SkinManager.setBackgroundResource(this, a.c.sdk_white_alpha95, i);
-        SkinManager.setViewTextColor(this, a.c.sdk_cp_cont_f, 1, i);
+        if (this.hOH != null) {
+            SkinManager.setViewTextColor(this.hOH, a.c.sdk_cp_cont_f, 1, i);
+        } else {
+            SkinManager.setViewTextColor(this, a.c.sdk_cp_cont_f, 1, i);
+        }
     }
 
     public void onDestroy() {
-        removeCallbacks(this.bQm);
+        removeCallbacks(this.bVq);
         clearAnimation();
     }
 
     public void setOnTipCompletedCallback(a aVar) {
-        this.hCJ = aVar;
+        this.hOJ = aVar;
     }
 
     public int getType() {
@@ -326,5 +370,11 @@ public class AlaTopTipView extends TextView {
 
     public void setType(int i) {
         this.mType = i;
+    }
+
+    public void setText(String str) {
+        if (this.hOH != null) {
+            this.hOH.setText(str);
+        }
     }
 }

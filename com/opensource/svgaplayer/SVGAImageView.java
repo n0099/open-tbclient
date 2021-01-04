@@ -6,11 +6,11 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.opensource.svgaplayer.d;
@@ -20,17 +20,17 @@ import kotlin.TypeCastException;
 import kotlin.jvm.internal.p;
 import kotlin.text.l;
 @kotlin.e
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class SVGAImageView extends ImageView {
-    private ValueAnimator gKa;
+    private ValueAnimator animator;
     private boolean isAnimating;
-    private int pyE;
-    private boolean pyF;
-    private FillMode pyG;
-    private com.opensource.svgaplayer.a pyH;
+    private int pRj;
+    private boolean pRk;
+    private FillMode pRl;
+    private com.opensource.svgaplayer.a pRm;
 
     @kotlin.e
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public enum FillMode {
         Backward,
         Forward
@@ -41,50 +41,50 @@ public class SVGAImageView extends ImageView {
     }
 
     public final int getLoops() {
-        return this.pyE;
+        return this.pRj;
     }
 
     public final void setLoops(int i) {
-        this.pyE = i;
+        this.pRj = i;
     }
 
     public final boolean getClearsAfterStop() {
-        return this.pyF;
+        return this.pRk;
     }
 
     public final void setClearsAfterStop(boolean z) {
-        this.pyF = z;
+        this.pRk = z;
     }
 
     public final FillMode getFillMode() {
-        return this.pyG;
+        return this.pRl;
     }
 
     public final void setFillMode(FillMode fillMode) {
         p.o(fillMode, "<set-?>");
-        this.pyG = fillMode;
+        this.pRl = fillMode;
     }
 
     public final com.opensource.svgaplayer.a getCallback() {
-        return this.pyH;
+        return this.pRm;
     }
 
     public final void setCallback(com.opensource.svgaplayer.a aVar) {
-        this.pyH = aVar;
+        this.pRm = aVar;
     }
 
     public SVGAImageView(Context context) {
         super(context);
-        this.pyF = true;
-        this.pyG = FillMode.Forward;
-        ezK();
+        this.pRk = true;
+        this.pRl = FillMode.Forward;
+        eDC();
     }
 
     public SVGAImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.pyF = true;
-        this.pyG = FillMode.Forward;
-        ezK();
+        this.pRk = true;
+        this.pRl = FillMode.Forward;
+        eDC();
         if (attributeSet != null) {
             loadAttrs(attributeSet);
         }
@@ -92,15 +92,15 @@ public class SVGAImageView extends ImageView {
 
     public SVGAImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.pyF = true;
-        this.pyG = FillMode.Forward;
-        ezK();
+        this.pRk = true;
+        this.pRl = FillMode.Forward;
+        eDC();
         if (attributeSet != null) {
             loadAttrs(attributeSet);
         }
     }
 
-    private final void ezK() {
+    private final void eDC() {
         if (Build.VERSION.SDK_INT < 18) {
             setLayerType(1, null);
         }
@@ -109,15 +109,15 @@ public class SVGAImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        ValueAnimator valueAnimator = this.gKa;
+        ValueAnimator valueAnimator = this.animator;
         if (valueAnimator != null) {
             valueAnimator.cancel();
         }
-        ValueAnimator valueAnimator2 = this.gKa;
+        ValueAnimator valueAnimator2 = this.animator;
         if (valueAnimator2 != null) {
             valueAnimator2.removeAllListeners();
         }
-        ValueAnimator valueAnimator3 = this.gKa;
+        ValueAnimator valueAnimator3 = this.animator;
         if (valueAnimator3 != null) {
             valueAnimator3.removeAllUpdateListeners();
         }
@@ -127,16 +127,16 @@ public class SVGAImageView extends ImageView {
         Context context = getContext();
         p.n(context, "context");
         TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SVGAImageView, 0, 0);
-        this.pyE = obtainStyledAttributes.getInt(R.styleable.SVGAImageView_loopCount, 0);
-        this.pyF = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_clearsAfterStop, true);
+        this.pRj = obtainStyledAttributes.getInt(R.styleable.SVGAImageView_loopCount, 0);
+        this.pRk = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_clearsAfterStop, true);
         boolean z = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_antiAlias, true);
         boolean z2 = obtainStyledAttributes.getBoolean(R.styleable.SVGAImageView_autoPlay, true);
         String string = obtainStyledAttributes.getString(R.styleable.SVGAImageView_fillMode);
         if (string != null) {
             if (p.l(string, "0")) {
-                this.pyG = FillMode.Backward;
+                this.pRl = FillMode.Backward;
             } else if (p.l(string, "1")) {
-                this.pyG = FillMode.Forward;
+                this.pRl = FillMode.Forward;
             }
         }
         String string2 = obtainStyledAttributes.getString(R.styleable.SVGAImageView_source);
@@ -150,20 +150,20 @@ public class SVGAImageView extends ImageView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @kotlin.e
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements Runnable {
-        final /* synthetic */ String pyI;
-        final /* synthetic */ d pyJ;
-        final /* synthetic */ SVGAImageView pyK;
-        final /* synthetic */ boolean pyL;
-        final /* synthetic */ boolean pyM;
+        final /* synthetic */ String pRn;
+        final /* synthetic */ d pRo;
+        final /* synthetic */ SVGAImageView pRp;
+        final /* synthetic */ boolean pRq;
+        final /* synthetic */ boolean pRr;
 
         a(String str, d dVar, SVGAImageView sVGAImageView, boolean z, boolean z2) {
-            this.pyI = str;
-            this.pyJ = dVar;
-            this.pyK = sVGAImageView;
-            this.pyL = z;
-            this.pyM = z2;
+            this.pRn = str;
+            this.pRo = dVar;
+            this.pRp = sVGAImageView;
+            this.pRq = z;
+            this.pRr = z2;
         }
 
         @Override // java.lang.Runnable
@@ -172,23 +172,23 @@ public class SVGAImageView extends ImageView {
                 @Override // com.opensource.svgaplayer.d.c
                 public void a(final f fVar) {
                     p.o(fVar, "videoItem");
-                    a.this.pyK.post(new Runnable() { // from class: com.opensource.svgaplayer.SVGAImageView.a.1.1
+                    a.this.pRp.post(new Runnable() { // from class: com.opensource.svgaplayer.SVGAImageView.a.1.1
                         @Override // java.lang.Runnable
                         public final void run() {
-                            fVar.setAntiAlias(a.this.pyL);
-                            a.this.pyK.setVideoItem(fVar);
-                            Drawable drawable = a.this.pyK.getDrawable();
+                            fVar.setAntiAlias(a.this.pRq);
+                            a.this.pRp.setVideoItem(fVar);
+                            Drawable drawable = a.this.pRp.getDrawable();
                             if (!(drawable instanceof com.opensource.svgaplayer.b)) {
                                 drawable = null;
                             }
                             com.opensource.svgaplayer.b bVar = (com.opensource.svgaplayer.b) drawable;
                             if (bVar != null) {
-                                ImageView.ScaleType scaleType = a.this.pyK.getScaleType();
+                                ImageView.ScaleType scaleType = a.this.pRp.getScaleType();
                                 p.n(scaleType, "scaleType");
                                 bVar.setScaleType(scaleType);
                             }
-                            if (a.this.pyM) {
-                                a.this.pyK.startAnimation();
+                            if (a.this.pRr) {
+                                a.this.pRp.startAnimation();
                             }
                         }
                     });
@@ -198,10 +198,10 @@ public class SVGAImageView extends ImageView {
                 public void onError() {
                 }
             };
-            if (l.a(this.pyI, "http://", false, 2, (Object) null) || l.a(this.pyI, SapiUtils.COOKIE_HTTPS_URL_PREFIX, false, 2, (Object) null)) {
-                this.pyJ.b(new URL(this.pyI), cVar);
+            if (l.a(this.pRn, "http://", false, 2, (Object) null) || l.a(this.pRn, SapiUtils.COOKIE_HTTPS_URL_PREFIX, false, 2, (Object) null)) {
+                this.pRo.b(new URL(this.pRn), cVar);
             } else {
-                this.pyJ.b(this.pyI, cVar);
+                this.pRo.b(this.pRn, cVar);
             }
         }
     }
@@ -219,14 +219,14 @@ public class SVGAImageView extends ImageView {
         }
         com.opensource.svgaplayer.b bVar2 = (com.opensource.svgaplayer.b) drawable;
         if (bVar2 != null) {
-            bVar2.Bh(false);
+            bVar2.Br(false);
             ImageView.ScaleType scaleType = getScaleType();
             p.n(scaleType, "scaleType");
             bVar2.setScaleType(scaleType);
-            f ezB = bVar2.ezB();
+            f eDt = bVar2.eDt();
             double d = 1.0d;
             int max = Math.max(0, bVar != null ? bVar.getLocation() : 0);
-            int min = Math.min(ezB.ezR() - 1, ((bVar != null ? bVar.wg() : ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) + (bVar != null ? bVar.getLocation() : 0)) - 1);
+            int min = Math.min(eDt.eDJ() - 1, ((bVar != null ? bVar.vx() : ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) + (bVar != null ? bVar.getLocation() : 0)) - 1);
             ValueAnimator ofInt = ValueAnimator.ofInt(max, min);
             try {
                 Class<?> cls = Class.forName("android.animation.ValueAnimator");
@@ -243,8 +243,8 @@ public class SVGAImageView extends ImageView {
             }
             p.n(ofInt, "animator");
             ofInt.setInterpolator(new LinearInterpolator());
-            ofInt.setDuration((long) ((((min - max) + 1) * (1000 / ezB.getFPS())) / d));
-            ofInt.setRepeatCount(this.pyE <= 0 ? BdStatsConstant.ErrorCode.ERR_LOG_FAST : this.pyE - 1);
+            ofInt.setDuration((long) ((((min - max) + 1) * (1000 / eDt.getFPS())) / d));
+            ofInt.setRepeatCount(this.pRj <= 0 ? BdStatsConstant.ErrorCode.ERR_LOG_FAST : this.pRj - 1);
             ofInt.addUpdateListener(new b(ofInt, this, bVar, bVar2, z));
             ofInt.addListener(new c(max, min, this, bVar, bVar2, z));
             if (z) {
@@ -252,122 +252,114 @@ public class SVGAImageView extends ImageView {
             } else {
                 ofInt.start();
             }
-            this.gKa = ofInt;
+            this.animator = ofInt;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @kotlin.e
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static final class b implements ValueAnimator.AnimatorUpdateListener {
-        final /* synthetic */ SVGAImageView pyK;
-        final /* synthetic */ ValueAnimator pyP;
-        final /* synthetic */ com.opensource.svgaplayer.b.b pyQ;
-        final /* synthetic */ com.opensource.svgaplayer.b pyR;
-        final /* synthetic */ boolean pyS;
+        final /* synthetic */ SVGAImageView pRp;
+        final /* synthetic */ ValueAnimator pRu;
+        final /* synthetic */ com.opensource.svgaplayer.b.b pRv;
+        final /* synthetic */ com.opensource.svgaplayer.b pRw;
+        final /* synthetic */ boolean pRx;
 
         b(ValueAnimator valueAnimator, SVGAImageView sVGAImageView, com.opensource.svgaplayer.b.b bVar, com.opensource.svgaplayer.b bVar2, boolean z) {
-            this.pyP = valueAnimator;
-            this.pyK = sVGAImageView;
-            this.pyQ = bVar;
-            this.pyR = bVar2;
-            this.pyS = z;
+            this.pRu = valueAnimator;
+            this.pRp = sVGAImageView;
+            this.pRv = bVar;
+            this.pRw = bVar2;
+            this.pRx = z;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-            com.opensource.svgaplayer.b bVar = this.pyR;
-            ValueAnimator valueAnimator2 = this.pyP;
+            com.opensource.svgaplayer.b bVar = this.pRw;
+            ValueAnimator valueAnimator2 = this.pRu;
             p.n(valueAnimator2, "animator");
             Object animatedValue = valueAnimator2.getAnimatedValue();
             if (animatedValue == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.Int");
             }
-            bVar.RB(((Integer) animatedValue).intValue());
-            com.opensource.svgaplayer.a callback = this.pyK.getCallback();
+            bVar.Ry(((Integer) animatedValue).intValue());
+            com.opensource.svgaplayer.a callback = this.pRp.getCallback();
             if (callback != null) {
-                callback.b(this.pyR.ezA(), (this.pyR.ezA() + 1) / this.pyR.ezB().ezR());
+                callback.d(this.pRw.eDs(), (this.pRw.eDs() + 1) / this.pRw.eDt().eDJ());
             }
         }
     }
 
     @kotlin.e
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static final class c implements Animator.AnimatorListener {
-        final /* synthetic */ SVGAImageView pyK;
-        final /* synthetic */ com.opensource.svgaplayer.b.b pyQ;
-        final /* synthetic */ com.opensource.svgaplayer.b pyR;
-        final /* synthetic */ boolean pyS;
-        final /* synthetic */ int pyT;
-        final /* synthetic */ int pyU;
+        final /* synthetic */ SVGAImageView pRp;
+        final /* synthetic */ com.opensource.svgaplayer.b.b pRv;
+        final /* synthetic */ com.opensource.svgaplayer.b pRw;
+        final /* synthetic */ boolean pRx;
+        final /* synthetic */ int pRy;
+        final /* synthetic */ int pRz;
 
         c(int i, int i2, SVGAImageView sVGAImageView, com.opensource.svgaplayer.b.b bVar, com.opensource.svgaplayer.b bVar2, boolean z) {
-            this.pyT = i;
-            this.pyU = i2;
-            this.pyK = sVGAImageView;
-            this.pyQ = bVar;
-            this.pyR = bVar2;
-            this.pyS = z;
+            this.pRy = i;
+            this.pRz = i2;
+            this.pRp = sVGAImageView;
+            this.pRv = bVar;
+            this.pRw = bVar2;
+            this.pRx = z;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            com.opensource.svgaplayer.a callback = this.pyK.getCallback();
+            com.opensource.svgaplayer.a callback = this.pRp.getCallback();
             if (callback != null) {
-                callback.aib();
+                callback.eDr();
             }
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            this.pyK.isAnimating = false;
-            this.pyK.stopAnimation();
-            if (!this.pyK.getClearsAfterStop()) {
-                if (this.pyK.getFillMode() == FillMode.Backward) {
-                    this.pyR.RB(this.pyT);
-                } else if (this.pyK.getFillMode() == FillMode.Forward) {
-                    this.pyR.RB(this.pyU);
+            this.pRp.isAnimating = false;
+            this.pRp.stopAnimation();
+            if (!this.pRp.getClearsAfterStop()) {
+                if (this.pRp.getFillMode() == FillMode.Backward) {
+                    this.pRw.Ry(this.pRy);
+                } else if (this.pRp.getFillMode() == FillMode.Forward) {
+                    this.pRw.Ry(this.pRz);
                 }
             }
-            com.opensource.svgaplayer.a callback = this.pyK.getCallback();
+            com.opensource.svgaplayer.a callback = this.pRp.getCallback();
             if (callback != null) {
-                callback.aia();
+                callback.clr();
             }
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-            this.pyK.isAnimating = false;
+            this.pRp.isAnimating = false;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            this.pyK.isAnimating = true;
-        }
-    }
-
-    public final void pauseAnimation() {
-        stopAnimation(false);
-        com.opensource.svgaplayer.a aVar = this.pyH;
-        if (aVar != null) {
-            aVar.onPause();
+            this.pRp.isAnimating = true;
         }
     }
 
     public final void stopAnimation() {
-        stopAnimation(this.pyF);
+        stopAnimation(this.pRk);
     }
 
     public final void stopAnimation(boolean z) {
-        ValueAnimator valueAnimator = this.gKa;
+        ValueAnimator valueAnimator = this.animator;
         if (valueAnimator != null) {
             valueAnimator.cancel();
         }
-        ValueAnimator valueAnimator2 = this.gKa;
+        ValueAnimator valueAnimator2 = this.animator;
         if (valueAnimator2 != null) {
             valueAnimator2.removeAllListeners();
         }
-        ValueAnimator valueAnimator3 = this.gKa;
+        ValueAnimator valueAnimator3 = this.animator;
         if (valueAnimator3 != null) {
             valueAnimator3.removeAllUpdateListeners();
         }
@@ -377,7 +369,7 @@ public class SVGAImageView extends ImageView {
         }
         com.opensource.svgaplayer.b bVar = (com.opensource.svgaplayer.b) drawable;
         if (bVar != null) {
-            bVar.Bh(z);
+            bVar.Br(z);
         }
     }
 
@@ -394,7 +386,7 @@ public class SVGAImageView extends ImageView {
             cVar = new com.opensource.svgaplayer.c();
         }
         com.opensource.svgaplayer.b bVar = new com.opensource.svgaplayer.b(fVar, cVar);
-        bVar.Bh(this.pyF);
+        bVar.Br(this.pRk);
         setImageDrawable(bVar);
     }
 }

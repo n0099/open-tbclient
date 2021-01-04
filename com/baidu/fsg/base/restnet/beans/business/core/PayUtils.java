@@ -4,13 +4,14 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.support.v4.view.InputDeviceCompat;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.utils.ChannelUtils;
 import com.baidu.fsg.base.utils.Crypto;
 import com.baidu.fsg.base.utils.Md5Utils;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.webkit.internal.ETAG;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
@@ -22,7 +23,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class PayUtils {
     private static final String API_SECRET = "";
     public static final String KEY_CARD_NO = "card_no";
@@ -125,7 +126,7 @@ public final class PayUtils {
         restNameValuePair.setValue(str);
         arrayList.add(restNameValuePair);
         try {
-            messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         } catch (NoSuchAlgorithmException e2) {
             e2.printStackTrace();
             messageDigest = null;
@@ -153,8 +154,8 @@ public final class PayUtils {
         }
         byte[] digest = messageDigest.digest();
         StringBuilder sb2 = new StringBuilder();
-        for (byte b : digest) {
-            sb2.append(Integer.toHexString((b & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
+        for (byte b2 : digest) {
+            sb2.append(Integer.toHexString((b2 & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
         }
         return RimArmor.getInstance().encrypt(sb2.toString());
     }
@@ -204,7 +205,7 @@ public final class PayUtils {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static class ParamComparator implements Comparator<String> {
         private ParamComparator() {
         }

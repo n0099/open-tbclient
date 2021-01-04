@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.alaar.sticker.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static void d(String str, String str2) {
     }

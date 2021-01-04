@@ -2,9 +2,9 @@ package com.baidu.megapp.ma;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-/* loaded from: classes10.dex */
+import androidx.fragment.app.FragmentActivity;
+/* loaded from: classes15.dex */
 public abstract class MAFragmentActivity extends FragmentActivity {
     public static final String TAG = "MAFragmentActivity";
 

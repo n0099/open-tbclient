@@ -1,10 +1,11 @@
 package com.facebook.imagepipeline.nativecode;
 
 import android.graphics.Bitmap;
-@com.facebook.common.internal.d
-/* loaded from: classes15.dex */
+import com.facebook.common.internal.d;
+@d
+/* loaded from: classes5.dex */
 public class NativeRoundingFilter {
-    @com.facebook.common.internal.d
+    @d
     private static native void nativeToCircleFilter(Bitmap bitmap);
 
     static {

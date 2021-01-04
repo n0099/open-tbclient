@@ -396,7 +396,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes.dex */
     class b extends DataSetObserver {
-        private Parcelable mInstanceState = null;
+        private Parcelable bJe = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -407,9 +407,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             AdapterView.this.mDataChanged = true;
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = AdapterView.this.getAdapter().getCount();
-            if (AdapterView.this.getAdapter().hasStableIds() && this.mInstanceState != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
-                AdapterView.this.onRestoreInstanceState(this.mInstanceState);
-                this.mInstanceState = null;
+            if (AdapterView.this.getAdapter().hasStableIds() && this.bJe != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
+                AdapterView.this.onRestoreInstanceState(this.bJe);
+                this.bJe = null;
             } else {
                 AdapterView.this.rememberSyncState();
             }
@@ -421,7 +421,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             AdapterView.this.mDataChanged = true;
             if (AdapterView.this.getAdapter().hasStableIds()) {
-                this.mInstanceState = AdapterView.this.onSaveInstanceState();
+                this.bJe = AdapterView.this.onSaveInstanceState();
             }
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = 0;
@@ -634,23 +634,26 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         }
         int i3 = min;
         int i4 = min;
+        int i5 = min;
         while (SystemClock.uptimeMillis() <= uptimeMillis) {
-            if (adapter.getItemId(i4) != j) {
-                boolean z2 = min == i + (-1);
-                boolean z3 = i3 == 0;
+            if (adapter.getItemId(i5) != j) {
+                boolean z2 = i3 == i + (-1);
+                boolean z3 = i4 == 0;
                 if (z2 && z3) {
                     break;
                 } else if (z3 || (z && !z2)) {
-                    min++;
+                    int i6 = i3 + 1;
                     z = false;
-                    i4 = min;
+                    i3 = i6;
+                    i5 = i6;
                 } else if (z2 || (!z && !z3)) {
-                    i3--;
+                    int i7 = i4 - 1;
                     z = true;
-                    i4 = i3;
+                    i4 = i7;
+                    i5 = i7;
                 }
             } else {
-                return i4;
+                return i5;
             }
         }
         return -1;

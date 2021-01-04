@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.component.components.b;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.TextView;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+/* loaded from: classes9.dex */
 public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, c> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@Nullable Context context, @NonNull c cVar) {
@@ -16,8 +16,8 @@ public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: cs */
-    public TextView bQ(@NonNull Context context) {
+    /* renamed from: cA */
+    public TextView cx(@NonNull Context context) {
         return new TextView(context);
     }
 
@@ -29,7 +29,7 @@ public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, c> {
         if (DEBUG) {
             Log.d("Component-Button", "renderTextStyleLineSpace");
         }
-        int i = cVar.lineSpace;
+        int i = cVar.cNs;
         if (i > 0) {
             textView.setLineSpacing((i - textView.getLineHeight()) + textView.getLineSpacingExtra(), 1.0f);
         }

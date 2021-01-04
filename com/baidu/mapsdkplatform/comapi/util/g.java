@@ -6,12 +6,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile g f2254a = null;
-    private boolean b = false;
+    private static volatile g f3221a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private boolean f3222b = false;
     private boolean c = true;
     private final List<f> d = new ArrayList();
     private f e = null;
@@ -20,49 +22,39 @@ public final class g {
     }
 
     public static g a() {
-        if (f2254a == null) {
+        if (f3221a == null) {
             synchronized (g.class) {
-                if (f2254a == null) {
-                    f2254a = new g();
+                if (f3221a == null) {
+                    f3221a = new g();
                 }
             }
         }
-        return f2254a;
+        return f3221a;
     }
 
     private boolean a(String str) {
-        boolean z;
-        Exception e;
+        boolean z = false;
         try {
             File file = new File(str + "/test.0");
             if (file.exists()) {
                 file.delete();
             }
             z = file.createNewFile();
-            try {
-                if (file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                return z;
+            if (file.exists()) {
+                file.delete();
             }
-        } catch (Exception e3) {
-            z = false;
-            e = e3;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return z;
     }
 
     public void a(Context context) {
-        int i;
-        f fVar;
-        int i2 = 0;
-        if (this.b) {
+        int i = 0;
+        if (this.f3222b) {
             return;
         }
-        this.b = true;
+        this.f3222b = true;
         try {
             this.c = false;
             this.e = new f(context);
@@ -73,20 +65,16 @@ public final class g {
         }
         try {
             if (this.d.size() > 0) {
-                f fVar2 = null;
-                for (f fVar3 : this.d) {
-                    if (new File(fVar3.b()).exists()) {
-                        int i3 = i2 + 1;
-                        fVar = fVar3;
-                        i = i3;
+                f fVar = null;
+                for (f fVar2 : this.d) {
+                    if (new File(fVar2.b()).exists()) {
+                        i++;
                     } else {
-                        i = i2;
-                        fVar = fVar2;
+                        fVar2 = fVar;
                     }
-                    fVar2 = fVar;
-                    i2 = i;
+                    fVar = fVar2;
                 }
-                if (i2 == 0) {
+                if (i == 0) {
                     this.e = b(context);
                     if (this.e == null) {
                         Iterator<f> it = this.d.iterator();
@@ -101,10 +89,10 @@ public final class g {
                             }
                         }
                     }
-                } else if (i2 != 1) {
+                } else if (i != 1) {
                     this.e = b(context);
-                } else if (a(context, fVar2)) {
-                    this.e = fVar2;
+                } else if (a(context, fVar)) {
+                    this.e = fVar;
                 }
                 if (this.e == null) {
                     this.e = this.d.get(0);

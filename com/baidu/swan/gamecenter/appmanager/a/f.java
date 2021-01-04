@@ -3,10 +3,10 @@ package com.baidu.swan.gamecenter.appmanager.a;
 import android.content.IntentFilter;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public class f extends com.baidu.swan.gamecenter.c.a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private AppDownloadNetworkStateReceiver dUZ;
+    private AppDownloadNetworkStateReceiver edW;
 
     public f() {
         super("resumeAllDownloadWhileWifi");
@@ -17,13 +17,13 @@ public class f extends com.baidu.swan.gamecenter.c.a {
         if (jSONObject == null) {
             bVar.onFail(202, "params may be error");
         } else {
-            if (this.dUZ == null) {
-                this.dUZ = new AppDownloadNetworkStateReceiver();
+            if (this.edW == null) {
+                this.edW = new AppDownloadNetworkStateReceiver();
             }
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            com.baidu.swan.apps.t.a.aza().registerReceiver(this.dUZ, intentFilter);
-            bVar.aA(null);
+            com.baidu.swan.apps.t.a.aAr().registerReceiver(this.edW, intentFilter);
+            bVar.aI(null);
         }
         return null;
     }

@@ -7,12 +7,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ad;
 /* loaded from: classes.dex */
 public class j implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
-        if (!ae.btD() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity")) {
+        if (!ad.bvY() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba")) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig(activity, activity.getIntent())));
             activity.finish();
         }
@@ -25,7 +25,7 @@ public class j implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
         if (activity != null && !activity.getClass().getSimpleName().equals("LogoActivity")) {
-            com.baidu.tbadk.BdToken.d.biT().q(activity);
+            com.baidu.tbadk.BdToken.d.blj().p(activity);
         }
     }
 
@@ -35,6 +35,7 @@ public class j implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
+        TbadkCoreApplication.getInst().setStartType(1);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

@@ -3,53 +3,53 @@ package com.baidu.tieba.video.editvideo.view;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.editvideo.b.b;
 import com.baidu.tieba.video.editvideo.data.MusicData;
 import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import java.util.List;
-/* loaded from: classes23.dex */
-public class b implements com.baidu.tieba.d.b, com.baidu.tieba.video.editvideo.b, b.a {
-    private SelectMusicModel nCF;
-    private com.baidu.tieba.video.editvideo.b.a nCH;
-    private BaseActivity nFh;
-    private com.baidu.tieba.video.b nFi;
-    private String nFj;
+/* loaded from: classes8.dex */
+public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b, b.a {
+    private SelectMusicModel nGM;
+    private com.baidu.tieba.video.editvideo.b.a nGO;
+    private BaseActivity nJm;
+    private com.baidu.tieba.video.b nJn;
+    private String nJo;
 
     public b(com.baidu.tieba.video.b bVar) {
-        this.nFi = bVar;
-        this.nFh = this.nFi.activity;
+        this.nJn = bVar;
+        this.nJm = this.nJn.activity;
     }
 
-    @Override // com.baidu.tieba.d.b
+    @Override // com.baidu.tieba.c.b
     public void start() {
-        dVd();
+        dUT();
     }
 
-    @Override // com.baidu.tieba.d.b
+    @Override // com.baidu.tieba.c.b
     public void cancel() {
-        if (this.nFi != null) {
-            this.nFi.yC(true);
+        if (this.nJn != null) {
+            this.nJn.yF(true);
         }
-        if (this.nCH != null && this.nCH.dUo()) {
-            this.nCH.dUp();
+        if (this.nGO != null && this.nGO.dUf()) {
+            this.nGO.dUg();
         }
     }
 
-    public void dVd() {
-        if (this.nFi != null) {
-            if (this.nFi.isCancel()) {
-                this.nFi.onCancel();
-                this.nFi = null;
-            } else if (!StringUtils.isNull(this.nFi.musicPath) || this.nFi.isMute) {
-                if (this.nCF == null) {
-                    this.nCF = new SelectMusicModel(this.nFh.getPageContext(), this);
+    public void dUT() {
+        if (this.nJn != null) {
+            if (this.nJn.isCancel()) {
+                this.nJn.onCancel();
+                this.nJn = null;
+            } else if (!StringUtils.isNull(this.nJn.musicPath) || this.nJn.isMute) {
+                if (this.nGM == null) {
+                    this.nGM = new SelectMusicModel(this.nJm.getPageContext(), this);
                 }
-                this.nCF.i(this.nFi.originPath, this.nFi.musicPath, com.baidu.tieba.video.c.nAZ + "video_" + System.currentTimeMillis() + ".mp4", !this.nFi.isMute);
+                this.nGM.k(this.nJn.originPath, this.nJn.musicPath, com.baidu.tieba.video.c.nFh + "video_" + System.currentTimeMillis() + ".mp4", !this.nJn.isMute);
             } else {
-                v(this.nFi.originPath, -4399, "");
+                u(this.nJn.originPath, -4399, "");
             }
         }
     }
@@ -59,73 +59,73 @@ public class b implements com.baidu.tieba.d.b, com.baidu.tieba.video.editvideo.b
     }
 
     @Override // com.baidu.tieba.video.editvideo.b
-    public void v(String str, int i, String str2) {
-        if (this.nFi != null && this.nFi.isCancel()) {
-            this.nFi.onCancel();
-            this.nFi = null;
+    public void u(String str, int i, String str2) {
+        if (this.nJn != null && this.nJn.isCancel()) {
+            this.nJn.onCancel();
+            this.nJn = null;
         } else if (TextUtils.isEmpty(str)) {
-            this.nFh.showToast(R.string.mixing_fail);
-            if (this.nFi != null) {
-                this.nFi.bT(i, str2);
+            this.nJm.showToast(R.string.mixing_fail);
+            if (this.nJn != null) {
+                this.nJn.bT(i, str2);
             }
         } else {
-            if (this.nFi != null) {
-                this.nFi.dTE();
+            if (this.nJn != null) {
+                this.nJn.dTv();
             }
-            if (!StringUtils.isNull(this.nFi.filterName)) {
-                if (!au.equals(str, this.nFi.originPath)) {
-                    this.nFi.nAW = str;
+            if (!StringUtils.isNull(this.nJn.filterName)) {
+                if (!at.equals(str, this.nJn.originPath)) {
+                    this.nJn.nFe = str;
                 }
-                if (this.nCH == null) {
-                    this.nCH = new com.baidu.tieba.video.editvideo.b.a(this.nFh.getActivity());
-                    this.nCH.a(this);
+                if (this.nGO == null) {
+                    this.nGO = new com.baidu.tieba.video.editvideo.b.a(this.nJm.getActivity());
+                    this.nGO.a(this);
                 }
-                this.nCH.gC(str, this.nFi.filterName);
+                this.nGO.gz(str, this.nJn.filterName);
                 return;
             }
-            if (this.nFi != null) {
-                this.nFi.dTF();
+            if (this.nJn != null) {
+                this.nJn.dTw();
             }
-            UT(str);
+            UA(str);
         }
     }
 
-    private void UT(String str) {
-        if (this.nFi != null) {
-            if (this.nFi.isCancel()) {
-                this.nFi.onCancel();
-                this.nFi = null;
+    private void UA(String str) {
+        if (this.nJn != null) {
+            if (this.nJn.isCancel()) {
+                this.nJn.onCancel();
+                this.nJn = null;
                 return;
             }
-            this.nFj = str;
+            this.nJo = str;
             VideoInfo videoInfo = new VideoInfo();
-            videoInfo.setVideoPath(this.nFj);
-            videoInfo.setThumbPath(this.nFi.coverPath);
-            if (this.nFi != null) {
-                this.nFi.a(videoInfo);
+            videoInfo.setVideoPath(this.nJo);
+            videoInfo.setThumbPath(this.nJn.coverPath);
+            if (this.nJn != null) {
+                this.nJn.a(videoInfo);
             }
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void UL(String str) {
-        if (this.nFi != null) {
-            this.nFi.dTF();
+    public void Us(String str) {
+        if (this.nJn != null) {
+            this.nJn.dTw();
         }
-        UT(str);
+        UA(str);
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
     public void bV(int i, String str) {
-        if (this.nFi != null) {
-            this.nFi.bU(i, str);
+        if (this.nJn != null) {
+            this.nJn.bU(i, str);
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
     public void bW(int i, String str) {
-        if (this.nFi != null) {
-            this.nFi.bU(i, str);
+        if (this.nJn != null) {
+            this.nJn.bU(i, str);
         }
     }
 }

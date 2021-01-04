@@ -1,5 +1,5 @@
 package com.baidu.tieba.setting.more;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public interface d {
-    void JY(int i);
+    void JS(int i);
 }

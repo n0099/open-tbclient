@@ -2,12 +2,14 @@ package tv.danmaku.ijk.media.player;
 
 import tv.danmaku.ijk.media.player.b;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private b.f f5166a;
-    private b.InterfaceC1075b b;
+    private b.f f14960a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private b.InterfaceC1293b f14961b;
     private b.a c;
     private b.g d;
     private b.i e;
@@ -17,9 +19,9 @@ public abstract class a implements b {
     private b.e i;
 
     public void a() {
-        this.f5166a = null;
+        this.f14960a = null;
         this.c = null;
-        this.b = null;
+        this.f14961b = null;
         this.d = null;
         this.e = null;
         this.f = null;
@@ -49,8 +51,8 @@ public abstract class a implements b {
         this.c = aVar;
     }
 
-    public final void a(b.InterfaceC1075b interfaceC1075b) {
-        this.b = interfaceC1075b;
+    public final void a(b.InterfaceC1293b interfaceC1293b) {
+        this.f14961b = interfaceC1293b;
     }
 
     public final void a(b.c cVar) {
@@ -66,7 +68,7 @@ public abstract class a implements b {
     }
 
     public final void a(b.f fVar) {
-        this.f5166a = fVar;
+        this.f14960a = fVar;
     }
 
     public final void a(b.g gVar) {
@@ -91,8 +93,8 @@ public abstract class a implements b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
-        if (this.f5166a != null) {
-            this.f5166a.a(this);
+        if (this.f14960a != null) {
+            this.f14960a.a(this);
         }
     }
 
@@ -103,8 +105,8 @@ public abstract class a implements b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void c() {
-        if (this.b != null) {
-            this.b.b(this);
+        if (this.f14961b != null) {
+            this.f14961b.b(this);
         }
     }
 

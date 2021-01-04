@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.poly.a;
 import com.baidu.poly.a.h.d;
@@ -14,23 +15,23 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import com.heytap.mcssdk.mode.CommandMessage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class PolyActivity extends Activity implements m.l {
-    private static com.baidu.poly.d.a.c ciB;
-    private static a.b ciC;
-    private static PolyActivity ciD;
+    private static com.baidu.poly.d.a.c cpE;
+    private static a.b cpF;
+    private static PolyActivity cpG;
     private static boolean o;
-    private m ciE;
-    private Bundle ciF;
+    private m cpH;
+    private Bundle cpI;
 
     private static void Y() {
-        if (ciD != null) {
-            if (ciC != null) {
+        if (cpG != null) {
+            if (cpF != null) {
                 String a2 = com.baidu.poly.util.b.a(2, null, "repeat_pay_cancel");
-                ciC.onResult(2, a2);
+                cpF.onResult(2, a2);
                 d.b(2, a2);
             }
-            ciD.finish();
+            cpG.finish();
         }
     }
 
@@ -38,8 +39,8 @@ public class PolyActivity extends Activity implements m.l {
         if (o) {
             Y();
         }
-        ciB = cVar;
-        ciC = bVar;
+        cpE = cVar;
+        cpF = bVar;
         Intent intent = new Intent(context, PolyActivity.class);
         intent.putExtra("pay_arguements", bundle);
         if (!(context instanceof Activity)) {
@@ -49,11 +50,11 @@ public class PolyActivity extends Activity implements m.l {
         context.startActivity(intent);
     }
 
-    private void adR() {
-        this.ciF = getIntent().getBundleExtra("pay_arguements");
+    private void afM() {
+        this.cpI = getIntent().getBundleExtra("pay_arguements");
     }
 
-    private String adS() {
+    private String afN() {
         try {
             return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
@@ -66,9 +67,9 @@ public class PolyActivity extends Activity implements m.l {
         if (bundle == null) {
             return new Bundle();
         }
-        d.chB = bundle.getString("bduss");
-        d.chC = bundle.getString("tpOrderId");
-        d.chE = bundle.getString("nativeAppId");
+        d.coE = bundle.getString("bduss");
+        d.coF = bundle.getString("tpOrderId");
+        d.coH = bundle.getString("nativeAppId");
         bundle.putString(CashierData.DEVICE_TYPE, "ANDROID");
         bundle.putString("channel", "cashiersdk");
         bundle.putString(CommandMessage.SDK_VERSION, "2.7.5");
@@ -86,12 +87,12 @@ public class PolyActivity extends Activity implements m.l {
     }
 
     private void clear() {
-        this.ciE = null;
-        ciB = null;
-        this.ciF = null;
-        ciC = null;
+        this.cpH = null;
+        cpE = null;
+        this.cpI = null;
+        cpF = null;
         o = false;
-        ciD = null;
+        cpG = null;
     }
 
     @Override // android.app.Activity
@@ -107,10 +108,10 @@ public class PolyActivity extends Activity implements m.l {
         super.onActivityResult(i, i2, intent);
         if (i == 200) {
             if (i2 == -1) {
-                com.baidu.poly.a.j.a.adK().a((Context) this, intent.getExtras(), this.ciE, true);
+                com.baidu.poly.a.j.a.afF().a((Context) this, intent.getExtras(), this.cpH, true);
                 return;
             }
-            m mVar = this.ciE;
+            m mVar = this.cpH;
             if (mVar != null) {
                 mVar.a(3, "pay canceled , back from H5. ");
             }
@@ -119,7 +120,7 @@ public class PolyActivity extends Activity implements m.l {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        m mVar = this.ciE;
+        m mVar = this.cpH;
         if (mVar == null) {
             super.onBackPressed();
             return;
@@ -138,11 +139,11 @@ public class PolyActivity extends Activity implements m.l {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         o = true;
-        ciD = this;
+        cpG = this;
         d.H();
         super.onCreate(bundle);
         overridePendingTransition(0, 0);
-        adR();
+        afM();
         com.baidu.poly.util.d.info("PolyActivity onCreate");
     }
 
@@ -170,19 +171,19 @@ public class PolyActivity extends Activity implements m.l {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && this.ciE == null && !isFinishing() && this.ciF != null) {
-            this.ciE = new m(this);
-            setContentView(this.ciE);
-            this.ciE.setResultListener(ciC);
-            this.ciE.setCloseListener(this);
-            this.ciE.setWalletList(new com.baidu.poly.a.j.c(new com.baidu.poly.a.j.b(this, ciB)));
-            String string = this.ciF.getString("chosenChannel");
-            if (TextUtils.equals(this.ciF.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
-                this.ciE.c(c(this.ciF), string);
+        if (z && this.cpH == null && !isFinishing() && this.cpI != null) {
+            this.cpH = new m(this);
+            setContentView(this.cpH);
+            this.cpH.setResultListener(cpF);
+            this.cpH.setCloseListener(this);
+            this.cpH.setWalletList(new com.baidu.poly.a.j.c(new com.baidu.poly.a.j.b(this, cpE)));
+            String string = this.cpI.getString("chosenChannel");
+            if (TextUtils.equals(this.cpI.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
+                this.cpH.c(c(this.cpI), string);
                 return;
             }
-            this.ciE.a(c(this.ciF));
-            this.ciE.aec();
+            this.cpH.a(c(this.cpI));
+            this.cpH.afX();
         }
     }
 
@@ -196,8 +197,8 @@ public class PolyActivity extends Activity implements m.l {
                     jSONObject.put("c", bundle.getString("cuid"));
                     jSONObject.put(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, string);
                     jSONObject.put("mac", com.baidu.poly.util.a.getMacAddress());
-                    jSONObject.put("app", "android");
-                    jSONObject.put("ver", adS());
+                    jSONObject.put("app", HttpConstants.OS_TYPE_VALUE);
+                    jSONObject.put("ver", afN());
                     bundle.putString("deviceInfo", jSONObject.toString());
                 }
             } catch (Exception e) {

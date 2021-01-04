@@ -3,14 +3,14 @@ package com.baidu.tieba.hottopicselect;
 import GetSugTopic.TopicList;
 import GetSugTopic.TopicListModule;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class c {
     private String title;
     private int type = -1;
-    private List<d> jmi = new ArrayList();
+    private List<d> jyH = new ArrayList();
 
     public int getType() {
         return this.type;
@@ -20,7 +20,7 @@ public class c {
         this.type = i;
     }
 
-    public String cSJ() {
+    public String cVP() {
         return this.title;
     }
 
@@ -29,21 +29,21 @@ public class c {
     }
 
     public List<d> getList() {
-        return this.jmi;
+        return this.jyH;
     }
 
     public void a(TopicListModule topicListModule) {
         if (topicListModule != null) {
             this.title = topicListModule.module_title;
             if (topicListModule.topic_list != null) {
-                int count = y.getCount(topicListModule.topic_list);
+                int count = x.getCount(topicListModule.topic_list);
                 for (int i = 0; i < count; i++) {
                     d dVar = new d();
-                    TopicList topicList = (TopicList) y.getItem(topicListModule.topic_list, i);
+                    TopicList topicList = (TopicList) x.getItem(topicListModule.topic_list, i);
                     if (topicList != null) {
                         dVar.a(topicList);
                         if (!k.isEmptyStringAfterTrim(dVar.getTopicName())) {
-                            this.jmi.add(dVar);
+                            this.jyH.add(dVar);
                         }
                     }
                 }

@@ -1,5 +1,5 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class WinRound {
     public int left = 0;
     public int right = 0;

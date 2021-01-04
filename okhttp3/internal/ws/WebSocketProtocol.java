@@ -2,7 +2,7 @@ package okhttp3.internal.ws;
 
 import okio.Buffer;
 import okio.ByteString;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class WebSocketProtocol {
     static final String ACCEPT_MAGIC = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
     static final int B0_FLAG_FIN = 128;
@@ -33,10 +33,12 @@ public final class WebSocketProtocol {
         int length = bArr.length;
         do {
             byte[] bArr2 = unsafeCursor.data;
-            int i2 = unsafeCursor.end;
-            for (int i3 = unsafeCursor.start; i3 < i2; i3++) {
+            int i2 = unsafeCursor.start;
+            int i3 = unsafeCursor.end;
+            while (i2 < i3) {
                 int i4 = i % length;
-                bArr2[i3] = (byte) (bArr2[i3] ^ bArr[i4]);
+                bArr2[i2] = (byte) (bArr2[i2] ^ bArr[i4]);
+                i2++;
                 i = i4 + 1;
             }
         } while (unsafeCursor.next() != -1);

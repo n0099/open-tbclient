@@ -1,17 +1,14 @@
 package android.support.v4.media;
 
 import android.media.browse.MediaBrowser;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 @RequiresApi(21)
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 class ParceledListSliceAdapterApi21 {
     private static Constructor sConstructor;
-
-    ParceledListSliceAdapterApi21() {
-    }
 
     static {
         try {
@@ -28,5 +25,8 @@ class ParceledListSliceAdapterApi21 {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private ParceledListSliceAdapterApi21() {
     }
 }

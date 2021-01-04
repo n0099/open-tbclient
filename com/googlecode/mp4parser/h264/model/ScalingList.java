@@ -1,10 +1,10 @@
 package com.googlecode.mp4parser.h264.model;
 
-import android.support.v4.view.InputDeviceCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.googlecode.mp4parser.h264.read.CAVLCReader;
 import com.googlecode.mp4parser.h264.write.CAVLCWriter;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ScalingList {
     public int[] scalingList;
     public boolean useDefaultScalingMatrixFlag;
@@ -22,20 +22,20 @@ public class ScalingList {
     }
 
     public static ScalingList read(CAVLCReader cAVLCReader, int i) throws IOException {
-        int i2 = 8;
         ScalingList scalingList = new ScalingList();
         scalingList.scalingList = new int[i];
-        int i3 = 0;
+        int i2 = 0;
+        int i3 = 8;
         int i4 = 8;
-        while (i3 < i) {
-            if (i2 != 0) {
+        while (i2 < i) {
+            if (i3 != 0) {
                 int readSE = ((cAVLCReader.readSE("deltaScale") + i4) + 256) % 256;
-                scalingList.useDefaultScalingMatrixFlag = i3 == 0 && readSE == 0;
-                i2 = readSE;
+                scalingList.useDefaultScalingMatrixFlag = i2 == 0 && readSE == 0;
+                i3 = readSE;
             }
-            scalingList.scalingList[i3] = i2 == 0 ? i4 : i2;
-            i4 = scalingList.scalingList[i3];
-            i3++;
+            scalingList.scalingList[i2] = i3 == 0 ? i4 : i3;
+            i4 = scalingList.scalingList[i2];
+            i2++;
         }
         return scalingList;
     }

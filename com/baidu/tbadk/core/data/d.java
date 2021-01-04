@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class d {
     public int type = 0;
-    public int eEJ = 0;
-    public int eEK = 1;
-    public int eEL = 1;
-    public int eEM = 0;
-    public int eEN = 0;
-    public int eEO = 1;
-    public int eEP = 0;
-    public int eEQ = 0;
+    public int eOz = 0;
+    public int eOA = 1;
+    public int eOB = 1;
+    public int eOC = 0;
+    public int eOD = 0;
+    public int eOE = 1;
+    public int eOF = 0;
+    public int eOG = 0;
 }

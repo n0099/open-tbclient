@@ -1,7 +1,7 @@
 package com.baidu.ar.ihttp;
 
 import com.baidu.ar.h.n;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class HttpFactory {
     private static volatile b ry;
     private static volatile int rz = 0;

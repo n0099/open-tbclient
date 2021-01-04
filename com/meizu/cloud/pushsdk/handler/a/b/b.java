@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class b implements Parcelable {
     public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -24,36 +24,38 @@ public class b implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4184a;
-    private a b;
+    private String f11608a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private a f11609b;
     private f c;
 
     public b() {
     }
 
     protected b(Parcel parcel) {
-        this.f4184a = parcel.readString();
-        this.b = (a) parcel.readParcelable(a.class.getClassLoader());
+        this.f11608a = parcel.readString();
+        this.f11609b = (a) parcel.readParcelable(a.class.getClassLoader());
         this.c = (f) parcel.readParcelable(f.class.getClassLoader());
     }
 
     public b(String str, String str2, String str3) {
-        this.f4184a = str;
+        this.f11608a = str;
         if (TextUtils.isEmpty(str)) {
-            this.b = new a();
+            this.f11609b = new a();
             this.c = new f();
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
-                this.b = a.a(jSONObject.getJSONObject("ctl"));
+                this.f11609b = a.a(jSONObject.getJSONObject("ctl"));
                 this.c = f.a(jSONObject.getJSONObject("statics"));
                 this.c.c(str2);
                 this.c.d(str3);
             }
         } catch (JSONException e) {
-            this.b = new a();
+            this.f11609b = new a();
             this.c = new f();
             com.meizu.cloud.a.a.e("ControlMessage", "parse control message error " + e.getMessage());
         }
@@ -76,11 +78,11 @@ public class b implements Parcelable {
     }
 
     public a a() {
-        return this.b;
+        return this.f11609b;
     }
 
     public void a(a aVar) {
-        this.b = aVar;
+        this.f11609b = aVar;
     }
 
     public void a(f fVar) {
@@ -97,13 +99,13 @@ public class b implements Parcelable {
     }
 
     public String toString() {
-        return "ControlMessage{controlMessage='" + this.f4184a + "', control=" + this.b + ", statics=" + this.c + '}';
+        return "ControlMessage{controlMessage='" + this.f11608a + "', control=" + this.f11609b + ", statics=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f4184a);
-        parcel.writeParcelable(this.b, i);
+        parcel.writeString(this.f11608a);
+        parcel.writeParcelable(this.f11609b, i);
         parcel.writeParcelable(this.c, i);
     }
 }

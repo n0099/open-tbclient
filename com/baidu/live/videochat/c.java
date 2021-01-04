@@ -11,7 +11,7 @@ import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.alablmsdk.module.UserPermission;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -23,21 +23,20 @@ import com.baidu.live.videochat.c.a;
 import com.baidu.live.videochat.c.b;
 import com.baidu.live.videochat.d.h;
 import com.baidu.live.videochat.f.b;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class c implements com.baidu.live.am.a {
-    private w aFN;
-    private AlaLiveRecorder bAP;
-    private com.baidu.live.videochat.panel.c bKp;
-    private com.baidu.live.am.b bKs;
-    private com.baidu.live.videochat.d.a.a bKt;
-    private TelephonyManager bKu;
-    private FrameLayout bKv;
-    private View bKw;
+/* loaded from: classes11.dex */
+public class c implements com.baidu.live.an.a {
+    private x aGe;
+    private AlaLiveRecorder bFC;
+    private com.baidu.live.videochat.panel.c bPc;
+    private com.baidu.live.an.b bPf;
+    private com.baidu.live.videochat.d.a.a bPg;
+    private TelephonyManager bPh;
+    private FrameLayout bPi;
+    private View bPj;
     private TbPageContext mTbPageContext;
-    private PhoneStateListener byU = new PhoneStateListener() { // from class: com.baidu.live.videochat.c.1
+    private PhoneStateListener bDG = new PhoneStateListener() { // from class: com.baidu.live.videochat.c.1
         @Override // android.telephony.PhoneStateListener
         public void onCallStateChanged(int i, String str) {
             switch (i) {
@@ -46,8 +45,8 @@ public class c implements com.baidu.live.am.a {
                     break;
                 case 2:
                     BdLog.e("PhoneCallManager 电话接听 关闭连麦");
-                    if (c.this.bKq != null) {
-                        c.this.bKq.ds(false);
+                    if (c.this.bPd != null) {
+                        c.this.bPd.dv(false);
                         break;
                     }
                     break;
@@ -55,86 +54,101 @@ public class c implements com.baidu.live.am.a {
             super.onCallStateChanged(i, str);
         }
     };
-    private com.baidu.live.videochat.panel.a bKx = new com.baidu.live.videochat.panel.a() { // from class: com.baidu.live.videochat.c.3
+    private com.baidu.live.videochat.panel.a bPk = new com.baidu.live.videochat.panel.a() { // from class: com.baidu.live.videochat.c.3
         @Override // com.baidu.live.videochat.panel.a
         public void b(com.baidu.live.videochat.panel.a.a aVar) {
             if (aVar != null) {
                 com.baidu.live.alablmsdk.module.c a2 = c.this.a(aVar);
-                JSONObject a3 = com.baidu.live.videochat.d.d.a(c.this.aFN, aVar, com.baidu.live.videochat.d.d.bMa);
-                if (c.this.bKq != null && c.this.bKq.b(a2, a3)) {
-                    if (c.this.bKo != null) {
-                        c.this.bKo.a(c.this.aFN, new com.baidu.live.videochat.f.c(aVar.portrait, aVar.userName, true));
+                JSONObject a3 = com.baidu.live.videochat.d.d.a(c.this.aGe, aVar, com.baidu.live.videochat.d.d.bQN);
+                if (c.this.bPd != null && c.this.bPd.b(a2, a3)) {
+                    if (c.this.bPb != null) {
+                        c.this.bPb.a(c.this.aGe, new com.baidu.live.videochat.f.c(aVar.portrait, aVar.userName, aVar.userId, true));
                     }
-                    if (c.this.bKp != null) {
-                        c.this.bKp.hide();
+                    if (c.this.bPc != null) {
+                        c.this.bPc.hide();
+                    }
+                    if (c.this.bPf != null) {
+                        c.this.bPf.XO();
                     }
                 }
             }
         }
     };
-    private b.a bKy = new b.a() { // from class: com.baidu.live.videochat.c.4
+    private b.a bPl = new b.a() { // from class: com.baidu.live.videochat.c.4
         @Override // com.baidu.live.videochat.f.b.a
-        public void WT() {
-            if (c.this.bKr != null && c.this.bKq != null) {
-                c.this.bKr.c(c.this.mTbPageContext, h.gH(c.this.bKq.Uc()));
+        public void XZ() {
+            if (c.this.bPe != null && c.this.bPd != null) {
+                c.this.bPe.a(c.this.mTbPageContext, h.gI(c.this.bPd.Vh()));
             }
         }
     };
-    private b.InterfaceC0235b bKz = new b.InterfaceC0235b() { // from class: com.baidu.live.videochat.c.5
-        @Override // com.baidu.live.videochat.f.b.InterfaceC0235b
-        public void WU() {
-            if (c.this.bKq != null) {
-                c.this.bKq.ds(true);
+    private b.InterfaceC0233b bPm = new b.InterfaceC0233b() { // from class: com.baidu.live.videochat.c.5
+        @Override // com.baidu.live.videochat.f.b.InterfaceC0233b
+        public void Ya() {
+            if (c.this.bPd != null) {
+                c.this.bPd.dv(true);
             }
         }
     };
-    private com.baidu.live.videochat.d.f bKA = new com.baidu.live.videochat.d.f() { // from class: com.baidu.live.videochat.c.6
+    private com.baidu.live.videochat.d.f bPn = new com.baidu.live.videochat.d.f() { // from class: com.baidu.live.videochat.c.6
         @Override // com.baidu.live.videochat.d.f
-        public void WV() {
+        public void Yb() {
         }
 
         @Override // com.baidu.live.videochat.d.f
         public void p(int i, boolean z) {
             BdLog.e("Connect Fail errorCode=" + i + "|isSender=" + z);
-            c.this.WR();
-            c.this.WQ();
-            if (i == com.baidu.live.videochat.d.c.bCi) {
-                if (com.baidu.live.videochat.d.d.bMc.equals(com.baidu.live.videochat.d.d.af(c.this.bKq.XC()).type)) {
+            c.this.XX();
+            c.this.XW();
+            if (c.this.bPf != null) {
+                c.this.bPf.XP();
+            }
+            if (i == com.baidu.live.videochat.d.c.bGV) {
+                if (com.baidu.live.videochat.d.d.bQP.equals(com.baidu.live.videochat.d.d.an(c.this.bPd.YI()).type)) {
                     c.this.mTbPageContext.showToast(c.this.mTbPageContext.getResources().getString(a.h.video_chat_timeout));
                 } else {
                     c.this.mTbPageContext.showToast(c.this.mTbPageContext.getResources().getString(a.h.video_chat_rejected));
                 }
-            } else if (i != com.baidu.live.videochat.d.c.bLP) {
-                if (i == com.baidu.live.videochat.d.c.bLM || i == com.baidu.live.videochat.d.c.bLN) {
+            } else if (i != com.baidu.live.videochat.d.c.bQC) {
+                if (i == com.baidu.live.videochat.d.c.bQz || i == com.baidu.live.videochat.d.c.bQA) {
                     c.this.mTbPageContext.showToast(c.this.mTbPageContext.getString(a.h.video_chat_closed));
-                } else if (i == com.baidu.live.videochat.d.c.bLO) {
+                } else if (i == com.baidu.live.videochat.d.c.bQB) {
                     if (z) {
                         c.this.mTbPageContext.showToast(c.this.mTbPageContext.getString(a.h.video_chat_timeout));
                     } else {
                         c.this.mTbPageContext.showToast(c.this.mTbPageContext.getString(a.h.video_chat_connected_timeout));
                     }
+                } else if (i == com.baidu.live.videochat.d.c.bGT) {
+                    if (c.this.bPg != null && c.this.bPd != null) {
+                        com.baidu.live.videochat.d.a.b bVar = new com.baidu.live.videochat.d.a.b();
+                        bVar.bGl = c.this.bPd.YJ();
+                        bVar.action = com.baidu.live.videochat.d.a.b.bRm;
+                        bVar.bGn = TbadkCoreApplication.getCurrentAccount();
+                        c.this.bPg.a(bVar);
+                    }
+                    c.this.mTbPageContext.showToast(c.this.mTbPageContext.getString(a.h.video_chat_closed));
                 } else {
                     c.this.mTbPageContext.showToast(c.this.mTbPageContext.getResources().getString(a.h.video_chat_connected_fail));
                 }
             }
-            if (c.this.bKp != null && c.this.bKq != null) {
-                c.this.bKp.fB(c.this.bKq.Uc());
+            if (c.this.bPc != null && c.this.bPd != null) {
+                c.this.bPc.fC(c.this.bPd.Vh());
             }
         }
 
         @Override // com.baidu.live.videochat.d.f
         public void C(String str, boolean z) {
-            if (c.this.bKt != null && c.this.bKq != null && !z) {
+            if (c.this.bPg != null && c.this.bPd != null && !z) {
                 com.baidu.live.videochat.d.a.b bVar = new com.baidu.live.videochat.d.a.b();
-                bVar.bBy = str;
-                bVar.action = com.baidu.live.videochat.d.a.b.bMy;
-                bVar.bBz = com.baidu.live.videochat.d.a.b.bMA;
-                bVar.bBA = TbadkCoreApplication.getCurrentAccount();
-                bVar.ext = c.this.bKq.XC();
-                c.this.bKt.a(bVar);
+                bVar.bGl = str;
+                bVar.action = com.baidu.live.videochat.d.a.b.bRl;
+                bVar.bGm = com.baidu.live.videochat.d.a.b.bRn;
+                bVar.bGn = TbadkCoreApplication.getCurrentAccount();
+                bVar.bGq = c.this.bPd.YI();
+                c.this.bPg.a(bVar);
             }
-            if (c.this.bKp != null && c.this.bKq != null) {
-                c.this.bKp.gK(c.this.bKq.Uc());
+            if (c.this.bPc != null && c.this.bPd != null) {
+                c.this.bPc.gL(c.this.bPd.Vh());
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -146,27 +160,27 @@ public class c implements com.baidu.live.am.a {
         }
 
         @Override // com.baidu.live.videochat.d.f
-        public void WW() {
-            if (c.this.aFN == null || c.this.aFN.mLiveInfo == null || !c.this.aFN.mLiveInfo.isPubShow) {
-                if (c.this.bKo != null && c.this.bKq != null) {
-                    c.this.bKo.ag(c.this.bKq.getPlayerView());
+        public void Yc() {
+            if (c.this.aGe == null || c.this.aGe.mLiveInfo == null || !c.this.aGe.mLiveInfo.isPubShow) {
+                if (c.this.bPb != null && c.this.bPd != null) {
+                    c.this.bPb.ag(c.this.bPd.Pp());
                 }
-            } else if (c.this.bKq == null || c.this.bKw == null || c.this.bKw != c.this.bKq.getPlayerView() || c.this.bKw.getParent() == null || c.this.bKw.getParent() != c.this.bKv) {
-                if (c.this.bKw != null && c.this.bKw.getParent() != null) {
-                    ((ViewGroup) c.this.bKw.getParent()).removeView(c.this.bKw);
-                    c.this.bKw = null;
+            } else if (c.this.bPd == null || c.this.bPj == null || c.this.bPj != c.this.bPd.Pp() || c.this.bPj.getParent() == null || c.this.bPj.getParent() != c.this.bPi) {
+                if (c.this.bPj != null && c.this.bPj.getParent() != null) {
+                    ((ViewGroup) c.this.bPj.getParent()).removeView(c.this.bPj);
+                    c.this.bPj = null;
                 }
-                if (c.this.bAP != null && c.this.bAP.getPreview() != null && c.this.bKo != null && c.this.bKv != null) {
-                    View preview = c.this.bAP.getPreview();
-                    c.this.bKv.removeView(preview);
-                    c.this.bKo.ag(preview);
-                    c.this.bAP.startRecord();
-                    c.this.bAP.startPush();
+                if (c.this.bFC != null && c.this.bFC.getPreview() != null && c.this.bPb != null && c.this.bPi != null) {
+                    View preview = c.this.bFC.getPreview();
+                    c.this.bPi.removeView(preview);
+                    c.this.bPb.ag(preview);
+                    c.this.bFC.startRecord();
+                    c.this.bFC.startPush();
                 }
-                if (c.this.bKq != null && c.this.bKv != null) {
-                    c.this.bKw = c.this.bKq.getPlayerView();
-                    if (c.this.bKw != null) {
-                        c.this.bKv.addView(c.this.bKw, 0, new FrameLayout.LayoutParams(-1, -1));
+                if (c.this.bPd != null && c.this.bPi != null) {
+                    c.this.bPj = c.this.bPd.Pp();
+                    if (c.this.bPj != null) {
+                        c.this.bPi.addView(c.this.bPj, 0, new FrameLayout.LayoutParams(-1, -1));
                     }
                 }
             }
@@ -178,39 +192,42 @@ public class c implements com.baidu.live.am.a {
             if (10 == i && !z) {
                 c.this.mTbPageContext.showToast(c.this.mTbPageContext.getString(a.h.video_chat_other_network_error));
             } else if (30 == i) {
-                c.this.bKq.ds(false);
+                c.this.bPd.dv(false);
             }
         }
 
         @Override // com.baidu.live.videochat.d.f
         public void D(String str, boolean z) {
             BdLog.e("blmsdk:onChatDisConnected isCloseBySelf=" + z);
-            c.this.WP();
-            c.this.WS();
-            c.this.WQ();
+            c.this.XV();
+            c.this.XY();
+            c.this.XW();
+            if (c.this.bPf != null) {
+                c.this.bPf.XP();
+            }
             if (!z) {
                 c.this.mTbPageContext.showToast(c.this.mTbPageContext.getString(a.h.video_chat_closed));
             }
-            if (c.this.bKp != null && c.this.bKq != null) {
-                c.this.bKp.gL(c.this.bKq.Uc());
+            if (c.this.bPc != null && c.this.bPd != null) {
+                c.this.bPc.gM(c.this.bPd.Vh());
             }
-            if (c.this.bKt != null) {
+            if (c.this.bPg != null) {
                 com.baidu.live.videochat.d.a.b bVar = new com.baidu.live.videochat.d.a.b();
-                bVar.bBy = str;
-                bVar.action = com.baidu.live.videochat.d.a.b.bMz;
-                bVar.bBA = TbadkCoreApplication.getCurrentAccount();
-                c.this.bKt.a(bVar);
+                bVar.bGl = str;
+                bVar.action = com.baidu.live.videochat.d.a.b.bRm;
+                bVar.bGn = TbadkCoreApplication.getCurrentAccount();
+                c.this.bPg.a(bVar);
             }
         }
 
         @Override // com.baidu.live.videochat.d.f
         public void a(com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-            if (cVar == null || c.this.bKs == null || !c.this.bKs.WI()) {
-                c.this.bKq.XA();
+            if (cVar == null || c.this.bPf == null || !c.this.bPf.XM()) {
+                c.this.bPd.YG();
                 return;
             }
-            c.this.bKs.WJ();
-            c.this.aa(jSONObject);
+            c.this.bPf.XN();
+            c.this.ai(jSONObject);
         }
 
         @Override // com.baidu.live.videochat.d.f
@@ -222,83 +239,83 @@ public class c implements com.baidu.live.am.a {
                 jSONObject.putOpt("rtc_status", Integer.valueOf(i2));
                 jSONObject.putOpt("rtc_msg", str);
                 jSONObject.putOpt("chat_room_id", str2);
-                jSONObject.putOpt(UgcConstant.EXT_INFO, str3);
+                jSONObject.putOpt("ext_info", str3);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", UbcStatConstant.Value.VALUE_CHAT_LINK_FAIL).setContentExt(null, null, jSONObject));
         }
     };
-    private com.baidu.live.videochat.d.a bKq = new com.baidu.live.videochat.d.g();
-    private com.baidu.live.videochat.f.a bKo = new com.baidu.live.videochat.f.a(this.bKy, this.bKz);
-    private com.baidu.live.videochat.c.b bKr = new com.baidu.live.videochat.c.b();
+    private com.baidu.live.videochat.d.a bPd = new com.baidu.live.videochat.d.g();
+    private com.baidu.live.videochat.f.a bPb = new com.baidu.live.videochat.f.a(this.bPl, this.bPm);
+    private com.baidu.live.videochat.c.b bPe = new com.baidu.live.videochat.c.b();
 
     public c(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.bKp = new com.baidu.live.videochat.panel.c(tbPageContext, this.bKx);
-        this.bKt = new com.baidu.live.videochat.d.a.a(tbPageContext);
-        be(tbPageContext.getPageActivity().getApplicationContext());
-        this.bKq.init(tbPageContext.getPageActivity());
-        this.bKq.a(this.bKA);
-        if (this.bKr != null) {
-            this.bKr.a(new b.a() { // from class: com.baidu.live.videochat.c.2
+        this.bPc = new com.baidu.live.videochat.panel.c(tbPageContext, this.bPk);
+        this.bPg = new com.baidu.live.videochat.d.a.a(tbPageContext);
+        bd(tbPageContext.getPageActivity().getApplicationContext());
+        this.bPd.init(tbPageContext.getPageActivity());
+        this.bPd.a(this.bPn);
+        if (this.bPe != null) {
+            this.bPe.a(new b.a() { // from class: com.baidu.live.videochat.c.2
                 @Override // com.baidu.live.videochat.c.b.a
-                public void Rt() {
-                    c.this.bKq.ds(false);
-                    c.this.bKo.Yg();
+                public void Sw() {
+                    c.this.bPd.dv(false);
+                    c.this.bPb.Zn();
                 }
             });
         }
     }
 
-    private void be(Context context) {
-        this.bKu = (TelephonyManager) context.getSystemService("phone");
-        if (this.bKu != null) {
-            this.bKu.listen(this.byU, 32);
+    private void bd(Context context) {
+        this.bPh = (TelephonyManager) context.getSystemService("phone");
+        if (this.bPh != null) {
+            this.bPh.listen(this.bDG, 32);
         }
     }
 
-    @Override // com.baidu.live.am.a
-    public void u(ViewGroup viewGroup) {
-        this.bKp.a(this.mTbPageContext, viewGroup);
+    @Override // com.baidu.live.an.a
+    public void x(ViewGroup viewGroup) {
+        this.bPc.a(this.mTbPageContext, viewGroup);
     }
 
-    @Override // com.baidu.live.am.a
-    public void v(ViewGroup viewGroup) {
-        this.bKo.a(this.mTbPageContext, viewGroup);
+    @Override // com.baidu.live.an.a
+    public void y(ViewGroup viewGroup) {
+        this.bPb.a(this.mTbPageContext, viewGroup);
     }
 
-    @Override // com.baidu.live.am.a
-    public void L(Object obj) {
-        if (this.bKq != null && (obj instanceof AlaLiveRecorder)) {
-            this.bAP = (AlaLiveRecorder) obj;
-            this.bKq.a(this.bAP);
+    @Override // com.baidu.live.an.a
+    public void H(Object obj) {
+        if (this.bPd != null && (obj instanceof AlaLiveRecorder)) {
+            this.bFC = (AlaLiveRecorder) obj;
+            this.bPd.a(this.bFC);
         }
     }
 
-    @Override // com.baidu.live.am.a
+    @Override // com.baidu.live.an.a
     public void a(FrameLayout frameLayout) {
-        this.bKv = frameLayout;
+        this.bPi = frameLayout;
     }
 
-    @Override // com.baidu.live.am.a
-    public void s(w wVar) {
-        this.aFN = wVar;
-        if (this.bKq != null) {
-            this.bKq.s(wVar);
+    @Override // com.baidu.live.an.a
+    public void t(x xVar) {
+        this.aGe = xVar;
+        if (this.bPd != null) {
+            this.bPd.t(xVar);
         }
-        if (this.bKr != null) {
-            this.bKr.by(this.aFN.mLiveInfo.videoBBChatData.acceptWindowTime);
+        if (this.bPe != null) {
+            this.bPe.by(this.aGe.mLiveInfo.videoBBChatData.acceptWindowTime);
         }
     }
 
-    @Override // com.baidu.live.am.a
-    public void WD() {
+    @Override // com.baidu.live.an.a
+    public void XH() {
         String str = null;
-        if (this.bKq.XB() != null) {
-            str = String.valueOf(this.bKq.XB().aCp);
+        if (this.bPd.YH() != null) {
+            str = String.valueOf(this.bPd.YH().aCG);
         }
-        this.bKp.W(this.bKq.Uc(), str);
+        this.bPc.Y(this.bPd.Vh(), str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -307,69 +324,69 @@ public class c implements com.baidu.live.am.a {
             return null;
         }
         com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
-        cVar.aCu = UserPermission.VISITER;
-        cVar.aCp = JavaTypesHelper.toLong(aVar.bNz, 0L);
-        cVar.aCv = aVar.bNA;
+        cVar.aCL = UserPermission.VISITER;
+        cVar.aCG = JavaTypesHelper.toLong(aVar.bSm, 0L);
+        cVar.aCM = aVar.bSn;
         cVar.userName = aVar.userName;
         cVar.appId = JavaTypesHelper.toLong(aVar.appId, 0L);
-        cVar.appVersion = aVar.bNy;
+        cVar.appVersion = aVar.bSl;
         cVar.cuid = aVar.cuid;
         return cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WP() {
-        if (this.bKw != null && this.bKw.getParent() != null) {
-            ((ViewGroup) this.bKw.getParent()).removeView(this.bKw);
-            this.bKw = null;
+    public void XV() {
+        if (this.bPj != null && this.bPj.getParent() != null) {
+            ((ViewGroup) this.bPj.getParent()).removeView(this.bPj);
+            this.bPj = null;
         }
-        if (this.aFN != null && this.aFN.mLiveInfo != null && this.aFN.mLiveInfo.isPubShow && this.bKv != null && this.bAP != null) {
-            View preview = this.bAP.getPreview();
+        if (this.aGe != null && this.aGe.mLiveInfo != null && this.aGe.mLiveInfo.isPubShow && this.bPi != null && this.bFC != null) {
+            View preview = this.bFC.getPreview();
             if (preview != null) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                if (preview.getParent() != null && preview.getParent() != this.bKv) {
-                    ((ViewGroup) preview.getParent()).removeView(this.bAP.getPreview());
-                    this.bKv.addView(preview, 0, layoutParams);
+                if (preview.getParent() != null && preview.getParent() != this.bPi) {
+                    ((ViewGroup) preview.getParent()).removeView(this.bFC.getPreview());
+                    this.bPi.addView(preview, 0, layoutParams);
                 } else if (preview.getParent() == null) {
-                    this.bKv.addView(preview, 0, layoutParams);
+                    this.bPi.addView(preview, 0, layoutParams);
                 }
             }
-            this.bAP.startRecord();
-            this.bAP.startPush();
+            this.bFC.startRecord();
+            this.bFC.startPush();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WQ() {
-        if (this.bKo != null) {
-            this.bKo.Yg();
+    public void XW() {
+        if (this.bPb != null) {
+            this.bPb.Zn();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WR() {
-        if (this.bKr != null) {
-            this.bKr.SX();
+    public void XX() {
+        if (this.bPe != null) {
+            this.bPe.Uc();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WS() {
-        if (this.bKr != null) {
-            this.bKr.SY();
+    public void XY() {
+        if (this.bPe != null) {
+            this.bPe.Ud();
         }
     }
 
-    @Override // com.baidu.live.am.a
-    public boolean WE() {
-        return this.bKq != null && (h.gH(this.bKq.Uc()) || h.gI(this.bKq.Uc()));
+    @Override // com.baidu.live.an.a
+    public boolean XI() {
+        return this.bPd != null && (h.gI(this.bPd.Vh()) || h.gJ(this.bPd.Vh()));
     }
 
-    @Override // com.baidu.live.am.a
-    public boolean Su() {
-        if (this.bKq != null && (h.gH(this.bKq.Uc()) || h.gI(this.bKq.Uc()))) {
-            if (this.bKr != null) {
-                this.bKr.c(this.mTbPageContext, h.gH(this.bKq.Uc()));
+    @Override // com.baidu.live.an.a
+    public boolean Ty() {
+        if (this.bPd != null && (h.gI(this.bPd.Vh()) || h.gJ(this.bPd.Vh()))) {
+            if (this.bPe != null) {
+                this.bPe.a(this.mTbPageContext, h.gI(this.bPd.Vh()));
                 return true;
             }
             return true;
@@ -377,103 +394,113 @@ public class c implements com.baidu.live.am.a {
         return false;
     }
 
-    @Override // com.baidu.live.am.a
-    public void a(com.baidu.live.am.b bVar) {
-        this.bKs = bVar;
+    @Override // com.baidu.live.an.a
+    public void a(com.baidu.live.an.b bVar) {
+        this.bPf = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aa(JSONObject jSONObject) {
-        if (this.bKr != null && this.mTbPageContext != null) {
-            if (this.bKp != null) {
-                this.bKp.hide();
+    public void ai(JSONObject jSONObject) {
+        if (this.bPe != null && this.mTbPageContext != null) {
+            if (this.bPc != null) {
+                this.bPc.hide();
             }
-            final com.baidu.live.videochat.d.e ad = com.baidu.live.videochat.d.d.ad(jSONObject);
-            this.bKr.a(this.mTbPageContext.getPageActivity(), ad.portrait, ad.userName, new a.InterfaceC0231a() { // from class: com.baidu.live.videochat.c.7
-                @Override // com.baidu.live.videochat.c.a.InterfaceC0231a
-                public void WX() {
+            final com.baidu.live.videochat.d.e al = com.baidu.live.videochat.d.d.al(jSONObject);
+            this.bPe.a(this.mTbPageContext.getPageActivity(), al.portrait, al.userName, new a.InterfaceC0229a() { // from class: com.baidu.live.videochat.c.7
+                @Override // com.baidu.live.videochat.c.a.InterfaceC0229a
+                public void Yd() {
                 }
 
-                @Override // com.baidu.live.videochat.c.a.InterfaceC0231a
-                public void WY() {
-                    if (c.this.bKs != null) {
-                        c.this.bKs.WJ();
+                @Override // com.baidu.live.videochat.c.a.InterfaceC0229a
+                public void Ye() {
+                    if (c.this.bPf != null) {
+                        c.this.bPf.XN();
                     }
-                    if (c.this.bKo != null) {
-                        c.this.bKo.a(c.this.aFN, new com.baidu.live.videochat.f.c(ad.portrait, ad.userName, false));
+                    if (c.this.bPb != null) {
+                        c.this.bPb.a(c.this.aGe, new com.baidu.live.videochat.f.c(al.portrait, al.userName, al.userId, false));
+                        if (c.this.bPf != null) {
+                            c.this.bPf.XO();
+                        }
                     }
-                    c.this.bKq.ab(com.baidu.live.videochat.d.d.a(ad, c.this.aFN, com.baidu.live.videochat.d.d.bMb));
+                    c.this.bPd.aj(com.baidu.live.videochat.d.d.a(al, c.this.aGe, com.baidu.live.videochat.d.d.bQO));
                 }
 
-                @Override // com.baidu.live.videochat.c.a.InterfaceC0231a
-                public void WZ() {
-                    c.this.bKq.ac(com.baidu.live.videochat.d.d.a(ad, c.this.aFN, com.baidu.live.videochat.d.d.bMd));
+                @Override // com.baidu.live.videochat.c.a.InterfaceC0229a
+                public void Yf() {
+                    c.this.bPd.ak(com.baidu.live.videochat.d.d.a(al, c.this.aGe, com.baidu.live.videochat.d.d.bQQ));
                 }
 
-                @Override // com.baidu.live.videochat.c.a.InterfaceC0231a
-                public void SQ() {
-                    c.this.bKq.ac(com.baidu.live.videochat.d.d.a(ad, c.this.aFN, com.baidu.live.videochat.d.d.bMc));
+                @Override // com.baidu.live.videochat.c.a.InterfaceC0229a
+                public void TX() {
+                    c.this.bPd.ak(com.baidu.live.videochat.d.d.a(al, c.this.aGe, com.baidu.live.videochat.d.d.bQP));
                 }
             });
         }
     }
 
-    @Override // com.baidu.live.am.a
+    @Override // com.baidu.live.an.a
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.bKp != null) {
-            return this.bKp.onKeyDown(i, keyEvent);
+        if (this.bPc != null) {
+            return this.bPc.onKeyDown(i, keyEvent);
         }
         return false;
     }
 
-    @Override // com.baidu.live.am.a
+    @Override // com.baidu.live.an.a
     public void onDestroy() {
         this.mTbPageContext = null;
-        if (this.bKu != null) {
-            this.bKu.listen(this.byU, 0);
+        if (this.bPh != null) {
+            this.bPh.listen(this.bDG, 0);
         }
-        if (this.bKr != null) {
-            this.bKr.onDestroy();
+        if (this.bPe != null) {
+            this.bPe.onDestroy();
         }
-        if (this.bKq != null) {
-            this.bKq.onDestroy();
+        if (this.bPd != null) {
+            this.bPd.onDestroy();
         }
-        if (this.bKo != null) {
-            this.bKo.onDestroy();
+        if (this.bPb != null) {
+            this.bPb.onDestroy();
         }
-        if (this.bKp != null) {
-            this.bKp.onDestroy();
+        if (this.bPc != null) {
+            this.bPc.onDestroy();
         }
-        if (this.bKt != null) {
-            this.bKt.onDestroy();
+        if (this.bPg != null) {
+            this.bPg.onDestroy();
         }
     }
 
-    @Override // com.baidu.live.am.a
+    @Override // com.baidu.live.an.a
     public void setMute(boolean z) {
-        if (this.bKq != null) {
-            this.bKq.setMute(z);
+        if (this.bPd != null) {
+            this.bPd.setMute(z);
         }
     }
 
-    @Override // com.baidu.live.am.a
-    public void WF() {
-        if (WE() && this.bKq != null) {
-            this.bKq.ds(false);
+    @Override // com.baidu.live.an.a
+    public void XJ() {
+        if (XI() && this.bPd != null) {
+            this.bPd.dv(false);
         }
     }
 
-    @Override // com.baidu.live.am.a
-    public void WG() {
-        if (this.bKq != null) {
-            this.bKq.WG();
+    @Override // com.baidu.live.an.a
+    public void XK() {
+        if (this.bPd != null) {
+            this.bPd.XK();
         }
     }
 
-    @Override // com.baidu.live.am.a
-    public void WH() {
-        if (this.bKq != null) {
-            this.bKq.WH();
+    @Override // com.baidu.live.an.a
+    public void XL() {
+        if (this.bPd != null) {
+            this.bPd.XL();
+        }
+    }
+
+    @Override // com.baidu.live.an.a
+    public void onKeyboardVisibilityChanged(boolean z) {
+        if (XI()) {
+            this.bPb.onKeyboardVisibilityChanged(z);
         }
     }
 }

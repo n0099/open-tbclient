@@ -4,50 +4,50 @@ import android.os.Debug;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public class a extends Thread {
-    private static final b prN = new b() { // from class: com.github.anrwatchdog.a.1
+    private static final b pIP = new b() { // from class: com.github.anrwatchdog.a.1
         @Override // com.github.anrwatchdog.a.b
         public void onAppNotResponding(ANRError aNRError) {
             throw aNRError;
         }
     };
-    private static final InterfaceC1002a prO = new InterfaceC1002a() { // from class: com.github.anrwatchdog.a.2
-        @Override // com.github.anrwatchdog.a.InterfaceC1002a
-        public long iz(long j) {
+    private static final InterfaceC1029a pIQ = new InterfaceC1029a() { // from class: com.github.anrwatchdog.a.2
+        @Override // com.github.anrwatchdog.a.InterfaceC1029a
+        public long iK(long j) {
             return 0L;
         }
     };
-    private static final c prP = new c() { // from class: com.github.anrwatchdog.a.3
+    private static final c pIR = new c() { // from class: com.github.anrwatchdog.a.3
         @Override // com.github.anrwatchdog.a.c
         public void a(InterruptedException interruptedException) {
             Log.w("ANRWatchdog", "Interrupted: " + interruptedException.getMessage());
         }
     };
-    private b prQ;
-    private InterfaceC1002a prR;
-    private c prS;
-    private final Handler prT;
-    private final int prU;
-    private String prV;
-    private boolean prW;
-    private boolean prX;
-    private volatile long prY;
-    private volatile boolean prZ;
-    private final Runnable psa;
+    private b pIS;
+    private InterfaceC1029a pIT;
+    private c pIU;
+    private final Handler pIV;
+    private final int pIW;
+    private String pIX;
+    private boolean pIY;
+    private boolean pIZ;
+    private volatile long pJa;
+    private volatile boolean pJb;
+    private final Runnable pJc;
 
     /* renamed from: com.github.anrwatchdog.a$a  reason: collision with other inner class name */
-    /* loaded from: classes19.dex */
-    public interface InterfaceC1002a {
-        long iz(long j);
+    /* loaded from: classes5.dex */
+    public interface InterfaceC1029a {
+        long iK(long j);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void onAppNotResponding(ANRError aNRError);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void a(InterruptedException interruptedException);
     }
@@ -57,36 +57,36 @@ public class a extends Thread {
     }
 
     public a(int i) {
-        this.prQ = prN;
-        this.prR = prO;
-        this.prS = prP;
-        this.prT = new Handler(Looper.getMainLooper());
-        this.prV = "";
-        this.prW = false;
-        this.prX = true;
-        this.prY = 0L;
-        this.prZ = false;
-        this.psa = new Runnable() { // from class: com.github.anrwatchdog.a.4
+        this.pIS = pIP;
+        this.pIT = pIQ;
+        this.pIU = pIR;
+        this.pIV = new Handler(Looper.getMainLooper());
+        this.pIX = "";
+        this.pIY = false;
+        this.pIZ = true;
+        this.pJa = 0L;
+        this.pJb = false;
+        this.pJc = new Runnable() { // from class: com.github.anrwatchdog.a.4
             @Override // java.lang.Runnable
             public void run() {
-                a.this.prY = 0L;
-                a.this.prZ = false;
+                a.this.pJa = 0L;
+                a.this.pJb = false;
             }
         };
-        this.prU = i;
+        this.pIW = i;
     }
 
     public a a(b bVar) {
         if (bVar == null) {
-            this.prQ = prN;
+            this.pIS = pIP;
         } else {
-            this.prQ = bVar;
+            this.pIS = bVar;
         }
         return this;
     }
 
-    public a exE() {
-        this.prV = null;
+    public a eBp() {
+        this.pIX = null;
         return this;
     }
 
@@ -94,35 +94,35 @@ public class a extends Thread {
     public void run() {
         ANRError NewMainOnly;
         setName("|ANR-WatchDog|");
-        long j = this.prU;
+        long j = this.pIW;
         while (!isInterrupted()) {
-            boolean z = this.prY == 0;
-            this.prY += j;
+            boolean z = this.pJa == 0;
+            this.pJa += j;
             if (z) {
-                this.prT.post(this.psa);
+                this.pIV.post(this.pJc);
             }
             try {
                 Thread.sleep(j);
-                if (this.prY != 0 && !this.prZ) {
-                    if (!this.prX && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
+                if (this.pJa != 0 && !this.pJb) {
+                    if (!this.pIZ && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
                         Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
-                        this.prZ = true;
+                        this.pJb = true;
                     } else {
-                        j = this.prR.iz(this.prY);
+                        j = this.pIT.iK(this.pJa);
                         if (j <= 0) {
-                            if (this.prV != null) {
-                                NewMainOnly = ANRError.New(this.prY, this.prV, this.prW);
+                            if (this.pIX != null) {
+                                NewMainOnly = ANRError.New(this.pJa, this.pIX, this.pIY);
                             } else {
-                                NewMainOnly = ANRError.NewMainOnly(this.prY);
+                                NewMainOnly = ANRError.NewMainOnly(this.pJa);
                             }
-                            this.prQ.onAppNotResponding(NewMainOnly);
-                            j = this.prU;
-                            this.prZ = true;
+                            this.pIS.onAppNotResponding(NewMainOnly);
+                            j = this.pIW;
+                            this.pJb = true;
                         }
                     }
                 }
             } catch (InterruptedException e) {
-                this.prS.a(e);
+                this.pIU.a(e);
                 return;
             }
         }

@@ -1,20 +1,21 @@
 package com.baidu.tieba.ala.liveroom.activeview;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.live.data.o;
-import com.baidu.live.data.w;
+import androidx.annotation.NonNull;
+import com.baidu.live.data.p;
+import com.baidu.live.data.x;
 import com.baidu.live.sdk.a;
-import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes4.dex */
+import com.baidu.live.tieba.view.fresco.SimpleDraweeView;
+import com.facebook.drawee.drawable.p;
+/* loaded from: classes11.dex */
 public class ActiveStaticBannerItemView extends FrameLayout implements c {
-    private a hdE;
-    private TbImageView hdF;
-    private View hdG;
+    private a hpr;
+    private SimpleDraweeView hps;
+    private View hpt;
 
     public ActiveStaticBannerItemView(@NonNull Context context) {
         super(context);
@@ -23,17 +24,17 @@ public class ActiveStaticBannerItemView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void setCallback(a aVar) {
-        this.hdE = aVar;
+        this.hpr = aVar;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
-    public void setData(boolean z, w wVar, o oVar) {
-        if (oVar != null) {
-            this.hdF.startLoad(oVar.pic_url, 10, false);
-            if (oVar.aJy) {
-                this.hdG.setVisibility(0);
+    public void setData(boolean z, x xVar, p pVar) {
+        if (pVar != null) {
+            this.hps.setImageURI(pVar.pic_url);
+            if (pVar.aJX) {
+                this.hpt.setVisibility(0);
             } else {
-                this.hdG.setVisibility(4);
+                this.hpt.setVisibility(4);
             }
         }
     }
@@ -48,21 +49,22 @@ public class ActiveStaticBannerItemView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        this.hdE = null;
+        this.hpr = null;
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_active_view_item, (ViewGroup) this, true);
-        this.hdF = (TbImageView) findViewById(a.f.ala_live_active_view_img);
-        this.hdG = findViewById(a.f.new_icon);
-        this.hdF.setDefaultErrorResource(0);
-        this.hdF.setDefaultBgResource(a.c.sdk_transparent);
-        this.hdF.setAutoChangeStyle(false);
+        this.hps = (SimpleDraweeView) findViewById(a.f.ala_live_active_view_img);
+        this.hpt = findViewById(a.f.new_icon);
+        com.facebook.drawee.generic.a hierarchy = this.hps.getHierarchy();
+        hierarchy.a(a.e.sdk_transparent_bg, p.b.pxH);
+        hierarchy.b(a.e.sdk_transparent_bg, p.b.pxH);
+        hierarchy.b(p.b.pxD);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveStaticBannerItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ActiveStaticBannerItemView.this.hdE != null) {
-                    ActiveStaticBannerItemView.this.hdE.bZT();
+                if (ActiveStaticBannerItemView.this.hpr != null) {
+                    ActiveStaticBannerItemView.this.hpr.ccA();
                 }
             }
         });

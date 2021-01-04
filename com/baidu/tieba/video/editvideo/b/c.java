@@ -7,16 +7,16 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
 import android.util.SparseArray;
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.ViewCompat;
 import com.baidu.tbadk.core.util.UtilHelper;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static byte[] a(int i, int i2, Bitmap bitmap) {
         try {
@@ -88,26 +88,25 @@ public class c {
         }
     }
 
-    public static byte[] O(Bitmap bitmap) {
+    public static byte[] P(Bitmap bitmap) {
         return a(bitmap.getWidth(), bitmap.getHeight(), bitmap);
     }
 
     public static Bitmap t(byte[] bArr, int i, int i2) {
-        Throwable th;
         Bitmap bitmap;
         ByteArrayOutputStream byteArrayOutputStream;
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
             new YuvImage(bArr, 17, i, i2, null).compressToJpeg(new Rect(0, 0, i, i2), 100, byteArrayOutputStream);
             bitmap = BitmapFactory.decodeStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th) {
+            th = th;
             bitmap = null;
         }
         try {
             byteArrayOutputStream.close();
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th2) {
+            th = th2;
             th.printStackTrace();
             return bitmap;
         }
@@ -123,7 +122,7 @@ public class c {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static void bp(Context context, String str) {
+    public static void bu(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
             intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
@@ -134,7 +133,7 @@ public class c {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.util.ArrayList<com.baidu.tieba.video.editvideo.b.c$a> */
     /* JADX WARN: Multi-variable type inference failed */
-    public static ArrayList<a> P(Bitmap bitmap) {
+    public static ArrayList<a> Q(Bitmap bitmap) {
         if (bitmap == null || bitmap.isRecycled()) {
             return new ArrayList<>();
         }
@@ -186,7 +185,7 @@ public class c {
         return true;
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public int color;
         public int x;

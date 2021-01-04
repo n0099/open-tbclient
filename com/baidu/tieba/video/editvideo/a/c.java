@@ -7,31 +7,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.f;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.editvideo.data.MusicData;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class c extends BaseAdapter {
-    private e eNZ;
+    private f eXW;
     private List<MusicData> mList;
-    public int nCX;
-    public String nCY;
+    public int nHc;
+    public String nHd;
 
-    public c(e eVar) {
-        this.eNZ = eVar;
+    public c(f fVar) {
+        this.eXW = fVar;
     }
 
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            UK(this.nCY);
+            Ur(this.nHd);
             notifyDataSetChanged();
         }
     }
@@ -65,19 +65,18 @@ public class c extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.eNZ.getPageActivity()).inflate(R.layout.layout_music_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.eXW.getPageActivity()).inflate(R.layout.layout_music_item, (ViewGroup) null);
             aVar = new a();
-            aVar.nCe = (TbImageView) view.findViewById(R.id.music_image);
-            aVar.nCh = (TextView) view.findViewById(R.id.music_title);
-            aVar.nCg = view.findViewById(R.id.music_loading);
-            aVar.nCe.setDrawerType(1);
-            aVar.nCe.setIsRound(true);
-            aVar.nCe.setDefaultBgResource(R.color.transparent);
-            aVar.nCe.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
-            aVar.nCe.setDefaultResource(R.drawable.bg_video_cloudmusic);
-            aVar.nCe.setBorderWidth(l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds4));
-            aVar.nCe.setBorderColor(ap.getColor(R.color.CAM_X0302));
-            aVar.nCe.setConrers(15);
+            aVar.nGl = (TbImageView) view.findViewById(R.id.music_image);
+            aVar.nGo = (TextView) view.findViewById(R.id.music_title);
+            aVar.nGn = view.findViewById(R.id.music_loading);
+            aVar.nGl.setDrawerType(1);
+            aVar.nGl.setIsRound(true);
+            aVar.nGl.setDefaultBgResource(R.color.transparent);
+            aVar.nGl.setDefaultResource(R.drawable.bg_video_cloudmusic);
+            aVar.nGl.setBorderWidth(l.getDimens(this.eXW.getPageActivity(), R.dimen.ds4));
+            aVar.nGl.setBorderColor(ao.getColor(R.color.CAM_X0302));
+            aVar.nGl.setConrers(15);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -86,49 +85,49 @@ public class c extends BaseAdapter {
         if (musicData != null) {
             switch (musicData.editMusicType) {
                 case 1:
-                    aVar.nCe.startLoad(String.valueOf(R.drawable.icon_video_mute), 24, false);
+                    aVar.nGl.startLoad(String.valueOf(R.drawable.icon_video_mute), 24, false);
                     break;
                 case 2:
-                    aVar.nCe.startLoad(String.valueOf(R.drawable.icon_video_cloudmusic), 24, false);
+                    aVar.nGl.startLoad(String.valueOf(R.drawable.icon_video_cloudmusic), 24, false);
                     break;
                 default:
-                    aVar.nCe.startLoad(musicData.img, 10, false);
+                    aVar.nGl.startLoad(musicData.img, 10, false);
                     break;
             }
-            aVar.nCg.setVisibility(4);
-            aVar.nCh.setTextColor(ap.getColor(R.color.CAM_X0107));
-            aVar.nCh.setText(musicData.name);
-            a(aVar.nCh, l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds120), musicData.name);
-            if (i == this.nCX) {
-                aVar.nCe.setDrawBorder(true);
+            aVar.nGn.setVisibility(4);
+            aVar.nGo.setTextColor(ao.getColor(R.color.CAM_X0107));
+            aVar.nGo.setText(musicData.name);
+            a(aVar.nGo, l.getDimens(this.eXW.getPageActivity(), R.dimen.ds120), musicData.name);
+            if (i == this.nHc) {
+                aVar.nGl.setDrawBorder(true);
             } else {
-                aVar.nCe.setDrawBorder(false);
+                aVar.nGl.setDrawBorder(false);
             }
             if (i == 0) {
-                view.setPadding(l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds34), l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds44), 0, 0);
+                view.setPadding(l.getDimens(this.eXW.getPageActivity(), R.dimen.ds34), l.getDimens(this.eXW.getPageActivity(), R.dimen.ds44), 0, 0);
             } else if (i == this.mList.size() - 1) {
-                view.setPadding(l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds34), l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds44), l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds34), 0);
+                view.setPadding(l.getDimens(this.eXW.getPageActivity(), R.dimen.ds34), l.getDimens(this.eXW.getPageActivity(), R.dimen.ds44), l.getDimens(this.eXW.getPageActivity(), R.dimen.ds34), 0);
             } else {
-                view.setPadding(l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds28), l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds44), 0, 0);
+                view.setPadding(l.getDimens(this.eXW.getPageActivity(), R.dimen.ds28), l.getDimens(this.eXW.getPageActivity(), R.dimen.ds44), 0, 0);
             }
-            if (this.eNZ.getPageActivity() instanceof BaseActivity) {
-                ((BaseActivity) this.eNZ.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseActivity) this.eNZ.getPageActivity()).getLayoutMode().onModeChanged(view);
-            } else if (this.eNZ.getPageActivity() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) this.eNZ.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseFragmentActivity) this.eNZ.getPageActivity()).getLayoutMode().onModeChanged(view);
+            if (this.eXW.getPageActivity() instanceof BaseActivity) {
+                ((BaseActivity) this.eXW.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                ((BaseActivity) this.eXW.getPageActivity()).getLayoutMode().onModeChanged(view);
+            } else if (this.eXW.getPageActivity() instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) this.eXW.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                ((BaseFragmentActivity) this.eXW.getPageActivity()).getLayoutMode().onModeChanged(view);
             }
         }
         return view;
     }
 
-    public void Mb(int i) {
-        this.nCX = i;
+    public void LP(int i) {
+        this.nHc = i;
         notifyDataSetChanged();
     }
 
-    public void UK(String str) {
-        this.nCY = str;
+    public void Ur(String str) {
+        this.nHd = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;
             for (int i2 = 0; i2 < this.mList.size(); i2++) {
@@ -139,17 +138,17 @@ public class c extends BaseAdapter {
             if (i == -1) {
                 i = 1;
             }
-            this.nCX = i;
+            this.nHc = i;
         }
     }
 
-    public int dUm() {
-        return this.nCX;
+    public int dUd() {
+        return this.nHc;
     }
 
     public void a(TextView textView, int i, String str) {
         if (i > 0) {
-            float dimens = l.getDimens(this.eNZ.getPageActivity(), R.dimen.fontsize24);
+            float dimens = l.getDimens(this.eXW.getPageActivity(), R.dimen.fontsize24);
             TextPaint textPaint = new TextPaint();
             textPaint.setTextSize(dimens);
             while (textPaint.measureText(str) > i) {
@@ -160,11 +159,11 @@ public class c extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes8.dex */
     public class a {
-        public TbImageView nCe;
-        public View nCg;
-        public TextView nCh;
+        public TbImageView nGl;
+        public View nGn;
+        public TextView nGo;
 
         public a() {
         }

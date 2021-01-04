@@ -1,16 +1,17 @@
 package com.baidu.live.adp.lib.util;
 
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class Md5 {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     public String str;
 
     public static String toMd5(byte[] bArr, boolean z) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.reset();
             messageDigest.update(bArr);
             return toHexString(messageDigest.digest(), "", z);
@@ -21,8 +22,8 @@ public class Md5 {
 
     public static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }
@@ -36,7 +37,7 @@ public class Md5 {
 
     public static String toMd5(byte[] bArr) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.update(bArr);
             return toHexString(messageDigest.digest());
         } catch (Exception e) {
@@ -62,7 +63,7 @@ public class Md5 {
         if (inputStream != null) {
             try {
                 byte[] bArr = new byte[1024];
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 while (true) {
                     int read = inputStream.read(bArr);
                     if (read <= 0) {

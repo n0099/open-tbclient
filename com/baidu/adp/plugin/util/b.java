@@ -6,7 +6,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class b {
-    public static DexFile a(ClassLoader classLoader) {
+    public static DexFile b(ClassLoader classLoader) {
         if (classLoader == null) {
             return null;
         }
@@ -26,19 +26,19 @@ public class b {
             } catch (Exception e2) {
             }
         } else {
-            Object D = D(getPathList(classLoader));
-            if (D == null) {
+            Object z2 = z(getPathList(classLoader));
+            if (z2 == null) {
                 return null;
             }
             try {
-                return (DexFile) getField(Array.get(D, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
+                return (DexFile) getField(Array.get(z2, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
             } catch (Exception e3) {
             }
         }
         return null;
     }
 
-    private static Object D(Object obj) {
+    private static Object z(Object obj) {
         if (obj == null) {
             return null;
         }

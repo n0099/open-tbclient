@@ -8,37 +8,40 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class f {
-    private static volatile f aff;
+    private static volatile f afK;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     interface a {
         void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private class b implements Runnable {
-        private a afg;
-        private String b;
+        private a afL;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f1627b;
 
         public b(String str, a aVar) {
-            this.b = str;
-            this.afg = aVar;
+            this.f1627b = str;
+            this.afL = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ArrayList<String> arrayList;
-            ArrayList<String> arrayList2 = null;
-            Map b = f.this.b(this.b);
-            if (b != null) {
-                arrayList2 = (ArrayList) b.get("ipv6");
-                arrayList = (ArrayList) b.get("ipv4");
+            ArrayList<String> arrayList2;
+            Map b2 = f.this.b(this.f1627b);
+            if (b2 != null) {
+                arrayList = (ArrayList) b2.get("ipv6");
+                arrayList2 = (ArrayList) b2.get("ipv4");
             } else {
                 arrayList = null;
+                arrayList2 = null;
             }
-            this.afg.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
+            this.afL.a(((arrayList2 == null || arrayList2.isEmpty()) && (arrayList == null || arrayList.isEmpty())) ? -1 : 0, arrayList2, arrayList, 60L, this.f1627b);
         }
     }
 
@@ -85,15 +88,15 @@ final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static f td() {
-        if (aff == null) {
+    public static f sD() {
+        if (afK == null) {
             synchronized (f.class) {
-                if (aff == null) {
-                    aff = new f();
+                if (afK == null) {
+                    afK = new f();
                 }
             }
         }
-        return aff;
+        return afK;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -101,20 +104,21 @@ final class f {
         if (str == null || str.isEmpty()) {
             return;
         }
-        m.tg().b().execute(new b(str, aVar));
+        m.sG().b().execute(new b(str, aVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public BDHttpDnsResult dl(String str) {
+    public BDHttpDnsResult de(String str) {
         ArrayList arrayList;
-        ArrayList arrayList2 = null;
+        ArrayList arrayList2;
         Map<String, ArrayList> b2 = b(str);
         if (b2 != null) {
-            arrayList2 = b2.get("ipv6");
-            arrayList = b2.get("ipv4");
+            arrayList = b2.get("ipv6");
+            arrayList2 = b2.get("ipv4");
         } else {
             arrayList = null;
+            arrayList2 = null;
         }
-        return ((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? new BDHttpDnsResult(BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve) : new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2);
+        return ((arrayList2 == null || arrayList2.isEmpty()) && (arrayList == null || arrayList.isEmpty())) ? new BDHttpDnsResult(BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve) : new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList2, arrayList);
     }
 }

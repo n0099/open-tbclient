@@ -2,9 +2,9 @@ package com.baidu.swan.bdprivate.extensions.quicklogin;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public String agreeText;
     public String encryptPhoneNum;
@@ -16,14 +16,14 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<QuickLoginInfo> CREATOR = new Parcelable.Creator<QuickLoginInfo>() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: z */
+        /* renamed from: A */
         public QuickLoginInfo createFromParcel(Parcel parcel) {
             return new QuickLoginInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: lZ */
+        /* renamed from: mg */
         public QuickLoginInfo[] newArray(int i) {
             return new QuickLoginInfo[i];
         }
@@ -47,12 +47,12 @@ public class QuickLoginInfo extends SwanAppIPCData {
             return null;
         }
         QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-        quickLoginInfo.supportQuickLogin = aVar.aQW();
-        quickLoginInfo.encryptPhoneNum = aVar.aQX();
-        quickLoginInfo.serviceAgreement = aVar.aQZ();
-        quickLoginInfo.hasHistory = aVar.aQY();
-        quickLoginInfo.loginMode = aVar.aQV();
-        quickLoginInfo.agreeText = aVar.aRa();
+        quickLoginInfo.supportQuickLogin = aVar.aTr();
+        quickLoginInfo.encryptPhoneNum = aVar.aTs();
+        quickLoginInfo.serviceAgreement = aVar.aTu();
+        quickLoginInfo.hasHistory = aVar.aTt();
+        quickLoginInfo.loginMode = aVar.aTq();
+        quickLoginInfo.agreeText = aVar.aTv();
         return quickLoginInfo;
     }
 

@@ -8,7 +8,7 @@ import com.baidu.sumeru.universalimageloader.core.assist.ImageScaleType;
 import com.baidu.sumeru.universalimageloader.core.assist.ImageSize;
 import com.baidu.sumeru.universalimageloader.core.assist.ViewScaleType;
 import com.baidu.sumeru.universalimageloader.core.download.ImageDownloader;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class ImageDecodingInfo {
     private final boolean considerExifParams;
     private final BitmapFactory.Options decodingOptions = new BitmapFactory.Options();

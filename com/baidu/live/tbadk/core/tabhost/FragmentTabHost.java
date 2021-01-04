@@ -3,17 +3,17 @@ package com.baidu.live.tbadk.core.tabhost;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.BaseFragment;
@@ -25,7 +25,7 @@ import com.baidu.live.tbadk.maintab.TbFragmentTabIndicator;
 import com.baidu.live.tbadk.widget.CustomViewPager;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageChangeListener, FragmentTabWidget.OnTabSelectionChanged {
     public static final int BELOW_NAVIGATION = 3;
     public static final int TABBAR_COVER_BOTTOM = 2;
@@ -46,14 +46,14 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
     private View topDvider;
     private int wrapperHeight;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnTabSelectionListener {
         boolean onPreTabSelectionChange(int i, boolean z);
 
         void onTabSelectionChanged(int i, boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class TabSpec {
         public FragmentDelegate FragmentDelegate;
         public Fragment mContentFragment;
@@ -413,14 +413,14 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
         if (this.mOnPageChangeListener != null) {
             this.mOnPageChangeListener.onPageScrollStateChanged(i);
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
         this.mTabWidgetView.changeLeft(i, f);
         if (this.mOnPageChangeListener != null) {
@@ -428,7 +428,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         if (this.mOnPageChangeListener != null) {
             this.mOnPageChangeListener.onPageSelected(i);
@@ -445,7 +445,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class FragmentAdapter extends FragmentPagerAdapter {
         private int mPrimaryPosition;
         private List<TabSpec> specs;
@@ -456,22 +456,22 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
             this.specs = list;
         }
 
-        @Override // android.support.v4.app.FragmentPagerAdapter
+        @Override // androidx.fragment.app.FragmentPagerAdapter
         public Fragment getItem(int i) {
             return this.specs.get(i).mContentFragment;
         }
 
-        @Override // android.support.v4.app.FragmentPagerAdapter
+        @Override // androidx.fragment.app.FragmentPagerAdapter
         public long getItemId(int i) {
             return this.specs.get(i).mContentFragment.hashCode();
         }
 
-        @Override // android.support.v4.view.PagerAdapter
+        @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
             return this.specs.size();
         }
 
-        @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
+        @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
         public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
             super.setPrimaryItem(viewGroup, i, obj);
             if (this.mPrimaryPosition != i) {

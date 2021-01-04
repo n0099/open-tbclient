@@ -4,29 +4,29 @@ import android.view.Surface;
 import com.baidu.rtc.BaiduRtcRoom;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoSink;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public abstract class j implements VideoSink {
-    public boolean cqR = false;
-    private BaiduRtcRoom.b cqS;
+    public boolean cxW = false;
+    private BaiduRtcRoom.b cxX;
     protected long mUserId;
 
     public j(BaiduRtcRoom.b bVar, long j) {
         this.mUserId = 0L;
-        this.cqS = null;
+        this.cxX = null;
         this.mUserId = j;
-        this.cqS = bVar;
+        this.cxX = bVar;
     }
 
-    public boolean ags() {
-        return this.cqR;
+    public boolean aio() {
+        return this.cxW;
     }
 
     public abstract void changeSurfaceSize(int i, int i2);
 
     public abstract void clearImage();
 
-    public void eq(boolean z) {
-        this.cqR = z;
+    public void ez(boolean z) {
+        this.cxW = z;
     }
 
     public abstract Surface getSurface();
@@ -37,8 +37,8 @@ public abstract class j implements VideoSink {
 
     @Override // org.webrtc.VideoSink
     public void onFrame(VideoFrame videoFrame) {
-        if (this.cqS != null) {
-            this.cqS.a(l.a(videoFrame), this.mUserId);
+        if (this.cxX != null) {
+            this.cxX.a(l.a(videoFrame), this.mUserId);
         }
     }
 

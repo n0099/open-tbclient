@@ -4,34 +4,34 @@ import java.util.ArrayList;
 import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class aa {
-    private w eGe;
+    private w ePU;
     private long threadId;
-    private long eFZ = 0;
-    private String eGa = "";
-    private long eGb = 0;
-    private String eGc = "";
+    private long ePP = 0;
+    private String ePQ = "";
+    private long ePR = 0;
+    private String ePS = "";
     private String imgUrl = "";
-    private String eGd = "";
+    private String ePT = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
             this.threadId = forumHeadlineImgInfo.thread_id.longValue();
-            this.eFZ = forumHeadlineImgInfo.thread_user_id.longValue();
-            this.eGa = forumHeadlineImgInfo.thread_user_name;
-            this.eGb = forumHeadlineImgInfo.img_user_id.longValue();
-            this.eGc = forumHeadlineImgInfo.img_user_name;
+            this.ePP = forumHeadlineImgInfo.thread_user_id.longValue();
+            this.ePQ = forumHeadlineImgInfo.thread_user_name;
+            this.ePR = forumHeadlineImgInfo.img_user_id.longValue();
+            this.ePS = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.eGd = forumHeadlineImgInfo.headline_url;
-            this.eGe = new w();
+            this.ePT = forumHeadlineImgInfo.headline_url;
+            this.ePU = new w();
             ArrayList<z> arrayList = new ArrayList<>();
-            z zVar = new z(this.imgUrl == null ? "" : this.imgUrl, this.eGd == null ? "" : this.eGd, null);
-            zVar.ja(true);
+            z zVar = new z(this.imgUrl == null ? "" : this.imgUrl, this.ePT == null ? "" : this.ePT, null);
+            zVar.jv(true);
             arrayList.add(zVar);
-            this.eGe.C(arrayList);
+            this.ePU.C(arrayList);
         }
     }
 
-    public String bmL() {
+    public String getImgUrl() {
         return this.imgUrl;
     }
 }

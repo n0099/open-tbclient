@@ -1,5 +1,6 @@
 package okio;
 
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
@@ -7,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class HashingSink extends ForwardingSink {
     @Nullable
     private final Mac mac;
@@ -15,7 +16,7 @@ public final class HashingSink extends ForwardingSink {
     private final MessageDigest messageDigest;
 
     public static HashingSink md5(Sink sink) {
-        return new HashingSink(sink, "MD5");
+        return new HashingSink(sink, EncryptUtils.ENCRYPT_MD5);
     }
 
     public static HashingSink sha1(Sink sink) {

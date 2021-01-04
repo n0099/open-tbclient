@@ -2,7 +2,7 @@ package org.apache.http;
 
 import java.io.Serializable;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class ProtocolVersion implements Serializable {
     protected final int major;
     protected final int minor;

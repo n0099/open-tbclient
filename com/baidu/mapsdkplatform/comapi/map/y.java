@@ -1,11 +1,11 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import com.baidu.platform.comapi.map.MapController;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class y extends c {
     public y() {
         this.c = 2;
-        this.b = MapController.ANDROID_SDK_LAYER_TAG;
+        this.f3170b = MapController.ANDROID_SDK_LAYER_TAG;
         this.d = 0;
     }
 }

@@ -4,15 +4,15 @@ import android.view.View;
 import java.util.HashMap;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class o implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackEditActivity f3887a;
+    final /* synthetic */ FeedbackEditActivity f5888a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FeedbackEditActivity feedbackEditActivity) {
-        this.f3887a = feedbackEditActivity;
+        this.f5888a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,24 +21,24 @@ public final class o implements View.OnClickListener {
         List list;
         HashMap hashMap;
         List list2;
-        z = this.f3887a.v;
+        z = this.f5888a.v;
         if (z) {
             return;
         }
-        list = this.f3887a.q;
+        list = this.f5888a.q;
         if (list.size() <= 0) {
-            FeedbackEditActivity.s(this.f3887a);
+            FeedbackEditActivity.s(this.f5888a);
             return;
         }
         com.baidu.ufosdk.f.c.a("picShotLayout1--> to browse picture!");
-        hashMap = this.f3887a.r;
+        hashMap = this.f5888a.r;
         String str = (String) hashMap.get("0");
         if (str != null && str.length() != 0) {
-            FeedbackEditActivity.a(this.f3887a, str, 0);
+            FeedbackEditActivity.a(this.f5888a, str, 0);
             return;
         }
-        FeedbackEditActivity feedbackEditActivity = this.f3887a;
-        list2 = this.f3887a.q;
+        FeedbackEditActivity feedbackEditActivity = this.f5888a;
+        list2 = this.f5888a.q;
         feedbackEditActivity.a((byte[]) list2.get(0), false, 0);
     }
 }

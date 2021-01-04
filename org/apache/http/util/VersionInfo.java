@@ -2,7 +2,7 @@ package org.apache.http.util;
 
 import java.util.Map;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class VersionInfo {
     public static final String PROPERTY_MODULE = "info.module";
     public static final String PROPERTY_RELEASE = "info.release";

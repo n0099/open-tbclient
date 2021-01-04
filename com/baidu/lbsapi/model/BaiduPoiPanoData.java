@@ -1,14 +1,16 @@
 package com.baidu.lbsapi.model;
 
 import android.text.TextUtils;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class BaiduPoiPanoData extends BaiduPanoData {
     private float d;
     private float c = 0.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1848a = "";
-    private String b = "";
+    private String f2554a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2555b = "";
     private String e = "";
 
     public void setPitch(float f) {
@@ -28,19 +30,19 @@ public class BaiduPoiPanoData extends BaiduPanoData {
     }
 
     public String getIid() {
-        return this.f1848a;
+        return this.f2554a;
     }
 
     public void setIid(String str) {
-        this.f1848a = str;
+        this.f2554a = str;
     }
 
     public String getUid() {
-        return this.b;
+        return this.f2555b;
     }
 
     public void setUid(String str) {
-        this.b = str;
+        this.f2555b = str;
     }
 
     public String getPanoTag() {
@@ -52,11 +54,11 @@ public class BaiduPoiPanoData extends BaiduPanoData {
     }
 
     public boolean hasInnerPano() {
-        return !TextUtils.isEmpty(this.f1848a);
+        return !TextUtils.isEmpty(this.f2554a);
     }
 
     @Override // com.baidu.lbsapi.model.BaiduPanoData
     public String toString() {
-        return super.toString() + "\n BaiduPoiPanoData [heading=" + this.c + ", pitch=" + this.d + ", iid=" + this.f1848a + ",  uid=" + this.b + ", panoTag=" + this.e + ", hasInnerPano=" + hasInnerPano() + "]";
+        return super.toString() + "\n BaiduPoiPanoData [heading=" + this.c + ", pitch=" + this.d + ", iid=" + this.f2554a + ",  uid=" + this.f2555b + ", panoTag=" + this.e + ", hasInnerPano=" + hasInnerPano() + "]";
     }
 }

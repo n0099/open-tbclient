@@ -1,14 +1,14 @@
 package com.baidu.swan.games.f.c;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.smallgame.sdk.permission.PermissionListener;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class e implements PermissionProxy {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -24,18 +24,18 @@ public class e implements PermissionProxy {
             }
             return;
         }
-        final String xn = xn(str);
-        com.baidu.swan.apps.runtime.e aJU = com.baidu.swan.apps.runtime.e.aJU();
-        if (TextUtils.isEmpty(xn) || aJU == null || aJU.aJO() == null) {
+        final String xm = xm(str);
+        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
+        if (TextUtils.isEmpty(xm) || aMk == null || aMk.aMe() == null) {
             permissionListener.onPermissionResult(str, 2);
         } else {
-            aJU.aKg().b(aJU.aJO(), str, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.games.f.c.e.1
+            aMk.aMw().b(aMk.aMe(), str, new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.games.f.c.e.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.ap.e.b
+                @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
-                public void M(h<b.d> hVar) {
+                public void L(h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                        e.this.a(str, xn, permissionListener);
+                        e.this.a(str, xm, permissionListener);
                     } else {
                         permissionListener.onPermissionResult(str, 2);
                     }
@@ -44,7 +44,7 @@ public class e implements PermissionProxy {
         }
     }
 
-    private String xn(String str) {
+    private String xm(String str) {
         if (str == null) {
             return null;
         }
@@ -76,14 +76,14 @@ public class e implements PermissionProxy {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull final String str, @NonNull String str2, @NonNull final PermissionListener permissionListener) {
         String[] strArr = {str2};
-        com.baidu.swan.apps.ab.a.a(str2, strArr, 2, com.baidu.swan.apps.runtime.d.aJQ().aJO(), new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.games.f.c.e.2
+        com.baidu.swan.apps.ab.a.a(str2, strArr, 2, com.baidu.swan.apps.runtime.d.aMg().aMe(), new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.games.f.c.e.2
             @Override // com.baidu.swan.apps.ab.b
-            public void kU(String str3) {
+            public void kN(String str3) {
                 permissionListener.onPermissionResult(str, 0);
             }
 
             @Override // com.baidu.swan.apps.ab.b
-            public void af(int i, String str3) {
+            public void ah(int i, String str3) {
                 permissionListener.onPermissionResult(str, 1);
             }
         });

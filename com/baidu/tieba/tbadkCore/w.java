@@ -2,7 +2,6 @@ package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
@@ -22,8 +21,8 @@ public class w {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> nkE = new ArrayList();
-    private int nkD = 0;
+    private List<FeedForumData> nqm = new ArrayList();
+    private int nql = 0;
     private int like_num = 0;
     private int user_level = 0;
 
@@ -42,7 +41,7 @@ public class w {
         this.fid = str;
     }
 
-    public int bLC() {
+    public int bNU() {
         return this.user_level;
     }
 
@@ -58,7 +57,7 @@ public class w {
             parserJson(jSONObject.optJSONObject("info"));
             ab(jSONObject.optJSONArray("feed_forum"));
             this.errorCode = jSONObject.optInt("error_code");
-            this.errorMsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            this.errorMsg = jSONObject.optString("error_msg");
         } catch (Exception e) {
             BdLog.detailException(e);
         }
@@ -67,7 +66,7 @@ public class w {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.nkD = jSONObject.optInt("is_black", 0);
+                this.nql = jSONObject.optInt("is_black", 0);
                 this.like_num = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
@@ -111,7 +110,7 @@ public class w {
                     feedForumData.setReason(jSONObject.optString(TiebaInitialize.LogFields.REASON));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.nkE.add(feedForumData);
+                    this.nqm.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -159,8 +158,8 @@ public class w {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> dOs() {
-        return this.nkE;
+    public List<FeedForumData> dOk() {
+        return this.nqm;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -171,7 +170,7 @@ public class w {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String dOD() {
+    public String dOv() {
         return this.blockUrl;
     }
 

@@ -4,12 +4,14 @@ import android.content.Context;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.utils.f;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Class<?> f4294a = null;
-    private static Class<?> b = null;
+    private static Class<?> f13578a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static Class<?> f13579b = null;
     private static Method c = null;
     private static Method d = null;
     private static Method e = null;
@@ -23,9 +25,9 @@ public class a {
     public static void b(Context context, QQToken qQToken) {
         try {
             if (a(context, qQToken)) {
-                f.invoke(f4294a, true);
+                f.invoke(f13578a, true);
             } else {
-                f.invoke(f4294a, false);
+                f.invoke(f13578a, false);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -35,19 +37,19 @@ public class a {
     public static void c(Context context, QQToken qQToken) {
         String str = "Aqc" + qQToken.getAppId();
         try {
-            f4294a = Class.forName("com.tencent.stat.StatConfig");
-            b = Class.forName("com.tencent.stat.StatService");
-            c = b.getMethod("reportQQ", Context.class, String.class);
-            d = b.getMethod("trackCustomEvent", Context.class, String.class, String[].class);
-            e = b.getMethod("commitEvents", Context.class, Integer.TYPE);
-            f = f4294a.getMethod("setEnableStatService", Boolean.TYPE);
+            f13578a = Class.forName("com.tencent.stat.StatConfig");
+            f13579b = Class.forName("com.tencent.stat.StatService");
+            c = f13579b.getMethod("reportQQ", Context.class, String.class);
+            d = f13579b.getMethod("trackCustomEvent", Context.class, String.class, String[].class);
+            e = f13579b.getMethod("commitEvents", Context.class, Integer.TYPE);
+            f = f13578a.getMethod("setEnableStatService", Boolean.TYPE);
             b(context, qQToken);
-            f4294a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f4294a, false);
-            f4294a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f4294a, true);
-            f4294a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f4294a, 1440);
+            f13578a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f13578a, false);
+            f13578a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f13578a, true);
+            f13578a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f13578a, 1440);
             Class<?> cls = Class.forName("com.tencent.stat.StatReportStrategy");
-            f4294a.getMethod("setStatSendStrategy", cls).invoke(f4294a, cls.getField("PERIOD").get(null));
-            b.getMethod("startStatService", Context.class, String.class, String.class).invoke(b, context, str, Class.forName("com.tencent.stat.common.StatConstants").getField("VERSION").get(null));
+            f13578a.getMethod("setStatSendStrategy", cls).invoke(f13578a, cls.getField("PERIOD").get(null));
+            f13579b.getMethod("startStatService", Context.class, String.class, String.class).invoke(f13579b, context, str, Class.forName("com.tencent.stat.common.StatConstants").getField("VERSION").get(null));
             g = true;
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -59,7 +61,7 @@ public class a {
             b(context, qQToken);
             if (qQToken.getOpenId() != null) {
                 try {
-                    c.invoke(b, context, qQToken.getOpenId());
+                    c.invoke(f13579b, context, qQToken.getOpenId());
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -71,7 +73,7 @@ public class a {
         if (g) {
             b(context, qQToken);
             try {
-                d.invoke(b, context, str, strArr);
+                d.invoke(f13579b, context, str, strArr);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

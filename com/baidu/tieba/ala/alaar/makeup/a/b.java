@@ -7,10 +7,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
-    public String gjJ;
-    private int gjK;
+    public String gui;
+    private int guj;
     private List<d> mData;
     private File mFolder;
     private int mPosition;
@@ -45,25 +45,25 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         return this.mSign;
     }
 
-    public void W(File file) {
+    public void Z(File file) {
         this.mFolder = file;
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean du(JSONObject jSONObject) {
+    public boolean dD(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        this.gjK = jSONObject.optInt("ar_version");
-        this.gjJ = jSONObject.optString("version");
+        this.guj = jSONObject.optInt("ar_version");
+        this.gui = jSONObject.optString("version");
         this.mPosition = jSONObject.optInt("position");
         JSONArray optJSONArray = jSONObject.optJSONArray("makeup_category");
         this.mData = new ArrayList();
         for (int i = 0; i < optJSONArray.length(); i++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             d dVar = new d();
-            dVar.W(this.mFolder);
-            if (dVar.du(optJSONObject)) {
+            dVar.Z(this.mFolder);
+            if (dVar.dD(optJSONObject)) {
                 this.mData.add(dVar);
             }
         }
@@ -74,8 +74,8 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         JSONObject json;
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("ar_version", this.gjK);
-            jSONObject.put("version", this.gjJ);
+            jSONObject.put("ar_version", this.guj);
+            jSONObject.put("version", this.gui);
             jSONObject.put("position", this.mPosition);
             JSONArray jSONArray = new JSONArray();
             if (this.mData != null && this.mData.size() > 0) {

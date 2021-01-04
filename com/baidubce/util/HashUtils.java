@@ -1,5 +1,6 @@
 package com.baidubce.util;
 
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidubce.BceClientException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,12 +9,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class HashUtils {
     private static final Charset UTF8 = Charset.forName("UTF-8");
 
     public static byte[] computeMd5Hash(InputStream inputStream) throws NoSuchAlgorithmException, IOException {
-        return computeHash(inputStream, MessageDigest.getInstance("MD5"));
+        return computeHash(inputStream, MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5));
     }
 
     public static byte[] computeSha256Hash(InputStream inputStream) throws NoSuchAlgorithmException, IOException {

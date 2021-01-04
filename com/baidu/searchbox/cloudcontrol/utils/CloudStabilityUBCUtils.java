@@ -7,7 +7,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.ubc.ab;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CloudStabilityUBCUtils {
     public static final int CSS_CODE_ERROR = 2;
     public static final int CSS_DATA_ERROR = 5;

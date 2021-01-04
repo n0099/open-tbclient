@@ -10,17 +10,18 @@ import android.view.Surface;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.video.meida.c;
 import com.baidu.tieba.video.meida.g;
+import com.kwai.video.player.misc.IMediaFormat;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class b extends c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(String str) {
         super(str);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00ed A[Catch: all -> 0x025b, TryCatch #0 {all -> 0x025b, blocks: (B:21:0x00c2, B:23:0x00c8, B:25:0x00d3, B:26:0x00e3, B:28:0x00ed, B:30:0x00f5, B:33:0x010f, B:35:0x0115, B:37:0x013a, B:39:0x0140, B:40:0x0150, B:42:0x0156, B:45:0x0167, B:49:0x0172, B:51:0x017d, B:52:0x0193, B:53:0x01ba, B:55:0x01c6, B:62:0x01dc, B:65:0x01ec, B:31:0x0101, B:67:0x020a, B:69:0x0212, B:70:0x021c), top: B:78:0x00c2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x01d9 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00ed A[Catch: all -> 0x025a, TryCatch #0 {all -> 0x025a, blocks: (B:21:0x00c2, B:23:0x00c8, B:25:0x00d3, B:26:0x00e3, B:28:0x00ed, B:30:0x00f5, B:33:0x010f, B:35:0x0115, B:37:0x013a, B:39:0x0140, B:40:0x0150, B:42:0x0156, B:45:0x0167, B:49:0x0172, B:51:0x017d, B:52:0x0193, B:53:0x01ba, B:55:0x01c6, B:62:0x01db, B:65:0x01eb, B:31:0x0101, B:67:0x0209, B:69:0x0211, B:70:0x021b), top: B:78:0x00c2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x01d8 A[SYNTHETIC] */
     @TargetApi(16)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -31,26 +32,25 @@ public class b extends c {
         int dequeueOutputBuffer;
         int i;
         ByteBuffer[] byteBufferArr;
-        int i2;
         boolean z3;
         if (TextUtils.isEmpty(str) || aVar == null || aVar2 == null) {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str2 = this.nGE;
+        String str2 = this.nJV;
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(str2);
-        int i3 = 0;
+        int i2 = 0;
         while (true) {
-            if (i3 >= mediaExtractor.getTrackCount()) {
+            if (i2 >= mediaExtractor.getTrackCount()) {
                 mediaFormat = null;
                 break;
             }
-            mediaFormat = mediaExtractor.getTrackFormat(i3);
-            if (!mediaFormat.getString("mime").startsWith("audio/")) {
-                i3++;
+            mediaFormat = mediaExtractor.getTrackFormat(i2);
+            if (!mediaFormat.getString(IMediaFormat.KEY_MIME).startsWith("audio/")) {
+                i2++;
             } else {
-                mediaExtractor.selectTrack(i3);
+                mediaExtractor.selectTrack(i2);
                 break;
             }
         }
@@ -63,10 +63,10 @@ public class b extends c {
         c.b bVar = new c.b();
         bVar.channel = aVar2.channelCount;
         bVar.sampleRate = aVar2.sampleRate;
-        bVar.nGH = aVar2.nGH;
-        bVar.nGG = str;
-        FileOutputStream fileOutputStream = new FileOutputStream(bVar.nGG);
-        MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
+        bVar.nJY = aVar2.nJY;
+        bVar.nJX = str;
+        FileOutputStream fileOutputStream = new FileOutputStream(bVar.nJX);
+        MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString(IMediaFormat.KEY_MIME));
         createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
         createDecoderByType.start();
         ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
@@ -74,7 +74,7 @@ public class b extends c {
         double d = mediaFormat.getLong("durationUs");
         MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
         boolean z4 = false;
-        int i4 = 0;
+        int i3 = 0;
         boolean z5 = false;
         while (!z4) {
             if (!z5) {
@@ -99,15 +99,15 @@ public class b extends c {
                                         byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
                                         byte[] bArr = new byte[bufferInfo.size];
                                         byteBuffer.get(bArr);
-                                        i2 = i4 + bArr.length;
+                                        i = i3 + bArr.length;
                                         byte[] bArr2 = null;
                                         byte[] bArr3 = null;
                                         if (!z) {
-                                            if (aVar2.dVz()) {
-                                                bArr2 = g.b(aVar2.nGH / 8, aVar.nGH / 8, bArr);
+                                            if (aVar2.dVb()) {
+                                                bArr2 = g.b(aVar2.nJY / 8, aVar.nJY / 8, bArr);
                                             }
-                                            if (aVar2.dVy()) {
-                                                bArr3 = g.a(aVar2.channelCount, aVar.channelCount, aVar.nGH / 8, bArr2 == null ? bArr : bArr2);
+                                            if (aVar2.dVa()) {
+                                                bArr3 = g.a(aVar2.channelCount, aVar.channelCount, aVar.nJY / 8, bArr2 == null ? bArr : bArr2);
                                             }
                                         }
                                         if (bArr3 != null) {
@@ -116,12 +116,12 @@ public class b extends c {
                                             bArr2 = bArr;
                                         }
                                         fileOutputStream.write(bArr2);
-                                        if (this.nGF != null) {
-                                            this.nGF.b(bArr, bufferInfo.presentationTimeUs / d);
+                                        if (this.nJW != null) {
+                                            this.nJW.b(bArr, bufferInfo.presentationTimeUs / d);
                                         }
-                                        BdLog.i(this.nGE + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                        BdLog.i(this.nJV + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
                                     } else {
-                                        i2 = i4;
+                                        i = i3;
                                     }
                                     createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
                                     if ((bufferInfo.flags & 4) != 0) {
@@ -131,22 +131,21 @@ public class b extends c {
                                         z3 = z4;
                                     }
                                     z4 = z3;
-                                    i = i2;
                                     byteBufferArr = outputBuffers;
                                 }
                             } else if (dequeueOutputBuffer == -3) {
                                 ByteBuffer[] outputBuffers2 = createDecoderByType.getOutputBuffers();
                                 BdLog.i("output buffers have changed.");
+                                i = i3;
                                 byteBufferArr = outputBuffers2;
-                                i = i4;
                             } else {
                                 if (dequeueOutputBuffer == -2) {
                                     BdLog.e("output format has changed to " + createDecoderByType.getOutputFormat());
                                 }
-                                i = i4;
+                                i = i3;
                                 byteBufferArr = outputBuffers;
                             }
-                            i4 = i;
+                            i3 = i;
                             z5 = z2;
                             outputBuffers = byteBufferArr;
                         } else {
@@ -165,13 +164,13 @@ public class b extends c {
             dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
             if (dequeueOutputBuffer < 0) {
             }
-            i4 = i;
+            i3 = i;
             z5 = z2;
             outputBuffers = byteBufferArr;
         }
-        bVar.size = i4;
-        if (this.nGF != null) {
-            this.nGF.b(null, 1.0d);
+        bVar.size = i3;
+        if (this.nJW != null) {
+            this.nJW.b(null, 1.0d);
         }
         BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - currentTimeMillis) + " milliseconds !");
         return bVar;

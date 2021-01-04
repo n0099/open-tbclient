@@ -1,62 +1,62 @@
 package com.baidu.swan.games.screenrecord;
 
-import android.support.annotation.NonNull;
 import android.util.Log;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes9.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d eeg = null;
-    private GameRecorderController eaX;
-    private boolean eeh;
+    private static volatile d ene = null;
+    private GameRecorderController ejU;
+    private boolean enf;
 
     private d() {
     }
 
-    public static d aZk() {
-        if (eeg == null) {
+    public static d bbE() {
+        if (ene == null) {
             synchronized (d.class) {
-                if (eeg == null) {
-                    eeg = new d();
+                if (ene == null) {
+                    ene = new d();
                 }
             }
         }
-        return eeg;
+        return ene;
     }
 
     public void g(GameRecorderController gameRecorderController) {
-        if (this.eaX != null && this.eaX != gameRecorderController) {
-            this.eaX.release();
+        if (this.ejU != null && this.ejU != gameRecorderController) {
+            this.ejU.release();
         }
-        this.eaX = gameRecorderController;
+        this.ejU = gameRecorderController;
     }
 
     @NonNull
-    public GameRecorderController aZl() {
+    public GameRecorderController bbF() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "getRecorderController:" + this.eaX);
+            Log.i("GameRecorderManager", "getRecorderController:" + this.ejU);
         }
-        return this.eaX == null ? GameRecorderController.aZj() : this.eaX;
+        return this.ejU == null ? GameRecorderController.bbD() : this.ejU;
     }
 
     public void h(GameRecorderController gameRecorderController) {
-        if (this.eaX != null && this.eaX == gameRecorderController) {
-            this.eaX.release();
-            this.eaX = null;
+        if (this.ejU != null && this.ejU == gameRecorderController) {
+            this.ejU.release();
+            this.ejU = null;
         }
     }
 
-    public boolean aZm() {
+    public boolean bbG() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "isGamePause:" + this.eeh);
+            Log.i("GameRecorderManager", "isGamePause:" + this.enf);
         }
-        return this.eeh;
+        return this.enf;
     }
 
-    public void aZn() {
-        this.eeh = true;
+    public void bbH() {
+        this.enf = true;
     }
 
-    public void aZo() {
-        this.eeh = false;
+    public void bbI() {
+        this.enf = false;
     }
 }

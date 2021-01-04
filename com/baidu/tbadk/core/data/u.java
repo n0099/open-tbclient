@@ -1,22 +1,22 @@
 package com.baidu.tbadk.core.data;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class u implements Comparable<u> {
-    public String eFA;
-    public boolean eFB;
-    public int eFC;
-    public int eFD;
-    public String eFu;
-    public String eFv;
-    public boolean eFw;
-    public String eFx;
-    public String eFy;
-    public String eFz;
+    public String ePk;
+    public String ePl;
+    public boolean ePm;
+    public String ePn;
+    public String ePo;
+    public String ePp;
+    public String ePq;
+    public boolean ePr;
+    public int ePs;
+    public int ePt;
     public String mContent;
     public String mDescription;
     public String mIcon;
@@ -39,14 +39,14 @@ public class u implements Comparable<u> {
             return uVar;
         }
         uVar.mTitle = dVar.mTitle;
-        uVar.mIcon = dVar.cny;
-        uVar.eFz = dVar.eFz;
-        uVar.mPrice = dVar.fhd;
-        uVar.eFu = dVar.eFu;
-        uVar.eFB = dVar.eFB;
+        uVar.mIcon = dVar.cuF;
+        uVar.ePp = dVar.ePp;
+        uVar.mPrice = dVar.fqN;
+        uVar.ePk = dVar.ePk;
+        uVar.ePr = dVar.ePr;
         uVar.mDescription = dVar.mDescription;
-        uVar.eFw = dVar.eFC == 1;
-        uVar.eFC = dVar.eFC;
+        uVar.ePm = dVar.ePs == 1;
+        uVar.ePs = dVar.ePs;
         tbLinkSpanGroup.b(uVar);
         return uVar;
     }
@@ -59,17 +59,17 @@ public class u implements Comparable<u> {
         if (aVar == null) {
             return uVar;
         }
-        uVar.mContent = TextUtils.isEmpty(aVar.cMU()) ? TbadkCoreApplication.getInst().getString(R.string.web_page_link) : aVar.cMU() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
-        uVar.mTitle = aVar.cMS();
-        uVar.eFA = aVar.cMV();
-        if (!com.baidu.tbadk.core.util.y.isEmpty(aVar.getImageList()) && aVar.getImageList().get(0) != null) {
+        uVar.mContent = TextUtils.isEmpty(aVar.cQh()) ? TbadkCoreApplication.getInst().getString(R.string.web_page_link) : aVar.cQh() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
+        uVar.mTitle = aVar.cQf();
+        uVar.ePq = aVar.cQi();
+        if (!com.baidu.tbadk.core.util.x.isEmpty(aVar.getImageList()) && aVar.getImageList().get(0) != null) {
             uVar.mIcon = aVar.getImageList().get(0).getSrc();
         }
-        uVar.eFz = aVar.cMU();
+        uVar.ePp = aVar.cQh();
         uVar.mPrice = aVar.getPrice();
-        if (aVar.cMT() != null) {
-            uVar.eFx = aVar.cMT().cMW();
-            uVar.eFy = aVar.cMT().cMX();
+        if (aVar.cQg() != null) {
+            uVar.ePn = aVar.cQg().cQj();
+            uVar.ePo = aVar.cQg().cQk();
         }
         tbLinkSpanGroup.b(uVar);
         return uVar;
@@ -79,6 +79,6 @@ public class u implements Comparable<u> {
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(@NonNull u uVar) {
-        return this.eFD - uVar.eFD;
+        return this.ePt - uVar.ePt;
     }
 }

@@ -6,48 +6,48 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d extends c {
-    public List<c> gjt;
-    public int gju;
-    public boolean gjv;
+    public List<c> gtS;
+    public int gtT;
+    public boolean gtU;
     private int mPosition = 0;
 
-    public List<c> bPV() {
-        return this.gjt;
+    public List<c> bSv() {
+        return this.gtS;
     }
 
-    public void bY(List<c> list) {
-        this.gjt = list;
+    public void cf(List<c> list) {
+        this.gtS = list;
     }
 
-    public c bPW() {
-        if (this.gjt == null || this.mPosition < 0 || this.mPosition >= this.gjt.size()) {
+    public c bSw() {
+        if (this.gtS == null || this.mPosition < 0 || this.mPosition >= this.gtS.size()) {
             return null;
         }
-        return this.gjt.get(this.mPosition);
+        return this.gtS.get(this.mPosition);
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.c
     public JSONObject toJson() {
-        return lN(true);
+        return mk(true);
     }
 
-    public JSONObject lN(boolean z) {
+    public JSONObject mk(boolean z) {
         JSONObject json = super.toJson();
         try {
             json.put("category_id", getId());
             json.put("position", this.mPosition);
             JSONArray jSONArray = new JSONArray();
-            if (this.gjt != null) {
-                for (c cVar : this.gjt) {
+            if (this.gtS != null) {
+                for (c cVar : this.gtS) {
                     if (cVar != null) {
                         jSONArray.put(cVar.toJson());
                     }
                 }
             }
             json.put("data", jSONArray);
-            json.put("independent", this.gjv ? 1 : 0);
+            json.put("independent", this.gtU ? 1 : 0);
         } catch (JSONException e) {
             e.printStackTrace();
             if (h.isDebug()) {
@@ -58,19 +58,19 @@ public class d extends c {
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.c, com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean du(JSONObject jSONObject) {
+    public boolean dD(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        super.du(jSONObject);
+        super.dD(jSONObject);
         setId(jSONObject.optString("category_id"));
         this.mPosition = jSONObject.optInt("position", 0);
-        this.gjt = new ArrayList();
+        this.gtS = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("data");
         if (optJSONArray == null) {
             optJSONArray = jSONObject.optJSONArray("value");
         }
-        this.gjv = jSONObject.optInt("independent", 0) == 1;
+        this.gtU = jSONObject.optInt("independent", 0) == 1;
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -78,14 +78,14 @@ public class d extends c {
                 if (optJSONObject != null) {
                     c cVar = new c();
                     cVar.setTypeName(getTypeName());
-                    cVar.W(bPS());
-                    if (cVar.du(optJSONObject)) {
-                        this.gjt.add(cVar);
+                    cVar.Z(bSs());
+                    if (cVar.dD(optJSONObject)) {
+                        this.gtS.add(cVar);
                     }
                 }
             }
-            if (this.gjv) {
-                super.du(optJSONArray.optJSONObject(0));
+            if (this.gtU) {
+                super.dD(optJSONArray.optJSONObject(0));
             }
         }
         return true;
@@ -111,7 +111,7 @@ public class d extends c {
         this.mPosition = i;
     }
 
-    public boolean aBy() {
-        return this.gjv;
+    public boolean aCP() {
+        return this.gtU;
     }
 }

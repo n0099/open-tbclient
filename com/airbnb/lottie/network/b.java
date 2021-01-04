@@ -1,14 +1,14 @@
 package com.airbnb.lottie.network;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
-import android.support.v4.util.Pair;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import androidx.core.util.Pair;
+import com.airbnb.lottie.c;
 import com.airbnb.lottie.d;
 import com.airbnb.lottie.e;
-import com.airbnb.lottie.f;
+import com.airbnb.lottie.k;
 import com.airbnb.lottie.l;
-import com.airbnb.lottie.m;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,57 +20,57 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private final a HG;
+    private final a Hp;
     private final Context appContext;
     private final String url;
 
-    public static m<e> v(Context context, String str) {
-        return new b(context, str).kM();
+    public static l<d> v(Context context, String str) {
+        return new b(context, str).kl();
     }
 
     private b(Context context, String str) {
         this.appContext = context.getApplicationContext();
         this.url = str;
-        this.HG = new a(this.appContext, str);
+        this.Hp = new a(this.appContext, str);
     }
 
-    private m<e> kM() {
-        return new m<>(new Callable<l<e>>() { // from class: com.airbnb.lottie.network.b.1
+    private l<d> kl() {
+        return new l<>(new Callable<k<d>>() { // from class: com.airbnb.lottie.network.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: iF */
-            public l<e> call() throws Exception {
-                return b.this.kN();
+            /* renamed from: ic */
+            public k<d> call() throws Exception {
+                return b.this.km();
             }
         });
     }
 
     @WorkerThread
-    public l<e> kN() {
-        e kO = kO();
-        if (kO != null) {
-            return new l<>(kO);
+    public k<d> km() {
+        d kn = kn();
+        if (kn != null) {
+            return new k<>(kn);
         }
-        d.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
-        return kP();
+        c.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
+        return ko();
     }
 
-    @WorkerThread
     @Nullable
-    private e kO() {
-        l<e> c;
-        Pair<FileExtension, InputStream> kL = this.HG.kL();
-        if (kL == null) {
+    @WorkerThread
+    private d kn() {
+        k<d> c;
+        Pair<FileExtension, InputStream> kk = this.Hp.kk();
+        if (kk == null) {
             return null;
         }
-        FileExtension fileExtension = kL.first;
-        InputStream inputStream = kL.second;
+        FileExtension fileExtension = kk.first;
+        InputStream inputStream = kk.second;
         if (fileExtension == FileExtension.Zip) {
-            c = f.a(new ZipInputStream(inputStream), this.url);
+            c = e.c(new ZipInputStream(inputStream), this.url);
         } else {
-            c = f.c(inputStream, this.url);
+            c = e.c(inputStream, this.url);
         }
         if (c.getValue() != null) {
             return c.getValue();
@@ -79,19 +79,19 @@ public class b {
     }
 
     @WorkerThread
-    private l<e> kP() {
+    private k<d> ko() {
         try {
-            return kQ();
+            return kp();
         } catch (IOException e) {
-            return new l<>(e);
+            return new k<>(e);
         }
     }
 
     @WorkerThread
-    private l kQ() throws IOException {
+    private k kp() throws IOException {
         FileExtension fileExtension;
-        l<e> a2;
-        d.debug("Fetching " + this.url);
+        k<d> c;
+        c.debug("Fetching " + this.url);
         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.url).openConnection();
         httpURLConnection.setRequestMethod("GET");
         httpURLConnection.connect();
@@ -103,43 +103,43 @@ public class b {
                 if (readLine != null) {
                     sb.append(readLine).append('\n');
                 } else {
-                    return new l((Throwable) new IllegalArgumentException("Unable to fetch " + this.url + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + ((Object) sb)));
+                    return new k((Throwable) new IllegalArgumentException("Unable to fetch " + this.url + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + ((Object) sb)));
                 }
             }
         } else {
             String contentType = httpURLConnection.getContentType();
-            char c = 65535;
+            char c2 = 65535;
             switch (contentType.hashCode()) {
                 case -1248325150:
                     if (contentType.equals("application/zip")) {
-                        c = 0;
+                        c2 = 0;
                         break;
                     }
                     break;
                 case -43840953:
                     if (contentType.equals(HttpHelper.CONTENT_JSON)) {
-                        c = 1;
+                        c2 = 1;
                         break;
                     }
                     break;
             }
-            switch (c) {
+            switch (c2) {
                 case 0:
-                    d.debug("Handling zip response.");
+                    c.debug("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    a2 = f.a(new ZipInputStream(new FileInputStream(this.HG.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
+                    c = e.c(new ZipInputStream(new FileInputStream(this.Hp.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
                     break;
                 default:
-                    d.debug("Received json response.");
+                    c.debug("Received json response.");
                     fileExtension = FileExtension.Json;
-                    a2 = f.c(new FileInputStream(new File(this.HG.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
+                    c = e.c(new FileInputStream(new File(this.Hp.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
                     break;
             }
-            if (a2.getValue() != null) {
-                this.HG.a(fileExtension);
+            if (c.getValue() != null) {
+                this.Hp.a(fileExtension);
             }
-            d.debug("Completed fetch from network. Success: " + (a2.getValue() != null));
-            return a2;
+            c.debug("Completed fetch from network. Success: " + (c.getValue() != null));
+            return c;
         }
     }
 }

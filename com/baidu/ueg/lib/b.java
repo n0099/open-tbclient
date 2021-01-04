@@ -1,7 +1,7 @@
 package com.baidu.ueg.lib;
 
 import java.util.Arrays;
-/* loaded from: classes19.dex */
+/* loaded from: classes6.dex */
 public abstract class b {
     protected final byte PAD = 61;
     private final int chunkSeparatorLength;
@@ -13,10 +13,10 @@ public abstract class b {
 
     abstract void b(byte[] bArr, int i, int i2, a aVar);
 
-    protected abstract boolean isInAlphabet(byte b);
+    protected abstract boolean isInAlphabet(byte b2);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         byte[] buffer;
         int currentLinePos;
@@ -119,8 +119,8 @@ public abstract class b {
         if (bArr == null) {
             return false;
         }
-        for (byte b : bArr) {
-            if (61 == b || isInAlphabet(b)) {
+        for (byte b2 : bArr) {
+            if (61 == b2 || isInAlphabet(b2)) {
                 return true;
             }
         }

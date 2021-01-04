@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.account.request;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
@@ -14,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     private static final String TAG = "IMGenTokenByCuidRequest";
     private long mAppid;
@@ -41,8 +40,8 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject.has("error_code")) {
                 i2 = jSONObject.getInt("error_code");
-                if (jSONObject.has(AlaRecorderLog.KEY_ERROR_MSG)) {
-                    str2 = jSONObject.getString(AlaRecorderLog.KEY_ERROR_MSG);
+                if (jSONObject.has("error_msg")) {
+                    str2 = jSONObject.getString("error_msg");
                 }
                 if (i2 == 0) {
                     str3 = jSONObject.getString("token");

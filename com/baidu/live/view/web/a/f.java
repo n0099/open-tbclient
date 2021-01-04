@@ -1,34 +1,32 @@
 package com.baidu.live.view.web.a;
 
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.util.ViewHelper;
-import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.tbadk.extraparams.ResultCallback;
-import com.baidu.live.tbadk.scheme.SchemeCallback;
+import android.text.TextUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class f extends com.baidu.live.view.web.a {
-    private SchemeCallback bRj;
-
-    public f(SchemeCallback schemeCallback) {
-        this.bRj = schemeCallback;
-    }
-
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "loginBridge";
+        return "followBridge";
     }
 
     @Override // com.baidu.live.view.web.a
-    public void jm(final String str) {
-        if (this.bRj != null) {
-            ExtraParamsManager.addLoginCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.f.1
-                @Override // com.baidu.live.tbadk.extraparams.ResultCallback
-                public void onCallback(JSONObject jSONObject) {
-                    f.this.bRj.doJsCallback(jSONObject.optBoolean("status") ? 1 : 0, "", null, str);
+    public void jf(String str) {
+        if (str != null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject != null) {
+                    String optString = jSONObject.optString("user_id");
+                    if (!TextUtils.isEmpty(optString)) {
+                        String[] split = optString.contains(",") ? optString.split(",") : new String[]{optString};
+                        if (split != null) {
+                            com.baidu.live.view.a.Zx().o(split);
+                        }
+                    }
                 }
-            });
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-        ViewHelper.skipToLoginActivity(TbadkCoreApplication.getInst());
     }
 }

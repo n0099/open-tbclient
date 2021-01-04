@@ -1,95 +1,1093 @@
 package com.baidu.tbadk.core.util;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
+import android.app.Application;
+import android.content.res.AssetManager;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.StateListDrawable;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.SparseIntArray;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.appcompat.content.res.AppCompatResources;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
-import com.baidu.live.tbadk.core.util.SelectImageHelper;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class ao {
-    public static void g(TbPageContext<?> tbPageContext) {
+    private static String TYPE_ERROR;
+    public static final float fdh;
+    public static final float fdi;
+    private static String fdj;
+    private static AssetManager fdk;
+    private static SparseIntArray fdl;
+    private static SparseIntArray fdm;
+    public static Resources mPluginRes;
+    private static Resources mSkinRes;
+    private static String sPackagename;
+    private static int sPacknameLength;
+
+    static {
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_NIGHTRES_PLUGIN_CHANGE) { // from class: com.baidu.tbadk.core.util.ao.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                ao.mPluginRes = null;
+            }
+        });
+        fdh = com.baidu.tbadk.core.elementsMaven.a.pq(R.string.A_X07);
+        fdi = com.baidu.tbadk.core.elementsMaven.a.pq(R.string.A_X09);
+        TYPE_ERROR = "skinType not support";
+        sPackagename = null;
+        sPacknameLength = 0;
+        fdl = new SparseIntArray();
+        fdm = new SparseIntArray();
+    }
+
+    public static void BW(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+        if (!StringUtils.isNull(str)) {
+            try {
+                Resources resources = TbadkCoreApplication.getInst().getResources();
+                if (resources != null) {
+                    fdk = (AssetManager) AssetManager.class.newInstance();
+                    File GetFile = n.GetFile(str);
+                    if (GetFile == null || !GetFile.exists()) {
+                        com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), R.string.theme_skin_apk_error);
+                    } else {
+                        fdk.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(fdk, GetFile.getAbsolutePath());
+                        mSkinRes = new Resources(fdk, resources.getDisplayMetrics(), resources.getConfiguration());
+                        fdj = n.getApkFilePackageName(str);
+                    }
+                }
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
+        }
+    }
+
+    public static String bwj() {
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (skinType == 1) {
+            return "night";
+        }
+        if (skinType != 4) {
+            return "default";
+        }
+        return "dark";
+    }
+
+    @Deprecated
+    public static void setButtonTextColor(TextView textView, int i) {
+        if (textView != null) {
+            Application app = BdBaseApplication.getInst().getApp();
+            if (i == 1 || i == 4) {
+                textView.setTextColor(app.getResources().getColor(R.color.common_color_10212));
+            } else {
+                textView.setTextColor(app.getResources().getColor(R.color.CAM_X0201));
+            }
+        }
+    }
+
+    @Deprecated
+    public static void setTextColor(TextView textView, int i) {
+        if (textView != null) {
+            Application app = BdBaseApplication.getInst().getApp();
+            if (i == 1 || i == 4) {
+                textView.setTextColor(app.getResources().getColor(R.color.common_color_10004));
+            } else {
+                textView.setTextColor(app.getResources().getColor(R.color.black_alpha100));
+            }
+        }
+    }
+
+    public static void setBgColor(View view, int i) {
+        if (view != null) {
+            Application app = BdBaseApplication.getInst().getApp();
+            if (i == 1 || i == 4) {
+                view.setBackgroundColor(app.getResources().getColor(R.color.common_color_10150));
+            } else {
+                view.setBackgroundColor(app.getResources().getColor(R.color.common_color_10163));
+            }
+        }
+    }
+
+    public static void setFrsPBBgColor(View view, int i) {
+        if (view != null) {
+            setBackgroundResource(view, R.drawable.common_bg);
+        }
+    }
+
+    public static void setTopBarTitleColor(TextView textView, int i) {
+        if (textView != null) {
+            Application app = BdBaseApplication.getInst().getApp();
+            if (i == 1 || i == 4) {
+                textView.setTextColor(app.getResources().getColor(R.color.common_color_10004));
+            } else {
+                textView.setTextColor(app.getResources().getColor(R.color.CAM_X0201));
+            }
+        }
+    }
+
+    public static void setTopBarBgImage(View view, int i) {
+        if (view != null) {
+            setBackgroundResource(view, R.drawable.titlebar_bg);
+        }
+    }
+
+    public static void setTopBarCommonFinishButton(TextView textView, int i) {
+        if (textView != null) {
+            setBackgroundResource(textView, R.drawable.navi_done_text_bg);
+        }
+        setTopBarCommonFinishButtonText(textView, i);
+    }
+
+    public static void setTopBarCommonFinishButtonText(TextView textView, int i) {
+        if (textView != null) {
+            setViewTextColor(textView, R.color.navi_done_text, 1);
+        }
+    }
+
+    public static void setTopBarBackBgImage(ImageView imageView, int i) {
+        if (imageView != null) {
+            imageView.setScaleType(ImageView.ScaleType.CENTER);
+            setImageResource(imageView, R.drawable.icon_topbar_return_n);
+        }
+    }
+
+    public static void setTopBarRefrshBgImage(ImageView imageView, int i) {
+        if (imageView != null) {
+            imageView.setScaleType(ImageView.ScaleType.CENTER);
+            setImageResource(imageView, R.drawable.icon_refresh_n);
+        }
+    }
+
+    public static int getCommentTextColor(int i) {
+        if (i == 1 || i == 4) {
+            return BdBaseApplication.getInst().getApp().getResources().getColor(R.color.common_color_10004);
+        }
+        throw new IllegalArgumentException(TYPE_ERROR);
+    }
+
+    public static int getBgColor(int i) {
+        Application app = BdBaseApplication.getInst().getApp();
+        return (i == 1 || i == 4) ? app.getResources().getColor(R.color.common_color_10150) : app.getResources().getColor(R.color.common_color_10163);
+    }
+
+    public static int c(Resources resources, int i) {
+        String str;
+        int i2;
+        if (mPluginRes == null) {
+            mPluginRes = resources;
+        }
+        int i3 = fdl.get(i, -1);
+        if (i3 == -1) {
+            try {
+                str = resources.getResourceName(i);
+            } catch (Exception e) {
+                str = null;
+            }
+            if (!TextUtils.isEmpty(str) && str.indexOf(":") > 0 && mPluginRes != null) {
+                if (sPacknameLength == 0) {
+                    sPackagename = BdBaseApplication.getInst().getPackageName();
+                    sPacknameLength = sPackagename.length();
+                }
+                if (str.length() > sPacknameLength && str.charAt(sPacknameLength) != ':' && str.startsWith(sPackagename)) {
+                    str = sPackagename + str.substring(str.indexOf(":"));
+                }
+                i3 = mPluginRes.getIdentifier(str + "_1", null, null);
+                if (i3 <= 0) {
+                    i2 = mPluginRes.getIdentifier(("com.baidu.tieba.pluginResource" + str.substring(str.indexOf(":"))) + "_1", null, null);
+                    fdl.put(i, i2);
+                    return i2;
+                }
+            }
+            i2 = i3;
+            fdl.put(i, i2);
+            return i2;
+        }
+        return i3;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00cf  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int d(Resources resources, int i) {
+        String str;
+        int i2;
+        if (mPluginRes == null) {
+            mPluginRes = resources;
+        }
+        int i3 = fdm.get(i, -1);
+        if (i3 != -1) {
+            return i3;
+        }
         try {
-            if (!n.checkSD()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.getSdErrorString());
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.getSdErrorString());
+            str = resources.getResourceName(i);
+        } catch (Exception e) {
+            str = null;
+        }
+        if (!TextUtils.isEmpty(str) && str.indexOf(":") > 0 && mPluginRes != null) {
+            if (sPacknameLength == 0) {
+                sPackagename = BdBaseApplication.getInst().getPackageName();
+                sPacknameLength = sPackagename.length();
+            }
+            if (str.length() > sPacknameLength && str.charAt(sPacknameLength) != ':' && str.startsWith(sPackagename)) {
+                str = sPackagename + str.substring(str.indexOf(":"));
+            }
+            i3 = mPluginRes.getIdentifier(str + "_2", null, null);
+            if (i3 <= 0) {
+                i2 = mPluginRes.getIdentifier(("com.baidu.tieba.pluginResource" + str.substring(str.indexOf(":"))) + "_2", null, null);
+                if (i2 <= 0) {
+                    i2 = c(resources, i);
+                }
+                fdm.put(i, i2);
+                return i2;
+            }
+        }
+        i2 = i3;
+        if (i2 <= 0) {
+        }
+        fdm.put(i, i2);
+        return i2;
+    }
+
+    public static void setNavbarIconSrc(ImageView imageView, int i, int i2) {
+        setNavbarIconSrc(imageView, i, i2, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public static void setNavbarIconSrc(ImageView imageView, int i, int i2, int i3) {
+        if (i != 0 && i2 != 0 && imageView != null) {
+            boolean z = TbadkCoreApplication.getInst().getUsedThemeColor() == 1;
+            if (i3 == 2 && TbadkCoreApplication.getInst().getUsedThemeId() > 0) {
+                if (z) {
+                    imageView.setImageResource(i);
+                } else {
+                    imageView.setImageResource(i2);
+                }
+            } else if (i3 == 1 || i3 == 4) {
+                setImageResource(imageView, i2, i3);
+            } else {
+                setImageResource(imageView, i, i3);
+            }
+        }
+    }
+
+    public static void setNavbarTitleColor(View view, int i, int i2) {
+        setNavbarTitleColor(view, i, i2, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public static void setNavbarTitleColor(View view, int i, int i2, int i3) {
+        if (i != 0 && i2 != 0 && view != null) {
+            boolean z = TbadkCoreApplication.getInst().getUsedThemeColor() == 1;
+            if (i3 == 2 && TbadkCoreApplication.getInst().getUsedThemeId() > 0) {
+                if (z) {
+                    setViewTextColor(view, i);
+                    return;
+                } else {
+                    setViewTextColor(view, i2);
+                    return;
+                }
+            }
+            setViewTextColor(view, i);
+        }
+    }
+
+    private static int getSkinResourceId(Resources resources, int i) {
+        String str;
+        if (mSkinRes == null) {
+            mSkinRes = resources;
+        }
+        if (mSkinRes == null) {
+            return 0;
+        }
+        try {
+            str = resources.getResourceName(i);
+        } catch (Exception e) {
+            str = null;
+        }
+        if (StringUtils.isNull(str)) {
+            return 0;
+        }
+        String substring = str.substring(str.indexOf("/"));
+        if (StringUtils.isNull(substring) || !substring.startsWith("/s_")) {
+            return 0;
+        }
+        return mSkinRes.getIdentifier(fdj + str.substring(str.indexOf(":")), null, null);
+    }
+
+    public static void setViewTextColor(View view, int i) {
+        setViewTextColor(view, i, 1);
+    }
+
+    public static Drawable getSkinDrawable(Resources resources, int i) {
+        Resources resources2;
+        if (i == 0) {
+            return null;
+        }
+        if (TbadkCoreApplication.getInst().getUsedThemeId() <= 0 || TbadkCoreApplication.getInst().getSkinType() != 2) {
+            return getDrawable(i);
+        }
+        if (resources == null) {
+            resources = BdBaseApplication.getInst().getApp().getResources();
+        }
+        int skinResourceId = getSkinResourceId(resources, i);
+        if (skinResourceId == 0) {
+            resources2 = resources;
+            skinResourceId = i;
+        } else if (mSkinRes != null) {
+            resources2 = mSkinRes;
+        } else {
+            resources2 = resources;
+            skinResourceId = i;
+        }
+        try {
+            return resources2.getDrawable(skinResourceId);
+        } catch (Throwable th) {
+            return resources.getDrawable(i);
+        }
+    }
+
+    public static int getSkinColor(Resources resources, int i) {
+        Resources resources2;
+        if (i == 0) {
+            return 0;
+        }
+        if (TbadkCoreApplication.getInst().getUsedThemeId() <= 0 || TbadkCoreApplication.getInst().getSkinType() != 2) {
+            return getColor(i);
+        }
+        if (resources == null) {
+            resources = BdBaseApplication.getInst().getApp().getResources();
+        }
+        int skinResourceId = getSkinResourceId(resources, i);
+        if (skinResourceId == 0) {
+            resources2 = resources;
+            skinResourceId = i;
+        } else if (mSkinRes != null) {
+            resources2 = mSkinRes;
+        } else {
+            resources2 = resources;
+            skinResourceId = i;
+        }
+        try {
+            return resources2.getColor(skinResourceId);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
+            return resources.getColor(i);
+        }
+    }
+
+    public static int getColor(int i, Resources resources, int i2) {
+        Resources resources2;
+        int i3;
+        if (i2 == 0) {
+            return 0;
+        }
+        Resources resources3 = resources != null ? resources : BdBaseApplication.getInst().getApp().getResources();
+        if (i == 2) {
+            i3 = getSkinResourceId(resources3, i2);
+            if (i3 == 0) {
+                resources2 = resources3;
+                i3 = i2;
+            } else if (mSkinRes != null) {
+                resources2 = mSkinRes;
+            } else {
+                resources2 = resources3;
+                i3 = i2;
+            }
+        } else if (i == 1) {
+            i3 = c(resources3, i2);
+            if (i3 == 0) {
+                resources2 = resources3;
+                i3 = i2;
+            } else if (mPluginRes != null) {
+                resources2 = mPluginRes;
+            } else {
+                resources2 = resources3;
+                i3 = i2;
+            }
+        } else if (i == 4) {
+            i3 = d(resources3, i2);
+            if (i3 == 0) {
+                resources2 = resources3;
+                i3 = i2;
+            } else if (mPluginRes != null) {
+                resources2 = mPluginRes;
+            } else {
+                resources2 = resources3;
+                i3 = i2;
+            }
+        } else {
+            resources2 = resources3;
+            i3 = i2;
+        }
+        try {
+            return resources2.getColor(i3);
+        } catch (Throwable th) {
+            return resources3.getColor(i2);
+        }
+    }
+
+    public static int getColor(int i, int i2) {
+        return getColor(i, null, i2);
+    }
+
+    public static int getColor(int i) {
+        return getColor(TbadkCoreApplication.getInst().getSkinType(), null, i);
+    }
+
+    public static ColorStateList getColorList(int i, Resources resources, int i2) {
+        int d;
+        if (i2 == 0) {
+            return null;
+        }
+        if (resources == null) {
+            resources = BdBaseApplication.getInst().getApp().getResources();
+        }
+        if (i == 2) {
+            int skinResourceId = getSkinResourceId(resources, i2);
+            if (skinResourceId != 0 && mSkinRes != null) {
+                Resources resources2 = mSkinRes;
+                i2 = skinResourceId;
+            }
+        } else if (i == 1) {
+            int c = c(resources, i2);
+            if (c != 0 && mPluginRes != null) {
+                Resources resources3 = mPluginRes;
+                i2 = c;
+            }
+        } else if (i == 4 && (d = d(resources, i2)) != 0 && mPluginRes != null) {
+            Resources resources4 = mPluginRes;
+            i2 = d;
+        }
+        if (i2 != 0) {
+            try {
+                return AppCompatResources.getColorStateList(BdBaseApplication.getInst().getApp(), i2);
+            } catch (Throwable th) {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public static ColorStateList getColorList(Resources resources, int i) {
+        return getColorList(TbadkCoreApplication.getInst().getSkinType(), resources, i);
+    }
+
+    public static ColorStateList getColorList(int i) {
+        return getColorList(TbadkCoreApplication.getInst().getSkinType(), null, i);
+    }
+
+    public static Drawable getDrawable(int i, Resources resources, int i2) {
+        Resources resources2;
+        int i3;
+        if (i2 == 0) {
+            return null;
+        }
+        Resources resources3 = resources != null ? resources : BdBaseApplication.getInst().getApp().getResources();
+        if (i == 2) {
+            i3 = getSkinResourceId(resources3, i2);
+            if (i3 == 0) {
+                resources2 = resources3;
+                i3 = i2;
+            } else if (mSkinRes != null) {
+                resources2 = mSkinRes;
+            } else {
+                resources2 = resources3;
+                i3 = i2;
+            }
+        } else if (i == 1) {
+            i3 = c(resources3, i2);
+            if (i3 == 0) {
+                resources2 = resources3;
+                i3 = i2;
+            } else if (mPluginRes != null) {
+                resources2 = mPluginRes;
+            } else {
+                resources2 = resources3;
+                i3 = i2;
+            }
+        } else if (i == 4) {
+            i3 = d(resources3, i2);
+            if (i3 == 0) {
+                resources2 = resources3;
+                i3 = i2;
+            } else if (mPluginRes != null) {
+                resources2 = mPluginRes;
+            } else {
+                resources2 = resources3;
+                i3 = i2;
+            }
+        } else {
+            resources2 = resources3;
+            i3 = i2;
+        }
+        try {
+            return resources2.getDrawable(i3);
+        } catch (Throwable th) {
+            try {
+                return resources3.getDrawable(i2);
+            } catch (Throwable th2) {
+                return null;
+            }
+        }
+    }
+
+    public static Drawable getDrawable(Resources resources, int i) {
+        return getDrawable(TbadkCoreApplication.getInst().getSkinType(), resources, i);
+    }
+
+    public static Drawable getDrawable(int i) {
+        return getDrawable(TbadkCoreApplication.getInst().getSkinType(), null, i);
+    }
+
+    public static Drawable getDrawable(int i, int i2) {
+        if (i == 0) {
+            try {
+                return BdBaseApplication.getInst().getApp().getResources().getDrawable(i2);
+            } catch (Throwable th) {
+                return null;
+            }
+        }
+        return getDrawable(i, null, i2);
+    }
+
+    public static Bitmap getBitmap(Resources resources, int i, BitmapFactory.Options options) {
+        return getBitmap(resources, i, options, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public static int getVectorToDefaultResId(Resources resources, int i) {
+        if (mPluginRes == null) {
+            mPluginRes = resources;
+        }
+        com.baidu.tbadk.core.d.a.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, Constants.PHONE_BRAND, Build.BRAND);
+        try {
+            String resourceName = resources.getResourceName(i);
+            if (StringUtils.isNull(resourceName)) {
+                return 0;
+            }
+            String replace = resourceName.replace("_svg", "");
+            if (replace.indexOf(":") <= 0 || mPluginRes == null) {
+                return 0;
+            }
+            if (sPacknameLength == 0) {
+                sPackagename = BdBaseApplication.getInst().getPackageName();
+                sPacknameLength = sPackagename.length();
+            }
+            if (replace.length() > sPacknameLength && replace.charAt(sPacknameLength) != ':' && replace.startsWith(sPackagename)) {
+                replace = sPackagename + replace.substring(replace.indexOf(":"));
+            }
+            return mPluginRes.getIdentifier(replace + "_1", null, null);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public static Bitmap getBitmap(Resources resources, int i, BitmapFactory.Options options, int i2) {
+        Resources resources2;
+        if (i == 0) {
+            return null;
+        }
+        Resources resources3 = resources != null ? resources : BdBaseApplication.getInst().getApp().getResources();
+        if (i2 == 1) {
+        }
+        if (i2 == 1) {
+            int c = c(resources3, i);
+            if (c == 0) {
+                c = i;
+            } else if (mPluginRes != null) {
+                Resources resources4 = mPluginRes;
+            } else {
+                c = i;
+            }
+            try {
+                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(mPluginRes, c, i, options);
+                if (nightCashBitmap == null) {
+                    return BitmapHelper.getCashBitmap(i, options);
+                }
+                return nightCashBitmap;
+            } catch (Throwable th) {
+                return BitmapHelper.getCashBitmap(i, options);
+            }
+        } else if (i2 == 4) {
+            int d = d(resources3, i);
+            if (d == 0) {
+                resources2 = resources3;
+                d = i;
+            } else if (mPluginRes != null) {
+                resources2 = mPluginRes;
+            } else {
+                resources2 = resources3;
+                d = i;
+            }
+            try {
+                Bitmap darkCashBitmap = BitmapHelper.getDarkCashBitmap(mPluginRes, d, i, options);
+                if (darkCashBitmap == null) {
+                    Bitmap nightCashBitmap2 = BitmapHelper.getNightCashBitmap(mPluginRes, c(resources2, i), i, options);
+                    if (nightCashBitmap2 == null) {
+                        return BitmapHelper.getCashBitmap(i, options);
+                    }
+                    return nightCashBitmap2;
+                }
+                return darkCashBitmap;
+            } catch (Throwable th2) {
+                return BitmapHelper.getCashBitmap(i, options);
+            }
+        } else if (i2 == 2) {
+            int skinResourceId = getSkinResourceId(resources3, i);
+            if (skinResourceId == 0) {
+                return BitmapHelper.getCashBitmap(i, options);
+            }
+            try {
+                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(mSkinRes, skinResourceId, i, options);
+                if (themeCashBitmap == null) {
+                    return BitmapHelper.getCashBitmap(i, options);
+                }
+                return themeCashBitmap;
+            } catch (Throwable th3) {
+                return BitmapHelper.getCashBitmap(i, options);
+            }
+        } else {
+            return BitmapHelper.getCashBitmap(i, options);
+        }
+    }
+
+    public static Bitmap getBitmap(int i) {
+        return getBitmap(null, i, new BitmapFactory.Options());
+    }
+
+    public static Bitmap getBitmap565Quality(int i) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        return getBitmap(null, i, options);
+    }
+
+    public static void setViewTextColor(View view, int i, int i2, int i3) {
+        ColorStateList colorList;
+        if (view != null && i != 0 && view.getResources() != null) {
+            if (i3 == 0) {
+                colorList = view.getResources().getColorStateList(i);
+            } else {
+                colorList = getColorList(i3, view.getResources(), i);
+            }
+            if (colorList != null) {
+                if (i2 == 3 && (view instanceof Button)) {
+                    ((Button) view).setTextColor(colorList);
+                } else if (i2 == 2 && (view instanceof EditText)) {
+                    ((EditText) view).setTextColor(colorList);
+                } else if (i2 == 1 && (view instanceof TextView)) {
+                    ((TextView) view).setTextColor(colorList);
+                } else if (i2 == 4 && (view instanceof CheckBox)) {
+                    ((CheckBox) view).setTextColor(colorList);
+                }
+            }
+        }
+    }
+
+    public static void setViewTextColor(View view, int i, int i2) {
+        setViewTextColor(view, i, i2, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public static boolean setViewTextColor(View view, String str) {
+        Resources resources;
+        int identifier;
+        ColorStateList colorList;
+        if (view == null || StringUtils.isNull(str) || (resources = view.getResources()) == null || (identifier = resources.getIdentifier(str, "color", TbadkCoreApplication.getInst().getPackageName())) <= 0 || (colorList = getColorList(resources, identifier)) == null || !(view instanceof TextView)) {
+            return false;
+        }
+        ((TextView) view).setTextColor(colorList);
+        return true;
+    }
+
+    public static void setImageResource(ImageView imageView, int i) {
+        if (imageView != null && i != 0) {
+            imageView.setImageDrawable(getDrawable(imageView.getResources(), i));
+        }
+    }
+
+    public static void setImageResource(ImageView imageView, int i, int i2) {
+        if (imageView != null && i != 0) {
+            Drawable drawable = null;
+            if (i2 == 0) {
+                try {
+                    drawable = imageView.getResources().getDrawable(i);
+                } catch (Throwable th) {
                 }
             } else {
-                File CreateFile = n.CreateFile(SelectImageHelper.TMP_IMAGE_NAME);
-                if (CreateFile != null) {
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
-                } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
-                }
+                drawable = getDrawable(i2, imageView.getResources(), i);
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            imageView.setImageDrawable(drawable);
         }
     }
 
-    public static void c(TbPageContext<?> tbPageContext, String str) {
-        try {
-            if (!n.checkSD()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.getSdErrorString());
-                    return;
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.getSdErrorString());
-                    return;
-                } else {
-                    return;
-                }
+    public static void setBackgroundResource(View view, int i) {
+        setBackgroundResource(view, i, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public static void setBackgroundResource(View view, int i, int i2) {
+        if (view != null && i != 0) {
+            int paddingLeft = view.getPaddingLeft();
+            int paddingRight = view.getPaddingRight();
+            int paddingTop = view.getPaddingTop();
+            int paddingBottom = view.getPaddingBottom();
+            view.setBackgroundDrawable(getDrawable(i2, i));
+            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
+                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
-            String str2 = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/cameras";
-            boolean z = false;
-            if (n.CheckTempDir(str2)) {
-                File file = new File(str2 + "/" + str);
-                if (!file.exists()) {
-                    z = file.createNewFile();
-                } else {
-                    z = true;
-                }
+        }
+    }
+
+    public static void setBackgroundDrawable(PopupWindow popupWindow, int i) {
+        setBackgroundDrawable(popupWindow, i, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public static void setBackgroundDrawable(PopupWindow popupWindow, int i, int i2) {
+        if (popupWindow != null && i != 0) {
+            popupWindow.setBackgroundDrawable(getDrawable(i2, i));
+        }
+    }
+
+    public static void setBackgroundColor(View view, int i) {
+        setBackgroundColor(view, i, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public static void setBackgroundColor(View view, int i, int i2) {
+        int color;
+        if (view != null && i != 0) {
+            int paddingLeft = view.getPaddingLeft();
+            int paddingRight = view.getPaddingRight();
+            int paddingTop = view.getPaddingTop();
+            int paddingBottom = view.getPaddingBottom();
+            if (i2 == 0) {
+                color = view.getResources().getColor(i);
+            } else {
+                color = getColor(i2, view.getResources(), i);
+            }
+            view.setBackgroundColor(color);
+            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
+                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            }
+        }
+    }
+
+    public static void a(View view, int i, float f, int i2) {
+        int color;
+        if (view != null && i != 0) {
+            int paddingLeft = view.getPaddingLeft();
+            int paddingRight = view.getPaddingRight();
+            int paddingTop = view.getPaddingTop();
+            int paddingBottom = view.getPaddingBottom();
+            if (i2 == 0) {
+                color = view.getResources().getColor(i);
+            } else {
+                color = getColor(i2, view.getResources(), i);
+            }
+            view.setBackgroundColor(com.baidu.tieba.tbadkCore.c.m(color, f));
+            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
+                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            }
+        }
+    }
+
+    public static void a(View view, @ColorRes int i, GradientDrawable.Orientation orientation) {
+        if (view != null && i != 0 && orientation != null) {
+            view.setBackgroundDrawable(new GradientDrawable(orientation, new int[]{getColor(i), 0}));
+        }
+    }
+
+    public static void a(View view, @ColorRes int i, GradientDrawable.Orientation orientation, float[] fArr) {
+        GradientDrawable gradientDrawable;
+        if (view != null && i != 0 && orientation != null && fArr.length >= 8) {
+            int color = getColor(i);
+            int[] iArr = {com.baidu.tieba.tbadkCore.c.KG(color), color};
+            if (Build.VERSION.SDK_INT >= 16) {
+                gradientDrawable = new GradientDrawable();
+                gradientDrawable.setOrientation(orientation);
+                gradientDrawable.setColors(iArr);
+            } else {
+                gradientDrawable = new GradientDrawable(orientation, iArr);
+            }
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadii(fArr);
+            view.setBackgroundDrawable(gradientDrawable);
+        }
+    }
+
+    public static void a(TBLottieAnimationView tBLottieAnimationView, int i) {
+        int qb = qb(i);
+        if (qb > 0) {
+            tBLottieAnimationView.setAnimation(qb);
+        }
+    }
+
+    public static int qb(int i) {
+        int d;
+        if (i <= 0) {
+            return 0;
+        }
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (skinType != 1) {
+            return (skinType != 4 || (d = d(TbadkCoreApplication.getInst().getResources(), i)) <= 0) ? i : d;
+        }
+        int c = c(TbadkCoreApplication.getInst().getResources(), i);
+        return c > 0 ? c : i;
+    }
+
+    public static int qc(int i) {
+        int d;
+        if (i <= 0) {
+            return 0;
+        }
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (skinType != 1) {
+            return (skinType != 4 || (d = d(TbadkCoreApplication.getInst().getResources(), i)) <= 0) ? i : d;
+        }
+        int c = c(TbadkCoreApplication.getInst().getResources(), i);
+        return c > 0 ? c : i;
+    }
+
+    public static void n(View view, int i) {
+        ColorStateList qd;
+        if (i != 0 && view != null && (qd = qd(i)) != null) {
+            if (view instanceof Button) {
+                ((Button) view).setTextColor(qd);
+            } else if (view instanceof EditText) {
+                ((EditText) view).setTextColor(qd);
+            } else if (view instanceof TextView) {
+                ((TextView) view).setTextColor(qd);
+            } else if (view instanceof CheckBox) {
+                ((CheckBox) view).setTextColor(qd);
+            }
+        }
+    }
+
+    public static void a(View view, int i, int i2, int i3) {
+        ColorStateList y;
+        if (i != 0 && i2 != 0 && view != null && (y = y(i, i2, i3)) != null) {
+            if (view instanceof Button) {
+                ((Button) view).setTextColor(y);
+            } else if (view instanceof EditText) {
+                ((EditText) view).setTextColor(y);
+            } else if (view instanceof TextView) {
+                ((TextView) view).setTextColor(y);
+            } else if (view instanceof CheckBox) {
+                ((CheckBox) view).setTextColor(y);
+            }
+        }
+    }
+
+    public static void b(View view, int i, int i2, int i3) {
+        ColorStateList v;
+        if (i != 0 && i2 != 0 && view != null && (v = v(i, i2, i3, TbadkCoreApplication.getInst().getSkinType())) != null && (view instanceof CheckBox)) {
+            ((CheckBox) view).setTextColor(v);
+        }
+    }
+
+    public static void k(View view, int i, int i2) {
+        a(view, i, i2, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public static void c(View view, int i, int i2, int i3) {
+        StateListDrawable x;
+        if (i != 0 && i2 != 0 && view != null && (x = x(i, i2, i3)) != null) {
+            view.setBackgroundDrawable(x);
+        }
+    }
+
+    public static void l(View view, int i, int i2) {
+        c(view, i, i2, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public static StateListDrawable x(int i, int i2, int i3) {
+        if (i == 0 || i2 == 0) {
+            return null;
+        }
+        Drawable drawable = getDrawable(i3, i);
+        Drawable drawable2 = getDrawable(i3, i2);
+        if (drawable == null || drawable2 == null) {
+            return null;
+        }
+        StateListDrawable stateListDrawable = new StateListDrawable();
+        stateListDrawable.addState(new int[]{16842910, 16842919}, drawable2);
+        stateListDrawable.addState(new int[]{16842910, 16842908}, drawable2);
+        stateListDrawable.addState(new int[0], drawable);
+        return stateListDrawable;
+    }
+
+    public static ColorStateList y(int i, int i2, int i3) {
+        if (i == 0 || i2 == 0) {
+            return null;
+        }
+        int color = getColor(i3, i);
+        int color2 = getColor(i3, i2);
+        return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{color2, color2, color});
+    }
+
+    public static ColorStateList v(int i, int i2, int i3, int i4) {
+        if (i == 0 || i2 == 0 || i3 == 0) {
+            return null;
+        }
+        return new ColorStateList(new int[][]{new int[]{16842912}, new int[]{-16842910}, new int[0]}, new int[]{getColor(i4, i2), com.baidu.tieba.tbadkCore.c.m(getColor(i4, i3), fdi), getColor(i4, i)});
+    }
+
+    public static ColorStateList qd(int i) {
+        if (i == 0) {
+            return null;
+        }
+        int color = getColor(TbadkCoreApplication.getInst().getSkinType(), i);
+        int m = com.baidu.tieba.tbadkCore.c.m(color, fdh);
+        return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{m, m, color});
+    }
+
+    public static GradientDrawable c(int i, int i2, int i3, int i4, int i5) {
+        if (i2 == 0) {
+            return null;
+        }
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColor(getColor(i5, i2));
+        if (i > 0) {
+            gradientDrawable.setCornerRadius(i);
+        }
+        if (i3 != 0 && i4 > 0) {
+            gradientDrawable.setStroke(i4, getColor(i5, i3));
+            return gradientDrawable;
+        }
+        return gradientDrawable;
+    }
+
+    public static GradientDrawable aO(int i, int i2) {
+        if (i2 == 0) {
+            return null;
+        }
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColor(i2);
+        if (i > 0) {
+            gradientDrawable.setCornerRadius(i);
+            return gradientDrawable;
+        }
+        return gradientDrawable;
+    }
+
+    public static void a(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7) {
+        if (view != null) {
+            GradientDrawable c = c(i, i2, i4, i6, i7);
+            GradientDrawable c2 = c(i, i3, i5, i6, i7);
+            if (c != null && c2 != null) {
+                StateListDrawable stateListDrawable = new StateListDrawable();
+                stateListDrawable.addState(new int[]{16842910, 16842919}, c2);
+                stateListDrawable.addState(new int[]{16842910, 16842908}, c2);
+                stateListDrawable.addState(new int[0], c);
+                view.setBackgroundDrawable(stateListDrawable);
+            }
+        }
+    }
+
+    public static void b(View view, int i, int i2, int i3, int i4, int i5, int i6) {
+        a(view, i, i2, i3, i4, i5, i6, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public static void d(View view, int i, int i2, int i3) {
+        a(view, i, i2, i3, 0, 0, 0, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public static void e(View view, int i, int i2, int i3, int i4) {
+        a(view, i, i2, i3, 0, 0, 0, i4);
+    }
+
+    public static Drawable qe(int i) {
+        StateListDrawable stateListDrawable = new StateListDrawable();
+        Drawable drawable = getDrawable(i);
+        drawable.mutate().setAlpha((int) (255.0f * fdh));
+        stateListDrawable.addState(new int[]{16842910, 16842919}, drawable);
+        stateListDrawable.addState(new int[0], getDrawable(i).mutate());
+        return stateListDrawable;
+    }
+
+    public static ColorStateList qf(int i) {
+        if (i <= 0) {
+            return null;
+        }
+        return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{com.baidu.tieba.tbadkCore.c.m(getColor(i), fdh), getColor(i)});
+    }
+
+    public static ColorStateList aP(int i, int i2) {
+        if (i <= 0) {
+            return null;
+        }
+        return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{-16842910}, new int[0]}, new int[]{com.baidu.tieba.tbadkCore.c.m(getColor(i2, i), fdh), com.baidu.tieba.tbadkCore.c.m(getColor(i2, i), fdi), getColor(i2, i)});
+    }
+
+    public static ColorStateList qg(@ColorInt int i) {
+        return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{com.baidu.tieba.tbadkCore.c.m(i, fdh), i});
+    }
+
+    public static void a(TextView textView, @ColorInt int i) {
+        if (textView != null) {
+            textView.setTextColor(qg(i));
+        }
+    }
+
+    public static boolean bwk() {
+        return (TbadkCoreApplication.getInst() == null || TbadkCoreApplication.getInst().getResources() == null || TbadkCoreApplication.getInst().getResources().getConfiguration() == null || (TbadkCoreApplication.getInst().getResources().getConfiguration().uiMode & 48) != 32) ? false : true;
+    }
+
+    public static void C(boolean z, boolean z2) {
+        boolean bwk = bwk();
+        Activity currentActivity = com.baidu.adp.base.b.kC().currentActivity();
+        if (currentActivity != null) {
+            if (!bwk) {
                 if (z) {
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
+                    UtilHelper.showSkinChangeAnimation(currentActivity);
                 }
-            }
-            if (!z) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                if (z2) {
+                    TbadkCoreApplication.getInst().setSkinTypeValue(0);
+                    TbadkCoreApplication.getInst().SendSkinTypeBroadcast(0);
+                    return;
                 }
+                TbadkCoreApplication.getInst().setSkinType(0);
+            } else if (com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_is_dark_mode_notify_shown", false)) {
+                boolean z3 = com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_is_follow_system_mode", false);
+                if (z) {
+                    UtilHelper.showSkinChangeAnimation(currentActivity);
+                }
+                int i = z3 ? 4 : 0;
+                if (z2) {
+                    TbadkCoreApplication.getInst().setSkinTypeValue(i);
+                    TbadkCoreApplication.getInst().SendSkinTypeBroadcast(i);
+                    return;
+                }
+                TbadkCoreApplication.getInst().setSkinType(i);
+            } else {
+                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_is_dark_mode_notify_shown", true);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_is_follow_system_mode", true);
+                TbadkCoreApplication.getInst().setSkinType(bwk() ? 4 : 0);
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void getAlbumImage(Activity activity) {
-        getSystemAlbumImage(activity);
-    }
-
-    public static void getSystemAlbumImage(Activity activity) {
-        try {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, RequestResponseCode.REQUEST_ALBUM_IMAGE);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 }

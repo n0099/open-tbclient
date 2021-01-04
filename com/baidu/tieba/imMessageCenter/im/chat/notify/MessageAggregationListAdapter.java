@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 import android.content.Context;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.chat.a.c;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
     public MessageAggregationListAdapter(Context context) {
         super(context);
@@ -13,6 +13,6 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
     @Override // com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter, com.baidu.tieba.im.chat.a.c
     public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         super.g(aVar, imMessageCenterShowItemData);
-        aVar.klm.setIsRound(true);
+        aVar.kxS.setIsRound(true);
     }
 }

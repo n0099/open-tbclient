@@ -16,7 +16,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.GestureDetector;
@@ -28,6 +27,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.view.animation.Transformation;
 import android.widget.ImageView;
+import androidx.core.view.ViewCompat;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.BlockingLinkedDeque;
@@ -40,7 +40,7 @@ import com.baidu.live.tbadk.widget.largeimage.logic.ILoadBlockBitmapCallback;
 import com.baidu.live.tbadk.widget.largeimage.logic.LargeImageDelegate;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class DragImageView extends ImageView {
     public static final int DEFAULT_MODE = 0;
     static final int DRAG = 1;
@@ -122,30 +122,30 @@ public class DragImageView extends ImageView {
     private int mViewWidth;
     private int width;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class Frame {
         public Bitmap bm;
         public int delay;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface IDragToExitListener {
         void onDragEnd();
 
         void onDragStart();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnGifSetListener {
         void gifSet(DragImageView dragImageView);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnImageScrollListener {
         void imageScroll(DragImageView dragImageView, int i, int i2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnSizeChangedListener {
         void sizeChenged(DragImageView dragImageView, boolean z, boolean z2);
     }
@@ -1275,7 +1275,7 @@ public class DragImageView extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class DecelerateAnimation extends Animation {
         static final long Decelerate = 2500;
         private int mStartX;

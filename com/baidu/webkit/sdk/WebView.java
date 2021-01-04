@@ -21,8 +21,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.StrictMode;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.DragEvent;
@@ -43,6 +41,9 @@ import android.webkit.DownloadListener;
 import android.webkit.URLUtil;
 import android.webkit.ValueCallback;
 import android.widget.AbsoluteLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.Statistics;
 import com.baidu.webkit.internal.e;
@@ -62,7 +63,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class WebView extends AbsoluteLayout implements View.OnLongClickListener, ViewGroup.OnHierarchyChangeListener, ViewTreeObserver.OnGlobalFocusChangeListener {
     public static final String DATA_REDUCTION_PROXY_SETTING_CHANGED = "com.baidu.webkit.sdk.DATA_REDUCTION_PROXY_SETTING_CHANGED";
     private static final String JAVASCTIPT_URL = "javascript:";
@@ -92,7 +93,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     private WebViewDelegate mViewDelegate;
     private final Looper mWebViewThread;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public final class DelegateAdapter implements WebViewProvider.ScrollDelegate, WebViewProvider.ViewDelegate {
         private final WebViewImpl mChildView;
 
@@ -378,13 +379,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface FindListener {
         void onFindResultReceived(int i, int i2, boolean z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public class FindListenerDistributor implements FindListener {
         private FindListener mFindDialogFindListener;
         private FindListener mUserFindListener;
@@ -403,7 +404,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class HitTestResult {
         @Deprecated
         public static final int ANCHOR_TYPE = 1;
@@ -521,13 +522,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface IVirtualMemoryListener {
         void onVirtualMemoryPressure(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public class JSInterfaceStatistics implements Statistics.Record {
         protected HashMap<String, String> mJSInfo;
 
@@ -567,32 +568,32 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface MainResourcePrefetchListener {
         void onPrefetchFinished(String str, long j, boolean z, String str2, int i);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface OnDragListener {
         boolean onDrag(View view, DragEvent dragEvent);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface OnGenericMotionListener {
         boolean onGenericMotion(View view, MotionEvent motionEvent);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface OnHoverListener {
         boolean onHover(View view, MotionEvent motionEvent);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface OnSystemUiVisibilityChangeListener {
         void onSystemUiVisibilityChange(int i);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public class PageInfo {
         public PageInfo() {
         }
@@ -619,13 +620,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Deprecated
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface PictureListener {
         @Deprecated
         void onNewPicture(WebView webView, Picture picture);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum PrerenderStatus {
         STARTED,
         FAILED,
@@ -633,7 +634,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         FINISHED
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public class PrivateAccess {
         public PrivateAccess() {
         }
@@ -747,23 +748,23 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public @interface RendererPriority {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum SaveAsType {
         SAVE_AS_WEB_ARCHIVE,
         SAVE_AS_HTML_FOLDER,
         SAVE_AS_HTML_ONLY
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static abstract class VisualStateCallback {
         public abstract void onComplete(long j);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public class WebPageInfoList {
         public WebPageInfoList() {
         }
@@ -773,14 +774,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum WebViewState {
         NORMAL_WEBVIEW_STATE,
         SINGLE_WEBVIEW_STATE,
         MULTIPLE_WEBVIEW_STATE
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public class WebViewTransport {
         private final Object lockObject = new Object();
         private WebView mWebview;
@@ -803,7 +804,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum WebViewType {
         NORMAL,
         BIGPLUGIN
@@ -814,7 +815,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public WebView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, Resources.getSystem().getIdentifier("webViewStyle", "attr", "android"));
+        this(context, attributeSet, Resources.getSystem().getIdentifier("webViewStyle", "attr", HttpConstants.OS_TYPE_VALUE));
     }
 
     public WebView(Context context, AttributeSet attributeSet, int i) {
@@ -842,7 +843,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public WebView(Context context, boolean z) {
-        super(context, null, Resources.getSystem().getIdentifier("webViewStyle", "attr", "android"));
+        super(context, null, Resources.getSystem().getIdentifier("webViewStyle", "attr", HttpConstants.OS_TYPE_VALUE));
         this.mSetOverScrollModeBeforeProviderReady = -1;
         this.mOnViewHierarchy = true;
         this.mSoftInputMode = 0;
@@ -1528,9 +1529,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public void destroy() {
         e secureProcessor = getSecureProcessor();
         if (secureProcessor.c.getContext().getPackageName().contains(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
-            if (secureProcessor.b != null) {
-                secureProcessor.b.clear();
-                secureProcessor.b = null;
+            if (secureProcessor.f5969b != null) {
+                secureProcessor.f5969b.clear();
+                secureProcessor.f5969b = null;
             }
             if (secureProcessor.c.getWebViewClient() != null) {
                 secureProcessor.d = null;

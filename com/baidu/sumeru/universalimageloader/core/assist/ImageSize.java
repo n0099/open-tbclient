@@ -1,5 +1,5 @@
 package com.baidu.sumeru.universalimageloader.core.assist;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class ImageSize {
     private static final String SEPARATOR = "x";
     private static final int TO_STRING_MAX_LENGHT = 9;

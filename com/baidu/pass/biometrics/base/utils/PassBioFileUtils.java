@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class PassBioFileUtils {
     public static final String TAG = "PassBioFileUtils";
 

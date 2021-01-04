@@ -2,26 +2,26 @@ package com.baidu.spswitch.b;
 
 import android.content.Context;
 import com.baidu.spswitch.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static final boolean DEBUG = b.isDebug();
-    private static int cze = 0;
-    private static int czf = 0;
-    private static int czg = 0;
-    private static int czh = 0;
-    private static int czi = 0;
+    private static int cDX = 0;
+    private static int cDY = 0;
+    private static int cDZ = 0;
+    private static int cEa = 0;
+    private static int cEb = 0;
 
-    public static int bN(Context context) {
-        if (cze == 0) {
-            cze = context.getResources().getDimensionPixelSize(b.a.min_softinput_height);
+    public static int bW(Context context) {
+        if (cDX == 0) {
+            cDX = context.getResources().getDimensionPixelSize(b.a.min_softinput_height);
         }
-        return cze;
+        return cDX;
     }
 
-    public static int bO(Context context) {
-        if (czf == 0) {
-            czf = context.getResources().getDimensionPixelSize(b.a.max_softinput_height);
+    public static int bX(Context context) {
+        if (cDY == 0) {
+            cDY = context.getResources().getDimensionPixelSize(b.a.max_softinput_height);
         }
-        return czf;
+        return cDY;
     }
 }

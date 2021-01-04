@@ -5,137 +5,152 @@ import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.os.Build;
 import com.xiaomi.push.service.XMJobService;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class fc {
 
     /* renamed from: a  reason: collision with other field name */
-    private static a f313a;
+    private static a f391a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String f314a = XMJobService.class.getCanonicalName();
+    private static final String f392a = XMJobService.class.getCanonicalName();
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f4667a = 0;
+    private static int f14305a = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m268a();
+        boolean m294a();
     }
 
     public static synchronized void a() {
         synchronized (fc.class) {
-            if (f313a != null) {
+            if (f391a != null) {
                 com.xiaomi.channel.commonutils.logger.b.c("stop alarm.");
-                f313a.a();
+                f391a.a();
             }
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0050  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static void a(Context context) {
         Exception e;
+        PackageInfo packageInfo;
         boolean z = false;
         boolean z2 = true;
         Context applicationContext = context.getApplicationContext();
         if ("com.xiaomi.xmsf".equals(applicationContext.getPackageName())) {
-            f313a = new fd(applicationContext);
+            f391a = new fd(applicationContext);
             return;
         }
         try {
-            PackageInfo packageInfo = applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 4);
-            if (packageInfo.services != null) {
-                ServiceInfo[] serviceInfoArr = packageInfo.services;
-                int length = serviceInfoArr.length;
-                int i = 0;
-                while (i < length) {
+            packageInfo = applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 4);
+        } catch (Exception e2) {
+            e = e2;
+        }
+        if (packageInfo.services != null) {
+            ServiceInfo[] serviceInfoArr = packageInfo.services;
+            int length = serviceInfoArr.length;
+            int i = 0;
+            boolean z3 = false;
+            while (true) {
+                if (i >= length) {
+                    z2 = z3;
+                    break;
+                }
+                try {
                     ServiceInfo serviceInfo = serviceInfoArr[i];
                     if ("android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                        if (f314a.equals(serviceInfo.name)) {
-                            z = true;
+                        if (f392a.equals(serviceInfo.name)) {
+                            z3 = true;
                         } else {
                             try {
-                                if (f314a.equals(t.a(applicationContext, serviceInfo.name).getSuperclass().getCanonicalName())) {
-                                    z = true;
+                                if (f392a.equals(t.a(applicationContext, serviceInfo.name).getSuperclass().getCanonicalName())) {
+                                    z3 = true;
                                 }
-                            } catch (Exception e2) {
+                            } catch (Exception e3) {
                             }
                         }
-                        if (z) {
-                            z2 = z;
+                        if (z3) {
+                            z2 = z3;
                             break;
                         }
                     }
-                    boolean z3 = z;
-                    try {
-                        if (f314a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                            break;
-                        }
-                        i++;
-                        z = z3;
-                    } catch (Exception e3) {
-                        e = e3;
-                        z2 = z3;
-                        com.xiaomi.channel.commonutils.logger.b.m47a("check service err : " + e.getMessage());
-                        if (z2) {
-                        }
-                        if (Build.VERSION.SDK_INT < 21) {
-                        }
-                        f313a = new fd(applicationContext);
+                    z = z3;
+                    if (f392a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
+                        break;
                     }
+                    i++;
+                    z3 = z;
+                } catch (Exception e4) {
+                    e = e4;
+                    z = z3;
+                    com.xiaomi.channel.commonutils.logger.b.m73a("check service err : " + e.getMessage());
+                    z2 = z;
+                    if (z2) {
+                    }
+                    if (Build.VERSION.SDK_INT >= 21) {
+                    }
+                    f391a = new fd(applicationContext);
                 }
             }
-            z2 = z;
-        } catch (Exception e4) {
-            z2 = z;
-            e = e4;
+            if (z2 && t.m606a(applicationContext)) {
+                throw new RuntimeException("Should export service: " + f392a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
+            }
+            if (Build.VERSION.SDK_INT >= 21) {
+            }
+            f391a = new fd(applicationContext);
         }
-        if (z2 && t.m580a(applicationContext)) {
-            throw new RuntimeException("Should export service: " + f314a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
+        z2 = z;
+        if (z2) {
         }
-        if (Build.VERSION.SDK_INT < 21) {
+        if (Build.VERSION.SDK_INT >= 21) {
         }
-        f313a = new fd(applicationContext);
+        f391a = new fd(applicationContext);
     }
 
     public static synchronized void a(Context context, int i) {
         synchronized (fc.class) {
-            int i2 = f4667a;
+            int i2 = f14305a;
             if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
                 if (i == 2) {
-                    f4667a = 2;
+                    f14305a = 2;
                 } else {
-                    f4667a = 0;
+                    f14305a = 0;
                 }
             }
-            if (i2 != f4667a && f4667a == 2) {
+            if (i2 != f14305a && f14305a == 2) {
                 a();
-                f313a = new ff(context);
+                f391a = new ff(context);
             }
         }
     }
 
     public static synchronized void a(boolean z) {
         synchronized (fc.class) {
-            if (f313a == null) {
-                com.xiaomi.channel.commonutils.logger.b.m47a("timer is not initialized");
+            if (f391a == null) {
+                com.xiaomi.channel.commonutils.logger.b.m73a("timer is not initialized");
             } else {
                 com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + ")");
-                f313a.a(z);
+                f391a.a(z);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m267a() {
-        boolean m268a;
+    public static synchronized boolean m293a() {
+        boolean m294a;
         synchronized (fc.class) {
-            m268a = f313a == null ? false : f313a.m268a();
+            m294a = f391a == null ? false : f391a.m294a();
         }
-        return m268a;
+        return m294a;
     }
 }

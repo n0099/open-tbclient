@@ -4,11 +4,11 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class n {
     private static final Object[] EMPTY_OBJECT_ARRAY = new Object[0];
 
-    public static Object[] r(Collection<?> collection) {
+    public static Object[] q(Collection<?> collection) {
         int size = collection.size();
         if (size == 0) {
             return EMPTY_OBJECT_ARRAY;

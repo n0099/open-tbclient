@@ -3,96 +3,84 @@ package com.baidu.tbadk.coreExtra.d;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
-import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class f {
-    private boolean fse = false;
-    private int fsf = 0;
+    private boolean fBJ = false;
+    private int fBK = 0;
 
-    public void Dw(String str) {
+    public void Du(String str) {
         int lastIndexOf;
         String str2;
-        Exception e;
-        int i;
-        int i2;
-        this.fse = false;
-        this.fsf = 0;
+        String str3 = null;
+        this.fBJ = false;
+        this.fBK = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
-            String str3 = null;
             try {
                 str2 = str.substring(5, lastIndexOf);
                 try {
                     str3 = str.substring(lastIndexOf + 1);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     BdLog.e(e.getMessage());
                     if (TextUtils.isEmpty(str2)) {
                     }
                     return;
                 }
-            } catch (Exception e3) {
+            } catch (Exception e2) {
+                e = e2;
                 str2 = null;
-                e = e3;
             }
             if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                int i3 = 0;
-                int i4 = 0;
-                int i5 = 0;
-                while (i5 < 3) {
+                int i = 0;
+                int i2 = 0;
+                for (int i3 = 0; i3 < 3; i3++) {
                     Socket socket = new Socket();
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.f.b.toInt(String.valueOf(str3), CoolPraiseGuideLottieView.ANIM_DURATION)), getTimeout());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.f.b.toInt(String.valueOf(str3), 8000)), getTimeout());
                             if (socket.isConnected()) {
-                                i4++;
-                                i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.fse = true;
+                                i++;
+                                i2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i2);
+                                this.fBJ = true;
                             }
-                            i = i4;
-                            i2 = i3;
+                            try {
+                                socket.close();
+                            } catch (Exception e3) {
+                                BdLog.e(e3.getMessage());
+                            }
+                        } catch (Throwable th) {
                             try {
                                 socket.close();
                             } catch (Exception e4) {
                                 BdLog.e(e4.getMessage());
                             }
-                        } catch (Throwable th) {
-                            try {
-                                socket.close();
-                            } catch (Exception e5) {
-                                BdLog.e(e5.getMessage());
-                            }
                             throw th;
                         }
-                    } catch (Exception e6) {
-                        i = i4;
-                        i2 = i3;
-                        BdLog.e(e6.getMessage());
+                    } catch (Exception e5) {
+                        BdLog.e(e5.getMessage());
                         try {
                             socket.close();
-                        } catch (Exception e7) {
-                            BdLog.e(e7.getMessage());
+                        } catch (Exception e6) {
+                            BdLog.e(e6.getMessage());
                         }
                     }
-                    i5++;
-                    i3 = i2;
-                    i4 = i;
                 }
-                if (this.fse && i4 > 0) {
-                    this.fsf = i3 / i4;
+                if (this.fBJ && i > 0) {
+                    this.fBK = i2 / i;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.fse;
+        return this.fBJ;
     }
 
-    public int bBp() {
-        return this.fsf;
+    public int bDK() {
+        return this.fBK;
     }
 
     private int getTimeout() {

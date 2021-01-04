@@ -10,26 +10,26 @@ import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class MaybeUsing<T, D> extends k<T> {
     final boolean eager;
-    final Callable<? extends D> pFg;
-    final h<? super D, ? extends o<? extends T>> pGc;
-    final g<? super D> pGw;
+    final Callable<? extends D> qgI;
+    final h<? super D, ? extends o<? extends T>> qhE;
+    final g<? super D> qhY;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         try {
-            D call = this.pFg.call();
+            D call = this.qgI.call();
             try {
-                ((o) io.reactivex.internal.functions.a.m(this.pGc.apply(call), "The sourceSupplier returned a null MaybeSource")).a(new UsingObserver(mVar, call, this.pGw, this.eager));
+                ((o) io.reactivex.internal.functions.a.m(this.qhE.apply(call), "The sourceSupplier returned a null MaybeSource")).a(new UsingObserver(mVar, call, this.qhY, this.eager));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 if (this.eager) {
                     try {
-                        this.pGw.accept(call);
+                        this.qhY.accept(call);
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.J(th2);
+                        io.reactivex.exceptions.a.O(th2);
                         EmptyDisposable.error(new CompositeException(th, th2), mVar);
                         return;
                     }
@@ -37,20 +37,20 @@ public final class MaybeUsing<T, D> extends k<T> {
                 EmptyDisposable.error(th, mVar);
                 if (!this.eager) {
                     try {
-                        this.pGw.accept(call);
+                        this.qhY.accept(call);
                     } catch (Throwable th3) {
-                        io.reactivex.exceptions.a.J(th3);
+                        io.reactivex.exceptions.a.O(th3);
                         io.reactivex.d.a.onError(th3);
                     }
                 }
             }
         } catch (Throwable th4) {
-            io.reactivex.exceptions.a.J(th4);
+            io.reactivex.exceptions.a.O(th4);
             EmptyDisposable.error(th4, mVar);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class UsingObserver<T, D> extends AtomicReference<Object> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -674404550052917487L;
         final m<? super T> actual;
@@ -78,7 +78,7 @@ public final class MaybeUsing<T, D> extends k<T> {
                 try {
                     this.disposer.accept(andSet);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.J(th);
+                    io.reactivex.exceptions.a.O(th);
                     io.reactivex.d.a.onError(th);
                 }
             }
@@ -106,7 +106,7 @@ public final class MaybeUsing<T, D> extends k<T> {
                     try {
                         this.disposer.accept(andSet);
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.J(th);
+                        io.reactivex.exceptions.a.O(th);
                         this.actual.onError(th);
                         return;
                     }
@@ -129,7 +129,7 @@ public final class MaybeUsing<T, D> extends k<T> {
                     try {
                         this.disposer.accept(andSet);
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.J(th2);
+                        io.reactivex.exceptions.a.O(th2);
                         th = new CompositeException(th, th2);
                     }
                 } else {
@@ -151,7 +151,7 @@ public final class MaybeUsing<T, D> extends k<T> {
                     try {
                         this.disposer.accept(andSet);
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.J(th);
+                        io.reactivex.exceptions.a.O(th);
                         this.actual.onError(th);
                         return;
                     }

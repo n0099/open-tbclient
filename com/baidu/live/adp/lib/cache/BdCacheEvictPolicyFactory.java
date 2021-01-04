@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.cache.BdCacheEvictPolicy;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdCacheEvictPolicyFactory {
     public static BdCacheEvictPolicy newLRUCachePolicy(int i, boolean z) {
         return z ? new EvictOnInsertLRUCachePolicy(i) : new EvictOnCountLRUCachePolicy(i);
@@ -14,7 +14,7 @@ public class BdCacheEvictPolicyFactory {
         return new NoEvictCachePolicy();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     static class NoEvictCachePolicy implements BdCacheEvictPolicy {
         NoEvictCachePolicy() {
         }
@@ -35,7 +35,7 @@ public class BdCacheEvictPolicyFactory {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     static class EvictOnCountLRUCachePolicy implements BdCacheEvictPolicy.EvictOnCountSupport {
         private final int maxSize;
         private LinkedList<BdCacheItem<?>> tempItems;
@@ -62,7 +62,6 @@ public class BdCacheEvictPolicyFactory {
         @Override // com.baidu.live.adp.lib.cache.BdCacheEvictPolicy.EvictOnCountSupport
         public String getEvictedKey(BdCacheItem<?> bdCacheItem) {
             String str;
-            int i;
             String str2 = null;
             if (bdCacheItem.timeToExpire < System.currentTimeMillis()) {
                 return bdCacheItem.uniqueKey;
@@ -70,24 +69,22 @@ public class BdCacheEvictPolicyFactory {
             this.tempItems.add(bdCacheItem);
             if (this.tempItems.size() > getMaxSize()) {
                 long j = 0;
-                int i2 = 0;
-                int i3 = -1;
-                while (i2 < this.tempItems.size()) {
-                    BdCacheItem<?> bdCacheItem2 = this.tempItems.get(i2);
-                    if (i3 == -1 || bdCacheItem2.lastHitTime < j) {
+                int i = 0;
+                int i2 = -1;
+                while (i < this.tempItems.size()) {
+                    BdCacheItem<?> bdCacheItem2 = this.tempItems.get(i);
+                    if (i2 == -1 || bdCacheItem2.lastHitTime < j) {
                         String str3 = bdCacheItem2.uniqueKey;
                         j = bdCacheItem2.lastHitTime;
                         str = str3;
-                        i = i2;
+                        i2 = i;
                     } else {
                         str = str2;
-                        i = i3;
                     }
-                    i2++;
-                    i3 = i;
+                    i++;
                     str2 = str;
                 }
-                this.tempItems.remove(i3);
+                this.tempItems.remove(i2);
                 return str2;
             }
             return null;
@@ -105,7 +102,7 @@ public class BdCacheEvictPolicyFactory {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     static class EvictOnInsertLRUCachePolicy implements BdCacheEvictPolicy.EvictOnInsertSupport {
         private HashMap<String, Long> items = new HashMap<>();
         private final int maxSize;
@@ -131,22 +128,19 @@ public class BdCacheEvictPolicyFactory {
 
         public String keyToEvictedOnNewItemJoined(String str) {
             String key;
-            long j;
             String str2 = null;
             if (!this.items.containsKey(str) && this.items.size() >= this.maxSize) {
                 synchronized (this) {
-                    long j2 = -1;
+                    long j = -1;
                     for (Map.Entry<String, Long> entry : this.items.entrySet()) {
                         long longValue = entry.getValue().longValue();
-                        if (j2 == -1 || j2 > longValue) {
+                        if (j == -1 || j > longValue) {
                             key = entry.getKey();
                             j = longValue;
                         } else {
-                            j = j2;
                             key = str2;
                         }
                         str2 = key;
-                        j2 = j;
                     }
                     if (str2 != null) {
                         this.items.remove(str2);

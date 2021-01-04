@@ -11,7 +11,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class BdUploadFeature extends com.baidu.browser.sailor.feature.a implements INoProGuard, IUploadFile {
     public static final int FILE_SELECTED = 11;
     protected Map<Activity, BdUploadHandler> mUploadHandlers;

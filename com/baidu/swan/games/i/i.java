@@ -1,57 +1,57 @@
 package com.baidu.swan.games.i;
 
-import android.support.annotation.NonNull;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile i eaq;
-    private ArrayList<h> eao = new ArrayList<>();
-    private g eap = new g();
+    private static volatile i ejn;
+    private ArrayList<h> ejl = new ArrayList<>();
+    private g ejm = new g();
 
     private i() {
     }
 
-    public static i aXH() {
-        if (eaq == null) {
+    public static i bab() {
+        if (ejn == null) {
             synchronized (i.class) {
-                if (eaq == null) {
-                    eaq = new i();
+                if (ejn == null) {
+                    ejn = new i();
                 }
             }
         }
-        return eaq;
+        return ejn;
     }
 
     public synchronized void a(@NonNull Runnable runnable, String str, String... strArr) {
         h hVar = new h(this, runnable, str, strArr);
-        ArrayList<h> A = this.eap.A(strArr);
-        this.eap.a(hVar, strArr);
-        if (A == null || A.size() == 0) {
-            hVar.aXC();
+        ArrayList<h> H = this.ejm.H(strArr);
+        this.ejm.a(hVar, strArr);
+        if (H == null || H.size() == 0) {
+            hVar.aZW();
         } else {
-            a(hVar, A);
+            a(hVar, H);
         }
     }
 
     public synchronized void c(h hVar) {
         if (hVar != null) {
-            this.eap.b(hVar, hVar.aXD());
-            if (hVar.aXE()) {
+            this.ejm.b(hVar, hVar.aZX());
+            if (hVar.aZY()) {
                 if (DEBUG) {
-                    Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + "," + this.eao.size());
+                    Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + "," + this.ejl.size());
                 }
-                for (int size = this.eao.size() - 1; size >= 0; size--) {
-                    h hVar2 = this.eao.get(size);
+                for (int size = this.ejl.size() - 1; size >= 0; size--) {
+                    h hVar2 = this.ejl.get(size);
                     hVar2.b(hVar);
-                    if (hVar2.aXG()) {
-                        this.eao.remove(size);
-                        hVar2.aXC();
+                    if (hVar2.baa()) {
+                        this.ejl.remove(size);
+                        hVar2.aZW();
                     }
                 }
             }
@@ -59,27 +59,27 @@ public class i {
     }
 
     private synchronized void onDestroy() {
-        this.eap.ayA();
-        Iterator<h> it = this.eao.iterator();
+        this.ejm.azR();
+        Iterator<h> it = this.ejl.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (d(next)) {
-                next.aXB();
+                next.aZV();
             }
         }
-        this.eao.clear();
+        this.ejl.clear();
     }
 
     public static synchronized void release() {
         synchronized (i.class) {
-            if (eaq != null) {
-                eaq.onDestroy();
-                eaq = null;
+            if (ejn != null) {
+                ejn.onDestroy();
+                ejn = null;
             }
         }
     }
 
-    public void B(String... strArr) {
+    public void I(String... strArr) {
         Semaphore semaphore = new Semaphore(0);
         if (a(semaphore, strArr)) {
             if (DEBUG) {
@@ -91,11 +91,11 @@ public class i {
 
     private synchronized boolean a(Semaphore semaphore, String... strArr) {
         boolean z;
-        ArrayList<h> A = this.eap.A(strArr);
-        if (A == null || A.size() == 0) {
+        ArrayList<h> H = this.ejm.H(strArr);
+        if (H == null || H.size() == 0) {
             z = false;
         } else {
-            a(b(semaphore), A);
+            a(b(semaphore), H);
             z = true;
         }
         return z;
@@ -103,15 +103,15 @@ public class i {
 
     private void a(@NonNull h hVar, @NonNull ArrayList<h> arrayList) {
         if (DEBUG) {
-            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + "," + arrayList.size() + "," + this.eao.size());
+            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + "," + arrayList.size() + "," + this.ejl.size());
         }
         Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
             h next = it.next();
-            next.aXF();
+            next.aZZ();
             hVar.a(next);
         }
-        this.eao.add(hVar);
+        this.ejl.add(hVar);
     }
 
     private void a(Semaphore semaphore) {

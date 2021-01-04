@@ -5,7 +5,7 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static b aW(String str) {
         File file = new File(str, "targets.json");

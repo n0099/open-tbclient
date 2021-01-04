@@ -1,6 +1,6 @@
 package okhttp3;
 
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import com.baidu.searchbox.http.response.ResponseException;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -22,7 +22,7 @@ import okhttp3.internal.platform.Platform;
 import okio.AsyncTimeout;
 import okio.Timeout;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class RealCall implements Call {
     final OkHttpClient client;
     @Nullable
@@ -149,7 +149,7 @@ public final class RealCall implements Call {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public final class AsyncCall extends NamedRunnable {
         static final /* synthetic */ boolean $assertionsDisabled;
         private final Callback responseCallback;

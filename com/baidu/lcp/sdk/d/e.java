@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Looper;
 import android.text.TextUtils;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class e {
     private static String readStringData(Context context, String str, String str2) {
         if (context == null) {
@@ -33,7 +33,7 @@ public class e {
             try {
                 final SharedPreferences sharedPreferences = context.getSharedPreferences("blcp_sp", 0);
                 if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-                    com.baidu.lcp.sdk.c.a.aH(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.d.e.1
+                    com.baidu.lcp.sdk.c.a.aG(context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.d.e.1
                         @Override // java.lang.Runnable
                         public void run() {
                             e.writeObjectData(sharedPreferences, str, obj);
@@ -82,11 +82,11 @@ public class e {
         return readStringData(context, "blcp_token", "");
     }
 
-    public static boolean aM(Context context) {
+    public static boolean aL(Context context) {
         return !TextUtils.isEmpty(getToken(context));
     }
 
-    public static void d(Context context, String str, int i) {
+    public static void e(Context context, String str, int i) {
         writeStringData(context, "protocol_priority" + i, str);
     }
 
@@ -98,7 +98,7 @@ public class e {
         writeIntData(context, "protocols_size", i);
     }
 
-    public static int aN(Context context) {
+    public static int aM(Context context) {
         return readIntData(context, "protocols_size", 1);
     }
 
@@ -114,7 +114,7 @@ public class e {
         writeBooleanData(context, "small_flow", z);
     }
 
-    public static boolean aC(Context context) {
+    public static boolean aB(Context context) {
         return readBooleanData(context, "small_flow", false);
     }
 
@@ -130,11 +130,11 @@ public class e {
         writeStringData(context, "blcp_cuid", str);
     }
 
-    public static String aO(Context context) {
+    public static String aN(Context context) {
         return readStringData(context, "blcp_cuid", "");
     }
 
-    public static int aP(Context context) {
+    public static int aO(Context context) {
         return readIntData(context, "conn_type", 1);
     }
 
@@ -150,11 +150,11 @@ public class e {
         writeIntData(context, "lcp_env_debug", i);
     }
 
-    public static boolean aQ(Context context) {
+    public static boolean aP(Context context) {
         return readBooleanData(context, "lcp_debug", false);
     }
 
-    public static int aR(Context context) {
+    public static int aQ(Context context) {
         return readIntData(context, "lcp_env_debug", 0);
     }
 
@@ -162,7 +162,7 @@ public class e {
         writeIntData(context, "key_vip_connect_type", i);
     }
 
-    public static int aS(Context context) {
+    public static int aR(Context context) {
         return readIntData(context, "key_vip_connect_type", 3);
     }
 }

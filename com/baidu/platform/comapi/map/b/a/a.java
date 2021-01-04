@@ -2,17 +2,19 @@ package com.baidu.platform.comapi.map.b.a;
 
 import android.view.MotionEvent;
 import com.baidu.platform.comapi.map.b.a;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f2902a = 0;
-    private boolean b = false;
+    private long f4308a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    private boolean f4309b = false;
     private a.C0290a c;
     private InterfaceC0291a d;
 
     /* renamed from: com.baidu.platform.comapi.map.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface InterfaceC0291a {
         boolean a(a aVar);
     }
@@ -22,9 +24,9 @@ public class a {
     }
 
     private void a() {
-        this.b = false;
+        this.f4309b = false;
         this.c = null;
-        this.f2902a = 0L;
+        this.f4308a = 0L;
     }
 
     private void b(MotionEvent motionEvent) {
@@ -32,9 +34,9 @@ public class a {
             return;
         }
         a.C0290a a2 = a.C0290a.a(motionEvent);
-        boolean z = Math.abs(new a.C0290a(this.c.f2903a, a2.f2903a).b()) < 20.0d && Math.abs(new a.C0290a(this.c.b, a2.b).b()) < 20.0d;
-        boolean z2 = System.currentTimeMillis() - this.f2902a < 200;
-        if (z && z2 && this.b) {
+        boolean z = Math.abs(new a.C0290a(this.c.f4310a, a2.f4310a).b()) < 20.0d && Math.abs(new a.C0290a(this.c.f4311b, a2.f4311b).b()) < 20.0d;
+        boolean z2 = System.currentTimeMillis() - this.f4308a < 200;
+        if (z && z2 && this.f4309b) {
             this.d.a(this);
         }
     }
@@ -44,13 +46,13 @@ public class a {
             return;
         }
         this.c = a.C0290a.a(motionEvent);
-        this.b = true;
+        this.f4309b = true;
     }
 
     public void a(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.f2902a = System.currentTimeMillis();
+                this.f4308a = System.currentTimeMillis();
                 return;
             case 5:
             case 261:

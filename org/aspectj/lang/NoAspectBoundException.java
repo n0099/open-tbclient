@@ -1,5 +1,5 @@
 package org.aspectj.lang;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class NoAspectBoundException extends RuntimeException {
     Throwable cause;
 

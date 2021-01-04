@@ -6,7 +6,7 @@ import android.os.Build;
 import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.compatible.menukey.MenuKeyUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ViewCommonUtil {
     public static Rect getVisibilityRegion(Activity activity) {
         Rect rect = new Rect();
@@ -26,12 +26,16 @@ public class ViewCommonUtil {
 
     public static int[] getScreenFullSize(Activity activity) {
         View findViewById;
-        int[] iArr = {activity.getWindow().getDecorView().getWidth(), activity.getWindow().getDecorView().getHeight()};
-        if (Build.VERSION.SDK_INT > 21 && (findViewById = activity.getWindow().getDecorView().findViewById(16908336)) != null && findViewById.getVisibility() == 0) {
-            if (iArr[0] > iArr[1] && iArr[0] > findViewById.getWidth()) {
-                iArr[0] = iArr[0] - findViewById.getWidth();
-            } else {
-                iArr[1] = iArr[1] - findViewById.getHeight();
+        int[] iArr = new int[2];
+        if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
+            iArr[0] = activity.getWindow().getDecorView().getWidth();
+            iArr[1] = activity.getWindow().getDecorView().getHeight();
+            if (Build.VERSION.SDK_INT > 21 && (findViewById = activity.getWindow().getDecorView().findViewById(16908336)) != null && findViewById.getVisibility() == 0) {
+                if (iArr[0] > iArr[1] && iArr[0] > findViewById.getWidth()) {
+                    iArr[0] = iArr[0] - findViewById.getWidth();
+                } else {
+                    iArr[1] = iArr[1] - findViewById.getHeight();
+                }
             }
         }
         return iArr;

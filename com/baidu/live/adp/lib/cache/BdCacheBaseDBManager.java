@@ -8,7 +8,7 @@ import com.baidu.live.adp.lib.cache.BdCacheEvictPolicy;
 import com.baidu.live.adp.lib.safe.BdCloseHelper;
 import com.baidu.live.adp.lib.safe.ThreadService;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class BdCacheBaseDBManager<T> {
     protected BdCacheEvictPolicy.EvictOnCountSupport countCachePolicy;
     protected final DatabaseManager dbService;

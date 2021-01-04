@@ -1,15 +1,15 @@
 package com.baidu.location.c;
 
 import com.baidu.location.c.b;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b.a f1927a;
+    final /* synthetic */ b.a f2678a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b.a aVar) {
-        this.f1927a = aVar;
+        this.f2678a = aVar;
     }
 
     @Override // java.lang.Runnable

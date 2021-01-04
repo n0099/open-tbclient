@@ -6,7 +6,7 @@ import com.google.zxing.Writer;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class OneDimensionalCodeWriter implements Writer {
     public abstract boolean[] encode(String str);
 
@@ -57,17 +57,15 @@ public abstract class OneDimensionalCodeWriter implements Writer {
         int i4 = i;
         while (i2 < length) {
             int i5 = iArr[i2];
-            int i6 = i4;
-            int i7 = 0;
-            while (i7 < i5) {
-                zArr[i6] = z;
-                i7++;
+            int i6 = 0;
+            while (i6 < i5) {
+                zArr[i4] = z;
                 i6++;
+                i4++;
             }
             i3 += i5;
             i2++;
             z = !z;
-            i4 = i6;
         }
         return i3;
     }

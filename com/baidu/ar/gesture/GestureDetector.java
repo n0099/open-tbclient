@@ -11,8 +11,7 @@ import com.baidu.ar.c.c;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-import com.baidu.searchbox.appframework.AppFrameworkConstants;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class GestureDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = GestureDetector.class.getSimpleName();
     private int oU = 1;
@@ -45,8 +44,8 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
         if (bundle == null) {
             return 1;
         }
-        String string = bundle.getString(HttpConstants.FUNCTION_TYPE, AppFrameworkConstants.VALUE_GESTURE_BACK);
-        if (AppFrameworkConstants.VALUE_GESTURE_BACK.equals(string)) {
+        String string = bundle.getString(HttpConstants.FUNCTION_TYPE, "gesture");
+        if ("gesture".equals(string)) {
             return 1;
         }
         return "fingertip".equals(string) ? 2 : 0;
@@ -65,7 +64,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
                 float f = bundle.getFloat("det_thresh", 0.25f);
                 float f2 = bundle.getFloat("first_cls_thresh", 0.75f);
                 float f3 = bundle.getFloat("second_cls_thresh", 0.5f);
-                return aVar.f1195tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1);
+                return aVar.f1486tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1);
             }
 
             @Override // com.baidu.ar.c.a

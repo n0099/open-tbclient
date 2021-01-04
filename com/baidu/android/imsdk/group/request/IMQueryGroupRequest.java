@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.group.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
@@ -23,7 +22,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMQueryGroupRequest.class.getSimpleName();
     private boolean isCreateGroup;
@@ -32,7 +31,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     private ArrayList<String> mGroupIds;
     private String mKey;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);
@@ -45,12 +44,12 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
             ArrayList arrayList = new ArrayList();
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
-                i = jSONObject.getInt("error_code");
-                String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
-                if (i == 0 && jSONObject.has("response_params")) {
+                int i2 = jSONObject.getInt("error_code");
+                String optString = jSONObject.optString("error_msg", "");
+                if (i2 == 0 && jSONObject.has("response_params")) {
                     JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("group_info");
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                    for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                         long optLong = jSONObject2.optLong("group_id");
                         String optString2 = jSONObject2.optString("group_name");
                         int optInt = jSONObject2.optInt("group_type");
@@ -83,10 +82,11 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                     }
                 }
                 str = optString;
+                i = i2;
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
-                new IMTrack.CrashBuilder(IMQueryGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
                 i = 1010;
+                new IMTrack.CrashBuilder(IMQueryGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             if (i == 0) {

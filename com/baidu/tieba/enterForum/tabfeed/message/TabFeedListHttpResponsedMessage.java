@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.tabfeed.message;
 
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.mvc.b.k;
@@ -8,7 +8,7 @@ import com.baidu.tieba.enterForum.tabfeed.b.a;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements k {
     public a enterForumTabFeedData;
 
@@ -32,11 +32,11 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
         }
     }
 
-    public ArrayList<q> getThreadList() {
-        return this.enterForumTabFeedData.cwN();
+    public ArrayList<n> getThreadList() {
+        return this.enterForumTabFeedData.czG();
     }
 
     public Object getExtra() {
-        return this.enterForumTabFeedData.cwP();
+        return this.enterForumTabFeedData.czI();
     }
 }

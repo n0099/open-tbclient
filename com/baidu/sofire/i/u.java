@@ -6,9 +6,9 @@ import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.Settings;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.appcompat.widget.ActivityChooserView;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,19 +16,21 @@ import java.io.FileReader;
 import java.nio.ByteBuffer;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3651a;
+    public static String f5565a;
     private static u c;
-    private Context b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f5566b;
     private com.baidu.sofire.g d;
 
     private u(Context context) {
-        this.b = context;
+        this.f5566b = context;
         this.d = new com.baidu.sofire.g(context);
-        f3651a = a();
+        f5565a = a();
     }
 
     public static u a(Context context) {
@@ -44,10 +46,13 @@ public class u {
         try {
             byte[] bytes = "Pnu1RZ`M22vl6bg0".getBytes();
             byte[] bArr = new byte[bytes.length];
+            int length = bytes.length;
             int i = 0;
-            for (byte b : bytes) {
-                bArr[i] = (byte) (b ^ 3);
+            int i2 = 0;
+            while (i < length) {
+                bArr[i2] = (byte) (bytes[i] ^ 3);
                 i++;
+                i2++;
             }
             return new String(bArr);
         } catch (Throwable th) {
@@ -61,11 +66,11 @@ public class u {
         String str2;
         synchronized (this) {
             try {
-                com.baidu.sofire.j.a.a().a(this.b, null);
+                com.baidu.sofire.j.a.a().a(this.f5566b, null);
                 ByteBuffer allocate = ByteBuffer.allocate(78);
-                byte[] a2 = v.a(this.b);
+                byte[] a2 = v.a(this.f5566b);
                 allocate.put(a2);
-                String[] g = e.g(this.b);
+                String[] g = e.g(this.f5566b);
                 if (g != null && g.length == 2 && !TextUtils.isEmpty(g[0]) && !TextUtils.isEmpty(g[1])) {
                     str2 = g[0];
                 } else {
@@ -101,20 +106,20 @@ public class u {
                 byte[] bArr = new byte[16];
                 System.arraycopy(p.a(allocate3.array()).getBytes(), 0, bArr, 0, 16);
                 allocate.put(bArr);
-                byte[] b = a.b(f3651a.getBytes(), allocate.array());
-                byte[] bArr2 = new byte[b.length - 4];
-                int b2 = this.d.b();
-                byte[] a5 = v.a(b2);
-                bArr2[0] = (byte) (b2 % 128);
+                byte[] b2 = a.b(f5565a.getBytes(), allocate.array());
+                byte[] bArr2 = new byte[b2.length - 4];
+                int b3 = this.d.b();
+                byte[] a5 = v.a(b3);
+                bArr2[0] = (byte) (b3 % 128);
                 for (int i2 = 1; i2 < bArr2.length; i2++) {
                     bArr2[i2] = (byte) (((bArr2[i2 - 1] * 5) + 7) % 128);
                 }
                 ByteBuffer allocate4 = ByteBuffer.allocate(bArr2.length + 4);
                 allocate4.put(bArr2).put(a5);
                 byte[] array2 = allocate4.array();
-                byte[] bArr3 = new byte[b.length];
-                for (int i3 = 0; i3 < b.length; i3++) {
-                    bArr3[i3] = (byte) (b[i3] ^ array2[i3]);
+                byte[] bArr3 = new byte[b2.length];
+                for (int i3 = 0; i3 < b2.length; i3++) {
+                    bArr3[i3] = (byte) (b2[i3] ^ array2[i3]);
                 }
                 ByteBuffer allocate5 = ByteBuffer.allocate(bArr3.length + 4 + 4);
                 allocate5.put(bArr3);
@@ -138,57 +143,57 @@ public class u {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    public final void a(java.lang.String r12) {
+    public final void a(java.lang.String r11) {
         /*
-            r11 = this;
-            r0 = 0
-            r3 = 0
-            java.lang.Class<com.baidu.sofire.i.u> r4 = com.baidu.sofire.i.u.class
-            monitor-enter(r4)
-            boolean r1 = android.text.TextUtils.isEmpty(r12)     // Catch: java.lang.Throwable -> L6a
-            if (r1 == 0) goto Ld
-            monitor-exit(r4)     // Catch: java.lang.Throwable -> L70
+            r10 = this;
+            r1 = 0
+            r4 = 0
+            java.lang.Class<com.baidu.sofire.i.u> r7 = com.baidu.sofire.i.u.class
+            monitor-enter(r7)
+            boolean r0 = android.text.TextUtils.isEmpty(r11)     // Catch: java.lang.Throwable -> L6a
+            if (r0 == 0) goto Ld
+            monitor-exit(r7)     // Catch: java.lang.Throwable -> L70
         Lc:
             return
         Ld:
-            long r6 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L6a
-            java.lang.String r1 = ""
+            long r8 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L6a
+            java.lang.String r0 = ""
             r2 = 1
-            java.lang.String r1 = r11.a(r12, r1, r2)     // Catch: java.lang.Throwable -> L6a
-            boolean r2 = android.text.TextUtils.isEmpty(r1)     // Catch: java.lang.Throwable -> L65
+            java.lang.String r0 = r10.a(r11, r0, r2)     // Catch: java.lang.Throwable -> L6a
+            boolean r2 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L65
             if (r2 == 0) goto L46
         L1f:
             java.lang.String r2 = ""
-            r5 = 2
-            java.lang.String r5 = r11.a(r1, r2, r5)     // Catch: java.lang.Throwable -> L6a
-            boolean r1 = android.text.TextUtils.isEmpty(r5)     // Catch: java.lang.Throwable -> L6a
-            if (r1 != 0) goto Lc7
-            java.lang.String r1 = b(r5, r6)     // Catch: java.lang.Throwable -> L6a
-            byte[] r2 = r1.getBytes()     // Catch: java.lang.Throwable -> L6a
-            int r1 = r2.length     // Catch: java.lang.Throwable -> L6a
-            byte[] r8 = new byte[r1]     // Catch: java.lang.Throwable -> L6a
-            r1 = r3
+            r3 = 2
+            java.lang.String r5 = r10.a(r0, r2, r3)     // Catch: java.lang.Throwable -> L6a
+            boolean r0 = android.text.TextUtils.isEmpty(r5)     // Catch: java.lang.Throwable -> L6a
+            if (r0 != 0) goto Lc7
+            java.lang.String r0 = b(r5, r8)     // Catch: java.lang.Throwable -> L6a
+            byte[] r2 = r0.getBytes()     // Catch: java.lang.Throwable -> L6a
+            int r0 = r2.length     // Catch: java.lang.Throwable -> L6a
+            byte[] r3 = new byte[r0]     // Catch: java.lang.Throwable -> L6a
+            r0 = r4
         L39:
-            int r9 = r2.length     // Catch: java.lang.Throwable -> L6a
-            if (r1 >= r9) goto L73
-            r9 = r2[r1]     // Catch: java.lang.Throwable -> L6a
-            r9 = r9 ^ 2
-            byte r9 = (byte) r9     // Catch: java.lang.Throwable -> L6a
-            r8[r1] = r9     // Catch: java.lang.Throwable -> L6a
-            int r1 = r1 + 1
+            int r6 = r2.length     // Catch: java.lang.Throwable -> L6a
+            if (r0 >= r6) goto L73
+            r6 = r2[r0]     // Catch: java.lang.Throwable -> L6a
+            r6 = r6 ^ 2
+            byte r6 = (byte) r6     // Catch: java.lang.Throwable -> L6a
+            r3[r0] = r6     // Catch: java.lang.Throwable -> L6a
+            int r0 = r0 + 1
             goto L39
         L46:
-            com.baidu.sofire.g r2 = r11.d     // Catch: java.lang.Throwable -> L65
-            android.content.SharedPreferences$Editor r5 = r2.b     // Catch: java.lang.Throwable -> L65
-            java.lang.String r8 = "t_d_i_dv2"
-            r5.putString(r8, r1)     // Catch: java.lang.Throwable -> L65
-            android.content.SharedPreferences$Editor r2 = r2.b     // Catch: java.lang.Throwable -> L65
+            com.baidu.sofire.g r2 = r10.d     // Catch: java.lang.Throwable -> L65
+            android.content.SharedPreferences$Editor r3 = r2.f5530b     // Catch: java.lang.Throwable -> L65
+            java.lang.String r5 = "t_d_i_dv2"
+            r3.putString(r5, r0)     // Catch: java.lang.Throwable -> L65
+            android.content.SharedPreferences$Editor r2 = r2.f5530b     // Catch: java.lang.Throwable -> L65
             r2.commit()     // Catch: java.lang.Throwable -> L65
-            com.baidu.sofire.g r2 = r11.d     // Catch: java.lang.Throwable -> L65
-            android.content.SharedPreferences$Editor r5 = r2.b     // Catch: java.lang.Throwable -> L65
-            java.lang.String r8 = "t_d_i_d_tv2"
-            r5.putLong(r8, r6)     // Catch: java.lang.Throwable -> L65
-            android.content.SharedPreferences$Editor r2 = r2.b     // Catch: java.lang.Throwable -> L65
+            com.baidu.sofire.g r2 = r10.d     // Catch: java.lang.Throwable -> L65
+            android.content.SharedPreferences$Editor r3 = r2.f5530b     // Catch: java.lang.Throwable -> L65
+            java.lang.String r5 = "t_d_i_d_tv2"
+            r3.putLong(r5, r8)     // Catch: java.lang.Throwable -> L65
+            android.content.SharedPreferences$Editor r2 = r2.f5530b     // Catch: java.lang.Throwable -> L65
             r2.commit()     // Catch: java.lang.Throwable -> L65
             goto L1f
         L65:
@@ -199,188 +204,179 @@ public class u {
             r0 = move-exception
             com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L70
         L6e:
-            monitor-exit(r4)     // Catch: java.lang.Throwable -> L70
+            monitor-exit(r7)     // Catch: java.lang.Throwable -> L70
             goto Lc
         L70:
             r0 = move-exception
-            monitor-exit(r4)     // Catch: java.lang.Throwable -> L70
+            monitor-exit(r7)     // Catch: java.lang.Throwable -> L70
             throw r0
         L73:
-            r1 = 0
-            byte[] r8 = android.util.Base64.encode(r8, r1)     // Catch: java.lang.Throwable -> L6a
-            int r1 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L6a
-            r2 = 28
-            if (r1 > r2) goto Lc7
-            if (r8 == 0) goto Lc7
-            java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> Le6
-            java.io.File r2 = android.os.Environment.getExternalStorageDirectory()     // Catch: java.lang.Throwable -> Le6
-            java.lang.String r9 = "backups/.tdidv2"
-            r1.<init>(r2, r9)     // Catch: java.lang.Throwable -> Le6
-            java.io.File r2 = r1.getParentFile()     // Catch: java.lang.Throwable -> Le6
-            boolean r9 = r2.exists()     // Catch: java.lang.Throwable -> Le6
-            if (r9 != 0) goto L99
-            r2.mkdir()     // Catch: java.lang.Throwable -> Le6
+            r0 = 0
+            byte[] r2 = android.util.Base64.encode(r3, r0)     // Catch: java.lang.Throwable -> L6a
+            int r0 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L6a
+            r3 = 28
+            if (r0 > r3) goto Lc7
+            if (r2 == 0) goto Lc7
+            java.io.File r0 = new java.io.File     // Catch: java.lang.Throwable -> Le6
+            java.io.File r3 = android.os.Environment.getExternalStorageDirectory()     // Catch: java.lang.Throwable -> Le6
+            java.lang.String r6 = "backups/.tdidv2"
+            r0.<init>(r3, r6)     // Catch: java.lang.Throwable -> Le6
+            java.io.File r3 = r0.getParentFile()     // Catch: java.lang.Throwable -> Le6
+            boolean r6 = r3.exists()     // Catch: java.lang.Throwable -> Le6
+            if (r6 != 0) goto L99
+            r3.mkdir()     // Catch: java.lang.Throwable -> Le6
         L99:
-            boolean r2 = r1.exists()     // Catch: java.lang.Throwable -> Le6
-            if (r2 != 0) goto La2
-            r1.createNewFile()     // Catch: java.lang.Throwable -> Le6
+            boolean r3 = r0.exists()     // Catch: java.lang.Throwable -> Le6
+            if (r3 != 0) goto La2
+            r0.createNewFile()     // Catch: java.lang.Throwable -> Le6
         La2:
-            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> Le6
-            r2.<init>(r1)     // Catch: java.lang.Throwable -> Le6
-            java.nio.channels.FileChannel r1 = r2.getChannel()     // Catch: java.lang.Throwable -> L17e
-            java.nio.channels.FileLock r0 = r1.tryLock()     // Catch: java.lang.Throwable -> L182
-            if (r0 == 0) goto Lba
-            boolean r9 = r0.isValid()     // Catch: java.lang.Throwable -> L188
-            if (r9 == 0) goto Lba
-            r2.write(r8)     // Catch: java.lang.Throwable -> L188
+            java.io.FileOutputStream r3 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> Le6
+            r3.<init>(r0)     // Catch: java.lang.Throwable -> Le6
+            java.nio.channels.FileChannel r0 = r3.getChannel()     // Catch: java.lang.Throwable -> L178
+            java.nio.channels.FileLock r1 = r0.tryLock()     // Catch: java.lang.Throwable -> L17d
+            if (r1 == 0) goto Lba
+            boolean r6 = r1.isValid()     // Catch: java.lang.Throwable -> L181
+            if (r6 == 0) goto Lba
+            r3.write(r2)     // Catch: java.lang.Throwable -> L181
         Lba:
-            if (r0 == 0) goto Lbf
-            r0.release()     // Catch: java.lang.Throwable -> Le1
+            if (r1 == 0) goto Lbf
+            r1.release()     // Catch: java.lang.Throwable -> Le1
         Lbf:
-            if (r1 == 0) goto Lc4
-            r1.close()     // Catch: java.lang.Throwable -> Le1
+            if (r0 == 0) goto Lc4
+            r0.close()     // Catch: java.lang.Throwable -> Le1
         Lc4:
-            r2.close()     // Catch: java.lang.Throwable -> Le1
+            r3.close()     // Catch: java.lang.Throwable -> Le1
         Lc7:
             java.lang.String r0 = ""
             r1 = 3
-            java.lang.String r1 = r11.a(r5, r0, r1)     // Catch: java.lang.Throwable -> L6a
+            java.lang.String r1 = r10.a(r5, r0, r1)     // Catch: java.lang.Throwable -> L6a
             boolean r0 = android.text.TextUtils.isEmpty(r1)     // Catch: java.lang.Throwable -> L15e
             if (r0 == 0) goto L11c
         Ld5:
             java.lang.String r0 = ""
             r2 = 7
-            java.lang.String r0 = r11.a(r1, r0, r2)     // Catch: java.lang.Throwable -> L6a
-            r11.a(r0, r6)     // Catch: java.lang.Throwable -> L6a
+            java.lang.String r0 = r10.a(r1, r0, r2)     // Catch: java.lang.Throwable -> L6a
+            r10.a(r0, r8)     // Catch: java.lang.Throwable -> L6a
             goto L6e
         Le1:
             r0 = move-exception
             com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L6a
             goto Lc7
         Le6:
-            r1 = move-exception
-            r1 = r0
-            r2 = r0
-        Le9:
-            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L177
-            if (r1 == 0) goto Lf1
-            r1.release()     // Catch: java.lang.Throwable -> Lfc
-        Lf1:
-            if (r0 == 0) goto Lf6
-            r0.close()     // Catch: java.lang.Throwable -> Lfc
-        Lf6:
-            if (r2 == 0) goto Lc7
-            r2.close()     // Catch: java.lang.Throwable -> Lfc
+            r0 = move-exception
+            r0 = r1
+            r2 = r1
+            r3 = r1
+        Lea:
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L173
+            if (r2 == 0) goto Lf2
+            r2.release()     // Catch: java.lang.Throwable -> Lfd
+        Lf2:
+            if (r0 == 0) goto Lf7
+            r0.close()     // Catch: java.lang.Throwable -> Lfd
+        Lf7:
+            if (r3 == 0) goto Lc7
+            r3.close()     // Catch: java.lang.Throwable -> Lfd
             goto Lc7
-        Lfc:
+        Lfd:
             r0 = move-exception
             com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L6a
             goto Lc7
-        L101:
-            r1 = move-exception
-            r2 = r0
-            r3 = r0
-            r10 = r1
-            r1 = r0
-            r0 = r10
+        L102:
+            r0 = move-exception
+            r4 = r0
+            r5 = r1
+            r6 = r1
+            r3 = r1
         L107:
-            if (r2 == 0) goto L10c
-            r2.release()     // Catch: java.lang.Throwable -> L117
+            if (r6 == 0) goto L10c
+            r6.release()     // Catch: java.lang.Throwable -> L117
         L10c:
-            if (r1 == 0) goto L111
-            r1.close()     // Catch: java.lang.Throwable -> L117
+            if (r5 == 0) goto L111
+            r5.close()     // Catch: java.lang.Throwable -> L117
         L111:
             if (r3 == 0) goto L116
             r3.close()     // Catch: java.lang.Throwable -> L117
         L116:
-            throw r0     // Catch: java.lang.Throwable -> L6a
+            throw r4     // Catch: java.lang.Throwable -> L6a
         L117:
-            r1 = move-exception
+            r0 = move-exception
             com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L6a
             goto L116
         L11c:
-            java.lang.String r0 = b(r1, r6)     // Catch: java.lang.Throwable -> L15e
+            java.lang.String r0 = b(r1, r8)     // Catch: java.lang.Throwable -> L15e
             byte[] r2 = r0.getBytes()     // Catch: java.lang.Throwable -> L15e
             int r0 = r2.length     // Catch: java.lang.Throwable -> L15e
-            byte[] r5 = new byte[r0]     // Catch: java.lang.Throwable -> L15e
-            r0 = r3
+            byte[] r3 = new byte[r0]     // Catch: java.lang.Throwable -> L15e
+            r0 = r4
         L128:
-            int r3 = r2.length     // Catch: java.lang.Throwable -> L15e
-            if (r0 >= r3) goto L135
-            r3 = r2[r0]     // Catch: java.lang.Throwable -> L15e
-            r3 = r3 ^ 2
-            byte r3 = (byte) r3     // Catch: java.lang.Throwable -> L15e
-            r5[r0] = r3     // Catch: java.lang.Throwable -> L15e
+            int r4 = r2.length     // Catch: java.lang.Throwable -> L15e
+            if (r0 >= r4) goto L135
+            r4 = r2[r0]     // Catch: java.lang.Throwable -> L15e
+            r4 = r4 ^ 2
+            byte r4 = (byte) r4     // Catch: java.lang.Throwable -> L15e
+            r3[r0] = r4     // Catch: java.lang.Throwable -> L15e
             int r0 = r0 + 1
             goto L128
         L135:
             r0 = 0
-            byte[] r0 = android.util.Base64.encode(r5, r0)     // Catch: java.lang.Throwable -> L15e
-            android.content.Context r2 = r11.b     // Catch: java.lang.Throwable -> L15e
+            byte[] r0 = android.util.Base64.encode(r3, r0)     // Catch: java.lang.Throwable -> L15e
+            android.content.Context r2 = r10.f5566b     // Catch: java.lang.Throwable -> L15e
             r3 = 1
             java.lang.String[] r3 = new java.lang.String[r3]     // Catch: java.lang.Throwable -> L15e
-            r5 = 0
-            java.lang.String r8 = "android.permission.WRITE_SETTINGS"
-            r3[r5] = r8     // Catch: java.lang.Throwable -> L15e
+            r4 = 0
+            java.lang.String r5 = "android.permission.WRITE_SETTINGS"
+            r3[r4] = r5     // Catch: java.lang.Throwable -> L15e
             boolean r2 = com.baidu.sofire.i.s.a(r2, r3)     // Catch: java.lang.Throwable -> L15e
             if (r2 == 0) goto Ld5
-            android.content.Context r2 = r11.b     // Catch: java.lang.Throwable -> L15e
+            android.content.Context r2 = r10.f5566b     // Catch: java.lang.Throwable -> L15e
             android.content.ContentResolver r2 = r2.getContentResolver()     // Catch: java.lang.Throwable -> L15e
             java.lang.String r3 = "setting_tdidv2"
-            java.lang.String r5 = new java.lang.String     // Catch: java.lang.Throwable -> L15e
-            r5.<init>(r0)     // Catch: java.lang.Throwable -> L15e
-            android.provider.Settings.System.putString(r2, r3, r5)     // Catch: java.lang.Throwable -> L15e
+            java.lang.String r4 = new java.lang.String     // Catch: java.lang.Throwable -> L15e
+            r4.<init>(r0)     // Catch: java.lang.Throwable -> L15e
+            android.provider.Settings.System.putString(r2, r3, r4)     // Catch: java.lang.Throwable -> L15e
             goto Ld5
         L15e:
             r0 = move-exception
             com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L6a
             goto Ld5
         L164:
+            r0 = move-exception
+            r4 = r0
+            r5 = r1
+            r6 = r1
+            goto L107
+        L169:
+            r2 = move-exception
+            r4 = r2
+            r5 = r0
+            r6 = r1
+            goto L107
+        L16e:
+            r2 = move-exception
+            r4 = r2
+            r5 = r0
+            r6 = r1
+            goto L107
+        L173:
             r1 = move-exception
-            r3 = r2
-            r2 = r0
-            r10 = r0
+            r4 = r1
+            r5 = r0
+            r6 = r2
+            goto L107
+        L178:
+            r0 = move-exception
             r0 = r1
-            r1 = r10
-            goto L107
-        L16b:
-            r3 = move-exception
-            r10 = r3
-            r3 = r2
-            r2 = r0
-            r0 = r10
-            goto L107
-        L171:
-            r3 = move-exception
-            r10 = r3
-            r3 = r2
-            r2 = r0
-            r0 = r10
-            goto L107
-        L177:
-            r3 = move-exception
-            r10 = r3
-            r3 = r2
             r2 = r1
-            r1 = r0
-            r0 = r10
-            goto L107
-        L17e:
-            r1 = move-exception
-            r1 = r0
-            goto Le9
-        L182:
-            r8 = move-exception
-            r10 = r1
-            r1 = r0
-            r0 = r10
-            goto Le9
-        L188:
-            r8 = move-exception
-            r10 = r1
-            r1 = r0
-            r0 = r10
-            goto Le9
+            goto Lea
+        L17d:
+            r2 = move-exception
+            r2 = r1
+            goto Lea
+        L181:
+            r2 = move-exception
+            r2 = r1
+            goto Lea
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.i.u.a(java.lang.String):void");
     }
@@ -401,8 +397,8 @@ public class u {
         String str3 = "";
         try {
             t d = d();
-            if (d == null || TextUtils.isEmpty(d.f3650a)) {
-                Iterator<ResolveInfo> it = this.b.getPackageManager().queryIntentServices(new Intent("com.baidu.action.SOFIRE.VIEW"), 0).iterator();
+            if (d == null || TextUtils.isEmpty(d.f5563a)) {
+                Iterator<ResolveInfo> it = this.f5566b.getPackageManager().queryIntentServices(new Intent("com.baidu.action.SOFIRE.VIEW"), 0).iterator();
                 String str4 = str3;
                 while (true) {
                     if (!it.hasNext()) {
@@ -414,7 +410,7 @@ public class u {
                     if (next.serviceInfo != null && next.serviceInfo.applicationInfo != null) {
                         File file = new File(new File(next.serviceInfo.applicationInfo.dataDir + File.separator + com.baidu.fsg.face.base.b.c.g), "libtdidv2.so");
                         if (file.exists() && (a2 = a(file)) != null) {
-                            str = a2.f3650a;
+                            str = a2.f5563a;
                             try {
                                 boolean isEmpty = TextUtils.isEmpty(str);
                                 if (isEmpty == 0) {
@@ -431,7 +427,7 @@ public class u {
                     str4 = str;
                 }
             } else {
-                str = d.f3650a;
+                str = d.f5563a;
                 str2 = str3;
             }
         } catch (Throwable th2) {
@@ -446,11 +442,11 @@ public class u {
             f = f();
             t g = g();
             t e = e();
-            t a2 = a(new File(this.b.getFilesDir() + File.separator + "libtdidv2.so"));
-            if (f == null || TextUtils.isEmpty(f.f3650a)) {
-                if (g == null || TextUtils.isEmpty(g.f3650a)) {
-                    if (e == null || TextUtils.isEmpty(e.f3650a)) {
-                        if (a2 == null || TextUtils.isEmpty(a2.f3650a)) {
+            t a2 = a(new File(this.f5566b.getFilesDir() + File.separator + "libtdidv2.so"));
+            if (f == null || TextUtils.isEmpty(f.f5563a)) {
+                if (g == null || TextUtils.isEmpty(g.f5563a)) {
+                    if (e == null || TextUtils.isEmpty(e.f5563a)) {
+                        if (a2 == null || TextUtils.isEmpty(a2.f5563a)) {
                             return null;
                         }
                         return a2;
@@ -465,11 +461,11 @@ public class u {
 
     private t e() {
         try {
-            String string = this.d.f3629a.getString("t_d_i_dv2", "");
-            long j = this.d.f3629a.getLong("t_d_i_d_tv2", 0L);
+            String string = this.d.f5529a.getString("t_d_i_dv2", "");
+            long j = this.d.f5529a.getLong("t_d_i_d_tv2", 0L);
             t tVar = new t();
-            tVar.f3650a = string;
-            tVar.b = j;
+            tVar.f5563a = string;
+            tVar.f5564b = j;
             return tVar;
         } catch (Throwable th) {
             e.a();
@@ -479,7 +475,7 @@ public class u {
 
     private t f() {
         try {
-            String string = Settings.System.getString(this.b.getContentResolver(), "setting_tdidv2");
+            String string = Settings.System.getString(this.f5566b.getContentResolver(), "setting_tdidv2");
             if (TextUtils.isEmpty(string)) {
                 return null;
             }
@@ -570,7 +566,7 @@ public class u {
                     bArr[i] = (byte) (bytes[i] ^ 2);
                 }
                 byte[] encode = Base64.encode(bArr, 0);
-                FileOutputStream openFileOutput = this.b.openFileOutput("libtdidv2.so", 1);
+                FileOutputStream openFileOutput = this.f5566b.openFileOutput("libtdidv2.so", 1);
                 openFileOutput.write(encode);
                 openFileOutput.close();
             }
@@ -588,8 +584,8 @@ public class u {
             String optString = jSONObject.optString("tdid");
             long optLong = jSONObject.optLong("time");
             t tVar = new t();
-            tVar.f3650a = optString;
-            tVar.b = optLong;
+            tVar.f5563a = optString;
+            tVar.f5564b = optLong;
             return tVar;
         } catch (Throwable th) {
             e.a();
@@ -630,7 +626,7 @@ public class u {
             allocate2.put(bArr2);
             allocate2.put(a3);
             byte[] bArr3 = new byte[4];
-            String[] g = e.g(this.b);
+            String[] g = e.g(this.f5566b);
             if (g != null && g.length == 2 && !TextUtils.isEmpty(g[0]) && !TextUtils.isEmpty(g[1])) {
                 str2 = g[0];
             } else {
@@ -670,26 +666,26 @@ public class u {
             if (i > 0) {
                 System.arraycopy(new byte[]{(byte) i}, 0, a2, 48, 1);
             }
-            byte[] b = a.b(f3651a.getBytes(), a2);
-            byte[] bArr = new byte[b.length - 4];
-            int b2 = this.d.b();
-            byte[] a4 = v.a(b2);
-            bArr[0] = (byte) (b2 % 128);
+            byte[] b2 = a.b(f5565a.getBytes(), a2);
+            byte[] bArr = new byte[b2.length - 4];
+            int b3 = this.d.b();
+            byte[] a4 = v.a(b3);
+            bArr[0] = (byte) (b3 % 128);
             for (int i3 = 1; i3 < bArr.length; i3++) {
                 bArr[i3] = (byte) (((bArr[i3 - 1] * 5) + 7) % 128);
             }
             ByteBuffer allocate3 = ByteBuffer.allocate(bArr.length + 4);
             allocate3.put(bArr).put(a4);
             byte[] array2 = allocate3.array();
-            byte[] bArr2 = new byte[b.length];
-            for (int i4 = 0; i4 < b.length; i4++) {
-                bArr2[i4] = (byte) (b[i4] ^ array2[i4]);
+            byte[] bArr2 = new byte[b2.length];
+            for (int i4 = 0; i4 < b2.length; i4++) {
+                bArr2[i4] = (byte) (b2[i4] ^ array2[i4]);
             }
             ByteBuffer allocate4 = ByteBuffer.allocate(bArr2.length + 4 + 4);
             allocate4.put(bArr2);
             allocate4.put(a4);
             byte[] bArr3 = new byte[4];
-            String[] g = e.g(this.b);
+            String[] g = e.g(this.f5566b);
             if (g != null && g.length == 2 && !TextUtils.isEmpty(g[0]) && !TextUtils.isEmpty(g[1])) {
                 str3 = g[0];
             } else {
@@ -727,7 +723,7 @@ public class u {
                 bArr4[i4] = (byte) (bArr2[i4] ^ array[i4]);
             }
             if (z) {
-                return a.a(f3651a.getBytes(), bArr4, false);
+                return a.a(f5565a.getBytes(), bArr4, false);
             }
             return bArr4;
         } catch (Throwable th) {

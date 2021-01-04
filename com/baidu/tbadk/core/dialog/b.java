@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -21,10 +21,10 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final HashMap<Integer, Integer[]> sBtnStyleMap = new HashMap<>(2);
-    private InterfaceC0586b eNr;
+    private InterfaceC0578b eXo;
     private final Activity mActivity;
     private final ViewGroup mContentView;
-    private com.baidu.adp.base.e<?> mContext;
+    private com.baidu.adp.base.f<?> mContext;
     private AlertDialog mDialog;
     private List<CharSequence> mItems;
     private final View mLineView;
@@ -49,7 +49,7 @@ public class b {
 
     /* renamed from: com.baidu.tbadk.core.dialog.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0586b {
+    public interface InterfaceC0578b {
         void a(b bVar, int i, View view);
     }
 
@@ -66,45 +66,45 @@ public class b {
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
     }
 
-    public b Br(String str) {
+    public b Bq(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public b oV(int i) {
-        return Br(this.mActivity.getResources().getString(i));
+    public b pf(int i) {
+        return Bq(this.mActivity.getResources().getString(i));
     }
 
-    public b a(CharSequence[] charSequenceArr, InterfaceC0586b interfaceC0586b) {
+    public b a(CharSequence[] charSequenceArr, InterfaceC0578b interfaceC0578b) {
         if (charSequenceArr != null && charSequenceArr.length > 0) {
-            return a(Arrays.asList(charSequenceArr), interfaceC0586b);
+            return a(Arrays.asList(charSequenceArr), interfaceC0578b);
         }
         return this;
     }
 
-    public b a(List<CharSequence> list, InterfaceC0586b interfaceC0586b) {
+    public b a(List<CharSequence> list, InterfaceC0578b interfaceC0578b) {
         if (list != null && list.size() > 0) {
             this.mItems = list;
-            if (interfaceC0586b != null) {
-                this.eNr = interfaceC0586b;
+            if (interfaceC0578b != null) {
+                this.eXo = interfaceC0578b;
             }
         }
         return this;
     }
 
-    public b oW(int i) {
+    public b pg(int i) {
         this.mAnimationStyleId = i;
         return this;
     }
 
-    public b oX(int i) {
+    public b ph(int i) {
         this.mDialogGravity = i;
         return this;
     }
 
-    public b d(com.baidu.adp.base.e<?> eVar) {
+    public b d(com.baidu.adp.base.f<?> fVar) {
         if (!this.mDialogCreated) {
-            this.mContext = eVar;
+            this.mContext = fVar;
             this.mDialogCreated = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
                 this.mTitleView.setText(this.mTitle);
@@ -120,12 +120,12 @@ public class b {
                     createItemView(i);
                 }
             }
-            c(eVar);
+            c(fVar);
         }
         return this;
     }
 
-    public b brx() {
+    public b btZ() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -152,11 +152,11 @@ public class b {
         return this;
     }
 
-    public void c(com.baidu.adp.base.e<?> eVar) {
+    public void c(com.baidu.adp.base.f<?> fVar) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (eVar instanceof TbPageContext) {
-            ((TbPageContext) eVar).getLayoutMode().setNightMode(skinType == 1);
-            ((TbPageContext) eVar).getLayoutMode().onModeChanged(this.mRootView);
+        if (fVar instanceof TbPageContext) {
+            ((TbPageContext) fVar).getLayoutMode().setNightMode(skinType == 1);
+            ((TbPageContext) fVar).getLayoutMode().onModeChanged(this.mRootView);
         }
         this.mRootView.setBackgroundResource(R.drawable.transparent_bg);
     }
@@ -189,20 +189,20 @@ public class b {
         textView.setText(charSequence);
         if (i == this.mItems.size() - 1) {
             findViewById.setVisibility(8);
-            ap.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
+            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
         } else if (this.mItems.size() == 1) {
             findViewById.setVisibility(8);
-            ap.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
+            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
         } else if (i == 0 && StringUtils.isNull(this.mTitle)) {
-            ap.setBackgroundResource(inflate, R.drawable.dialog_single_button_first_bg_selector);
+            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_first_bg_selector);
         } else {
-            ap.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
+            ao.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.eNr != null) {
+        if (this.eXo != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.eNr.a(b.this, i, textView);
+                    b.this.eXo.a(b.this, i, textView);
                 }
             });
         }

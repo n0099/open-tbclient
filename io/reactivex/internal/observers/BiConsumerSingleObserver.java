@@ -4,7 +4,7 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class BiConsumerSingleObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T> {
     private static final long serialVersionUID = 4943102778943297569L;
     final io.reactivex.b.b<? super T, ? super Throwable> onCallback;
@@ -19,7 +19,7 @@ public final class BiConsumerSingleObserver<T> extends AtomicReference<io.reacti
             lazySet(DisposableHelper.DISPOSED);
             this.onCallback.i(null, th);
         } catch (Throwable th2) {
-            io.reactivex.exceptions.a.J(th2);
+            io.reactivex.exceptions.a.O(th2);
             io.reactivex.d.a.onError(new CompositeException(th, th2));
         }
     }
@@ -35,7 +35,7 @@ public final class BiConsumerSingleObserver<T> extends AtomicReference<io.reacti
             lazySet(DisposableHelper.DISPOSED);
             this.onCallback.i(t, null);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             io.reactivex.d.a.onError(th);
         }
     }

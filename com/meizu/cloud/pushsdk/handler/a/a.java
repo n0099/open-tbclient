@@ -13,12 +13,14 @@ import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.meizu.cloud.pushsdk.handler.a f4181a;
-    private Context b;
+    private com.meizu.cloud.pushsdk.handler.a f11603a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f11604b;
     private Map<Integer, String> c;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -26,8 +28,8 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         if (context == null) {
             throw new IllegalArgumentException("Context must not be null.");
         }
-        this.b = context.getApplicationContext();
-        this.f4181a = aVar;
+        this.f11604b = context.getApplicationContext();
+        this.f11603a = aVar;
         this.c = new HashMap();
         this.c.put(2, "MESSAGE_TYPE_PUSH_SERVICE_V2");
         this.c.put(4, "MESSAGE_TYPE_PUSH_SERVICE_V3");
@@ -81,7 +83,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         String k = com.meizu.cloud.pushsdk.util.b.k(c(), messageV3.getPackageName());
         boolean z = false;
         while (true) {
-            if (z | TextUtils.isEmpty(k)) {
+            if (TextUtils.isEmpty(k) | z) {
                 e.a aVar = new e.a((String) com.meizu.cloud.pushsdk.b.a.a("https://api-push.meizu.com/garcia/api/server/getPublicKey").a().a().a());
                 if (!TextUtils.isEmpty(aVar.a())) {
                     k = aVar.a();
@@ -114,7 +116,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     }
 
     public com.meizu.cloud.pushsdk.handler.a b() {
-        return this.f4181a;
+        return this.f11603a;
     }
 
     public String b(String str) {
@@ -145,53 +147,59 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean b(Intent intent) {
-        boolean z = false;
-        boolean z2 = true;
+        boolean z;
+        boolean z2;
         if (a(intent)) {
             com.meizu.cloud.a.a.e("AbstractMessageHandler", "current message Type " + a(a()));
             T c = c(intent);
-            if (g((a<T>) c)) {
-                com.meizu.cloud.a.a.e("AbstractMessageHandler", "current Handler message " + c);
-                b((a<T>) c);
-                switch (d((a<T>) c)) {
-                    case 0:
-                        com.meizu.cloud.a.a.e("AbstractMessageHandler", "schedule send message off, send message directly");
-                        z = true;
-                        break;
-                    case 1:
-                        com.meizu.cloud.a.a.e("AbstractMessageHandler", "expire notification, dont show message");
-                        z2 = false;
-                        break;
-                    case 2:
-                        com.meizu.cloud.a.a.e("AbstractMessageHandler", "notification on time ,show message");
-                        z = true;
-                        break;
-                    case 3:
-                        com.meizu.cloud.a.a.e("AbstractMessageHandler", "schedule notification");
-                        e((a<T>) c);
-                        z = true;
-                        z2 = false;
-                        break;
-                    default:
-                        z2 = false;
-                        break;
-                }
-                boolean f = f((a<T>) c);
-                com.meizu.cloud.a.a.e("AbstractMessageHandler", "can send message " + f);
-                if (z && z2 && f) {
-                    a((a<T>) c, a((a<T>) c));
-                    c((a<T>) c);
-                    com.meizu.cloud.a.a.e("AbstractMessageHandler", "send message end ");
-                }
-            } else {
+            if (!g((a<T>) c)) {
                 com.meizu.cloud.a.a.e("AbstractMessageHandler", "invalid push message");
+                return false;
             }
+            com.meizu.cloud.a.a.e("AbstractMessageHandler", "current Handler message " + c);
+            b((a<T>) c);
+            switch (d((a<T>) c)) {
+                case 0:
+                    com.meizu.cloud.a.a.e("AbstractMessageHandler", "schedule send message off, send message directly");
+                    z2 = true;
+                    z = true;
+                    break;
+                case 1:
+                    com.meizu.cloud.a.a.e("AbstractMessageHandler", "expire notification, dont show message");
+                    z2 = false;
+                    z = false;
+                    break;
+                case 2:
+                    com.meizu.cloud.a.a.e("AbstractMessageHandler", "notification on time ,show message");
+                    z2 = true;
+                    z = true;
+                    break;
+                case 3:
+                    com.meizu.cloud.a.a.e("AbstractMessageHandler", "schedule notification");
+                    e((a<T>) c);
+                    z2 = false;
+                    z = true;
+                    break;
+                default:
+                    z2 = false;
+                    z = false;
+                    break;
+            }
+            boolean f = f((a<T>) c);
+            com.meizu.cloud.a.a.e("AbstractMessageHandler", "can send message " + f);
+            if (z && z2 && f) {
+                a((a<T>) c, a((a<T>) c));
+                c((a<T>) c);
+                com.meizu.cloud.a.a.e("AbstractMessageHandler", "send message end ");
+            }
+        } else {
+            z = false;
         }
         return z;
     }
 
     public Context c() {
-        return this.b;
+        return this.f11604b;
     }
 
     protected abstract T c(Intent intent);

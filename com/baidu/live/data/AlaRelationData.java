@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaRelationData implements Serializable {
     public static final int FOLLOW_STATUS_FOLLOWED_EACH_OTHER = 2;
     public static final int FOLLOW_STATUS_FOLLOWED_NO = 0;

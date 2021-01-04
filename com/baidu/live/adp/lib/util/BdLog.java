@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.live.adp.base.BdBaseApplication;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdLog {
     private static final String LOG_TAG = "BaiduLog";
     private static String LogFilter_classNameStartsWith = null;

@@ -13,7 +13,7 @@ import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class HttpUtils {
     private static BitSet URI_UNRESERVED_CHARACTERS = new BitSet();
     private static String[] PERCENT_ENCODED_STRINGS = new String[256];
@@ -49,11 +49,11 @@ public class HttpUtils {
         }
         try {
             StringBuilder sb = new StringBuilder();
-            for (byte b : str.getBytes("UTF-8")) {
-                if (URI_UNRESERVED_CHARACTERS.get(b & 255)) {
-                    sb.append((char) b);
+            for (byte b2 : str.getBytes("UTF-8")) {
+                if (URI_UNRESERVED_CHARACTERS.get(b2 & 255)) {
+                    sb.append((char) b2);
                 } else {
-                    sb.append(PERCENT_ENCODED_STRINGS[b & 255]);
+                    sb.append(PERCENT_ENCODED_STRINGS[b2 & 255]);
                 }
             }
             return sb.toString();

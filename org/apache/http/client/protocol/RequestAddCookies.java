@@ -6,7 +6,7 @@ import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class RequestAddCookies implements HttpRequestInterceptor {
     public RequestAddCookies() {
         throw new RuntimeException("Stub!");

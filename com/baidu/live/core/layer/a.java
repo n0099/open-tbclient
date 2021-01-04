@@ -1,5 +1,5 @@
 package com.baidu.live.core.layer;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface a {
     void a(LayerChildView layerChildView);
 

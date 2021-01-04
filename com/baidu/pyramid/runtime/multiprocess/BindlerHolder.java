@@ -3,19 +3,19 @@ package com.baidu.pyramid.runtime.multiprocess;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class BindlerHolder implements Parcelable {
     public static final Parcelable.Creator<BindlerHolder> CREATOR = new Parcelable.Creator<BindlerHolder>() { // from class: com.baidu.pyramid.runtime.multiprocess.BindlerHolder.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: o */
+        /* renamed from: p */
         public BindlerHolder createFromParcel(Parcel parcel) {
             return new BindlerHolder(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: hu */
+        /* renamed from: ht */
         public BindlerHolder[] newArray(int i) {
             return new BindlerHolder[i];
         }
@@ -31,7 +31,7 @@ public class BindlerHolder implements Parcelable {
         this.mBinder = parcel.readStrongBinder();
     }
 
-    public IBinder afK() {
+    public IBinder ahG() {
         return this.mBinder;
     }
 

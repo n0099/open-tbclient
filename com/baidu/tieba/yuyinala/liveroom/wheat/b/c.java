@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.b;
 
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaWheatInfoData;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
@@ -11,14 +11,14 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
-    public void ah(w wVar) {
-        if (wVar != null) {
+    public void al(x xVar) {
+        if (xVar != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, wVar.aKL.croom_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, xVar.aLl.croom_id);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -30,10 +30,10 @@ public class c {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            w Zd = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().Zd();
-            if (Zd != null && Zd.aKL != null) {
-                jSONObject.put("live_id", Zd.aKL.live_id);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Zd.aKL.croom_id);
+            x aas = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().aas();
+            if (aas != null && aas.aLl != null) {
+                jSONObject.put("live_id", aas.aLl.live_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aas.aLl.croom_id);
             }
             jSONObject.put("loc", i);
             boolean z = false;

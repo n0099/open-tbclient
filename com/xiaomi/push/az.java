@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -30,19 +31,21 @@ import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
 import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class az {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f4573a = Pattern.compile("([^\\s;]+)(.*)");
-    public static final Pattern b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
+    public static final Pattern f14168a = Pattern.compile("([^\\s;]+)(.*)");
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Pattern f14169b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
     public static final Pattern c = Pattern.compile("(\\<\\?xml\\s+.*?encoding\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f4574a;
+        private boolean f14170a;
 
         public a(InputStream inputStream) {
             super(inputStream);
@@ -51,25 +54,25 @@ public class az {
         @Override // java.io.FilterInputStream, java.io.InputStream
         public int read(byte[] bArr, int i, int i2) {
             int read;
-            if (this.f4574a || (read = super.read(bArr, i, i2)) == -1) {
-                this.f4574a = true;
+            if (this.f14170a || (read = super.read(bArr, i, i2)) == -1) {
+                this.f14170a = true;
                 return -1;
             }
             return read;
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f4575a;
+        public int f14171a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Map<String, String> f118a;
+        public Map<String, String> f196a;
 
         public String toString() {
-            return String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f4575a), this.f118a.toString());
+            return String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.f14171a), this.f196a.toString());
         }
     }
 
@@ -94,7 +97,7 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static NetworkInfo m132a(Context context) {
+    public static NetworkInfo m158a(Context context) {
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
@@ -107,80 +110,69 @@ public class az {
     }
 
     public static ax a(Context context, String str, String str2, Map<String, String> map, String str3) {
-        OutputStream outputStream;
         BufferedReader bufferedReader;
-        OutputStream outputStream2 = null;
+        OutputStream outputStream;
         ax axVar = new ax();
         try {
             try {
                 try {
-                    HttpURLConnection m134a = m134a(context, m135a(str));
-                    m134a.setConnectTimeout(10000);
-                    m134a.setReadTimeout(15000);
+                    HttpURLConnection m160a = m160a(context, m161a(str));
+                    m160a.setConnectTimeout(10000);
+                    m160a.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
                     if (str2 == null) {
                         str2 = "GET";
                     }
-                    m134a.setRequestMethod(str2);
+                    m160a.setRequestMethod(str2);
                     if (map != null) {
                         for (String str4 : map.keySet()) {
-                            m134a.setRequestProperty(str4, map.get(str4));
+                            m160a.setRequestProperty(str4, map.get(str4));
                         }
                     }
                     if (!TextUtils.isEmpty(str3)) {
-                        m134a.setDoOutput(true);
+                        m160a.setDoOutput(true);
                         byte[] bytes = str3.getBytes();
-                        OutputStream outputStream3 = m134a.getOutputStream();
+                        outputStream = m160a.getOutputStream();
                         try {
-                            outputStream3.write(bytes, 0, bytes.length);
-                            outputStream3.flush();
-                            outputStream3.close();
+                            outputStream.write(bytes, 0, bytes.length);
+                            outputStream.flush();
+                            outputStream.close();
                         } catch (IOException e) {
                             e = e;
-                            outputStream2 = outputStream3;
+                            throw new IOException("err while request " + str + ":" + e.getClass().getSimpleName());
+                        } catch (Throwable th) {
+                            th = th;
                             bufferedReader = null;
-                            try {
-                                throw new IOException("err while request " + str + ":" + e.getClass().getSimpleName());
-                            } catch (Throwable th) {
-                                th = th;
-                                BufferedReader bufferedReader2 = bufferedReader;
-                                outputStream = outputStream2;
-                                outputStream2 = bufferedReader2;
-                                y.a(outputStream);
-                                y.a(outputStream2);
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            throw new IOException(th.getMessage());
+                            y.a(outputStream);
+                            y.a(bufferedReader);
+                            throw th;
                         }
                     }
-                    axVar.f4572a = m134a.getResponseCode();
-                    Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + axVar.f4572a);
+                    axVar.f14167a = m160a.getResponseCode();
+                    Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + axVar.f14167a);
                     int i = 0;
                     while (true) {
-                        String headerFieldKey = m134a.getHeaderFieldKey(i);
-                        String headerField = m134a.getHeaderField(i);
+                        String headerFieldKey = m160a.getHeaderFieldKey(i);
+                        String headerField = m160a.getHeaderField(i);
                         if (headerFieldKey == null && headerField == null) {
                             try {
                                 break;
                             } catch (IOException e2) {
-                                bufferedReader = new BufferedReader(new InputStreamReader(new a(m134a.getErrorStream())));
+                                bufferedReader = new BufferedReader(new InputStreamReader(new a(m160a.getErrorStream())));
                             }
                         } else {
-                            axVar.f117a.put(headerFieldKey, headerField);
+                            axVar.f195a.put(headerFieldKey, headerField);
                             i = i + 1 + 1;
                         }
                     }
-                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m134a.getInputStream())));
-                } catch (Throwable th3) {
-                    th = th3;
+                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m160a.getInputStream())));
+                } catch (Throwable th2) {
+                    th = th2;
                 }
             } catch (IOException e3) {
                 e = e3;
-                bufferedReader = null;
             }
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th3) {
+            th = th3;
         }
         try {
             StringBuffer stringBuffer = new StringBuffer();
@@ -189,7 +181,7 @@ public class az {
                 stringBuffer.append(readLine);
                 stringBuffer.append(property);
             }
-            axVar.f116a = stringBuffer.toString();
+            axVar.f194a = stringBuffer.toString();
             bufferedReader.close();
             y.a((Closeable) null);
             y.a((Closeable) null);
@@ -197,14 +189,9 @@ public class az {
         } catch (IOException e4) {
             e = e4;
             throw new IOException("err while request " + str + ":" + e.getClass().getSimpleName());
-        } catch (Throwable th5) {
-            th = th5;
-            BufferedReader bufferedReader3 = bufferedReader;
-            outputStream = null;
-            outputStream2 = bufferedReader3;
-            y.a(outputStream);
-            y.a(outputStream2);
-            throw th;
+        } catch (Throwable th4) {
+            th = th4;
+            throw new IOException(th.getMessage());
         }
     }
 
@@ -226,39 +213,39 @@ public class az {
         URL url2 = !z ? new URL(a(url.toString())) : url;
         try {
             HttpURLConnection.setFollowRedirects(true);
-            HttpURLConnection m134a = m134a(context, url2);
-            m134a.setConnectTimeout(10000);
-            m134a.setReadTimeout(15000);
+            HttpURLConnection m160a = m160a(context, url2);
+            m160a.setConnectTimeout(10000);
+            m160a.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
             if (!TextUtils.isEmpty(str)) {
-                m134a.setRequestProperty("User-Agent", str);
+                m160a.setRequestProperty("User-Agent", str);
             }
             if (str2 != null) {
-                m134a.setRequestProperty(SM.COOKIE, str2);
+                m160a.setRequestProperty(SM.COOKIE, str2);
             }
             if (map != null) {
                 for (String str3 : map.keySet()) {
-                    m134a.setRequestProperty(str3, map.get(str3));
+                    m160a.setRequestProperty(str3, map.get(str3));
                 }
             }
             if (bVar != null && (url.getProtocol().equals(HttpHost.DEFAULT_SCHEME_NAME) || url.getProtocol().equals("https"))) {
-                bVar.f4575a = m134a.getResponseCode();
-                if (bVar.f118a == null) {
-                    bVar.f118a = new HashMap();
+                bVar.f14171a = m160a.getResponseCode();
+                if (bVar.f196a == null) {
+                    bVar.f196a = new HashMap();
                 }
                 int i = 0;
                 while (true) {
-                    String headerFieldKey = m134a.getHeaderFieldKey(i);
-                    String headerField = m134a.getHeaderField(i);
+                    String headerFieldKey = m160a.getHeaderFieldKey(i);
+                    String headerField = m160a.getHeaderField(i);
                     if (headerFieldKey == null && headerField == null) {
                         break;
                     }
                     if (!TextUtils.isEmpty(headerFieldKey) && !TextUtils.isEmpty(headerField)) {
-                        bVar.f118a.put(headerFieldKey, headerField);
+                        bVar.f196a.put(headerFieldKey, headerField);
                     }
                     i++;
                 }
             }
-            return new a(m134a.getInputStream());
+            return new a(m160a.getInputStream());
         } catch (IOException e) {
             throw new IOException("IOException:" + e.getClass().getSimpleName());
         } catch (Throwable th) {
@@ -267,7 +254,7 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m133a(Context context) {
+    public static String m159a(Context context) {
         if (d(context)) {
             return "wifi";
         }
@@ -321,17 +308,18 @@ public class az {
     }
 
     public static String a(String str, Map<String, String> map, File file, String str2) {
+        Closeable closeable;
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
-        BufferedReader bufferedReader = null;
+        HttpURLConnection httpURLConnection;
+        DataOutputStream dataOutputStream;
         if (!file.exists()) {
             return null;
         }
         String name = file.getName();
         try {
             try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                httpURLConnection.setReadTimeout(15000);
+                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                httpURLConnection.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
                 httpURLConnection.setConnectTimeout(10000);
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
@@ -345,74 +333,59 @@ public class az {
                     }
                 }
                 httpURLConnection.setFixedLengthStreamingMode(name.length() + 77 + ((int) file.length()) + str2.length());
-                DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                 dataOutputStream.writeBytes("--*****\r\n");
                 dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + str2 + "\";filename=\"" + file.getName() + "\"\r\n");
                 dataOutputStream.writeBytes("\r\n");
                 fileInputStream = new FileInputStream(file);
+            } catch (Throwable th) {
+                th = th;
+            }
+        } catch (IOException e) {
+            e = e;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+        try {
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = fileInputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                dataOutputStream.write(bArr, 0, read);
+                dataOutputStream.flush();
+            }
+            dataOutputStream.writeBytes("\r\n");
+            dataOutputStream.writeBytes("--");
+            dataOutputStream.writeBytes("*****");
+            dataOutputStream.writeBytes("--");
+            dataOutputStream.writeBytes("\r\n");
+            dataOutputStream.flush();
+            StringBuffer stringBuffer = new StringBuffer();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new a(httpURLConnection.getInputStream())));
+            while (true) {
                 try {
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        dataOutputStream.write(bArr, 0, read);
-                        dataOutputStream.flush();
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        String stringBuffer2 = stringBuffer.toString();
+                        y.a(fileInputStream);
+                        y.a(bufferedReader);
+                        return stringBuffer2;
                     }
-                    dataOutputStream.writeBytes("\r\n");
-                    dataOutputStream.writeBytes("--");
-                    dataOutputStream.writeBytes("*****");
-                    dataOutputStream.writeBytes("--");
-                    dataOutputStream.writeBytes("\r\n");
-                    dataOutputStream.flush();
-                    StringBuffer stringBuffer = new StringBuffer();
-                    BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(new a(httpURLConnection.getInputStream())));
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader2.readLine();
-                            if (readLine == null) {
-                                String stringBuffer2 = stringBuffer.toString();
-                                y.a(fileInputStream);
-                                y.a(bufferedReader2);
-                                return stringBuffer2;
-                            }
-                            stringBuffer.append(readLine);
-                        } catch (IOException e) {
-                            e = e;
-                            bufferedReader = bufferedReader2;
-                            fileInputStream2 = fileInputStream;
-                            try {
-                                throw new IOException("IOException:" + e.getClass().getSimpleName());
-                            } catch (Throwable th) {
-                                th = th;
-                                fileInputStream = fileInputStream2;
-                                y.a(fileInputStream);
-                                y.a(bufferedReader);
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            bufferedReader = bufferedReader2;
-                            y.a(fileInputStream);
-                            y.a(bufferedReader);
-                            throw th;
-                        }
-                    }
+                    stringBuffer.append(readLine);
                 } catch (IOException e2) {
                     e = e2;
-                    fileInputStream2 = fileInputStream;
+                    throw new IOException("IOException:" + e.getClass().getSimpleName());
                 } catch (Throwable th3) {
                     th = th3;
+                    throw new IOException(th.getMessage());
                 }
-            } catch (Throwable th4) {
-                th = th4;
             }
         } catch (IOException e3) {
             e = e3;
-            fileInputStream2 = null;
-        } catch (Throwable th5) {
-            th = th5;
+        } catch (Throwable th4) {
+            th = th4;
         }
     }
 
@@ -439,20 +412,20 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static HttpURLConnection m134a(Context context, URL url) {
-        if (HttpHost.DEFAULT_SCHEME_NAME.equals(url.getProtocol()) && m136a(context)) {
+    public static HttpURLConnection m160a(Context context, URL url) {
+        if (HttpHost.DEFAULT_SCHEME_NAME.equals(url.getProtocol()) && m162a(context)) {
             return (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80)));
         }
         return (HttpURLConnection) url.openConnection();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static URL m135a(String str) {
+    private static URL m161a(String str) {
         return new URL(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m136a(Context context) {
+    public static boolean m162a(Context context) {
         if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService("phone")).getSimCountryIso())) {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
@@ -518,18 +491,18 @@ public class az {
     }
 
     public static boolean f(Context context) {
-        NetworkInfo m132a = m132a(context);
-        return m132a != null && m132a.getType() == 0 && 13 == m132a.getSubtype();
+        NetworkInfo m158a = m158a(context);
+        return m158a != null && m158a.getType() == 0 && 13 == m158a.getSubtype();
     }
 
     public static boolean g(Context context) {
-        NetworkInfo m132a = m132a(context);
-        if (m132a != null && m132a.getType() == 0) {
-            String subtypeName = m132a.getSubtypeName();
+        NetworkInfo m158a = m158a(context);
+        if (m158a != null && m158a.getType() == 0) {
+            String subtypeName = m158a.getSubtypeName();
             if ("TD-SCDMA".equalsIgnoreCase(subtypeName) || "CDMA2000".equalsIgnoreCase(subtypeName) || "WCDMA".equalsIgnoreCase(subtypeName)) {
                 return true;
             }
-            switch (m132a.getSubtype()) {
+            switch (m158a.getSubtype()) {
                 case 3:
                 case 5:
                 case 6:
@@ -552,9 +525,9 @@ public class az {
     }
 
     public static boolean h(Context context) {
-        NetworkInfo m132a = m132a(context);
-        if (m132a != null && m132a.getType() == 0) {
-            switch (m132a.getSubtype()) {
+        NetworkInfo m158a = m158a(context);
+        if (m158a != null && m158a.getType() == 0) {
+            switch (m158a.getSubtype()) {
                 case 1:
                 case 2:
                 case 4:

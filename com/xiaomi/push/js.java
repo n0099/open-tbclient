@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public abstract class js {
     public int a() {
         return 0;
@@ -11,10 +11,10 @@ public abstract class js {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m488a(byte[] bArr, int i, int i2);
+    public abstract void m514a(byte[] bArr, int i, int i2);
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m489a() {
+    public byte[] m515a() {
         return null;
     }
 

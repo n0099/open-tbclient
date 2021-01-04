@@ -14,7 +14,8 @@ import com.baidu.adp.lib.f.e;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.swan.apps.adaptation.a.z;
-import com.baidu.swan.apps.media.chooser.c.c;
+import com.baidu.swan.apps.media.chooser.listener.c;
+import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -23,11 +24,11 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a implements z {
     private static BroadcastReceiver broadcastReceiver = null;
-    c geM;
-    CustomMessageListener geN = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
+    c gob;
+    CustomMessageListener goc = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:10:0x0015  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0081  */
@@ -46,7 +47,7 @@ public class a implements z {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.geM != null) {
+                        if (a.this.gob != null) {
                             ArrayList arrayList = new ArrayList();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -55,19 +56,19 @@ public class a implements z {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.geM.aK(arrayList);
+                                a.this.gob.aN(arrayList);
                             } else {
-                                a.this.geM.qy("cancel");
+                                a.this.gob.qr("cancel");
                             }
                         }
-                    } else if (a.this.geM != null) {
-                        a.this.geM.qy(BdStatsConstant.StatsType.ERROR);
+                    } else if (a.this.gob != null) {
+                        a.this.gob.qr(BdStatsConstant.StatsType.ERROR);
                     }
-                    e.mY().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
+                    e.mB().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.geM = null;
-                            MessageManager.getInstance().unRegisterListener(a.this.geN);
+                            a.this.gob = null;
+                            MessageManager.getInstance().unRegisterListener(a.this.goc);
                         }
                     });
                 }
@@ -75,11 +76,11 @@ public class a implements z {
             intent = null;
             if (intent == null) {
             }
-            e.mY().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
+            e.mB().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.geM = null;
-                    MessageManager.getInstance().unRegisterListener(a.this.geN);
+                    a.this.gob = null;
+                    MessageManager.getInstance().unRegisterListener(a.this.goc);
                 }
             });
         }
@@ -91,12 +92,12 @@ public class a implements z {
         if (Build.VERSION.SDK_INT >= 19) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("source", "swan");
+                jSONObject.put("source", GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
                 jSONObject.put("from", "");
                 jSONObject.put("url", new JSONArray(strArr));
                 jSONObject.put("type", "0");
                 jSONObject.put("index", String.valueOf(i));
-                n(context, jSONObject);
+                l(context, jSONObject);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -104,7 +105,7 @@ public class a implements z {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.z
-    public void j(Context context, JSONObject jSONObject) {
+    public void i(Context context, JSONObject jSONObject) {
         if (jSONObject != null) {
             int optInt = jSONObject.optInt("index");
             JSONArray optJSONArray = jSONObject.optJSONArray("urls");
@@ -122,7 +123,7 @@ public class a implements z {
         }
     }
 
-    public void n(Context context, JSONObject jSONObject) {
+    public void l(Context context, JSONObject jSONObject) {
         if (jSONObject != null) {
             jSONObject.optString("source");
             jSONObject.optString("from");
@@ -139,8 +140,8 @@ public class a implements z {
                 }
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).oj(i).iN(true).iO(true).iP(true).AJ(arrayList.size() > 0 ? arrayList.get(0) : "").iQ(false).iR(false).iV(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.ez(context)));
+            aVar.x(arrayList).ot(i).ji(true).jj(true).jk(true).AH(arrayList.size() > 0 ? arrayList.get(0) : "").jl(false).jm(false).jq(true);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.eS(context)));
         }
     }
 }

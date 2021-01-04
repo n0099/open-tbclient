@@ -1,8 +1,6 @@
 package com.baidu.yuyinala.privatemessage.implugin.ui.fragment;
 
 import android.content.Context;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +8,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.view.BaseViewPager;
@@ -20,57 +20,57 @@ import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.em
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.f;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class EmojiconsFragment implements ViewPager.OnPageChangeListener {
+    private LinearLayout cdU;
+    private ImageView[] cdV;
+    private int cdW = -1;
+    private RelativeLayout cdY;
+    private LinearLayout cdZ;
     private Context mContext;
-    private LinearLayout oQU;
-    private ImageView[] oQV;
-    private int oQW = -1;
-    private BaseViewPager oQX;
-    private RelativeLayout oQY;
-    private LinearLayout oQZ;
+    private BaseViewPager oXe;
     private View rootView;
 
-    public static EmojiconsFragment d(Context context, View view) {
+    public static EmojiconsFragment f(Context context, View view) {
         return new EmojiconsFragment(context, view);
     }
 
     public EmojiconsFragment(Context context, View view) {
         this.rootView = view;
         this.mContext = context;
-        this.oQY = (RelativeLayout) view.findViewById(a.f.bd_im_emoji_root);
-        this.oQZ = (LinearLayout) view.findViewById(a.f.emojis_bar);
-        this.oQX = (BaseViewPager) view.findViewById(a.f.emojis_pager);
-        this.oQU = (LinearLayout) view.findViewById(a.f.emojis_viewgroup);
-        this.oQX.setOnPageChangeListener(this);
-        a aVar = new a(Arrays.asList(com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, c.oSZ).ebN(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, f.oSZ).ebN(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, e.oSZ).ebN(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.b.oSZ).ebN(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.a.oSZ).ebN(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, d.oSZ).ebN()));
+        this.cdY = (RelativeLayout) view.findViewById(a.f.bd_im_emoji_root);
+        this.cdZ = (LinearLayout) view.findViewById(a.f.emojis_bar);
+        this.oXe = (BaseViewPager) view.findViewById(a.f.emojis_pager);
+        this.cdU = (LinearLayout) view.findViewById(a.f.emojis_viewgroup);
+        this.oXe.setOnPageChangeListener(this);
+        a aVar = new a(Arrays.asList(com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, c.oZe).ZX(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, f.oZe).ZX(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, e.oZe).ZX(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.b.oZe).ZX(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.a.oZe).ZX(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, d.oZe).ZX()));
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("EmojiconsFragment", "emojisAdapter count =" + aVar.getCount());
-        this.oQX.setAdapter(aVar);
-        this.oQV = new ImageView[aVar.getCount()];
+        this.oXe.setAdapter(aVar);
+        this.cdV = new ImageView[aVar.getCount()];
         for (int i = 0; i < aVar.getCount(); i++) {
             ImageView imageView = new ImageView(this.mContext);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(com.baidu.yuyinala.privatemessage.implugin.util.f.dip2px(this.mContext, 6.0f), 0, com.baidu.yuyinala.privatemessage.implugin.util.f.dip2px(this.mContext, 6.0f), 0);
             imageView.setLayoutParams(layoutParams);
-            this.oQV[i] = imageView;
-            this.oQU.addView(this.oQV[i]);
+            this.cdV[i] = imageView;
+            this.cdU.addView(this.cdV[i]);
         }
-        com.baidu.yuyinala.privatemessage.implugin.util.c.d("EmojiconsFragment", "mImageViews length = " + this.oQV.length);
+        com.baidu.yuyinala.privatemessage.implugin.util.c.d("EmojiconsFragment", "mImageViews length = " + this.cdV.length);
         onPageSelected(0);
     }
 
-    private void Pe(int i) {
-        for (int i2 = 0; i2 < this.oQV.length; i2++) {
+    private void gV(int i) {
+        for (int i2 = 0; i2 < this.cdV.length; i2++) {
             if (i == i2) {
-                this.oQV[i2].setImageResource(a.e.bd_im_round_dot_select);
+                this.cdV[i2].setImageResource(a.e.bd_im_round_dot_select);
             } else {
-                this.oQV[i2].setImageResource(a.e.bd_im_round_dot_normal);
+                this.cdV[i2].setImageResource(a.e.bd_im_round_dot_normal);
             }
         }
     }
 
-    public void emq() {
-        this.oQX.setAdapter(new a(Arrays.asList(com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, c.oSZ).ebN(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, f.oSZ).ebN(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, e.oSZ).ebN(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.b.oSZ).ebN(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.a.oSZ).ebN(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, d.oSZ).ebN())));
+    public void abI() {
+        this.oXe.setAdapter(new a(Arrays.asList(com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, c.oZe).ZX(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, f.oZe).ZX(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, e.oZe).ZX(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.b.oZe).ZX(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.a.oZe).ZX(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, d.oZe).ZX())));
         com.baidu.yuyinala.privatemessage.implugin.util.c.i("EmojiconsFragment", "resetCurrentPage");
         onPageSelected(0);
     }
@@ -87,60 +87,60 @@ public class EmojiconsFragment implements ViewPager.OnPageChangeListener {
         }
     }
 
-    public static void n(EditText editText) {
+    public static void o(EditText editText) {
         editText.dispatchKeyEvent(new KeyEvent(0L, 0L, 0, 67, 0, 0, 0, 0, 6));
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        if (this.oQW != i) {
-            this.oQW = i;
-            if (this.oQW >= 0) {
-                Pe(this.oQW);
+        if (this.cdW != i) {
+            this.cdW = i;
+            if (this.cdW >= 0) {
+                gV(this.cdW);
             }
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private static class a extends PagerAdapter {
-        private List<View> bas;
+        private List<View> bbZ;
 
         public a(List<View> list) {
-            this.bas = list;
+            this.bbZ = list;
         }
 
-        @Override // android.support.v4.view.PagerAdapter
+        @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return ListUtils.getCount(this.bas);
+            return ListUtils.getCount(this.bbZ);
         }
 
-        @Override // android.support.v4.view.PagerAdapter
+        @Override // androidx.viewpager.widget.PagerAdapter
         public boolean isViewFromObject(View view, Object obj) {
             return view == obj;
         }
 
-        @Override // android.support.v4.view.PagerAdapter
+        @Override // androidx.viewpager.widget.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
             if (i < 0 || i >= getCount()) {
                 return null;
             }
-            View view = this.bas.get(i);
+            View view = this.bbZ.get(i);
             viewGroup.addView(view);
             return view;
         }
 
-        @Override // android.support.v4.view.PagerAdapter
+        @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
             if (i >= 0 && i < getCount()) {
-                viewGroup.removeView(this.bas.get(i));
+                viewGroup.removeView(this.bbZ.get(i));
             }
         }
     }

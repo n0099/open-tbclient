@@ -2,15 +2,19 @@ package io.flutter.view;
 
 import android.content.Context;
 import android.os.Handler;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import io.flutter.embedding.engine.loader.FlutterLoader;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class FlutterMain {
     private static boolean isRunningInRobolectricTest = false;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class Settings {
         private String logTag;
 
+        @Nullable
         public String getLogTag() {
             return this.logTag;
         }
@@ -20,13 +24,13 @@ public class FlutterMain {
         }
     }
 
-    public static void startInitialization(Context context) {
+    public static void startInitialization(@NonNull Context context) {
         if (!isRunningInRobolectricTest) {
             FlutterLoader.getInstance().startInitialization(context);
         }
     }
 
-    public static void startInitialization(Context context, Settings settings) {
+    public static void startInitialization(@NonNull Context context, @NonNull Settings settings) {
         if (!isRunningInRobolectricTest) {
             FlutterLoader.Settings settings2 = new FlutterLoader.Settings();
             settings2.setLogTag(settings.getLogTag());
@@ -34,35 +38,40 @@ public class FlutterMain {
         }
     }
 
-    public static void ensureInitializationComplete(Context context, String[] strArr) {
+    public static void ensureInitializationComplete(@NonNull Context context, @Nullable String[] strArr) {
         if (!isRunningInRobolectricTest) {
             FlutterLoader.getInstance().ensureInitializationComplete(context, strArr);
         }
     }
 
-    public static void ensureInitializationCompleteAsync(Context context, String[] strArr, Handler handler, Runnable runnable) {
+    public static void ensureInitializationCompleteAsync(@NonNull Context context, @Nullable String[] strArr, @NonNull Handler handler, @NonNull Runnable runnable) {
         if (!isRunningInRobolectricTest) {
             FlutterLoader.getInstance().ensureInitializationCompleteAsync(context, strArr, handler, runnable);
         }
     }
 
+    @NonNull
     public static String findAppBundlePath() {
         return FlutterLoader.getInstance().findAppBundlePath();
     }
 
+    @Nullable
     @Deprecated
-    public static String findAppBundlePath(Context context) {
+    public static String findAppBundlePath(@NonNull Context context) {
         return FlutterLoader.getInstance().findAppBundlePath();
     }
 
-    public static String getLookupKeyForAsset(String str) {
+    @NonNull
+    public static String getLookupKeyForAsset(@NonNull String str) {
         return FlutterLoader.getInstance().getLookupKeyForAsset(str);
     }
 
-    public static String getLookupKeyForAsset(String str, String str2) {
+    @NonNull
+    public static String getLookupKeyForAsset(@NonNull String str, @NonNull String str2) {
         return FlutterLoader.getInstance().getLookupKeyForAsset(str, str2);
     }
 
+    @VisibleForTesting
     @Deprecated
     public static void setIsRunningInRobolectricTest(boolean z) {
         isRunningInRobolectricTest = z;

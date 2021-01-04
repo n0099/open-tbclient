@@ -10,13 +10,15 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class LogUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1518a = "apollon_rest";
+    private static final String f2031a = "apollon_rest";
     public static final boolean DEBUG = ApollonConstants.DEBUG;
-    private static final boolean b = ApollonConstants.DEBUG;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final boolean f2032b = ApollonConstants.DEBUG;
     private static final boolean c = ApollonConstants.DEBUG;
     private static final boolean d = ApollonConstants.DEBUG;
     private static final boolean e = ApollonConstants.DEBUG;
@@ -26,7 +28,7 @@ public final class LogUtil {
     }
 
     public static void v(String str, String str2) {
-        if (b) {
+        if (f2032b) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }

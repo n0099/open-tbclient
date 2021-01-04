@@ -9,7 +9,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL10;
 @SuppressLint({"InlinedApi"})
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class GLContext {
     public static final int EGL_RECORDABLE_ANDROID = 12610;
     public static final String LOG_TAG = "Grafika";

@@ -13,52 +13,52 @@ import com.baidu.tieba.personCenter.c.k;
 import com.baidu.tieba.personCenter.c.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
-    private BdTypeListView gpZ;
-    private e mjI;
-    private com.baidu.tieba.personCenter.a.a mjJ;
-    private com.baidu.tieba.personCenter.a.b mjK;
-    private g mjL;
-    private com.baidu.tieba.personCenter.a.c mjM;
-    private f mjN;
-    private d mjq;
+    private List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
+    private BdTypeListView gAY;
+    private e moR;
+    private com.baidu.tieba.personCenter.a.a moS;
+    private com.baidu.tieba.personCenter.a.b moT;
+    private g moU;
+    private com.baidu.tieba.personCenter.a.c moV;
+    private f moW;
+    private d moz;
 
     public a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.gpZ = bdTypeListView;
+        this.gAY = bdTypeListView;
         a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.mjI = new e(tbPageContext, i.mky);
-        this.mjJ = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.c.d.mjZ);
-        this.mjK = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.c.e.mka);
-        this.mjL = new g(tbPageContext, n.mkK);
-        this.mjq = new d(tbPageContext, h.mkx);
-        this.mjN = new f(tbPageContext, k.mkE);
-        this.mjM = new com.baidu.tieba.personCenter.a.c(tbPageContext, com.baidu.tieba.personCenter.c.g.mkq);
-        this.bnf.add(this.mjI);
-        this.bnf.add(this.mjJ);
-        this.bnf.add(this.mjK);
-        this.bnf.add(this.mjL);
-        this.bnf.add(this.mjq);
-        this.bnf.add(this.mjM);
-        this.bnf.add(this.mjN);
-        bdTypeListView.addAdapters(this.bnf);
+        this.moR = new e(tbPageContext, i.mpH);
+        this.moS = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.c.d.mpi);
+        this.moT = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.c.e.mpj);
+        this.moU = new g(tbPageContext, n.mpT);
+        this.moz = new d(tbPageContext, h.mpG);
+        this.moW = new f(tbPageContext, k.mpN);
+        this.moV = new com.baidu.tieba.personCenter.a.c(tbPageContext, com.baidu.tieba.personCenter.c.g.mpz);
+        this.boM.add(this.moR);
+        this.boM.add(this.moS);
+        this.boM.add(this.moT);
+        this.boM.add(this.moU);
+        this.boM.add(this.moz);
+        this.boM.add(this.moV);
+        this.boM.add(this.moW);
+        bdTypeListView.addAdapters(this.boM);
     }
 
     public void onChangeSkinType() {
-        if (this.gpZ != null && (this.gpZ.getAdapter() instanceof com.baidu.adp.widget.ListView.f)) {
-            this.gpZ.getAdapter().notifyDataSetChanged();
+        if (this.gAY != null && (this.gAY.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            this.gAY.getAdapter().notifyDataSetChanged();
         }
     }
 
-    public void dyr() {
-        this.mjJ.dyr();
+    public void dyg() {
+        this.moS.dyg();
     }
 
-    public void dys() {
-        this.mjJ.destroy();
+    public void dyh() {
+        this.moS.destroy();
     }
 }

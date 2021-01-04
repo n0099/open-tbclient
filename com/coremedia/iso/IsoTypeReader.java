@@ -1,14 +1,13 @@
 package com.coremedia.iso;
 
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.ViewCompat;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
-import com.baidu.searchbox.account.contants.AccountConstants;
 import com.googlecode.mp4parser.util.IntHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class IsoTypeReader {
     private static IntHashMap codeCache = new IntHashMap();
     private static byte[] codeBytes = new byte[4];
@@ -22,7 +21,7 @@ public final class IsoTypeReader {
     public static long readUInt32(ByteBuffer byteBuffer) {
         long j = byteBuffer.getInt();
         if (j < 0) {
-            return j + AccountConstants.TYPE_MODIFY_EXT_FIELDS;
+            return j + 4294967296L;
         }
         return j;
     }
@@ -43,16 +42,16 @@ public final class IsoTypeReader {
         return byte2int(byteBuffer.get());
     }
 
-    public static int byte2int(byte b) {
-        return b < 0 ? b + GDiffPatcher.EOF : b;
+    public static int byte2int(byte b2) {
+        return b2 < 0 ? b2 + GDiffPatcher.EOF : b2;
     }
 
     public static String readString(ByteBuffer byteBuffer) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         while (true) {
-            byte b = byteBuffer.get();
-            if (b != 0) {
-                byteArrayOutputStream.write(b);
+            byte b2 = byteBuffer.get();
+            if (b2 != 0) {
+                byteArrayOutputStream.write(b2);
             } else {
                 return Utf8.convert(byteArrayOutputStream.toByteArray());
             }

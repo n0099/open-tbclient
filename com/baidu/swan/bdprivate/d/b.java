@@ -2,14 +2,14 @@ package com.baidu.swan.bdprivate.d;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
 import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.swan.apps.ap.v;
-/* loaded from: classes25.dex */
+import com.baidu.swan.apps.ao.v;
+/* loaded from: classes9.dex */
 public class b implements com.baidu.swan.apps.t.b.b {
     @Override // com.baidu.swan.apps.t.b.b
     public void a(Context context, String str, String str2, final com.baidu.swan.apps.b.c.b bVar) {
@@ -18,14 +18,14 @@ public class b implements com.baidu.swan.apps.t.b.b {
                 @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.mResult == null) {
-                        bVar.hK(0);
+                        bVar.hE(0);
                         return;
                     }
                     String string = delegateResult.mResult.getString("invoiceInfo");
                     if (TextUtils.isEmpty(string)) {
-                        bVar.hK(0);
+                        bVar.hE(0);
                     } else {
-                        bVar.az(v.parseString(string));
+                        bVar.aH(v.parseString(string));
                     }
                 }
             });

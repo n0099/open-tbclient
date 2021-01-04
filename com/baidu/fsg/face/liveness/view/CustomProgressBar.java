@@ -8,12 +8,14 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class CustomProgressBar extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1746a;
-    private int b;
+    private int f2382a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f2383b;
     private Paint c;
     private Paint d;
     private float e;
@@ -44,14 +46,14 @@ public class CustomProgressBar extends View {
             try {
                 typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.CustomProgressBar);
                 this.e = typedArray.getFloat(R.styleable.CustomProgressBar_mpb_percent, 0.0f);
-                this.f1746a = typedArray.getColor(R.styleable.CustomProgressBar_mpb_fill_color, 0);
-                this.b = typedArray.getColor(R.styleable.CustomProgressBar_mpb_background_color, 0);
+                this.f2382a = typedArray.getColor(R.styleable.CustomProgressBar_mpb_fill_color, 0);
+                this.f2383b = typedArray.getColor(R.styleable.CustomProgressBar_mpb_background_color, 0);
                 this.f = typedArray.getBoolean(R.styleable.CustomProgressBar_mpb_flat, false);
                 this.c = new Paint();
-                this.c.setColor(this.f1746a);
+                this.c.setColor(this.f2382a);
                 this.c.setAntiAlias(true);
                 this.d = new Paint();
-                this.d.setColor(this.b);
+                this.d.setColor(this.f2383b);
                 this.d.setAntiAlias(true);
             } finally {
                 if (typedArray != null) {
@@ -62,8 +64,8 @@ public class CustomProgressBar extends View {
     }
 
     public void setFillColor(int i) {
-        if (this.f1746a != i) {
-            this.f1746a = i;
+        if (this.f2382a != i) {
+            this.f2382a = i;
             this.c.setColor(i);
             invalidate();
         }
@@ -71,19 +73,19 @@ public class CustomProgressBar extends View {
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        if (this.b != i) {
-            this.b = i;
+        if (this.f2383b != i) {
+            this.f2383b = i;
             this.d.setColor(i);
             invalidate();
         }
     }
 
     public int getFillColor() {
-        return this.f1746a;
+        return this.f2382a;
     }
 
     public int getBackgroundColor() {
-        return this.b;
+        return this.f2383b;
     }
 
     public float getPercent() {
@@ -119,11 +121,11 @@ public class CustomProgressBar extends View {
         this.g.top = 0.0f;
         this.g.right = measuredWidth;
         this.g.bottom = measuredHeight;
-        if (this.b != 0) {
+        if (this.f2383b != 0) {
             canvas.drawRoundRect(this.g, f3, f3, this.d);
         }
         try {
-            if (this.f1746a != 0 && f2 > 0.0f) {
+            if (this.f2382a != 0 && f2 > 0.0f) {
                 if (f2 == measuredWidth) {
                     this.g.right = f2;
                     canvas.drawRoundRect(this.g, f3, f3, this.c);

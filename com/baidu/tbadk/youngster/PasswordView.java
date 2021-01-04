@@ -14,8 +14,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.c;
 import java.util.ArrayList;
@@ -24,22 +24,22 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class PasswordView extends RelativeLayout {
-    private EditText fTU;
-    private EditText fTV;
-    private EditText fTW;
-    private EditText fTX;
-    private EditText fTY;
-    private ImageView fTZ;
-    private ImageView fUa;
-    private ImageView fUb;
-    private ImageView fUc;
-    private FrameLayout fUd;
-    private List<EditText> fUe;
-    private List<ImageView> fUf;
-    a fUg;
-    Map<EditText, List<TextWatcher>> fUh;
-    private Runnable fUi;
-    private Runnable fUj;
+    private EditText gdA;
+    private EditText gdB;
+    private EditText gdC;
+    private ImageView gdD;
+    private ImageView gdE;
+    private ImageView gdF;
+    private ImageView gdG;
+    private FrameLayout gdH;
+    private List<EditText> gdI;
+    private List<ImageView> gdJ;
+    a gdK;
+    Map<EditText, List<TextWatcher>> gdL;
+    private Runnable gdM;
+    private Runnable gdN;
+    private EditText gdy;
+    private EditText gdz;
 
     /* loaded from: classes.dex */
     interface a {
@@ -56,22 +56,22 @@ public class PasswordView extends RelativeLayout {
 
     public PasswordView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fUe = new ArrayList();
-        this.fUf = new ArrayList();
-        this.fUh = new HashMap();
-        this.fUi = new Runnable() { // from class: com.baidu.tbadk.youngster.PasswordView.1
+        this.gdI = new ArrayList();
+        this.gdJ = new ArrayList();
+        this.gdL = new HashMap();
+        this.gdM = new Runnable() { // from class: com.baidu.tbadk.youngster.PasswordView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (PasswordView.this.fTY != null) {
-                    l.showSoftKeyPad(PasswordView.this.getContext(), PasswordView.this.fTY);
+                if (PasswordView.this.gdC != null) {
+                    l.showSoftKeyPad(PasswordView.this.getContext(), PasswordView.this.gdC);
                 }
             }
         };
-        this.fUj = new Runnable() { // from class: com.baidu.tbadk.youngster.PasswordView.2
+        this.gdN = new Runnable() { // from class: com.baidu.tbadk.youngster.PasswordView.2
             @Override // java.lang.Runnable
             public void run() {
-                if (PasswordView.this.fUg != null) {
-                    PasswordView.this.fUg.onComplete();
+                if (PasswordView.this.gdK != null) {
+                    PasswordView.this.gdK.onComplete();
                 }
             }
         };
@@ -80,73 +80,73 @@ public class PasswordView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.view_password, this);
-        this.fTU = (EditText) findViewById(R.id.edit_password_a);
-        this.fTV = (EditText) findViewById(R.id.edit_password_b);
-        this.fTW = (EditText) findViewById(R.id.edit_password_c);
-        this.fTX = (EditText) findViewById(R.id.edit_password_d);
-        this.fUe.add(this.fTU);
-        this.fUe.add(this.fTV);
-        this.fUe.add(this.fTW);
-        this.fUe.add(this.fTX);
-        this.fTZ = (ImageView) findViewById(R.id.edit_dot_a);
-        this.fUa = (ImageView) findViewById(R.id.edit_dot_b);
-        this.fUb = (ImageView) findViewById(R.id.edit_dot_c);
-        this.fUc = (ImageView) findViewById(R.id.edit_dot_d);
-        this.fUf.add(this.fTZ);
-        this.fUf.add(this.fUa);
-        this.fUf.add(this.fUb);
-        this.fUf.add(this.fUc);
-        this.fUd = (FrameLayout) findViewById(R.id.password_click);
-        this.fUd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.youngster.PasswordView.3
+        this.gdy = (EditText) findViewById(R.id.edit_password_a);
+        this.gdz = (EditText) findViewById(R.id.edit_password_b);
+        this.gdA = (EditText) findViewById(R.id.edit_password_c);
+        this.gdB = (EditText) findViewById(R.id.edit_password_d);
+        this.gdI.add(this.gdy);
+        this.gdI.add(this.gdz);
+        this.gdI.add(this.gdA);
+        this.gdI.add(this.gdB);
+        this.gdD = (ImageView) findViewById(R.id.edit_dot_a);
+        this.gdE = (ImageView) findViewById(R.id.edit_dot_b);
+        this.gdF = (ImageView) findViewById(R.id.edit_dot_c);
+        this.gdG = (ImageView) findViewById(R.id.edit_dot_d);
+        this.gdJ.add(this.gdD);
+        this.gdJ.add(this.gdE);
+        this.gdJ.add(this.gdF);
+        this.gdJ.add(this.gdG);
+        this.gdH = (FrameLayout) findViewById(R.id.password_click);
+        this.gdH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.youngster.PasswordView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PasswordView.this.bKb();
+                PasswordView.this.bMt();
             }
         });
-        bKf();
-        bKg();
-        bKe();
-        bKd();
+        bMx();
+        bMy();
+        bMw();
+        bMv();
         onChangeSkinType();
     }
 
     public String getPassWord() {
         StringBuilder sb = new StringBuilder();
-        for (EditText editText : this.fUe) {
+        for (EditText editText : this.gdI) {
             sb.append(editText.getText().toString());
         }
         return sb.toString();
     }
 
-    public void bKa() {
-        for (EditText editText : this.fUe) {
+    public void bMs() {
+        for (EditText editText : this.gdI) {
             editText.getText().clear();
         }
-        bKd();
-        bKe();
+        bMv();
+        bMw();
     }
 
     public void setOnPasswordInputComplete(a aVar) {
-        this.fUg = aVar;
+        this.gdK = aVar;
     }
 
-    public void bKb() {
-        e.mY().removeCallbacks(this.fUi);
-        e.mY().postDelayed(this.fUi, 300L);
+    public void bMt() {
+        e.mB().removeCallbacks(this.gdM);
+        e.mB().postDelayed(this.gdM, 300L);
     }
 
-    public void bKc() {
-        l.hideSoftKeyPad(getContext(), this.fTU);
+    public void bMu() {
+        l.hideSoftKeyPad(getContext(), this.gdy);
     }
 
-    private void bKd() {
-        a(this.fTU);
-        this.fTU.requestFocus();
-        this.fTY = this.fTU;
+    private void bMv() {
+        c(this.gdy);
+        this.gdy.requestFocus();
+        this.gdC = this.gdy;
     }
 
-    private void bKe() {
-        for (ImageView imageView : this.fUf) {
+    private void bMw() {
+        for (ImageView imageView : this.gdJ) {
             imageView.setVisibility(8);
         }
     }
@@ -157,7 +157,7 @@ public class PasswordView extends RelativeLayout {
 
     private Drawable getEditBackgroundDrawable() {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setStroke(l.getDimens(getContext(), R.dimen.tbds3), c.m(ap.getColor(R.color.CAM_X0105), 0.16f));
+        gradientDrawable.setStroke(l.getDimens(getContext(), R.dimen.tbds3), c.m(ao.getColor(R.color.CAM_X0105), 0.16f));
         return gradientDrawable;
     }
 
@@ -168,29 +168,29 @@ public class PasswordView extends RelativeLayout {
     private Drawable getEditDotDrawable() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(1);
-        gradientDrawable.setColor(ap.getColor(R.color.CAM_X0107));
+        gradientDrawable.setColor(ao.getColor(R.color.CAM_X0107));
         return gradientDrawable;
     }
 
-    private void bKf() {
-        int size = this.fUe.size();
+    private void bMx() {
+        int size = this.gdI.size();
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 >= size - 1) {
                 break;
             }
-            a(this.fUe.get(i2), this.fUe.get(i2 + 1), this.fUf.get(i2));
+            a(this.gdI.get(i2), this.gdI.get(i2 + 1), this.gdJ.get(i2));
             i = i2 + 1;
         }
         if (size - 1 >= 0) {
-            a(this.fUe.get(size - 1), this.fUf.get(size - 1));
+            a(this.gdI.get(size - 1), this.gdJ.get(size - 1));
         }
     }
 
-    private void bKg() {
-        for (int size = this.fUe.size() - 1; size > 0; size--) {
-            b(this.fUe.get(size), this.fUe.get(size - 1), this.fUf.get(size));
+    private void bMy() {
+        for (int size = this.gdI.size() - 1; size > 0; size--) {
+            b(this.gdI.get(size), this.gdI.get(size - 1), this.gdJ.get(size));
         }
     }
 
@@ -208,19 +208,19 @@ public class PasswordView extends RelativeLayout {
             public void afterTextChanged(Editable editable) {
                 if (editable.length() > 0) {
                     imageView.setVisibility(0);
-                    PasswordView.this.a(editText2);
+                    PasswordView.this.c(editText2);
                     editText2.requestFocus();
-                    PasswordView.this.fTY = editText2;
+                    PasswordView.this.gdC = editText2;
                     return;
                 }
                 imageView.setVisibility(8);
             }
         };
         editText.addTextChangedListener(textWatcher);
-        List<TextWatcher> list = this.fUh.get(editText);
-        if (y.isEmpty(list)) {
+        List<TextWatcher> list = this.gdL.get(editText);
+        if (x.isEmpty(list)) {
             list = new ArrayList<>();
-            this.fUh.put(editText, list);
+            this.gdL.put(editText, list);
         }
         list.add(textWatcher);
     }
@@ -239,17 +239,17 @@ public class PasswordView extends RelativeLayout {
             public void afterTextChanged(Editable editable) {
                 if (editable.length() > 0) {
                     imageView.setVisibility(0);
-                    e.mY().post(PasswordView.this.fUj);
+                    e.mB().post(PasswordView.this.gdN);
                     return;
                 }
                 imageView.setVisibility(8);
             }
         };
         editText.addTextChangedListener(textWatcher);
-        List<TextWatcher> list = this.fUh.get(editText);
-        if (y.isEmpty(list)) {
+        List<TextWatcher> list = this.gdL.get(editText);
+        if (x.isEmpty(list)) {
             list = new ArrayList<>();
-            this.fUh.put(editText, list);
+            this.gdL.put(editText, list);
         }
         list.add(textWatcher);
     }
@@ -265,9 +265,9 @@ public class PasswordView extends RelativeLayout {
                         editText2.getText().clear();
                     }
                     imageView.setVisibility(8);
-                    PasswordView.this.a(editText2);
+                    PasswordView.this.c(editText2);
                     editText2.requestFocus();
-                    PasswordView.this.fTY = editText2;
+                    PasswordView.this.gdC = editText2;
                     return true;
                 }
                 return false;
@@ -276,18 +276,18 @@ public class PasswordView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(EditText editText) {
+    public void c(EditText editText) {
         if (editText != null) {
-            for (EditText editText2 : this.fUe) {
+            for (EditText editText2 : this.gdI) {
                 editText2.setFocusableInTouchMode(false);
             }
             editText.setFocusableInTouchMode(true);
         }
     }
 
-    private void bKh() {
-        for (EditText editText : this.fUe) {
-            for (TextWatcher textWatcher : this.fUh.get(editText)) {
+    private void bMz() {
+        for (EditText editText : this.gdI) {
+            for (TextWatcher textWatcher : this.gdL.get(editText)) {
                 editText.removeTextChangedListener(textWatcher);
             }
         }
@@ -296,16 +296,16 @@ public class PasswordView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        e.mY().removeCallbacks(this.fUi);
-        e.mY().removeCallbacks(this.fUj);
-        bKh();
+        e.mB().removeCallbacks(this.gdM);
+        e.mB().removeCallbacks(this.gdN);
+        bMz();
     }
 
     public void onChangeSkinType() {
-        for (EditText editText : this.fUe) {
+        for (EditText editText : this.gdI) {
             setEditBackgroundDrawable(editText);
         }
-        for (ImageView imageView : this.fUf) {
+        for (ImageView imageView : this.gdJ) {
             setEditDotDrawable(imageView);
         }
     }

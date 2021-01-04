@@ -4,8 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.live.data.bf;
-import com.baidu.live.data.bt;
+import com.baidu.live.data.bh;
+import com.baidu.live.data.bv;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
@@ -13,10 +13,10 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.NetWork;
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.data.Config;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private a btK;
-    private b btL;
+    private a byw;
+    private b byx;
     private Context context;
     private boolean hasMore;
     private TbPageContext mTbPageContext;
@@ -24,9 +24,9 @@ public class d {
     private int type;
     private String url;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void a(bt btVar);
+        void a(bv bvVar);
 
         void onFail(String str);
     }
@@ -42,8 +42,8 @@ public class d {
 
     public void e(int i, String str, String str2) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.btK != null) {
-                this.btK.onFail(this.context.getResources().getString(a.h.sdk_no_network));
+            if (this.byw != null) {
+                this.byw.onFail(this.context.getResources().getString(a.h.sdk_no_network));
                 return;
             }
             return;
@@ -55,16 +55,16 @@ public class d {
             this.url = TbConfig.SERVER_ADDRESS + "ala/user/followList";
         }
         this.pn++;
-        this.btL = new b();
-        this.btL.execute(str, str2);
+        this.byx = new b();
+        this.byx.execute(str, str2);
     }
 
     public void a(a aVar) {
-        this.btK = aVar;
+        this.byw = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class b extends BdAsyncTask<String, Void, Object> {
         private b() {
         }
@@ -73,7 +73,7 @@ public class d {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public Object doInBackground(String... strArr) {
-            bt btVar;
+            bv bvVar;
             NetWork netWork = new NetWork(d.this.url);
             String str = strArr[0];
             String str2 = strArr[1];
@@ -93,39 +93,39 @@ public class d {
             netWork.addPostData(HttpRequest.LIVE_SCENE, TbConfig.liveScene + "");
             String postNetData = netWork.postNetData();
             if (netWork.isRequestSuccess()) {
-                String u = f.u(d.this.type, postNetData);
-                if (TextUtils.isEmpty(u)) {
+                String w = f.w(d.this.type, postNetData);
+                if (TextUtils.isEmpty(w)) {
                     return null;
                 }
-                bt btVar2 = new bt();
-                btVar2.parserJson(u);
-                d.this.hasMore = btVar2.has_more == 1;
+                bv bvVar2 = new bv();
+                bvVar2.parserJson(w);
+                d.this.hasMore = bvVar2.has_more == 1;
                 if (d.this.type == 1) {
-                    d.this.a(str, btVar2);
+                    d.this.a(str, bvVar2);
                 }
-                btVar = btVar2;
+                bvVar = bvVar2;
             } else {
-                btVar = null;
+                bvVar = null;
             }
-            return btVar;
+            return bvVar;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (d.this.btK != null) {
-                d.this.btK.a((bt) obj);
+            if (d.this.byw != null) {
+                d.this.byw.a((bv) obj);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, bt btVar) {
-        if (btVar != null && btVar.user_list != null && !btVar.user_list.isEmpty()) {
-            for (bf bfVar : btVar.user_list) {
+    public void a(String str, bv bvVar) {
+        if (bvVar != null && bvVar.user_list != null && !bvVar.user_list.isEmpty()) {
+            for (bh bhVar : bvVar.user_list) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.equals(str)) {
-                    bfVar.aQa = 1;
+                    bhVar.aQP = 1;
                 }
             }
         }

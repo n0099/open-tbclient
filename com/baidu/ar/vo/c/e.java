@@ -1,5 +1,5 @@
 package com.baidu.ar.vo.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class e extends a implements c {
     private com.baidu.ar.vo.a.b zb;
 
@@ -15,9 +15,9 @@ public class e extends a implements c {
         int i = this.mPreviewWidth / 2;
         int i2 = this.mPreviewHeight / 2;
         try {
-            int[] b = this.yw.b(Float.parseFloat(split[0].trim()), Float.parseFloat(split[1].trim()));
-            i = b[0];
-            i2 = b[1];
+            int[] b2 = this.yw.b(Float.parseFloat(split[0].trim()), Float.parseFloat(split[1].trim()));
+            i = b2[0];
+            i2 = b2[1];
         } catch (NumberFormatException e) {
             com.baidu.ar.h.b.aS("model position is not number !!!");
         }

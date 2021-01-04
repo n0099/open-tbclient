@@ -1,13 +1,15 @@
 package com.baidu.searchbox.track;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.appframework.BdBoxActivityManager;
 import com.baidu.searchbox.track.ui.EvictingDeque;
 import com.baidu.searchbox.track.ui.OnFragmentTraceListener;
 import com.baidu.searchbox.track.ui.TraceManager;
 import com.baidu.searchbox.track.ui.TrackUI;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Track {
     private static final int UI_TRACK_CAPACITY = 20;
     private Object mLockListener;
@@ -15,7 +17,7 @@ public class Track {
     private EvictingDeque<TrackUI> mTrackUIDeque;
     private LinkedList<OnTrackUIListener> mTrackUIListeners;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnTrackUIListener {
         void onAddTrackUI(TrackUI trackUI);
     }
@@ -37,7 +39,7 @@ public class Track {
         }
     }
 
-    public void setOnFragmentTraceListener(OnFragmentTraceListener onFragmentTraceListener) {
+    public void setOnFragmentTraceListener(@Nullable OnFragmentTraceListener onFragmentTraceListener) {
         TraceManager.getInstance().setOnFragmentListener(onFragmentTraceListener);
     }
 
@@ -56,7 +58,7 @@ public class Track {
         return linkedList;
     }
 
-    public void addTrackUI(TrackUI trackUI) {
+    public void addTrackUI(@NonNull TrackUI trackUI) {
         if (trackUI == null) {
             throw new NullPointerException("trackUI should not be null");
         }
@@ -65,6 +67,7 @@ public class Track {
         }
     }
 
+    @Nullable
     public TrackUI getLastTrackUI() {
         TrackUI peekLast;
         synchronized (this.mLockTrackUI) {
@@ -77,7 +80,7 @@ public class Track {
         return BdBoxActivityManager.isForeground();
     }
 
-    public void addTrackUIListener(OnTrackUIListener onTrackUIListener) {
+    public void addTrackUIListener(@NonNull OnTrackUIListener onTrackUIListener) {
         synchronized (this.mLockListener) {
             if (!this.mTrackUIListeners.contains(onTrackUIListener)) {
                 this.mTrackUIListeners.add(onTrackUIListener);
@@ -85,7 +88,7 @@ public class Track {
         }
     }
 
-    public void removeTrackUIListener(OnTrackUIListener onTrackUIListener) {
+    public void removeTrackUIListener(@NonNull OnTrackUIListener onTrackUIListener) {
         synchronized (this.mLockListener) {
             this.mTrackUIListeners.remove(onTrackUIListener);
         }
@@ -96,7 +99,7 @@ public class Track {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class TrackCreator {
         private static final Track mTrace = new Track();
 

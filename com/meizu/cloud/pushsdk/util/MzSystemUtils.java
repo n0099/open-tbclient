@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
@@ -17,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class MzSystemUtils {
     private static final String TAG = "MzSystemUtils";
 
@@ -148,29 +146,98 @@ public class MzSystemUtils {
         return packageName;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String getNetWorkType(Context context) {
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null) {
-                switch (activeNetworkInfo.getType()) {
-                    case 0:
-                        switch (activeNetworkInfo.getSubtype()) {
-                        }
-                    case 1:
-                        return "WIFI";
-                    case 7:
-                        return "BLUETOOTH";
-                    case 9:
-                        return "ETHERNET";
-                }
-                return "OTHER";
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:23:0x0062
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    public static java.lang.String getNetWorkType(android.content.Context r5) {
+        /*
+            java.lang.String r1 = ""
+            java.lang.String r0 = "connectivity"
+            java.lang.Object r0 = r5.getSystemService(r0)     // Catch: java.lang.Exception -> L41
+            android.net.ConnectivityManager r0 = (android.net.ConnectivityManager) r0     // Catch: java.lang.Exception -> L41
+            android.net.NetworkInfo r0 = r0.getActiveNetworkInfo()     // Catch: java.lang.Exception -> L41
+            if (r0 == 0) goto L65
+            int r2 = r0.getType()     // Catch: java.lang.Exception -> L41
+            switch(r2) {
+                case 0: goto L2a;
+                case 1: goto L1e;
+                case 7: goto L26;
+                case 9: goto L22;
+                default: goto L19;
             }
-            return "";
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "Security exception checking connection: " + e.getMessage());
-            return "";
-        }
+        L19:
+            r0 = r1
+        L1a:
+            java.lang.String r0 = "OTHER"
+        L1d:
+            return r0
+        L1e:
+            java.lang.String r0 = "WIFI"
+            goto L1d
+        L22:
+            java.lang.String r0 = "ETHERNET"
+            goto L1d
+        L26:
+            java.lang.String r0 = "BLUETOOTH"
+            goto L1d
+        L2a:
+            int r0 = r0.getSubtype()     // Catch: java.lang.Exception -> L41
+            switch(r0) {
+                case 1: goto L35;
+                case 2: goto L35;
+                case 3: goto L39;
+                case 4: goto L35;
+                case 5: goto L39;
+                case 6: goto L39;
+                case 7: goto L35;
+                case 8: goto L39;
+                case 9: goto L39;
+                case 10: goto L39;
+                case 11: goto L35;
+                case 12: goto L39;
+                case 13: goto L3d;
+                case 14: goto L39;
+                case 15: goto L39;
+                default: goto L31;
+            }     // Catch: java.lang.Exception -> L41
+        L31:
+            java.lang.String r0 = "MOBILE_XG"
+            goto L1a
+        L35:
+            java.lang.String r0 = "MOBILE_2G"
+            goto L1a
+        L39:
+            java.lang.String r0 = "MOBILE_3G"
+            goto L1a
+        L3d:
+            java.lang.String r0 = "MOBILE_4G"
+            goto L1a
+        L41:
+            r2 = move-exception
+            r0 = r1
+        L43:
+            java.lang.String r1 = "MzSystemUtils"
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder
+            r3.<init>()
+            java.lang.String r4 = "Security exception checking connection: "
+            java.lang.StringBuilder r3 = r3.append(r4)
+            java.lang.String r2 = r2.getMessage()
+            java.lang.StringBuilder r2 = r3.append(r2)
+            java.lang.String r2 = r2.toString()
+            com.meizu.cloud.a.a.e(r1, r2)
+            goto L1d
+        L62:
+            r1 = move-exception
+            r2 = r1
+            goto L43
+        L65:
+            r0 = r1
+            goto L1d
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.meizu.cloud.pushsdk.util.MzSystemUtils.getNetWorkType(android.content.Context):java.lang.String");
     }
 
     public static String getOperator(Context context) {
@@ -272,8 +339,8 @@ public class MzSystemUtils {
     }
 
     public static boolean isInternational() {
-        if (com.meizu.cloud.pushsdk.base.a.a().f4137a) {
-            return com.meizu.cloud.pushsdk.base.a.a().b.booleanValue();
+        if (com.meizu.cloud.pushsdk.base.a.a().f11525a) {
+            return com.meizu.cloud.pushsdk.base.a.a().f11526b.booleanValue();
         }
         return false;
     }

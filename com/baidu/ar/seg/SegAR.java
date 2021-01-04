@@ -17,7 +17,7 @@ import com.baidu.ar.statistic.StatisticConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class SegAR extends c {
     private static final String TAG = SegAR.class.getSimpleName();
     private static final float[] vo = {0.0f, -1.0f, 1.0f, 0.0f};
@@ -45,7 +45,7 @@ public class SegAR extends c {
     private float vh = 0.0f;
 
     /* renamed from: vi  reason: collision with root package name */
-    private float f1242vi = 0.0f;
+    private float f1562vi = 0.0f;
     private float vj = 0.0f;
     private float vk = 0.0f;
     private float vl = 0.0f;
@@ -55,7 +55,7 @@ public class SegAR extends c {
     private int vx = 0;
 
     /* renamed from: io  reason: collision with root package name */
-    private byte[] f1241io = null;
+    private byte[] f1561io = null;
     private long vy = 0;
     private AlgoHandleController cb = null;
     private int vz = -1;
@@ -90,7 +90,7 @@ public class SegAR extends c {
         hashMap3.put("hairTopPos", Float.valueOf(this.vm));
         hashMap3.put("hairBottomPos", Float.valueOf(this.vn));
         hashMap3.put("hairTop", new Vector4f(this.vj, this.vk, this.vl, 1.0f));
-        hashMap3.put("hairBottom", new Vector4f(this.vg, this.vh, this.f1242vi, 1.0f));
+        hashMap3.put("hairBottom", new Vector4f(this.vg, this.vh, this.f1562vi, 1.0f));
         return hashMap3;
     }
 
@@ -254,7 +254,7 @@ public class SegAR extends c {
         this.vf = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_type"), 0);
         this.vg = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_r"), 0.0f);
         this.vh = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_g"), 0.0f);
-        this.f1242vi = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_b"), 0.0f);
+        this.f1562vi = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_b"), 0.0f);
         this.vj = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_r"), 0.0f);
         this.vk = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_g"), 0.0f);
         this.vl = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_b"), 0.0f);
@@ -407,9 +407,9 @@ public class SegAR extends c {
                     if (r != null) {
                         SegAR.this.vw = gd.getWidth();
                         SegAR.this.vx = gd.getHeight();
-                        SegAR.this.f1241io = gd.gc();
+                        SegAR.this.f1561io = gd.gc();
                         SegAR.this.vy = bVar.getTimestamp();
-                        if (SegAR.this.vw <= 0 || SegAR.this.vx <= 0 || SegAR.this.f1241io == null) {
+                        if (SegAR.this.vw <= 0 || SegAR.this.vx <= 0 || SegAR.this.f1561io == null) {
                             return;
                         }
                         j jVar = new j();

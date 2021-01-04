@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class HttpURLExecutorRunnable implements Runnable {
     private static final boolean DEBUG = false;
     private static final long SLEEP_TIME_WHILE_REQUEST_FAILED = 1000;
@@ -29,7 +29,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     private String mUrl;
     private boolean mUsingDNSProxy;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface OnWebRequestListener {
         void onFailed();
 
@@ -54,7 +54,7 @@ public class HttpURLExecutorRunnable implements Runnable {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [178=4] */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x008a, code lost:
-        if (r2 == null) goto L47;
+        if (r2 == null) goto L46;
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x008c, code lost:
         r2.close();
@@ -65,18 +65,18 @@ public class HttpURLExecutorRunnable implements Runnable {
     /* JADX WARN: Code restructure failed: missing block: B:38:0x00a4, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x00d0 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x00e4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x00cd A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x00d0 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x00e3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x00cd A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:92:0x00c8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x00e9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x00e8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void run() {
-        InputStream inputStream;
         BufferedReader bufferedReader;
+        InputStream inputStream;
         int i = 0;
         BufferedReader bufferedReader2 = null;
         System.currentTimeMillis();
@@ -141,7 +141,6 @@ public class HttpURLExecutorRunnable implements Runnable {
                                     i = i2 + 1;
                                 } catch (Throwable th) {
                                     th = th;
-                                    bufferedReader2 = bufferedReader;
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
@@ -149,9 +148,9 @@ public class HttpURLExecutorRunnable implements Runnable {
                                             e5.printStackTrace();
                                         }
                                     }
-                                    if (bufferedReader2 != null) {
+                                    if (bufferedReader != null) {
                                         try {
-                                            bufferedReader2.close();
+                                            bufferedReader.close();
                                         } catch (IOException e6) {
                                             e6.printStackTrace();
                                         }
@@ -175,9 +174,10 @@ public class HttpURLExecutorRunnable implements Runnable {
                         i = i2 + 1;
                     } catch (Throwable th2) {
                         th = th2;
+                        bufferedReader = null;
                         if (inputStream != null) {
                         }
-                        if (bufferedReader2 != null) {
+                        if (bufferedReader != null) {
                         }
                         throw th;
                     }
@@ -203,6 +203,7 @@ public class HttpURLExecutorRunnable implements Runnable {
                 inputStream = null;
             } catch (Throwable th3) {
                 th = th3;
+                bufferedReader = null;
                 inputStream = null;
             }
             i = i2 + 1;

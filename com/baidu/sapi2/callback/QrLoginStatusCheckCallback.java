@@ -2,7 +2,7 @@ package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.result.QrLoginStatusCheckResult;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class QrLoginStatusCheckCallback implements NoProguard, SapiCallback<QrLoginStatusCheckResult> {
     public abstract void onScanQrCodeDone(QrLoginStatusCheckResult qrLoginStatusCheckResult);
 }

@@ -1,0 +1,36 @@
+package com.bytedance.embedapplog;
+
+import android.content.Context;
+import android.text.TextUtils;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+/* loaded from: classes4.dex */
+public class aq {
+
+    /* renamed from: a  reason: collision with root package name */
+    private static volatile String f6081a = null;
+
+    public static String a(Context context, cn cnVar) {
+        if (TextUtils.isEmpty(f6081a)) {
+            synchronized (aq.class) {
+                if (!TextUtils.isEmpty(f6081a)) {
+                    return f6081a;
+                }
+                AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(context);
+                String id = advertisingIdInfo != null ? advertisingIdInfo.getId() : null;
+                if (TextUtils.isEmpty(id)) {
+                    id = cnVar.epH().getString("google_aid", null);
+                } else if (!TextUtils.equals(cnVar.epH().getString("google_aid", null), id)) {
+                    a(context, id, cnVar);
+                }
+                f6081a = id;
+            }
+        }
+        return f6081a;
+    }
+
+    private static void a(Context context, String str, cn cnVar) {
+        if (!TextUtils.isEmpty(str) && context != null) {
+            cnVar.epH().edit().putString("google_aid", str).apply();
+        }
+    }
+}

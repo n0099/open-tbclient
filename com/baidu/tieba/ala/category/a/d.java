@@ -13,31 +13,31 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d extends TypeAdapter.ViewHolder implements View.OnClickListener {
-    private com.baidu.tieba.ala.category.b.c gCS;
-    private TextView gCU;
-    private ImageView gCV;
+    private com.baidu.tieba.ala.category.b.c gOE;
+    private TextView gOG;
+    private ImageView gOH;
 
     public d(Context context, BdUniqueId bdUniqueId) {
         super(LayoutInflater.from(context).inflate(a.g.item_live_category_two, (ViewGroup) null));
-        this.gCU = (TextView) getView().findViewById(a.f.category_two_name_tv);
-        this.gCV = (ImageView) getView().findViewById(a.f.cb_iv);
-        this.gCV.setOnClickListener(this);
+        this.gOG = (TextView) getView().findViewById(a.f.category_two_name_tv);
+        this.gOH = (ImageView) getView().findViewById(a.f.cb_iv);
+        this.gOH.setOnClickListener(this);
     }
 
     public void a(com.baidu.tieba.ala.category.b.c cVar, String str) {
         if (cVar != null) {
-            this.gCS = cVar;
-            this.gCU.setText(this.gCS.getName());
-            this.gCV.setSelected(!StringUtils.isNull(this.gCS.getId()) && TextUtils.equals(this.gCS.getId(), str));
+            this.gOE = cVar;
+            this.gOG.setText(this.gOE.getName());
+            this.gOH.setSelected(!StringUtils.isNull(this.gOE.getId()) && TextUtils.equals(this.gOE.getId(), str));
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!this.gCU.isSelected()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913201, this.gCS));
+        if (!this.gOG.isSelected()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913201, this.gOE));
         }
     }
 }

@@ -3,9 +3,9 @@ package com.airbnb.lottie.c;
 import android.util.JsonReader;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class b {
-    public static com.airbnb.lottie.model.a.k c(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+    public static com.airbnb.lottie.model.a.k c(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         jsonReader.beginObject();
         com.airbnb.lottie.model.a.k kVar = null;
         while (jsonReader.hasNext()) {
@@ -21,7 +21,7 @@ public class b {
             }
             switch (c) {
                 case 0:
-                    kVar = d(jsonReader, eVar);
+                    kVar = d(jsonReader, dVar);
                     break;
                 default:
                     jsonReader.skipValue();
@@ -35,9 +35,9 @@ public class b {
         return kVar;
     }
 
-    private static com.airbnb.lottie.model.a.k d(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
-        com.airbnb.lottie.model.a.b bVar = null;
+    private static com.airbnb.lottie.model.a.k d(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         jsonReader.beginObject();
+        com.airbnb.lottie.model.a.b bVar = null;
         com.airbnb.lottie.model.a.b bVar2 = null;
         com.airbnb.lottie.model.a.a aVar = null;
         com.airbnb.lottie.model.a.a aVar2 = null;
@@ -72,16 +72,16 @@ public class b {
             }
             switch (c) {
                 case 0:
-                    aVar2 = d.l(jsonReader, eVar);
+                    aVar2 = d.l(jsonReader, dVar);
                     break;
                 case 1:
-                    aVar = d.l(jsonReader, eVar);
+                    aVar = d.l(jsonReader, dVar);
                     break;
                 case 2:
-                    bVar2 = d.f(jsonReader, eVar);
+                    bVar2 = d.f(jsonReader, dVar);
                     break;
                 case 3:
-                    bVar = d.f(jsonReader, eVar);
+                    bVar = d.f(jsonReader, dVar);
                     break;
                 default:
                     jsonReader.skipValue();

@@ -1,5 +1,8 @@
 package com.baidu.searchbox.track.ui;
-/* loaded from: classes6.dex */
+
+import androidx.annotation.Nullable;
+/* loaded from: classes5.dex */
 public interface OnFragmentTraceListener {
+    @Nullable
     String onTrace(Object obj);
 }

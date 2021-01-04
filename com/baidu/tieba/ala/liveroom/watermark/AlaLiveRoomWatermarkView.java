@@ -8,10 +8,10 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveRoomWatermarkView extends LinearLayout {
-    private TextView hGA;
-    private TextView hGz;
+    private TextView hSA;
+    private TextView hSz;
 
     public AlaLiveRoomWatermarkView(Context context) {
         super(context);
@@ -30,27 +30,27 @@ public class AlaLiveRoomWatermarkView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_liveroom_watermark_layout, this);
-        this.hGz = (TextView) findViewById(a.f.ala_liveroom_watermark_uname);
-        this.hGA = (TextView) findViewById(a.f.ala_liveroom_watermark_starttime);
+        this.hSz = (TextView) findViewById(a.f.ala_liveroom_watermark_uname);
+        this.hSA = (TextView) findViewById(a.f.ala_liveroom_watermark_starttime);
     }
 
     public void setValues(String str, long j) {
         if (str == null) {
             str = "";
         }
-        this.hGz.setText(str);
+        this.hSz.setText(str);
         if (j == 0) {
-            this.hGA.setText("");
+            this.hSA.setText("");
             return;
         }
-        this.hGA.setText(new SimpleDateFormat("yyyy.MM.dd").format(new Date(1000 * j)));
+        this.hSA.setText(new SimpleDateFormat("yyyy.MM.dd").format(new Date(1000 * j)));
     }
 
     public void setTimeTextMode(boolean z) {
         if (z) {
-            this.hGA.setTextColor(getContext().getResources().getColor(a.c.sdk_white_alpha25));
+            this.hSA.setTextColor(getContext().getResources().getColor(a.c.sdk_white_alpha25));
         } else {
-            this.hGA.setTextColor(getContext().getResources().getColor(a.c.sdk_black_alpha25));
+            this.hSA.setTextColor(getContext().getResources().getColor(a.c.sdk_black_alpha25));
         }
     }
 }

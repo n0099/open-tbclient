@@ -1,9 +1,10 @@
 package com.baidu.platform.comapi.walknavi.d.a.c;
 
 import com.baidu.platform.comapi.walknavi.d.a.a.b;
+import com.qq.e.comm.constants.Constants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class a {
     public static b a(JSONObject jSONObject) {
         b bVar = new b();
@@ -14,8 +15,8 @@ public final class a {
             if (jSONObject.has("err_msg")) {
                 bVar.a(jSONObject.getString("err_msg"));
             }
-            if (jSONObject.has("ret")) {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("ret");
+            if (jSONObject.has(Constants.KEYS.RET)) {
+                JSONObject jSONObject2 = jSONObject.getJSONObject(Constants.KEYS.RET);
                 if (jSONObject2.has("ar_key")) {
                     bVar.b(jSONObject2.getString("ar_key"));
                 }

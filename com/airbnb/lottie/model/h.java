@@ -1,10 +1,10 @@
 package com.airbnb.lottie.model;
 
-import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
-import android.support.v4.util.Pair;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.core.util.Pair;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class h<T> {
     @Nullable
     T first;
@@ -19,12 +19,12 @@ public class h<T> {
     public boolean equals(Object obj) {
         if (obj instanceof Pair) {
             Pair pair = (Pair) obj;
-            return objectsEqual(pair.first, this.first) && objectsEqual(pair.second, this.second);
+            return d(pair.first, this.first) && d(pair.second, this.second);
         }
         return false;
     }
 
-    private static boolean objectsEqual(Object obj, Object obj2) {
+    private static boolean d(Object obj, Object obj2) {
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 

@@ -12,37 +12,36 @@ import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
-import com.baidu.searchbox.ugc.transcoder.TranscoderPlugin;
-import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import com.baidu.swan.apps.b;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.BufferOverflowException;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private ByteBuffer[] djU;
-    private ByteBuffer[] djV;
+    private ByteBuffer[] doU;
+    private ByteBuffer[] doV;
     private MediaCodec.BufferInfo mBufferInfo;
     private int mChannel;
     private String mFormat;
     private MediaCodec mMediaCodec;
     private int mSampleRate;
-    private long djW = 0;
-    private ByteArrayOutputStream agA = new ByteArrayOutputStream();
+    private long doW = 0;
+    private ByteArrayOutputStream agZ = new ByteArrayOutputStream();
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public a(String str, int i, int i2, int i3) {
         boolean z = false;
         this.mSampleRate = 0;
         this.mChannel = 0;
-        this.mFormat = TranscoderPlugin.AUDIO_CODEC;
+        this.mFormat = "aac";
         this.mSampleRate = i2;
         this.mChannel = i;
         if (TextUtils.isEmpty(str)) {
-            this.mFormat = TranscoderPlugin.AUDIO_CODEC;
+            this.mFormat = "aac";
         } else {
             this.mFormat = str;
         }
@@ -50,7 +49,7 @@ public class a {
             String str2 = this.mFormat;
             switch (str2.hashCode()) {
                 case 96323:
-                    if (str2.equals(TranscoderPlugin.AUDIO_CODEC)) {
+                    if (str2.equals("aac")) {
                         break;
                     }
                     z = true;
@@ -80,15 +79,15 @@ public class a {
                     }
                     MediaCodecInfo selectCodec = selectCodec("audio/mp4a-latm");
                     MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", i2, i);
-                    createAudioFormat.setInteger("bitrate", i3);
+                    createAudioFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, i3);
                     createAudioFormat.setInteger("aac-profile", 2);
                     createAudioFormat.setInteger("max-input-size", BdStatsConstant.MAX_WRITE_LOG_SIZE);
                     if (selectCodec != null) {
                         this.mMediaCodec = MediaCodec.createByCodecName(selectCodec.getName());
                         this.mMediaCodec.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
                         this.mMediaCodec.start();
-                        this.djU = this.mMediaCodec.getInputBuffers();
-                        this.djV = this.mMediaCodec.getOutputBuffers();
+                        this.doU = this.mMediaCodec.getInputBuffers();
+                        this.doV = this.mMediaCodec.getOutputBuffers();
                         this.mBufferInfo = new MediaCodec.BufferInfo();
                         return;
                     }
@@ -103,7 +102,7 @@ public class a {
         }
     }
 
-    public byte[] M(byte[] bArr) {
+    public byte[] J(byte[] bArr) {
         if (this.mMediaCodec == null || bArr == null) {
             if (DEBUG) {
                 Log.d("AudioRecorderManager", "wrong input or mediaCodec");
@@ -115,7 +114,7 @@ public class a {
         char c = 65535;
         switch (str.hashCode()) {
             case 96323:
-                if (str.equals(TranscoderPlugin.AUDIO_CODEC)) {
+                if (str.equals("aac")) {
                     c = 0;
                     break;
                 }
@@ -135,9 +134,9 @@ public class a {
         }
         switch (c) {
             case 0:
-                return N(bArr);
+                return K(bArr);
             case 1:
-                return O(bArr);
+                return L(bArr);
             case 2:
             default:
                 return bArr;
@@ -160,7 +159,7 @@ public class a {
         return null;
     }
 
-    private long cr(long j) {
+    private long cs(long j) {
         if (this.mSampleRate == 0) {
             return 0L;
         }
@@ -170,10 +169,10 @@ public class a {
     private byte[] p(int i, int i2, int i3, int i4) {
         int i5 = i + 7;
         byte[] bArr = new byte[i5];
-        int jO = jO(i3);
+        int jJ = jJ(i3);
         bArr[0] = -1;
         bArr[1] = -15;
-        bArr[2] = (byte) ((jO << 2) + ((i2 - 1) << 6) + (i4 >> 2));
+        bArr[2] = (byte) ((jJ << 2) + ((i2 - 1) << 6) + (i4 >> 2));
         bArr[3] = (byte) (((i4 & 3) << 6) + (i5 >> 11));
         bArr[4] = (byte) ((i5 & 2047) >> 3);
         bArr[5] = (byte) (((i5 & 7) << 5) + 31);
@@ -181,11 +180,11 @@ public class a {
         return bArr;
     }
 
-    private int jO(int i) {
+    private int jJ(int i) {
         switch (i) {
             case 7350:
                 return 12;
-            case CoolPraiseGuideLottieView.ANIM_DURATION /* 8000 */:
+            case 8000:
             default:
                 return 11;
             case RequestResponseCode.REQUEST_LOGIN_PB_AT /* 11025 */:
@@ -213,20 +212,20 @@ public class a {
         }
     }
 
-    private byte[] N(byte[] bArr) {
+    private byte[] K(byte[] bArr) {
         if (this.mMediaCodec != null && bArr != null) {
             if (DEBUG) {
                 Log.d("AudioRecorderManager", "start AAC encode");
             }
             int dequeueInputBuffer = this.mMediaCodec.dequeueInputBuffer(-1L);
             if (dequeueInputBuffer >= 0) {
-                ByteBuffer byteBuffer = this.djU[dequeueInputBuffer];
+                ByteBuffer byteBuffer = this.doU[dequeueInputBuffer];
                 byteBuffer.clear();
                 try {
                     byteBuffer.put(bArr);
                     byteBuffer.limit(bArr.length);
-                    this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, cr(this.djW), 0);
-                    this.djW++;
+                    this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, cs(this.doW), 0);
+                    this.doW++;
                 } catch (IllegalArgumentException | BufferOverflowException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -236,7 +235,7 @@ public class a {
             int dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
             while (dequeueOutputBuffer >= 0) {
                 int i = this.mBufferInfo.size;
-                ByteBuffer byteBuffer2 = this.djV[dequeueOutputBuffer];
+                ByteBuffer byteBuffer2 = this.doV[dequeueOutputBuffer];
                 try {
                     byteBuffer2.position(this.mBufferInfo.offset);
                     byteBuffer2.limit(this.mBufferInfo.offset + i);
@@ -244,7 +243,7 @@ public class a {
                     try {
                         byteBuffer2.get(p, 7, i);
                         byteBuffer2.position(this.mBufferInfo.offset);
-                        this.agA.write(p);
+                        this.agZ.write(p);
                         this.mMediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
                         dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
                     } catch (IOException | IllegalArgumentException | BufferUnderflowException e2) {
@@ -258,20 +257,20 @@ public class a {
                     }
                 }
             }
-            bArr = this.agA.toByteArray();
+            bArr = this.agZ.toByteArray();
             try {
-                this.agA.flush();
+                this.agZ.flush();
             } catch (IOException e4) {
                 if (DEBUG) {
                     e4.printStackTrace();
                 }
             }
-            this.agA.reset();
+            this.agZ.reset();
         }
         return bArr;
     }
 
-    private byte[] O(byte[] bArr) {
+    private byte[] L(byte[] bArr) {
         return bArr;
     }
 }

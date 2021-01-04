@@ -17,17 +17,19 @@ import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.interfaces.utils.IXAdViewUtils;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class XAdSDKFoundationFacade {
     private static final XAdSDKFoundationFacade o = new XAdSDKFoundationFacade();
 
     /* renamed from: a  reason: collision with root package name */
-    private i f2436a;
+    private i f3523a;
     private Context p;
     private IXAdContainerFactory q;
     private IBase64 c = new a();
     private IXAdLogger d = m.a();
-    private o b = new o();
+
+    /* renamed from: b  reason: collision with root package name */
+    private o f3524b = new o();
     private IXAdViewUtils e = new u();
     private IXAdBitmapUtils f = new d();
     private IXAdURIUitls g = new t();
@@ -50,7 +52,7 @@ public class XAdSDKFoundationFacade {
         if (this.p == null) {
             this.p = context;
         }
-        this.f2436a = new i(this.p);
+        this.f3523a = new i(this.p);
     }
 
     public void initializeAdContainerFactory(IXAdContainerFactory iXAdContainerFactory) {
@@ -60,7 +62,7 @@ public class XAdSDKFoundationFacade {
     }
 
     public i getAdCreativeCacheManager() {
-        return this.f2436a;
+        return this.f3523a;
     }
 
     public IXAdContainerFactory getAdContainerFactory() {
@@ -80,7 +82,7 @@ public class XAdSDKFoundationFacade {
     }
 
     public o getAdResource() {
-        return this.b;
+        return this.f3524b;
     }
 
     public IXAdBitmapUtils getBitmapUtils() {

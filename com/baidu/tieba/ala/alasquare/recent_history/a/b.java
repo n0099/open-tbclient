@@ -10,14 +10,14 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.recent_history.b.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -30,80 +30,80 @@ public class b extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(this.mContext).inflate(R.layout.square_recent_history_living_item, (ViewGroup) null);
-            aVar.gwq = (TbImageView) view.findViewById(R.id.recent_history_living_img);
-            aVar.gwq.setDefaultResource(R.drawable.ala_bitmap_default_color_bg);
+            aVar.gHt = (TbImageView) view.findViewById(R.id.recent_history_living_img);
+            aVar.gHt.setDefaultResource(R.drawable.ala_bitmap_default_color_bg);
             aVar.title = (TextView) view.findViewById(R.id.recent_history_living_title);
-            aVar.gwr = (TextView) view.findViewById(R.id.recent_history_living_audience_count);
-            aVar.egV = (TextView) view.findViewById(R.id.recent_history_living_user_name);
-            aVar.gws = (TextView) view.findViewById(R.id.recent_history_living_living_tag);
-            aVar.gwt = (TextView) view.findViewById(R.id.recent_history_living_send_gift_tag);
-            ap.setBackgroundColor(view, R.color.CAM_X0201);
-            ap.setViewTextColor(aVar.title, (int) R.color.CAM_X0105);
-            ap.setViewTextColor(aVar.gwr, (int) R.color.CAM_X0109);
-            ap.setViewTextColor(aVar.egV, (int) R.color.CAM_X0107);
-            ap.setViewTextColor(aVar.gwt, (int) R.color.CAM_X0301);
+            aVar.gHu = (TextView) view.findViewById(R.id.recent_history_living_audience_count);
+            aVar.epX = (TextView) view.findViewById(R.id.recent_history_living_user_name);
+            aVar.gHv = (TextView) view.findViewById(R.id.recent_history_living_living_tag);
+            aVar.gHw = (TextView) view.findViewById(R.id.recent_history_living_send_gift_tag);
+            ao.setBackgroundColor(view, R.color.CAM_X0201);
+            ao.setViewTextColor(aVar.title, R.color.CAM_X0105);
+            ao.setViewTextColor(aVar.gHu, R.color.CAM_X0109);
+            ao.setViewTextColor(aVar.epX, R.color.CAM_X0107);
+            ao.setViewTextColor(aVar.gHw, R.color.CAM_X0301);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        final com.baidu.tieba.ala.alasquare.recent_history.b.b vc = getItem(i);
-        if (vc != null && vc.eCR != null && vc.eCR.boP() != null && vc.eCR.bpj() != null) {
-            MetaData boP = vc.eCR.boP();
-            aVar.gwq.startLoad(vc.eCR.bpj().cover, 10, false);
-            aVar.title.setText(vc.eCR.getTitle());
-            this.gwn = 0;
-            aVar.gws.setVisibility(8);
-            aVar.gwt.setVisibility(8);
-            if (!y.isEmpty(vc.tagList)) {
-                for (b.a aVar2 : vc.tagList) {
+        final com.baidu.tieba.ala.alasquare.recent_history.b.b vn = getItem(i);
+        if (vn != null && vn.eMv != null && vn.eMv.brq() != null && vn.eMv.brJ() != null) {
+            MetaData brq = vn.eMv.brq();
+            aVar.gHt.startLoad(vn.eMv.brJ().cover, 10, false);
+            aVar.title.setText(vn.eMv.getTitle());
+            this.gHq = 0;
+            aVar.gHv.setVisibility(8);
+            aVar.gHw.setVisibility(8);
+            if (!x.isEmpty(vn.tagList)) {
+                for (b.a aVar2 : vn.tagList) {
                     if (aVar2 != null) {
-                        if (1 == aVar2.aIC) {
-                            aVar.gws.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar2.gwD)) {
-                                aVar.gws.setText(aVar2.gwD);
+                        if (1 == aVar2.aIY) {
+                            aVar.gHv.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar2.gHH)) {
+                                aVar.gHv.setText(aVar2.gHH);
                             }
-                            this.gwn++;
-                        } else if (2 == aVar2.aIC) {
-                            aVar.gwt.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar2.gwD)) {
-                                aVar.gwt.setText(aVar2.gwD);
+                            this.gHq++;
+                        } else if (2 == aVar2.aIY) {
+                            aVar.gHw.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar2.gHH)) {
+                                aVar.gHw.setText(aVar2.gHH);
                             }
-                            this.gwn++;
+                            this.gHq++;
                         }
                     }
                 }
             }
-            String name_show = boP.getName_show();
-            if (this.gwn <= 1) {
+            String name_show = brq.getName_show();
+            if (this.gHq <= 1) {
                 i2 = 14;
             } else {
                 i2 = 13;
             }
-            aVar.egV.setText(k.byteLength(name_show) > i2 ? au.cutChineseAndEnglishWithSuffix(name_show, i2, StringHelper.STRING_MORE) : name_show);
-            aVar.gwr.setText(this.mContext.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, au.numberUniformFormatExtra(vc.eCR.bpj().audience_count)));
+            aVar.epX.setText(k.byteLength(name_show) > i2 ? at.cutChineseAndEnglishWithSuffix(name_show, i2, StringHelper.STRING_MORE) : name_show);
+            aVar.gHu.setText(this.mContext.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, at.numberUniformFormatExtra(vn.eMv.brJ().audience_count)));
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    ar arVar = new ar("c12659");
-                    arVar.dY("tid", vc.eCR.getTid());
-                    TiebaStatic.log(arVar);
-                    b.this.a(b.this.mPageContext, vc.eCR, "recent_history_living_tab");
+                    aq aqVar = new aq("c12659");
+                    aqVar.dX("tid", vn.eMv.getTid());
+                    TiebaStatic.log(aqVar);
+                    b.this.a(b.this.mPageContext, vn.eMv, "recent_history_living_tab");
                 }
             });
-            ar arVar = new ar("c12658");
-            arVar.dY("tid", vc.eCR.getTid());
-            com.baidu.tieba.ala.alasquare.c.a.bSH().e(arVar);
+            aq aqVar = new aq("c12658");
+            aqVar.dX("tid", vn.eMv.getTid());
+            com.baidu.tieba.ala.alasquare.b.a.bVl().e(aqVar);
         }
         return view;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     private static class a {
-        public TextView egV;
-        public TbImageView gwq;
-        public TextView gwr;
-        public TextView gws;
-        public TextView gwt;
+        public TextView epX;
+        public TbImageView gHt;
+        public TextView gHu;
+        public TextView gHv;
+        public TextView gHw;
         public TextView title;
 
         private a() {

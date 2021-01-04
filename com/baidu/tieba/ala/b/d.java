@@ -1,6 +1,7 @@
 package com.baidu.tieba.ala.b;
 
 import android.text.TextUtils;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,9 +9,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes10.dex */
 public class d {
-    public File gCj = null;
+    public File gNV = null;
     public String mLoadingFile;
     public String mMd5;
     public String mType;
@@ -18,36 +19,36 @@ public class d {
     public String mVersion;
 
     public boolean isLoaded() {
-        return acr() != null && acr().exists();
+        return aeg() != null && aeg().exists();
     }
 
-    public void bTB() {
-        File file = new File(act());
+    public void bWg() {
+        File file = new File(aei());
         if (file != null) {
             com.baidu.tieba.ala.b.b.a.deleteDir(file);
         }
-        this.gCj = null;
-        act();
-        acr();
+        this.gNV = null;
+        aei();
+        aeg();
     }
 
     public String getName() {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File acr() {
-        if (this.gCj == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.gCj = new File(act(), getName());
+    public File aeg() {
+        if (this.gNV == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.gNV = new File(aei(), getName());
         }
-        return this.gCj;
+        return this.gNV;
     }
 
     public String getFilePath() {
-        return acr().getAbsolutePath();
+        return aeg().getAbsolutePath();
     }
 
-    public String act() {
-        return TextUtils.equals(this.mType, "so") ? c.bTz().getAbsolutePath() : c.bTA().getAbsolutePath();
+    public String aei() {
+        return TextUtils.equals(this.mType, "so") ? c.bWe().getAbsolutePath() : c.bWf().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -60,13 +61,8 @@ public class d {
         return this.mLoadingFile;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x004c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public boolean onResLoaded(String str) {
-        boolean z;
-        Exception e;
+        boolean z = false;
         try {
             File file = new File(str);
             File file2 = new File(getFilePath() + ".tmp");
@@ -74,44 +70,30 @@ public class d {
                 com.baidu.tieba.ala.b.b.a.deleteDir(file2);
                 try {
                     file2.delete();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             com.baidu.tieba.ala.b.b.a.unzipFile(file, file2.getAbsolutePath());
-            file2.renameTo(acr());
-        } catch (Exception e3) {
-            z = false;
-            e = e3;
-        }
-        if (isLoaded()) {
-            if (bTC()) {
+            file2.renameTo(aeg());
+            if (isLoaded() && bWh()) {
                 z = true;
-                if (!z) {
-                    try {
-                        com.baidu.tieba.ala.b.b.a.deleteDir(acr());
-                    } catch (Exception e4) {
-                        e = e4;
-                        e.printStackTrace();
-                        com.baidu.tieba.ala.b.b.a.deleteDir(acr());
-                        return z;
-                    }
-                }
-                com.baidu.tieba.ala.b.b.a.deleteFile(str);
-                return z;
             }
+            if (!z) {
+                com.baidu.tieba.ala.b.b.a.deleteDir(aeg());
+            }
+            com.baidu.tieba.ala.b.b.a.deleteFile(str);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            com.baidu.tieba.ala.b.b.a.deleteDir(aeg());
         }
-        z = false;
-        if (!z) {
-        }
-        com.baidu.tieba.ala.b.b.a.deleteFile(str);
         return z;
     }
 
-    public boolean bTC() {
+    public boolean bWh() {
         JSONArray optJSONArray;
         try {
-            File file = new File(acr(), "files.json");
+            File file = new File(aeg(), "files.json");
             if (file == null || !file.exists()) {
                 return false;
             }
@@ -127,7 +109,7 @@ public class d {
             ArrayList<a> arrayList = new ArrayList<>();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                arrayList.add(a.GQ(optJSONArray.getString(i)));
+                arrayList.add(a.GP(optJSONArray.getString(i)));
             }
             return aa(arrayList);
         } catch (Exception e) {
@@ -164,7 +146,7 @@ public class d {
         }
     }
 
-    public static d er(String str, String str2) {
+    public static d eq(String str, String str2) {
         d dVar = new d();
         dVar.mVersion = str;
         String str3 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
@@ -173,18 +155,18 @@ public class d {
         }
         String str4 = str3 + str + ".zip";
         dVar.mUrl = str4;
-        dVar.mMd5 = com.baidu.tieba.ala.b.b.b.es(str4, "MD5");
+        dVar.mMd5 = com.baidu.tieba.ala.b.b.b.er(str4, EncryptUtils.ENCRYPT_MD5);
         dVar.mType = str2;
         return dVar;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String mMd5;
         public String mName;
         public String mPath;
 
-        public static a GQ(String str) {
+        public static a GP(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

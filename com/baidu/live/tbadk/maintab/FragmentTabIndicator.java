@@ -17,7 +17,7 @@ import com.baidu.live.tieba.view.TabTextView;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public static final int TIP_POS_TYPE_CENTER = 0;
     public static final int TIP_POS_TYPE_TOP = 1;
@@ -91,8 +91,8 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int measuredWidth;
-        int i5;
         int measuredHeight;
+        int i5;
         super.onLayout(z, i, i2, i3, i4);
         Iterator<Map.Entry<String, TbFragmentTabIndicator.FragmentTapTip>> it = this.mTips.entrySet().iterator();
         while (it.hasNext() && this.mContentTv.getText() != null) {
@@ -109,10 +109,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 i5 = measuredWidth - this.mTipRightMargin;
                 measuredHeight = this.mTipTopMargin;
             } else {
-                i5 = measuredWidth;
                 measuredHeight = (getMeasuredHeight() / 2) - (value.view.getMeasuredHeight() / 2);
+                i5 = measuredWidth;
             }
-            value.view.layout(i5, measuredHeight, measuredWidth2 + i5, measuredHeight2 + measuredHeight);
+            value.view.layout(i5, measuredHeight, i5 + measuredWidth2, measuredHeight + measuredHeight2);
         }
     }
 

@@ -2,7 +2,7 @@ package com.baidu.searchbox.ubcprocessor;
 
 import com.baidu.pyramid.a.a;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes7.dex */
 public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider implements a {
     @Override // com.baidu.pyramid.a.a
     public Object get() {

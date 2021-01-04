@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.UnsupportedEncodingException;
 @Deprecated
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public class Base64 {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final int CRLF = 4;
@@ -19,7 +19,7 @@ public class Base64 {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Coder {
         public int op;
         public byte[] output;
@@ -54,7 +54,7 @@ public class Base64 {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes5.dex */
     public static class Decoder extends Coder {
         private static final int[] DECODE = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
         private static final int[] DECODE_WEBSAFE = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
@@ -77,14 +77,14 @@ public class Base64 {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:16:0x005d, code lost:
-            if (r14 != false) goto L20;
+            if (r13 != false) goto L20;
          */
         /* JADX WARN: Code restructure failed: missing block: B:17:0x005f, code lost:
-            r10.state = r3;
-            r10.value = r2;
-            r10.op = r0;
+            r9.state = r3;
+            r9.value = r2;
+            r9.op = r0;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:57:0x0105, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:56:0x0104, code lost:
             switch(r3) {
                 case 0: goto L21;
                 case 1: goto L23;
@@ -94,36 +94,36 @@ public class Base64 {
                 default: goto L21;
             };
          */
-        /* JADX WARN: Code restructure failed: missing block: B:58:0x0108, code lost:
-            r10.state = r3;
-            r10.op = r0;
+        /* JADX WARN: Code restructure failed: missing block: B:57:0x0107, code lost:
+            r9.state = r3;
+            r9.op = r0;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:59:0x010f, code lost:
-            r10.state = 6;
+        /* JADX WARN: Code restructure failed: missing block: B:58:0x010e, code lost:
+            r9.state = 6;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:60:0x0115, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:59:0x0114, code lost:
             r5[r0] = (byte) (r2 >> 4);
             r0 = r0 + 1;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:61:0x011e, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:60:0x011d, code lost:
             r1 = r0 + 1;
             r5[r0] = (byte) (r2 >> 10);
             r0 = r1 + 1;
             r5[r1] = (byte) (r2 >> 2);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:62:0x012d, code lost:
-            r10.state = 6;
+        /* JADX WARN: Code restructure failed: missing block: B:61:0x012c, code lost:
+            r9.state = 6;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:82:?, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:87:?, code lost:
             return true;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:89:?, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:94:?, code lost:
             return true;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:90:?, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:95:?, code lost:
             return false;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:91:?, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:96:?, code lost:
             return false;
          */
         @Override // org.apache.commons.codec.binary4util.bdapp.Base64.Coder
@@ -132,118 +132,113 @@ public class Base64 {
         */
         public boolean process(byte[] bArr, int i, int i2, boolean z) {
             int i3;
-            int i4;
             if (this.state == 6) {
                 return false;
             }
-            int i5 = i2 + i;
-            int i6 = this.state;
-            int i7 = this.value;
-            int i8 = 0;
+            int i4 = i2 + i;
+            int i5 = this.state;
+            int i6 = this.value;
+            int i7 = 0;
             byte[] bArr2 = this.output;
             int[] iArr = this.alphabet;
-            int i9 = i;
+            int i8 = i;
             while (true) {
-                if (i9 < i5) {
-                    if (i6 == 0) {
-                        while (i9 + 4 <= i5 && (i7 = (iArr[bArr[i9] & 255] << 18) | (iArr[bArr[i9 + 1] & 255] << 12) | (iArr[bArr[i9 + 2] & 255] << 6) | iArr[bArr[i9 + 3] & 255]) >= 0) {
-                            bArr2[i8 + 2] = (byte) i7;
-                            bArr2[i8 + 1] = (byte) (i7 >> 8);
-                            bArr2[i8] = (byte) (i7 >> 16);
-                            i8 += 3;
-                            i9 += 4;
+                if (i8 < i4) {
+                    if (i5 == 0) {
+                        while (i8 + 4 <= i4 && (i6 = (iArr[bArr[i8] & 255] << 18) | (iArr[bArr[i8 + 1] & 255] << 12) | (iArr[bArr[i8 + 2] & 255] << 6) | iArr[bArr[i8 + 3] & 255]) >= 0) {
+                            bArr2[i7 + 2] = (byte) i6;
+                            bArr2[i7 + 1] = (byte) (i6 >> 8);
+                            bArr2[i7] = (byte) (i6 >> 16);
+                            i7 += 3;
+                            i8 += 4;
                         }
-                        if (i9 >= i5) {
-                            i3 = i7;
+                        if (i8 >= i4) {
+                            i3 = i6;
                         }
                     }
-                    int i10 = i9 + 1;
-                    int i11 = iArr[bArr[i9] & 255];
-                    switch (i6) {
+                    int i9 = i8 + 1;
+                    int i10 = iArr[bArr[i8] & 255];
+                    switch (i5) {
                         case 0:
-                            if (i11 >= 0) {
-                                i4 = i6 + 1;
-                                i7 = i11;
-                                continue;
-                                i6 = i4;
-                                i9 = i10;
-                            } else if (i11 != -1) {
+                            if (i10 >= 0) {
+                                i5++;
+                                i6 = i10;
+                                break;
+                            } else if (i10 == -1) {
+                                break;
+                            } else {
                                 this.state = 6;
                                 return false;
                             }
-                            break;
                         case 1:
-                            if (i11 >= 0) {
-                                i7 = (i7 << 6) | i11;
-                                i4 = i6 + 1;
-                                continue;
-                                i6 = i4;
-                                i9 = i10;
-                            } else if (i11 != -1) {
+                            if (i10 >= 0) {
+                                i6 = (i6 << 6) | i10;
+                                i5++;
+                                break;
+                            } else if (i10 == -1) {
+                                break;
+                            } else {
                                 this.state = 6;
                                 return false;
                             }
-                            break;
                         case 2:
-                            if (i11 >= 0) {
-                                i7 = (i7 << 6) | i11;
-                                i4 = i6 + 1;
-                                continue;
-                            } else if (i11 == -2) {
-                                bArr2[i8] = (byte) (i7 >> 4);
-                                i4 = 4;
-                                i8++;
-                            } else if (i11 != -1) {
+                            if (i10 >= 0) {
+                                i6 = (i6 << 6) | i10;
+                                i5++;
+                                break;
+                            } else if (i10 == -2) {
+                                bArr2[i7] = (byte) (i6 >> 4);
+                                i5 = 4;
+                                i7++;
+                                break;
+                            } else if (i10 == -1) {
+                                break;
+                            } else {
                                 this.state = 6;
                                 return false;
                             }
-                            i6 = i4;
-                            i9 = i10;
-                            break;
                         case 3:
-                            if (i11 >= 0) {
-                                i7 = (i7 << 6) | i11;
-                                bArr2[i8 + 2] = (byte) i7;
-                                bArr2[i8 + 1] = (byte) (i7 >> 8);
-                                bArr2[i8] = (byte) (i7 >> 16);
-                                i8 += 3;
-                                i4 = 0;
-                                continue;
-                            } else if (i11 == -2) {
-                                bArr2[i8 + 1] = (byte) (i7 >> 2);
-                                bArr2[i8] = (byte) (i7 >> 10);
-                                i8 += 2;
-                                i4 = 5;
-                            } else if (i11 != -1) {
+                            if (i10 >= 0) {
+                                i6 = (i6 << 6) | i10;
+                                bArr2[i7 + 2] = (byte) i6;
+                                bArr2[i7 + 1] = (byte) (i6 >> 8);
+                                bArr2[i7] = (byte) (i6 >> 16);
+                                i7 += 3;
+                                i5 = 0;
+                                break;
+                            } else if (i10 == -2) {
+                                bArr2[i7 + 1] = (byte) (i6 >> 2);
+                                bArr2[i7] = (byte) (i6 >> 10);
+                                i7 += 2;
+                                i5 = 5;
+                                break;
+                            } else if (i10 == -1) {
+                                break;
+                            } else {
                                 this.state = 6;
                                 return false;
                             }
-                            i6 = i4;
-                            i9 = i10;
-                            break;
                         case 4:
-                            if (i11 == -2) {
-                                i4 = i6 + 1;
-                                continue;
-                                i6 = i4;
-                                i9 = i10;
-                            } else if (i11 != -1) {
+                            if (i10 == -2) {
+                                i5++;
+                                break;
+                            } else if (i10 == -1) {
+                                break;
+                            } else {
                                 this.state = 6;
                                 return false;
                             }
-                            break;
                         case 5:
-                            if (i11 != -1) {
+                            if (i10 == -1) {
+                                break;
+                            } else {
                                 this.state = 6;
                                 return false;
                             }
-                            break;
                     }
-                    i4 = i6;
-                    i6 = i4;
-                    i9 = i10;
+                    i8 = i9;
                 } else {
-                    i3 = i7;
+                    i3 = i6;
                 }
             }
         }
@@ -299,7 +294,7 @@ public class Base64 {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes5.dex */
     public static class Encoder extends Coder {
         static final /* synthetic */ boolean $assertionsDisabled;
         private static final byte[] ENCODE;
@@ -341,39 +336,38 @@ public class Base64 {
         public boolean process(byte[] bArr, int i, int i2, boolean z) {
             int i3;
             int i4;
-            byte b;
-            int i5;
             byte b2;
-            int i6;
+            int i5;
             byte b3;
+            int i6;
+            byte b4;
             int i7;
             int i8;
             int i9;
-            int i10;
             byte[] bArr2 = this.alphabet;
             byte[] bArr3 = this.output;
-            int i11 = 0;
-            int i12 = this.count;
-            int i13 = i2 + i;
-            int i14 = -1;
+            int i10 = 0;
+            int i11 = this.count;
+            int i12 = i2 + i;
+            int i13 = -1;
             switch (this.tailLen) {
                 case 0:
                     i3 = i;
                     break;
                 case 1:
-                    if (i + 2 <= i13) {
-                        int i15 = i + 1;
-                        i14 = ((this.tail[0] & 255) << 16) | ((bArr[i] & 255) << 8) | (bArr[i15] & 255);
+                    if (i + 2 <= i12) {
+                        int i14 = i + 1;
+                        i13 = ((this.tail[0] & 255) << 16) | ((bArr[i] & 255) << 8) | (bArr[i14] & 255);
                         this.tailLen = 0;
-                        i3 = i15 + 1;
+                        i3 = i14 + 1;
                         break;
                     }
                     i3 = i;
                     break;
                 case 2:
-                    if (i + 1 <= i13) {
+                    if (i + 1 <= i12) {
                         i3 = i + 1;
-                        i14 = ((this.tail[0] & 255) << 16) | ((this.tail[1] & 255) << 8) | (bArr[i] & 255);
+                        i13 = ((this.tail[0] & 255) << 16) | ((this.tail[1] & 255) << 8) | (bArr[i] & 255);
                         this.tailLen = 0;
                         break;
                     }
@@ -383,112 +377,110 @@ public class Base64 {
                     i3 = i;
                     break;
             }
-            if (i14 != -1) {
-                bArr3[0] = bArr2[(i14 >> 18) & 63];
-                bArr3[1] = bArr2[(i14 >> 12) & 63];
-                bArr3[2] = bArr2[(i14 >> 6) & 63];
-                i11 = 4;
-                bArr3[3] = bArr2[i14 & 63];
-                i12--;
-                if (i12 == 0) {
+            if (i13 != -1) {
+                bArr3[0] = bArr2[(i13 >> 18) & 63];
+                bArr3[1] = bArr2[(i13 >> 12) & 63];
+                bArr3[2] = bArr2[(i13 >> 6) & 63];
+                i10 = 4;
+                bArr3[3] = bArr2[i13 & 63];
+                i11--;
+                if (i11 == 0) {
                     if (this.do_cr) {
-                        i10 = 5;
+                        i9 = 5;
                         bArr3[4] = 13;
                     } else {
-                        i10 = 4;
+                        i9 = 4;
                     }
-                    i11 = i10 + 1;
-                    bArr3[i10] = 10;
-                    i12 = 19;
+                    i10 = i9 + 1;
+                    bArr3[i9] = 10;
+                    i11 = 19;
                 }
             }
             while (true) {
-                int i16 = i12;
-                int i17 = i11;
-                if (i3 + 3 <= i13) {
-                    int i18 = ((bArr[i3] & 255) << 16) | ((bArr[i3 + 1] & 255) << 8) | (bArr[i3 + 2] & 255);
-                    bArr3[i17] = bArr2[(i18 >> 18) & 63];
-                    bArr3[i17 + 1] = bArr2[(i18 >> 12) & 63];
-                    bArr3[i17 + 2] = bArr2[(i18 >> 6) & 63];
-                    bArr3[i17 + 3] = bArr2[i18 & 63];
+                int i15 = i11;
+                int i16 = i10;
+                if (i3 + 3 <= i12) {
+                    int i17 = ((bArr[i3] & 255) << 16) | ((bArr[i3 + 1] & 255) << 8) | (bArr[i3 + 2] & 255);
+                    bArr3[i16] = bArr2[(i17 >> 18) & 63];
+                    bArr3[i16 + 1] = bArr2[(i17 >> 12) & 63];
+                    bArr3[i16 + 2] = bArr2[(i17 >> 6) & 63];
+                    bArr3[i16 + 3] = bArr2[i17 & 63];
                     i3 += 3;
-                    i11 = i17 + 4;
-                    i12 = i16 - 1;
-                    if (i12 == 0) {
+                    i10 = i16 + 4;
+                    i11 = i15 - 1;
+                    if (i11 == 0) {
                         if (this.do_cr) {
-                            i9 = i11 + 1;
-                            bArr3[i11] = 13;
+                            i8 = i10 + 1;
+                            bArr3[i10] = 13;
                         } else {
-                            i9 = i11;
+                            i8 = i10;
                         }
-                        i11 = i9 + 1;
-                        bArr3[i9] = 10;
-                        i12 = 19;
+                        i10 = i8 + 1;
+                        bArr3[i8] = 10;
+                        i11 = 19;
                     }
                 } else {
                     if (z) {
-                        if (i3 - this.tailLen == i13 - 1) {
+                        if (i3 - this.tailLen == i12 - 1) {
                             if (this.tailLen > 0) {
-                                i8 = 1;
-                                b3 = this.tail[0];
-                                i7 = i3;
+                                i7 = 1;
+                                b4 = this.tail[0];
                             } else {
-                                b3 = bArr[i3];
-                                i7 = i3 + 1;
-                                i8 = 0;
+                                b4 = bArr[i3];
+                                i7 = 0;
+                                i3++;
                             }
-                            int i19 = (b3 & 255) << 4;
-                            this.tailLen -= i8;
-                            int i20 = i17 + 1;
-                            bArr3[i17] = bArr2[(i19 >> 6) & 63];
-                            int i21 = i20 + 1;
-                            bArr3[i20] = bArr2[i19 & 63];
+                            int i18 = (b4 & 255) << 4;
+                            this.tailLen -= i7;
+                            int i19 = i16 + 1;
+                            bArr3[i16] = bArr2[(i18 >> 6) & 63];
+                            int i20 = i19 + 1;
+                            bArr3[i19] = bArr2[i18 & 63];
                             if (this.do_padding) {
-                                int i22 = i21 + 1;
+                                int i21 = i20 + 1;
+                                bArr3[i20] = 61;
+                                i20 = i21 + 1;
                                 bArr3[i21] = 61;
-                                i21 = i22 + 1;
-                                bArr3[i22] = 61;
                             }
                             if (this.do_newline) {
                                 if (this.do_cr) {
-                                    bArr3[i21] = 13;
-                                    i21++;
+                                    bArr3[i20] = 13;
+                                    i20++;
                                 }
-                                bArr3[i21] = 10;
-                                i21++;
+                                bArr3[i20] = 10;
+                                i20++;
                             }
-                            i3 = i7;
-                            i17 = i21;
-                        } else if (i3 - this.tailLen == i13 - 2) {
+                            i16 = i20;
+                        } else if (i3 - this.tailLen == i12 - 2) {
                             if (this.tailLen > 1) {
                                 i5 = 1;
-                                b = this.tail[0];
-                            } else {
-                                b = bArr[i3];
-                                i3++;
-                                i5 = 0;
-                            }
-                            int i23 = (b & 255) << 10;
-                            if (this.tailLen > 0) {
-                                b2 = this.tail[i5];
-                                i5++;
+                                b2 = this.tail[0];
                             } else {
                                 b2 = bArr[i3];
+                                i5 = 0;
                                 i3++;
                             }
-                            int i24 = ((b2 & 255) << 2) | i23;
-                            this.tailLen -= i5;
-                            int i25 = i17 + 1;
-                            bArr3[i17] = bArr2[(i24 >> 12) & 63];
-                            int i26 = i25 + 1;
-                            bArr3[i25] = bArr2[(i24 >> 6) & 63];
-                            int i27 = i26 + 1;
-                            bArr3[i26] = bArr2[i24 & 63];
-                            if (this.do_padding) {
-                                i6 = i27 + 1;
-                                bArr3[i27] = 61;
+                            int i22 = (b2 & 255) << 10;
+                            if (this.tailLen > 0) {
+                                b3 = this.tail[i5];
+                                i5++;
                             } else {
-                                i6 = i27;
+                                b3 = bArr[i3];
+                                i3++;
+                            }
+                            int i23 = ((b3 & 255) << 2) | i22;
+                            this.tailLen -= i5;
+                            int i24 = i16 + 1;
+                            bArr3[i16] = bArr2[(i23 >> 12) & 63];
+                            int i25 = i24 + 1;
+                            bArr3[i24] = bArr2[(i23 >> 6) & 63];
+                            int i26 = i25 + 1;
+                            bArr3[i25] = bArr2[i23 & 63];
+                            if (this.do_padding) {
+                                i6 = i26 + 1;
+                                bArr3[i26] = 61;
+                            } else {
+                                i6 = i26;
                             }
                             if (this.do_newline) {
                                 if (this.do_cr) {
@@ -498,40 +490,40 @@ public class Base64 {
                                 bArr3[i6] = 10;
                                 i6++;
                             }
-                            i17 = i6;
-                        } else if (this.do_newline && i17 > 0 && i16 != 19) {
+                            i16 = i6;
+                        } else if (this.do_newline && i16 > 0 && i15 != 19) {
                             if (this.do_cr) {
-                                i4 = i17 + 1;
-                                bArr3[i17] = 13;
+                                i4 = i16 + 1;
+                                bArr3[i16] = 13;
                             } else {
-                                i4 = i17;
+                                i4 = i16;
                             }
-                            i17 = i4 + 1;
+                            i16 = i4 + 1;
                             bArr3[i4] = 10;
                         }
                         if (!$assertionsDisabled && this.tailLen != 0) {
                             throw new AssertionError();
                         }
-                        if (!$assertionsDisabled && i3 != i13) {
+                        if (!$assertionsDisabled && i3 != i12) {
                             throw new AssertionError();
                         }
-                    } else if (i3 == i13 - 1) {
+                    } else if (i3 == i12 - 1) {
                         byte[] bArr4 = this.tail;
+                        int i27 = this.tailLen;
+                        this.tailLen = i27 + 1;
+                        bArr4[i27] = bArr[i3];
+                    } else if (i3 == i12 - 2) {
+                        byte[] bArr5 = this.tail;
                         int i28 = this.tailLen;
                         this.tailLen = i28 + 1;
-                        bArr4[i28] = bArr[i3];
-                    } else if (i3 == i13 - 2) {
-                        byte[] bArr5 = this.tail;
+                        bArr5[i28] = bArr[i3];
+                        byte[] bArr6 = this.tail;
                         int i29 = this.tailLen;
                         this.tailLen = i29 + 1;
-                        bArr5[i29] = bArr[i3];
-                        byte[] bArr6 = this.tail;
-                        int i30 = this.tailLen;
-                        this.tailLen = i30 + 1;
-                        bArr6[i30] = bArr[i3 + 1];
+                        bArr6[i29] = bArr[i3 + 1];
                     }
-                    this.op = i17;
-                    this.count = i16;
+                    this.op = i16;
+                    this.count = i15;
                     return true;
                 }
             }

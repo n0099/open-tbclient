@@ -2,43 +2,47 @@ package com.xiaomi.push;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class je extends ji {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jn f4768a = new jn();
+    private static final jn f14466a = new jn();
 
     /* renamed from: a  reason: collision with other field name */
-    protected int f772a;
+    protected int f850a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected boolean f773a;
+    protected boolean f851a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f774a;
-    protected boolean b;
+    private byte[] f852a;
+
+    /* renamed from: b  reason: collision with root package name */
+    protected boolean f14467b;
 
     /* renamed from: b  reason: collision with other field name */
-    private byte[] f775b;
+    private byte[] f853b;
     protected boolean c;
 
     /* renamed from: c  reason: collision with other field name */
-    private byte[] f776c;
+    private byte[] f854c;
     private byte[] d;
     private byte[] e;
     private byte[] f;
     private byte[] g;
     private byte[] h;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static class a implements jk {
 
         /* renamed from: a  reason: collision with root package name */
-        protected int f4769a;
+        protected int f14468a;
 
         /* renamed from: a  reason: collision with other field name */
-        protected boolean f777a;
-        protected boolean b;
+        protected boolean f855a;
+
+        /* renamed from: b  reason: collision with root package name */
+        protected boolean f14469b;
 
         public a() {
             this(false, true);
@@ -49,18 +53,18 @@ public class je extends ji {
         }
 
         public a(boolean z, boolean z2, int i) {
-            this.f777a = false;
-            this.b = true;
-            this.f777a = z;
-            this.b = z2;
-            this.f4769a = i;
+            this.f855a = false;
+            this.f14469b = true;
+            this.f855a = z;
+            this.f14469b = z2;
+            this.f14468a = i;
         }
 
         @Override // com.xiaomi.push.jk
         public ji a(js jsVar) {
-            je jeVar = new je(jsVar, this.f777a, this.b);
-            if (this.f4769a != 0) {
-                jeVar.b(this.f4769a);
+            je jeVar = new je(jsVar, this.f855a, this.f14469b);
+            if (this.f14468a != 0) {
+                jeVar.b(this.f14468a);
             }
             return jeVar;
         }
@@ -68,35 +72,35 @@ public class je extends ji {
 
     public je(js jsVar, boolean z, boolean z2) {
         super(jsVar);
-        this.f773a = false;
-        this.b = true;
+        this.f851a = false;
+        this.f14467b = true;
         this.c = false;
-        this.f774a = new byte[1];
-        this.f775b = new byte[2];
-        this.f776c = new byte[4];
+        this.f852a = new byte[1];
+        this.f853b = new byte[2];
+        this.f854c = new byte[4];
         this.d = new byte[8];
         this.e = new byte[1];
         this.f = new byte[2];
         this.g = new byte[4];
         this.h = new byte[8];
-        this.f773a = z;
-        this.b = z2;
+        this.f851a = z;
+        this.f14467b = z2;
     }
 
     private int a(byte[] bArr, int i, int i2) {
         c(i2);
-        return this.f4773a.b(bArr, i, i2);
+        return this.f14474a.b(bArr, i, i2);
     }
 
     @Override // com.xiaomi.push.ji
     public byte a() {
-        if (this.f4773a.b() < 1) {
+        if (this.f14474a.b() < 1) {
             a(this.e, 0, 1);
             return this.e[0];
         }
-        byte b = this.f4773a.m489a()[this.f4773a.a()];
-        this.f4773a.a(1);
-        return b;
+        byte b2 = this.f14474a.m515a()[this.f14474a.a()];
+        this.f14474a.a(1);
+        return b2;
     }
 
     @Override // com.xiaomi.push.ji
@@ -108,10 +112,10 @@ public class je extends ji {
     public int a() {
         int i = 0;
         byte[] bArr = this.g;
-        if (this.f4773a.b() >= 4) {
-            bArr = this.f4773a.m489a();
-            i = this.f4773a.a();
-            this.f4773a.a(4);
+        if (this.f14474a.b() >= 4) {
+            bArr = this.f14474a.m515a();
+            i = this.f14474a.a();
+            this.f14474a.a(4);
         } else {
             a(this.g, 0, 4);
         }
@@ -122,10 +126,10 @@ public class je extends ji {
     public long a() {
         int i = 0;
         byte[] bArr = this.h;
-        if (this.f4773a.b() >= 8) {
-            bArr = this.f4773a.m489a();
-            i = this.f4773a.a();
-            this.f4773a.a(8);
+        if (this.f14474a.b() >= 8) {
+            bArr = this.f14474a.m515a();
+            i = this.f14474a.a();
+            this.f14474a.a(8);
         } else {
             a(this.h, 0, 8);
         }
@@ -155,16 +159,16 @@ public class je extends ji {
 
     @Override // com.xiaomi.push.ji
     public jn a() {
-        return f4768a;
+        return f14466a;
     }
 
     @Override // com.xiaomi.push.ji
     public String a() {
         int a2 = a();
-        if (this.f4773a.b() >= a2) {
+        if (this.f14474a.b() >= a2) {
             try {
-                String str = new String(this.f4773a.m489a(), this.f4773a.a(), a2, "UTF-8");
-                this.f4773a.a(a2);
+                String str = new String(this.f14474a.m515a(), this.f14474a.a(), a2, "UTF-8");
+                this.f14474a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException e) {
                 throw new jc("JVM DOES NOT SUPPORT UTF-8");
@@ -178,7 +182,7 @@ public class je extends ji {
         try {
             c(i);
             byte[] bArr = new byte[i];
-            this.f4773a.b(bArr, 0, i);
+            this.f14474a.b(bArr, 0, i);
             return new String(bArr, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new jc("JVM DOES NOT SUPPORT UTF-8");
@@ -189,13 +193,13 @@ public class je extends ji {
     public ByteBuffer a() {
         int a2 = a();
         c(a2);
-        if (this.f4773a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.f4773a.m489a(), this.f4773a.a(), a2);
-            this.f4773a.a(a2);
+        if (this.f14474a.b() >= a2) {
+            ByteBuffer wrap = ByteBuffer.wrap(this.f14474a.m515a(), this.f14474a.a(), a2);
+            this.f14474a.a(a2);
             return wrap;
         }
         byte[] bArr = new byte[a2];
-        this.f4773a.b(bArr, 0, a2);
+        this.f14474a.b(bArr, 0, a2);
         return ByteBuffer.wrap(bArr);
     }
 
@@ -203,10 +207,10 @@ public class je extends ji {
     public short a() {
         int i = 0;
         byte[] bArr = this.f;
-        if (this.f4773a.b() >= 2) {
-            bArr = this.f4773a.m489a();
-            i = this.f4773a.a();
-            this.f4773a.a(2);
+        if (this.f14474a.b() >= 2) {
+            bArr = this.f14474a.m515a();
+            i = this.f14474a.a();
+            this.f14474a.a(2);
         } else {
             a(this.f, 0, 2);
         }
@@ -218,18 +222,18 @@ public class je extends ji {
     }
 
     @Override // com.xiaomi.push.ji
-    public void a(byte b) {
-        this.f774a[0] = b;
-        this.f4773a.m488a(this.f774a, 0, 1);
+    public void a(byte b2) {
+        this.f852a[0] = b2;
+        this.f14474a.m514a(this.f852a, 0, 1);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(int i) {
-        this.f776c[0] = (byte) ((i >> 24) & 255);
-        this.f776c[1] = (byte) ((i >> 16) & 255);
-        this.f776c[2] = (byte) ((i >> 8) & 255);
-        this.f776c[3] = (byte) (i & 255);
-        this.f4773a.m488a(this.f776c, 0, 4);
+        this.f854c[0] = (byte) ((i >> 24) & 255);
+        this.f854c[1] = (byte) ((i >> 16) & 255);
+        this.f854c[2] = (byte) ((i >> 8) & 255);
+        this.f854c[3] = (byte) (i & 255);
+        this.f14474a.m514a(this.f854c, 0, 4);
     }
 
     @Override // com.xiaomi.push.ji
@@ -242,26 +246,26 @@ public class je extends ji {
         this.d[5] = (byte) ((j >> 16) & 255);
         this.d[6] = (byte) ((j >> 8) & 255);
         this.d[7] = (byte) (255 & j);
-        this.f4773a.m488a(this.d, 0, 8);
+        this.f14474a.m514a(this.d, 0, 8);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(jf jfVar) {
-        a(jfVar.f4770a);
-        a(jfVar.f779a);
+        a(jfVar.f14470a);
+        a(jfVar.f857a);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(jg jgVar) {
-        a(jgVar.f4771a);
-        a(jgVar.f780a);
+        a(jgVar.f14471a);
+        a(jgVar.f858a);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(jh jhVar) {
-        a(jhVar.f4772a);
-        a(jhVar.b);
-        a(jhVar.f781a);
+        a(jhVar.f14472a);
+        a(jhVar.f14473b);
+        a(jhVar.f859a);
     }
 
     @Override // com.xiaomi.push.ji
@@ -273,7 +277,7 @@ public class je extends ji {
         try {
             byte[] bytes = str.getBytes("UTF-8");
             a(bytes.length);
-            this.f4773a.m488a(bytes, 0, bytes.length);
+            this.f14474a.m514a(bytes, 0, bytes.length);
         } catch (UnsupportedEncodingException e) {
             throw new jc("JVM DOES NOT SUPPORT UTF-8");
         }
@@ -283,14 +287,14 @@ public class je extends ji {
     public void a(ByteBuffer byteBuffer) {
         int limit = (byteBuffer.limit() - byteBuffer.position()) - byteBuffer.arrayOffset();
         a(limit);
-        this.f4773a.m488a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
+        this.f14474a.m514a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(short s) {
-        this.f775b[0] = (byte) ((s >> 8) & 255);
-        this.f775b[1] = (byte) (s & 255);
-        this.f4773a.m488a(this.f775b, 0, 2);
+        this.f853b[0] = (byte) ((s >> 8) & 255);
+        this.f853b[1] = (byte) (s & 255);
+        this.f14474a.m514a(this.f853b, 0, 2);
     }
 
     @Override // com.xiaomi.push.ji
@@ -308,7 +312,7 @@ public class je extends ji {
     }
 
     public void b(int i) {
-        this.f772a = i;
+        this.f850a = i;
         this.c = true;
     }
 
@@ -323,8 +327,8 @@ public class je extends ji {
             throw new jc("Negative length: " + i);
         }
         if (this.c) {
-            this.f772a -= i;
-            if (this.f772a < 0) {
+            this.f850a -= i;
+            if (this.f850a < 0) {
                 throw new jc("Message length exceeded: " + i);
             }
         }

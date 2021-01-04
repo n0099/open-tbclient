@@ -2,7 +2,7 @@ package com.baidu.ar.arplay.core.pixel;
 
 import android.graphics.Rect;
 import com.baidu.ar.arplay.core.renderer.ARPRenderer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class PixelReadParams {
     private static final int DEFAULT_CACHE_SIZE = 3;
     public static final String DEFAULT_FILTER_ID = "camera";
@@ -20,7 +20,7 @@ public class PixelReadParams {
     private String mPreFilterID = "";
     private FrameType mFrameType = FrameType.STREAM_FRAME;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public enum FrameType {
         STREAM_FRAME(0),
         SINGLE_FRAME(1);
@@ -43,7 +43,7 @@ public class PixelReadParams {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public enum ScaleType {
         FIT_XY,
         FIT_CENTER,

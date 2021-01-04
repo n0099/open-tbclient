@@ -3,9 +3,9 @@ package com.baidu.searchbox.unitedscheme.utils;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.NullableCallbackHandler;
@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class UnitedSchemeUtility {
     private static final boolean DEBUG = false;
     private static final String PARAMS_KEY = "params";

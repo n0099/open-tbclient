@@ -4,13 +4,12 @@ import com.baidu.adp.framework.a.d;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public final class LocalVideoActivityStaticAutoGenerateUrlCollectorImpl implements d {
     @Override // com.baidu.adp.framework.a.d
     public Map<String, ArrayList<String>> getConfigRouterMap() {
         HashMap hashMap = new HashMap();
         ArrayList arrayList = new ArrayList();
-        arrayList.add("LocalVideoActivityConfig");
         arrayList.add("RecordVideoActivityConfig");
         arrayList.add("EditVideoActivityConfig");
         arrayList.add("CloudMusicActivityConfig");

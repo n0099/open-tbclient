@@ -2,7 +2,7 @@ package kotlin.annotation;
 
 import kotlin.e;
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public enum AnnotationRetention {
     SOURCE,
     BINARY,

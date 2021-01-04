@@ -16,7 +16,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     private static final int MAX_FETCH_COUNT = 20;
     private static final String TAG = "IMMediaGetChatSessionRequest";
@@ -99,15 +99,14 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         return HttpHelper.CONTENT_JSON;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x013d  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x015f  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x013c  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x015d  */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onSuccess(int i, byte[] bArr) {
         int i2;
-        JSONException e;
         int i3;
         int i4;
         String str;
@@ -115,26 +114,27 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         String str3 = new String(bArr);
         LogUtils.d(TAG, "onSuccess resultContent = " + str3);
         int i5 = 0;
-        int i6 = 0;
         HashMap hashMap = new HashMap();
         HashMap hashMap2 = new HashMap();
         try {
             JSONObject jSONObject = new JSONObject(str3);
             int optInt = jSONObject.optInt("error_code", 0);
-            if (optInt == 0) {
+            if (optInt != 0) {
+                i3 = 0;
+            } else {
                 int optInt2 = jSONObject.optInt("has_more", 0);
                 try {
                     int optInt3 = jSONObject.optInt("total_unread_num", 0);
                     try {
                         JSONArray optJSONArray = jSONObject.optJSONArray("sessions");
                         if (optJSONArray != null) {
-                            for (int i7 = 0; i7 < optJSONArray.length(); i7++) {
-                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i7);
+                            for (int i6 = 0; i6 < optJSONArray.length(); i6++) {
+                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i6);
                                 long j = 0;
                                 try {
                                     j = Long.parseLong(Utility.transBDUK(jSONObject2.optString("contacter_pass_uk")));
-                                } catch (NumberFormatException e2) {
-                                    LogUtils.e(LogUtils.TAG, "IMMediaGetChatSessionRequest NumberFormatException", e2);
+                                } catch (NumberFormatException e) {
+                                    LogUtils.e(LogUtils.TAG, "IMMediaGetChatSessionRequest NumberFormatException", e);
                                 }
                                 long optLong = jSONObject2.optLong("contacter_pa_uid");
                                 int optInt4 = jSONObject2.optInt("content_type");
@@ -172,29 +172,28 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                                 }
                             }
                         }
-                        i6 = optInt3;
-                        i5 = optInt2;
-                    } catch (JSONException e3) {
-                        e = e3;
+                        i5 = optInt3;
+                        i3 = optInt2;
+                    } catch (JSONException e2) {
+                        e = e2;
                         i2 = optInt3;
-                        i5 = optInt2;
+                        i3 = optInt2;
                         LogUtils.e(TAG, "IMMediaGetChatSessionRequest JSONException", e);
-                        i3 = i5;
                         i4 = 1010;
                         ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i4, i3 != 1, i2, hashMap, hashMap2, this.mKey);
                     }
-                } catch (JSONException e4) {
+                } catch (JSONException e3) {
+                    e = e3;
                     i2 = 0;
-                    e = e4;
-                    i5 = optInt2;
+                    i3 = optInt2;
                 }
             }
-            i2 = i6;
-            i3 = i5;
+            i2 = i5;
             i4 = optInt;
-        } catch (JSONException e5) {
+        } catch (JSONException e4) {
+            e = e4;
             i2 = 0;
-            e = e5;
+            i3 = 0;
         }
         ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i4, i3 != 1, i2, hashMap, hashMap2, this.mKey);
     }

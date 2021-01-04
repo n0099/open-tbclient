@@ -3,14 +3,14 @@ package com.baidu.ar.arplay.core.engine;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.MotionEvent;
+import androidx.core.view.MotionEventCompat;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a {
     private b et;
     private boolean eu = true;
@@ -35,8 +35,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.arplay.core.engine.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public enum EnumC0077a {
+    /* loaded from: classes6.dex */
+    public enum EnumC0069a {
         EGESTURE_CLICK,
         EGESTURE_DOUBLE_CLICK,
         EGESTURE_LONG_PRESS,
@@ -50,7 +50,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -84,7 +84,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public enum c {
         EStatSingFingerCandidate,
         EStatTwoFingersCandidate,
@@ -101,7 +101,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public enum d {
         ESWIPE_RIGHT,
         ESWIPE_LEFT,
@@ -110,7 +110,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class e {
         int id;
         long time;
@@ -137,7 +137,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public enum f {
         ETOUCH_BEGIN,
         ETOUCH_MOVE,
@@ -186,25 +186,25 @@ public class a {
         if (this.isScreenOrientationLandscape) {
             f8 = this.ex - f3;
             f7 = -f5;
+            f5 = f4;
+            f3 = f2;
         } else {
             f7 = f4;
             f8 = f2;
-            f2 = f3;
-            f4 = f5;
         }
         float[] windowSize = ARPEngine.getInstance().getWindowSize();
         if (windowSize.length != 2 || windowSize[0] <= 0.0f || windowSize[1] <= 0.0f || this.ex <= 0 || this.ey <= 0) {
-            f9 = f4;
+            f9 = f5;
             f10 = f7;
-            f11 = f2;
+            f11 = f3;
             f12 = f8;
         } else {
             float f13 = windowSize[0] / this.ex;
             float f14 = windowSize[1] / this.ey;
             float f15 = f8 * f13;
-            f9 = f4 * f14;
+            f9 = f5 * f14;
             f10 = f7 * f13;
-            f11 = f2 * f14;
+            f11 = f3 * f14;
             f12 = f15;
         }
         ARPEngine.getInstance().onTouchUpdate(i, f12, f11, f10, f9, j, i2, f6);
@@ -224,32 +224,32 @@ public class a {
         if (this.isScreenOrientationLandscape) {
             f12 = this.ex - f3;
             f11 = this.ex - f7;
+            f7 = f6;
+            f3 = f2;
         } else {
             f11 = f6;
             f12 = f2;
-            f2 = f3;
-            f6 = f7;
         }
         float[] windowSize = ARPEngine.getInstance().getWindowSize();
         if (windowSize.length != 2 || windowSize[0] <= 0.0f || windowSize[1] <= 0.0f || this.ex <= 0 || this.ey <= 0) {
             f13 = f9;
             f14 = f8;
-            f15 = f6;
+            f15 = f7;
             f16 = f11;
             f17 = f5;
             f18 = f4;
-            f19 = f2;
+            f19 = f3;
             f20 = f12;
         } else {
             float f21 = windowSize[0] / this.ex;
             float f22 = windowSize[1] / this.ey;
             f13 = f9 * f22;
             f14 = f8 * f21;
-            f15 = f6 * f22;
+            f15 = f7 * f22;
             f16 = f11 * f21;
             f17 = f5 * f22;
             f18 = f4 * f21;
-            f19 = f2 * f22;
+            f19 = f3 * f22;
             f20 = f12 * f21;
         }
         ARPEngine.getInstance().onGestureUpdate(i, j, i2, f20, f19, f18, f17, i3, f16, f15, f14, f13, i4, f10);
@@ -260,7 +260,7 @@ public class a {
         if (this.es == null || !this.es.aW()) {
             return;
         }
-        a(EnumC0077a.EGESTURE_CLICK.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0069a.EGESTURE_CLICK.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
         aS();
     }
 
@@ -268,14 +268,14 @@ public class a {
         if (this.es == null || !this.es.aZ()) {
             return;
         }
-        a(EnumC0077a.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0069a.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void a(long j, int i, float f2, float f3, float f4, float f5, int i2, float f6, float f7, float f8, float f9) {
         if (this.es == null || !this.es.ba()) {
             return;
         }
-        a(EnumC0077a.EGESTURE_TWO_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
+        a(EnumC0069a.EGESTURE_TWO_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
     }
 
     private void a(long j, int i, float f2, float f3, float f4, float f5, int i2, float f6, float f7, float f8, float f9, boolean z) {
@@ -288,9 +288,9 @@ public class a {
             }
             this.eJ = z;
         }
-        int ordinal = EnumC0077a.EGESTURE_TWO_FINGER_UNPINCH.ordinal();
+        int ordinal = EnumC0069a.EGESTURE_TWO_FINGER_UNPINCH.ordinal();
         if (z) {
-            ordinal = EnumC0077a.EGESTURE_TWO_FINGER_PINCH.ordinal();
+            ordinal = EnumC0069a.EGESTURE_TWO_FINGER_PINCH.ordinal();
         }
         a(ordinal, j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
         if (this.eI) {
@@ -302,14 +302,14 @@ public class a {
         if (this.es == null || !this.es.bd()) {
             return;
         }
-        a(EnumC0077a.EGESTURE_TWO_FINGER_ROTATE.ordinal(), j, i, f2, f3, -1.0f, -1.0f, i2, f4, f5, -1.0f, -1.0f, -1, f6);
+        a(EnumC0069a.EGESTURE_TWO_FINGER_ROTATE.ordinal(), j, i, f2, f3, -1.0f, -1.0f, i2, f4, f5, -1.0f, -1.0f, -1, f6);
     }
 
     private void a(long j, int i, int i2) {
         if (this.es == null || !this.es.bb()) {
             return;
         }
-        a(EnumC0077a.EGESTURE_SWIPE.ordinal(), j, i, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i2, 0.0f);
+        a(EnumC0069a.EGESTURE_SWIPE.ordinal(), j, i, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i2, 0.0f);
         clearStatus();
     }
 
@@ -389,11 +389,11 @@ public class a {
     }
 
     private void aS() {
-        a(EnumC0077a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0069a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void aT() {
-        ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC0077a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
+        ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC0069a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
     }
 
     private void aU() {
@@ -411,7 +411,7 @@ public class a {
         if (this.es == null || !this.es.aY()) {
             return;
         }
-        a(EnumC0077a.EGESTURE_LONG_PRESS.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0069a.EGESTURE_LONG_PRESS.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void b(MotionEvent motionEvent) {

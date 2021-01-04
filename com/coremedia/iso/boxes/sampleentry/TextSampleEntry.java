@@ -1,7 +1,6 @@
 package com.coremedia.iso.boxes.sampleentry;
 
 import android.support.v4.media.session.PlaybackStateCompat;
-import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -10,7 +9,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TextSampleEntry extends AbstractSampleEntry {
     public static final String TYPE1 = "tx3g";
     public static final String TYPE_ENCRYPTED = "enct";
@@ -196,7 +195,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         this.backgroundColorRgba = iArr;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class BoxRecord {
         int bottom;
         int left;
@@ -247,7 +246,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class StyleRecord {
         int endChar;
         int faceStyleFlags;
@@ -318,6 +317,6 @@ public class TextSampleEntry extends AbstractSampleEntry {
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || containerSize + 38 >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) ? 16 : 8) + containerSize + 38;
+        return ((this.largeBox || containerSize + 38 >= 4294967296L) ? 16 : 8) + containerSize + 38;
     }
 }

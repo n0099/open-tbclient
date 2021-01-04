@@ -1,5 +1,5 @@
 package com.squareup.wire;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public enum WireType {
     VARINT(0),
     FIXED64(1),

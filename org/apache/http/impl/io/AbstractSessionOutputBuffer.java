@@ -7,7 +7,7 @@ import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractSessionOutputBuffer implements SessionOutputBuffer {
     public AbstractSessionOutputBuffer() {
         throw new RuntimeException("Stub!");

@@ -1,6 +1,6 @@
 package okhttp3.internal.http;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import java.io.EOFException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +22,7 @@ import okio.ByteString;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.message.BasicHeaderValueFormatter;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class HttpHeaders {
     private static final ByteString QUOTED_STRING_DELIMITERS = ByteString.encodeUtf8(BasicHeaderValueFormatter.UNSAFE_CHARS);
     private static final ByteString TOKEN_DELIMITERS = ByteString.encodeUtf8("\t ,=");
@@ -118,7 +118,7 @@ public final class HttpHeaders {
         return arrayList;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x007c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x007d, code lost:
         r9.add(new okhttp3.Challenge(r2, r5));
      */
     /*
@@ -153,9 +153,10 @@ public final class HttpHeaders {
                 str = null;
             } else {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
-                int skipAll2 = skipAll(buffer, (byte) 61) + skipAll;
+                int skipAll2 = skipAll + skipAll(buffer, (byte) 61);
+                str = readToken2;
                 while (true) {
-                    if (readToken2 == null) {
+                    if (str == null) {
                         str = readToken(buffer);
                         if (skipWhitespaceAndCommas(buffer)) {
                             break;
@@ -163,7 +164,6 @@ public final class HttpHeaders {
                         i = skipAll(buffer, (byte) 61);
                     } else {
                         i = skipAll2;
-                        str = readToken2;
                     }
                     if (i == 0) {
                         break;
@@ -180,7 +180,7 @@ public final class HttpHeaders {
                             return;
                         }
                         skipAll2 = i;
-                        readToken2 = null;
+                        str = null;
                     } else {
                         return;
                     }
@@ -192,11 +192,11 @@ public final class HttpHeaders {
     private static boolean skipWhitespaceAndCommas(Buffer buffer) {
         boolean z = false;
         while (!buffer.exhausted()) {
-            byte b = buffer.getByte(0L);
-            if (b == 44) {
+            byte b2 = buffer.getByte(0L);
+            if (b2 == 44) {
                 buffer.readByte();
                 z = true;
-            } else if (b != 32 && b != 9) {
+            } else if (b2 != 32 && b2 != 9) {
                 break;
             } else {
                 buffer.readByte();
@@ -205,9 +205,9 @@ public final class HttpHeaders {
         return z;
     }
 
-    private static int skipAll(Buffer buffer, byte b) {
+    private static int skipAll(Buffer buffer, byte b2) {
         int i = 0;
-        while (!buffer.exhausted() && buffer.getByte(0L) == b) {
+        while (!buffer.exhausted() && buffer.getByte(0L) == b2) {
             i++;
             buffer.readByte();
         }

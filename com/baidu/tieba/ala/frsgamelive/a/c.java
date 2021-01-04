@@ -6,11 +6,11 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tieba.ala.frsgamelive.c.c;
-/* loaded from: classes6.dex */
-public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamelist.b.a, c.a> {
-    private com.baidu.tieba.ala.f gLh;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsGameLiveDoubleView;
+/* loaded from: classes10.dex */
+public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamelist.b.a, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
+    private com.baidu.tieba.ala.g gWT;
     private String labelName;
     private TbPageContext<?> mPageContext;
 
@@ -23,35 +23,35 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.gamel
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ag */
-    public c.a c(ViewGroup viewGroup) {
-        com.baidu.tieba.ala.frsgamelive.c.c cVar = new com.baidu.tieba.ala.frsgamelive.c.c(this.mPageContext);
-        cVar.setLabelName(this.labelName);
-        return new c.a(cVar);
+    /* renamed from: as */
+    public AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder e(ViewGroup viewGroup) {
+        AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView = new AlaGameFrsGameLiveDoubleView(this.mPageContext);
+        alaGameFrsGameLiveDoubleView.setLabelName(this.labelName);
+        return new AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder(alaGameFrsGameLiveDoubleView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.gamelist.b.a aVar, c.a aVar2) {
-        aVar2.gMy.a(aVar);
-        aVar2.gMy.c(this.gLh);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.gamelist.b.a aVar, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder alaGameFrsGameLiveDoubleViewHolder) {
+        alaGameFrsGameLiveDoubleViewHolder.gYk.a(aVar);
+        alaGameFrsGameLiveDoubleViewHolder.gYk.c(this.gWT);
         String str = "";
-        if (!StringUtils.isNull(aVar.gNq.bpj().appId)) {
-            str = aVar.gNq.bpj().appId;
+        if (!StringUtils.isNull(aVar.gZa.brJ().appId)) {
+            str = aVar.gZa.brJ().appId;
         }
-        com.baidu.tieba.ala.c.bPr().e(new ar("c12115").w("obj_id", aVar.gNq.bpj().live_id).dY(TiebaInitialize.Params.OBJ_PARAM3, str));
-        if (aVar.gNr != null) {
+        com.baidu.tieba.ala.d.bRR().e(new aq("c12115").w("obj_id", aVar.gZa.brJ().live_id).dX(TiebaInitialize.Params.OBJ_PARAM3, str));
+        if (aVar.gZb != null) {
             String str2 = "";
-            if (!StringUtils.isNull(aVar.gNr.bpj().appId)) {
-                str2 = aVar.gNr.bpj().appId;
+            if (!StringUtils.isNull(aVar.gZb.brJ().appId)) {
+                str2 = aVar.gZb.brJ().appId;
             }
-            com.baidu.tieba.ala.c.bPr().e(new ar("c12115").w("obj_id", aVar.gNr.bpj().live_id).dY(TiebaInitialize.Params.OBJ_PARAM3, str2));
+            com.baidu.tieba.ala.d.bRR().e(new aq("c12115").w("obj_id", aVar.gZb.brJ().live_id).dX(TiebaInitialize.Params.OBJ_PARAM3, str2));
         }
-        return aVar2.getView();
+        return alaGameFrsGameLiveDoubleViewHolder.getView();
     }
 
-    public void a(com.baidu.tieba.ala.f fVar) {
-        this.gLh = fVar;
+    public void a(com.baidu.tieba.ala.g gVar) {
+        this.gWT = gVar;
     }
 }

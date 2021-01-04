@@ -17,8 +17,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.view.ViewCompat;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
@@ -35,8 +33,11 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.core.app.NotificationCompat;
+import androidx.core.view.ViewCompat;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.swan.games.utils.so.SoUtils;
@@ -55,7 +56,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
 @TargetApi(11)
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public class FeedbackReportActivity extends Activity {
     private View A;
     private ScrollView L;
@@ -66,7 +67,9 @@ public class FeedbackReportActivity extends Activity {
     private TextView Q;
     private a U;
     private f V;
-    private SharedPreferences.Editor b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private SharedPreferences.Editor f5701b;
     private SharedPreferences c;
     private EditText h;
     private byte[] j;
@@ -106,7 +109,7 @@ public class FeedbackReportActivity extends Activity {
     private boolean T = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f3742a = -1;
+    protected int f5700a = -1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void D(FeedbackReportActivity feedbackReportActivity) {
@@ -116,13 +119,13 @@ public class FeedbackReportActivity extends Activity {
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
-        if (feedbackReportActivity.f3742a == feedbackReportActivity.x.size() - 1) {
+        if (feedbackReportActivity.f5700a == feedbackReportActivity.x.size() - 1) {
             if (feedbackReportActivity.getCurrentFocus() != null && feedbackReportActivity.getCurrentFocus().getWindowToken() != null) {
                 ((InputMethodManager) feedbackReportActivity.getSystemService("input_method")).hideSoftInputFromWindow(feedbackReportActivity.getCurrentFocus().getWindowToken(), 2);
             }
             try {
                 feedbackReportActivity.D = true;
-                feedbackReportActivity.startActivityForResult(intent, feedbackReportActivity.f3742a);
+                feedbackReportActivity.startActivityForResult(intent, feedbackReportActivity.f5700a);
                 try {
                     feedbackReportActivity.overridePendingTransition(com.baidu.ufosdk.f.i.a(feedbackReportActivity.getApplicationContext(), "ufo_slide_in_from_bottom"), 0);
                 } catch (Exception e) {
@@ -189,8 +192,8 @@ public class FeedbackReportActivity extends Activity {
     }
 
     private String b() {
-        ArrayList c = this.U.c();
         String str = "";
+        ArrayList c = this.U.c();
         int i = 0;
         while (i < c.size()) {
             String str2 = ((String) c.get(i)).equals("播放问题") ? str + ((String) c.get(i)) + ":" + this.F + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : i == c.size() + (-1) ? str + ((String) c.get(i)) : str + ((String) c.get(i)) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
@@ -323,7 +326,7 @@ public class FeedbackReportActivity extends Activity {
         } else if (feedbackReportActivity.u.getText().toString().trim().length() > 30) {
             Toast.makeText(feedbackReportActivity, com.baidu.ufosdk.f.s.a("32"), 0).show();
         } else if (feedbackReportActivity.U.c().size() == 0 && feedbackReportActivity.t.getText().toString().trim().length() < 4) {
-            Toast.makeText(feedbackReportActivity, com.baidu.ufosdk.f.s.a("12"), 0).show();
+            Toast.makeText(feedbackReportActivity, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_SET_AVATAR), 0).show();
         } else if (feedbackReportActivity.t.getText().toString().trim().length() > com.baidu.ufosdk.b.aa) {
             Toast.makeText(feedbackReportActivity, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_START_WAP), 0).show();
         } else if (!com.baidu.ufosdk.b.d.c(feedbackReportActivity.getApplicationContext())) {
@@ -383,12 +386,12 @@ public class FeedbackReportActivity extends Activity {
         hashMap.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.MANUFACTURER);
         hashMap.put("model", Build.MODEL);
         hashMap.put("sdkvn", "2.9.10");
-        hashMap.put("os", "android");
+        hashMap.put("os", HttpConstants.OS_TYPE_VALUE);
         hashMap.put("appvn", com.baidu.ufosdk.b.e.b());
         hashMap.put("freespace", String.valueOf(com.baidu.ufosdk.b.a.a()));
         hashMap.put("uid", com.baidu.ufosdk.b.d);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.b);
+        hashMap.put("username", com.baidu.ufosdk.b.f5638b);
         hashMap.put("osvn", Build.VERSION.RELEASE);
         try {
             JSONObject jSONObject = new JSONObject(com.baidu.ufosdk.b.f);
@@ -418,7 +421,7 @@ public class FeedbackReportActivity extends Activity {
             hashMap.put("nettype", "N/A");
         }
         hashMap.put("screenSize", com.baidu.ufosdk.b.f.a(context));
-        if (com.baidu.ufosdk.b.f3703a) {
+        if (com.baidu.ufosdk.b.f5637a) {
             hashMap.put("logcat", com.baidu.ufosdk.b.b.a());
         }
         if (!TextUtils.isEmpty(com.baidu.ufosdk.b.h)) {
@@ -466,52 +469,39 @@ public class FeedbackReportActivity extends Activity {
         return false;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:60:0x0037 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x0054 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0080 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x0037 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:58:0x0054 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0097  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x014d  */
-    /* JADX WARN: Type inference failed for: r0v23, types: [android.widget.Toast] */
-    /* JADX WARN: Type inference failed for: r1v13, types: [byte[], java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r1v17 */
-    /* JADX WARN: Type inference failed for: r1v25 */
-    /* JADX WARN: Type inference failed for: r1v26 */
-    /* JADX WARN: Type inference failed for: r1v27 */
-    /* JADX WARN: Type inference failed for: r1v34 */
-    /* JADX WARN: Type inference failed for: r1v35 */
-    /* JADX WARN: Type inference failed for: r1v36 */
-    /* JADX WARN: Type inference failed for: r1v8, types: [byte[], java.lang.Object] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0094  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0147  */
+    /* JADX WARN: Type inference failed for: r0v22, types: [android.widget.Toast] */
     /* JADX WARN: Type inference failed for: r2v10 */
     /* JADX WARN: Type inference failed for: r2v11 */
     /* JADX WARN: Type inference failed for: r2v12 */
     /* JADX WARN: Type inference failed for: r2v13 */
-    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v4 */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v6 */
     /* JADX WARN: Type inference failed for: r2v7 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:31:0x00b0 -> B:57:0x0037). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:30:0x00ad -> B:54:0x0037). Please submit an issue!!! */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     protected void onActivityResult(int i, int i2, Intent intent) {
         Uri uri;
-        Exception e;
         byte[] bArr;
         byte[] bArr2;
-        int size;
-        int i3;
         Object obj;
-        ?? r1;
-        byte[] bArr3;
         InputStream openInputStream;
-        byte[] bArr4 = null;
-        bArr4 = 0;
-        bArr4 = 0;
-        bArr4 = 0;
+        byte[] bArr3 = null;
+        bArr3 = 0;
+        bArr3 = 0;
+        bArr3 = 0;
         PrintStream printStream = null;
-        bArr4 = 0;
+        bArr3 = 0;
         com.baidu.ufosdk.f.c.a(" --*^o^*-- requestCode = " + i + "; resultCode = " + i2);
         if (!this.T) {
             com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this);
@@ -528,7 +518,7 @@ public class FeedbackReportActivity extends Activity {
         }
         try {
             uri = intent.getData();
-        } catch (Exception e2) {
+        } catch (Exception e) {
             uri = null;
         }
         if (uri == null) {
@@ -537,21 +527,18 @@ public class FeedbackReportActivity extends Activity {
         }
         try {
             openInputStream = getContentResolver().openInputStream(uri);
-        } catch (Exception e3) {
-            e = e3;
-            bArr = bArr4;
+        } catch (Exception e2) {
+            e = e2;
+            bArr = bArr3;
             PrintStream printStream2 = System.out;
             printStream2.println(e.getMessage());
             bArr2 = bArr;
             printStream = printStream2;
-            size = this.x.size() - 1;
-            int i4 = size;
-            if (i != size) {
+            if (i != this.x.size() - 1) {
             }
             c();
-            bArr3 = obj;
-            r1 = i3;
-            bArr4 = printStream;
+            bArr = obj;
+            bArr3 = printStream;
         }
         if (openInputStream.available() >= 8388608) {
             Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
@@ -559,106 +546,66 @@ public class FeedbackReportActivity extends Activity {
         }
         byte[] a2 = a(openInputStream);
         try {
-        } catch (Exception e4) {
-            bArr = r1;
-            e = e4;
+        } catch (Exception e3) {
+            e = e3;
             PrintStream printStream22 = System.out;
             printStream22.println(e.getMessage());
             bArr2 = bArr;
             printStream = printStream22;
-            size = this.x.size() - 1;
-            int i42 = size;
-            if (i != size) {
+            if (i != this.x.size() - 1) {
             }
             c();
-            bArr3 = obj;
-            r1 = i3;
-            bArr4 = printStream;
+            bArr = obj;
+            bArr3 = printStream;
         }
         if (a2 == null) {
-            bArr4 = 1;
+            bArr3 = 1;
             Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
             com.baidu.ufosdk.f.c.a(" --*^o^*-- tempCompressContent == null-1655");
-            bArr3 = " --*^o^*-- tempCompressContent == null-1655";
-            r1 = a2;
+            bArr = a2;
         } else {
             byte[] a3 = com.baidu.ufosdk.f.q.a(a2);
-            try {
-            } catch (Exception e5) {
-                e = e5;
-                bArr = bArr3;
-                PrintStream printStream222 = System.out;
-                printStream222.println(e.getMessage());
-                bArr2 = bArr;
-                printStream = printStream222;
-                size = this.x.size() - 1;
-                int i422 = size;
-                if (i != size) {
-                }
-                c();
-                bArr3 = obj;
-                r1 = i3;
-                bArr4 = printStream;
-            }
             if (a3 == null) {
-                bArr4 = 1;
+                bArr3 = 1;
                 Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
                 com.baidu.ufosdk.f.c.a(" --*^o^*-- tempCompressContent == null-1666");
-                bArr3 = a3;
-                r1 = " --*^o^*-- tempCompressContent == null-1666";
+                bArr = a3;
             } else if (a3.length > 1048576) {
-                r1 = 1;
                 Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
                 com.baidu.ufosdk.f.c.a(" --*^o^*-- tempCompressContent.length > 1024 * 1024");
-                bArr3 = " --*^o^*-- tempCompressContent.length > 1024 * 1024";
+                bArr = " --*^o^*-- tempCompressContent.length > 1024 * 1024";
             } else if (a3.length == 0) {
-                r1 = 1;
                 Toast.makeText(this, "图片错误，请重新选择一张。", 1).show();
                 com.baidu.ufosdk.f.c.a(" --*^o^*-- tempCompressContent.length == 0");
-                bArr3 = " --*^o^*-- tempCompressContent.length == 0";
+                bArr = " --*^o^*-- tempCompressContent.length == 0";
             } else {
                 bArr2 = a3;
                 if (com.baidu.ufosdk.f.i.a(this) < 35000) {
-                    r1 = 1;
                     Toast.makeText(this, "内存不足，图片读取失败，请尝试清理内存稍后再试.", 1).show();
                     System.gc();
                     com.baidu.ufosdk.f.c.a(" --*^o^*-- CommonUtil.getmem_UNUSED(FeedbackReportActivity.this) < 35000");
-                    bArr3 = " --*^o^*-- CommonUtil.getmem_UNUSED(FeedbackReportActivity.this) < 35000";
+                    bArr = " --*^o^*-- CommonUtil.getmem_UNUSED(FeedbackReportActivity.this) < 35000";
                 }
-                size = this.x.size() - 1;
-                int i4222 = size;
-                if (i != size) {
-                    if (bArr2 != null) {
-                        int length = bArr2.length;
-                        i4222 = length;
-                        if (length != 0) {
-                            this.x.set(i, bArr2);
-                            List list = this.x;
-                            ?? b = com.baidu.ufosdk.f.m.b(this);
-                            list.add(b);
-                            com.baidu.ufosdk.f.c.a(" --*^o^*-- requestCode == picBytesList.size() - 1");
-                            obj = " --*^o^*-- requestCode == picBytesList.size() - 1";
-                            i3 = b;
-                        }
-                    }
-                    ?? makeText = Toast.makeText(this, "图片错误，请重新选择一张。", 1);
-                    makeText.show();
-                    obj = makeText;
-                    i3 = i4222;
-                } else {
+                if (i != this.x.size() - 1) {
                     Toast.makeText(this, "内存不足，图片读取失败，请尝试清理内存稍后再试.", 1).show();
                     com.baidu.ufosdk.f.c.a("picBytesList--->clear:1710");
                     this.x.clear();
-                    List list2 = this.x;
-                    ?? b2 = com.baidu.ufosdk.f.m.b(this);
-                    list2.add(b2);
-                    obj = list2;
-                    i3 = b2;
+                    List list = this.x;
+                    list.add(com.baidu.ufosdk.f.m.b(this));
+                    obj = list;
+                } else if (bArr2 == null || bArr2.length == 0) {
+                    ?? makeText = Toast.makeText(this, "图片错误，请重新选择一张。", 1);
+                    makeText.show();
+                    obj = makeText;
+                } else {
+                    this.x.set(i, bArr2);
+                    this.x.add(com.baidu.ufosdk.f.m.b(this));
+                    com.baidu.ufosdk.f.c.a(" --*^o^*-- requestCode == picBytesList.size() - 1");
+                    obj = " --*^o^*-- requestCode == picBytesList.size() - 1";
                 }
                 c();
-                bArr3 = obj;
-                r1 = i3;
-                bArr4 = printStream;
+                bArr = obj;
+                bArr3 = printStream;
             }
         }
     }
@@ -677,7 +624,7 @@ public class FeedbackReportActivity extends Activity {
         } else {
             this.M = com.baidu.ufosdk.f.k.b(this.M);
         }
-        this.b = this.c.edit();
+        this.f5701b = this.c.edit();
         this.g = getIntent().getStringExtra("faq_id");
         this.z = getIntent().getStringExtra("msgid");
         this.R = getIntent().getIntExtra("product_type", 0);
@@ -689,8 +636,8 @@ public class FeedbackReportActivity extends Activity {
         if (TextUtils.isEmpty(this.g)) {
             this.g = "";
         }
-        this.b.putBoolean("ADD_PIC_FLAG", true);
-        this.b.commit();
+        this.f5701b.putBoolean("ADD_PIC_FLAG", true);
+        this.f5701b.commit();
         this.f = getIntent().getIntExtra("feedback_channel", 0);
         if (this.f == 33487 || this.f == 33496 || this.f == 33497 || this.f == 33506 || this.f == 33509) {
             this.G = true;
@@ -698,9 +645,9 @@ public class FeedbackReportActivity extends Activity {
         this.L = new ScrollView(this);
         this.k = new RelativeLayout(this);
         this.k.setFitsSystemWindows(true);
-        this.k.setId(R.raw.ala_play);
+        this.k.setId(R.drawable.res_0x7f080004_avd_show_password__1);
         RelativeLayout relativeLayout = new RelativeLayout(this);
-        relativeLayout.setId(R.string.abc_action_mode_done);
+        relativeLayout.setId(R.id.BOTTOM);
         this.k.setBackgroundColor(com.baidu.ufosdk.b.A);
         new RelativeLayout.LayoutParams(-1, -1);
         new LinearLayout.LayoutParams(-2, -2);
@@ -711,7 +658,7 @@ public class FeedbackReportActivity extends Activity {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
         layoutParams.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), 0, 0, 0);
         this.l = new ImageView(this);
-        this.l.setId(R.raw.aiapp_guide);
+        this.l.setId(R.drawable.res_0x7f080001_avd_hide_password__1);
         this.l.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.l.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_back_icon_browser.png")));
         linearLayout.addView(this.l, layoutParams);
@@ -728,7 +675,7 @@ public class FeedbackReportActivity extends Activity {
         layoutParams3.addRule(15);
         relativeLayout.addView(linearLayout, layoutParams3);
         this.n = new TextView(this);
-        this.n.setId(R.raw.ala_live1);
+        this.n.setId(R.drawable.res_0x7f080002_avd_hide_password__2);
         this.n.setText(this.S);
         this.n.setTextColor(com.baidu.ufosdk.b.r);
         this.n.setTextSize(com.baidu.ufosdk.b.T);
@@ -741,7 +688,7 @@ public class FeedbackReportActivity extends Activity {
             this.m.setVisibility(4);
         }
         this.m.setText("提交");
-        this.m.setId(R.string.abc_capital_off);
+        this.m.setId(R.id.DOWN);
         this.m.setTextColor(com.baidu.ufosdk.b.y);
         this.m.setTextSize(com.baidu.ufosdk.b.U);
         this.m.setGravity(17);
@@ -763,7 +710,7 @@ public class FeedbackReportActivity extends Activity {
         layoutParams7.addRule(3, relativeLayout.getId());
         this.k.addView(view, layoutParams7);
         this.s = new RelativeLayout(this);
-        this.s.setId(R.raw.bottom_bar_bg);
+        this.s.setId(R.drawable.res_0x7f080005_avd_show_password__2);
         this.s.setBackgroundColor(com.baidu.ufosdk.b.A);
         RelativeLayout.LayoutParams layoutParams8 = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams8.addRule(3, view.getId());
@@ -781,7 +728,7 @@ public class FeedbackReportActivity extends Activity {
             this.x.add(this.j);
         }
         this.N = new LinearLayout(this);
-        this.N.setId(R.string.abc_capital_on);
+        this.N.setId(R.id.Emoji_GridView);
         this.N.setOrientation(1);
         this.N.setBackgroundColor(com.baidu.ufosdk.b.A);
         new LinearLayout.LayoutParams(-1, -2);
@@ -897,11 +844,11 @@ public class FeedbackReportActivity extends Activity {
             this.U = new a((ArrayList) arrayList9.get(0), this, ecVar);
         }
         LinearLayout a3 = this.U.a();
-        LinearLayout b = this.U.b();
+        LinearLayout b2 = this.U.b();
         LinearLayout.LayoutParams layoutParams11 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams11.weight = 1.0f;
         linearLayout2.addView(a3, layoutParams11);
-        linearLayout2.addView(b, layoutParams11);
+        linearLayout2.addView(b2, layoutParams11);
         LinearLayout.LayoutParams layoutParams12 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams12.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f));
         this.N.addView(linearLayout2, layoutParams12);
@@ -909,7 +856,7 @@ public class FeedbackReportActivity extends Activity {
         layoutParams13.addRule(10);
         this.s.addView(this.N, layoutParams13);
         this.O = new LinearLayout(this);
-        this.O.setId(R.string.sapi_sdk_common_loading_timeout);
+        this.O.setId(R.id.SYM);
         this.O.setVisibility(8);
         this.O.setOrientation(1);
         this.O.setBackgroundColor(com.baidu.ufosdk.b.A);
@@ -941,11 +888,11 @@ public class FeedbackReportActivity extends Activity {
         arrayList10.add("有画面无声音");
         this.V = new f(arrayList10, this, new ed(this));
         LinearLayout a4 = this.V.a();
-        LinearLayout b2 = this.V.b();
+        LinearLayout b3 = this.V.b();
         LinearLayout.LayoutParams layoutParams14 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams14.weight = 1.0f;
         linearLayout3.addView(a4, layoutParams14);
-        linearLayout3.addView(b2, layoutParams14);
+        linearLayout3.addView(b3, layoutParams14);
         LinearLayout.LayoutParams layoutParams15 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams15.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 7.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f));
         this.O.addView(linearLayout3, layoutParams15);
@@ -954,7 +901,7 @@ public class FeedbackReportActivity extends Activity {
         this.s.addView(this.O, layoutParams16);
         this.o = new LinearLayout(this);
         this.o.setVisibility(8);
-        this.o.setId(R.string.status_bar_notification_info_overflow);
+        this.o.setId(R.id.STROKE);
         this.o.setOrientation(1);
         this.o.setBackgroundColor(com.baidu.ufosdk.b.A);
         TextView textView2 = new TextView(this);
@@ -987,7 +934,7 @@ public class FeedbackReportActivity extends Activity {
         this.s.setPadding(0, 0, 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 30.0f));
         this.s.addView(this.o, layoutParams18);
         LinearLayout linearLayout4 = new LinearLayout(this);
-        linearLayout4.setId(R.string.abc_toolbar_collapse_description);
+        linearLayout4.setId(R.id.SELECT);
         linearLayout4.setOrientation(1);
         linearLayout4.setBackgroundColor(com.baidu.ufosdk.b.A);
         this.r = new TextView(this);
@@ -1018,7 +965,7 @@ public class FeedbackReportActivity extends Activity {
         layoutParams21.addRule(3, this.o.getId());
         this.s.addView(linearLayout4, layoutParams21);
         LinearLayout linearLayout5 = new LinearLayout(this);
-        linearLayout5.setId(R.string.abc_search_hint);
+        linearLayout5.setId(R.id.FILL);
         linearLayout5.setOrientation(1);
         linearLayout5.setBackgroundColor(com.baidu.ufosdk.b.A);
         TextView textView3 = new TextView(this);
@@ -1038,7 +985,7 @@ public class FeedbackReportActivity extends Activity {
         gradientDrawable4.setStroke(3, -3355444);
         relativeLayout2.setBackgroundDrawable(gradientDrawable4);
         this.t = new EditText(this);
-        this.t.setId(R.string.abc_searchview_description_clear);
+        this.t.setId(R.id.FUNCTION);
         this.t.setBackgroundColor(-1);
         this.t.setTextColor(-13421773);
         this.t.setTextSize(com.baidu.ufosdk.b.U);
@@ -1067,7 +1014,7 @@ public class FeedbackReportActivity extends Activity {
         layoutParams26.addRule(3, linearLayout4.getId());
         this.s.addView(linearLayout5, layoutParams26);
         LinearLayout linearLayout6 = new LinearLayout(this);
-        linearLayout6.setId(R.string.search_menu_title);
+        linearLayout6.setId(R.id.SHIFT);
         linearLayout6.setOrientation(1);
         linearLayout6.setBackgroundColor(com.baidu.ufosdk.b.A);
         TextView textView4 = new TextView(this);
@@ -1131,18 +1078,18 @@ public class FeedbackReportActivity extends Activity {
         super.onPause();
         String obj = this.u.getText().toString();
         if (obj == null || obj.trim().length() <= 0) {
-            this.b.putString("cryptContactData", "");
+            this.f5701b.putString("cryptContactData", "");
         } else {
-            this.b.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
+            this.f5701b.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
         }
         if (this.y.booleanValue()) {
             if (TextUtils.isEmpty(this.g)) {
-                this.b.putString(this.z, this.t.getText().toString());
+                this.f5701b.putString(this.z, this.t.getText().toString());
             } else {
-                this.b.putString(this.g, this.t.getText().toString());
+                this.f5701b.putString(this.g, this.t.getText().toString());
             }
         }
-        this.b.commit();
+        this.f5701b.commit();
     }
 
     @Override // android.app.Activity

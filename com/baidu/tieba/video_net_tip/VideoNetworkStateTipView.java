@@ -13,16 +13,16 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-import com.baidu.tieba.video.g;
+import com.baidu.tieba.video.f;
 /* loaded from: classes.dex */
 public class VideoNetworkStateTipView extends RelativeLayout {
     private Runnable mHideRunnable;
     private int mSkinType;
-    private TextView nLF;
-    private TextView nLG;
-    private TextView nLH;
+    private TextView nPa;
+    private TextView nPb;
+    private TextView nPc;
 
     public VideoNetworkStateTipView(Context context) {
         super(context);
@@ -62,36 +62,36 @@ public class VideoNetworkStateTipView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.video_network_state_tip, this);
-        this.nLF = (TextView) findViewById(R.id.play);
-        this.nLG = (TextView) findViewById(R.id.free_flow);
-        this.nLG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video_net_tip.VideoNetworkStateTipView.2
+        this.nPa = (TextView) findViewById(R.id.play);
+        this.nPb = (TextView) findViewById(R.id.free_flow);
+        this.nPb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video_net_tip.VideoNetworkStateTipView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.startWebActivity(true, VideoNetworkStateTipView.this.getContext(), VideoNetworkStateTipView.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             }
         });
-        this.nLH = (TextView) findViewById(R.id.play_tips);
+        this.nPc = (TextView) findViewById(R.id.play_tips);
         onChangeSkinType(TbadkApplication.getInst().getSkinType());
     }
 
-    public boolean dxj() {
-        return (hasAgreeToPlay() || g.dTM().dTN() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
+    public boolean dwY() {
+        return (hasAgreeToPlay() || f.dTD().dTE() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
     }
 
-    public void dXg() {
+    public void dWJ() {
         setVisibility(0);
-        this.nLF.setVisibility(0);
-        this.nLG.setVisibility(0);
-        this.nLH.setVisibility(8);
+        this.nPa.setVisibility(0);
+        this.nPb.setVisibility(0);
+        this.nPc.setVisibility(8);
     }
 
-    public void dXh() {
+    public void dWK() {
         setVisibility(0);
-        this.nLF.setVisibility(8);
-        this.nLG.setVisibility(8);
-        this.nLH.setVisibility(0);
-        e.mY().removeCallbacks(this.mHideRunnable);
-        e.mY().postDelayed(this.mHideRunnable, IMConnection.RETRY_DELAY_TIMES);
+        this.nPa.setVisibility(8);
+        this.nPb.setVisibility(8);
+        this.nPc.setVisibility(0);
+        e.mB().removeCallbacks(this.mHideRunnable);
+        e.mB().postDelayed(this.mHideRunnable, IMConnection.RETRY_DELAY_TIMES);
     }
 
     public void hide() {
@@ -107,18 +107,18 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     }
 
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
-        this.nLF.setOnClickListener(onClickListener);
+        this.nPa.setOnClickListener(onClickListener);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ap.setViewTextColor(this.nLF, R.color.CAM_X0101);
-            ap.setBackgroundResource(this.nLF, R.drawable.rectangle_background_alpha80);
-            ap.setViewTextColor(this.nLG, R.color.CAM_X0101);
-            ap.setBackgroundResource(this.nLG, R.drawable.blue_rectangle_background);
-            ap.setViewTextColor(this.nLH, R.color.CAM_X0101);
-            ap.setBackgroundResource(this.nLH, R.drawable.rectangle_background_alpha80);
+            ao.setViewTextColor(this.nPa, R.color.CAM_X0101);
+            ao.setBackgroundResource(this.nPa, R.drawable.rectangle_background_alpha80);
+            ao.setViewTextColor(this.nPb, R.color.CAM_X0101);
+            ao.setBackgroundResource(this.nPb, R.drawable.blue_rectangle_background);
+            ao.setViewTextColor(this.nPc, R.color.CAM_X0101);
+            ao.setBackgroundResource(this.nPc, R.drawable.rectangle_background_alpha80);
         }
     }
 }

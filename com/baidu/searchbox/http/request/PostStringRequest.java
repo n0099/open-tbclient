@@ -5,7 +5,7 @@ import com.baidu.searchbox.http.AbstractHttpManager;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
     private static final MediaType MEDIA_TYPE_PLAIN = MediaType.parse("text/plain");
     private String content;
@@ -56,7 +56,7 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
         return this.okRequestBuilder.post(requestBody).build();
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static class PostStringRequestBuilder extends HttpRequestBuilder<PostStringRequestBuilder> {
         private String content;
         private MediaType mediaType;

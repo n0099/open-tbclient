@@ -1,18 +1,18 @@
 package com.baidu.tieba.qrcode.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class ScanLoadingView extends LinearLayout {
-    private TBLottieAnimationView mzS;
+    private TBLottieAnimationView mFj;
 
     public ScanLoadingView(Context context) {
         this(context, null);
@@ -29,27 +29,27 @@ public class ScanLoadingView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
-        this.mzS = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-        this.mzS.loop(true);
-        this.mzS.setFrame(0);
-        ap.a(this.mzS, R.raw.scan_refresh);
-        ap.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
+        this.mFj = (TBLottieAnimationView) findViewById(R.id.loading_anim);
+        this.mFj.loop(true);
+        this.mFj.setFrame(0);
+        ao.a(this.mFj, R.raw.scan_refresh);
+        ao.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
         setVisibility(8);
     }
 
     public void showLoading() {
         setVisibility(0);
-        if (this.mzS != null) {
-            if (this.mzS.isAnimating()) {
-                this.mzS.cancelAnimation();
+        if (this.mFj != null) {
+            if (this.mFj.isAnimating()) {
+                this.mFj.cancelAnimation();
             }
-            this.mzS.playAnimation();
+            this.mFj.playAnimation();
         }
     }
 
     public void hideLoading() {
-        if (this.mzS != null) {
-            this.mzS.cancelAnimation();
+        if (this.mFj != null) {
+            this.mFj.cancelAnimation();
         }
         setVisibility(8);
     }

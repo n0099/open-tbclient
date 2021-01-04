@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.Item;
@@ -20,6 +21,17 @@ public class ItemData implements Serializable {
             this.mScore = item.score.doubleValue();
             this.mStar = item.star.intValue();
             this.mIconSize = item.icon_size.doubleValue();
+        }
+    }
+
+    public void parseItemInfo(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
+        if (tbRichTextEvaluateItemInfo != null) {
+            this.mIconUrl = tbRichTextEvaluateItemInfo.getIconUrl();
+            this.mTitle = tbRichTextEvaluateItemInfo.getTitle();
+            this.mTags = tbRichTextEvaluateItemInfo.getTags();
+            this.mScore = tbRichTextEvaluateItemInfo.getScore();
+            this.mStar = tbRichTextEvaluateItemInfo.getStar();
+            this.mIconSize = tbRichTextEvaluateItemInfo.getIconSize();
         }
     }
 }

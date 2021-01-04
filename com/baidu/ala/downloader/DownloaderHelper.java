@@ -20,7 +20,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class DownloaderHelper {
     public static String getFileMd5(File file) {
         String md5 = s.toMd5(n.GetStreamFromFile(file));
@@ -58,6 +58,7 @@ public class DownloaderHelper {
     }
 
     public static ArrayList<String> getAllFileMd5Set(String str) {
+        JSONException e;
         ArrayList<String> arrayList = null;
         String string = AlaSharedPrefHelper.getInstance().getString(str, null);
         if (string == null) {
@@ -72,16 +73,16 @@ public class DownloaderHelper {
                     if (str2 != null) {
                         arrayList2.add(str2);
                     }
-                } catch (JSONException e) {
+                } catch (JSONException e2) {
+                    e = e2;
                     arrayList = arrayList2;
-                    e = e;
                     e.printStackTrace();
                     return arrayList;
                 }
             }
             return arrayList2;
-        } catch (JSONException e2) {
-            e = e2;
+        } catch (JSONException e3) {
+            e = e3;
         }
     }
 

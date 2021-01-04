@@ -5,13 +5,13 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 final class c extends b {
-    private static Class pwG;
-    private final Object pwH = eyU();
-    private final Field pwI = eyV();
+    private static Class pNF;
+    private final Object pNG = eCG();
+    private final Field pNH = eCH();
 
     @Override // com.google.gson.internal.a.b
-    public void b(AccessibleObject accessibleObject) {
-        if (!c(accessibleObject)) {
+    public void c(AccessibleObject accessibleObject) {
+        if (!d(accessibleObject)) {
             try {
                 accessibleObject.setAccessible(true);
             } catch (SecurityException e) {
@@ -20,10 +20,10 @@ final class c extends b {
         }
     }
 
-    boolean c(AccessibleObject accessibleObject) {
-        if (this.pwH != null && this.pwI != null) {
+    boolean d(AccessibleObject accessibleObject) {
+        if (this.pNG != null && this.pNH != null) {
             try {
-                pwG.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.pwH, accessibleObject, Long.valueOf(((Long) pwG.getMethod("objectFieldOffset", Field.class).invoke(this.pwH, this.pwI)).longValue()), true);
+                pNF.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.pNG, accessibleObject, Long.valueOf(((Long) pNF.getMethod("objectFieldOffset", Field.class).invoke(this.pNG, this.pNH)).longValue()), true);
                 return true;
             } catch (Exception e) {
             }
@@ -31,10 +31,10 @@ final class c extends b {
         return false;
     }
 
-    private static Object eyU() {
+    private static Object eCG() {
         try {
-            pwG = Class.forName("sun.misc.Unsafe");
-            Field declaredField = pwG.getDeclaredField("theUnsafe");
+            pNF = Class.forName("sun.misc.Unsafe");
+            Field declaredField = pNF.getDeclaredField("theUnsafe");
             declaredField.setAccessible(true);
             return declaredField.get(null);
         } catch (Exception e) {
@@ -42,7 +42,7 @@ final class c extends b {
         }
     }
 
-    private static Field eyV() {
+    private static Field eCH() {
         try {
             return AccessibleObject.class.getDeclaredField("override");
         } catch (NoSuchFieldException e) {

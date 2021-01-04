@@ -2,15 +2,15 @@ package com.baidu.swan.apps.core.g;
 
 import android.app.Activity;
 import com.baidu.swan.apps.core.g;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface a {
     void a(g gVar);
 
     void a(com.baidu.swan.apps.core.turbo.a aVar);
 
-    com.baidu.swan.apps.core.container.a alX();
+    String amt();
 
-    String alj();
+    com.baidu.swan.apps.core.container.a anh();
 
     void attachActivity(Activity activity);
 

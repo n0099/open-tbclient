@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class UnLoginCastService {
     static final int BACKPLAY = 1;
     static final int NOWPLAY = 0;
@@ -388,7 +388,7 @@ public class UnLoginCastService {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class Uptask extends UpMessageManager.Task {
         public Uptask(String str, String str2) {
             super(str, str2);
@@ -437,15 +437,13 @@ public class UnLoginCastService {
                     return;
                 }
                 int i6 = 0;
-                int i7 = 0;
-                while (i6 < i2 && UnLoginCastService.this.isActive && !UnLoginCastService.this.isSeek) {
+                for (int i7 = 0; i7 < i2 && UnLoginCastService.this.isActive && !UnLoginCastService.this.isSeek; i7++) {
                     JSONArray jSONArray4 = new JSONArray();
-                    int i8 = i7;
-                    int i9 = 0;
-                    while (i9 < i) {
-                        jSONArray4.put(jSONArray2.get(i8));
-                        i9++;
+                    int i8 = 0;
+                    while (i8 < i) {
+                        jSONArray4.put(jSONArray2.get(i6));
                         i8++;
+                        i6++;
                     }
                     LogUtils.d(UnLoginCastService.TAG, "FXF upload a ts message  " + jSONArray4.toString());
                     ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage(UnLoginCastService.this.mCastId, jSONArray4);
@@ -454,15 +452,14 @@ public class UnLoginCastService {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    i6++;
-                    i7 = i8;
                 }
-                if (UnLoginCastService.this.isActive && !UnLoginCastService.this.isSeek && i7 < length2) {
+                if (UnLoginCastService.this.isActive && !UnLoginCastService.this.isSeek && i6 < length2) {
                     JSONArray jSONArray5 = new JSONArray();
-                    int i10 = i7;
-                    while (i7 < length2) {
+                    int i9 = i6;
+                    int i10 = i6;
+                    while (i9 < length2) {
                         jSONArray5.put(jSONArray2.get(i10));
-                        i7++;
+                        i9++;
                         i10++;
                     }
                     LogUtils.d(UnLoginCastService.TAG, "FXF upload a last ts message  " + jSONArray5.toString());

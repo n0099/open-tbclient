@@ -1,259 +1,83 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.Context;
+import android.app.Activity;
+import android.graphics.Rect;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tieba.R;
-import java.util.LinkedList;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 /* loaded from: classes.dex */
 public class bh {
-    private static int eUv = -1;
-    private static int eUw = -1;
-    private static boolean eUx = false;
-    private static com.baidu.adp.lib.d.a<Integer, Integer> eUy = new com.baidu.adp.lib.d.a<>(500);
-    private static Context mAppContext = null;
+    private View fdY;
+    private ViewTreeObserver fdZ;
+    private final ViewTreeObserver.OnGlobalLayoutListener mOnGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.core.util.bh.1
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            bh.this.possiblyResizeChildOfContent();
+        }
+    };
+    private int usableHeightPrevious;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        boolean bj(View view);
+    public static bh ad(@NonNull Activity activity) {
+        bh bhVar = new bh(activity);
+        bhVar.avr();
+        UtilHelper.setTranslucentVirtualNavigation(activity);
+        return bhVar;
     }
 
-    public static void eJ(Context context) {
-        mAppContext = context;
-        eUx = true;
+    private bh(@NonNull Activity activity) {
+        this.fdY = ((FrameLayout) activity.findViewById(16908290)).getChildAt(0);
     }
 
-    private static void bub() {
-        if (mAppContext != null && mAppContext.getResources() != null) {
-            eUw = mAppContext.getResources().getColor(R.color.common_color_10097);
-            eUv = mAppContext.getResources().getColor(R.color.common_color_10004);
+    private void bww() {
+        if ((this.fdZ == null || !this.fdZ.isAlive()) && this.fdY != null) {
+            this.fdZ = this.fdY.getViewTreeObserver();
         }
     }
 
-    private static int qb(int i) {
-        boolean z = true;
-        if (i != 1 && i != 4) {
-            z = false;
+    private void avr() {
+        bww();
+        if (this.fdZ != null && this.fdZ.isAlive()) {
+            this.fdZ.addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
         }
-        return ju(z);
+    }
+
+    private void bwx() {
+        bww();
+        if (this.fdZ != null && this.fdZ.isAlive()) {
+            this.fdZ.removeOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
+        }
+    }
+
+    public void onPause() {
+        bwx();
+    }
+
+    public void onResume() {
+        avr();
+    }
+
+    public void onDestroy() {
+        bwx();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int ju(boolean z) {
-        if (eUx) {
-            eUx = false;
-            bub();
-        }
-        return z ? eUv : eUw;
-    }
-
-    public static void bo(View view) {
-        if (view instanceof ViewGroup) {
-            g((ViewGroup) view, TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public static void bp(View view) {
-        if (view != null) {
-            eUy.remove(Integer.valueOf(System.identityHashCode(view)));
-        }
-    }
-
-    public static void g(ViewGroup viewGroup, int i) {
-        int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = eUy.get(Integer.valueOf(identityHashCode));
-        if (num == null || i != num.intValue()) {
-            h(viewGroup, i);
-            eUy.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
-        }
-    }
-
-    public static void a(ViewGroup viewGroup, boolean z, a aVar) {
-        if (!z || !aVar.bj(viewGroup)) {
-            LinkedList linkedList = new LinkedList();
-            while (true) {
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    View childAt = viewGroup.getChildAt(i);
-                    if (!aVar.bj(childAt)) {
-                        if (childAt instanceof ViewGroup) {
-                            linkedList.addLast((ViewGroup) childAt);
-                        }
-                    } else {
-                        return;
-                    }
-                }
-                if (!linkedList.isEmpty()) {
-                    viewGroup = (ViewGroup) linkedList.removeFirst();
+    public void possiblyResizeChildOfContent() {
+        if (this.fdY != null) {
+            Rect rect = new Rect();
+            this.fdY.getWindowVisibleDisplayFrame(rect);
+            int i = rect.bottom - rect.top;
+            if (i != this.usableHeightPrevious) {
+                int height = this.fdY.getRootView().getHeight();
+                int i2 = height - rect.bottom;
+                int i3 = (height - i) - i2;
+                if (i3 > height / 4) {
+                    this.fdY.getLayoutParams().height = height - i3;
                 } else {
-                    return;
+                    this.fdY.getLayoutParams().height = height - i2;
                 }
-            }
-        }
-    }
-
-    private static void h(ViewGroup viewGroup, final int i) {
-        final boolean z = i == 1 || i == 4;
-        a(viewGroup, true, new a() { // from class: com.baidu.tbadk.core.util.bh.1
-            @Override // com.baidu.tbadk.core.util.bh.a
-            public boolean bj(View view) {
-                Object tag = view.getTag();
-                if (tag != null) {
-                    if ("skin_text_group".equals(tag)) {
-                        bh.setTextColor((TextView) view, i);
-                        return false;
-                    } else if ("skin_text_content".equals(tag)) {
-                        bh.setTextColor((TextView) view, i);
-                        return false;
-                    } else if ("skin_text_num".equals(tag)) {
-                        bh.setGroupTextColor((TextView) view, i);
-                        return false;
-                    } else if ("skin_check_box".equals(tag)) {
-                        bh.a((CheckBox) view, i);
-                        return false;
-                    } else if ("skin_sidebar_content".equals(tag)) {
-                        ((TextView) view).setTextAppearance(TbadkCoreApplication.getInst().getApp(), z ? R.style.sidebar_content_1 : R.style.sidebar_content);
-                        return false;
-                    } else if ("skin_more_up".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bh.ju(z));
-                        }
-                        ap.setBackgroundResource(view, R.drawable.more_up);
-                        return false;
-                    } else if ("skin_more_middle".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bh.ju(z));
-                        }
-                        ap.setBackgroundResource(view, R.drawable.more_middle);
-                        return false;
-                    } else if ("skin_more_down".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bh.ju(z));
-                        }
-                        ap.setBackgroundResource(view, R.drawable.more_down);
-                        return false;
-                    } else if ("skin_more_all".equals(tag)) {
-                        if (view instanceof RadioButton) {
-                            ((RadioButton) view).setTextColor(bh.ju(z));
-                        }
-                        ap.setBackgroundResource(view, R.drawable.more_all);
-                        return false;
-                    } else if ("skin_arrow".equals(tag)) {
-                        ap.setImageResource((ImageView) view, R.drawable.icon_ba_top_arrow_big);
-                        return false;
-                    } else if ("skin_list_line".equals(tag)) {
-                        bh.l(view, i);
-                        return false;
-                    } else {
-                        return false;
-                    }
-                }
-                return false;
-            }
-        });
-    }
-
-    public static void l(View view, int i) {
-        if (view != null) {
-            if (i == 1 || i == 4) {
-                view.setBackgroundColor(-14078923);
-            } else {
-                view.setBackgroundColor(-1183760);
-            }
-        }
-    }
-
-    @Deprecated
-    public static void skipToRegisterActivity(Context context) {
-        if (context != null) {
-            com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
-            skipToLoginActivity(context);
-        }
-    }
-
-    public static void skipToLoginActivity(Context context) {
-        if (context != null) {
-            com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, true)));
-        }
-    }
-
-    public static void s(Context context, String str, String str2) {
-        if (context != null) {
-            com.baidu.tbadk.core.d.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, true, str, str2)));
-        }
-    }
-
-    public static boolean checkUpIsLogin(Context context) {
-        boolean isLogin = TbadkCoreApplication.isLogin();
-        if (!isLogin) {
-            skipToLoginActivity(context);
-        }
-        return isLogin;
-    }
-
-    public static boolean t(Context context, String str, String str2) {
-        boolean isLogin = TbadkCoreApplication.isLogin();
-        if (!isLogin) {
-            s(context, str, str2);
-        }
-        return isLogin;
-    }
-
-    public static boolean a(LoginActivityConfig loginActivityConfig) {
-        boolean isLogin = TbadkCoreApplication.isLogin();
-        if (!isLogin) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, loginActivityConfig));
-        }
-        return isLogin;
-    }
-
-    public static void setGroupTextColor(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1 || i == 4) {
-                textView.setTextColor(-11446171);
-            } else {
-                textView.setTextColor(-5065030);
-            }
-        }
-    }
-
-    public static void setTextColor(TextView textView, int i) {
-        if (textView != null) {
-            textView.setTextColor(qb(i));
-        }
-    }
-
-    public static void a(CheckBox checkBox, int i) {
-        if (checkBox != null) {
-            checkBox.setTextColor(qb(i));
-        }
-    }
-
-    public static void c(View view, int i, boolean z) {
-        if (view != null && view.getParent() != null) {
-            View view2 = (View) view.getParent().getParent();
-            if (view2 instanceof LinearLayout) {
-                LinearLayout linearLayout = (LinearLayout) view2;
-                linearLayout.setOrientation(1);
-                View view3 = new View(view.getContext());
-                if (z) {
-                    ap.setBackgroundColor(view3, i);
-                } else {
-                    view3.setBackgroundResource(i);
-                }
-                linearLayout.addView(view3, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+                this.fdY.requestLayout();
+                this.usableHeightPrevious = i;
             }
         }
     }

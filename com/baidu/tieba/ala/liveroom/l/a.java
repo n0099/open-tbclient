@@ -4,17 +4,17 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.ah.b;
-import com.baidu.live.data.w;
+import com.baidu.live.ai.b;
+import com.baidu.live.data.x;
 import com.baidu.live.pendantview.PendantChildView;
 import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private ViewGroup bNk;
-    private b hsf;
+    private ViewGroup bRX;
+    private b hEa;
     private String otherParams;
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
@@ -22,93 +22,93 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void at(ViewGroup viewGroup) {
-        super.at(viewGroup);
+    public void aF(ViewGroup viewGroup) {
+        super.aF(viewGroup);
         a(viewGroup, (LinearLayout.LayoutParams) null);
     }
 
     public void a(ViewGroup viewGroup, LinearLayout.LayoutParams layoutParams) {
         CustomResponsedMessage runTask;
-        if (com.baidu.live.ae.a.RB().brA.FC() && (viewGroup instanceof PendantParentView)) {
-            if (this.hsf == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
-                this.hsf = (b) runTask.getData();
+        if (com.baidu.live.af.a.SE().bwi.ES() && (viewGroup instanceof PendantParentView)) {
+            if (this.hEa == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
+                this.hEa = (b) runTask.getData();
             }
-            if (this.hsf != null) {
-                this.hsf.setOtherParams(Oj());
-                this.hsf.UD();
+            if (this.hEa != null) {
+                this.hEa.setOtherParams(NL());
+                this.hEa.VI();
             }
             a((PendantParentView) viewGroup, layoutParams);
         }
     }
 
     private void a(PendantParentView pendantParentView, LinearLayout.LayoutParams layoutParams) {
-        PendantChildView UC;
+        PendantChildView VH;
         if (pendantParentView != null) {
-            this.bNk = pendantParentView;
-            if (this.hsf != null && (UC = this.hsf.UC()) != null && pendantParentView.indexOfChild(UC) < 0) {
+            this.bRX = pendantParentView;
+            if (this.hEa != null && (VH = this.hEa.VH()) != null && pendantParentView.indexOfChild(VH) < 0) {
                 if (layoutParams == null) {
-                    layoutParams = cfu();
+                    layoutParams = cik();
                 }
-                pendantParentView.a(UC, layoutParams);
+                pendantParentView.a(VH, layoutParams);
             }
         }
     }
 
-    private LinearLayout.LayoutParams cfu() {
+    private LinearLayout.LayoutParams cik() {
         return new LinearLayout.LayoutParams(-2, -2);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void En() {
-        super.En();
-        if (this.hsf != null) {
-            PendantChildView UC = this.hsf.UC();
-            if (UC != null && UC.getParent() != null) {
-                ((ViewGroup) UC.getParent()).removeView(UC);
+    public void DC() {
+        super.DC();
+        if (this.hEa != null) {
+            PendantChildView VH = this.hEa.VH();
+            if (VH != null && VH.getParent() != null) {
+                ((ViewGroup) VH.getParent()).removeView(VH);
             }
-            this.hsf.UE();
+            this.hEa.VJ();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.hsf != null) {
-            PendantChildView UC = this.hsf.UC();
-            if (UC != null && UC.getParent() != null) {
-                ((ViewGroup) UC.getParent()).removeView(UC);
+        if (this.hEa != null) {
+            PendantChildView VH = this.hEa.VH();
+            if (VH != null && VH.getParent() != null) {
+                ((ViewGroup) VH.getParent()).removeView(VH);
             }
-            this.hsf.onDestroy();
+            this.hEa.onDestroy();
         }
     }
 
-    public void J(JSONObject jSONObject) {
-        if (this.hsf != null) {
-            this.hsf.R(jSONObject);
+    public void Q(JSONObject jSONObject) {
+        if (this.hEa != null) {
+            this.hEa.Z(jSONObject);
         }
     }
 
-    public void L(w wVar) {
+    public void L(x xVar) {
         if (!TbadkCoreApplication.isLogin()) {
-            cfv();
+            cil();
         }
-        if (this.hsf != null && this.hsf.UC() != null && wVar != null) {
-            this.hsf.i(wVar);
+        if (this.hEa != null && this.hEa.VH() != null && xVar != null) {
+            this.hEa.j(xVar);
         }
     }
 
     public void setCanVisible(boolean z) {
-        if (this.hsf != null) {
-            this.hsf.setCanVisible(z);
+        if (this.hEa != null) {
+            this.hEa.setCanVisible(z);
         }
     }
 
-    public void cfv() {
-        if (this.hsf != null && this.hsf.UC() != null) {
-            this.hsf.UC().setVisibility(8);
+    public void cil() {
+        if (this.hEa != null && this.hEa.VH() != null) {
+            this.hEa.VH().setVisibility(8);
         }
     }
 
-    public String Oj() {
+    public String NL() {
         return this.otherParams;
     }
 

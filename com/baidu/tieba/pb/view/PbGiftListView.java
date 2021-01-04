@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.adp.base.i;
+import com.baidu.adp.base.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -14,22 +14,22 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.data.az;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class PbGiftListView extends FrameLayout {
-    private View egT;
+    private View epV;
     private Context mContext;
     private int mSkinType;
-    private TbImageView meH;
-    private TbImageView meI;
-    private TbImageView meJ;
-    private TbImageView meK;
-    private TextView meL;
-    private TextView meM;
-    private String meN;
+    private TbImageView mjU;
+    private TbImageView mjV;
+    private TbImageView mjW;
+    private TbImageView mjX;
+    private TextView mjY;
+    private TextView mjZ;
+    private String mka;
     private long postId;
     private long threadId;
     private long toUserId;
@@ -55,34 +55,34 @@ public class PbGiftListView extends FrameLayout {
     }
 
     private void initView() {
-        this.egT = View.inflate(this.mContext, R.layout.pb_gift_list_item, this);
-        this.meH = (TbImageView) this.egT.findViewById(R.id.pb_gift_view1);
-        this.meI = (TbImageView) this.egT.findViewById(R.id.pb_gift_view2);
-        this.meJ = (TbImageView) this.egT.findViewById(R.id.pb_gift_view3);
-        this.meK = (TbImageView) this.egT.findViewById(R.id.pb_gift_view4);
-        this.meH.setDefaultBgResource(R.drawable.transparent_bg);
-        this.meI.setDefaultBgResource(R.drawable.transparent_bg);
-        this.meJ.setDefaultBgResource(R.drawable.transparent_bg);
-        this.meK.setDefaultBgResource(R.drawable.transparent_bg);
-        this.meH.setDefaultResource(R.drawable.icon_gift_moren);
-        this.meI.setDefaultResource(R.drawable.icon_gift_moren);
-        this.meJ.setDefaultResource(R.drawable.icon_gift_moren);
-        this.meK.setDefaultResource(R.drawable.icon_gift_moren);
-        this.meL = (TextView) this.egT.findViewById(R.id.pb_gift_number_view);
-        this.meM = (TextView) this.egT.findViewById(R.id.pb_gift_send_view);
-        this.meM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbGiftListView.1
+        this.epV = View.inflate(this.mContext, R.layout.pb_gift_list_item, this);
+        this.mjU = (TbImageView) this.epV.findViewById(R.id.pb_gift_view1);
+        this.mjV = (TbImageView) this.epV.findViewById(R.id.pb_gift_view2);
+        this.mjW = (TbImageView) this.epV.findViewById(R.id.pb_gift_view3);
+        this.mjX = (TbImageView) this.epV.findViewById(R.id.pb_gift_view4);
+        this.mjU.setDefaultBgResource(R.drawable.transparent_bg);
+        this.mjV.setDefaultBgResource(R.drawable.transparent_bg);
+        this.mjW.setDefaultBgResource(R.drawable.transparent_bg);
+        this.mjX.setDefaultBgResource(R.drawable.transparent_bg);
+        this.mjU.setDefaultResource(R.drawable.icon_gift_moren);
+        this.mjV.setDefaultResource(R.drawable.icon_gift_moren);
+        this.mjW.setDefaultResource(R.drawable.icon_gift_moren);
+        this.mjX.setDefaultResource(R.drawable.icon_gift_moren);
+        this.mjY = (TextView) this.epV.findViewById(R.id.pb_gift_number_view);
+        this.mjZ = (TextView) this.epV.findViewById(R.id.pb_gift_send_view);
+        this.mjZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbGiftListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TbPageContext tbPageContext = (TbPageContext) i.J(PbGiftListView.this.mContext);
+                TbPageContext tbPageContext = (TbPageContext) j.K(PbGiftListView.this.mContext);
                 if (tbPageContext != null) {
                     if (TbadkCoreApplication.isLogin()) {
                         if (!StringUtils.isNull(PbGiftListView.this.toUserName)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(tbPageContext.getPageActivity(), PbGiftListView.this.toUserId, PbGiftListView.this.toUserName, PbGiftListView.this.meN, GiftTabActivityConfig.FROM_PB, PbGiftListView.this.threadId, PbGiftListView.this.postId)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(tbPageContext.getPageActivity(), PbGiftListView.this.toUserId, PbGiftListView.this.toUserName, PbGiftListView.this.mka, GiftTabActivityConfig.FROM_PB, PbGiftListView.this.threadId, PbGiftListView.this.postId)));
                             return;
                         }
                         return;
                     }
-                    bh.checkUpIsLogin(tbPageContext.getPageActivity());
+                    bg.checkUpIsLogin(tbPageContext.getPageActivity());
                 }
             }
         });
@@ -91,59 +91,59 @@ public class PbGiftListView extends FrameLayout {
     public void a(az azVar, String str, String str2, long j, long j2, long j3) {
         this.toUserId = j;
         this.toUserName = str;
-        this.meN = str2;
+        this.mka = str2;
         this.postId = j3;
         this.threadId = j2;
-        if (azVar == null || azVar.bnH() == null || azVar.bnH().size() <= 0) {
+        if (azVar == null || azVar.bqh() == null || azVar.bqh().size() <= 0) {
             setVisibility(8);
             return;
         }
-        switch (azVar.bnH().size() > 4 ? 4 : azVar.bnH().size()) {
+        switch (azVar.bqh().size() > 4 ? 4 : azVar.bqh().size()) {
             case 1:
-                this.meH.startLoad(azVar.bnH().get(0).thumbnailUrl, 10, false);
-                this.meH.setVisibility(0);
-                this.meI.setVisibility(8);
-                this.meJ.setVisibility(8);
-                this.meK.setVisibility(8);
+                this.mjU.startLoad(azVar.bqh().get(0).thumbnailUrl, 10, false);
+                this.mjU.setVisibility(0);
+                this.mjV.setVisibility(8);
+                this.mjW.setVisibility(8);
+                this.mjX.setVisibility(8);
                 break;
             case 2:
-                this.meH.startLoad(azVar.bnH().get(0).thumbnailUrl, 10, false);
-                this.meI.startLoad(azVar.bnH().get(1).thumbnailUrl, 10, false);
-                this.meH.setVisibility(0);
-                this.meI.setVisibility(0);
-                this.meJ.setVisibility(8);
-                this.meK.setVisibility(8);
+                this.mjU.startLoad(azVar.bqh().get(0).thumbnailUrl, 10, false);
+                this.mjV.startLoad(azVar.bqh().get(1).thumbnailUrl, 10, false);
+                this.mjU.setVisibility(0);
+                this.mjV.setVisibility(0);
+                this.mjW.setVisibility(8);
+                this.mjX.setVisibility(8);
                 break;
             case 3:
-                this.meH.startLoad(azVar.bnH().get(0).thumbnailUrl, 10, false);
-                this.meI.startLoad(azVar.bnH().get(1).thumbnailUrl, 10, false);
-                this.meJ.startLoad(azVar.bnH().get(2).thumbnailUrl, 10, false);
-                this.meH.setVisibility(0);
-                this.meI.setVisibility(0);
-                this.meJ.setVisibility(0);
-                this.meK.setVisibility(8);
+                this.mjU.startLoad(azVar.bqh().get(0).thumbnailUrl, 10, false);
+                this.mjV.startLoad(azVar.bqh().get(1).thumbnailUrl, 10, false);
+                this.mjW.startLoad(azVar.bqh().get(2).thumbnailUrl, 10, false);
+                this.mjU.setVisibility(0);
+                this.mjV.setVisibility(0);
+                this.mjW.setVisibility(0);
+                this.mjX.setVisibility(8);
                 break;
             case 4:
-                this.meH.startLoad(azVar.bnH().get(0).thumbnailUrl, 10, false);
-                this.meI.startLoad(azVar.bnH().get(1).thumbnailUrl, 10, false);
-                this.meJ.startLoad(azVar.bnH().get(2).thumbnailUrl, 10, false);
-                this.meK.startLoad(azVar.bnH().get(3).thumbnailUrl, 10, false);
-                this.meH.setVisibility(0);
-                this.meI.setVisibility(0);
-                this.meJ.setVisibility(0);
-                this.meK.setVisibility(0);
+                this.mjU.startLoad(azVar.bqh().get(0).thumbnailUrl, 10, false);
+                this.mjV.startLoad(azVar.bqh().get(1).thumbnailUrl, 10, false);
+                this.mjW.startLoad(azVar.bqh().get(2).thumbnailUrl, 10, false);
+                this.mjX.startLoad(azVar.bqh().get(3).thumbnailUrl, 10, false);
+                this.mjU.setVisibility(0);
+                this.mjV.setVisibility(0);
+                this.mjW.setVisibility(0);
+                this.mjX.setVisibility(0);
                 break;
         }
         if (azVar.getTotal() > 0) {
-            this.meL.setText(String.format(this.mContext.getResources().getString(R.string.gift_counts), Integer.valueOf(azVar.getTotal())));
-            this.meL.setVisibility(0);
+            this.mjY.setText(String.format(this.mContext.getResources().getString(R.string.gift_counts), Integer.valueOf(azVar.getTotal())));
+            this.mjY.setVisibility(0);
         } else {
-            this.meL.setVisibility(8);
+            this.mjY.setVisibility(8);
         }
         if (j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L)) {
-            this.meM.setVisibility(8);
+            this.mjZ.setVisibility(8);
         } else {
-            this.meM.setVisibility(0);
+            this.mjZ.setVisibility(0);
         }
     }
 
@@ -151,8 +151,8 @@ public class PbGiftListView extends FrameLayout {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType != skinType) {
             this.mSkinType = skinType;
-            ap.setViewTextColor(this.meL, R.color.CAM_X0109, 1);
-            ap.setViewTextColor(this.meM, R.color.CAM_X0304, 1);
+            ao.setViewTextColor(this.mjY, R.color.CAM_X0109, 1);
+            ao.setViewTextColor(this.mjZ, R.color.CAM_X0304, 1);
         }
     }
 

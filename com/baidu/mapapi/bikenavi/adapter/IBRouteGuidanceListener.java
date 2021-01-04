@@ -3,7 +3,7 @@ package com.baidu.mapapi.bikenavi.adapter;
 import android.graphics.drawable.Drawable;
 import com.baidu.mapapi.bikenavi.model.BikeRouteDetailInfo;
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public interface IBRouteGuidanceListener {
     void onArriveDest();
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.liveroom.master.a;
 
 import com.baidu.ala.recorder.video.VideoRecorderType;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e extends a {
     public e(com.baidu.tieba.ala.liveroom.data.e eVar) {
         super(eVar);
@@ -14,7 +14,7 @@ public class e extends a {
         super.a(s, obj);
         switch (s) {
             case 1:
-                this.hjc.hqo.a((short) 2, null);
+                this.huX.hCk.a((short) 2, null);
                 return;
             default:
                 return;
@@ -22,24 +22,24 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void ciO() {
-        if (this.hjc != null && this.hjc.hqk != null) {
-            if (this.hxy != null) {
-                this.hxy.wX(2);
+    public void clA() {
+        if (this.huX != null && this.huX.hCg != null) {
+            if (this.hJw != null) {
+                this.hJw.xi(2);
             }
-            this.hjc.hqk.startRecord();
+            this.huX.hCg.startRecord();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bi(int i, String str) {
-        if (this.hjc != null && this.hjc.hqk.getVideoRecorderType() == VideoRecorderType.SCREEN) {
+    public void bk(int i, String str) {
+        if (this.huX != null && this.huX.hCg.getVideoRecorderType() == VideoRecorderType.SCREEN) {
             if (i == 0) {
-                if (this.hjc != null && this.hjc.hqo != null && this.cnU != 4) {
-                    this.hjc.hqo.a((short) 4, this.hwb);
+                if (this.huX != null && this.huX.hCk != null && this.cvb != 4) {
+                    this.huX.hCk.a((short) 4, this.hHZ);
                 }
-            } else if (this.hxx != null) {
-                this.hxx.onError(i, str);
+            } else if (this.hJv != null) {
+                this.hJv.onError(i, str);
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.ar.gesture;
 
 import com.baidu.ar.d.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a extends b {
     private float[] qt;
 

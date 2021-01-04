@@ -26,7 +26,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.MsgUtility;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.h.a;
+import com.baidu.i.a;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.lcp.sdk.client.bean.b;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
@@ -37,7 +37,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class MessageParser {
     private static final String TAG = "MessageParser";
 
@@ -463,11 +463,11 @@ public class MessageParser {
                 for (List<NewAckMessage.Tripule> list2 : splitList) {
                     final NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                     newAckMessage.addTriples(list2);
-                    if (a.ayO) {
+                    if (a.aze) {
                         BLCPRequest bLCPRequest = new BLCPRequest();
                         bLCPRequest.serviceId = 2L;
                         bLCPRequest.methodId = 95L;
-                        bLCPRequest.azd = newAckMessage.getBody().getBytes();
+                        bLCPRequest.azt = newAckMessage.getBody().getBytes();
                         bLCPRequest.msgId = System.nanoTime();
                         com.baidu.lcp.sdk.client.a.a(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                             @Override // com.baidu.lcp.sdk.client.bean.b
@@ -520,7 +520,7 @@ public class MessageParser {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public static class DuParser {
         private int category;
         private String content;
@@ -547,13 +547,12 @@ public class MessageParser {
             return this.jsonParseResult;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:15:0x009e  */
-        /* JADX WARN: Removed duplicated region for block: B:31:0x0156  */
+        /* JADX WARN: Removed duplicated region for block: B:15:0x009c  */
+        /* JADX WARN: Removed duplicated region for block: B:31:0x0150  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public DuParser invokeParse() throws Exception {
-            int i;
             String str;
             JSONObject jSONObject = new JSONObject(this.content);
             String optString = jSONObject.optString("text");
@@ -571,39 +570,37 @@ public class MessageParser {
                         if (jSONObject3.has("body")) {
                             int optInt3 = jSONObject3.optInt("type", 1);
                             if (optInt3 == 1) {
+                                optInt2 = 0;
                                 JSONObject jSONObject4 = new JSONObject();
                                 jSONObject4.put("text", jSONObject3.optString("body"));
-                                String jSONObject5 = jSONObject4.toString();
-                                i = 0;
-                                str = jSONObject5;
+                                str = jSONObject4.toString();
                             } else if (optInt3 == 0) {
                                 JSONArray jSONArray = new JSONArray(jSONObject3.optString("body"));
                                 if (jSONArray != null && jSONArray.length() > 1) {
+                                    optInt2 = 9;
                                     JSONArray jSONArray2 = new JSONArray();
-                                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                                        JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                                        JSONObject jSONObject6 = new JSONObject();
-                                        jSONObject6.put("title", optJSONObject.optString("title"));
-                                        jSONObject6.put("article_url", optJSONObject.optString("url"));
-                                        jSONObject6.put("cover", optJSONObject.optString("headImage"));
-                                        jSONArray2.put(jSONObject6);
+                                    for (int i = 0; i < jSONArray.length(); i++) {
+                                        JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                                        JSONObject jSONObject5 = new JSONObject();
+                                        jSONObject5.put("title", optJSONObject.optString("title"));
+                                        jSONObject5.put("article_url", optJSONObject.optString("url"));
+                                        jSONObject5.put("cover", optJSONObject.optString("headImage"));
+                                        jSONArray2.put(jSONObject5);
                                     }
-                                    JSONObject jSONObject7 = new JSONObject();
-                                    jSONObject7.put("articles", jSONArray2);
-                                    String jSONObject8 = jSONObject7.toString();
-                                    i = 9;
-                                    str = jSONObject8;
+                                    JSONObject jSONObject6 = new JSONObject();
+                                    jSONObject6.put("articles", jSONArray2);
+                                    str = jSONObject6.toString();
                                 } else if (jSONArray != null && jSONArray.length() == 1) {
+                                    optInt2 = 8;
                                     JSONObject optJSONObject2 = jSONArray.optJSONObject(0);
-                                    JSONObject jSONObject9 = new JSONObject();
-                                    jSONObject9.put("title", optJSONObject2.optString("title"));
-                                    jSONObject9.put("article_url", optJSONObject2.optString("url"));
-                                    jSONObject9.put("cover", optJSONObject2.optString("headImage"));
-                                    i = 8;
-                                    str = jSONObject9.toString();
+                                    JSONObject jSONObject7 = new JSONObject();
+                                    jSONObject7.put("title", optJSONObject2.optString("title"));
+                                    jSONObject7.put("article_url", optJSONObject2.optString("url"));
+                                    jSONObject7.put("cover", optJSONObject2.optString("headImage"));
+                                    str = jSONObject7.toString();
                                 }
                             }
-                            this.msg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i, -1);
+                            this.msg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, optInt2, -1);
                             if (this.msg != null) {
                                 this.msgIsNull = true;
                             } else {
@@ -637,8 +634,8 @@ public class MessageParser {
                                     } else if (optInt4 == 20) {
                                         this.msg.setChatType(20);
                                     }
-                                    this.msg.setMsgType(i);
-                                    if (i == 18) {
+                                    this.msg.setMsgType(optInt2);
+                                    if (optInt2 == 18) {
                                         ((HtmlMsg) this.msg).setDesc(jSONObject2.optString("description"));
                                     }
                                     this.jsonParseResult = this.msg.setMsgContentFromServer(str);
@@ -651,9 +648,8 @@ public class MessageParser {
                             }
                             return this;
                         }
-                        i = optInt2;
                         str = optString5;
-                        this.msg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i, -1);
+                        this.msg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, optInt2, -1);
                         if (this.msg != null) {
                         }
                         return this;

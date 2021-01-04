@@ -6,14 +6,14 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class a extends c {
-    private static a cfe;
-    public static JSONObject cfj;
-    private b cff;
-    private String cfg;
-    private File cfh;
-    private boolean cfi;
+/* loaded from: classes6.dex */
+public class a extends d {
+    private static a cmb;
+    public static JSONObject cmh;
+    private c cmc;
+    private String cme;
+    private File cmf;
+    private boolean cmg;
     private WeakReference<Context> mContext;
 
     private a() {
@@ -24,23 +24,23 @@ public class a extends c {
     }
 
     public void a(String str, File file, boolean z) {
-        this.cfg = str;
-        this.cfh = file;
-        this.cfi = z;
+        this.cme = str;
+        this.cmf = file;
+        this.cmg = z;
     }
 
-    public static a bs(Context context) {
-        if (cfe == null) {
+    public static a bF(Context context) {
+        if (cmb == null) {
             init(context);
         }
-        cfe.setContext(context);
-        return cfe;
+        cmb.setContext(context);
+        return cmb;
     }
 
     private static synchronized void init(Context context) {
         synchronized (a.class) {
-            if (cfe == null) {
-                cfe = new a();
+            if (cmb == null) {
+                cmb = new a();
             }
         }
     }
@@ -52,101 +52,101 @@ public class a extends c {
         return this.mContext.get();
     }
 
-    @Override // com.baidu.minivideo.arface.utils.c
+    @Override // com.baidu.minivideo.arface.utils.d
     protected void run() {
-        boolean acL = acL();
-        cfj = new JSONObject();
-        if (acL) {
+        boolean aeE = aeE();
+        cmh = new JSONObject();
+        if (aeE) {
             try {
-                cfj.put("type", com.baidu.minivideo.arface.c.cdH ? "assets" : "soloader");
-                cfj.put("exist", acL);
-                cfj.put("path", this.cfh);
+                cmh.put("type", com.baidu.minivideo.arface.c.ckm ? "assets" : "soloader");
+                cmh.put("exist", aeE);
+                cmh.put("path", this.cmf);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             if (isDebug()) {
-                g.d("ARSourceCopyManager", "sdk exist + " + cfj.toString());
+                i.d("ARSourceCopyManager", "sdk exist + " + cmh.toString());
             }
             setState(2);
         } else if (getContext() != null) {
             try {
                 if (isDebug()) {
-                    g.d("ARSourceCopyManager", "sdk loading .. to " + this.cfh.getAbsoluteFile());
+                    i.d("ARSourceCopyManager", "sdk loading .. to " + this.cmf.getAbsoluteFile());
                 }
-                acM();
+                aeF();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    public boolean acL() {
-        return this.cfh != null && this.cfh.isDirectory() && this.cfh.exists();
+    public boolean aeE() {
+        return this.cmf != null && this.cmf.isDirectory() && this.cmf.exists();
     }
 
-    private void acM() {
-        this.cff = new b(getContext());
+    private void aeF() {
+        this.cmc = new c(getContext());
         new AsyncTask<Void, Void, Boolean>() { // from class: com.baidu.minivideo.arface.utils.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             public Boolean doInBackground(Void... voidArr) {
                 boolean renameTo;
-                if (a.cfj == null) {
-                    a.cfj = new JSONObject();
+                if (a.cmh == null) {
+                    a.cmh = new JSONObject();
                 }
-                if (a.this.cfh != null) {
-                    if (a.this.cfi || !a.this.acL()) {
-                        if (!a.this.cfh.isDirectory()) {
+                if (a.this.cmf != null) {
+                    if (a.this.cmg || !a.this.aeE()) {
+                        if (!a.this.cmf.isDirectory()) {
                             try {
-                                a.cfj.put("file-del", true);
+                                a.cmh.put("file-del", true);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            a.this.cfh.delete();
+                            a.this.cmf.delete();
                         }
-                        File file = new File(a.this.cfh.getAbsoluteFile() + ".loading");
-                        boolean assetToSD = a.this.cff.assetToSD(a.this.cfg, file);
+                        File file = new File(a.this.cmf.getAbsoluteFile() + ".loading");
+                        boolean assetToSD = a.this.cmc.assetToSD(a.this.cme, file);
                         if (assetToSD) {
                             try {
-                                a.cfj.put("assetsToSD", true);
+                                a.cmh.put("assetsToSD", true);
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
                             }
-                            renameTo = file.renameTo(a.this.cfh);
+                            renameTo = file.renameTo(a.this.cmf);
                         } else {
                             renameTo = assetToSD;
                         }
                         if (!renameTo) {
                             try {
-                                a.cfj.put("renameTo-del", true);
+                                a.cmh.put("renameTo-del", true);
                             } catch (JSONException e3) {
                                 e3.printStackTrace();
                             }
-                            e.deleteDir(file);
-                            if (a.this.cfh.exists()) {
-                                e.deleteDir(a.this.cfh);
+                            f.deleteDir(file);
+                            if (a.this.cmf.exists()) {
+                                f.deleteDir(a.this.cmf);
                             }
                         }
                         try {
-                            a.cfj.put("result", renameTo);
+                            a.cmh.put("result", renameTo);
                         } catch (JSONException e4) {
                             e4.printStackTrace();
                         }
                         if (a.this.isDebug()) {
-                            g.d("ARSourceCopyManager", "sdk exist + " + a.cfj.toString());
+                            i.d("ARSourceCopyManager", "sdk exist + " + a.cmh.toString());
                         }
                         return Boolean.valueOf(renameTo);
                     }
                     try {
-                        a.cfj.put("exist", true);
+                        a.cmh.put("exist", true);
                     } catch (JSONException e5) {
                         e5.printStackTrace();
                     }
                     return true;
                 }
                 try {
-                    a.cfj.put("sdcardPath", "null");
+                    a.cmh.put("sdcardPath", "null");
                 } catch (JSONException e6) {
                     e6.printStackTrace();
                 }

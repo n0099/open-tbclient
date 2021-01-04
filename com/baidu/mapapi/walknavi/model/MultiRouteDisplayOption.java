@@ -1,31 +1,33 @@
 package com.baidu.mapapi.walknavi.model;
 
 import com.baidu.mapapi.map.BitmapDescriptor;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class MultiRouteDisplayOption {
 
     /* renamed from: a  reason: collision with root package name */
-    private BitmapDescriptor f2178a;
-    private BitmapDescriptor b;
+    private BitmapDescriptor f3094a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private BitmapDescriptor f3095b;
     private int c = 0;
     private int d = 0;
     private int e = 0;
     private int f = 0;
 
     public BitmapDescriptor getFocusRouteBitmapDescriptor() {
-        return this.f2178a;
+        return this.f3094a;
     }
 
     public void setFocusRouteBitmapDescriptor(BitmapDescriptor bitmapDescriptor) {
-        this.f2178a = bitmapDescriptor;
+        this.f3094a = bitmapDescriptor;
     }
 
     public BitmapDescriptor getNoFocusRouteBitmapDescriptor() {
-        return this.b;
+        return this.f3095b;
     }
 
     public void setNoFocusRouteBitmapDescriptor(BitmapDescriptor bitmapDescriptor) {
-        this.b = bitmapDescriptor;
+        this.f3095b = bitmapDescriptor;
     }
 
     public int getFocusRouteWidth() {

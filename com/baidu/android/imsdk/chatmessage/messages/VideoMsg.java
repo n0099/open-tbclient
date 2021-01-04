@@ -6,9 +6,10 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.Base64;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.kwai.video.player.KsMediaMeta;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<VideoMsg> CREATOR = new Parcelable.Creator<VideoMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.VideoMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +63,7 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         try {
             JSONObject jSONObject = new JSONObject(getJsonContent());
             this.mRemoteUrl = jSONObject.optString("url");
-            this.mFormat = jSONObject.optInt("format");
+            this.mFormat = jSONObject.optInt(KsMediaMeta.KSM_KEY_FORMAT);
             this.mDuration = jSONObject.optInt("duration");
             return true;
         } catch (JSONException e) {
@@ -88,7 +89,7 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", str);
-                jSONObject.put("format", i);
+                jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, i);
                 jSONObject.put("duration", i2);
                 jSONObject.put("thumbnail", Base64.encode(bArr));
                 return jSONObject.toString();

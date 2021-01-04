@@ -1,6 +1,5 @@
 package com.google.zxing.aztec.decoder;
 
-import android.support.media.ExifInterface;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
@@ -8,9 +7,6 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.face.liveness.d.b;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.ugc.model.PublishType;
-import com.baidu.searchbox.ugc.model.UgcConstant;
-import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.webkit.internal.ETAG;
 import com.google.zxing.FormatException;
 import com.google.zxing.aztec.AztecDetectorResult;
@@ -21,17 +17,17 @@ import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Decoder {
     private AztecDetectorResult ddata;
-    private static final String[] UPPER_TABLE = {"CTRL_PS", " ", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "B", "C", "D", ExifInterface.LONGITUDE_EAST, "F", "G", IEruptionStrategyGroup.STRATEGY_MODIFIER_H, "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, "U", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ExifInterface.LONGITUDE_WEST, "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
-    private static final String[] LOWER_TABLE = {"CTRL_PS", " ", "a", b.f2755a, "c", "d", "e", "f", IXAdRequestInfo.GPS, "h", "i", "j", "k", "l", "m", "n", Config.OS, "p", IXAdRequestInfo.COST_NAME, "r", "s", "t", "u", "v", "w", "x", "y", MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
-    private static final String[] MIXED_TABLE = {"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", UgcConstant.AT_RULE_TAG, IStringUtil.WINDOWS_FOLDER_SEPARATOR, "^", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
+    private static final String[] UPPER_TABLE = {"CTRL_PS", " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+    private static final String[] LOWER_TABLE = {"CTRL_PS", " ", "a", b.f4080a, "c", "d", "e", "f", IXAdRequestInfo.GPS, "h", "i", "j", "k", "l", "m", "n", Config.OS, "p", IXAdRequestInfo.COST_NAME, "r", "s", "t", "u", "v", "w", "x", "y", MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+    private static final String[] MIXED_TABLE = {"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", "@", IStringUtil.WINDOWS_FOLDER_SEPARATOR, "^", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
     private static final String[] PUNCT_TABLE = {"", "\r", "\r\n", ". ", ", ", ": ", "!", "\"", "#", "$", "%", ETAG.ITEM_SEPARATOR, "'", "(", ")", "*", "+", ",", Constants.ACCEPT_TIME_SEPARATOR_SERVER, ".", "/", ":", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "<", "=", ">", "?", "[", "]", "{", "}", "CTRL_UL"};
-    private static final String[] DIGIT_TABLE = {"CTRL_PS", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", PublishType.TYPE_VIDEO_SHARE, ",", ".", "CTRL_UL", "CTRL_US"};
+    private static final String[] DIGIT_TABLE = {"CTRL_PS", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ",", ".", "CTRL_UL", "CTRL_US"};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public enum Table {
         UPPER,
         LOWER,
@@ -56,14 +52,15 @@ public final class Decoder {
     private static String getEncodedData(boolean[] zArr) {
         int i;
         Table table;
+        Table table2;
         int length = zArr.length;
-        Table table2 = Table.UPPER;
         Table table3 = Table.UPPER;
+        Table table4 = Table.UPPER;
         StringBuilder sb = new StringBuilder(20);
         int i2 = 0;
-        Table table4 = table3;
+        Table table5 = table4;
         while (i2 < length) {
-            if (table4 == Table.BINARY) {
+            if (table5 == Table.BINARY) {
                 if (length - i2 < 5) {
                     break;
                 }
@@ -86,33 +83,35 @@ public final class Decoder {
                         break;
                     } else {
                         sb.append((char) readCode(zArr, i3, 8));
-                        i4++;
                         i3 += 8;
+                        i4++;
                     }
                 }
                 i2 = i;
-                table4 = table2;
+                table5 = table3;
             } else {
-                int i5 = table4 == Table.DIGIT ? 4 : 5;
+                int i5 = table5 == Table.DIGIT ? 4 : 5;
                 if (length - i2 < i5) {
                     break;
                 }
                 int readCode2 = readCode(zArr, i2, i5);
                 i2 += i5;
-                String character = getCharacter(table4, readCode2);
+                String character = getCharacter(table5, readCode2);
                 if (character.startsWith("CTRL_")) {
                     table = getTable(character.charAt(5));
                     if (character.charAt(6) == 'L') {
-                        table4 = table;
-                        table2 = table;
+                        table5 = table;
+                        table3 = table;
                     } else {
-                        table2 = table4;
+                        table2 = table5;
                     }
                 } else {
                     sb.append(character);
-                    table = table2;
+                    table = table3;
+                    table2 = table3;
                 }
-                table4 = table;
+                table5 = table;
+                table3 = table2;
             }
         }
         return sb.toString();
@@ -173,8 +172,8 @@ public final class Decoder {
         if (length < nbDatablocks) {
             throw FormatException.getFormatInstance();
         }
-        int[] iArr = new int[length];
         int length2 = zArr.length % i2;
+        int[] iArr = new int[length];
         int i3 = 0;
         while (i3 < length) {
             iArr[i3] = readCode(zArr, length2, i2);

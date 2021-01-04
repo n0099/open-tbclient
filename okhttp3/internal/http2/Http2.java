@@ -3,7 +3,7 @@ package okhttp3.internal.http2;
 import java.io.IOException;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class Http2 {
     static final byte FLAG_ACK = 1;
     static final byte FLAG_COMPRESSED = 32;
@@ -71,9 +71,9 @@ public final class Http2 {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String frameLog(boolean z, int i, int i2, byte b, byte b2) {
-        String format = b < FRAME_NAMES.length ? FRAME_NAMES[b] : Util.format("0x%02x", Byte.valueOf(b));
-        String formatFlags = formatFlags(b, b2);
+    public static String frameLog(boolean z, int i, int i2, byte b2, byte b3) {
+        String format = b2 < FRAME_NAMES.length ? FRAME_NAMES[b2] : Util.format("0x%02x", Byte.valueOf(b2));
+        String formatFlags = formatFlags(b2, b3);
         Object[] objArr = new Object[5];
         objArr[0] = z ? "<<" : ">>";
         objArr[1] = Integer.valueOf(i);
@@ -83,26 +83,26 @@ public final class Http2 {
         return Util.format("%s 0x%08x %5d %-13s %s", objArr);
     }
 
-    static String formatFlags(byte b, byte b2) {
-        if (b2 == 0) {
+    static String formatFlags(byte b2, byte b3) {
+        if (b3 == 0) {
             return "";
         }
-        switch (b) {
+        switch (b2) {
             case 2:
             case 3:
             case 7:
             case 8:
-                return BINARY[b2];
+                return BINARY[b3];
             case 4:
             case 6:
-                return b2 == 1 ? "ACK" : BINARY[b2];
+                return b3 == 1 ? "ACK" : BINARY[b3];
             case 5:
             default:
-                String str = b2 < FLAGS.length ? FLAGS[b2] : BINARY[b2];
-                if (b == 5 && (b2 & 4) != 0) {
+                String str = b3 < FLAGS.length ? FLAGS[b3] : BINARY[b3];
+                if (b2 == 5 && (b3 & 4) != 0) {
                     return str.replace("HEADERS", "PUSH_PROMISE");
                 }
-                if (b == 0 && (b2 & 32) != 0) {
+                if (b2 == 0 && (b3 & 32) != 0) {
                     return str.replace("PRIORITY", "COMPRESSED");
                 }
                 return str;

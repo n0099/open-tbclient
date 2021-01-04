@@ -1,62 +1,37 @@
 package com.baidu.swan.impl.map.location;
 
-import android.support.v7.widget.RecyclerView;
-import android.text.Html;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tieba.R;
-/* loaded from: classes25.dex */
-public class c extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private TextView ejF;
-    private View ejG;
-    private g ejH;
-    private e ejI;
-    private b ejr;
-    private TextView mSubTitle;
+import com.baidu.mapapi.search.core.PoiInfo;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes9.dex */
+public class c {
+    public PoiInfo esR;
+    public boolean esS;
+    public boolean isSelected;
 
-    public c(View view, b bVar, e eVar) {
-        super(view);
-        init(view);
-        this.ejr = bVar;
-        this.ejI = eVar;
-    }
-
-    private void init(View view) {
-        this.ejF = (TextView) view.findViewById(R.id.main_title);
-        this.mSubTitle = (TextView) view.findViewById(R.id.sub_title);
-        this.ejG = view.findViewById(R.id.select);
-        this.ejG.setVisibility(8);
-        this.itemView.setOnClickListener(this);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.ejr.bcq();
-        this.ejH.isSelected = true;
-        this.ejr.notifyDataSetChanged();
-        if (this.ejI != null) {
-            this.ejI.a(this.ejH);
+    public c(PoiInfo poiInfo, boolean z, boolean z2) {
+        if (poiInfo == null) {
+            this.esR = new PoiInfo();
         }
+        this.esR = poiInfo;
+        this.isSelected = z;
+        this.esS = z2;
     }
 
-    public void a(g gVar, String str, boolean z) {
-        if (gVar != null) {
-            this.ejH = gVar;
-            this.ejF.setText(z ? dv(gVar.ejN.name, str) : gVar.ejN.name);
-            this.mSubTitle.setVisibility(0);
-            this.mSubTitle.setText(gVar.ejN.address);
-            if (gVar.ejO || TextUtils.isEmpty(gVar.ejN.address)) {
-                this.mSubTitle.setVisibility(8);
+    public c(PoiInfo poiInfo) {
+        this(poiInfo, false, false);
+    }
+
+    public static List<c> be(List<PoiInfo> list) {
+        if (list == null || list.size() <= 0) {
+            return new ArrayList();
+        }
+        ArrayList arrayList = new ArrayList(list.size());
+        for (PoiInfo poiInfo : list) {
+            if (poiInfo.location != null) {
+                arrayList.add(new c(poiInfo));
             }
-            this.ejG.setVisibility(gVar.isSelected ? 0 : 8);
         }
-    }
-
-    private CharSequence dv(String str, String str2) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
-        }
-        return !TextUtils.isEmpty(str2) ? Html.fromHtml(str.replaceAll(str2, "<font color='#3C76FF'>" + str2 + "</font>")) : str;
+        return arrayList;
     }
 }

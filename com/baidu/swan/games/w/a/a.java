@@ -1,11 +1,11 @@
 package com.baidu.swan.games.w.a;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public static String yj(String str) {
+    public static String yi(String str) {
         return String.format("%s ok", str);
     }
 
-    public static String ae(String str, String str2, String str3) {
+    public static String ah(String str, String str2, String str3) {
         return String.format("%s failed,key:%s,%s", str, str2, str3);
     }
 }

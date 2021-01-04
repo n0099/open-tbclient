@@ -3,7 +3,7 @@ package com.google.zxing.pdf417.decoder;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class BoundingBox {
     private ResultPoint bottomLeft;
     private ResultPoint bottomRight;
@@ -47,42 +47,38 @@ final class BoundingBox {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public BoundingBox addMissingRows(int i, int i2, boolean z) throws NotFoundException {
-        ResultPoint resultPoint;
-        ResultPoint resultPoint2;
-        ResultPoint resultPoint3 = this.topLeft;
-        ResultPoint resultPoint4 = this.bottomLeft;
-        ResultPoint resultPoint5 = this.topRight;
-        ResultPoint resultPoint6 = this.bottomRight;
+        ResultPoint resultPoint = this.topLeft;
+        ResultPoint resultPoint2 = this.bottomLeft;
+        ResultPoint resultPoint3 = this.topRight;
+        ResultPoint resultPoint4 = this.bottomRight;
         if (i > 0) {
-            ResultPoint resultPoint7 = z ? this.topLeft : this.topRight;
-            int y = ((int) resultPoint7.getY()) - i;
+            ResultPoint resultPoint5 = z ? this.topLeft : this.topRight;
+            int y = ((int) resultPoint5.getY()) - i;
             if (y < 0) {
                 y = 0;
             }
-            resultPoint = new ResultPoint(resultPoint7.getX(), y);
-            if (!z) {
-                resultPoint5 = resultPoint;
-                resultPoint = resultPoint3;
+            ResultPoint resultPoint6 = new ResultPoint(resultPoint5.getX(), y);
+            if (z) {
+                resultPoint = resultPoint6;
+            } else {
+                resultPoint3 = resultPoint6;
             }
-        } else {
-            resultPoint = resultPoint3;
         }
         if (i2 > 0) {
-            ResultPoint resultPoint8 = z ? this.bottomLeft : this.bottomRight;
-            int y2 = ((int) resultPoint8.getY()) + i2;
+            ResultPoint resultPoint7 = z ? this.bottomLeft : this.bottomRight;
+            int y2 = ((int) resultPoint7.getY()) + i2;
             if (y2 >= this.image.getHeight()) {
                 y2 = this.image.getHeight() - 1;
             }
-            resultPoint2 = new ResultPoint(resultPoint8.getX(), y2);
-            if (!z) {
-                resultPoint6 = resultPoint2;
-                resultPoint2 = resultPoint4;
+            ResultPoint resultPoint8 = new ResultPoint(resultPoint7.getX(), y2);
+            if (z) {
+                resultPoint2 = resultPoint8;
+            } else {
+                resultPoint4 = resultPoint8;
             }
-        } else {
-            resultPoint2 = resultPoint4;
         }
         calculateMinMaxValues();
-        return new BoundingBox(this.image, resultPoint, resultPoint2, resultPoint5, resultPoint6);
+        return new BoundingBox(this.image, resultPoint, resultPoint2, resultPoint3, resultPoint4);
     }
 
     private void calculateMinMaxValues() {

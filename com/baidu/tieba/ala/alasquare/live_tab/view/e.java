@@ -2,77 +2,58 @@ package com.baidu.tieba.ala.alasquare.live_tab.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
-public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.b.f> {
-    private TabLiveStageLiveView gvh;
-    private int mLastScreenWidth;
-    private View mRootView;
+/* loaded from: classes10.dex */
+public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
+    private boolean gCA;
+    private g gGG;
+    private g gGH;
+    private ViewGroup rootView;
 
     public e(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.mLastScreenWidth = 0;
-        initView();
-    }
-
-    private void initView() {
-        this.mRootView = getView();
-        int[] fD = com.baidu.tieba.ala.alasquare.live_tab.c.fD(getContext());
-        int i = fD[0];
-        int i2 = fD[1];
-        this.gvh = (TabLiveStageLiveView) this.mRootView.findViewById(R.id.stage_live_view);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gvh.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = (FrameLayout.LayoutParams) new ViewGroup.LayoutParams(i, i2);
-        } else {
-            layoutParams.width = i;
-            layoutParams.height = i2;
-        }
-        layoutParams.gravity = 1;
-        this.gvh.setLayoutParams(layoutParams);
+        this.gCA = false;
+        this.gGG = new g(tbPageContext);
+        this.gGG.mw(this.gCA);
+        this.gGH = new g(tbPageContext);
+        this.gGH.mw(this.gCA);
+        this.rootView = (ViewGroup) getView();
+        View view = new View(getContext());
+        this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
+        this.rootView.addView(this.gGG.getView());
+        this.rootView.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
+        this.rootView.addView(this.gGH.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setBackgroundColor(getView(), R.color.CAM_X0201);
-        if (this.gvh != null) {
-            this.gvh.onChangeSkinType();
-        }
+        ao.setBackgroundColor(this.rootView, R.color.CAM_X0201);
+        this.gGG.onChangeSkinType(tbPageContext, i);
+        this.gGH.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
     public int getLayout() {
-        return R.layout.tab_live_stage_item_view;
+        return R.layout.tab_recommend_list_live_row;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
-    public void a(com.baidu.tieba.ala.alasquare.live_tab.b.f fVar) {
-        if (fVar != null && fVar.grN != null) {
-            int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
-            if (equipmentWidth != this.mLastScreenWidth) {
-                int[] fD = com.baidu.tieba.ala.alasquare.live_tab.c.fD(getContext());
-                int i = fD[0];
-                int i2 = fD[1];
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gvh.getLayoutParams();
-                layoutParams.width = i;
-                layoutParams.height = i2;
-                this.gvh.setLayoutParams(layoutParams);
-                this.mLastScreenWidth = equipmentWidth;
-            }
-            this.gvh.setData(fVar.grN.grO, 101);
-            ar arVar = new ar("c13551");
-            arVar.dY("entryname", "推荐");
-            TiebaStatic.log(arVar);
+    public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar) {
+        if (eVar != null) {
+            this.gGG.a(eVar.gCJ);
+            this.gGH.a(eVar.gCK);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+    }
+
+    public void mw(boolean z) {
+        this.gCA = z;
     }
 }

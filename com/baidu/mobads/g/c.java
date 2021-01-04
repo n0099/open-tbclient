@@ -13,10 +13,12 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class c extends Thread {
     private static volatile c f;
-    private volatile String b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private volatile String f3366b;
     private String c;
     private double d;
     private Handler e;
@@ -26,7 +28,7 @@ public class c extends Thread {
     private IXAdLogger j = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     /* renamed from: a  reason: collision with root package name */
-    o.a f2336a = new d(this);
+    o.a f3365a = new d(this);
 
     public static c a(Context context, e eVar, String str, Handler handler) {
         if (f == null) {
@@ -45,7 +47,7 @@ public class c extends Thread {
     }
 
     public void a(String str) {
-        this.b = str;
+        this.f3366b = str;
         interrupt();
     }
 
@@ -97,18 +99,18 @@ public class c extends Thread {
         double d;
         try {
             try {
-                this.h = new o(this.g, new URL(this.b), this.i, this.f2336a);
+                this.h = new o(this.g, new URL(this.f3366b), this.i, this.f3365a);
             } catch (MalformedURLException e) {
-                this.h = new o(this.g, this.b, this.i, this.f2336a);
+                this.h = new o(this.g, this.f3366b, this.i, this.f3365a);
             }
             if (g.c != null) {
-                d = g.c.f2334a;
-            } else if (g.b == null) {
+                d = g.c.f3361a;
+            } else if (g.f3371b == null) {
                 d = 0.0d;
-            } else if (g.b.f2334a > 0.0d) {
-                d = g.b.f2334a;
+            } else if (g.f3371b.f3361a > 0.0d) {
+                d = g.f3371b.f3361a;
             } else {
-                d = g.b.f2334a;
+                d = g.f3371b.f3361a;
             }
             this.j.d("XAdApkDownloadThread", "isNewApkAvailable: local apk version is: " + d + ", remote apk version: " + this.i.b());
             if (d > 0.0d) {

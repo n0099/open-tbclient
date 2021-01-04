@@ -3,7 +3,7 @@ package com.baidu.swan.bdprivate.b;
 import android.app.Activity;
 import android.content.Context;
 import com.baidu.swan.apps.adaptation.a.o;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b implements o {
     private static final String TAG = b.class.getSimpleName();
 
@@ -11,7 +11,7 @@ public class b implements o {
     public void a(Context context, String str, String str2, com.baidu.swan.apps.b.a.b bVar) {
         if (bVar != null) {
             if (!(context instanceof Activity)) {
-                bVar.hK(0);
+                bVar.hE(0);
             } else {
                 com.baidu.swan.bdprivate.a.a.a((Activity) context, bVar);
             }

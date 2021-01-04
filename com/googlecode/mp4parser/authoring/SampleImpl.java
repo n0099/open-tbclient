@@ -5,7 +5,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SampleImpl implements Sample {
     private ByteBuffer[] data;
     private final long offset;
@@ -21,11 +21,14 @@ public class SampleImpl implements Sample {
 
     public SampleImpl(ByteBuffer[] byteBufferArr) {
         this.offset = -1L;
+        int length = byteBufferArr.length;
         int i = 0;
-        for (ByteBuffer byteBuffer : byteBufferArr) {
-            i += byteBuffer.remaining();
+        int i2 = 0;
+        while (i < length) {
+            i++;
+            i2 = byteBufferArr[i].remaining() + i2;
         }
-        this.size = i;
+        this.size = i2;
         this.data = byteBufferArr;
         this.parent = null;
     }

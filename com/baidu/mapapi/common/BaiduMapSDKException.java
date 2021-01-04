@@ -1,5 +1,5 @@
 package com.baidu.mapapi.common;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class BaiduMapSDKException extends RuntimeException {
     public BaiduMapSDKException() {
     }

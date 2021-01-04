@@ -8,7 +8,7 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class ITFReader extends OneDReader {
     private static final float MAX_AVG_VARIANCE = 0.38f;
     private static final float MAX_INDIVIDUAL_VARIANCE = 0.78f;
@@ -75,11 +75,9 @@ public final class ITFReader extends OneDReader {
             }
             sb.append((char) (decodeDigit(iArr2) + 48));
             sb.append((char) (decodeDigit(iArr3) + 48));
-            int i6 = i3;
-            for (int i7 = 0; i7 < 10; i7++) {
-                i6 += iArr[i7];
+            for (int i6 = 0; i6 < 10; i6++) {
+                i3 += iArr[i6];
             }
-            i3 = i6;
         }
     }
 
@@ -90,7 +88,7 @@ public final class ITFReader extends OneDReader {
         return findGuardPattern;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0022, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0021, code lost:
         throw com.google.zxing.NotFoundException.getNotFoundInstance();
      */
     /*
@@ -137,13 +135,13 @@ public final class ITFReader extends OneDReader {
         int i2 = i;
         int i3 = 0;
         boolean z = false;
-        while (i < size) {
-            if (bitArray.get(i) ^ z) {
+        for (int i4 = i; i4 < size; i4++) {
+            if (bitArray.get(i4) ^ z) {
                 iArr2[i3] = iArr2[i3] + 1;
             } else {
                 if (i3 == length - 1) {
                     if (patternMatchVariance(iArr2, iArr, MAX_INDIVIDUAL_VARIANCE) < MAX_AVG_VARIANCE) {
-                        return new int[]{i2, i};
+                        return new int[]{i2, i4};
                     }
                     i2 += iArr2[0] + iArr2[1];
                     System.arraycopy(iArr2, 2, iArr2, 0, length - 2);
@@ -156,7 +154,6 @@ public final class ITFReader extends OneDReader {
                 iArr2[i3] = 1;
                 z = !z;
             }
-            i++;
         }
         throw NotFoundException.getNotFoundInstance();
     }

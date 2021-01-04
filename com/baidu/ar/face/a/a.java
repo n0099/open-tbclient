@@ -3,17 +3,18 @@ package com.baidu.ar.face.a;
 import android.text.TextUtils;
 import com.baidu.ar.a.c;
 import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static final int[] pM = {3, 10, 10, 10, 10};
     private String pL;
 
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C0086a {
+    /* loaded from: classes6.dex */
+    public class C0078a {
         public String pN;
         public String pO;
         public String pP;
@@ -22,11 +23,11 @@ public class a {
         public String pS;
         public String pT;
 
-        public C0086a() {
+        public C0078a() {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class b {
         public int[] ot;
         public String pV;
@@ -37,9 +38,9 @@ public class a {
         public String qa;
         public String qb;
         public String qc;
-        public C0086a qd;
-        public C0086a qe;
-        public C0086a qf;
+        public C0078a qd;
+        public C0078a qe;
+        public C0078a qf;
         public int qg;
 
         public b() {
@@ -55,7 +56,7 @@ public class a {
         if (optJSONObject3 == null || (optJSONObject = optJSONObject3.optJSONObject("algo")) == null || (optJSONObject2 = optJSONObject.optJSONObject("algo_face")) == null) {
             return;
         }
-        String optString = optJSONObject2.optString("level");
+        String optString = optJSONObject2.optString(MapBundleKey.MapObjKey.OBJ_LEVEL);
         if (!TextUtils.isEmpty(optString)) {
             if (optString.equals("high")) {
                 bVar.qg = 2;
@@ -110,37 +111,37 @@ public class a {
         }
     }
 
-    private C0086a f(JSONObject jSONObject) {
-        C0086a c0086a = new C0086a();
+    private C0078a f(JSONObject jSONObject) {
+        C0078a c0078a = new C0078a();
         try {
-            c0086a.pN = jSONObject.getString("track_param_0");
-            if (TextUtils.isEmpty(c0086a.pN)) {
-                c0086a.pN = "";
+            c0078a.pN = jSONObject.getString("track_param_0");
+            if (TextUtils.isEmpty(c0078a.pN)) {
+                c0078a.pN = "";
             } else {
-                c0086a.pN = this.pL + c0086a.pN;
+                c0078a.pN = this.pL + c0078a.pN;
             }
-            c0086a.pO = jSONObject.getString("track_param_1");
-            if (TextUtils.isEmpty(c0086a.pO)) {
-                c0086a.pO = "";
+            c0078a.pO = jSONObject.getString("track_param_1");
+            if (TextUtils.isEmpty(c0078a.pO)) {
+                c0078a.pO = "";
             } else {
-                c0086a.pO = this.pL + c0086a.pO;
+                c0078a.pO = this.pL + c0078a.pO;
             }
-            c0086a.pP = jSONObject.getString("track_param_2");
-            if (TextUtils.isEmpty(c0086a.pP)) {
-                c0086a.pP = "";
+            c0078a.pP = jSONObject.getString("track_param_2");
+            if (TextUtils.isEmpty(c0078a.pP)) {
+                c0078a.pP = "";
             } else {
-                c0086a.pP = this.pL + c0086a.pP;
+                c0078a.pP = this.pL + c0078a.pP;
             }
-            c0086a.pQ = jSONObject.getString("track_param_3");
-            if (TextUtils.isEmpty(c0086a.pQ)) {
-                c0086a.pQ = "";
+            c0078a.pQ = jSONObject.getString("track_param_3");
+            if (TextUtils.isEmpty(c0078a.pQ)) {
+                c0078a.pQ = "";
             } else {
-                c0086a.pQ = this.pL + c0086a.pQ;
+                c0078a.pQ = this.pL + c0078a.pQ;
             }
-            c0086a.pR = jSONObject.getString("trackingSmoothAlpha");
-            c0086a.pS = jSONObject.getString("trackingSmoothThreshold");
-            c0086a.pT = jSONObject.getString("trackingMouthThreshold");
-            return c0086a;
+            c0078a.pR = jSONObject.getString("trackingSmoothAlpha");
+            c0078a.pS = jSONObject.getString("trackingSmoothThreshold");
+            c0078a.pT = jSONObject.getString("trackingMouthThreshold");
+            return c0078a;
         } catch (JSONException e) {
             com.baidu.ar.h.b.b("FaceModelConfig", "parse DeviceModel error");
             e.printStackTrace();

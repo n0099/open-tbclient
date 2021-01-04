@@ -6,11 +6,11 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.t.b.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b implements k {
     @Override // com.baidu.swan.apps.t.b.k
-    public String cM(Context context) {
-        return !ProcessUtils.isMainProcess() ? dR(context) : getZid(context);
+    public String cU(Context context) {
+        return !ProcessUtils.isMainProcess() ? ek(context) : getZid(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +18,7 @@ public class b implements k {
         return TbadkCoreApplication.getInst().getZid(context, null, 0, null);
     }
 
-    private String dR(Context context) {
+    private String ek(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, a.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }

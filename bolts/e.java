@@ -4,19 +4,19 @@ import java.io.Closeable;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ScheduledFuture;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class e implements Closeable {
-    private final List<d> Bq;
-    private ScheduledFuture<?> Br;
-    private boolean Bs;
     private boolean closed;
     private final Object lock;
+    private final List<d> zI;
+    private ScheduledFuture<?> zJ;
+    private boolean zK;
 
-    public boolean ig() {
+    public boolean hy() {
         boolean z;
         synchronized (this.lock) {
-            ih();
-            z = this.Bs;
+            hz();
+            z = this.zK;
         }
         return z;
     }
@@ -25,11 +25,11 @@ public class e implements Closeable {
     public void close() {
         synchronized (this.lock) {
             if (!this.closed) {
-                ii();
-                for (d dVar : this.Bq) {
+                hA();
+                for (d dVar : this.zI) {
                     dVar.close();
                 }
-                this.Bq.clear();
+                this.zI.clear();
                 this.closed = true;
             }
         }
@@ -38,25 +38,25 @@ public class e implements Closeable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(d dVar) {
         synchronized (this.lock) {
-            ih();
-            this.Bq.remove(dVar);
+            hz();
+            this.zI.remove(dVar);
         }
     }
 
     public String toString() {
-        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(ig()));
+        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(hy()));
     }
 
-    private void ih() {
+    private void hz() {
         if (this.closed) {
             throw new IllegalStateException("Object already closed");
         }
     }
 
-    private void ii() {
-        if (this.Br != null) {
-            this.Br.cancel(true);
-            this.Br = null;
+    private void hA() {
+        if (this.zJ != null) {
+            this.zJ.cancel(true);
+            this.zJ = null;
         }
     }
 }

@@ -2,10 +2,10 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.Realtime.DataReq;
 import tbclient.Realtime.RealtimeReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class RealTimeRequest extends NetMessage {
     private String abtest_tag;
     private int location;
@@ -110,7 +110,7 @@ public class RealTimeRequest extends NetMessage {
         builder.ori_ugc_type = this.ori_ugc_type;
         builder.ori_ugc_vid = this.ori_ugc_vid;
         if (z) {
-            u.a(builder, true);
+            t.b(builder, true);
         }
         RealtimeReqIdl.Builder builder2 = new RealtimeReqIdl.Builder();
         builder2.data = builder.build(false);

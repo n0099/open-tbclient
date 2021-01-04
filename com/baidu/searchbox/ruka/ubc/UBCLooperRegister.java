@@ -16,7 +16,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class UBCLooperRegister extends ILooperRegister {
     private static final String KEY_EXT = "ext";
     private static final String TAG = "UBCLooperRegister";
@@ -99,22 +99,22 @@ public class UBCLooperRegister extends ILooperRegister {
                 int size = trackUIs.size() - 1;
                 int i = 1;
                 while (true) {
-                    int i2 = size;
-                    int i3 = i;
-                    TrackUI trackUI = trackUIs.get(i2);
+                    TrackUI trackUI = trackUIs.get(size);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("time", trackUI.getTimeStamp());
                     jSONObject2.put("page", trackUI.toStringPage());
                     jSONObject2.put("event", trackUI.getEvent());
                     jSONArray.put(jSONObject2);
-                    i = i3 + 1;
-                    if (i3 >= 20) {
+                    int i2 = i + 1;
+                    if (i >= 20) {
                         break;
                     }
-                    size = i2 - 1;
-                    if (i2 <= 0) {
+                    int i3 = size - 1;
+                    if (size <= 0) {
                         break;
                     }
+                    i = i2;
+                    size = i3;
                 }
                 jSONObject.put("pageTrace", jSONArray);
             }

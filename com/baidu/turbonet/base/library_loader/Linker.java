@@ -7,29 +7,29 @@ import com.baidu.turbonet.base.a;
 import com.baidu.turbonet.base.annotations.AccessedByNative;
 import java.io.IOException;
 import java.util.Locale;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class Linker {
-    private static Linker oBQ = null;
-    private static Object oBR = new Object();
-    protected int oBO = 0;
+    private static Linker oJu = null;
+    private static Object oJv = new Object();
+    protected int oJs = 0;
     protected final Object mLock = new Object();
-    private String oBP = null;
+    private String oJt = null;
 
     private static native long nativeGetRandomBaseLoadAddress();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class LibInfo implements Parcelable {
         public static final Parcelable.Creator<LibInfo> CREATOR = new Parcelable.Creator<LibInfo>() { // from class: com.baidu.turbonet.base.library_loader.Linker.LibInfo.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: ai */
+            /* renamed from: aj */
             public LibInfo createFromParcel(Parcel parcel) {
                 return new LibInfo(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Od */
+            /* renamed from: NW */
             public LibInfo[] newArray(int i) {
                 return new LibInfo[i];
             }
@@ -74,7 +74,7 @@ public abstract class Linker {
                     fromFd.writeToParcel(parcel, 0);
                     fromFd.close();
                 } catch (IOException e) {
-                    a.g("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
+                    a.e("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
                 }
             }
         }

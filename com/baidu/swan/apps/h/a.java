@@ -6,9 +6,9 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ap.aj;
-import com.baidu.swan.apps.ap.e.b;
-import com.baidu.swan.apps.ap.v;
+import com.baidu.swan.apps.ao.aj;
+import com.baidu.swan.apps.ao.e.b;
+import com.baidu.swan.apps.ao.v;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
@@ -17,7 +17,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/getLaunchAppInfo");
@@ -42,9 +42,9 @@ public class a extends aa {
     private void b(final String str, final CallbackHandler callbackHandler) {
         com.baidu.swan.apps.network.c.b.a.s(new b<Map<String, com.baidu.swan.apps.setting.oauth.e>>() { // from class: com.baidu.swan.apps.h.a.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.ap.e.b
-            /* renamed from: x */
-            public void M(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
+            @Override // com.baidu.swan.apps.ao.e.b
+            /* renamed from: y */
+            public void L(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
                 if (map != null) {
                     a.this.a(str, callbackHandler, map);
                 } else {
@@ -62,21 +62,21 @@ public class a extends aa {
             return;
         }
         boolean z = eVar.forbidden;
-        int aPp = aj.aPp();
-        long aPq = aj.aPq();
-        List<String> list = eVar.dDj;
+        int aRG = aj.aRG();
+        long aRH = aj.aRH();
+        List<String> list = eVar.dLN;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {
             for (String str2 : list) {
                 jSONArray.put(str2);
             }
-            jSONObject.put("launchCount", aPp);
-            jSONObject.put("visitDuration", aPq);
+            jSONObject.put("launchCount", aRG);
+            jSONObject.put("visitDuration", aRH);
             jSONObject.put("forbidden", z);
             jSONObject.put("ext", jSONArray);
             if (DEBUG) {
-                Log.i("GetBehaviorInfoAction", "launchCount:" + aPp + " visitDuration:" + aPq + " forbidden:" + z + " ext:" + jSONArray.toString());
+                Log.i("GetBehaviorInfoAction", "launchCount:" + aRG + " visitDuration:" + aRH + " forbidden:" + z + " ext:" + jSONArray.toString());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {

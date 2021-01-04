@@ -1,38 +1,38 @@
 package com.baidu.tieba.ala.anchortask.viewpager;
 
 import android.content.Context;
-import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class MyPagerAdapter extends PagerAdapter {
     Context context;
-    private ArrayList<View> gCd;
+    private ArrayList<View> gNP;
 
     public MyPagerAdapter(Context context, ArrayList<View> arrayList) {
         this.context = context;
-        this.gCd = arrayList;
+        this.gNP = arrayList;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.gCd.size();
+        return this.gNP.size();
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
         return view == obj;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView(this.gCd.get(i));
-        return this.gCd.get(i);
+        viewGroup.addView(this.gNP.get(i));
+        return this.gNP.get(i);
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.gCd.get(i));
+        viewGroup.removeView(this.gNP.get(i));
     }
 }

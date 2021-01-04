@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.core.g;
 
 import android.content.Context;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public a r(Context context, int i) {
+    public a s(Context context, int i) {
         switch (i) {
             case 0:
                 return new c(context);

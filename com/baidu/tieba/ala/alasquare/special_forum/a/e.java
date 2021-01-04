@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.alasquare.special_forum.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.h;
-/* loaded from: classes6.dex */
-public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.special_forum.data.c, h.a> {
+import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.RecommendActivityView;
+/* loaded from: classes10.dex */
+public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.special_forum.data.c, RecommendActivityView.ViewHolder> {
     private TbPageContext mPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -16,19 +16,19 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
-    public h.a c(ViewGroup viewGroup) {
-        return new h.a(new h(this.mPageContext, viewGroup));
+    /* renamed from: aj */
+    public RecommendActivityView.ViewHolder e(ViewGroup viewGroup) {
+        return new RecommendActivityView.ViewHolder(new RecommendActivityView(this.mPageContext, viewGroup));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.special_forum.data.c cVar, h.a aVar) {
-        if (aVar == null || cVar == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.special_forum.data.c cVar, RecommendActivityView.ViewHolder viewHolder) {
+        if (viewHolder == null || cVar == null) {
             return null;
         }
-        aVar.gzi.a(cVar);
-        return aVar.getView();
+        viewHolder.gKl.a(cVar);
+        return viewHolder.getView();
     }
 }

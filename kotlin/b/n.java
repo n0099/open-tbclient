@@ -1,25 +1,25 @@
 package kotlin.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class n extends m {
-    public static final f en(int i, int i2) {
-        return f.pKT.am(i, i2, -1);
+    public static final f em(int i, int i2) {
+        return f.qmw.ao(i, i2, -1);
     }
 
-    public static final h eo(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? h.pKV.eEm() : new h(i, i2 - 1);
+    public static final h en(int i, int i2) {
+        return i2 <= Integer.MIN_VALUE ? h.qmy.eMu() : new h(i, i2 - 1);
     }
 
-    public static final int ep(int i, int i2) {
+    public static final int eo(int i, int i2) {
         return i < i2 ? i2 : i;
     }
 
-    public static final int eq(int i, int i2) {
+    public static final int ep(int i, int i2) {
         return i > i2 ? i2 : i;
     }
 
-    public static final int an(int i, int i2, int i3) {
+    public static final int ap(int i, int i2, int i3) {
         if (i2 > i3) {
             throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + i3 + " is less than minimum " + i2 + '.');
         }

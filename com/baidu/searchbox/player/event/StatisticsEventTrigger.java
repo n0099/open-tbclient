@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.event;
 
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class StatisticsEventTrigger extends SingleTargetTrigger {
     public static final int KEY_LOOP_COUNT = 1;
 
@@ -27,7 +27,7 @@ public class StatisticsEventTrigger extends SingleTargetTrigger {
             case 701:
                 videoEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_BUFFER_START);
                 break;
-            case CyberPlayerManager.MEDIA_INFO_BUFFERING_END /* 702 */:
+            case 702:
                 videoEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_BUFFER_END);
                 break;
             case CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL /* 904 */:

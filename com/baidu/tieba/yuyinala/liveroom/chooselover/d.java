@@ -16,7 +16,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d extends BaseAdapter {
     private Context mContext;
     private List<AlaWheatInfoData> mList;
@@ -57,48 +57,48 @@ public class d extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(a.g.yuyin_ala_item_choose_love_person, (ViewGroup) null);
             a aVar2 = new a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                aVar2.olP.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
+                aVar2.ooL.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
             } else {
-                aVar2.olP.setDefaultResource(a.e.sdk_icon_default_avatar100);
+                aVar2.ooL.setDefaultResource(a.e.sdk_icon_default_avatar100);
             }
-            aVar2.olP.setIsRound(true);
-            aVar2.olP.setDrawBorder(true);
-            aVar2.olP.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-            aVar2.olP.setAutoChangeStyle(false);
-            aVar2.olP.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            aVar2.ooL.setIsRound(true);
+            aVar2.ooL.setDrawBorder(true);
+            aVar2.ooL.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+            aVar2.ooL.setAutoChangeStyle(false);
+            aVar2.ooL.setScaleType(ImageView.ScaleType.CENTER_CROP);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         AlaWheatInfoData alaWheatInfoData = (AlaWheatInfoData) getItem(i);
-        g(aVar.olR);
-        aVar.olP.setDrawBorder(true);
-        aVar.bAG.setText(alaWheatInfoData.userName);
+        g(aVar.ooN);
+        aVar.ooL.setDrawBorder(true);
+        aVar.bFt.setText(alaWheatInfoData.userName);
         if (!TextUtils.isEmpty(alaWheatInfoData.portrait)) {
-            aVar.olP.startLoad(alaWheatInfoData.portrait, 12, false, false);
+            aVar.ooL.startLoad(alaWheatInfoData.portrait, 12, false, false);
         }
         if (alaWheatInfoData.sex == 2) {
-            aVar.olQ.setBackgroundResource(a.e.shape_yuin_choose_love_person_woman);
+            aVar.ooM.setBackgroundResource(a.e.shape_yuin_choose_love_person_woman);
         } else {
-            aVar.olQ.setBackgroundResource(a.e.shape_yuin_choose_love_person_man);
+            aVar.ooM.setBackgroundResource(a.e.shape_yuin_choose_love_person_man);
         }
-        aVar.olQ.setText(alaWheatInfoData.realWheatPosition + "");
+        aVar.ooM.setText(alaWheatInfoData.realWheatPosition + "");
         if (alaWheatInfoData.isSelect) {
-            aVar.olP.setBackgroundResource(a.e.shape_yuin_choose_love_person_select);
+            aVar.ooL.setBackgroundResource(a.e.shape_yuin_choose_love_person_select);
         } else {
-            aVar.olP.setBackgroundResource(a.e.shape_yuin_choose_love_person_unselect);
+            aVar.ooL.setBackgroundResource(a.e.shape_yuin_choose_love_person_unselect);
         }
         return view;
     }
 
-    public void eg(View view) {
+    public void eq(View view) {
         if (view != null && view.findViewById(a.f.iv_head) != null) {
             view.findViewById(a.f.iv_head).setBackgroundResource(a.e.shape_yuin_choose_love_person_unselect);
         }
     }
 
-    public void eh(View view) {
+    public void er(View view) {
         if (view != null && view.findViewById(a.f.iv_head) != null) {
             view.findViewById(a.f.iv_head).setBackgroundResource(a.e.shape_yuin_choose_love_person_select);
         }
@@ -111,20 +111,20 @@ public class d extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        public TextView bAG;
-        public HeadImageView olP;
-        public TextView olQ;
-        public LinearLayout olR;
+        public TextView bFt;
+        public HeadImageView ooL;
+        public TextView ooM;
+        public LinearLayout ooN;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.olP = (HeadImageView) view.findViewById(a.f.iv_head);
-            this.bAG = (TextView) view.findViewById(a.f.tv_name);
-            this.olQ = (TextView) view.findViewById(a.f.tv_sex);
-            this.olR = (LinearLayout) view.findViewById(a.f.ll_bg);
+            this.ooL = (HeadImageView) view.findViewById(a.f.iv_head);
+            this.bFt = (TextView) view.findViewById(a.f.tv_name);
+            this.ooM = (TextView) view.findViewById(a.f.tv_sex);
+            this.ooN = (LinearLayout) view.findViewById(a.f.ll_bg);
         }
     }
 }

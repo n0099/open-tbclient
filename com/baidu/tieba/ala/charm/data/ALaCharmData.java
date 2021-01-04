@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ALaCharmData extends BaseData implements Serializable {
     private static final long serialVersionUID = -2170940113039348861L;
     public String anchor_live;
@@ -16,6 +16,7 @@ public class ALaCharmData extends BaseData implements Serializable {
     public String description;
     public int disableClick;
     public String enter_live;
+    public JSONObject extInfoJson;
     public int fans_count;
     public int follow_count;
     public int follow_status;
@@ -85,6 +86,7 @@ public class ALaCharmData extends BaseData implements Serializable {
                 this.forwardDiff = jSONObject.optLong("forward_diff");
                 this.isPrivacy = jSONObject.optInt("is_privacy");
                 this.disableClick = jSONObject.optInt("disable_click");
+                this.extInfoJson = jSONObject.optJSONObject("ext_info");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

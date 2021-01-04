@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes.sampleentry;
 
-import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -9,7 +8,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MpegSampleEntry extends AbstractSampleEntry {
     public MpegSampleEntry() {
         super("mp4s");
@@ -46,6 +45,6 @@ public class MpegSampleEntry extends AbstractSampleEntry {
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || containerSize + 8 >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) ? 16 : 8) + containerSize + 8;
+        return ((this.largeBox || containerSize + 8 >= 4294967296L) ? 16 : 8) + containerSize + 8;
     }
 }

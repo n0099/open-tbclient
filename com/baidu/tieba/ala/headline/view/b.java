@@ -11,34 +11,34 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends BaseAdapter {
-    private int gVs;
+    private int hhf;
     private Context mContext;
-    private ArrayList<g> eOt = new ArrayList<>();
-    private double gVt = -1.0d;
+    private ArrayList<g> eYq = new ArrayList<>();
+    private double hhg = -1.0d;
 
     public b(Context context) {
         this.mContext = context;
     }
 
     public void a(List<g> list, double d) {
-        if (list != null && this.gVt != d) {
-            this.eOt.clear();
-            this.eOt.addAll(list);
+        if (list != null && this.hhg != d) {
+            this.eYq.clear();
+            this.eYq.addAll(list);
             notifyDataSetChanged();
-            this.gVt = d;
+            this.hhg = d;
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.eOt.size();
+        return this.eYq.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.eOt.get(i);
+        return this.eYq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,13 +59,13 @@ public class b extends BaseAdapter {
         }
         g gVar = (g) getItem(i);
         if (gVar != null) {
-            aVar.gVu.setText(gVar.GY() + " x" + gVar.Ha());
-            aVar.gVv.setText(com.baidu.tieba.ala.headline.a.fm(Long.parseLong(gVar.Ha()) * Long.parseLong(gVar.getPrice())));
-            if (!gVar.getThumbnail_url().equals(aVar.giB.getUrl())) {
-                aVar.giB.startLoad(gVar.getThumbnail_url(), 10, false);
-                aVar.giB.setTag(gVar.getThumbnail_url());
+            aVar.hhh.setText(gVar.Gy() + " x" + gVar.GB());
+            aVar.hhi.setText(com.baidu.tieba.ala.headline.a.fm(Long.parseLong(gVar.GB()) * Long.parseLong(gVar.getPrice())));
+            if (!gVar.getThumbnail_url().equals(aVar.gsY.getUrl())) {
+                aVar.gsY.startLoad(gVar.getThumbnail_url(), 10, false);
+                aVar.gsY.setTag(gVar.getThumbnail_url());
             }
-            if (this.gVs == i) {
+            if (this.hhf == i) {
                 aVar.rootView.setBackgroundResource(a.e.sdk_get_headline_item_bg_stroke);
             } else {
                 aVar.rootView.setBackgroundResource(0);
@@ -74,31 +74,31 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    public int bXy() {
-        return this.gVs;
+    public int cad() {
+        return this.hhf;
     }
 
-    public void vT(int i) {
-        this.gVs = i;
+    public void we(int i) {
+        this.hhf = i;
     }
 
-    public void bXz() {
-        this.gVt = -1.0d;
+    public void cae() {
+        this.hhg = -1.0d;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        public TextView gVu;
-        public TextView gVv;
-        public TbImageView giB;
+        public TbImageView gsY;
+        public TextView hhh;
+        public TextView hhi;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.gVu = (TextView) view.findViewById(a.f.get_view_gift_item_info);
-            this.gVv = (TextView) view.findViewById(a.f.get_view_gift_item_cost);
-            this.giB = (TbImageView) view.findViewById(a.f.get_view_gift_item_image);
-            this.giB.setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.hhh = (TextView) view.findViewById(a.f.get_view_gift_item_info);
+            this.hhi = (TextView) view.findViewById(a.f.get_view_gift_item_cost);
+            this.gsY = (TbImageView) view.findViewById(a.f.get_view_gift_item_image);
+            this.gsY.setDefaultBgResource(a.e.sdk_shape_transparent);
         }
     }
 }

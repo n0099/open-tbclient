@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public abstract class LimitedDiscCache extends BaseDiscCache {
     private static final int INVALID_SIZE = -1;
     private final AtomicInteger cacheSize;
@@ -35,12 +35,17 @@ public abstract class LimitedDiscCache extends BaseDiscCache {
             public void run() {
                 File[] listFiles = LimitedDiscCache.this.cacheDir.listFiles();
                 if (listFiles != null) {
+                    int length = listFiles.length;
                     int i = 0;
-                    for (File file : listFiles) {
-                        i += LimitedDiscCache.this.getSize(file);
+                    int i2 = 0;
+                    while (i < length) {
+                        File file = listFiles[i];
+                        int size = LimitedDiscCache.this.getSize(file) + i2;
                         LimitedDiscCache.this.lastUsageDates.put(file, Long.valueOf(file.lastModified()));
+                        i++;
+                        i2 = size;
                     }
-                    LimitedDiscCache.this.cacheSize.set(i);
+                    LimitedDiscCache.this.cacheSize.set(i2);
                 }
             }
         }).start();
@@ -78,45 +83,38 @@ public abstract class LimitedDiscCache extends BaseDiscCache {
 
     private int removeNext() {
         File file;
-        Long l;
-        File file2 = null;
         if (this.lastUsageDates.isEmpty()) {
             return -1;
         }
         Set<Map.Entry<File, Long>> entrySet = this.lastUsageDates.entrySet();
         synchronized (this.lastUsageDates) {
-            Long l2 = null;
+            file = null;
+            Long l = null;
             for (Map.Entry<File, Long> entry : entrySet) {
-                if (file2 == null) {
+                if (file == null) {
                     file = entry.getKey();
                     l = entry.getValue();
                 } else {
                     Long value = entry.getValue();
-                    if (value.longValue() < l2.longValue()) {
-                        File key = entry.getKey();
+                    if (value.longValue() < l.longValue()) {
+                        file = entry.getKey();
                         l = value;
-                        file = key;
-                    } else {
-                        file = file2;
-                        l = l2;
                     }
                 }
-                file2 = file;
-                l2 = l;
             }
         }
-        if (file2 == null) {
+        if (file == null) {
             return 0;
         }
-        if (file2.exists()) {
-            int size = getSize(file2);
-            if (file2.delete()) {
-                this.lastUsageDates.remove(file2);
+        if (file.exists()) {
+            int size = getSize(file);
+            if (file.delete()) {
+                this.lastUsageDates.remove(file);
                 return size;
             }
             return size;
         }
-        this.lastUsageDates.remove(file2);
+        this.lastUsageDates.remove(file);
         return 0;
     }
 }

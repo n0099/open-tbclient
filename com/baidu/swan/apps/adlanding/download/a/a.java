@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.adlanding.download.a;
 
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface a {
     void a(SwanAdDownloadState swanAdDownloadState, int i);
 
-    void alD();
+    void amN();
 
-    String alE();
+    String amO();
 
     void b(SwanAdDownloadState swanAdDownloadState, int i);
 
-    void eI(boolean z);
+    void eR(boolean z);
 
-    void lc(String str);
+    void kV(String str);
 }

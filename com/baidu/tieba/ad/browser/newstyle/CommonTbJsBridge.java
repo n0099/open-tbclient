@@ -17,7 +17,7 @@ import com.baidu.tbadk.xiuba.JSResultData;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     private static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     private static final String INTERFACE_NAME = "CommonJSBridge";

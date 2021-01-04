@@ -12,7 +12,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.ah;
+import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.personPolymeric.c.i;
 import com.baidu.tieba.personPolymeric.c.j;
@@ -38,7 +38,7 @@ import java.util.Random;
 import tbclient.Abstract;
 import tbclient.BaijiahaoInfo;
 import tbclient.User;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
     public int hide_post;
@@ -52,8 +52,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     private ResponsedMessage<?> mResponsedMessage;
     private HttpMessageListener pageHttpListener;
     private c pageSocketListener;
-    public final ArrayList<q> postList;
-    public final ArrayList<q> threadList;
+    public final ArrayList<n> postList;
+    public final ArrayList<n> threadList;
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
@@ -61,12 +61,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     private static int mRecommentPn = 1;
     private static String mLastThreadUid = "";
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void b(PersonPostModel personPostModel, boolean z);
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(PersonPostModel personPostModel, boolean z);
     }
@@ -247,7 +247,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         int i2 = 1;
-        if (av.btX().btY()) {
+        if (au.bwr().bws()) {
             i2 = 2;
         }
         userPostPageRequestMessage.set_scr_w(equipmentWidth);
@@ -274,7 +274,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             } else {
                 z = true;
             }
-            if (y.isEmpty(dataRes.post_list) && z) {
+            if (x.isEmpty(dataRes.post_list) && z) {
                 this.mCardNullPolymericData = new i();
                 this.postList.add(this.mCardNullPolymericData);
                 return;
@@ -292,7 +292,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.inO != 33) {
+                if (cardPersonDynamicThreadData.iAi != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -341,8 +341,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.mOnResult = bVar;
     }
 
-    /* loaded from: classes24.dex */
-    public static class PostInfoList extends OrmObject implements q, ah, Serializable {
+    /* loaded from: classes8.dex */
+    public static class PostInfoList extends OrmObject implements n, ag, Serializable {
         public static final BdUniqueId POST_INFO = BdUniqueId.gen();
         public boolean isDeal;
         public boolean isShareThread;
@@ -438,7 +438,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.ah
+        @Override // com.baidu.tbadk.core.util.ag
         public ArrayList<PreLoadImageInfo> getImages() {
             Media[] mediaArr;
             ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
@@ -453,13 +453,13 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return arrayList;
         }
 
-        @Override // com.baidu.adp.widget.ListView.q
+        @Override // com.baidu.adp.widget.ListView.n
         public BdUniqueId getType() {
             return POST_INFO;
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public static class ZhiBoInfoTW extends OrmObject implements Serializable {
         public int post_num = 0;
         public String title = "";
@@ -521,61 +521,57 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             while (i < length && i < 3) {
                 if (labelInfoArr[i] != null) {
                     int random = getRandom(3, -1);
-                    if (random == i2 || random == i3) {
-                        random = getNextShowViewIndex(length, i2, i3);
+                    if (random == i3 || random == i2) {
+                        random = getNextShowViewIndex(length, i3, i2);
                     }
                     if (i == 0) {
-                        i2 = random;
+                        i3 = random;
                     }
                     if (i == 1) {
-                        i3 = random;
+                        i2 = random;
                     }
                     arrayList.add(Integer.valueOf(random));
                 }
                 i++;
-                i2 = i2;
+                i3 = i3;
             }
         }
     }
 
-    public static ArrayList<q> mergeDynamicThreadByTime(ArrayList<q> arrayList) {
+    public static ArrayList<n> mergeDynamicThreadByTime(ArrayList<n> arrayList) {
         String str;
         String str2;
-        String str3;
-        String yearBytime = au.getYearBytime(System.currentTimeMillis());
+        String yearBytime = at.getYearBytime(System.currentTimeMillis());
+        String str3 = "";
         String str4 = "";
-        String str5 = "";
-        Iterator<q> it = arrayList.iterator();
+        Iterator<n> it = arrayList.iterator();
         while (it.hasNext()) {
-            q next = it.next();
+            n next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).iob = true;
-                ((CardPersonDynamicThreadData) next).ioa = true;
-                long j = ((CardPersonDynamicThreadData) next).inM * 1000;
-                String yearBytime2 = au.getYearBytime(j);
-                String chineseMonthBytime = au.getChineseMonthBytime(j);
-                String dateBytime = au.getDateBytime(j);
-                if (au.equals(yearBytime2, yearBytime)) {
-                    ((CardPersonDynamicThreadData) next).iob = false;
+                ((CardPersonDynamicThreadData) next).iAv = true;
+                ((CardPersonDynamicThreadData) next).iAu = true;
+                long j = ((CardPersonDynamicThreadData) next).iAg * 1000;
+                String yearBytime2 = at.getYearBytime(j);
+                String chineseMonthBytime = at.getChineseMonthBytime(j);
+                String dateBytime = at.getDateBytime(j);
+                if (at.equals(yearBytime2, yearBytime)) {
+                    ((CardPersonDynamicThreadData) next).iAv = false;
                 }
-                if (au.equals(dateBytime, str5) && au.equals(chineseMonthBytime, str4) && au.equals(yearBytime2, yearBytime)) {
-                    ((CardPersonDynamicThreadData) next).ioa = false;
-                    str = str5;
-                    str2 = str4;
-                    str3 = yearBytime;
+                if (at.equals(dateBytime, str4) && at.equals(chineseMonthBytime, str3) && at.equals(yearBytime2, yearBytime)) {
+                    ((CardPersonDynamicThreadData) next).iAu = false;
+                    str = str4;
+                    str2 = str3;
                 } else {
                     str = dateBytime;
                     str2 = chineseMonthBytime;
-                    str3 = yearBytime2;
+                    yearBytime = yearBytime2;
                 }
             } else {
-                str = str5;
-                str2 = str4;
-                str3 = yearBytime;
+                str = str4;
+                str2 = str3;
             }
-            str4 = str2;
-            yearBytime = str3;
-            str5 = str;
+            str4 = str;
+            str3 = str2;
         }
         return arrayList;
     }
@@ -589,7 +585,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         return -1;
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public static class Zan extends OrmObject implements Serializable {
         public int num = 0;
 
@@ -600,7 +596,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public static class UserInfo extends OrmObject implements Serializable {
         public String portrait = "";
         public String name_show = "";
@@ -615,7 +611,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public static class LabelInfo extends OrmObject implements Serializable {
         public int labelHot = 0;
         public String labelName = "";
@@ -630,7 +626,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public static class PostInfoContent extends OrmObject implements Serializable {
         public Abs[] post_content = new Abs[0];
         public long create_time = 0;
@@ -661,7 +657,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public static class Abs extends OrmObject implements Serializable {
         public int type = 0;
         public String text = "";
@@ -680,7 +676,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public static class Quote extends OrmObject implements Serializable {
         public long post_id = 0;
         public String user_name = "";
@@ -699,7 +695,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public static class Media extends OrmObject implements Serializable {
         public int type = 0;
         public String small_pic = "";
@@ -716,7 +712,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public static class AnchorInfo extends OrmObject implements Serializable {
         public String portrait = "";
         public String name = "";
@@ -751,7 +747,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public static class LbsInfo implements Serializable {
         public String lat = "";
         public String lon = "";

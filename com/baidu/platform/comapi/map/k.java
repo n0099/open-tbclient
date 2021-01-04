@@ -6,20 +6,20 @@ import com.baidu.platform.comjni.map.basemap.AppBaseMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class k implements Projection {
 
     /* renamed from: a  reason: collision with root package name */
-    private MapController f2925a;
+    private MapController f4350a;
 
     public k(MapController mapController) {
-        this.f2925a = null;
-        this.f2925a = mapController;
+        this.f4350a = null;
+        this.f4350a = mapController;
     }
 
     @Override // com.baidu.platform.comapi.map.Projection
     public GeoPoint fromPixels(int i, int i2) {
-        AppBaseMap baseMap = this.f2925a.getBaseMap();
+        AppBaseMap baseMap = this.f4350a.getBaseMap();
         if (baseMap == null) {
             return null;
         }
@@ -40,7 +40,7 @@ public class k implements Projection {
 
     @Override // com.baidu.platform.comapi.map.Projection
     public float metersToEquatorPixels(float f) {
-        return (float) (f / this.f2925a.getZoomUnitsInMeter());
+        return (float) (f / this.f4350a.getZoomUnitsInMeter());
     }
 
     @Override // com.baidu.platform.comapi.map.Projection
@@ -49,7 +49,7 @@ public class k implements Projection {
         if (point == null) {
             point = new Point(0, 0);
         }
-        AppBaseMap baseMap = this.f2925a.getBaseMap();
+        AppBaseMap baseMap = this.f4350a.getBaseMap();
         if (baseMap != null && (GeoPtToScrPoint = baseMap.GeoPtToScrPoint((int) geoPoint.getLongitude(), (int) geoPoint.getLatitude())) != null) {
             try {
                 JSONObject jSONObject = new JSONObject(GeoPtToScrPoint);
@@ -64,7 +64,7 @@ public class k implements Projection {
     @Override // com.baidu.platform.comapi.map.Projection
     public Point world2Screen(float f, float f2, float f3) {
         Point point = new Point(0, 0);
-        AppBaseMap baseMap = this.f2925a.getBaseMap();
+        AppBaseMap baseMap = this.f4350a.getBaseMap();
         if (baseMap == null) {
             return point;
         }

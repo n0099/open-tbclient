@@ -4,18 +4,18 @@ import android.util.Log;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b ePZ = new a();
-    private static final b eQa = new c();
-    private static final boolean eQb;
+    private static final b eZY = new a();
+    private static final b eZZ = new c();
+    private static final boolean faa;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface b {
-        void aj(String str, String str2, String str3);
+        void am(String str, String str2, String str3);
     }
 
     /* loaded from: classes.dex */
@@ -24,7 +24,7 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void aj(String str, String str2, String str3) {
+        public void am(String str, String str2, String str3) {
             if (str2 != null) {
                 str3 = "code:" + str2 + " message:" + str3;
             }
@@ -38,35 +38,35 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void aj(String str, String str2, String str3) {
-            ar arVar = new ar("c10729");
-            arVar.dY("obj_param1", str);
-            arVar.dY(TiebaInitialize.Params.OBJ_PARAM2, str2);
-            arVar.dY(TiebaInitialize.Params.OBJ_PARAM3, str3);
+        public void am(String str, String str2, String str3) {
+            aq aqVar = new aq("c10729");
+            aqVar.dX("obj_param1", str);
+            aqVar.dX(TiebaInitialize.Params.OBJ_PARAM2, str2);
+            aqVar.dX(TiebaInitialize.Params.OBJ_PARAM3, str3);
             if (BdBaseApplication.getInst() != null) {
-                TiebaStatic.log(arVar);
+                TiebaStatic.log(aqVar);
             }
         }
     }
 
-    public static void aj(String str, String str2, String str3) {
-        if (eQb) {
-            ePZ.aj(str, str2, str3);
+    public static void am(String str, String str2, String str3) {
+        if (faa) {
+            eZY.am(str, str2, str3);
         }
-        eQa.aj(str, str2, str3);
+        eZZ.am(str, str2, str3);
     }
 
     public static void debug(String str) {
-        if (eQb) {
-            ePZ.aj(null, null, str);
+        if (faa) {
+            eZY.am(null, null, str);
         }
     }
 
-    public static void ak(String str, String str2, String str3) {
+    public static void an(String str, String str2, String str3) {
         debug(str3);
     }
 
     static {
-        eQb = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        faa = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

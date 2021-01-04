@@ -7,6 +7,7 @@ import android.os.Process;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import com.baidu.webkit.sdk.CookieSyncManager;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
@@ -14,77 +15,77 @@ import com.baidu.webkit.sdk.WebView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.Executors;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cUf;
+    private static volatile b cZb;
     private Context mContext;
-    private volatile boolean cUg = false;
-    private boolean cUh = false;
-    private boolean cUi = false;
-    private final Object cUj = new Object();
-    private final Object cUk = new Object();
+    private volatile boolean cZc = false;
+    private boolean cZd = false;
+    private boolean cZe = false;
+    private final Object cZf = new Object();
+    private final Object cZg = new Object();
     private ArrayList<a> mListeners = new ArrayList<>();
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void aiM();
+        void ajU();
     }
 
     private b(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    public static synchronized b cE(Context context) {
+    public static synchronized b cM(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (cUf == null) {
-                cUf = new b(context);
+            if (cZb == null) {
+                cZb = new b(context);
             }
-            bVar = cUf;
+            bVar = cZb;
         }
         return bVar;
     }
 
     public void onTerminate() {
-        if (atN()) {
+        if (ave()) {
             BdSailor.getInstance().destroy();
         }
     }
 
-    public void fm(boolean z) {
+    public void fv(boolean z) {
         n(false, z);
     }
 
-    public void atM() {
+    public void avd() {
         n(true, ProcessUtils.checkIsMainProcess(ProcessUtils.getCurProcessName()));
     }
 
     private void n(boolean z, final boolean z2) {
-        if (!this.cUg) {
-            synchronized (this.cUj) {
-                if (!this.cUh) {
+        if (!this.cZc) {
+            synchronized (this.cZf) {
+                if (!this.cZd) {
                     Executors.newSingleThreadExecutor().execute(new Runnable() { // from class: com.baidu.swan.apps.core.k.b.1
                         @Override // java.lang.Runnable
                         public void run() {
                             Process.setThreadPriority(10);
-                            b.this.fn(z2);
-                            b.this.cUg = true;
-                            synchronized (b.this.cUk) {
-                                b.this.cUi = true;
-                                b.this.cUk.notifyAll();
-                                b.this.atO();
+                            b.this.fw(z2);
+                            b.this.cZc = true;
+                            synchronized (b.this.cZg) {
+                                b.this.cZe = true;
+                                b.this.cZg.notifyAll();
+                                b.this.avf();
                             }
                         }
                     });
-                    this.cUh = true;
+                    this.cZd = true;
                 }
             }
             if (z) {
-                synchronized (this.cUk) {
-                    while (!this.cUi) {
+                synchronized (this.cZg) {
+                    while (!this.cZe) {
                         try {
-                            this.cUk.wait(1000L);
+                            this.cZg.wait(1000L);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -95,7 +96,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fn(boolean z) {
+    public void fw(boolean z) {
         WebKitFactory.setNeedDownloadCloudResource(false);
         WebKitFactory.setProcessType("1");
         WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
@@ -109,7 +110,7 @@ public final class b {
                 }
             });
         }
-        BdSailor.getInstance().initWebkit("swan", false);
+        BdSailor.getInstance().initWebkit(GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME, false);
         BdSailor.getInstance().setWebkitEnable(true);
         BdSailor.getInstance().getSailorSettings().setJavaScriptEnabledOnFileScheme(true);
         if (BdZeusUtil.isWebkitLoaded()) {
@@ -123,26 +124,26 @@ public final class b {
         BdSailor.initCookieSyncManager(this.mContext);
     }
 
-    public boolean atN() {
-        return this.cUg;
+    public boolean ave() {
+        return this.cZc;
     }
 
     public void a(a aVar) {
-        synchronized (this.cUk) {
+        synchronized (this.cZg) {
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "addBlinkInitListener.");
             }
             if (!this.mListeners.contains(aVar)) {
                 this.mListeners.add(aVar);
             }
-            if (this.cUi) {
-                atO();
+            if (this.cZe) {
+                avf();
             }
         }
     }
 
     public void b(a aVar) {
-        synchronized (this.cUk) {
+        synchronized (this.cZg) {
             boolean remove = this.mListeners.remove(aVar);
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "delBlinkInitListener. listener: " + aVar + " ,isRemoved: " + remove);
@@ -150,14 +151,14 @@ public final class b {
         }
     }
 
-    public void atO() {
-        synchronized (this.cUk) {
+    public void avf() {
+        synchronized (this.cZg) {
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
             }
             Iterator<a> it = this.mListeners.iterator();
             while (it.hasNext()) {
-                it.next().aiM();
+                it.next().ajU();
             }
             this.mListeners.clear();
         }

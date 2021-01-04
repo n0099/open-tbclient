@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.shield.request;
 
 import android.content.Context;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
@@ -19,11 +18,12 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.sapi2.SapiContext;
+import com.kwad.sdk.core.config.item.TipsConfigItem;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMForbidRequest extends IMSettingBaseHttpRequest {
     private static final String TAG = "IMForbidRequest";
     private List<ChatMsg> chatMsgs;
@@ -86,10 +86,10 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str3);
             i2 = jSONObject.optInt("error_code");
-            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            str = jSONObject.optString("error_msg");
             z = jSONObject.optBoolean("display_toast", false);
             if (z) {
-                str4 = jSONObject.optString("toast", "");
+                str4 = jSONObject.optString(TipsConfigItem.TipConfigData.TOAST, "");
             }
             str2 = str4;
         } catch (JSONException e) {

@@ -2,7 +2,7 @@ package com.baidu.e.c;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class i {
     public static String getEncodeValue(String str) {
         try {

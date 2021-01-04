@@ -1,5 +1,5 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class PutObjectResponse {
     private Long crc32;
     private String eTag;

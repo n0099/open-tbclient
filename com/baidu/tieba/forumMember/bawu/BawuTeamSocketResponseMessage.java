@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.GetBawuInfoResIdl;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
     private String cacheKey;
     private boolean isNeedUpdateCache;
@@ -46,7 +46,7 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
             if (bawuTeamRequestMessage != null) {
                 this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
             }
-            new d().l(this.cacheKey, bArr);
+            new d().m(this.cacheKey, bArr);
         }
     }
 

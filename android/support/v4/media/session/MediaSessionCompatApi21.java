@@ -14,19 +14,21 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.ResultReceiver;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
+import androidx.annotation.RequiresApi;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(21)
-/* loaded from: classes19.dex */
-class MediaSessionCompatApi21 {
+/* loaded from: classes3.dex */
+public class MediaSessionCompatApi21 {
     static final String TAG = "MediaSessionCompatApi21";
 
-    /* loaded from: classes19.dex */
-    interface Callback {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes3.dex */
+    public interface Callback {
         void onCommand(String str, Bundle bundle, ResultReceiver resultReceiver);
 
         void onCustomAction(String str, Bundle bundle);
@@ -58,9 +60,6 @@ class MediaSessionCompatApi21 {
         void onSkipToQueueItem(long j);
 
         void onStop();
-    }
-
-    MediaSessionCompatApi21() {
     }
 
     public static Object createSession(Context context, String str) {
@@ -173,8 +172,9 @@ class MediaSessionCompatApi21 {
         return false;
     }
 
-    /* loaded from: classes19.dex */
-    static class CallbackProxy<T extends Callback> extends MediaSession.Callback {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes3.dex */
+    public static class CallbackProxy<T extends Callback> extends MediaSession.Callback {
         protected final T mCallback;
 
         public CallbackProxy(T t) {
@@ -183,6 +183,7 @@ class MediaSessionCompatApi21 {
 
         @Override // android.media.session.MediaSession.Callback
         public void onCommand(String str, Bundle bundle, ResultReceiver resultReceiver) {
+            MediaSessionCompat.ensureClassLoader(bundle);
             this.mCallback.onCommand(str, bundle, resultReceiver);
         }
 
@@ -198,11 +199,13 @@ class MediaSessionCompatApi21 {
 
         @Override // android.media.session.MediaSession.Callback
         public void onPlayFromMediaId(String str, Bundle bundle) {
+            MediaSessionCompat.ensureClassLoader(bundle);
             this.mCallback.onPlayFromMediaId(str, bundle);
         }
 
         @Override // android.media.session.MediaSession.Callback
         public void onPlayFromSearch(String str, Bundle bundle) {
+            MediaSessionCompat.ensureClassLoader(bundle);
             this.mCallback.onPlayFromSearch(str, bundle);
         }
 
@@ -253,15 +256,14 @@ class MediaSessionCompatApi21 {
 
         @Override // android.media.session.MediaSession.Callback
         public void onCustomAction(String str, Bundle bundle) {
+            MediaSessionCompat.ensureClassLoader(bundle);
             this.mCallback.onCustomAction(str, bundle);
         }
     }
 
-    /* loaded from: classes19.dex */
-    static class QueueItem {
-        QueueItem() {
-        }
-
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes3.dex */
+    public static class QueueItem {
         public static Object createItem(Object obj, long j) {
             return new MediaSession.QueueItem((MediaDescription) obj, j);
         }
@@ -273,5 +275,11 @@ class MediaSessionCompatApi21 {
         public static long getQueueId(Object obj) {
             return ((MediaSession.QueueItem) obj).getQueueId();
         }
+
+        private QueueItem() {
+        }
+    }
+
+    private MediaSessionCompatApi21() {
     }
 }

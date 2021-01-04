@@ -2,41 +2,41 @@ package com.baidu.tieba.newdetail.a;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.x;
 import java.util.Iterator;
 import tbclient.ThreadInfo;
-/* loaded from: classes21.dex */
-public class b implements q {
+/* loaded from: classes8.dex */
+public class b implements n {
     public String cover;
     public String desc;
-    public by eCR;
-    public boolean iOe;
-    public int inP;
+    public bz eMv;
+    public int iAj;
+    public boolean jap;
     public int likeNum;
     public int time;
 
     public b(ThreadInfo threadInfo, boolean z) {
         c(threadInfo);
-        this.iOe = z;
+        this.jap = z;
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return a.lqg;
+        return a.lvo;
     }
 
     private void c(ThreadInfo threadInfo) {
         if (threadInfo != null) {
-            this.eCR = new by();
-            this.eCR.a(threadInfo);
+            this.eMv = new bz();
+            this.eMv.a(threadInfo);
             this.desc = threadInfo.title;
-            this.inP = threadInfo.reply_num.intValue();
+            this.iAj = threadInfo.reply_num.intValue();
             this.likeNum = threadInfo.agree_num.intValue();
-            if (!y.isEmpty(this.eCR.boY())) {
-                Iterator<MediaData> it = this.eCR.boY().iterator();
+            if (!x.isEmpty(this.eMv.brz())) {
+                Iterator<MediaData> it = this.eMv.brz().iterator();
                 while (it.hasNext()) {
                     MediaData next = it.next();
                     if (next != null && next.getType() == 3) {

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 final class ImmutableList<T> extends AbstractList<T> implements Serializable, RandomAccess {
     private final ArrayList<T> list;
 

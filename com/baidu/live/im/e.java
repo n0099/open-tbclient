@@ -21,7 +21,7 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.im.view.ALAImEnterView;
 import com.baidu.live.im.view.ALAImMsgListView;
 import com.baidu.live.pendantview.PendantChildView;
@@ -38,34 +38,34 @@ import com.baidu.live.view.ALALevelView;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e implements com.baidu.live.liveroom.d.d {
-    private static final BdUniqueId blb = BdUniqueId.gen();
-    private w aFN;
-    private LinearLayout blc;
-    private ALAImMsgListView bld;
-    private ALAImEnterView ble;
-    private com.baidu.live.ah.b blf;
-    private com.baidu.live.liveroom.b.a blg;
-    private View blh;
-    private HeadImageView bli;
-    private TextView blj;
-    private ImageView blk;
-    private ALALevelView bll;
-    private TextView blm;
-    private TextView bln;
-    private TextView blo;
-    private View blp;
-    private Drawable blq;
-    private boolean blr;
-    private int bls;
-    private boolean blu;
+    private static final BdUniqueId bmH = BdUniqueId.gen();
+    private x aGe;
+    private LinearLayout bmI;
+    private ALAImMsgListView bmJ;
+    private ALAImEnterView bmK;
+    private com.baidu.live.ai.b bmL;
+    private com.baidu.live.liveroom.b.a bmM;
+    private View bmN;
+    private HeadImageView bmO;
+    private TextView bmP;
+    private ImageView bmQ;
+    private ALALevelView bmR;
+    private TextView bmS;
+    private TextView bmT;
+    private TextView bmU;
+    private View bmV;
+    private Drawable bmW;
+    private boolean bmX;
+    private int bmY;
+    private boolean bna;
     private Context mContext;
     private RelativeLayout mRootView;
     private long mUserId = -1;
-    private boolean blt = false;
+    private boolean bmZ = false;
     private Handler mHandler = new Handler();
-    private CustomMessageListener blv = new CustomMessageListener(2913038) { // from class: com.baidu.live.im.e.1
+    private CustomMessageListener bnb = new CustomMessageListener(2913038) { // from class: com.baidu.live.im.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -74,27 +74,27 @@ public class e implements com.baidu.live.liveroom.d.d {
             }
         }
     };
-    private CustomMessageListener blw = new CustomMessageListener(2913037) { // from class: com.baidu.live.im.e.2
+    private CustomMessageListener bnc = new CustomMessageListener(2913037) { // from class: com.baidu.live.im.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.im.data.b)) {
                 com.baidu.live.im.data.b bVar = (com.baidu.live.im.data.b) customResponsedMessage.getData();
-                if (bVar != null && (bVar.NU() instanceof com.baidu.live.data.a)) {
-                    bVar.NU().aIC = -1;
+                if (bVar != null && (bVar.Nw() instanceof com.baidu.live.data.a)) {
+                    bVar.Nw().aIY = -1;
                 }
                 e.this.t(bVar);
             }
         }
     };
-    private CustomMessageListener blx = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.live.im.e.3
+    private CustomMessageListener aWQ = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.live.im.e.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && updateAttentionMessage.getData().toUid.equals(String.valueOf(e.this.aFN.aJV.userId)) && updateAttentionMessage.getOrginalMessage() != null && updateAttentionMessage.getOrginalMessage().getTag() != null) {
-                    boolean equals = updateAttentionMessage.getOrginalMessage().getTag().equals(e.blb);
+                if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && updateAttentionMessage.getData().toUid.equals(String.valueOf(e.this.aGe.aKu.userId)) && updateAttentionMessage.getOrginalMessage() != null && updateAttentionMessage.getOrginalMessage().getTag() != null) {
+                    boolean equals = updateAttentionMessage.getOrginalMessage().getTag().equals(e.bmH);
                     if (updateAttentionMessage.getData().isSucc) {
                         boolean z = updateAttentionMessage.getData().isAttention;
                         if (!equals) {
@@ -105,24 +105,24 @@ public class e implements com.baidu.live.liveroom.d.d {
                             ((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext)).showToast(a.h.sdk_unfollow_success_toast);
                             return;
                         } else {
-                            com.baidu.live.view.a.Yo().a((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext), true);
+                            com.baidu.live.view.a.Zx().a((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext), true);
                             return;
                         }
                     }
                     boolean z2 = updateAttentionMessage.getData().isAttention;
                     if (equals) {
-                        if (com.baidu.live.view.a.Yo().a(updateAttentionMessage.getData(), (BdPageContext<?>) ((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext)), false)) {
-                            e.this.blr = !e.this.blr;
-                            e.this.cg(e.this.blr);
-                            e.this.ch(e.this.blr);
+                        if (com.baidu.live.view.a.Zx().a(updateAttentionMessage.getData(), (BdPageContext<?>) ((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext)), false)) {
+                            e.this.bmX = !e.this.bmX;
+                            e.this.cg(e.this.bmX);
+                            e.this.ch(e.this.bmX);
                             return;
                         }
                         if (!StringUtils.isNull(updateAttentionMessage.getData().errorString)) {
                             ((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext)).showToast(updateAttentionMessage.getData().errorString);
                         }
-                        e.this.blr = e.this.blr ? false : true;
-                        e.this.cg(e.this.blr);
-                        e.this.ch(e.this.blr);
+                        e.this.bmX = e.this.bmX ? false : true;
+                        e.this.cg(e.this.bmX);
+                        e.this.ch(e.this.bmX);
                     }
                 }
             }
@@ -148,186 +148,186 @@ public class e implements com.baidu.live.liveroom.d.d {
                 jSONObject = null;
             }
             if ("enter_live".equals(str)) {
-                if (com.baidu.live.entereffect.a.Gi().h(bVar)) {
-                    this.ble.y(bVar);
+                if (com.baidu.live.entereffect.a.FB().h(bVar)) {
+                    this.bmK.A(bVar);
                 }
             } else if ("task".equals(str)) {
-                J(jSONObject);
+                Q(jSONObject);
             }
         }
     }
 
-    public e(Context context, w wVar) {
+    public e(Context context, x xVar) {
         this.mContext = context;
-        this.aFN = wVar;
-        if (this.aFN != null) {
-            this.blq = this.mContext.getResources().getDrawable(a.e.icon_live_follow_plus_white);
-            MF();
+        this.aGe = xVar;
+        if (this.aGe != null) {
+            this.bmW = this.mContext.getResources().getDrawable(a.e.icon_live_follow_plus_white);
+            Mc();
             initListener();
         }
     }
 
-    private void MF() {
+    private void Mc() {
         this.mRootView = (RelativeLayout) LayoutInflater.from(this.mContext).inflate(a.g.ala_live_room_chat_tab_layout, (ViewGroup) null);
-        this.blh = this.mRootView.findViewById(a.f.ala_liveroom_chat_top_op_layout);
-        this.blh.setVisibility(4);
-        this.blc = (LinearLayout) this.mRootView.findViewById(a.f.ala_liveroom_chat_right_layout);
-        this.bli = (HeadImageView) this.mRootView.findViewById(a.f.ala_liveroom_chat_user_icon);
-        this.bli.setDefaultResource(a.e.sdk_icon_default_avatar100_bg);
-        this.bli.setIsRound(true);
-        this.bli.setAutoChangeStyle(false);
-        this.bli.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.blj = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_chat_user_name);
-        this.blk = (ImageView) this.mRootView.findViewById(a.f.ala_liveroom_chat_user_sex);
-        this.bll = (ALALevelView) this.mRootView.findViewById(a.f.ala_liveroom_chat_level);
-        this.blm = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_chat_attention_count);
-        this.bln = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_chat_user_fans_count);
-        this.blo = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_chat_follow_btn);
-        this.blo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.e.4
+        this.bmN = this.mRootView.findViewById(a.f.ala_liveroom_chat_top_op_layout);
+        this.bmN.setVisibility(4);
+        this.bmI = (LinearLayout) this.mRootView.findViewById(a.f.ala_liveroom_chat_right_layout);
+        this.bmO = (HeadImageView) this.mRootView.findViewById(a.f.ala_liveroom_chat_user_icon);
+        this.bmO.setDefaultResource(a.e.sdk_icon_default_avatar100_bg);
+        this.bmO.setIsRound(true);
+        this.bmO.setAutoChangeStyle(false);
+        this.bmO.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.bmP = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_chat_user_name);
+        this.bmQ = (ImageView) this.mRootView.findViewById(a.f.ala_liveroom_chat_user_sex);
+        this.bmR = (ALALevelView) this.mRootView.findViewById(a.f.ala_liveroom_chat_level);
+        this.bmS = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_chat_attention_count);
+        this.bmT = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_chat_user_fans_count);
+        this.bmU = (TextView) this.mRootView.findViewById(a.f.ala_liveroom_chat_follow_btn);
+        this.bmU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.MJ();
+                e.this.Mg();
             }
         });
-        this.blp = this.mRootView.findViewById(a.f.ala_liveroom_chat_close_layout);
-        this.blp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.e.5
+        this.bmV = this.mRootView.findViewById(a.f.ala_liveroom_chat_close_layout);
+        this.bmV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.e.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.blt = true;
-                e.this.blh.setVisibility(8);
+                e.this.bmZ = true;
+                e.this.bmN.setVisibility(8);
                 TiebaInitialize.log("c12554");
             }
         });
-        this.bld = (ALAImMsgListView) this.mRootView.findViewById(a.f.ala_liveroom_chat_im_listview);
-        this.bld.setMode(true);
-        this.bld.a(String.valueOf(this.aFN.mLiveInfo.group_id), String.valueOf(this.aFN.mLiveInfo.live_id), false, this.aFN.aJV != null ? String.valueOf(this.aFN.aJV.userId) : null, this.aFN.getGuardName());
-        this.ble = (ALAImEnterView) this.mRootView.findViewById(a.f.ala_liveroom_chat_im_enterview);
-        f(this.aFN);
-        MH();
+        this.bmJ = (ALAImMsgListView) this.mRootView.findViewById(a.f.ala_liveroom_chat_im_listview);
+        this.bmJ.setMode(true);
+        this.bmJ.a(String.valueOf(this.aGe.mLiveInfo.group_id), String.valueOf(this.aGe.mLiveInfo.live_id), false, this.aGe.aKu != null ? String.valueOf(this.aGe.aKu.userId) : null, this.aGe.getGuardName());
+        this.bmK = (ALAImEnterView) this.mRootView.findViewById(a.f.ala_liveroom_chat_im_enterview);
+        g(this.aGe);
+        Me();
     }
 
-    private void f(w wVar) {
+    private void g(x xVar) {
         CustomResponsedMessage runTask;
-        if (this.blg == null && (runTask = MessageManager.getInstance().runTask(2913053, com.baidu.live.liveroom.b.a.class, (TbPageContext) IScrollableHelper.getBbPageContext(this.mContext))) != null) {
-            this.blg = (com.baidu.live.liveroom.b.a) runTask.getData();
+        if (this.bmM == null && (runTask = MessageManager.getInstance().runTask(2913053, com.baidu.live.liveroom.b.a.class, (TbPageContext) IScrollableHelper.getBbPageContext(this.mContext))) != null) {
+            this.bmM = (com.baidu.live.liveroom.b.a) runTask.getData();
         }
-        if (this.blg != null) {
-            this.blg.i(wVar);
-            this.blg.setHost(false);
+        if (this.bmM != null) {
+            this.bmM.j(xVar);
+            this.bmM.setHost(false);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds32);
             layoutParams.gravity = 1;
-            this.blg.a(1, null);
+            this.bmM.a(1, null);
         }
     }
 
-    private void MG() {
-        this.blh.setVisibility(0);
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0205a.sdk_push_top_in);
+    private void Md() {
+        this.bmN.setVisibility(0);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0203a.sdk_push_top_in);
         loadAnimation.setDuration(300L);
-        this.blh.setAnimation(loadAnimation);
+        this.bmN.setAnimation(loadAnimation);
         loadAnimation.start();
     }
 
     private void initListener() {
-        MessageManager.getInstance().registerListener(this.blx);
-        MessageManager.getInstance().registerListener(this.blv);
-        MessageManager.getInstance().registerListener(this.blw);
+        MessageManager.getInstance().registerListener(this.aWQ);
+        MessageManager.getInstance().registerListener(this.bnb);
+        MessageManager.getInstance().registerListener(this.bnc);
     }
 
-    private void MH() {
-        PendantChildView UC;
+    private void Me() {
+        PendantChildView VH;
         CustomResponsedMessage runTask;
-        if (com.baidu.live.ae.a.RB().brA.FC()) {
-            if (this.blf == null && (runTask = MessageManager.getInstance().runTask(2913034, com.baidu.live.ah.b.class, this.mContext)) != null && runTask.getData() != null) {
-                this.blf = (com.baidu.live.ah.b) runTask.getData();
+        if (com.baidu.live.af.a.SE().bwi.ES()) {
+            if (this.bmL == null && (runTask = MessageManager.getInstance().runTask(2913034, com.baidu.live.ai.b.class, this.mContext)) != null && runTask.getData() != null) {
+                this.bmL = (com.baidu.live.ai.b) runTask.getData();
             }
-            if (this.blf != null && (UC = this.blf.UC()) != null && this.blc.indexOfChild(UC) < 0) {
+            if (this.bmL != null && (VH = this.bmL.VH()) != null && this.bmI.indexOfChild(VH) < 0) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 1;
-                this.blc.addView(UC, layoutParams);
+                this.bmI.addView(VH, layoutParams);
             }
-            MI();
+            Mf();
         }
     }
 
-    private void J(JSONObject jSONObject) {
-        if (this.blf != null) {
-            this.blf.R(jSONObject);
+    private void Q(JSONObject jSONObject) {
+        if (this.bmL != null) {
+            this.bmL.Z(jSONObject);
         }
     }
 
-    private void MI() {
-        if (this.blf != null && this.blf.UC() != null && this.aFN != null) {
-            this.blf.i(this.aFN);
+    private void Mf() {
+        if (this.bmL != null && this.bmL.VH() != null && this.aGe != null) {
+            this.bmL.j(this.aGe);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void MJ() {
+    public void Mg() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(this.mContext);
             return;
         }
-        if (!this.blr) {
+        if (!this.bmX) {
             TiebaInitialize.log("c12553");
         }
-        this.blr = !this.blr;
-        cg(this.blr);
-        ch(this.blr);
-        String valueOf = String.valueOf(this.aFN.aJV.userId);
-        com.baidu.live.data.f fVar = new com.baidu.live.data.f(this.aFN.aJV.portrait, valueOf, "1", this.blr, blb);
+        this.bmX = !this.bmX;
+        cg(this.bmX);
+        ch(this.bmX);
+        String valueOf = String.valueOf(this.aGe.aKu.userId);
+        com.baidu.live.data.f fVar = new com.baidu.live.data.f(this.aGe.aKu.portrait, valueOf, "1", this.bmX, bmH);
         fVar.setFrom("source_chat_tab");
-        com.baidu.live.view.a.Yo().a(valueOf, fVar);
+        com.baidu.live.view.a.Zx().a(valueOf, fVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cg(boolean z) {
-        this.blr = z;
+        this.bmX = z;
         if (z) {
-            this.blo.setEnabled(false);
-            this.blo.setTextSize(0, BdUtilHelper.getDimens(this.mContext, a.d.sdk_fontsize24));
-            this.blo.setBackgroundDrawable(null);
-            this.blo.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_e));
-            this.blo.setText(this.mContext.getResources().getText(a.h.ala_chat_tab_followed_tip));
-            this.blo.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.blo.setCompoundDrawablePadding(0);
+            this.bmU.setEnabled(false);
+            this.bmU.setTextSize(0, BdUtilHelper.getDimens(this.mContext, a.d.sdk_fontsize24));
+            this.bmU.setBackgroundDrawable(null);
+            this.bmU.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_e));
+            this.bmU.setText(this.mContext.getResources().getText(a.h.ala_chat_tab_followed_tip));
+            this.bmU.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.bmU.setCompoundDrawablePadding(0);
             return;
         }
-        this.blo.setEnabled(true);
-        this.blo.setTextSize(0, BdUtilHelper.getDimens(this.mContext, a.d.sdk_fontsize26));
-        this.blo.setBackgroundResource(a.e.ala_live_chat_tab_follow_btn_bg);
-        this.blo.setTextColor(this.mContext.getResources().getColor(a.c.sdk_white_alpha100));
-        this.blo.setText(this.mContext.getResources().getText(a.h.ala_chat_tab_unfollow_tip));
-        this.blo.setCompoundDrawablesWithIntrinsicBounds(this.blq, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.blo.setCompoundDrawablePadding(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds6));
+        this.bmU.setEnabled(true);
+        this.bmU.setTextSize(0, BdUtilHelper.getDimens(this.mContext, a.d.sdk_fontsize26));
+        this.bmU.setBackgroundResource(a.e.ala_live_chat_tab_follow_btn_bg);
+        this.bmU.setTextColor(this.mContext.getResources().getColor(a.c.sdk_white_alpha100));
+        this.bmU.setText(this.mContext.getResources().getText(a.h.ala_chat_tab_unfollow_tip));
+        this.bmU.setCompoundDrawablesWithIntrinsicBounds(this.bmW, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.bmU.setCompoundDrawablePadding(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds6));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ch(boolean z) {
         if (z) {
-            TextView textView = this.bln;
+            TextView textView = this.bmT;
             Resources resources = this.mContext.getResources();
             int i = a.h.ala_chat_tab_fans_count;
-            int i2 = this.bls + 1;
-            this.bls = i2;
+            int i2 = this.bmY + 1;
+            this.bmY = i2;
             textView.setText(resources.getString(i, StringHelper.numberUniformFormat(i2)));
             return;
         }
-        TextView textView2 = this.bln;
+        TextView textView2 = this.bmT;
         Resources resources2 = this.mContext.getResources();
         int i3 = a.h.ala_chat_tab_fans_count;
-        int i4 = this.bls - 1;
-        this.bls = i4;
+        int i4 = this.bmY - 1;
+        this.bmY = i4;
         textView2.setText(resources2.getString(i3, StringHelper.numberUniformFormat(i4)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(List<com.baidu.live.im.data.b> list, boolean z) {
-        if (this.bld != null) {
-            this.bld.setMsgData(list);
+        if (this.bmJ != null) {
+            this.bmJ.setMsgData(list);
             if (z) {
-                this.bld.Nc();
+                this.bmJ.Mz();
             }
         }
     }
@@ -343,12 +343,12 @@ public class e implements com.baidu.live.liveroom.d.d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String MK() {
+    public String Mh() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short ML() {
+    public short Mi() {
         return (short) 1;
     }
 
@@ -358,29 +358,26 @@ public class e implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.blu) {
-            MG();
+        if (this.bna) {
+            Md();
         }
-        this.blu = false;
-        this.bld.setSelection(this.bld.getBottom());
+        this.bna = false;
+        this.bmJ.setSelection(this.bmJ.getBottom());
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.blf != null) {
-            this.blf.onDestroy();
+        if (this.bmL != null) {
+            this.bmL.onDestroy();
         }
-        if (this.blx != null) {
-            MessageManager.getInstance().unRegisterListener(this.blx);
+        if (this.aWQ != null) {
+            MessageManager.getInstance().unRegisterListener(this.aWQ);
         }
-        MessageManager.getInstance().unRegisterListener(this.blv);
-        MessageManager.getInstance().unRegisterListener(this.blw);
+        MessageManager.getInstance().unRegisterListener(this.bnb);
+        MessageManager.getInstance().unRegisterListener(this.bnc);
         this.mHandler.removeCallbacksAndMessages(null);
-        if (this.bld != null) {
-            if (this.bld.getAdapterManager() != null) {
-                MessageManager.getInstance().unRegisterListener(this.bld.getAdapterManager().Nu().bon);
-            }
-            this.bld.OI();
+        if (this.bmJ != null) {
+            this.bmJ.Ng();
         }
     }
 

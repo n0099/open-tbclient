@@ -4,16 +4,17 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.z;
 import java.lang.ref.WeakReference;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static final String lzd = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String lEj = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(ForbidResultData forbidResultData);
 
@@ -21,16 +22,16 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-        new C0826a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        new C0809a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    private static class C0826a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String fnb;
-        private String fnf;
-        private String lze;
-        private WeakReference<b> lzf;
+    /* loaded from: classes2.dex */
+    private static class C0809a extends BdAsyncTask<String, Object, ForbidResultData> {
+        private String fwL;
+        private String fwP;
+        private String lEk;
+        private WeakReference<b> lEl;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -38,39 +39,39 @@ public class a {
         private String mThreadId;
         private String mUserName;
 
-        public C0826a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        public C0809a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.lze = str6;
-            this.fnf = str8;
-            this.fnb = str9;
+            this.lEk = str6;
+            this.fwP = str8;
+            this.fwL = str9;
             this.mReason = str7;
             this.mPostId = str5;
-            this.lzf = new WeakReference<>(bVar);
+            this.lEl = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: Q */
+        /* renamed from: W */
         public ForbidResultData doInBackground(String... strArr) {
-            aa aaVar = new aa(a.lzd);
-            aaVar.addPostData("day", this.lze);
-            aaVar.addPostData("un", this.mUserName);
-            aaVar.addPostData("fid", this.mForumId);
-            aaVar.addPostData("word", this.mForumName);
-            aaVar.addPostData(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, this.mThreadId);
-            aaVar.addPostData(TiebaInitialize.LogFields.REASON, this.mReason);
-            aaVar.addPostData("ntn", "banid");
-            aaVar.addPostData("post_id", this.mPostId);
-            aaVar.addPostData("nick_name", this.fnf);
-            aaVar.addPostData("portrait", this.fnb);
-            aaVar.btv().bue().mIsNeedTbs = true;
-            String postNetData = aaVar.postNetData();
-            if (aaVar.btv().buf().isRequestSuccess()) {
+            z zVar = new z(a.lEj);
+            zVar.addPostData(Config.TRACE_VISIT_RECENT_DAY, this.lEk);
+            zVar.addPostData("un", this.mUserName);
+            zVar.addPostData("fid", this.mForumId);
+            zVar.addPostData("word", this.mForumName);
+            zVar.addPostData(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, this.mThreadId);
+            zVar.addPostData(TiebaInitialize.LogFields.REASON, this.mReason);
+            zVar.addPostData("ntn", "banid");
+            zVar.addPostData("post_id", this.mPostId);
+            zVar.addPostData("nick_name", this.fwP);
+            zVar.addPostData("portrait", this.fwL);
+            zVar.bvQ().bwz().mIsNeedTbs = true;
+            String postNetData = zVar.postNetData();
+            if (zVar.bvQ().bwA().isRequestSuccess()) {
                 try {
                     return (ForbidResultData) OrmObject.objectWithJsonStr(postNetData, ForbidResultData.class);
                 } catch (Exception e) {
@@ -81,8 +82,8 @@ public class a {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = aaVar.getServerErrorCode();
-            forbidResultData2.error_msg = aaVar.getErrorString();
+            forbidResultData2.error_code = zVar.getServerErrorCode();
+            forbidResultData2.error_msg = zVar.getErrorString();
             return forbidResultData2;
         }
 
@@ -92,9 +93,9 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.lzf.get();
+            b bVar = this.lEl.get();
             if (bVar != null) {
-                if (forbidResultData.error_code == 0 && au.isEmpty(forbidResultData.error_msg)) {
+                if (forbidResultData.error_code == 0 && at.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);
                 } else {
                     bVar.b(forbidResultData);

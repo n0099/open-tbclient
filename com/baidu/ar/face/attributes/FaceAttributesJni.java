@@ -2,7 +2,7 @@ package com.baidu.ar.face.attributes;
 
 import android.content.res.AssetManager;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class FaceAttributesJni {
     protected static boolean nX;
 

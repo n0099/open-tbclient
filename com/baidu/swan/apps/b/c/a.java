@@ -15,7 +15,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/chooseInvoiceTitle");
@@ -28,7 +28,7 @@ public class a extends aa {
             c.e("chooseInvoiceTitle", "empty swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
-        } else if (eVar.ama()) {
+        } else if (eVar.ank()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -47,19 +47,19 @@ public class a extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            eVar.aKg().a(context, "mapp_choose_invoice", com.baidu.swan.apps.setting.oauth.c.bR(optParamsAsJo), new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.b.c.a.1
+            eVar.aMw().a(context, "mapp_choose_invoice", com.baidu.swan.apps.setting.oauth.c.bZ(optParamsAsJo), new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.b.c.a.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.ap.e.b
+                @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
-                public void M(h<b.d> hVar) {
+                public void L(h<b.d> hVar) {
                     if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString);
                         return;
                     }
                     c.i("chooseInvoiceTitle", OAuthResult.RESULT_MSG_SUCCESS);
-                    Context aJO = context instanceof Activity ? (Activity) context : eVar.aJO();
-                    if (aJO != null) {
-                        a.this.a(aJO, callbackHandler, unitedSchemeEntity, eVar, optString);
+                    Context aMe = context instanceof Activity ? (Activity) context : eVar.aMe();
+                    if (aMe != null) {
+                        a.this.a(aMe, callbackHandler, unitedSchemeEntity, eVar, optString);
                     } else {
                         UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString(), optString);
                     }
@@ -72,15 +72,15 @@ public class a extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final CallbackHandler callbackHandler, final UnitedSchemeEntity unitedSchemeEntity, e eVar, final String str) {
-        com.baidu.swan.apps.t.a.azh().a(context, eVar.id, eVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.b.c.a.2
+        com.baidu.swan.apps.t.a.aAy().a(context, eVar.id, eVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.b.c.a.2
             @Override // com.baidu.swan.apps.b.c.b
-            public void az(JSONObject jSONObject) {
+            public void aH(JSONObject jSONObject) {
                 c.i("chooseInvoiceTitle", "choose success");
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), str);
             }
 
             @Override // com.baidu.swan.apps.b.c.b
-            public void hK(int i) {
+            public void hE(int i) {
                 String jSONObject;
                 if (i == 1) {
                     c.i("chooseInvoiceTitle", "choose invoice cancel");

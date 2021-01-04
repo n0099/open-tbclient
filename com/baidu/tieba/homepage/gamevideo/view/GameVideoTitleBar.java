@@ -1,12 +1,12 @@
 package com.baidu.tieba.homepage.gamevideo.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes22.dex */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+/* loaded from: classes2.dex */
 public class GameVideoTitleBar extends FrameLayout {
     public GameVideoTitleBar(@NonNull Context context) {
         super(context);

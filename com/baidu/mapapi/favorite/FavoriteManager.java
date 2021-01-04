@@ -9,38 +9,40 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class FavoriteManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static FavoriteManager f1991a;
-    private static com.baidu.mapsdkplatform.comapi.favrite.a b;
+    private static FavoriteManager f2778a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static com.baidu.mapsdkplatform.comapi.favrite.a f2779b;
 
     private FavoriteManager() {
     }
 
     public static FavoriteManager getInstance() {
-        if (f1991a == null) {
-            f1991a = new FavoriteManager();
+        if (f2778a == null) {
+            f2778a = new FavoriteManager();
         }
-        return f1991a;
+        return f2778a;
     }
 
     public int add(FavoritePoiInfo favoritePoiInfo) {
-        if (b == null) {
+        if (f2779b == null) {
             Log.e("baidumapsdk", "you may have not call init method!");
             return 0;
         } else if (favoritePoiInfo == null || favoritePoiInfo.c == null) {
             Log.e("baidumapsdk", "object or pt can not be null!");
             return 0;
-        } else if (favoritePoiInfo.b == null || favoritePoiInfo.b.equals("")) {
+        } else if (favoritePoiInfo.f2781b == null || favoritePoiInfo.f2781b.equals("")) {
             Log.e("baidumapsdk", "poiName can not be null or empty!");
             return -1;
         } else {
             FavSyncPoi a2 = a.a(favoritePoiInfo);
-            int a3 = b.a(a2.b, a2);
+            int a3 = f2779b.a(a2.f3159b, a2);
             if (a3 == 1) {
-                favoritePoiInfo.f1992a = a2.f2219a;
+                favoritePoiInfo.f2780a = a2.f3158a;
                 favoritePoiInfo.g = Long.parseLong(a2.h);
                 return a3;
             }
@@ -49,28 +51,28 @@ public class FavoriteManager {
     }
 
     public boolean clearAllFavPois() {
-        if (b == null) {
+        if (f2779b == null) {
             Log.e("baidumapsdk", "you may have not call init method!");
             return false;
         }
-        return b.c();
+        return f2779b.c();
     }
 
     public boolean deleteFavPoi(String str) {
-        if (b == null) {
+        if (f2779b == null) {
             Log.e("baidumapsdk", "you may have not call init method!");
             return false;
         } else if (str == null || str.equals("")) {
             return false;
         } else {
-            return b.a(str);
+            return f2779b.a(str);
         }
     }
 
     public void destroy() {
-        if (b != null) {
-            b.b();
-            b = null;
+        if (f2779b != null) {
+            f2779b.b();
+            f2779b = null;
             BMapManager.destroy();
             j.b();
         }
@@ -78,11 +80,11 @@ public class FavoriteManager {
 
     public List<FavoritePoiInfo> getAllFavPois() {
         JSONArray optJSONArray;
-        if (b == null) {
+        if (f2779b == null) {
             Log.e("baidumapsdk", "you may have not call init method!");
             return null;
         }
-        String f = b.f();
+        String f = f2779b.f();
         if (f == null || f.equals("")) {
             return null;
         }
@@ -107,10 +109,10 @@ public class FavoriteManager {
 
     public FavoritePoiInfo getFavPoi(String str) {
         FavSyncPoi b2;
-        if (b == null) {
+        if (f2779b == null) {
             Log.e("baidumapsdk", "you may have not call init method!");
             return null;
-        } else if (str == null || str.equals("") || (b2 = b.b(str)) == null) {
+        } else if (str == null || str.equals("") || (b2 = f2779b.b(str)) == null) {
             return null;
         } else {
             return a.a(b2);
@@ -118,15 +120,15 @@ public class FavoriteManager {
     }
 
     public void init() {
-        if (b == null) {
+        if (f2779b == null) {
             j.a();
             BMapManager.init();
-            b = com.baidu.mapsdkplatform.comapi.favrite.a.a();
+            f2779b = com.baidu.mapsdkplatform.comapi.favrite.a.a();
         }
     }
 
     public boolean updateFavPoi(String str, FavoritePoiInfo favoritePoiInfo) {
-        if (b == null) {
+        if (f2779b == null) {
             Log.e("baidumapsdk", "you may have not call init method!");
             return false;
         } else if (str == null || str.equals("") || favoritePoiInfo == null) {
@@ -135,12 +137,12 @@ public class FavoriteManager {
             if (favoritePoiInfo == null || favoritePoiInfo.c == null) {
                 Log.e("baidumapsdk", "object or pt can not be null!");
                 return false;
-            } else if (favoritePoiInfo.b == null || favoritePoiInfo.b.equals("")) {
+            } else if (favoritePoiInfo.f2781b == null || favoritePoiInfo.f2781b.equals("")) {
                 Log.e("baidumapsdk", "poiName can not be null or empty!");
                 return false;
             } else {
-                favoritePoiInfo.f1992a = str;
-                return b.b(str, a.a(favoritePoiInfo));
+                favoritePoiInfo.f2780a = str;
+                return f2779b.b(str, a.a(favoritePoiInfo));
             }
         }
     }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.homepage.topic.topicdetail.b.a;
+import com.baidu.tieba.homepage.topic.topicdetail.a.a;
 import com.squareup.wire.Wire;
 import tbclient.NewHottopic.NewHottopicResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage {
     private a mTopicDetailData;
 

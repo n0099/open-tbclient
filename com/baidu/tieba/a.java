@@ -4,33 +4,34 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static final a fUC = new a();
-    private AtomicBoolean fUD = new AtomicBoolean(false);
-    private int fUE = 0;
-    private int fUF;
+    private static final a geg = new a();
+    private AtomicBoolean geh = new AtomicBoolean(false);
+    private int gei = 0;
+    private int gej;
+    private int gek;
 
     private a() {
     }
 
-    public static a bKm() {
-        return fUC;
+    public static a bME() {
+        return geg;
     }
 
     public void parse(JSONObject jSONObject) {
-        boolean z = this.fUD.get();
+        boolean z = this.geh.get();
         if (jSONObject != null && !z) {
-            this.fUD.set(true);
-            this.fUE = jSONObject.optInt("tieba_landing_page_type_switch", -1);
-            this.fUF = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+            this.geh.set(true);
+            this.gei = jSONObject.optInt("tieba_landing_page_type_switch", -1);
+            this.gej = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+            this.gek = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
         }
     }
 
-    @Deprecated
-    public int bKn() {
-        return this.fUE;
+    public boolean bMF() {
+        return this.gej == 1;
     }
 
-    public boolean bKo() {
-        return this.fUF == 1;
+    public boolean bMG() {
+        return this.gek == 1;
     }
 }

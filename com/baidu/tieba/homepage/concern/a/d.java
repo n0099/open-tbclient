@@ -1,61 +1,61 @@
 package com.baidu.tieba.homepage.concern.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tieba.card.data.k;
-/* loaded from: classes22.dex */
-public class d implements q {
-    public String aJj;
-    public String jLv;
-    public boolean jLw;
-    public a[] jLx = new a[3];
+/* loaded from: classes2.dex */
+public class d implements n {
+    public String aJH;
+    public String jYJ;
+    public boolean jYK;
+    public a[] jYL = new a[3];
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return k.ino;
+        return k.izJ;
     }
 
-    public String cNT() {
+    public String cQZ() {
         StringBuilder sb = new StringBuilder();
-        for (a aVar : this.jLx) {
+        for (a aVar : this.jYL) {
             sb.append(aVar.getForumId()).append(',');
         }
         sb.delete(sb.length() - 1, sb.length());
         return sb.toString();
     }
 
-    /* loaded from: classes22.dex */
-    public static class a implements q {
+    /* loaded from: classes2.dex */
+    public static class a implements n {
         private long forumId;
-        private String iyK;
-        private int jLA;
-        private boolean jLB;
-        private String jLy;
-        private int jLz;
-        private String joy;
-        private long jrw;
+        private String iKX;
+        private String jAV;
+        private long jDS;
+        private String jYM;
+        private int jYN;
+        private int jYO;
+        private boolean jYP;
         private String slogan;
 
-        @Override // com.baidu.adp.widget.ListView.q
+        @Override // com.baidu.adp.widget.ListView.n
         public BdUniqueId getType() {
-            return k.ino;
+            return k.izJ;
         }
 
-        public String cNU() {
-            return this.joy;
+        public String cRa() {
+            return this.jAV;
         }
 
         public a Mm(String str) {
-            this.joy = str;
+            this.jAV = str;
             return this;
         }
 
-        public String cNV() {
-            return this.jLy;
+        public String cRb() {
+            return this.jYM;
         }
 
         public a Mn(String str) {
-            this.jLy = str;
+            this.jYM = str;
             return this;
         }
 
@@ -68,39 +68,39 @@ public class d implements q {
             return this;
         }
 
-        public String cNW() {
-            return this.iyK;
+        public String cRc() {
+            return this.iKX;
         }
 
         public a Mp(String str) {
-            this.iyK = str;
+            this.iKX = str;
             return this;
         }
 
-        public int cNX() {
-            return this.jLz;
+        public int cRd() {
+            return this.jYN;
         }
 
-        public a Cz(int i) {
-            this.jLz = i;
+        public a CN(int i) {
+            this.jYN = i;
             return this;
         }
 
-        public int cNY() {
-            return this.jLA;
+        public int cRe() {
+            return this.jYO;
         }
 
-        public a CA(int i) {
-            this.jLA = i;
+        public a CO(int i) {
+            this.jYO = i;
             return this;
         }
 
-        public boolean cNZ() {
-            return this.jLB;
+        public boolean cRf() {
+            return this.jYP;
         }
 
-        public a rt(boolean z) {
-            this.jLB = z;
+        public a rQ(boolean z) {
+            this.jYP = z;
             return this;
         }
 
@@ -117,12 +117,12 @@ public class d implements q {
             return this;
         }
 
-        public long cvc() {
-            return this.jrw;
+        public long cxV() {
+            return this.jDS;
         }
 
         public a gy(long j) {
-            this.jrw = j;
+            this.jDS = j;
             return this;
         }
     }

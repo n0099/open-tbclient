@@ -1,9 +1,14 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-public interface ay {
-    void cq(int i, int i2);
 
-    void d(boolean z, boolean z2, int i);
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
+/* loaded from: classes2.dex */
+public class ay implements com.baidu.tieba.horizonalList.widget.c {
+    public MetaData metaData = new MetaData();
 
-    void zK(int i);
+    public ay() {
+        if (this.metaData.getGodUserData() == null) {
+            this.metaData.setGodUserData(new GodUserData());
+        }
+    }
 }

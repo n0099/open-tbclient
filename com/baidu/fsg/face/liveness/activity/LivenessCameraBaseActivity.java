@@ -9,20 +9,22 @@ import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
 import com.baidu.fsg.base.permission.DangerousPermissionManagerProxy;
 import com.baidu.fsg.base.permission.RequestPermissionDialogCallBack;
 import com.baidu.fsg.face.base.d.d;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.liveness.camera.LivenessCameraSurfaceView;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity implements Camera.PreviewCallback, SurfaceHolder.Callback {
-    private static final int b = 1;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final int f2171b = 1;
     private static final int c = 2;
     protected com.baidu.fsg.face.liveness.camera.a cameraControl;
     private LivenessCameraSurfaceView e;
@@ -33,7 +35,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
     private int d = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f1604a = false;
+    boolean f2172a = false;
 
     abstract View a();
 
@@ -96,7 +98,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        this.faceRectGroup.b = new Rect(this.e.getLeft(), this.e.getTop(), this.e.getRight(), this.e.getBottom());
+        this.faceRectGroup.f2137b = new Rect(this.e.getLeft(), this.e.getTop(), this.e.getRight(), this.e.getBottom());
         b();
         this.cameraControl.a((Camera.PreviewCallback) this);
         this.cameraControl.a(getActivity(), this.f);
@@ -189,7 +191,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     private class a extends AsyncTask<Void, Void, String> {
         private a() {
         }
@@ -199,7 +201,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         @Override // android.os.AsyncTask
         /* renamed from: a */
         public String doInBackground(Void... voidArr) {
-            LivenessCameraBaseActivity.this.f1604a = LivenessCameraBaseActivity.this.cameraControl.a((Context) LivenessCameraBaseActivity.this.getActivity());
+            LivenessCameraBaseActivity.this.f2172a = LivenessCameraBaseActivity.this.cameraControl.a((Context) LivenessCameraBaseActivity.this.getActivity());
             LivenessCameraBaseActivity.this.cameraControl.a((Camera.PreviewCallback) LivenessCameraBaseActivity.this);
             return null;
         }
@@ -210,7 +212,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         /* renamed from: a */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            if (LivenessCameraBaseActivity.this.f1604a) {
+            if (LivenessCameraBaseActivity.this.f2172a) {
                 LivenessCameraBaseActivity.this.d();
             } else {
                 LivenessCameraBaseActivity.this.a(true, false, false);
@@ -256,7 +258,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     private static class b implements MediaPlayer.OnErrorListener {
         private b() {
         }

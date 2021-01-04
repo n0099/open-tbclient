@@ -7,13 +7,15 @@ import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.core.TransitResultNode;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class MassTransitRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<MassTransitRouteResult> CREATOR = new l();
 
     /* renamed from: a  reason: collision with root package name */
-    private TransitResultNode f2146a;
-    private TransitResultNode b;
+    private TransitResultNode f3037a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private TransitResultNode f3038b;
     private TaxiInfo c;
     private int d;
     private List<MassTransitRouteLine> e;
@@ -24,8 +26,8 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public MassTransitRouteResult(Parcel parcel) {
-        this.f2146a = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
-        this.b = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
+        this.f3037a = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
+        this.f3038b = (TransitResultNode) parcel.readParcelable(TransitResultNode.class.getClassLoader());
         this.c = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
         this.d = parcel.readInt();
         this.e = new ArrayList();
@@ -39,11 +41,11 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
     }
 
     public TransitResultNode getDestination() {
-        return this.b;
+        return this.f3038b;
     }
 
     public TransitResultNode getOrigin() {
-        return this.f2146a;
+        return this.f3037a;
     }
 
     public List<MassTransitRouteLine> getRouteLines() {
@@ -63,11 +65,11 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
     }
 
     public void setDestination(TransitResultNode transitResultNode) {
-        this.b = transitResultNode;
+        this.f3038b = transitResultNode;
     }
 
     public void setOrigin(TransitResultNode transitResultNode) {
-        this.f2146a = transitResultNode;
+        this.f3037a = transitResultNode;
     }
 
     public void setRoutelines(List<MassTransitRouteLine> list) {
@@ -88,8 +90,8 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f2146a, 1);
-        parcel.writeParcelable(this.b, 1);
+        parcel.writeParcelable(this.f3037a, 1);
+        parcel.writeParcelable(this.f3038b, 1);
         parcel.writeParcelable(this.c, 1);
         parcel.writeInt(this.d);
         parcel.writeList(this.e);

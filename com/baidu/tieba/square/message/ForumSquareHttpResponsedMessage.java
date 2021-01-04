@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.square.data.d;
 import com.squareup.wire.Wire;
 import tbclient.GetForumSquare.GetForumSquareResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
     private d mForumSquareRespData;
 

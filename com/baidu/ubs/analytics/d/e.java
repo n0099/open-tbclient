@@ -1,33 +1,33 @@
 package com.baidu.ubs.analytics.d;
 
 import android.content.SharedPreferences;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class e {
-    private static SharedPreferences ejM() {
-        return com.baidu.ubs.analytics.d.ejo().getContext().getSharedPreferences("baidu_ab_general_config", 0);
+    private static SharedPreferences ejR() {
+        return com.baidu.ubs.analytics.d.ejy().getContext().getSharedPreferences("baidu_ab_general_config", 0);
     }
 
     public static void J(String str) {
-        ejM().edit().putBoolean(str, true).apply();
+        ejR().edit().putBoolean(str, true).apply();
     }
 
-    public static boolean Yf(String str) {
-        return ejM().getBoolean(str, false);
+    public static boolean XO(String str) {
+        return ejR().getBoolean(str, false);
     }
 
     public static String c(String str, String str2) {
-        return ejM().getString(str, str2);
+        return ejR().getString(str, str2);
     }
 
     public static void putLong(String str, long j) {
-        ejM().edit().putLong(str, j).apply();
+        ejR().edit().putLong(str, j).apply();
     }
 
-    public static long Yg(String str) {
-        return ejM().getLong(str, 0L);
+    public static long XP(String str) {
+        return ejR().getLong(str, 0L);
     }
 
     public static void d(String str, String str2) {
-        ejM().edit().putString(str, str2).apply();
+        ejR().edit().putString(str, str2).apply();
     }
 }

@@ -5,13 +5,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
@@ -30,7 +30,9 @@ import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.result.UnRealNameFaceIDResult;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.swan.apps.ap.w;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.sofire.ac.FH;
+import com.baidu.swan.apps.ao.w;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.storage.c.h;
 import com.baidu.swan.bdprivate.a.aa;
@@ -46,33 +48,33 @@ import com.baidu.swan.bdprivate.extensions.quicklogin.e;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d implements com.baidu.swan.bdprivate.a.a.a {
-    private com.baidu.swan.apps.res.widget.dialog.c gem;
+    private com.baidu.swan.apps.res.widget.dialog.c gnD;
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
-        a.bNQ().a(context, bundle, aVar);
+        a.bQj().a(context, bundle, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public boolean isLogin(Context context) {
-        return a.bNQ().isLogin();
+        return a.bQj().isLogin();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getBduss(Context context) {
-        return a.bNQ().getBduss();
+        return a.bQj().getBduss();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(String str, ArrayList<String> arrayList, b.a aVar) {
-        a.bNQ().b(str, arrayList, aVar);
+        a.bQj().b(str, arrayList, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getUid(Context context) {
-        return a.bNQ().getUid();
+        return a.bQj().getUid();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -90,16 +92,16 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public aa dQ(Context context) {
+    public aa ej(Context context) {
         aa aaVar = new aa();
-        aaVar.displayName = a.bNQ().getDisplayName();
-        aaVar.bjs = a.bNQ().bNT();
+        aaVar.displayName = a.bQj().getDisplayName();
+        aaVar.aWS = a.bQj().Ga();
         return aaVar;
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void b(com.baidu.swan.apps.a.c cVar) {
-        a.bNQ().a(cVar);
+        a.bQj().a(cVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -156,34 +158,34 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public String dN(Context context) {
-        return h.aNr().getString("bd_box_ptoken", "");
+    public String eg(Context context) {
+        return h.aPH().getString("bd_box_ptoken", "");
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getZid(Context context) {
-        return null;
+        return FH.gz(AppRuntime.getAppContext());
     }
 
     /* renamed from: com.baidu.tieba.aiapps.apps.a.d$2  reason: invalid class name */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     class AnonymousClass2 extends SmsViewLoginCallback {
-        final /* synthetic */ SwanAppPhoneLoginDialog.a geq;
+        final /* synthetic */ SwanAppPhoneLoginDialog.a gnG;
         final /* synthetic */ Context val$context;
 
         AnonymousClass2(SwanAppPhoneLoginDialog.a aVar, Context context) {
-            this.geq = aVar;
+            this.gnG = aVar;
             this.val$context = context;
         }
 
         @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
         public void onCheckCodeViewShow() {
-            this.geq.onCheckCodeViewShow();
+            this.gnG.onCheckCodeViewShow();
         }
 
         @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
         public void onCheckCodeViewHide() {
-            this.geq.onCheckCodeViewHide();
+            this.gnG.onCheckCodeViewHide();
         }
 
         @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
@@ -195,16 +197,16 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
                 string = this.val$context.getResources().getString(b.g.account_login_dialog_needback_phone);
                 string2 = this.val$context.getResources().getString(b.g.account_login_dialog_needback_positive_btn_register);
             }
-            new g.a(this.val$context).f(this.val$context.getResources().getString(b.g.account_login_dialog_needback_title)).st(string).a(string2, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.2
+            new g.a(this.val$context).f(this.val$context.getResources().getString(b.g.account_login_dialog_needback_title)).sp(string).a(string2, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.2
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     com.baidu.swan.bdprivate.a.a.a((Activity) ((FragmentActivity) AnonymousClass2.this.val$context), false, (Bundle) null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.2.1
                         @Override // com.baidu.swan.apps.a.a
                         public void onResult(int i2) {
                             if (i2 == 0) {
-                                AnonymousClass2.this.geq.onSuccess();
+                                AnonymousClass2.this.gnG.onSuccess();
                             } else {
-                                AnonymousClass2.this.geq.onFailure();
+                                AnonymousClass2.this.gnG.onFailure();
                             }
                         }
                     });
@@ -213,20 +215,20 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                 }
-            }).aJB();
+            }).aLx();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
-            a.bNQ().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.3
+            a.bQj().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.3
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
-                    if (AnonymousClass2.this.geq != null) {
+                    if (AnonymousClass2.this.gnG != null) {
                         if (i == 0) {
-                            AnonymousClass2.this.geq.onSuccess();
+                            AnonymousClass2.this.gnG.onSuccess();
                         } else {
-                            AnonymousClass2.this.geq.onFailure();
+                            AnonymousClass2.this.gnG.onFailure();
                         }
                     }
                 }
@@ -236,7 +238,7 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            this.geq.onFailure();
+            this.gnG.onFailure();
         }
     }
 
@@ -247,11 +249,11 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(final Activity activity, String str, final e eVar) {
-        fu(activity);
-        PassportSDK.getInstance().loadOneKeyLogin(activity, aI(activity, str), new OneKeyLoginCallback() { // from class: com.baidu.tieba.aiapps.apps.a.d.3
+        fO(activity);
+        PassportSDK.getInstance().loadOneKeyLogin(activity, aQ(activity, str), new OneKeyLoginCallback() { // from class: com.baidu.tieba.aiapps.apps.a.d.3
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
-                a.bNQ().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.3.1
+                a.bQj().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.3.1
                     @Override // com.baidu.swan.apps.a.a
                     public void onResult(int i) {
                         if (i == 0) {
@@ -259,7 +261,7 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
                         } else {
                             eVar.onResult(-1);
                         }
-                        d.this.fv(activity);
+                        d.this.fP(activity);
                     }
                 });
             }
@@ -267,20 +269,20 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void onFail(OneKeyLoginResult oneKeyLoginResult) {
                 eVar.onResult(-1);
-                d.this.fv(activity);
+                d.this.fP(activity);
             }
 
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
                 eVar.onResult(-1);
-                d.this.fv(activity);
+                d.this.fP(activity);
             }
         });
     }
 
-    private void fu(Context context) {
-        this.gem = new com.baidu.swan.apps.res.widget.dialog.c(context, 16973833);
-        Window window = this.gem.getWindow();
+    private void fO(Context context) {
+        this.gnD = new com.baidu.swan.apps.res.widget.dialog.c(context, 16973833);
+        Window window = this.gnD.getWindow();
         if (window != null) {
             window.setBackgroundDrawableResource(17170445);
             window.setDimAmount(0.0f);
@@ -289,13 +291,13 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
             attributes.width = -1;
             window.setAttributes(attributes);
         }
-        this.gem.setCanceledOnTouchOutside(false);
-        this.gem.setCancelable(false);
-        this.gem.setEnableImmersion(true);
-        this.gem.setContentView(R.layout.loading_layout);
-        View findViewById = this.gem.findViewById(R.id.root_container);
-        ProgressBar progressBar = (ProgressBar) this.gem.findViewById(R.id.loading_bar);
-        TextView textView = (TextView) this.gem.findViewById(R.id.message);
+        this.gnD.setCanceledOnTouchOutside(false);
+        this.gnD.setCancelable(false);
+        this.gnD.gP(true);
+        this.gnD.setContentView(R.layout.loading_layout);
+        View findViewById = this.gnD.findViewById(R.id.root_container);
+        ProgressBar progressBar = (ProgressBar) this.gnD.findViewById(R.id.loading_bar);
+        TextView textView = (TextView) this.gnD.findViewById(R.id.message);
         if (findViewById != null) {
             findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.novel_loading_bg));
         }
@@ -306,16 +308,16 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
             textView.setTextColor(textView.getResources().getColor(R.color.loading_text_color));
             textView.setText(R.string.account_onekey_loading);
         }
-        this.gem.show();
+        this.gnD.show();
     }
 
-    public void fv(Context context) {
-        if ((context instanceof Activity) && !((Activity) context).isFinishing() && this.gem != null) {
-            this.gem.dismiss();
+    public void fP(Context context) {
+        if ((context instanceof Activity) && !((Activity) context).isFinishing() && this.gnD != null) {
+            this.gnD.dismiss();
         }
     }
 
-    private static String aI(Context context, String str) {
+    private static String aQ(Context context, String str) {
         if (TextUtils.isEmpty(str) || str.length() <= 7) {
             return null;
         }
@@ -376,12 +378,12 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public void a(Context context, a.InterfaceC0512a interfaceC0512a) {
-        a.bNQ().a(context, "1", interfaceC0512a);
+    public void a(Context context, a.InterfaceC0505a interfaceC0505a) {
+        a.bQj().a(context, "1", interfaceC0505a);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public void a(Context context, a.InterfaceC0514a interfaceC0514a) {
-        a.bNQ().a(context, "1", interfaceC0514a);
+    public void a(Context context, a.InterfaceC0507a interfaceC0507a) {
+        a.bQj().a(context, "1", interfaceC0507a);
     }
 }

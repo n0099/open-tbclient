@@ -6,15 +6,17 @@ import android.view.Surface;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.util.Map;
 @Keep
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class MediaInstanceState {
     public static final int INSTANCE_STATE_ACTIVE = 1;
     public static final int INSTANCE_STATE_INACTIVE = 0;
     private Map<String, String> A;
 
     /* renamed from: a  reason: collision with root package name */
-    private CyberPlayerManager.OnPreparedListener f1352a;
-    private CyberPlayerManager.OnCompletionListener b;
+    private CyberPlayerManager.OnPreparedListener f1766a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private CyberPlayerManager.OnCompletionListener f1767b;
     private CyberPlayerManager.OnBufferingUpdateListener c;
     private CyberPlayerManager.OnSeekCompleteListener d;
     private CyberPlayerManager.OnVideoSizeChangedListener e;
@@ -107,7 +109,7 @@ public class MediaInstanceState {
     }
 
     public CyberPlayerManager.OnCompletionListener getOnCompletionListener() {
-        return this.b;
+        return this.f1767b;
     }
 
     public CyberPlayerManager.OnInfoListener getOnInfoListener() {
@@ -119,7 +121,7 @@ public class MediaInstanceState {
     }
 
     public CyberPlayerManager.OnPreparedListener getOnPreparedListener() {
-        return this.f1352a;
+        return this.f1766a;
     }
 
     public CyberPlayerManager.OnSeekCompleteListener getOnSeekCompleteListener() {
@@ -161,12 +163,12 @@ public class MediaInstanceState {
     }
 
     public void release() {
-        this.f1352a = null;
+        this.f1766a = null;
         this.f = null;
         this.d = null;
         this.c = null;
         this.e = null;
-        this.f1352a = null;
+        this.f1766a = null;
         this.g = null;
         this.h = null;
         this.i = null;
@@ -187,7 +189,7 @@ public class MediaInstanceState {
     }
 
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
-        this.b = onCompletionListener;
+        this.f1767b = onCompletionListener;
     }
 
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
@@ -199,7 +201,7 @@ public class MediaInstanceState {
     }
 
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        this.f1352a = onPreparedListener;
+        this.f1766a = onPreparedListener;
     }
 
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {

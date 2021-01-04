@@ -1,7 +1,9 @@
 package com.baidu.tieba.ala.alasquare.widget.banner;
 
-import android.view.ViewGroup;
-/* loaded from: classes6.dex */
+import androidx.recyclerview.widget.RecyclerView;
+/* loaded from: classes10.dex */
 public interface c {
-    b p(ViewGroup viewGroup, int i);
+    void onScrollStateChanged(RecyclerView recyclerView, int i);
+
+    void onScrolled(RecyclerView recyclerView, int i, int i2);
 }

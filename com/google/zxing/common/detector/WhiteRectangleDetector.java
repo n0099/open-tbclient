@@ -3,7 +3,7 @@ package com.google.zxing.common.detector;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class WhiteRectangleDetector {
     private static final int CORR = 1;
     private static final int INIT_SIZE = 10;
@@ -36,13 +36,11 @@ public final class WhiteRectangleDetector {
     public ResultPoint[] detect() throws NotFoundException {
         int i;
         int i2;
-        int i3;
-        int i4;
         boolean z = false;
-        int i5 = this.leftInit;
-        int i6 = this.rightInit;
-        int i7 = this.upInit;
-        int i8 = this.downInit;
+        int i3 = this.leftInit;
+        int i4 = this.rightInit;
+        int i5 = this.upInit;
+        int i6 = this.downInit;
         boolean z2 = false;
         boolean z3 = false;
         boolean z4 = false;
@@ -53,67 +51,75 @@ public final class WhiteRectangleDetector {
             if (!z7) {
                 i = i6;
                 i2 = i5;
-                i3 = i8;
-                i4 = i7;
                 break;
             }
             boolean z8 = true;
-            boolean z9 = z5;
-            boolean z10 = false;
+            z7 = false;
             while (true) {
-                if ((z8 || !z9) && i6 < this.width) {
-                    z8 = containsBlackPoint(i7, i8, i6, false);
+                if ((z8 || !z5) && i4 < this.width) {
+                    z8 = containsBlackPoint(i5, i6, i4, false);
                     if (z8) {
+                        i4++;
+                        z5 = true;
+                        z7 = true;
+                    } else if (!z5) {
+                        i4++;
+                    }
+                }
+            }
+            if (i4 >= this.width) {
+                z = true;
+                i = i6;
+                i2 = i5;
+                break;
+            }
+            boolean z9 = true;
+            while (true) {
+                if ((z9 || !z4) && i6 < this.height) {
+                    z9 = containsBlackPoint(i3, i4, i6, true);
+                    if (z9) {
                         i6++;
-                        z9 = true;
-                        z10 = true;
-                    } else if (!z9) {
+                        z4 = true;
+                        z7 = true;
+                    } else if (!z4) {
                         i6++;
                     }
                 }
             }
-            if (i6 >= this.width) {
+            if (i6 >= this.height) {
                 z = true;
                 i = i6;
                 i2 = i5;
-                i3 = i8;
-                i4 = i7;
                 break;
             }
-            boolean z11 = z4;
-            boolean z12 = z10;
-            boolean z13 = true;
+            boolean z10 = true;
             while (true) {
-                if ((z13 || !z11) && i8 < this.height) {
-                    z13 = containsBlackPoint(i5, i6, i8, true);
-                    if (z13) {
-                        i8++;
-                        z11 = true;
-                        z12 = true;
-                    } else if (!z11) {
-                        i8++;
+                if ((z10 || !z3) && i3 >= 0) {
+                    z10 = containsBlackPoint(i5, i6, i3, false);
+                    if (z10) {
+                        i3--;
+                        z3 = true;
+                        z7 = true;
+                    } else if (!z3) {
+                        i3--;
                     }
                 }
             }
-            if (i8 >= this.height) {
+            if (i3 < 0) {
                 z = true;
                 i = i6;
                 i2 = i5;
-                i3 = i8;
-                i4 = i7;
                 break;
             }
-            boolean z14 = z3;
-            boolean z15 = z12;
-            boolean z16 = true;
+            boolean z11 = true;
             while (true) {
-                if ((z16 || !z14) && i5 >= 0) {
-                    z16 = containsBlackPoint(i7, i8, i5, false);
-                    if (z16) {
+                if ((z11 || !z2) && i5 >= 0) {
+                    z11 = containsBlackPoint(i3, i4, i5, true);
+                    if (z11) {
                         i5--;
-                        z14 = true;
-                        z15 = true;
-                    } else if (!z14) {
+                        z2 = true;
+                        z7 = true;
+                    } else if (!z2) {
                         i5--;
                     }
                 }
@@ -122,73 +128,41 @@ public final class WhiteRectangleDetector {
                 z = true;
                 i = i6;
                 i2 = i5;
-                i3 = i8;
-                i4 = i7;
                 break;
-            }
-            boolean z17 = z15;
-            boolean z18 = z2;
-            boolean z19 = true;
-            while (true) {
-                if ((z19 || !z18) && i7 >= 0) {
-                    z19 = containsBlackPoint(i5, i6, i7, true);
-                    if (z19) {
-                        i7--;
-                        z18 = true;
-                        z17 = true;
-                    } else if (!z18) {
-                        i7--;
-                    }
-                }
-            }
-            if (i7 < 0) {
-                z = true;
-                i = i6;
-                i2 = i5;
-                i3 = i8;
-                i4 = i7;
-                break;
-            }
-            if (z17) {
+            } else if (z7) {
                 z6 = true;
             }
-            z2 = z18;
-            z3 = z14;
-            z5 = z9;
-            boolean z20 = z11;
-            z7 = z17;
-            z4 = z20;
         }
         if (!z && z6) {
-            int i9 = i - i2;
-            int i10 = 1;
+            int i7 = i4 - i3;
+            int i8 = 1;
             ResultPoint resultPoint = null;
-            while (resultPoint == null && i10 < i9) {
-                i10++;
-                resultPoint = getBlackPointOnSegment(i2, i3 - i10, i2 + i10, i3);
+            while (resultPoint == null && i8 < i7) {
+                i8++;
+                resultPoint = getBlackPointOnSegment(i3, i - i8, i3 + i8, i);
             }
             if (resultPoint == null) {
                 throw NotFoundException.getNotFoundInstance();
             }
-            int i11 = 1;
+            int i9 = 1;
             ResultPoint resultPoint2 = null;
-            while (resultPoint2 == null && i11 < i9) {
-                i11++;
-                resultPoint2 = getBlackPointOnSegment(i2, i4 + i11, i2 + i11, i4);
+            while (resultPoint2 == null && i9 < i7) {
+                i9++;
+                resultPoint2 = getBlackPointOnSegment(i3, i2 + i9, i3 + i9, i2);
             }
             if (resultPoint2 == null) {
                 throw NotFoundException.getNotFoundInstance();
             }
             ResultPoint resultPoint3 = null;
-            for (int i12 = 1; resultPoint3 == null && i12 < i9; i12++) {
-                resultPoint3 = getBlackPointOnSegment(i, i4 + i12, i - i12, i4);
+            for (int i10 = 1; resultPoint3 == null && i10 < i7; i10++) {
+                resultPoint3 = getBlackPointOnSegment(i4, i2 + i10, i4 - i10, i2);
             }
             if (resultPoint3 == null) {
                 throw NotFoundException.getNotFoundInstance();
             }
             ResultPoint resultPoint4 = null;
-            for (int i13 = 1; resultPoint4 == null && i13 < i9; i13++) {
-                resultPoint4 = getBlackPointOnSegment(i, i3 - i13, i - i13, i3);
+            for (int i11 = 1; resultPoint4 == null && i11 < i7; i11++) {
+                resultPoint4 = getBlackPointOnSegment(i4, i - i11, i4 - i11, i);
             }
             if (resultPoint4 == null) {
                 throw NotFoundException.getNotFoundInstance();

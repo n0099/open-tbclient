@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.Bigvip.BigvipResIdl;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage {
     private UserInfoBigVip mDetailInfo;
 
@@ -32,9 +32,9 @@ public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> Bn = com.baidu.tbadk.core.c.a.brq().Bn("tb.im_recommend_detail");
-        if (Bn != null && bArr != null && this.mDetailInfo != null && this.mDetailInfo.user_id != null) {
-            Bn.setForever(this.mDetailInfo.user_id + "", bArr);
+        l<byte[]> Bm = com.baidu.tbadk.core.c.a.btS().Bm("tb.im_recommend_detail");
+        if (Bm != null && bArr != null && this.mDetailInfo != null && this.mDetailInfo.user_id != null) {
+            Bm.setForever(this.mDetailInfo.user_id + "", bArr);
         }
     }
 }

@@ -9,7 +9,7 @@ import java.lang.reflect.Modifier;
 public abstract class i {
     public abstract <T> T newInstance(Class<T> cls) throws Exception;
 
-    public static i eyw() {
+    public static i eCi() {
         try {
             Class<?> cls = Class.forName("sun.misc.Unsafe");
             Field declaredField = cls.getDeclaredField("theUnsafe");
@@ -19,7 +19,7 @@ public abstract class i {
             return new i() { // from class: com.google.gson.internal.i.1
                 @Override // com.google.gson.internal.i
                 public <T> T newInstance(Class<T> cls2) throws Exception {
-                    H(cls2);
+                    A(cls2);
                     return (T) method.invoke(obj, cls2);
                 }
             };
@@ -33,7 +33,7 @@ public abstract class i {
                 return new i() { // from class: com.google.gson.internal.i.2
                     @Override // com.google.gson.internal.i
                     public <T> T newInstance(Class<T> cls2) throws Exception {
-                        H(cls2);
+                        A(cls2);
                         return (T) declaredMethod2.invoke(null, cls2, Integer.valueOf(intValue));
                     }
                 };
@@ -44,7 +44,7 @@ public abstract class i {
                     return new i() { // from class: com.google.gson.internal.i.3
                         @Override // com.google.gson.internal.i
                         public <T> T newInstance(Class<T> cls2) throws Exception {
-                            H(cls2);
+                            A(cls2);
                             return (T) declaredMethod3.invoke(null, cls2, Object.class);
                         }
                     };
@@ -60,7 +60,7 @@ public abstract class i {
         }
     }
 
-    static void H(Class<?> cls) {
+    static void A(Class<?> cls) {
         int modifiers = cls.getModifiers();
         if (Modifier.isInterface(modifiers)) {
             throw new UnsupportedOperationException("Interface can't be instantiated! Interface name: " + cls.getName());

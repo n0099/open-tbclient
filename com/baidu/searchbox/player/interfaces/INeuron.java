@@ -1,19 +1,19 @@
 package com.baidu.searchbox.player.interfaces;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface INeuron {
     public static final int TYPE_LAYER = 2;
     public static final int TYPE_PLUGIN = 1;
     public static final int TYPE_SPECIFIED = -1;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public @interface Type {
     }
 

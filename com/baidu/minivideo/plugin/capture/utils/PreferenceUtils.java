@@ -5,7 +5,7 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import com.baidu.minivideo.plugin.capture.Application;
 import java.util.Set;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class PreferenceUtils {
     public static void putString(String str, String str2) {
         try {

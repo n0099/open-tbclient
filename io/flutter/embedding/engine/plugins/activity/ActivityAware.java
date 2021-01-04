@@ -1,11 +1,13 @@
 package io.flutter.embedding.engine.plugins.activity;
-/* loaded from: classes9.dex */
+
+import androidx.annotation.NonNull;
+/* loaded from: classes6.dex */
 public interface ActivityAware {
-    void onAttachedToActivity(ActivityPluginBinding activityPluginBinding);
+    void onAttachedToActivity(@NonNull ActivityPluginBinding activityPluginBinding);
 
     void onDetachedFromActivity();
 
     void onDetachedFromActivityForConfigChanges();
 
-    void onReattachedToActivityForConfigChanges(ActivityPluginBinding activityPluginBinding);
+    void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding activityPluginBinding);
 }

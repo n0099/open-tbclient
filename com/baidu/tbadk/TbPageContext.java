@@ -3,10 +3,10 @@ package com.baidu.tbadk;
 import android.graphics.drawable.Animatable;
 import android.view.View;
 import android.view.animation.Animation;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.f;
 import com.baidu.tbadk.core.c;
 /* loaded from: classes.dex */
-public interface TbPageContext<T> extends e<T> {
+public interface TbPageContext<T> extends f<T> {
     c getLayoutMode();
 
     void showToast(int i);

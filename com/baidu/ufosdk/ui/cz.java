@@ -3,12 +3,14 @@ package com.baidu.ufosdk.ui;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class cz {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f3823a;
-    public ImageView b;
+    public TextView f5795a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f5796b;
     public ImageView c;
     public RelativeLayout d;
 }

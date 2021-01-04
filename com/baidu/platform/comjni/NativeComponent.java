@@ -1,5 +1,5 @@
 package com.baidu.platform.comjni;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public abstract class NativeComponent extends JNIBaseApi {
     protected volatile long mNativePointer;
 

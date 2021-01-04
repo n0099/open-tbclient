@@ -6,7 +6,6 @@ import android.animation.ValueAnimator;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +14,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
@@ -23,22 +23,21 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.atomdata.YuyinAlaLiveRoomActivityConfig;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private TextView cRf;
-    private int hiA;
-    private HeadImageView hix;
-    private AlaLastLiveroomInfo hiy;
-    private int hiz;
+    private HeadImageView aWT;
+    private TextView cWc;
+    private AlaLastLiveroomInfo hut;
+    private int huu;
+    private int huv;
     private TbPageContext mContext;
     private ValueAnimator mValueAnimator;
     private View mView;
-    private boolean hiD = false;
+    private boolean huy = false;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.ala.liveroom.f.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -47,7 +46,7 @@ public class b {
                     b.this.startAnim();
                     return;
                 case 2:
-                    b.this.hiD = true;
+                    b.this.huy = true;
                     b.this.hide();
                     return;
                 default:
@@ -55,29 +54,29 @@ public class b {
             }
         }
     };
-    private int hiB = com.baidu.live.ae.a.RB().brA.aOC;
-    private int hiC = com.baidu.live.ae.a.RB().brA.aOD;
+    private int huw = com.baidu.live.af.a.SE().bwi.aPj;
+    private int hux = com.baidu.live.af.a.SE().bwi.aPk;
 
     public b(@NonNull TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.hiz = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds8);
-        this.hiA = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds94);
+        this.huu = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds8);
+        this.huv = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds94);
         init();
     }
 
     private void init() {
         this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.g.ala_back_to_last_live_button, (ViewGroup) null);
-        this.hix = (HeadImageView) this.mView.findViewById(a.f.back_to_last_live_portrait);
-        this.hix.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
-        this.hix.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
-        this.hix.setIsRound(true);
-        this.hix.setAutoChangeStyle(false);
-        this.hix.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.cRf = (TextView) this.mView.findViewById(a.f.back_to_last_live_content);
+        this.aWT = (HeadImageView) this.mView.findViewById(a.f.back_to_last_live_portrait);
+        this.aWT.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
+        this.aWT.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
+        this.aWT.setIsRound(true);
+        this.aWT.setAutoChangeStyle(false);
+        this.aWT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.cWc = (TextView) this.mView.findViewById(a.f.back_to_last_live_content);
     }
 
     public void show() {
-        if (this.mView != null && this.mView.getParent() != null && !this.hiD) {
+        if (this.mView != null && this.mView.getParent() != null && !this.huy) {
             this.mView.setVisibility(0);
         }
     }
@@ -90,18 +89,18 @@ public class b {
 
     public void d(AlaLastLiveroomInfo alaLastLiveroomInfo) {
         if (alaLastLiveroomInfo != null) {
-            ccA();
-            this.hix.startLoad(alaLastLiveroomInfo.getLastAnchorPortrait(), 10, false);
-            this.hiy = alaLastLiveroomInfo;
+            cfq();
+            this.aWT.startLoad(alaLastLiveroomInfo.getLastAnchorPortrait(), 10, false);
+            this.hut = alaLastLiveroomInfo;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startAnim() {
         int i;
-        int width = this.cRf.getWidth();
+        int width = this.cWc.getWidth();
         int width2 = this.mView.getWidth();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hix.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aWT.getLayoutParams();
         if (Build.VERSION.SDK_INT >= 17) {
             layoutParams.addRule(11);
             layoutParams.removeRule(1);
@@ -110,11 +109,11 @@ public class b {
             layoutParams.addRule(1, a.f.back_to_last_live_icon);
             i = 0;
         }
-        this.hix.setLayoutParams(layoutParams);
+        this.aWT.setLayoutParams(layoutParams);
         if (this.mValueAnimator != null && this.mValueAnimator.isRunning()) {
             this.mValueAnimator.cancel();
         }
-        this.mValueAnimator = ValueAnimator.ofInt(width2, (width2 - width) - this.hiz).setDuration(i);
+        this.mValueAnimator = ValueAnimator.ofInt(width2, (width2 - width) - this.huu).setDuration(i);
         this.mValueAnimator.setInterpolator(new AccelerateInterpolator());
         this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.f.b.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -127,41 +126,41 @@ public class b {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                b.this.mView.getLayoutParams().width = b.this.hiA;
+                b.this.mView.getLayoutParams().width = b.this.huv;
                 b.this.mView.requestLayout();
                 Message message = new Message();
                 message.what = 2;
-                b.this.mHandler.sendMessageDelayed(message, b.this.hiC);
+                b.this.mHandler.sendMessageDelayed(message, b.this.hux);
             }
         });
         this.mValueAnimator.start();
     }
 
-    private void ccA() {
-        if (this.hix != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hix.getLayoutParams();
+    private void cfq() {
+        if (this.aWT != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aWT.getLayoutParams();
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams.removeRule(11);
             }
             layoutParams.addRule(1, a.f.back_to_last_live_content);
-            this.hix.setLayoutParams(layoutParams);
+            this.aWT.setLayoutParams(layoutParams);
         }
     }
 
-    public void ccB() {
-        if (this.hiy != null && this.hiy.getLastLiveId() > 0 && this.mContext != null) {
-            if (this.hiy.getIsAudio() == 1) {
+    public void cfr() {
+        if (this.hut != null && this.hut.getLastLiveId() > 0 && this.mContext != null) {
+            if (this.hut.getIsAudio() == 1) {
                 YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.mContext.getPageActivity());
-                yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(this.hiy.getLastLiveId(), "", "live_sdk");
+                yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(this.hut.getLastLiveId(), "", "live_sdk");
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    if (!TextUtils.isEmpty(this.hiy.getLastCover())) {
-                        jSONObject.put("cover", this.hiy.getLastCover());
+                    if (!TextUtils.isEmpty(this.hut.getLastCover())) {
+                        jSONObject.put("cover", this.hut.getLastCover());
                     }
-                    if (!TextUtils.isEmpty(this.hiy.getLastVideoUrl())) {
-                        jSONObject.put("live_url", this.hiy.getLastVideoUrl());
+                    if (!TextUtils.isEmpty(this.hut.getLastVideoUrl())) {
+                        jSONObject.put("live_url", this.hut.getLastVideoUrl());
                     }
-                    jSONObject.put("enterLiveId", this.hiy.getLastLiveId());
+                    jSONObject.put("enterLiveId", this.hut.getLastLiveId());
                     yuyinAlaLiveRoomActivityConfig.addExtraByParams(jSONObject.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -170,22 +169,23 @@ public class b {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501059, "close_video_activity"));
                 return;
             }
+            com.baidu.live.liveroom.a.OO().a(com.baidu.live.liveroom.a.OO().OP().hW(String.valueOf(this.hut.getLastLiveId())));
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(this.mContext.getPageActivity());
-            alaLiveRoomActivityConfig.addExtraByLiveId(this.hiy.getLastLiveId(), "", "live_sdk");
+            alaLiveRoomActivityConfig.addExtraByLiveId(this.hut.getLastLiveId(), "", "live_sdk");
             JSONObject jSONObject2 = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(this.hiy.getLastCover())) {
-                    jSONObject2.put("cover", this.hiy.getLastCover());
+                if (!TextUtils.isEmpty(this.hut.getLastCover())) {
+                    jSONObject2.put("cover", this.hut.getLastCover());
                 }
-                if (!TextUtils.isEmpty(this.hiy.getLastVideoUrl())) {
-                    jSONObject2.put("live_url", this.hiy.getLastVideoUrl());
+                if (!TextUtils.isEmpty(this.hut.getLastVideoUrl())) {
+                    jSONObject2.put("live_url", this.hut.getLastVideoUrl());
                 }
-                jSONObject2.put("enterLiveId", this.hiy.getLastLiveId());
+                jSONObject2.put("enterLiveId", this.hut.getLastLiveId());
                 alaLiveRoomActivityConfig.addExtraByParams(jSONObject2.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, alaLiveRoomActivityConfig));
+            com.baidu.live.liveroom.a.OO().a(alaLiveRoomActivityConfig);
         }
     }
 
@@ -197,16 +197,16 @@ public class b {
         release();
     }
 
-    private RelativeLayout.LayoutParams ccC() {
+    private RelativeLayout.LayoutParams cfs() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(12);
         layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds204);
         return layoutParams;
     }
 
-    public void av(ViewGroup viewGroup) {
+    public void aH(ViewGroup viewGroup) {
         if (this.mView != null && viewGroup != null && this.mView.getParent() == null) {
-            viewGroup.addView(this.mView, ccC());
+            viewGroup.addView(this.mView, cfs());
             if (UtilHelper.getRealScreenOrientation(this.mContext.getPageActivity()) == 2) {
                 hide();
             } else {
@@ -215,16 +215,16 @@ public class b {
             this.mHandler.removeCallbacksAndMessages(null);
             Message message = new Message();
             message.what = 1;
-            this.mHandler.sendMessageDelayed(message, this.hiB);
+            this.mHandler.sendMessageDelayed(message, this.huw);
         }
     }
 
-    public void ccD() {
+    public void cft() {
         release();
     }
 
     private void release() {
-        this.hiD = false;
+        this.huy = false;
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mValueAnimator != null) {
             this.mValueAnimator.cancel();
@@ -235,7 +235,7 @@ public class b {
         }
     }
 
-    public void ccE() {
+    public void cfu() {
         if (this.mValueAnimator != null && this.mValueAnimator.isRunning()) {
             this.mValueAnimator.cancel();
         }

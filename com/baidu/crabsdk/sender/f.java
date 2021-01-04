@@ -8,18 +8,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class f implements Thread.UncaughtExceptionHandler {
-    public static boolean arf = false;
-    private static final String arg = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.p.vd() + File.separator + "oom" + File.separator;
-    private static f arh = new f();
-    private Thread.UncaughtExceptionHandler ari = null;
-    private Context arj = null;
+    public static boolean arB = false;
+    private static final String arC = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.p.K() + File.separator + "oom" + File.separator;
+    private static f arD = new f();
+    private Thread.UncaughtExceptionHandler arE = null;
+    private Context arF = null;
 
     private f() {
     }
 
-    private static boolean j(Throwable th) {
+    private static boolean a(Throwable th) {
         while (!"java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
             th = th.getCause();
             if (th == null) {
@@ -29,17 +29,17 @@ public final class f implements Thread.UncaughtExceptionHandler {
         return true;
     }
 
-    public static f vk() {
-        return arh;
+    public static f uC() {
+        return arD;
     }
 
     public final void e(Context context) {
-        if (this.ari == null) {
-            this.ari = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.arE == null) {
+            this.arE = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.arj == null) {
-            this.arj = context.getApplicationContext();
+        if (this.arF == null) {
+            this.arF = context.getApplicationContext();
         }
     }
 
@@ -76,9 +76,9 @@ public final class f implements Thread.UncaughtExceptionHandler {
             com.baidu.crabsdk.c.a.a("pw", e2);
         }
         if (obj != null && !str.trim().equals("")) {
-            if (com.baidu.crabsdk.a.n && j(th)) {
+            if (com.baidu.crabsdk.a.n && a(th)) {
                 try {
-                    String str2 = arg;
+                    String str2 = arC;
                     File file = new File(str2);
                     if (!file.exists()) {
                         if (file.mkdirs()) {
@@ -94,20 +94,20 @@ public final class f implements Thread.UncaughtExceptionHandler {
                     com.baidu.crabsdk.c.a.w("oom save fail" + th3.getMessage());
                 }
             }
-            if (h.vm() && h.ac() && h.k(th)) {
-                arf = false;
-                if (this.arj != null && thread != null && th != null) {
-                    i.c(this.arj, i.e(g.a(this.arj, th, false)));
+            if (h.uE() && h.ac() && h.b(th)) {
+                arB = false;
+                if (this.arF != null && thread != null && th != null) {
+                    i.c(this.arF, i.e(g.a(this.arF, th, false)));
                     h.c(th);
-                    h.l(th);
-                    h.vo();
-                    k.a(false, this.arj);
+                    h.d(th);
+                    h.uF();
+                    k.a(false, this.arF);
                 }
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     while (true) {
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (!arf) {
+                        if (!arB) {
                             if (currentTimeMillis2 - currentTimeMillis > 2500) {
                                 com.baidu.crabsdk.c.a.v("T^T upload timeout!");
                                 break;
@@ -122,9 +122,9 @@ public final class f implements Thread.UncaughtExceptionHandler {
                 }
             }
         }
-        if (this.ari.equals(this)) {
+        if (this.arE.equals(this)) {
             return;
         }
-        this.ari.uncaughtException(thread, th);
+        this.arE.uncaughtException(thread, th);
     }
 }

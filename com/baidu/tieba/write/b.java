@@ -3,48 +3,48 @@ package com.baidu.tieba.write;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.d.c;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tieba.c.c;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.write.transmit.model.a;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsTabInfo;
 import tbclient.SimpleForum;
-/* loaded from: classes3.dex */
-public class b implements com.baidu.tieba.d.c {
-    private c.a iws;
+/* loaded from: classes8.dex */
+public class b implements com.baidu.tieba.c.c {
+    private c.a iIF;
     private int mPrivateThread;
-    private com.baidu.tieba.write.transmit.model.a nTv;
-    private List<SimpleForum> nTw;
-    private boolean nTx;
-    private ArrayList<TransmitForumData> ghy = new ArrayList<>();
-    private a.InterfaceC0899a nTy = new a.InterfaceC0899a() { // from class: com.baidu.tieba.write.b.1
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0899a
+    private com.baidu.tieba.write.transmit.model.a nWQ;
+    private List<SimpleForum> nWR;
+    private boolean nWS;
+    private ArrayList<TransmitForumData> grW = new ArrayList<>();
+    private a.InterfaceC0876a nWT = new a.InterfaceC0876a() { // from class: com.baidu.tieba.write.b.1
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0876a
         public void onError() {
-            b.this.dYm();
+            b.this.dXP();
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0899a
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0876a
         public void t(List<SimpleForum> list, int i) {
-            b.this.nTw = list;
+            b.this.nWR = list;
             b.this.mPrivateThread = i;
-            b.this.ctp();
+            b.this.cwi();
         }
     };
 
     public b() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.nTv = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.nTv.a(this.nTy);
-        this.nTv.setRequestId(gen);
+        this.nWQ = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.nWQ.a(this.nWT);
+        this.nWQ.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ctp() {
-        this.ghy.clear();
-        if (y.getCount(this.nTw) > 0) {
-            for (SimpleForum simpleForum : this.nTw) {
+    public void cwi() {
+        this.grW.clear();
+        if (x.getCount(this.nWR) > 0) {
+            for (SimpleForum simpleForum : this.nWR) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
                     TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
                     transmitForumData.tabItemDatas = new ArrayList<>();
@@ -53,37 +53,37 @@ public class b implements com.baidu.tieba.d.c {
                             transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
                         }
                     }
-                    this.ghy.add(transmitForumData);
+                    this.grW.add(transmitForumData);
                 }
             }
         }
-        if (this.iws != null) {
-            this.iws.a(this.ghy, true, 2, this.mPrivateThread);
+        if (this.iIF != null) {
+            this.iIF.a(this.grW, true, 2, this.mPrivateThread);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dYm() {
-        if (!this.nTx) {
-            if (this.iws != null) {
-                this.iws.a(null, false, 2, 0);
+    public void dXP() {
+        if (!this.nWS) {
+            if (this.iIF != null) {
+                this.iIF.a(null, false, 2, 0);
             }
-            this.nTx = true;
+            this.nWS = true;
         }
     }
 
-    @Override // com.baidu.tieba.d.c
-    public void cti() {
-        if (this.iws != null && this.nTv != null) {
-            this.nTx = false;
-            this.nTv.setThreadTitle(null);
-            this.nTv.setThreadContent(null);
-            this.nTv.loadData();
+    @Override // com.baidu.tieba.c.c
+    public void cwb() {
+        if (this.iIF != null && this.nWQ != null) {
+            this.nWS = false;
+            this.nWQ.setThreadTitle(null);
+            this.nWQ.setThreadContent(null);
+            this.nWQ.loadData();
         }
     }
 
-    @Override // com.baidu.tieba.d.c
+    @Override // com.baidu.tieba.c.c
     public void a(c.a aVar) {
-        this.iws = aVar;
+        this.iIF = aVar;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.
 
 import android.content.Context;
 import android.widget.Scroller;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c extends d {
     private final Scroller mScroller;
 

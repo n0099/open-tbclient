@@ -10,7 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ChannelManager {
     private static boolean DEBUG = AppConfig.isDebug();
     private static final String KEY_CHANNEL = "channel";
@@ -111,8 +111,8 @@ public class ChannelManager {
         return str;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0075 A[Catch: Exception -> 0x0079, TRY_LEAVE, TryCatch #4 {Exception -> 0x0079, blocks: (B:33:0x0070, B:35:0x0075), top: B:59:0x0070 }] */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0070 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0073 A[Catch: Exception -> 0x0077, TRY_LEAVE, TryCatch #3 {Exception -> 0x0077, blocks: (B:33:0x006e, B:35:0x0073), top: B:55:0x006e }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x006e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -120,7 +120,6 @@ public class ChannelManager {
         BufferedReader bufferedReader;
         InputStream inputStream;
         String str;
-        IOException e;
         try {
             inputStream = AppRuntime.getAppContext().getAssets().open("file:///android_asset/channel");
             try {
@@ -134,26 +133,26 @@ public class ChannelManager {
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
-                                } catch (Exception e2) {
+                                } catch (Exception e) {
                                     if (DEBUG) {
-                                        Log.e(TAG, "readLastChannelFromAssets", e2);
+                                        Log.e(TAG, "readLastChannelFromAssets", e);
                                     }
                                 }
                             }
                             if (bufferedReader != null) {
                                 bufferedReader.close();
                             }
-                        } catch (IOException e3) {
-                            e = e3;
+                        } catch (IOException e2) {
+                            e = e2;
                             if (DEBUG) {
                                 Log.e(TAG, "readLastChannelFromAssets", e);
                             }
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
-                                } catch (Exception e4) {
+                                } catch (Exception e3) {
                                     if (DEBUG) {
-                                        Log.e(TAG, "readLastChannelFromAssets", e4);
+                                        Log.e(TAG, "readLastChannelFromAssets", e3);
                                     }
                                 }
                             }
@@ -162,31 +161,31 @@ public class ChannelManager {
                             }
                             return str;
                         }
-                    } catch (IOException e5) {
-                        str = null;
-                        e = e5;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e6) {
-                            if (DEBUG) {
-                                Log.e(TAG, "readLastChannelFromAssets", e6);
+                    } catch (Throwable th) {
+                        th = th;
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e4) {
+                                if (DEBUG) {
+                                    Log.e(TAG, "readLastChannelFromAssets", e4);
+                                }
+                                throw th;
                             }
-                            throw th;
                         }
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                        throw th;
                     }
-                    if (bufferedReader != null) {
-                        bufferedReader.close();
-                    }
-                    throw th;
+                } catch (IOException e5) {
+                    e = e5;
+                    str = null;
                 }
-            } catch (IOException e7) {
+            } catch (IOException e6) {
+                e = e6;
                 bufferedReader = null;
                 str = null;
-                e = e7;
             } catch (Throwable th2) {
                 th = th2;
                 bufferedReader = null;
@@ -196,11 +195,11 @@ public class ChannelManager {
                 }
                 throw th;
             }
-        } catch (IOException e8) {
+        } catch (IOException e7) {
+            e = e7;
             bufferedReader = null;
             inputStream = null;
             str = null;
-            e = e8;
         } catch (Throwable th3) {
             th = th3;
             bufferedReader = null;

@@ -1,7 +1,19 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes22.dex */
+
+import android.util.SparseArray;
+/* loaded from: classes.dex */
 public class ac {
-    public boolean fbE = true;
-    public at iXi;
-    public int tabId;
+    private static ac jjI = new ac();
+    private SparseArray<ad> jjH = new SparseArray<>();
+
+    private ac() {
+    }
+
+    public static ac cHd() {
+        return jjI;
+    }
+
+    public ad At(int i) {
+        return this.jjH.get(i);
+    }
 }

@@ -2,7 +2,7 @@ package com.baidu.searchbox.http.request;
 
 import com.baidu.searchbox.http.request.HttpRequestParasBuilder;
 import java.util.LinkedHashMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public abstract class HttpParaRequest<T extends HttpRequestParasBuilder> extends HttpRequest<T> {
     protected LinkedHashMap<String, String> params;
 

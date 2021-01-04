@@ -9,12 +9,14 @@ import com.sdk.base.framework.c.f;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f4264a = f.b;
-    private static final String b = a.class.getSimpleName();
+    private static final boolean f13132a = f.f13118b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f13133b = a.class.getSimpleName();
 
     public static ArrayList<KInfo> a(Context context) {
         ArrayList<KInfo> arrayList = new ArrayList<>();
@@ -91,18 +93,25 @@ public class a extends com.sdk.base.framework.f.a {
                 }
             }
         } catch (Throwable th) {
-            c.b(b, th.getMessage(), Boolean.valueOf(f4264a));
+            c.b(f13133b, th.getMessage(), Boolean.valueOf(f13132a));
         }
         return arrayList;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0079  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x00bd  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0110 A[Catch: Exception -> 0x013a, TRY_LEAVE, TryCatch #3 {Exception -> 0x013a, blocks: (B:3:0x000c, B:11:0x007a, B:12:0x00a1, B:20:0x0110, B:19:0x00e1), top: B:34:0x000c }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private static ArrayList<KInfo> c(Context context) {
         Method method;
         Object obj;
+        Method declaredMethod;
+        Method declaredMethod2;
+        boolean z;
         Method method2;
         Method method3;
-        Method method4;
-        boolean z;
         String str;
         String str2;
         String str3;
@@ -112,66 +121,77 @@ public class a extends com.sdk.base.framework.f.a {
         try {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             Class<?> cls = Class.forName(telephonyManager.getClass().getName());
-            Object obj2 = null;
-            Method method5 = null;
             try {
-                Method declaredMethod = cls.getDeclaredMethod("getSubscriberInfo", new Class[0]);
-                declaredMethod.setAccessible(true);
-                obj2 = declaredMethod.invoke(telephonyManager, new Object[0]);
-                Class<?> cls2 = Class.forName("com.android.internal.telephony.IPhoneSubInfo");
-                method5 = cls2.getDeclaredMethod("getDeviceId", new Class[0]);
-                method5.setAccessible(true);
-                Method declaredMethod2 = cls2.getDeclaredMethod("getSubscriberId", new Class[0]);
-                declaredMethod2.setAccessible(true);
-                Method declaredMethod3 = cls2.getDeclaredMethod("getLine1Number", new Class[0]);
+                Method declaredMethod3 = cls.getDeclaredMethod("getSubscriberInfo", new Class[0]);
                 declaredMethod3.setAccessible(true);
-                Method declaredMethod4 = cls2.getDeclaredMethod("getIccSerialNumber", new Class[0]);
-                declaredMethod4.setAccessible(true);
-                method = declaredMethod2;
-                obj = obj2;
-                method2 = declaredMethod4;
-                method3 = declaredMethod3;
-                method4 = method5;
-                z = true;
-            } catch (Exception e) {
-                Method declaredMethod5 = cls.getDeclaredMethod("getSubscriberId", new Class[0]);
-                declaredMethod5.setAccessible(true);
-                Method declaredMethod6 = cls.getDeclaredMethod("getLine1Number", new Class[0]);
-                declaredMethod6.setAccessible(true);
-                Method declaredMethod7 = cls.getDeclaredMethod("getSimSerialNumber", new Class[0]);
-                declaredMethod7.setAccessible(true);
-                method = declaredMethod5;
-                obj = obj2;
-                method2 = declaredMethod7;
-                method3 = declaredMethod6;
-                method4 = method5;
-                z = false;
+                obj = declaredMethod3.invoke(telephonyManager, new Object[0]);
+                try {
+                    Class<?> cls2 = Class.forName("com.android.internal.telephony.IPhoneSubInfo");
+                    method = cls2.getDeclaredMethod("getDeviceId", new Class[0]);
+                    try {
+                        method.setAccessible(true);
+                        declaredMethod = cls2.getDeclaredMethod("getSubscriberId", new Class[0]);
+                        declaredMethod.setAccessible(true);
+                        declaredMethod2 = cls2.getDeclaredMethod("getLine1Number", new Class[0]);
+                        declaredMethod2.setAccessible(true);
+                        method2 = cls2.getDeclaredMethod("getIccSerialNumber", new Class[0]);
+                        method2.setAccessible(true);
+                        z = true;
+                        method3 = method;
+                    } catch (Exception e) {
+                        declaredMethod = cls.getDeclaredMethod("getSubscriberId", new Class[0]);
+                        declaredMethod.setAccessible(true);
+                        declaredMethod2 = cls.getDeclaredMethod("getLine1Number", new Class[0]);
+                        declaredMethod2.setAccessible(true);
+                        Method declaredMethod4 = cls.getDeclaredMethod("getSimSerialNumber", new Class[0]);
+                        declaredMethod4.setAccessible(true);
+                        z = false;
+                        method2 = declaredMethod4;
+                        method3 = method;
+                        if (z) {
+                        }
+                        KInfo kInfo = new KInfo();
+                        kInfo.setIs(str);
+                        kInfo.setIc(str2);
+                        kInfo.setIe(str3);
+                        kInfo.setM(str4);
+                        kInfo.setSid(0);
+                        arrayList.add(kInfo);
+                        if (f13132a) {
+                        }
+                        return arrayList;
+                    }
+                } catch (Exception e2) {
+                    method = null;
+                }
+            } catch (Exception e3) {
+                method = null;
+                obj = null;
             }
             if (z) {
-                str3 = (String) method2.invoke(obj, new Object[0]);
-                str4 = (String) method.invoke(obj, new Object[0]);
-                str = (String) method4.invoke(obj, new Object[0]);
-                str2 = (String) method3.invoke(obj, new Object[0]);
-            } else {
                 String str5 = (String) method2.invoke(telephonyManager, new Object[0]);
-                String str6 = (String) method.invoke(telephonyManager, new Object[0]);
-                str = (String) method4.invoke(telephonyManager, new Object[0]);
-                str2 = (String) method3.invoke(telephonyManager, new Object[0]);
-                str3 = str5;
-                str4 = str6;
+                str = (String) declaredMethod.invoke(telephonyManager, new Object[0]);
+                str2 = str5;
+                str3 = (String) method3.invoke(telephonyManager, new Object[0]);
+                str4 = (String) declaredMethod2.invoke(telephonyManager, new Object[0]);
+            } else {
+                str = (String) declaredMethod.invoke(obj, new Object[0]);
+                str2 = (String) method2.invoke(obj, new Object[0]);
+                str3 = (String) method3.invoke(obj, new Object[0]);
+                str4 = (String) declaredMethod2.invoke(obj, new Object[0]);
             }
-            KInfo kInfo = new KInfo();
-            kInfo.setIs(str4);
-            kInfo.setIc(str3);
-            kInfo.setIe(str);
-            kInfo.setM(str2);
-            kInfo.setSid(0);
-            arrayList.add(kInfo);
-        } catch (Exception e2) {
-            c.b(b, e2.getMessage(), Boolean.valueOf(f4264a));
+            KInfo kInfo2 = new KInfo();
+            kInfo2.setIs(str);
+            kInfo2.setIc(str2);
+            kInfo2.setIe(str3);
+            kInfo2.setM(str4);
+            kInfo2.setSid(0);
+            arrayList.add(kInfo2);
+        } catch (Exception e4) {
+            c.b(f13133b, e4.getMessage(), Boolean.valueOf(f13132a));
         }
-        if (f4264a) {
-            c.a(b, "应用层获取sim卡信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), Boolean.valueOf(f4264a));
+        if (f13132a) {
+            c.a(f13133b, "应用层获取sim卡信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), Boolean.valueOf(f13132a));
         }
         return arrayList;
     }

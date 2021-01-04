@@ -5,9 +5,9 @@ import android.os.Build;
 import com.cmic.sso.sdk.e.o;
 import com.cmic.sso.sdk.e.t;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d implements b {
-    private b oZA;
+    private b pqP;
 
     @Override // com.cmic.sso.sdk.c.a.b
     public void a(final com.cmic.sso.sdk.c.c.c cVar, final com.cmic.sso.sdk.c.d.c cVar2, final com.cmic.sso.sdk.a aVar) {
@@ -15,37 +15,37 @@ public class d implements b {
             b(cVar, cVar2, aVar);
             return;
         }
-        t hD = t.hD(null);
+        t m48if = t.m48if(null);
         if (Build.VERSION.SDK_INT >= 21) {
-            hD.a(new t.a() { // from class: com.cmic.sso.sdk.c.a.d.1
+            m48if.a(new t.a() { // from class: com.cmic.sso.sdk.c.a.d.1
                 private AtomicBoolean e = new AtomicBoolean(false);
 
                 @Override // com.cmic.sso.sdk.e.t.a
-                public void f(final Network network) {
+                public void d(final Network network) {
                     if (!this.e.getAndSet(true) && network != null) {
                         o.a(new o.a(null, aVar) { // from class: com.cmic.sso.sdk.c.a.d.1.1
                             @Override // com.cmic.sso.sdk.e.o.a
                             protected void a() {
                                 com.cmic.sso.sdk.e.c.b("WifiChangeInterceptor", "onAvailable");
-                                cVar.f(network);
+                                cVar.d(network);
                                 d.this.b(cVar, cVar2, aVar);
                             }
                         });
                     }
                 }
             });
-        } else if (hD.a(cVar.a())) {
+        } else if (m48if.a(cVar.a())) {
             com.cmic.sso.sdk.e.c.b("WifiChangeInterceptor", "切换网络成功");
             b(cVar, cVar2, aVar);
         } else {
             com.cmic.sso.sdk.e.c.a("WifiChangeInterceptor", "切换网络失败or无数据网络");
-            cVar2.a(com.cmic.sso.sdk.c.d.a.PK(102508));
+            cVar2.a(com.cmic.sso.sdk.c.d.a.PY(102508));
         }
     }
 
     public void b(com.cmic.sso.sdk.c.c.c cVar, final com.cmic.sso.sdk.c.d.c cVar2, com.cmic.sso.sdk.a aVar) {
-        if (this.oZA != null) {
-            this.oZA.a(cVar, new com.cmic.sso.sdk.c.d.c() { // from class: com.cmic.sso.sdk.c.a.d.2
+        if (this.pqP != null) {
+            this.pqP.a(cVar, new com.cmic.sso.sdk.c.d.c() { // from class: com.cmic.sso.sdk.c.a.d.2
                 @Override // com.cmic.sso.sdk.c.d.c
                 public void a(com.cmic.sso.sdk.c.d.b bVar) {
                     cVar2.a(bVar);
@@ -60,6 +60,6 @@ public class d implements b {
     }
 
     public void a(b bVar) {
-        this.oZA = bVar;
+        this.pqP = bVar;
     }
 }

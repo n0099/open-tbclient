@@ -1,44 +1,43 @@
 package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class h {
     private int errorCode;
     private String errorMsg;
-    private int ncf;
-    private String ncg;
-    private int ndI;
-    private String ndJ;
-    private a ncA = new a();
-    private ArrayList<i> ndK = new ArrayList<>();
+    private int nhL;
+    private String nhM;
+    private int njp;
+    private String njq;
+    private a nih = new a();
+    private ArrayList<i> njr = new ArrayList<>();
 
-    public int dMK() {
-        return this.ncf;
+    public int dMC() {
+        return this.nhL;
     }
 
-    public String dMj() {
-        return this.ncg;
+    public String dMb() {
+        return this.nhM;
     }
 
-    public a dMl() {
-        return this.ncA;
+    public a dMd() {
+        return this.nih;
     }
 
-    public ArrayList<i> dML() {
-        return this.ndK;
+    public ArrayList<i> dMD() {
+        return this.njr;
     }
 
-    public int dMM() {
-        return this.ndI;
+    public int dME() {
+        return this.njp;
     }
 
-    public String dMN() {
-        return this.ndJ;
+    public String dMF() {
+        return this.njq;
     }
 
     public int getErrorCode() {
@@ -62,13 +61,13 @@ public class h {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.ncA.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
-                this.ncf = jSONObject.optInt("show_dialog");
-                this.ncg = jSONObject.optString("sign_notice");
-                this.ndI = jSONObject.optInt("is_timeout");
-                this.ndJ = jSONObject.optString("timeout_notice");
+                this.nih.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
+                this.nhL = jSONObject.optInt("show_dialog");
+                this.nhM = jSONObject.optString("sign_notice");
+                this.njp = jSONObject.optInt("is_timeout");
+                this.njq = jSONObject.optString("timeout_notice");
                 this.errorCode = jSONObject.optInt("error_code");
-                this.errorMsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+                this.errorMsg = jSONObject.optString("error_msg");
                 JSONArray optJSONArray = jSONObject.optJSONArray("info");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
@@ -76,7 +75,7 @@ public class h {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         i iVar = new i();
                         iVar.parserJson(jSONObject2);
-                        this.ndK.add(iVar);
+                        this.njr.add(iVar);
                     }
                 }
             } catch (Exception e) {

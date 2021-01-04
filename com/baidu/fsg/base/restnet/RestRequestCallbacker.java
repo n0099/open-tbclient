@@ -1,9 +1,9 @@
 package com.baidu.fsg.base.restnet;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class RestRequestCallbacker {
     private static IRestRequestCallback mCallback;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public interface IRestRequestCallback {
         boolean isSpecialUrl(String str);
 

@@ -27,6 +27,9 @@ import android.view.accessibility.AccessibilityNodeProvider;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.UiThread;
 import io.flutter.app.FlutterPluginRegistry;
 import io.flutter.embedding.android.AndroidKeyProcessor;
 import io.flutter.embedding.android.AndroidTouchProcessor;
@@ -50,7 +53,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class FlutterView extends SurfaceView implements BinaryMessenger, TextureRegistry {
     private static final String TAG = "FlutterView";
     private final AndroidKeyProcessor androidKeyProcessor;
@@ -77,18 +80,18 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     private final SettingsChannel settingsChannel;
     private final SystemChannel systemChannel;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public interface FirstFrameListener {
         void onFirstFrame();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public interface Provider {
         FlutterView getFlutterView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public enum ZeroSides {
         NONE,
         LEFT,
@@ -97,7 +100,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static final class ViewportMetrics {
         float devicePixelRatio = 1.0f;
         int physicalWidth = 0;
@@ -213,6 +216,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         return null;
     }
 
+    @NonNull
     public DartExecutor getDartExecutor() {
         return this.dartExecutor;
     }
@@ -427,6 +431,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         return ZeroSides.NONE;
     }
 
+    @RequiresApi(20)
     @TargetApi(20)
     int calculateBottomKeyboardInset(WindowInsets windowInsets) {
         if (windowInsets.getSystemWindowInsetBottom() < getRootView().getHeight() * 0.18d) {
@@ -436,6 +441,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     }
 
     @Override // android.view.View
+    @RequiresApi(20)
     @SuppressLint({"InlinedApi", "NewApi"})
     @TargetApi(20)
     public final WindowInsets onApplyWindowInsets(WindowInsets windowInsets) {
@@ -574,11 +580,13 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     }
 
     @Override // io.flutter.plugin.common.BinaryMessenger
+    @UiThread
     public void send(String str, ByteBuffer byteBuffer) {
         send(str, byteBuffer, null);
     }
 
     @Override // io.flutter.plugin.common.BinaryMessenger
+    @UiThread
     public void send(String str, ByteBuffer byteBuffer, BinaryMessenger.BinaryReply binaryReply) {
         if (!isAttached()) {
             Log.d(TAG, "FlutterView.send called on a detached view, channel=" + str);
@@ -588,6 +596,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     }
 
     @Override // io.flutter.plugin.common.BinaryMessenger
+    @UiThread
     public void setMessageHandler(String str, BinaryMessenger.BinaryMessageHandler binaryMessageHandler) {
         this.mNativeView.setMessageHandler(str, binaryMessageHandler);
     }
@@ -601,7 +610,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         return surfaceTextureRegistryEntry;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
         private final long id;
         private SurfaceTexture.OnFrameAvailableListener onFrameListener = new SurfaceTexture.OnFrameAvailableListener() { // from class: io.flutter.view.FlutterView.SurfaceTextureRegistryEntry.1

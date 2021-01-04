@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.data.VisitedForumData;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -19,7 +19,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                     break;
                 }
                 visitedForumData2 = it.next();
-                if (!au.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
+                if (!at.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
                     break;
                 }
             }
@@ -30,7 +30,7 @@ public class RecentlyVisitedForumData extends OrmObject {
         }
     }
 
-    public void yJ(int i) {
+    public void yW(int i) {
         if (this.mForumData != null) {
             while (this.mForumData.size() > i) {
                 this.mForumData.removeLast();
@@ -51,7 +51,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                 break;
             }
             VisitedForumData visitedForumData2 = this.mForumData.get(i2);
-            if (!au.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
+            if (!at.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
                 i = i2;
                 break;
             }
@@ -80,7 +80,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                     this.mForumData.addLast(next);
                 }
             }
-            yJ(20);
+            yW(20);
         }
     }
 
@@ -91,7 +91,7 @@ public class RecentlyVisitedForumData extends OrmObject {
         Iterator<VisitedForumData> it = linkedList.iterator();
         while (it.hasNext()) {
             VisitedForumData next = it.next();
-            if (!au.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+            if (!at.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                 return true;
             }
         }

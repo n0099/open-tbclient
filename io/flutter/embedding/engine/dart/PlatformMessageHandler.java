@@ -1,7 +1,10 @@
 package io.flutter.embedding.engine.dart;
-/* loaded from: classes9.dex */
-public interface PlatformMessageHandler {
-    void handleMessageFromDart(String str, byte[] bArr, int i);
 
-    void handlePlatformMessageResponse(int i, byte[] bArr);
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+/* loaded from: classes6.dex */
+public interface PlatformMessageHandler {
+    void handleMessageFromDart(@NonNull String str, @Nullable byte[] bArr, int i);
+
+    void handlePlatformMessageResponse(int i, @Nullable byte[] bArr);
 }

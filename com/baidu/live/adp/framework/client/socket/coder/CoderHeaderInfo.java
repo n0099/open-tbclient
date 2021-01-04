@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.client.socket.coder;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class CoderHeaderInfo {
     private int command;
     private int sequenceId;
@@ -21,15 +21,15 @@ public class CoderHeaderInfo {
 
     public static byte[] wrapHeaderIntoBody(boolean z, boolean z2, int i, int i2, byte[] bArr, boolean z3) {
         ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + getHeaderLengthInBytes());
-        byte b = z ? (byte) (ENCRYPT_FLAG | 0) : (byte) 0;
+        byte b2 = z ? (byte) (ENCRYPT_FLAG | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | COMPRESS_FLAG);
+            b2 = (byte) (b2 | COMPRESS_FLAG);
         }
-        byte b2 = (byte) (b | LCS_SWITCH_HTTP_FLAG);
+        byte b3 = (byte) (b2 | LCS_SWITCH_HTTP_FLAG);
         if (z3) {
-            b2 = (byte) (b2 | EXTRA_DATA_FLAG);
+            b3 = (byte) (b3 | EXTRA_DATA_FLAG);
         }
-        allocate.put(b2);
+        allocate.put(b3);
         allocate.putInt(i);
         allocate.putInt(i2);
         if (bArr != null) {
@@ -42,17 +42,17 @@ public class CoderHeaderInfo {
     public static CoderHeaderInfo extractFromRawBytes(byte[] bArr) {
         ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderLengthInBytes());
         CoderHeaderInfo coderHeaderInfo = new CoderHeaderInfo();
-        byte b = wrap.get();
-        if ((ENCRYPT_FLAG & b) != 0) {
+        byte b2 = wrap.get();
+        if ((ENCRYPT_FLAG & b2) != 0) {
             coderHeaderInfo.encrypt = true;
         }
-        if ((COMPRESS_FLAG & b) != 0) {
+        if ((COMPRESS_FLAG & b2) != 0) {
             coderHeaderInfo.compress = true;
         }
-        if ((LCS_SWITCH_HTTP_FLAG & b) != 0) {
+        if ((LCS_SWITCH_HTTP_FLAG & b2) != 0) {
             coderHeaderInfo.lcsSwitchHttp = true;
         }
-        if ((b & EXTRA_DATA_FLAG) != 0) {
+        if ((b2 & EXTRA_DATA_FLAG) != 0) {
             coderHeaderInfo.hasExtraData = true;
         }
         coderHeaderInfo.command = wrap.getInt();

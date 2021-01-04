@@ -26,46 +26,46 @@ import com.baidu.sapi2.SapiAccountManager;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private static volatile b oOk;
+    private static volatile b oUu;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a<T> extends BIMValueCallBack<T> {
     }
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0965b extends IGetUserStatusListener {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0941b extends IGetUserStatusListener {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface c extends ILoginListener {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface d extends com.baidu.yuyinala.privatemessage.implugin.ma.a {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface e extends ILoginStateChangedListener {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface f extends ISendMessageListener {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface g extends IGetUsersProfileBatchListener {
     }
 
-    public static synchronized b elh() {
+    public static synchronized b ell() {
         b bVar;
         synchronized (b.class) {
-            if (oOk == null) {
-                oOk = new b();
+            if (oUu == null) {
+                oUu = new b();
             }
-            bVar = oOk;
+            bVar = oUu;
         }
         return bVar;
     }
@@ -83,7 +83,7 @@ public class b {
         }
     }
 
-    public Long hh(Context context) {
+    public Long hw(Context context) {
         return Long.valueOf(AccountManager.getUK(context));
     }
 
@@ -127,7 +127,7 @@ public class b {
         return BIMManager.getCuid(context);
     }
 
-    public int hi(Context context) {
+    public int hx(Context context) {
         return Utility.readIntData(context, Constants.KEY_ENV, 0);
     }
 
@@ -137,15 +137,11 @@ public class b {
     public void c(Context context, Throwable th) {
     }
 
-    public int i(Context context, String str, String str2, String str3) {
-        return context.getResources().getIdentifier(str2, str3, str);
-    }
-
-    public void A(Context context, String str, String str2) {
+    public void B(Context context, String str, String str2) {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("PluginHostFactory", "sendAPSBroadcast: action=" + str + ", data=" + str2);
     }
 
-    public String hj(Context context) {
+    public String hy(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("displayName", com.baidu.yuyinala.privatemessage.implugin.d.a.getDisplayName());
@@ -180,14 +176,14 @@ public class b {
         }
     }
 
-    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0965b interfaceC0965b) {
-        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0965b);
+    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0941b interfaceC0941b) {
+        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0941b);
     }
 
     public void a(boolean z, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
     }
 
-    public void hk(Context context) {
+    public void hz(Context context) {
     }
 
     public int getLoginState(Context context) {
@@ -202,7 +198,7 @@ public class b {
         return AccountManager.isCuidLogin(context);
     }
 
-    public boolean eli() {
+    public boolean elm() {
         return false;
     }
 
@@ -213,7 +209,7 @@ public class b {
     public void Au(boolean z) {
     }
 
-    public void bZ(String str, int i) {
+    public void ch(String str, int i) {
     }
 
     public void onEvent(String str, String str2) {

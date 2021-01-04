@@ -1,11 +1,11 @@
 package com.baidu.android.imrtc.notify;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.send.BIMUser;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class BIMKickReqSyncRtcInfo extends BIMSyncRtcInfo {
     private static final String TAG = "BIMKickReqSyncRtcInfo";
     private BIMUser mKickUser = null;

@@ -1,18 +1,20 @@
 package com.baidu.mapapi.utils.route;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class RouteParaOption {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2169a;
-    LatLng b;
+    LatLng f3077a;
+
+    /* renamed from: b  reason: collision with root package name */
+    LatLng f3078b;
     String c;
     String d;
     String e;
     EBusStrategyType f = EBusStrategyType.bus_recommend_way;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum EBusStrategyType {
         bus_time_first,
         bus_transfer_little,
@@ -37,7 +39,7 @@ public class RouteParaOption {
     }
 
     public RouteParaOption endPoint(LatLng latLng) {
-        this.b = latLng;
+        this.f3078b = latLng;
         return this;
     }
 
@@ -54,7 +56,7 @@ public class RouteParaOption {
     }
 
     public LatLng getEndPoint() {
-        return this.b;
+        return this.f3078b;
     }
 
     public String getStartName() {
@@ -62,7 +64,7 @@ public class RouteParaOption {
     }
 
     public LatLng getStartPoint() {
-        return this.f2169a;
+        return this.f3077a;
     }
 
     public RouteParaOption startName(String str) {
@@ -71,7 +73,7 @@ public class RouteParaOption {
     }
 
     public RouteParaOption startPoint(LatLng latLng) {
-        this.f2169a = latLng;
+        this.f3077a = latLng;
         return this;
     }
 }

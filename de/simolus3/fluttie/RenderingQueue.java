@@ -1,13 +1,13 @@
 package de.simolus3.fluttie;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.concurrent.locks.ReentrantLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class RenderingQueue {
     private LinkedList<FluttieAnimation> backlog = new LinkedList<>();
     private Set<FluttieAnimation> currentlyHandling = new HashSet();

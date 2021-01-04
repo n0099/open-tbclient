@@ -37,21 +37,23 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 @SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class n {
     private static SSLSocketFactory h;
 
     /* renamed from: a  reason: collision with root package name */
-    Context f3642a;
+    Context f5551a;
     private String c;
     private String d;
-    byte[] b = new byte[8192];
+
+    /* renamed from: b  reason: collision with root package name */
+    byte[] f5552b = new byte[8192];
     private int e = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
     private int f = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
     private boolean g = false;
 
     public n(Context context) {
-        this.f3642a = context;
+        this.f5551a = context;
     }
 
     private void a(String str, String str2) {
@@ -70,7 +72,7 @@ public final class n {
             this.c = "POST";
         }
         URL url = new URL(this.d);
-        if (e.e(this.f3642a)) {
+        if (e.e(this.f5551a)) {
             i = 0;
         } else if (Build.VERSION.SDK_INT >= 13) {
             str = System.getProperties().getProperty("http.proxyHost");
@@ -82,8 +84,8 @@ public final class n {
                 }
             }
         } else {
-            str = Proxy.getHost(this.f3642a);
-            i = Proxy.getPort(this.f3642a);
+            str = Proxy.getHost(this.f5551a);
+            i = Proxy.getPort(this.f5551a);
         }
         if (str != null && i > 0) {
             httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i)));
@@ -121,23 +123,22 @@ public final class n {
         httpURLConnection.setInstanceFollowRedirects(true);
         httpURLConnection.setConnectTimeout(this.e);
         httpURLConnection.setReadTimeout(this.f);
-        httpURLConnection.setRequestProperty("User-Agent", "eos/" + e.g(this.f3642a)[0] + "/" + y.a(this.f3642a) + "/3.4.4.1");
+        httpURLConnection.setRequestProperty("User-Agent", "eos/" + e.g(this.f5551a)[0] + "/" + y.a(this.f5551a) + "/3.4.4.1");
         httpURLConnection.setRequestProperty("Pragma", "no-cache");
         httpURLConnection.setRequestProperty("Accept", "*/*");
         httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         httpURLConnection.setRequestProperty(Headers.ACCEPT_ENCODING, "gzip,deflate");
         httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry());
-        httpURLConnection.setRequestProperty("x-device-id", p.a(h.b(this.f3642a)));
+        httpURLConnection.setRequestProperty("x-device-id", p.a(h.b(this.f5551a)));
         return httpURLConnection;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0020 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private InputStream a(byte[] bArr, HttpURLConnection httpURLConnection) throws IOException, NetworkErrorException {
         BufferedOutputStream bufferedOutputStream;
-        Throwable th;
         BufferedOutputStream bufferedOutputStream2 = null;
         if (httpURLConnection == null) {
             return null;
@@ -174,32 +175,32 @@ public final class n {
                     try {
                         bufferedOutputStream3.close();
                         return inputStream;
-                    } catch (Throwable th2) {
+                    } catch (Throwable th) {
                         return inputStream;
                     }
                 } catch (NetworkErrorException e) {
                     throw e;
                 } catch (IOException e2) {
                     throw e2;
-                } catch (Throwable th3) {
+                } catch (Throwable th2) {
                     bufferedOutputStream2 = bufferedOutputStream3;
                     try {
                         e.a();
                         throw new IOException();
-                    } catch (Throwable th4) {
+                    } catch (Throwable th3) {
+                        th = th3;
                         bufferedOutputStream = bufferedOutputStream2;
-                        th = th4;
                         if (bufferedOutputStream != null) {
                             try {
                                 bufferedOutputStream.close();
-                            } catch (Throwable th5) {
+                            } catch (Throwable th4) {
                             }
                         }
                         throw th;
                     }
                 }
-            } catch (Throwable th6) {
-                th = th6;
+            } catch (Throwable th5) {
+                th = th5;
                 if (bufferedOutputStream != null) {
                 }
                 throw th;
@@ -208,13 +209,13 @@ public final class n {
             throw e3;
         } catch (IOException e4) {
             throw e4;
-        } catch (Throwable th7) {
+        } catch (Throwable th6) {
         }
     }
 
     private InputStream a(HttpURLConnection httpURLConnection) {
         InputStream inputStream = null;
-        if (!e.f(this.f3642a) || httpURLConnection == null || httpURLConnection == null) {
+        if (!e.f(this.f5551a) || httpURLConnection == null || httpURLConnection == null) {
             return null;
         }
         try {
@@ -236,21 +237,21 @@ public final class n {
             throw new IOException("InputStream");
         }
         try {
-            byte[] b = b(inputStream);
-            if (b == null) {
+            byte[] b2 = b(inputStream);
+            if (b2 == null) {
                 throw new IOException("responseBytes");
             }
             if (this.g) {
-                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b);
+                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b2);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 k.b(byteArrayInputStream, byteArrayOutputStream);
-                b = byteArrayOutputStream.toByteArray();
+                b2 = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.flush();
                 byteArrayOutputStream.close();
                 byteArrayInputStream.close();
             }
-            if (b != null) {
-                return new String(b);
+            if (b2 != null) {
+                return new String(b2);
             }
             throw new IOException();
         } catch (Throwable th) {
@@ -261,28 +262,36 @@ public final class n {
 
     public final String a(String str, byte[] bArr) throws IOException, InterruptedException, NetworkErrorException {
         HttpURLConnection httpURLConnection;
-        InputStream inputStream = null;
+        InputStream inputStream;
+        InputStream a2;
         x.a();
         try {
             a("POST", str);
             try {
                 httpURLConnection = a();
-            } catch (Throwable th) {
-                th = th;
+                try {
+                    a2 = a(bArr, httpURLConnection);
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream = null;
+                }
+            } catch (Throwable th2) {
+                th = th2;
                 httpURLConnection = null;
+                inputStream = null;
             }
             try {
-                inputStream = a(bArr, httpURLConnection);
-                String a2 = a(inputStream);
-                if (inputStream != null) {
-                    inputStream.close();
+                String a3 = a(a2);
+                if (a2 != null) {
+                    a2.close();
                 }
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
                 }
-                return a2;
-            } catch (Throwable th2) {
-                th = th2;
+                return a3;
+            } catch (Throwable th3) {
+                th = th3;
+                inputStream = a2;
                 if (inputStream != null) {
                     inputStream.close();
                 }
@@ -311,49 +320,115 @@ public final class n {
         }
     }
 
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [485=5] */
-    public final boolean a(String str, File file) {
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream = null;
-        boolean z = false;
-        x.a();
-        try {
-            com.baidu.sofire.b.a();
-            if (e.f(this.f3642a)) {
-                if (!TextUtils.isEmpty(str)) {
-                    new StringBuilder("f= ").append(file);
-                    com.baidu.sofire.b.a();
-                    try {
-                        a("GET", str);
-                        httpURLConnection = a();
-                        try {
-                            inputStream = a(httpURLConnection);
-                            z = a(inputStream, file);
-                            if (inputStream != null) {
-                                inputStream.close();
-                            }
-                            if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
-                            }
-                        } catch (Throwable th) {
-                            e.a();
-                            if (inputStream != null) {
-                                inputStream.close();
-                            }
-                            if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
-                            }
-                            return z;
-                        }
-                    } catch (Throwable th2) {
-                        httpURLConnection = null;
-                    }
-                }
-            }
-            return z;
-        } finally {
-            x.b();
-        }
+    public final boolean a(java.lang.String r5, java.io.File r6) {
+        /*
+            r4 = this;
+            r2 = 0
+            r0 = 0
+            com.baidu.sofire.i.x.a()
+            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L51
+            android.content.Context r1 = r4.f5551a     // Catch: java.lang.Throwable -> L51
+            boolean r1 = com.baidu.sofire.i.e.f(r1)     // Catch: java.lang.Throwable -> L51
+            if (r1 != 0) goto L14
+            com.baidu.sofire.i.x.b()
+        L13:
+            return r0
+        L14:
+            boolean r1 = android.text.TextUtils.isEmpty(r5)     // Catch: java.lang.Throwable -> L51
+            if (r1 == 0) goto L1e
+            com.baidu.sofire.i.x.b()
+            goto L13
+        L1e:
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L51
+            java.lang.String r3 = "f= "
+            r1.<init>(r3)     // Catch: java.lang.Throwable -> L51
+            r1.append(r6)     // Catch: java.lang.Throwable -> L51
+            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L51
+            java.lang.String r1 = "GET"
+            r4.a(r1, r5)     // Catch: java.lang.Throwable -> L56
+            java.net.HttpURLConnection r1 = r4.a()     // Catch: java.lang.Throwable -> L56
+            java.io.InputStream r2 = r4.a(r1)     // Catch: java.lang.Throwable -> L8a
+            boolean r0 = r4.a(r2, r6)     // Catch: java.lang.Throwable -> L8d
+            if (r2 == 0) goto L43
+            r2.close()     // Catch: java.lang.Throwable -> L4c
+        L43:
+            if (r1 == 0) goto L48
+            r1.disconnect()     // Catch: java.lang.Throwable -> L4c
+        L48:
+            com.baidu.sofire.i.x.b()
+            goto L13
+        L4c:
+            r1 = move-exception
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L51
+            goto L48
+        L51:
+            r0 = move-exception
+            com.baidu.sofire.i.x.b()
+            throw r0
+        L56:
+            r1 = move-exception
+            r1 = r2
+            r3 = r2
+        L59:
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L88
+            if (r3 == 0) goto L61
+            r3.close()     // Catch: java.lang.Throwable -> L6a
+        L61:
+            if (r1 == 0) goto L66
+            r1.disconnect()     // Catch: java.lang.Throwable -> L6a
+        L66:
+            com.baidu.sofire.i.x.b()
+            goto L13
+        L6a:
+            r1 = move-exception
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L51
+            goto L66
+        L6f:
+            r0 = move-exception
+            r1 = r2
+            r3 = r2
+        L72:
+            if (r3 == 0) goto L77
+            r3.close()     // Catch: java.lang.Throwable -> L7d
+        L77:
+            if (r1 == 0) goto L7c
+            r1.disconnect()     // Catch: java.lang.Throwable -> L7d
+        L7c:
+            throw r0     // Catch: java.lang.Throwable -> L51
+        L7d:
+            r1 = move-exception
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L51
+            goto L7c
+        L82:
+            r0 = move-exception
+            r3 = r2
+            goto L72
+        L85:
+            r0 = move-exception
+            r3 = r2
+            goto L72
+        L88:
+            r0 = move-exception
+            goto L72
+        L8a:
+            r3 = move-exception
+            r3 = r2
+            goto L59
+        L8d:
+            r3 = move-exception
+            r3 = r2
+            goto L59
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.i.n.a(java.lang.String, java.io.File):boolean");
     }
 
     private boolean a(InputStream inputStream, File file) {
@@ -417,19 +492,21 @@ public final class n {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public class a implements X509TrustManager {
-        private X509TrustManager b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private X509TrustManager f5554b;
 
         a(X509TrustManager x509TrustManager) {
-            this.b = null;
-            this.b = x509TrustManager;
+            this.f5554b = null;
+            this.f5554b = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
-            this.b.checkClientTrusted(x509CertificateArr, str);
+            this.f5554b.checkClientTrusted(x509CertificateArr, str);
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -437,7 +514,7 @@ public final class n {
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
             try {
-                this.b.checkServerTrusted(x509CertificateArr, str);
+                this.f5554b.checkServerTrusted(x509CertificateArr, str);
                 com.baidu.sofire.b.a();
             } catch (Throwable th) {
                 e.a();
@@ -445,7 +522,7 @@ public final class n {
                     if ((th2 instanceof CertificateExpiredException) || (th2 instanceof CertificateNotYetValidException)) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("0", Long.valueOf(System.currentTimeMillis()));
-                        e.a(n.this.f3642a.getApplicationContext(), "1003121", hashMap);
+                        e.a(n.this.f5551a.getApplicationContext(), "1003121", hashMap);
                         return;
                     }
                 }
@@ -459,7 +536,7 @@ public final class n {
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
             com.baidu.sofire.b.a();
-            return this.b.getAcceptedIssuers();
+            return this.f5554b.getAcceptedIssuers();
         }
     }
 }

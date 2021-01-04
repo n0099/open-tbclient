@@ -4,44 +4,44 @@ import android.content.Context;
 import android.util.Log;
 import com.baidu.turbonet.net.TurbonetEngine;
 import org.json.JSONException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class TurbonetContext {
     private String mAppName;
     private Context mContext;
-    private String oEX;
-    private TurbonetEngine oEy;
+    private String oLB;
+    private TurbonetEngine oLf;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
         this.mContext = context;
         this.mAppName = str;
-        this.oEX = str2;
+        this.oLB = str2;
         a(turbonetConfig);
     }
 
-    public TurbonetEngine ehP() {
-        return this.oEy;
+    public TurbonetEngine eie() {
+        return this.oLf;
     }
 
-    public long ehQ() {
-        return this.oEy.eha();
+    public long eif() {
+        return this.oLf.ehz();
     }
 
     private void a(TurbonetConfig turbonetConfig) {
         TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.mContext);
         if (turbonetConfig == null) {
-            this.oEy = builder.Xv(this.mAppName).Xu(this.oEX).ehZ();
+            this.oLf = builder.Xe(this.mAppName).Xd(this.oLB).eim();
         } else {
-            if (turbonetConfig.ehO()) {
-                builder.Xt(turbonetConfig.ehN());
+            if (turbonetConfig.eid()) {
+                builder.Xc(turbonetConfig.eic());
             }
             try {
-                if (turbonetConfig.ehM().has("nq") && turbonetConfig.ehM().getJSONObject("nq").getBoolean("network_quality_enabled")) {
-                    builder.J(true, "");
+                if (turbonetConfig.eib().has("nq") && turbonetConfig.eib().getJSONObject("nq").getBoolean("network_quality_enabled")) {
+                    builder.K(true, "");
                 }
             } catch (JSONException e) {
                 Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
             }
-            this.oEy = builder.Xv(this.mAppName).Xu(this.oEX).Xw(turbonetConfig.ehM().toString()).ehZ();
+            this.oLf = builder.Xe(this.mAppName).Xd(this.oLB).Xf(turbonetConfig.eib().toString()).eim();
         }
         Log.v("cr_TurbonetContext", "Turbonet init context success.");
     }

@@ -3,11 +3,11 @@ package org.webrtc;
 import android.graphics.Matrix;
 import android.graphics.Point;
 import android.opengl.GLES20;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import java.nio.ByteBuffer;
 import org.webrtc.RendererCommon;
 import org.webrtc.VideoFrame;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class VideoFrameDrawer {
     static final float[] srcPoints = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f};
     @Nullable
@@ -20,7 +20,7 @@ public class VideoFrameDrawer {
     private final Matrix renderMatrix = new Matrix();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class YuvUploader {
         @Nullable
         private ByteBuffer copyBuffer;

@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class ImEffect extends Message {
     public static final String DEFAULT_END_COLOR = "";
     public static final String DEFAULT_START_COLOR = "";
@@ -40,7 +40,7 @@ public final class ImEffect extends Message {
         this.stroke_color = builder.stroke_color;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<ImEffect> {
         public String end_color;
         public String start_color;

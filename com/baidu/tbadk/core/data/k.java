@@ -3,28 +3,28 @@ package com.baidu.tbadk.core.data;
 import tbclient.BannerImage;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String bOR;
-    private String eFb;
+    private String bTV;
+    private String eOR;
     private String mTitle;
 
     public void a(BannerImage bannerImage) {
         if (bannerImage != null) {
-            this.bOR = bannerImage.img_url;
-            this.eFb = bannerImage.ahead_url;
+            this.bTV = bannerImage.img_url;
+            this.eOR = bannerImage.ahead_url;
             this.mTitle = bannerImage.title;
         }
     }
 
-    public String bmL() {
-        return this.bOR;
+    public String getImgUrl() {
+        return this.bTV;
     }
 
-    public String bmM() {
-        return this.eFb;
+    public String bpl() {
+        return this.eOR;
     }
 
-    public void AQ(String str) {
-        this.eFb = str;
+    public void AO(String str) {
+        this.eOR = str;
     }
 
     public String getTitle() {
@@ -33,11 +33,11 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.bOR;
+        return this.bTV;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String bmN() {
-        return this.eFb;
+    public String bpm() {
+        return this.eOR;
     }
 }

@@ -9,32 +9,32 @@ import com.baidu.tbadk.ala.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyForbiddenFansActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class PersonListActivityStatic {
     public static String Tag = "tag";
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MyForbiddenFansActivityConfig.class, MyForbiddenFansActivity.class);
-        cBB();
+        cEu();
     }
 
-    public static void cBB() {
-        com.baidu.tbadk.ala.b.bkP().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
+    public static void cEu() {
+        com.baidu.tbadk.ala.b.bno().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
-                TextView ey = com.baidu.tbadk.ala.c.ey(context);
-                if (ey != null) {
+                TextView eR = com.baidu.tbadk.ala.c.eR(context);
+                if (eR != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    ap.setViewTextColor(ey, R.color.CAM_X0302);
+                    ao.setViewTextColor(eR, R.color.CAM_X0302);
                     layoutParams.setMargins(l.getDimens(context, R.dimen.ds8), 0, l.getDimens(context, R.dimen.ds8), 0);
                     layoutParams.gravity = 16;
-                    ey.setLayoutParams(layoutParams);
+                    eR.setLayoutParams(layoutParams);
                 }
-                return ey;
+                return eR;
             }
         });
     }

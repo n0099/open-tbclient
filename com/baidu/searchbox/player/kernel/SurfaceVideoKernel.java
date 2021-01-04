@@ -1,13 +1,13 @@
 package com.baidu.searchbox.player.kernel;
 
-import android.support.annotation.NonNull;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class SurfaceVideoKernel extends AbsVideoCyber {
     private static final String TAG = "SurfaceVideoKernel";
     private Surface mCurSurface;

@@ -2,18 +2,20 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class x implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4481a = "SpCache";
-    private static String b = "com.vivo.push.cache";
+    private static String f14002a = "SpCache";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f14003b = "com.vivo.push.cache";
     private SharedPreferences c;
 
     @Override // com.vivo.push.util.c
     public final boolean a(Context context) {
         if (this.c == null) {
-            this.c = context.getSharedPreferences(b, 0);
+            this.c = context.getSharedPreferences(f14003b, 0);
             return true;
         }
         return true;
@@ -22,7 +24,7 @@ public final class x implements c {
     @Override // com.vivo.push.util.c
     public final String a(String str, String str2) {
         String string = this.c.getString(str, str2);
-        p.d(f4481a, "getString " + str + " is " + string);
+        p.d(f14002a, "getString " + str + " is " + string);
         return string;
     }
 
@@ -32,10 +34,10 @@ public final class x implements c {
         if (edit != null) {
             edit.putString(str, str2);
             a.a(edit);
-            p.d(f4481a, "putString by " + str);
+            p.d(f14002a, "putString by " + str);
             return;
         }
-        p.b(f4481a, "putString error by " + str);
+        p.b(f14002a, "putString error by " + str);
     }
 
     public final void a() {
@@ -44,6 +46,6 @@ public final class x implements c {
             edit.clear();
             a.a(edit);
         }
-        p.d(f4481a, "system cache is cleared");
+        p.d(f14002a, "system cache is cleared");
     }
 }

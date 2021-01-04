@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.constants;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public interface PushConstants {
     public static final int BROADCAST_MESSAGE_ARRIVE = 2100;
     public static final String C2DM_INTENT = "com.meizu.c2dm.intent.RECEIVE";

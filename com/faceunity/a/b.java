@@ -1,24 +1,24 @@
 package com.faceunity.a;
 
 import android.media.AudioRecord;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.ala.helper.StreamConfig;
 import java.nio.ByteBuffer;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private static b pra;
+    private static b pGx;
     private AudioRecord mAudioRecord;
-    private boolean prb;
-    private static final int[] pqY = {1, 0, 5, 7, 6};
+    private boolean pGy;
+    private static final int[] pGv = {1, 0, 5, 7, 6};
     public static int SAMPLE_RATE = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int pqZ = 24;
+    public static int pGw = 24;
 
     public b() {
         int minBufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, 16, 2);
-        int i = SAMPLES_PER_FRAME * pqZ;
+        int i = SAMPLES_PER_FRAME * pGw;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : pqY) {
+        for (int i2 : pGv) {
             try {
                 this.mAudioRecord = new AudioRecord(i2, SAMPLE_RATE, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
@@ -31,8 +31,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.prb) {
-            this.prb = true;
+        if (!this.pGy) {
+            this.pGy = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -49,11 +49,11 @@ public class b {
 
     public void startRecording() {
         if (this.mAudioRecord != null) {
-            if (pra != null && !pra.abU()) {
-                pra.release();
+            if (pGx != null && !pGx.adH()) {
+                pGx.release();
             }
             this.mAudioRecord.startRecording();
-            pra = this;
+            pGx = this;
         }
     }
 
@@ -63,11 +63,11 @@ public class b {
         }
     }
 
-    public boolean abU() {
-        return this.prb;
+    public boolean adH() {
+        return this.pGy;
     }
 
-    public AudioRecord exA() {
+    public AudioRecord eBh() {
         return this.mAudioRecord;
     }
 }

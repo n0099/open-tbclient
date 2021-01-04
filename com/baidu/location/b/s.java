@@ -6,6 +6,7 @@ import android.os.Handler;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.down.utils.Constants;
 import com.baidu.location.Jni;
+import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.io.BufferedInputStream;
@@ -18,13 +19,15 @@ import java.io.RandomAccessFile;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class s extends com.baidu.location.e.f {
     private static s q = null;
 
     /* renamed from: a  reason: collision with root package name */
-    String f1913a = null;
-    String b = null;
+    String f2659a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    String f2660b = null;
     String c = null;
     String d = null;
     int e = 1;
@@ -37,15 +40,15 @@ public class s extends com.baidu.location.e.f {
 
     public static void a(File file, File file2) throws IOException {
         BufferedOutputStream bufferedOutputStream;
-        BufferedInputStream bufferedInputStream = null;
+        BufferedInputStream bufferedInputStream;
         try {
-            BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file));
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
             try {
                 bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
                 try {
-                    byte[] bArr = new byte[5120];
+                    byte[] bArr = new byte[Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION];
                     while (true) {
-                        int read = bufferedInputStream2.read(bArr);
+                        int read = bufferedInputStream.read(bArr);
                         if (read == -1) {
                             break;
                         }
@@ -53,15 +56,14 @@ public class s extends com.baidu.location.e.f {
                     }
                     bufferedOutputStream.flush();
                     file.delete();
-                    if (bufferedInputStream2 != null) {
-                        bufferedInputStream2.close();
+                    if (bufferedInputStream != null) {
+                        bufferedInputStream.close();
                     }
                     if (bufferedOutputStream != null) {
                         bufferedOutputStream.close();
                     }
                 } catch (Throwable th) {
                     th = th;
-                    bufferedInputStream = bufferedInputStream2;
                     if (bufferedInputStream != null) {
                         bufferedInputStream.close();
                     }
@@ -73,11 +75,11 @@ public class s extends com.baidu.location.e.f {
             } catch (Throwable th2) {
                 th = th2;
                 bufferedOutputStream = null;
-                bufferedInputStream = bufferedInputStream2;
             }
         } catch (Throwable th3) {
             th = th3;
             bufferedOutputStream = null;
+            bufferedInputStream = null;
         }
     }
 
@@ -128,7 +130,7 @@ public class s extends com.baidu.location.e.f {
         try {
             File file = new File(com.baidu.location.e.l.j() + "/grtcfrsa.dat");
             if (!file.exists()) {
-                File file2 = new File(com.baidu.location.e.k.f1958a);
+                File file2 = new File(com.baidu.location.e.k.f2731a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
@@ -170,7 +172,7 @@ public class s extends com.baidu.location.e.f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f1913a == null) {
+        if (this.f2659a == null) {
             return;
         }
         new w(this).start();
@@ -187,16 +189,16 @@ public class s extends com.baidu.location.e.f {
         if (new File(com.baidu.location.e.l.j() + File.separator + this.c).exists()) {
             return true;
         }
-        return a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + this.f1913a + "/" + this.c, this.c);
+        return a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + this.f2659a + "/" + this.c, this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.b == null || this.b.contains(com.baidu.android.imsdk.retrieve.Constants.PATH_PARENT)) {
+        if (this.f2660b == null || this.f2660b.contains(com.baidu.android.imsdk.retrieve.Constants.PATH_PARENT)) {
             return;
         }
-        File file = new File(com.baidu.location.e.l.j() + File.separator + this.b);
-        if (file.exists() || !a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + this.f1913a + "/" + this.b, this.b)) {
+        File file = new File(com.baidu.location.e.l.j() + File.separator + this.f2660b);
+        if (file.exists() || !a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + this.f2659a + "/" + this.f2660b, this.f2660b)) {
             return;
         }
         String a2 = com.baidu.location.e.l.a(file, "SHA-256");
@@ -228,7 +230,7 @@ public class s extends com.baidu.location.e.f {
         stringBuffer.append(2);
         if (com.baidu.location.e.b.a().c == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.e.b.a().f1947a);
+            stringBuffer.append(com.baidu.location.e.b.a().f2711a);
         } else {
             stringBuffer.append("&cu=");
             stringBuffer.append(com.baidu.location.e.b.a().c);
@@ -273,10 +275,10 @@ public class s extends com.baidu.location.e.f {
                 JSONObject jSONObject = new JSONObject(this.j);
                 if (MapBundleKey.OfflineMapKey.OFFLINE_UPDATE.equals(jSONObject.getString("res"))) {
                     if (jSONObject.has("upath")) {
-                        this.f1913a = jSONObject.getString("upath");
+                        this.f2659a = jSONObject.getString("upath");
                     }
                     if (jSONObject.has("u1")) {
-                        this.b = jSONObject.getString("u1");
+                        this.f2660b = jSONObject.getString("u1");
                     }
                     if (jSONObject.has("u2")) {
                         this.c = jSONObject.getString("u2");

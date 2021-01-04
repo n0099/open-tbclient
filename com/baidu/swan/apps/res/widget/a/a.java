@@ -3,41 +3,41 @@ package com.baidu.swan.apps.res.widget.a;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.view.ViewCompat;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
+import androidx.core.view.ViewCompat;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.a.b;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class a {
-    protected d dxB;
-    protected b.a dxC;
-    private InterfaceC0475a dxD;
-    private float mBgDarkAlpha;
+    private float dFA;
+    private boolean dFB;
+    private int dFC;
+    private boolean dFD;
+    protected d dFv;
+    protected b.a dFw;
+    private int dFx;
+    private InterfaceC0468a dFy;
+    private boolean dFz;
     protected Context mContext;
-    private boolean mCurrentMode;
-    private boolean mIsBackgroundDarken;
-    private boolean mIsHaveAnimation;
     protected List<com.baidu.swan.apps.res.widget.a.b> mItems;
     protected View.OnKeyListener mKeyClickListener;
     private View mMenu;
-    private int mPopAnimStyle;
     protected PopupWindow mPopupWindow;
-    private int mPopupWindowWidth;
     protected Resources mResources;
     protected final View mViewToAttach;
 
     /* renamed from: com.baidu.swan.apps.res.widget.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public interface InterfaceC0475a {
-        void onMenuItemUpdated(List<com.baidu.swan.apps.res.widget.a.b> list);
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0468a {
+        void aX(List<com.baidu.swan.apps.res.widget.a.b> list);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface b {
     }
 
@@ -52,16 +52,16 @@ public abstract class a {
     }
 
     public void a(b.a aVar) {
-        this.dxC = aVar;
+        this.dFw = aVar;
     }
 
     public void show() {
-        if (com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState() != this.mCurrentMode) {
+        if (com.baidu.swan.apps.t.a.aAN().alD() != this.dFD) {
             prepareMenuView(this.mContext);
             this.mPopupWindow = null;
         }
-        showPopUpWindow(true);
-        this.mCurrentMode = com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState();
+        hd(true);
+        this.dFD = com.baidu.swan.apps.t.a.aAN().alD();
     }
 
     public void dismiss() {
@@ -107,23 +107,23 @@ public abstract class a {
         });
     }
 
-    protected void updateMenuItems(List<com.baidu.swan.apps.res.widget.a.b> list) {
-        if (this.dxD != null) {
-            this.dxD.onMenuItemUpdated(list);
+    protected void aW(List<com.baidu.swan.apps.res.widget.a.b> list) {
+        if (this.dFy != null) {
+            this.dFy.aX(list);
         }
     }
 
-    private void showPopUpWindow(boolean z) {
-        if (this.dxB != null) {
-            this.dxB.onShowMenu();
+    private void hd(boolean z) {
+        if (this.dFv != null) {
+            this.dFv.onShowMenu();
         }
-        updateMenuItems(this.mItems);
+        aW(this.mItems);
         ensureMenuLoaded(this.mMenu, this.mItems);
         dismiss();
         if (this.mPopupWindow == null) {
-            this.mPopupWindow = new PopupWindow(this.mMenu, this.mPopupWindowWidth, -2, true);
-            if (this.mIsHaveAnimation) {
-                this.mPopupWindow.setAnimationStyle(this.mPopAnimStyle);
+            this.mPopupWindow = new PopupWindow(this.mMenu, this.dFx, -2, true);
+            if (this.dFB) {
+                this.mPopupWindow.setAnimationStyle(this.dFC);
             }
             if (z) {
                 this.mPopupWindow.setBackgroundDrawable(this.mResources.getDrawable(a.e.aiapps_pop_transparent_bg));
@@ -134,18 +134,18 @@ public abstract class a {
             this.mPopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.swan.apps.res.widget.a.a.2
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
-                    if (a.this.mIsBackgroundDarken) {
-                        a.this.clearBackgroundDarkenStatus();
+                    if (a.this.dFz) {
+                        a.this.aLI();
                     }
-                    if (a.this.dxB != null) {
-                        a.this.dxB.onDismissMenu();
+                    if (a.this.dFv != null) {
+                        a.this.dFv.onDismissMenu();
                     }
                 }
             });
         }
         if (this.mViewToAttach == null) {
-            if (this.dxB != null) {
-                this.dxB.onDismissMenu();
+            if (this.dFv != null) {
+                this.dFv.onDismissMenu();
                 return;
             }
             return;
@@ -154,8 +154,8 @@ public abstract class a {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (a.this.mIsBackgroundDarken) {
-                        a.this.darkenTheBackground(a.this.mBgDarkAlpha);
+                    if (a.this.dFz) {
+                        a.this.N(a.this.dFA);
                     }
                     a.this.showMenu(a.this.mPopupWindow);
                 } catch (Exception e) {
@@ -169,7 +169,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void darkenTheBackground(float f) {
+    public void N(float f) {
         if (this.mViewToAttach != null) {
             ViewGroup viewGroup = (ViewGroup) this.mViewToAttach.getRootView();
             ColorDrawable colorDrawable = new ColorDrawable(ViewCompat.MEASURED_STATE_MASK);
@@ -180,7 +180,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clearBackgroundDarkenStatus() {
+    public void aLI() {
         if (this.mViewToAttach != null) {
             ((ViewGroup) this.mViewToAttach.getRootView()).getOverlay().clear();
         }

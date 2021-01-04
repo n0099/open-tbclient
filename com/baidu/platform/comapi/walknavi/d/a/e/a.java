@@ -11,12 +11,14 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f2986a = null;
-    private d b;
+    private static a f4448a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private d f4449b;
     private com.baidu.platform.comapi.walknavi.d.a.a.a c;
     private String d;
     private Context e;
@@ -25,14 +27,14 @@ public class a {
     }
 
     public static a a() {
-        if (f2986a == null) {
+        if (f4448a == null) {
             synchronized (a.class) {
-                if (f2986a == null) {
-                    f2986a = new a();
+                if (f4448a == null) {
+                    f4448a = new a();
                 }
             }
         }
-        return f2986a;
+        return f4448a;
     }
 
     public void a(Context context, com.baidu.platform.comapi.walknavi.d.a.a.a aVar) {
@@ -59,7 +61,7 @@ public class a {
     }
 
     private void a(Context context, Map<String, String> map) {
-        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f2991a + com.baidu.platform.comapi.walknavi.d.a.g.d.c + "/count_ar";
+        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f4456a + com.baidu.platform.comapi.walknavi.d.a.g.d.c + "/count_ar";
         String uuid = new e(context).a().toString();
         JSONObject jSONObject = new JSONObject();
         try {
@@ -74,7 +76,7 @@ public class a {
             }
             com.baidu.platform.comapi.walknavi.d.a.f.e.a(context, jSONObject);
             jSONObject.put("time", String.valueOf(Long.valueOf(System.currentTimeMillis())));
-            jSONObject.put(HttpConstants.HTTP_OS_TYPE, "android");
+            jSONObject.put(HttpConstants.HTTP_OS_TYPE, HttpConstants.OS_TYPE_VALUE);
             jSONObject.put("os_version", Build.MODEL);
             jSONObject.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
             jSONObject.put("device_id", uuid);
@@ -87,17 +89,17 @@ public class a {
             jSONObject.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         } catch (Exception e) {
         }
-        this.b = new d(str, null);
-        this.b.execute(jSONObject.toString());
+        this.f4449b = new d(str, null);
+        this.f4449b.execute(jSONObject.toString());
     }
 
     public void b() {
-        if (this.b != null && !this.b.isCancelled()) {
-            this.b.cancel(true);
-            this.b = null;
+        if (this.f4449b != null && !this.f4449b.isCancelled()) {
+            this.f4449b.cancel(true);
+            this.f4449b = null;
         }
-        if (f2986a != null) {
-            f2986a = null;
+        if (f4448a != null) {
+            f4448a = null;
         }
         this.d = null;
     }

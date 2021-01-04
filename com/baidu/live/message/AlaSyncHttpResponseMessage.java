@@ -1,15 +1,15 @@
 package com.baidu.live.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.live.data.al;
+import com.baidu.live.data.an;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaSyncHttpResponseMessage extends JsonHttpResponsedMessage {
-    private al brA;
+    private an bwi;
 
-    public al PR() {
-        return this.brA;
+    public an QQ() {
+        return this.bwi;
     }
 
     public AlaSyncHttpResponseMessage() {
@@ -20,8 +20,8 @@ public class AlaSyncHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.brA = new al(false);
-            this.brA.parserJson(jSONObject);
+            this.bwi = new an(false);
+            this.bwi.parserJson(jSONObject);
         }
     }
 }

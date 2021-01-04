@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class AdSettings {
     private static String c;
     private static String d;
@@ -18,8 +18,10 @@ public class AdSettings {
     private static String i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashSet<String> f2292a = new HashSet<>();
-    private static JSONArray b = new JSONArray();
+    private static HashSet<String> f3290a = new HashSet<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static JSONArray f3291b = new JSONArray();
     private static String j = b.HTTP_PROTOCOL_TYPE.a() + "";
     private static HashSet<String> k = new HashSet<>();
     private static JSONArray l = new JSONArray();
@@ -38,7 +40,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         UNKNOWN_PROTOCOL_TYPE(0),
         HTTP_PROTOCOL_TYPE(1),
@@ -56,7 +58,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public enum d {
         MALE(0),
         FEMALE(1);
@@ -73,7 +75,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         PRIMARY(0),
         JUNIOR(1),
@@ -95,7 +97,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public enum c {
         F0T1k(0),
         F1kT2k(1),
@@ -124,13 +126,13 @@ public class AdSettings {
 
     public static JSONObject getAttr() {
         JSONObject jSONObject = new JSONObject();
-        Iterator<String> it = f2292a.iterator();
-        b = new JSONArray();
+        Iterator<String> it = f3290a.iterator();
+        f3291b = new JSONArray();
         while (it.hasNext()) {
-            b.put(it.next());
+            f3291b.put(it.next());
         }
         try {
-            jSONObject.putOpt("KEY", b);
+            jSONObject.putOpt("KEY", f3291b);
             jSONObject.putOpt("RPT", j);
         } catch (Exception e2) {
         }
@@ -140,13 +142,13 @@ public class AdSettings {
     @Deprecated
     public static void setKey(String[] strArr) {
         for (String str : strArr) {
-            f2292a.add(str);
+            f3290a.add(str);
         }
     }
 
     @Deprecated
     public static void setKey(List<String> list) {
-        f2292a.addAll(list);
+        f3290a.addAll(list);
     }
 
     @Deprecated

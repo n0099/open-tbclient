@@ -20,34 +20,34 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.album.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class a extends PopupWindow {
-    private View bJa;
-    private ViewGroup bJb;
-    private int bJd;
-    private BaseFragmentActivity gbo;
+    private View bNO;
+    private ViewGroup bNP;
+    private int bNR;
+    private BaseFragmentActivity gkF;
     private ListView mListView;
     private final View.OnClickListener mOnClickListener;
     private final AdapterView.OnItemClickListener mOnItemClickListener;
-    private int nZH;
-    private ValueAnimator nZI;
-    private ValueAnimator nZJ;
-    private b nZK;
-    private InterfaceC0903a nZL;
+    private int obU;
+    private ValueAnimator obV;
+    private ValueAnimator obW;
+    private b obX;
+    private InterfaceC0878a obY;
 
     /* renamed from: com.baidu.tieba.write.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0903a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0878a {
         void a(int i, com.baidu.tbadk.album.a aVar);
     }
 
-    public void a(InterfaceC0903a interfaceC0903a) {
-        this.nZL = interfaceC0903a;
+    public void a(InterfaceC0878a interfaceC0878a) {
+        this.obY = interfaceC0878a;
     }
 
     public a(BaseFragmentActivity baseFragmentActivity) {
@@ -55,20 +55,20 @@ public class a extends PopupWindow {
         this.mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.write.view.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tbadk.album.a item = a.this.nZK.getItem(i);
-                if (a.this.nZL != null) {
-                    a.this.nZL.a(i, item);
+                com.baidu.tbadk.album.a item = a.this.obX.getItem(i);
+                if (a.this.obY != null) {
+                    a.this.obY.a(i, item);
                 }
-                a.this.Wd();
+                a.this.Xf();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.Wd();
+                a.this.Xf();
             }
         };
-        this.gbo = baseFragmentActivity;
+        this.gkF = baseFragmentActivity;
         setWidth(-1);
         setHeight(-1);
         setContentView(d(new ArrayList(), com.baidu.tbadk.album.a.ALBUM_ID_ALL));
@@ -81,47 +81,47 @@ public class a extends PopupWindow {
 
     @SuppressLint({"ResourceAsColor"})
     private View d(List<com.baidu.tbadk.album.a> list, String str) {
-        BdListView bdListView = new BdListView(this.gbo.getPageContext().getPageActivity());
+        BdListView bdListView = new BdListView(this.gkF.getPageContext().getPageActivity());
         this.mListView = bdListView;
-        bdListView.setCacheColorHint(this.gbo.getResources().getColor(17170445));
+        bdListView.setCacheColorHint(this.gkF.getResources().getColor(17170445));
         bdListView.setDivider(null);
         bdListView.setDividerHeight(0);
         bdListView.setFadingEdgeLength(0);
-        this.nZK = new b(this.gbo);
-        this.nZK.c(list, str);
-        bdListView.setAdapter((ListAdapter) this.nZK);
-        FrameLayout frameLayout = new FrameLayout(this.gbo.getPageContext().getPageActivity());
-        FrameLayout frameLayout2 = new FrameLayout(this.gbo.getPageContext().getPageActivity());
-        this.bJb = frameLayout2;
+        this.obX = new b(this.gkF);
+        this.obX.c(list, str);
+        bdListView.setAdapter((ListAdapter) this.obX);
+        FrameLayout frameLayout = new FrameLayout(this.gkF.getPageContext().getPageActivity());
+        FrameLayout frameLayout2 = new FrameLayout(this.gkF.getPageContext().getPageActivity());
+        this.bNP = frameLayout2;
         frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
         frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
         this.mListView.setOnItemClickListener(this.mOnItemClickListener);
         frameLayout.setOnClickListener(this.mOnClickListener);
-        ap.setBackgroundColor(this.bJa, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.mListView, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.bJb, R.color.black_alpha70);
+        ao.setBackgroundColor(this.bNO, R.color.CAM_X0201);
+        ao.setBackgroundColor(this.mListView, R.color.CAM_X0201);
+        ao.setBackgroundColor(this.bNP, R.color.black_alpha70);
         return frameLayout;
     }
 
     public void c(List<com.baidu.tbadk.album.a> list, String str) {
         if (list != null) {
-            this.bJd = e(list, str);
-            this.nZH = -2;
+            this.bNR = e(list, str);
+            this.obU = -2;
             if (list.size() > 5) {
-                this.nZH = this.gbo.getResources().getDimensionPixelSize(R.dimen.ds618);
+                this.obU = this.gkF.getResources().getDimensionPixelSize(R.dimen.ds618);
             }
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mListView.getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new FrameLayout.LayoutParams(-1, this.nZH);
+                layoutParams = new FrameLayout.LayoutParams(-1, this.obU);
             } else {
-                layoutParams.height = this.nZH;
+                layoutParams.height = this.obU;
             }
             this.mListView.setLayoutParams(layoutParams);
-            if (this.nZH < 0) {
-                this.nZH = l.getDimens(this.gbo, R.dimen.tbds168) * list.size();
+            if (this.obU < 0) {
+                this.obU = l.getDimens(this.gkF, R.dimen.tbds168) * list.size();
             }
-            this.nZK.c(list, str);
-            this.nZK.notifyDataSetChanged();
+            this.obX.c(list, str);
+            this.obX.notifyDataSetChanged();
         }
     }
 
@@ -140,10 +140,10 @@ public class a extends PopupWindow {
     }
 
     public void O(View view) {
-        this.mListView.setSelection(this.bJd);
+        this.mListView.setSelection(this.bNR);
         if (Build.VERSION.SDK_INT < 24) {
             if (g.showPopupWindowAsDropDown(this, view)) {
-                Wf();
+                Xh();
                 return;
             }
             return;
@@ -153,30 +153,30 @@ public class a extends PopupWindow {
         view.getLocationOnScreen(iArr);
         int height = view.getHeight() + iArr[1];
         ((FrameLayout.LayoutParams) this.mListView.getLayoutParams()).topMargin = height - statusBarHeight;
-        ((FrameLayout.LayoutParams) this.bJb.getLayoutParams()).topMargin = height - statusBarHeight;
+        ((FrameLayout.LayoutParams) this.bNP.getLayoutParams()).topMargin = height - statusBarHeight;
         if (g.showPopupWindowAtLocation(this, view, 0, 0, 0)) {
-            Wf();
+            Xh();
         }
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        Wd();
+        Xf();
     }
 
-    public void Wd() {
-        Wg();
+    public void Xf() {
+        Xi();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void We() {
+    public void Xg() {
         super.dismiss();
     }
 
-    private void Wf() {
-        if (this.nZI == null) {
-            this.nZI = ValueAnimator.ofInt(0, this.nZH);
-            this.nZI.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.view.a.3
+    private void Xh() {
+        if (this.obV == null) {
+            this.obV = ValueAnimator.ofInt(0, this.obU);
+            this.obV.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.view.a.3
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
@@ -185,19 +185,19 @@ public class a extends PopupWindow {
                     a.this.mListView.setLayoutParams(layoutParams);
                 }
             });
-            this.nZI.setDuration(350L);
+            this.obV.setDuration(350L);
         }
-        this.nZI.start();
+        this.obV.start();
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.bJb.startAnimation(alphaAnimation);
+        this.bNP.startAnimation(alphaAnimation);
     }
 
-    private void Wg() {
-        if (this.nZJ == null) {
-            this.nZJ = ValueAnimator.ofInt(this.mListView.getHeight(), 0);
-            this.nZJ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.view.a.4
+    private void Xi() {
+        if (this.obW == null) {
+            this.obW = ValueAnimator.ofInt(this.mListView.getHeight(), 0);
+            this.obW.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.view.a.4
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
@@ -206,9 +206,9 @@ public class a extends PopupWindow {
                     a.this.mListView.setLayoutParams(layoutParams);
                 }
             });
-            this.nZJ.setDuration(350L);
+            this.obW.setDuration(350L);
         }
-        this.nZJ.start();
+        this.obW.start();
         AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
@@ -223,18 +223,18 @@ public class a extends PopupWindow {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                a.this.We();
+                a.this.Xg();
             }
         });
-        this.bJb.startAnimation(alphaAnimation);
+        this.bNP.startAnimation(alphaAnimation);
     }
 
     public void clearAnimation() {
         if (this.mListView != null) {
             this.mListView.clearAnimation();
         }
-        if (this.bJb != null) {
-            this.bJb.clearAnimation();
+        if (this.bNP != null) {
+            this.bNP.clearAnimation();
         }
     }
 }

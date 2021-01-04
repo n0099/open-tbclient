@@ -10,65 +10,65 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> eOt = new ArrayList<>();
-    private View.OnClickListener gFe;
-    private View.OnClickListener gFf;
-    private View.OnClickListener gFg;
-    private int gFh;
+    private ArrayList<ALaCharmData> eYq = new ArrayList<>();
+    private View.OnClickListener gQP;
+    private View.OnClickListener gQQ;
+    private View.OnClickListener gQR;
+    private int gQS;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.gFh = 1;
+        this.gQS = 1;
         this.mPageContext = tbPageContext;
-        this.gFh = i;
-    }
-
-    public void n(View.OnClickListener onClickListener) {
-        this.gFe = onClickListener;
+        this.gQS = i;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.gFg = onClickListener;
+        this.gQP = onClickListener;
     }
 
     public void p(View.OnClickListener onClickListener) {
-        this.gFf = onClickListener;
+        this.gQR = onClickListener;
+    }
+
+    public void q(View.OnClickListener onClickListener) {
+        this.gQQ = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.eOt.clear();
-            this.eOt.addAll(arrayList);
+            this.eYq.clear();
+            this.eYq.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void ac(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.eOt.addAll(arrayList);
+            this.eYq.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eOt == null) {
+        if (this.eYq == null) {
             return 0;
         }
-        return this.eOt.size();
+        return this.eYq.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vy */
+    /* renamed from: vJ */
     public ALaCharmData getItem(int i) {
-        if (this.eOt == null) {
+        if (this.eYq == null) {
             return null;
         }
-        return this.eOt.get(i);
+        return this.eYq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,20 +81,19 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.gFh == 1) {
+            if (this.gQS == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.gFh == 2) {
+            } else if (this.gQS == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            d dVar2 = new d(inflate, this.gFh);
-            dVar2.q(this.gFg);
-            dVar2.n(this.gFe);
-            dVar2.r(this.gFf);
-            inflate.setTag(dVar2);
+            dVar = new d(inflate, this.gQS);
+            dVar.r(this.gQR);
+            dVar.o(this.gQP);
+            dVar.s(this.gQQ);
+            inflate.setTag(dVar);
             view = inflate;
-            dVar = dVar2;
         } else {
             dVar = (d) view.getTag();
         }
@@ -105,9 +104,9 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public void aA(String str, boolean z) {
-        if (this.eOt != null && str != null) {
-            Iterator<ALaCharmData> it = this.eOt.iterator();
+    public void aB(String str, boolean z) {
+        if (this.eYq != null && str != null) {
+            Iterator<ALaCharmData> it = this.eYq.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

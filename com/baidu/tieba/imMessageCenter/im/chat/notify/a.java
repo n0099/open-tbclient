@@ -4,7 +4,7 @@ import android.os.Build;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
         if (TbadkCoreApplication.getInst().appResponseToCmd(i)) {

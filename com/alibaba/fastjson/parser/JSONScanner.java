@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.ASMUtils;
 import com.alibaba.fastjson.util.IOUtils;
+import com.kwad.sdk.core.response.model.SdkConfigData;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -11,7 +12,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.TimeZone;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class JSONScanner extends JSONLexerBase {
     private final int len;
     private final String text;
@@ -171,112 +172,135 @@ public final class JSONScanner extends JSONLexerBase {
     }
 
     private boolean scanISO8601DateIfMatch(boolean z, int i) {
+        char charAt;
+        char c;
+        char c2;
+        char c3;
+        char c4;
+        char c5;
+        char c6;
         int i2;
         int i3;
         int i4;
         int i5;
-        char c;
-        char c2;
-        char c3;
-        int i6;
-        char c4;
-        char charAt;
-        int i7;
-        int i8;
+        char c7;
+        char c8;
+        char c9;
+        char c10;
+        char c11;
+        char c12;
+        char c13;
+        char c14;
+        char c15;
+        char c16;
         char charAt2;
+        int i6;
         char charAt3;
         char charAt4;
         char charAt5;
+        char charAt6;
         if (i < 8) {
             return false;
         }
-        char charAt6 = charAt(this.bp);
-        char charAt7 = charAt(this.bp + 1);
-        char charAt8 = charAt(this.bp + 2);
-        char charAt9 = charAt(this.bp + 3);
-        char charAt10 = charAt(this.bp + 4);
-        char charAt11 = charAt(this.bp + 5);
-        char charAt12 = charAt(this.bp + 6);
-        char charAt13 = charAt(this.bp + 7);
+        char charAt7 = charAt(this.bp);
+        char charAt8 = charAt(this.bp + 1);
+        char charAt9 = charAt(this.bp + 2);
+        char charAt10 = charAt(this.bp + 3);
+        char charAt11 = charAt(this.bp + 4);
+        char charAt12 = charAt(this.bp + 5);
+        char charAt13 = charAt(this.bp + 6);
+        char charAt14 = charAt(this.bp + 7);
         if (!z && i > 13) {
-            char charAt14 = charAt((this.bp + i) - 1);
-            char charAt15 = charAt((this.bp + i) - 2);
-            if (charAt6 == '/' && charAt7 == 'D' && charAt8 == 'a' && charAt9 == 't' && charAt10 == 'e' && charAt11 == '(' && charAt14 == '/' && charAt15 == ')') {
-                int i9 = -1;
-                for (int i10 = 6; i10 < i; i10++) {
-                    char charAt16 = charAt(this.bp + i10);
-                    if (charAt16 != '+') {
-                        if (charAt16 < '0' || charAt16 > '9') {
+            char charAt15 = charAt((this.bp + i) - 1);
+            char charAt16 = charAt((this.bp + i) - 2);
+            if (charAt7 == '/' && charAt8 == 'D' && charAt9 == 'a' && charAt10 == 't' && charAt11 == 'e' && charAt12 == '(' && charAt15 == '/' && charAt16 == ')') {
+                int i7 = -1;
+                for (int i8 = 6; i8 < i; i8++) {
+                    char charAt17 = charAt(this.bp + i8);
+                    if (charAt17 != '+') {
+                        if (charAt17 < '0' || charAt17 > '9') {
                             break;
                         }
                     } else {
-                        i9 = i10;
+                        i7 = i8;
                     }
                 }
-                if (i9 == -1) {
+                if (i7 == -1) {
                     return false;
                 }
-                int i11 = this.bp + 6;
-                long parseLong = Long.parseLong(subString(i11, (i9 + this.bp) - i11));
+                int i9 = this.bp + 6;
+                long parseLong = Long.parseLong(subString(i9, (i7 + this.bp) - i9));
                 this.calendar = Calendar.getInstance(this.timeZone, this.locale);
                 this.calendar.setTimeInMillis(parseLong);
                 this.token = 5;
                 return true;
             }
         }
-        if (i == 8 || i == 14 || ((i == 16 && ((charAt5 = charAt(this.bp + 10)) == 'T' || charAt5 == ' ')) || (i == 17 && charAt(this.bp + 6) != '-'))) {
+        if (i == 8 || i == 14 || ((i == 16 && ((charAt6 = charAt(this.bp + 10)) == 'T' || charAt6 == ' ')) || (i == 17 && charAt(this.bp + 6) != '-'))) {
             if (z) {
                 return false;
             }
-            char charAt17 = charAt(this.bp + 8);
-            boolean z2 = charAt10 == '-' && charAt13 == '-';
+            char charAt18 = charAt(this.bp + 8);
+            boolean z2 = charAt11 == '-' && charAt14 == '-';
             boolean z3 = z2 && i == 16;
             boolean z4 = z2 && i == 17;
             if (z4 || z3) {
-                charAt13 = charAt(this.bp + 9);
-                charAt10 = charAt11;
-                charAt11 = charAt12;
-                charAt12 = charAt17;
+                charAt = charAt(this.bp + 9);
+                c = charAt18;
+                c2 = charAt13;
+                c3 = charAt12;
+                c4 = charAt10;
+                c5 = charAt8;
+                c6 = charAt7;
+            } else {
+                charAt = charAt14;
+                c = charAt13;
+                c2 = charAt12;
+                c3 = charAt11;
+                c4 = charAt10;
+                c5 = charAt8;
+                c6 = charAt7;
             }
-            if (!checkDate(charAt6, charAt7, charAt8, charAt9, charAt10, charAt11, charAt12, charAt13)) {
+            if (!checkDate(c6, c5, charAt9, c4, c3, c2, c, charAt)) {
                 return false;
             }
-            setCalendar(charAt6, charAt7, charAt8, charAt9, charAt10, charAt11, charAt12, charAt13);
+            setCalendar(c6, c5, charAt9, c4, c3, c2, c, charAt);
             if (i != 8) {
-                char charAt18 = charAt(this.bp + 9);
-                char charAt19 = charAt(this.bp + 10);
-                char charAt20 = charAt(this.bp + 11);
-                char charAt21 = charAt(this.bp + 12);
-                char charAt22 = charAt(this.bp + 13);
-                if ((z4 && charAt19 == 'T' && charAt22 == ':' && charAt(this.bp + 16) == 'Z') || (z3 && ((charAt19 == ' ' || charAt19 == 'T') && charAt22 == ':'))) {
-                    charAt19 = charAt(this.bp + 14);
-                    c2 = charAt(this.bp + 15);
-                    c = '0';
-                    charAt22 = '0';
-                    charAt18 = charAt21;
+                char charAt19 = charAt(this.bp + 9);
+                char charAt20 = charAt(this.bp + 10);
+                char charAt21 = charAt(this.bp + 11);
+                char charAt22 = charAt(this.bp + 12);
+                char charAt23 = charAt(this.bp + 13);
+                if ((z4 && charAt20 == 'T' && charAt23 == ':' && charAt(this.bp + 16) == 'Z') || (z3 && ((charAt20 == ' ' || charAt20 == 'T') && charAt23 == ':'))) {
+                    charAt20 = charAt(this.bp + 14);
+                    c8 = charAt(this.bp + 15);
+                    c7 = '0';
+                    charAt23 = '0';
+                    charAt19 = charAt22;
+                    c9 = charAt21;
                 } else {
-                    c = charAt21;
-                    c2 = charAt20;
-                    charAt20 = charAt17;
+                    c7 = charAt22;
+                    c8 = charAt21;
+                    c9 = charAt18;
                 }
-                if (!checkTime(charAt20, charAt18, charAt19, c2, c, charAt22)) {
+                if (!checkTime(c9, charAt19, charAt20, c8, c7, charAt23)) {
                     return false;
                 }
                 if (i == 17 && !z4) {
-                    char charAt23 = charAt(this.bp + 14);
-                    char charAt24 = charAt(this.bp + 15);
-                    char charAt25 = charAt(this.bp + 16);
-                    if (charAt23 < '0' || charAt23 > '9' || charAt24 < '0' || charAt24 > '9' || charAt25 < '0' || charAt25 > '9') {
+                    char charAt24 = charAt(this.bp + 14);
+                    char charAt25 = charAt(this.bp + 15);
+                    char charAt26 = charAt(this.bp + 16);
+                    if (charAt24 < '0' || charAt24 > '9' || charAt25 < '0' || charAt25 > '9' || charAt26 < '0' || charAt26 > '9') {
                         return false;
                     }
-                    i5 = ((charAt23 - '0') * 100) + ((charAt24 - '0') * 10) + (charAt25 - '0');
+                    i5 = ((charAt24 - '0') * 100) + ((charAt25 - '0') * 10) + (charAt26 - '0');
                 } else {
                     i5 = 0;
                 }
-                int i12 = ((charAt20 - '0') * 10) + (charAt18 - '0');
-                i3 = (c2 - '0') + ((charAt19 - '0') * 10);
-                i4 = ((c - '0') * 10) + (charAt22 - '0');
-                i2 = i12;
+                int i10 = ((c9 - '0') * 10) + (charAt19 - '0');
+                i3 = (c8 - '0') + ((charAt20 - '0') * 10);
+                i4 = ((c7 - '0') * 10) + (charAt23 - '0');
+                i2 = i10;
             } else {
                 i2 = 0;
                 i3 = 0;
@@ -292,62 +316,85 @@ public final class JSONScanner extends JSONLexerBase {
         } else if (i < 9) {
             return false;
         } else {
-            char charAt26 = charAt(this.bp + 8);
-            char charAt27 = charAt(this.bp + 9);
-            if ((charAt10 == '-' && charAt13 == '-') || (charAt10 == '/' && charAt13 == '/')) {
-                charAt13 = charAt27;
-                c3 = charAt11;
-                i6 = 10;
-                charAt11 = charAt12;
-                c4 = charAt26;
-            } else if (charAt10 == '-' && charAt12 == '-') {
-                c3 = '0';
-                if (charAt26 == ' ') {
-                    i6 = 8;
-                    c4 = '0';
+            char charAt27 = charAt(this.bp + 8);
+            char charAt28 = charAt(this.bp + 9);
+            int i11 = 10;
+            if ((charAt11 == '-' && charAt14 == '-') || (charAt11 == '/' && charAt14 == '/')) {
+                c10 = charAt28;
+                c11 = charAt27;
+                c12 = charAt13;
+                c13 = charAt12;
+                c14 = charAt10;
+                c15 = charAt8;
+                c16 = charAt7;
+            } else if (charAt11 == '-' && charAt13 == '-') {
+                c13 = '0';
+                if (charAt27 == ' ') {
+                    c10 = charAt14;
+                    c11 = '0';
+                    c12 = charAt12;
+                    c14 = charAt10;
+                    c15 = charAt8;
+                    c16 = charAt7;
+                    i11 = 8;
                 } else {
-                    i6 = 9;
-                    c4 = charAt13;
-                    charAt13 = charAt26;
+                    c10 = charAt27;
+                    c11 = charAt14;
+                    c12 = charAt12;
+                    c14 = charAt10;
+                    c15 = charAt8;
+                    c16 = charAt7;
+                    i11 = 9;
                 }
-            } else if ((charAt8 == '.' && charAt11 == '.') || (charAt8 == '-' && charAt11 == '-')) {
-                charAt11 = charAt10;
-                charAt8 = charAt26;
-                i6 = 10;
-                c3 = charAt9;
+            } else if ((charAt9 == '.' && charAt12 == '.') || (charAt9 == '-' && charAt12 == '-')) {
+                c10 = charAt8;
+                c11 = charAt7;
+                c12 = charAt11;
+                c13 = charAt10;
+                c14 = charAt28;
                 charAt9 = charAt27;
-                charAt6 = charAt12;
-                c4 = charAt6;
-                charAt13 = charAt7;
-                charAt7 = charAt13;
-            } else if (charAt10 == 24180 || charAt10 == 45380) {
-                if (charAt13 == 26376 || charAt13 == 50900) {
-                    if (charAt27 == 26085 || charAt27 == 51068) {
-                        c3 = charAt11;
-                        i6 = 10;
-                        charAt11 = charAt12;
-                        c4 = '0';
-                        charAt13 = charAt26;
+                c15 = charAt14;
+                c16 = charAt13;
+            } else if (charAt11 == 24180 || charAt11 == 45380) {
+                if (charAt14 == 26376 || charAt14 == 50900) {
+                    if (charAt28 == 26085 || charAt28 == 51068) {
+                        c10 = charAt27;
+                        c11 = '0';
+                        c12 = charAt13;
+                        c13 = charAt12;
+                        c14 = charAt10;
+                        c15 = charAt8;
+                        c16 = charAt7;
                     } else if (charAt(this.bp + 10) == 26085 || charAt(this.bp + 10) == 51068) {
-                        charAt13 = charAt27;
-                        i6 = 11;
-                        c3 = charAt11;
-                        charAt11 = charAt12;
-                        c4 = charAt26;
+                        c10 = charAt28;
+                        c11 = charAt27;
+                        c12 = charAt13;
+                        c13 = charAt12;
+                        c14 = charAt10;
+                        c15 = charAt8;
+                        c16 = charAt7;
+                        i11 = 11;
                     } else {
                         return false;
                     }
-                } else if (charAt12 == 26376 || charAt12 == 50900) {
-                    c3 = '0';
-                    if (charAt26 == 26085 || charAt26 == 51068) {
-                        c4 = '0';
-                        i6 = 10;
-                    } else if (charAt27 == 26085 || charAt27 == 51068) {
-                        c4 = charAt13;
-                        i6 = 10;
-                        charAt13 = charAt26;
-                    } else {
+                } else if (charAt13 == 26376 || charAt13 == 50900) {
+                    c13 = '0';
+                    if (charAt27 == 26085 || charAt27 == 51068) {
+                        c10 = charAt14;
+                        c11 = '0';
+                        c12 = charAt12;
+                        c14 = charAt10;
+                        c15 = charAt8;
+                        c16 = charAt7;
+                    } else if (charAt28 != 26085 && charAt28 != 51068) {
                         return false;
+                    } else {
+                        c10 = charAt27;
+                        c11 = charAt14;
+                        c12 = charAt12;
+                        c14 = charAt10;
+                        c15 = charAt8;
+                        c16 = charAt7;
                     }
                 } else {
                     return false;
@@ -355,72 +402,71 @@ public final class JSONScanner extends JSONLexerBase {
             } else {
                 return false;
             }
-            if (!checkDate(charAt6, charAt7, charAt8, charAt9, c3, charAt11, c4, charAt13)) {
+            if (!checkDate(c16, c15, charAt9, c14, c13, c12, c11, c10)) {
                 return false;
             }
-            setCalendar(charAt6, charAt7, charAt8, charAt9, c3, charAt11, c4, charAt13);
-            char charAt28 = charAt(this.bp + i6);
-            if (charAt28 == 'T' || (charAt28 == ' ' && !z)) {
-                if (i < i6 + 9 || charAt(this.bp + i6 + 3) != ':' || charAt(this.bp + i6 + 6) != ':') {
+            setCalendar(c16, c15, charAt9, c14, c13, c12, c11, c10);
+            char charAt29 = charAt(this.bp + i11);
+            if (charAt29 == 'T' || (charAt29 == ' ' && !z)) {
+                if (i < i11 + 9 || charAt(this.bp + i11 + 3) != ':' || charAt(this.bp + i11 + 6) != ':') {
                     return false;
                 }
-                char charAt29 = charAt(this.bp + i6 + 1);
-                char charAt30 = charAt(this.bp + i6 + 2);
-                char charAt31 = charAt(this.bp + i6 + 4);
-                char charAt32 = charAt(this.bp + i6 + 5);
-                char charAt33 = charAt(this.bp + i6 + 7);
-                char charAt34 = charAt(this.bp + i6 + 8);
-                if (!checkTime(charAt29, charAt30, charAt31, charAt32, charAt33, charAt34)) {
+                char charAt30 = charAt(this.bp + i11 + 1);
+                char charAt31 = charAt(this.bp + i11 + 2);
+                char charAt32 = charAt(this.bp + i11 + 4);
+                char charAt33 = charAt(this.bp + i11 + 5);
+                char charAt34 = charAt(this.bp + i11 + 7);
+                char charAt35 = charAt(this.bp + i11 + 8);
+                if (!checkTime(charAt30, charAt31, charAt32, charAt33, charAt34, charAt35)) {
                     return false;
                 }
-                setTime(charAt29, charAt30, charAt31, charAt32, charAt33, charAt34);
-                char charAt35 = charAt(this.bp + i6 + 9);
-                if (charAt35 == '.') {
-                    if (i < i6 + 11 || (charAt = charAt(this.bp + i6 + 10)) < '0' || charAt > '9') {
+                setTime(charAt30, charAt31, charAt32, charAt33, charAt34, charAt35);
+                char charAt36 = charAt(this.bp + i11 + 9);
+                if (charAt36 == '.') {
+                    if (i < i11 + 11 || (charAt2 = charAt(this.bp + i11 + 10)) < '0' || charAt2 > '9') {
                         return false;
                     }
-                    int i13 = charAt - '0';
-                    int i14 = 1;
-                    if (i > i6 + 11 && (charAt4 = charAt(this.bp + i6 + 11)) >= '0' && charAt4 <= '9') {
-                        i13 = (charAt4 - '0') + (i13 * 10);
-                        i14 = 2;
+                    int i12 = charAt2 - '0';
+                    int i13 = 1;
+                    if (i > i11 + 11 && (charAt5 = charAt(this.bp + i11 + 11)) >= '0' && charAt5 <= '9') {
+                        i12 = (charAt5 - '0') + (i12 * 10);
+                        i13 = 2;
                     }
-                    if (i14 != 2 || (charAt3 = charAt(this.bp + i6 + 12)) < '0' || charAt3 > '9') {
-                        i7 = i14;
-                        i8 = i13;
+                    if (i13 != 2 || (charAt4 = charAt(this.bp + i11 + 12)) < '0' || charAt4 > '9') {
+                        i6 = i13;
                     } else {
-                        i7 = 3;
-                        i8 = (charAt3 - '0') + (i13 * 10);
+                        i12 = (charAt4 - '0') + (i12 * 10);
+                        i6 = 3;
                     }
-                    this.calendar.set(14, i8);
-                    int i15 = 0;
-                    char charAt36 = charAt(this.bp + i6 + 10 + i7);
-                    if (charAt36 == '+' || charAt36 == '-') {
-                        char charAt37 = charAt(this.bp + i6 + 10 + i7 + 1);
-                        if (charAt37 < '0' || charAt37 > '1' || (charAt2 = charAt(this.bp + i6 + 10 + i7 + 2)) < '0' || charAt2 > '9') {
+                    this.calendar.set(14, i12);
+                    int i14 = 0;
+                    char charAt37 = charAt(this.bp + i11 + 10 + i6);
+                    if (charAt37 == '+' || charAt37 == '-') {
+                        char charAt38 = charAt(this.bp + i11 + 10 + i6 + 1);
+                        if (charAt38 < '0' || charAt38 > '1' || (charAt3 = charAt(this.bp + i11 + 10 + i6 + 2)) < '0' || charAt3 > '9') {
                             return false;
                         }
-                        char charAt38 = charAt(this.bp + i6 + 10 + i7 + 3);
-                        char c5 = '0';
-                        char c6 = '0';
-                        if (charAt38 == ':') {
-                            c5 = charAt(this.bp + i6 + 10 + i7 + 4);
-                            if ((c5 != '0' && c5 != '3') || (c6 = charAt(this.bp + i6 + 10 + i7 + 5)) != '0') {
+                        char charAt39 = charAt(this.bp + i11 + 10 + i6 + 3);
+                        char c17 = '0';
+                        char c18 = '0';
+                        if (charAt39 == ':') {
+                            c17 = charAt(this.bp + i11 + 10 + i6 + 4);
+                            if ((c17 != '0' && c17 != '3') || (c18 = charAt(this.bp + i11 + 10 + i6 + 5)) != '0') {
                                 return false;
                             }
-                            i15 = 6;
-                        } else if (charAt38 == '0') {
-                            c5 = charAt(this.bp + i6 + 10 + i7 + 4);
-                            if (c5 != '0' && c5 != '3') {
+                            i14 = 6;
+                        } else if (charAt39 == '0') {
+                            c17 = charAt(this.bp + i11 + 10 + i6 + 4);
+                            if (c17 != '0' && c17 != '3') {
                                 return false;
                             }
-                            i15 = 5;
+                            i14 = 5;
                         } else {
-                            i15 = 3;
+                            i14 = 3;
                         }
-                        setTimeZone(charAt36, charAt37, charAt2, c5, c6);
-                    } else if (charAt36 == 'Z') {
-                        i15 = 1;
+                        setTimeZone(charAt37, charAt38, charAt3, c17, c18);
+                    } else if (charAt37 == 'Z') {
+                        i14 = 1;
                         if (this.calendar.getTimeZone().getRawOffset() != 0) {
                             String[] availableIDs = TimeZone.getAvailableIDs(0);
                             if (availableIDs.length > 0) {
@@ -428,44 +474,44 @@ public final class JSONScanner extends JSONLexerBase {
                             }
                         }
                     }
-                    char charAt39 = charAt(this.bp + i6 + 10 + i7 + i15);
-                    if (charAt39 != 26 && charAt39 != '\"') {
+                    char charAt40 = charAt(this.bp + i11 + 10 + i6 + i14);
+                    if (charAt40 != 26 && charAt40 != '\"') {
                         return false;
                     }
-                    int i16 = this.bp + i6 + 10 + i7 + i15;
-                    this.bp = i16;
-                    this.ch = charAt(i16);
+                    int i15 = this.bp + i11 + 10 + i6 + i14;
+                    this.bp = i15;
+                    this.ch = charAt(i15);
                     this.token = 5;
                     return true;
                 }
                 this.calendar.set(14, 0);
-                int i17 = this.bp + i6 + 9;
-                this.bp = i17;
-                this.ch = charAt(i17);
+                int i16 = this.bp + i11 + 9;
+                this.bp = i16;
+                this.ch = charAt(i16);
                 this.token = 5;
-                if (charAt35 == 'Z' && this.calendar.getTimeZone().getRawOffset() != 0) {
+                if (charAt36 == 'Z' && this.calendar.getTimeZone().getRawOffset() != 0) {
                     String[] availableIDs2 = TimeZone.getAvailableIDs(0);
                     if (availableIDs2.length > 0) {
                         this.calendar.setTimeZone(TimeZone.getTimeZone(availableIDs2[0]));
                     }
                 }
                 return true;
-            } else if (charAt28 == '\"' || charAt28 == 26 || charAt28 == 26085 || charAt28 == 51068) {
+            } else if (charAt29 == '\"' || charAt29 == 26 || charAt29 == 26085 || charAt29 == 51068) {
                 this.calendar.set(11, 0);
                 this.calendar.set(12, 0);
                 this.calendar.set(13, 0);
                 this.calendar.set(14, 0);
-                int i18 = this.bp + i6;
-                this.bp = i18;
-                this.ch = charAt(i18);
+                int i17 = this.bp + i11;
+                this.bp = i17;
+                this.ch = charAt(i17);
                 this.token = 5;
                 return true;
-            } else if ((charAt28 != '+' && charAt28 != '-') || this.len != i6 + 6 || charAt(this.bp + i6 + 3) != ':' || charAt(this.bp + i6 + 4) != '0' || charAt(this.bp + i6 + 5) != '0') {
+            } else if ((charAt29 != '+' && charAt29 != '-') || this.len != i11 + 6 || charAt(this.bp + i11 + 3) != ':' || charAt(this.bp + i11 + 4) != '0' || charAt(this.bp + i11 + 5) != '0') {
                 return false;
             } else {
                 setTime('0', '0', '0', '0', '0', '0');
                 this.calendar.set(14, 0);
-                setTimeZone(charAt28, charAt(this.bp + i6 + 1), charAt(this.bp + i6 + 2));
+                setTimeZone(charAt29, charAt(this.bp + i11 + 1), charAt(this.bp + i11 + 2));
                 return true;
             }
         }
@@ -482,7 +528,7 @@ public final class JSONScanner extends JSONLexerBase {
     }
 
     protected void setTimeZone(char c, char c2, char c3, char c4, char c5) {
-        int i = ((((c2 - '0') * 10) + (c3 - '0')) * 3600 * 1000) + ((((c4 - '0') * 10) + (c5 - '0')) * 60 * 1000);
+        int i = ((((c2 - '0') * 10) + (c3 - '0')) * SdkConfigData.DEFAULT_REQUEST_INTERVAL * 1000) + ((((c4 - '0') * 10) + (c5 - '0')) * 60 * 1000);
         if (c == '-') {
             i = -i;
         }
@@ -691,10 +737,8 @@ public final class JSONScanner extends JSONLexerBase {
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
     public String scanFieldString(char[] cArr) {
-        int i;
-        String str;
         this.matchStat = 0;
-        int i2 = this.bp;
+        int i = this.bp;
         char c = this.ch;
         while (!charArrayCompare(this.text, this.bp, cArr)) {
             if (isWhitespace(this.ch)) {
@@ -705,142 +749,131 @@ public final class JSONScanner extends JSONLexerBase {
             }
         }
         int length = this.bp + cArr.length;
-        int i3 = length + 1;
+        int i2 = length + 1;
         if (charAt(length) != '\"') {
             this.matchStat = -1;
             return stringDefaultValue();
         }
-        int indexOf = indexOf('\"', i3);
+        int indexOf = indexOf('\"', i2);
         if (indexOf == -1) {
             throw new JSONException("unclosed str");
         }
-        String subString = subString(i3, indexOf - i3);
+        String subString = subString(i2, indexOf - i2);
         if (subString.indexOf(92) != -1) {
             while (true) {
-                int i4 = 0;
-                for (int i5 = indexOf - 1; i5 >= 0 && charAt(i5) == '\\'; i5--) {
-                    i4++;
+                int i3 = 0;
+                for (int i4 = indexOf - 1; i4 >= 0 && charAt(i4) == '\\'; i4--) {
+                    i3++;
                 }
-                if (i4 % 2 == 0) {
+                if (i3 % 2 == 0) {
                     break;
                 }
                 indexOf = indexOf('\"', indexOf + 1);
             }
             int length2 = indexOf - ((this.bp + cArr.length) + 1);
-            String readString = readString(sub_chars(this.bp + cArr.length + 1, length2), length2);
-            i = indexOf;
-            str = readString;
-        } else {
-            i = indexOf;
-            str = subString;
+            subString = readString(sub_chars(this.bp + cArr.length + 1, length2), length2);
         }
-        char charAt = charAt(i + 1);
+        char charAt = charAt(indexOf + 1);
         while (charAt != ',' && charAt != '}') {
             if (isWhitespace(charAt)) {
-                i++;
-                charAt = charAt(i + 1);
+                indexOf++;
+                charAt = charAt(indexOf + 1);
             } else {
                 this.matchStat = -1;
                 return stringDefaultValue();
             }
         }
-        this.bp = i + 1;
+        this.bp = indexOf + 1;
         this.ch = charAt;
         if (charAt == ',') {
-            int i6 = this.bp + 1;
-            this.bp = i6;
-            this.ch = charAt(i6);
+            int i5 = this.bp + 1;
+            this.bp = i5;
+            this.ch = charAt(i5);
             this.matchStat = 3;
-            return str;
+            return subString;
         }
-        int i7 = this.bp + 1;
-        this.bp = i7;
-        char charAt2 = charAt(i7);
+        int i6 = this.bp + 1;
+        this.bp = i6;
+        char charAt2 = charAt(i6);
         if (charAt2 == ',') {
             this.token = 16;
+            int i7 = this.bp + 1;
+            this.bp = i7;
+            this.ch = charAt(i7);
+        } else if (charAt2 == ']') {
+            this.token = 15;
             int i8 = this.bp + 1;
             this.bp = i8;
             this.ch = charAt(i8);
-        } else if (charAt2 == ']') {
-            this.token = 15;
+        } else if (charAt2 == '}') {
+            this.token = 13;
             int i9 = this.bp + 1;
             this.bp = i9;
             this.ch = charAt(i9);
-        } else if (charAt2 == '}') {
-            this.token = 13;
-            int i10 = this.bp + 1;
-            this.bp = i10;
-            this.ch = charAt(i10);
         } else if (charAt2 == 26) {
             this.token = 20;
         } else {
-            this.bp = i2;
+            this.bp = i;
             this.ch = c;
             this.matchStat = -1;
             return stringDefaultValue();
         }
         this.matchStat = 4;
-        return str;
+        return subString;
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
     public Date scanFieldDate(char[] cArr) {
-        boolean z;
         int i;
         Date date;
         char c;
         int i2;
         char charAt;
-        int i3;
+        boolean z = false;
         this.matchStat = 0;
-        int i4 = this.bp;
+        int i3 = this.bp;
         char c2 = this.ch;
         if (!charArrayCompare(this.text, this.bp, cArr)) {
             this.matchStat = -2;
             return null;
         }
         int length = this.bp + cArr.length;
-        int i5 = length + 1;
+        int i4 = length + 1;
         char charAt2 = charAt(length);
         if (charAt2 == '\"') {
-            int indexOf = indexOf('\"', i5);
+            int indexOf = indexOf('\"', i4);
             if (indexOf == -1) {
                 throw new JSONException("unclosed str");
             }
-            this.bp = i5;
-            if (scanISO8601DateIfMatch(false, indexOf - i5)) {
+            this.bp = i4;
+            if (scanISO8601DateIfMatch(false, indexOf - i4)) {
                 date = this.calendar.getTime();
-                char charAt3 = charAt(indexOf + 1);
-                this.bp = i4;
-                while (true) {
-                    i3 = indexOf;
-                    c = charAt3;
-                    if (c == ',' || c == '}') {
-                        break;
-                    } else if (isWhitespace(c)) {
-                        indexOf = i3 + 1;
-                        charAt3 = charAt(indexOf + 1);
+                c = charAt(indexOf + 1);
+                this.bp = i3;
+                while (c != ',' && c != '}') {
+                    if (isWhitespace(c)) {
+                        indexOf++;
+                        c = charAt(indexOf + 1);
                     } else {
                         this.matchStat = -1;
                         return null;
                     }
                 }
-                this.bp = i3 + 1;
+                this.bp = indexOf + 1;
                 this.ch = c;
             } else {
-                this.bp = i4;
+                this.bp = i3;
                 this.matchStat = -1;
                 return null;
             }
         } else if (charAt2 == '-' || (charAt2 >= '0' && charAt2 <= '9')) {
             long j = 0;
-            if (charAt2 != '-') {
-                z = false;
-                i = i5;
-            } else {
-                charAt2 = charAt(i5);
-                i = i5 + 1;
+            if (charAt2 == '-') {
+                i = i4 + 1;
+                charAt2 = charAt(i4);
                 z = true;
+            } else {
+                i = i4;
             }
             if (charAt2 >= '0' && charAt2 <= '9') {
                 j = charAt2 - '0';
@@ -874,35 +907,35 @@ public final class JSONScanner extends JSONLexerBase {
             return null;
         }
         if (c == ',') {
-            int i6 = this.bp + 1;
-            this.bp = i6;
-            this.ch = charAt(i6);
+            int i5 = this.bp + 1;
+            this.bp = i5;
+            this.ch = charAt(i5);
             this.matchStat = 3;
             this.token = 16;
             return date;
         }
-        int i7 = this.bp + 1;
-        this.bp = i7;
-        char charAt4 = charAt(i7);
-        if (charAt4 == ',') {
+        int i6 = this.bp + 1;
+        this.bp = i6;
+        char charAt3 = charAt(i6);
+        if (charAt3 == ',') {
             this.token = 16;
+            int i7 = this.bp + 1;
+            this.bp = i7;
+            this.ch = charAt(i7);
+        } else if (charAt3 == ']') {
+            this.token = 15;
             int i8 = this.bp + 1;
             this.bp = i8;
             this.ch = charAt(i8);
-        } else if (charAt4 == ']') {
-            this.token = 15;
+        } else if (charAt3 == '}') {
+            this.token = 13;
             int i9 = this.bp + 1;
             this.bp = i9;
             this.ch = charAt(i9);
-        } else if (charAt4 == '}') {
-            this.token = 13;
-            int i10 = this.bp + 1;
-            this.bp = i10;
-            this.ch = charAt(i10);
-        } else if (charAt4 == 26) {
+        } else if (charAt3 == 26) {
             this.token = 20;
         } else {
-            this.bp = i4;
+            this.bp = i3;
             this.ch = c2;
             this.matchStat = -1;
             return null;
@@ -999,21 +1032,21 @@ public final class JSONScanner extends JSONLexerBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00ad, code lost:
-        if (r0 != ']') goto L91;
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00a9, code lost:
+        if (r0 != ']') goto L90;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00b3, code lost:
-        if (r3.size() != 0) goto L91;
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00af, code lost:
+        if (r3.size() != 0) goto L90;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x00b5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00b1, code lost:
         r1 = r6 + 1;
         r0 = charAt(r6);
         r2 = r3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00ce, code lost:
-        r13.matchStat = -1;
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00ca, code lost:
+        r12.matchStat = -1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:93:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:92:?, code lost:
         return null;
      */
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
@@ -1026,8 +1059,6 @@ public final class JSONScanner extends JSONLexerBase {
         Collection<String> collection;
         char charAt2;
         int i2;
-        int i3;
-        String str;
         this.matchStat = 0;
         if (!charArrayCompare(this.text, this.bp, cArr)) {
             this.matchStat = -2;
@@ -1035,53 +1066,47 @@ public final class JSONScanner extends JSONLexerBase {
         }
         Collection<String> newCollectionByType = newCollectionByType(cls);
         int length = this.bp + cArr.length;
-        int i4 = length + 1;
+        int i3 = length + 1;
         if (charAt(length) == '[') {
-            char charAt3 = charAt(i4);
-            int i5 = i4 + 1;
+            char charAt3 = charAt(i3);
+            int i4 = i3 + 1;
             while (true) {
                 if (charAt3 == '\"') {
-                    int indexOf = indexOf('\"', i5);
+                    int indexOf = indexOf('\"', i4);
                     if (indexOf == -1) {
                         throw new JSONException("unclosed str");
                     }
-                    String subString = subString(i5, indexOf - i5);
+                    String subString = subString(i4, indexOf - i4);
                     if (subString.indexOf(92) != -1) {
                         while (true) {
-                            int i6 = 0;
-                            for (int i7 = indexOf - 1; i7 >= 0 && charAt(i7) == '\\'; i7--) {
-                                i6++;
+                            int i5 = 0;
+                            for (int i6 = indexOf - 1; i6 >= 0 && charAt(i6) == '\\'; i6--) {
+                                i5++;
                             }
-                            if (i6 % 2 == 0) {
+                            if (i5 % 2 == 0) {
                                 break;
                             }
                             indexOf = indexOf('\"', indexOf + 1);
                         }
-                        int i8 = indexOf - i5;
-                        String readString = readString(sub_chars(i5, i8), i8);
-                        i3 = indexOf;
-                        str = readString;
-                    } else {
-                        i3 = indexOf;
-                        str = subString;
+                        int i7 = indexOf - i4;
+                        subString = readString(sub_chars(i4, i7), i7);
                     }
-                    int i9 = i3 + 1;
-                    i2 = i9 + 1;
-                    char charAt4 = charAt(i9);
-                    newCollectionByType.add(str);
-                    charAt2 = charAt4;
-                } else if (charAt3 != 'n' || !this.text.startsWith("ull", i5)) {
+                    int i8 = indexOf + 1;
+                    i2 = i8 + 1;
+                    charAt2 = charAt(i8);
+                    newCollectionByType.add(subString);
+                } else if (charAt3 != 'n' || !this.text.startsWith("ull", i4)) {
                     break;
                 } else {
-                    int i10 = i5 + 3;
-                    int i11 = i10 + 1;
-                    charAt2 = charAt(i10);
+                    int i9 = i4 + 3;
+                    int i10 = i9 + 1;
+                    charAt2 = charAt(i9);
                     newCollectionByType.add(null);
-                    i2 = i11;
+                    i2 = i10;
                 }
                 if (charAt2 == ',') {
                     charAt3 = charAt(i2);
-                    i5 = i2 + 1;
+                    i4 = i2 + 1;
                 } else if (charAt2 == ']') {
                     i = i2 + 1;
                     charAt = charAt(i2);
@@ -1095,10 +1120,10 @@ public final class JSONScanner extends JSONLexerBase {
                     return null;
                 }
             }
-        } else if (this.text.startsWith("ull", i4)) {
-            int i12 = i4 + 3;
-            i = i12 + 1;
-            charAt = charAt(i12);
+        } else if (this.text.startsWith("ull", i3)) {
+            int i11 = i3 + 3;
+            i = i11 + 1;
+            charAt = charAt(i11);
             collection = null;
         } else {
             this.matchStat = -1;
@@ -1110,47 +1135,46 @@ public final class JSONScanner extends JSONLexerBase {
             this.matchStat = 3;
             return collection;
         } else if (charAt == '}') {
-            char charAt5 = charAt(this.bp);
+            char charAt4 = charAt(this.bp);
+            int i12 = i;
             while (true) {
-                if (charAt5 == ',') {
+                if (charAt4 == ',') {
                     this.token = 16;
                     int i13 = this.bp + 1;
                     this.bp = i13;
                     this.ch = charAt(i13);
                     break;
-                } else if (charAt5 == ']') {
+                } else if (charAt4 == ']') {
                     this.token = 15;
                     int i14 = this.bp + 1;
                     this.bp = i14;
                     this.ch = charAt(i14);
                     break;
-                } else if (charAt5 == '}') {
+                } else if (charAt4 == '}') {
                     this.token = 13;
                     int i15 = this.bp + 1;
                     this.bp = i15;
                     this.ch = charAt(i15);
                     break;
-                } else if (charAt5 == 26) {
+                } else if (charAt4 == 26) {
                     this.token = 20;
-                    this.ch = charAt5;
+                    this.ch = charAt4;
                     break;
                 } else {
-                    int i16 = i;
-                    char c = charAt5;
                     boolean z = false;
+                    char c = charAt4;
                     while (isWhitespace(c)) {
-                        int i17 = i16 + 1;
-                        c = charAt(i16);
-                        this.bp = i17;
+                        int i16 = i12 + 1;
+                        c = charAt(i12);
+                        this.bp = i16;
                         z = true;
-                        i16 = i17;
+                        i12 = i16;
                     }
                     if (!z) {
                         this.matchStat = -1;
                         return null;
                     }
-                    charAt5 = c;
-                    i = i16;
+                    charAt4 = c;
                 }
             }
             this.matchStat = 4;
@@ -1166,12 +1190,11 @@ public final class JSONScanner extends JSONLexerBase {
         int i;
         boolean z;
         int i2;
-        char c;
         int i3;
         char charAt;
         this.matchStat = 0;
         int i4 = this.bp;
-        char c2 = this.ch;
+        char c = this.ch;
         if (!charArrayCompare(this.text, this.bp, cArr)) {
             this.matchStat = -2;
             return 0L;
@@ -1189,14 +1212,13 @@ public final class JSONScanner extends JSONLexerBase {
         if (charAt2 != '-') {
             z = false;
             i2 = i;
-            c = charAt2;
         } else {
             i2 = i + 1;
+            charAt2 = charAt(i);
             z = true;
-            c = charAt(i);
         }
-        if (c >= '0' && c <= '9') {
-            long j = c - '0';
+        if (charAt2 >= '0' && charAt2 <= '9') {
+            long j = charAt2 - '0';
             while (true) {
                 i3 = i2 + 1;
                 charAt = charAt(i2);
@@ -1223,7 +1245,7 @@ public final class JSONScanner extends JSONLexerBase {
             }
             if (!(j >= 0 || (j == Long.MIN_VALUE && z))) {
                 this.bp = i4;
-                this.ch = c2;
+                this.ch = c;
                 this.matchStat = -1;
                 return 0L;
             }
@@ -1260,7 +1282,7 @@ public final class JSONScanner extends JSONLexerBase {
                             charAt3 = charAt(i10);
                         } else {
                             this.bp = i4;
-                            this.ch = c2;
+                            this.ch = c;
                             this.matchStat = -1;
                             return 0L;
                         }
@@ -1284,7 +1306,7 @@ public final class JSONScanner extends JSONLexerBase {
             return z ? -j : j;
         }
         this.bp = i4;
-        this.ch = c2;
+        this.ch = c;
         this.matchStat = -1;
         return 0L;
     }
@@ -1583,94 +1605,94 @@ public final class JSONScanner extends JSONLexerBase {
         int i4;
         char charAt;
         long j;
-        long j2;
         int i5;
+        char c2;
         int i6;
         int i7;
         int i8;
         double parseDouble;
         int i9;
-        char charAt2;
         this.matchStat = 0;
         int i10 = this.bp;
         int i11 = i10 + 1;
-        char charAt3 = charAt(i10);
-        boolean z = charAt3 == '\"';
+        char charAt2 = charAt(i10);
+        boolean z = charAt2 == '\"';
         if (z) {
             i = i11 + 1;
-            charAt3 = charAt(i11);
+            charAt2 = charAt(i11);
         } else {
             i = i11;
         }
-        boolean z2 = charAt3 == '-';
+        boolean z2 = charAt2 == '-';
         if (z2) {
             i2 = i + 1;
-            charAt3 = charAt(i);
+            charAt2 = charAt(i);
         } else {
             i2 = i;
         }
-        if (charAt3 >= '0' && charAt3 <= '9') {
-            long j3 = charAt3 - '0';
+        if (charAt2 >= '0' && charAt2 <= '9') {
+            long j2 = charAt2 - '0';
             while (true) {
                 i4 = i2 + 1;
                 charAt = charAt(i2);
                 if (charAt < '0' || charAt > '9') {
                     break;
                 }
-                j3 = (j3 * 10) + (charAt - '0');
+                j2 = (j2 * 10) + (charAt - '0');
                 i2 = i4;
             }
-            if (!(charAt == '.')) {
-                j = 1;
-                j2 = j3;
-                i5 = i4;
-            } else {
+            long j3 = 1;
+            if (charAt == '.') {
                 int i12 = i4 + 1;
-                char charAt4 = charAt(i4);
-                if (charAt4 >= '0' && charAt4 <= '9') {
-                    long j4 = (charAt4 - '0') + (j3 * 10);
+                char charAt3 = charAt(i4);
+                if (charAt3 >= '0' && charAt3 <= '9') {
+                    long j4 = (charAt3 - '0') + (j2 * 10);
                     long j5 = 10;
                     while (true) {
                         i9 = i12 + 1;
-                        charAt2 = charAt(i12);
-                        if (charAt2 < '0' || charAt2 > '9') {
+                        charAt = charAt(i12);
+                        if (charAt < '0' || charAt > '9') {
                             break;
                         }
-                        j4 = (j4 * 10) + (charAt2 - '0');
+                        j4 = (j4 * 10) + (charAt - '0');
                         j5 *= 10;
                         i12 = i9;
                     }
-                    j = j5;
-                    j2 = j4;
-                    charAt = charAt2;
+                    j3 = j5;
+                    j = j4;
                     i5 = i9;
                 } else {
                     this.matchStat = -1;
                     return 0.0d;
                 }
+            } else {
+                j = j2;
+                i5 = i4;
             }
             boolean z3 = charAt == 'e' || charAt == 'E';
             if (z3) {
                 int i13 = i5 + 1;
-                charAt = charAt(i5);
-                if (charAt == '+' || charAt == '-') {
+                c2 = charAt(i5);
+                if (c2 == '+' || c2 == '-') {
                     i5 = i13 + 1;
-                    charAt = charAt(i13);
+                    c2 = charAt(i13);
                 } else {
                     i5 = i13;
                 }
-                while (charAt >= '0' && charAt <= '9') {
-                    charAt = charAt(i5);
+                while (c2 >= '0' && c2 <= '9') {
+                    c2 = charAt(i5);
                     i5++;
                 }
+            } else {
+                c2 = charAt;
             }
             if (z) {
-                if (charAt != '\"') {
+                if (c2 != '\"') {
                     this.matchStat = -1;
                     return 0.0d;
                 }
                 i8 = i5 + 1;
-                charAt = charAt(i5);
+                c2 = charAt(i5);
                 i6 = this.bp + 1;
                 i7 = (i8 - i6) - 2;
             } else {
@@ -1679,14 +1701,14 @@ public final class JSONScanner extends JSONLexerBase {
                 i8 = i5;
             }
             if (!z3 && i7 < 20) {
-                parseDouble = j2 / j;
+                parseDouble = j / j3;
                 if (z2) {
                     parseDouble = -parseDouble;
                 }
             } else {
                 parseDouble = Double.parseDouble(subString(i6, i7));
             }
-            if (charAt == c) {
+            if (c2 == c) {
                 this.bp = i8;
                 this.ch = charAt(this.bp);
                 this.matchStat = 3;
@@ -1696,7 +1718,7 @@ public final class JSONScanner extends JSONLexerBase {
             this.matchStat = -1;
             return parseDouble;
         }
-        if (charAt3 == 'n') {
+        if (charAt2 == 'n') {
             int i14 = i2 + 1;
             if (charAt(i2) == 'u') {
                 int i15 = i14 + 1;
@@ -1705,22 +1727,22 @@ public final class JSONScanner extends JSONLexerBase {
                     if (charAt(i15) == 'l') {
                         this.matchStat = 5;
                         int i17 = i16 + 1;
-                        char charAt5 = charAt(i16);
-                        if (z && charAt5 == '\"') {
+                        char charAt4 = charAt(i16);
+                        if (z && charAt4 == '\"') {
                             i3 = i17 + 1;
-                            charAt5 = charAt(i17);
+                            charAt4 = charAt(i17);
                         } else {
                             i3 = i17;
                         }
-                        while (charAt5 != ',') {
-                            if (charAt5 == ']') {
+                        while (charAt4 != ',') {
+                            if (charAt4 == ']') {
                                 this.bp = i3;
                                 this.ch = charAt(this.bp);
                                 this.matchStat = 5;
                                 this.token = 15;
                                 return 0.0d;
-                            } else if (isWhitespace(charAt5)) {
-                                charAt5 = charAt(i3);
+                            } else if (isWhitespace(charAt4)) {
+                                charAt4 = charAt(i3);
                                 i3++;
                             } else {
                                 this.matchStat = -1;
@@ -1857,61 +1879,55 @@ public final class JSONScanner extends JSONLexerBase {
 
     @Override // com.alibaba.fastjson.parser.JSONLexerBase
     public Date scanDate(char c) {
-        boolean z;
         int i;
         Date date;
         char c2;
         int i2;
         char charAt;
-        int i3;
+        boolean z = false;
         this.matchStat = 0;
-        int i4 = this.bp;
+        int i3 = this.bp;
         char c3 = this.ch;
-        int i5 = this.bp;
-        int i6 = i5 + 1;
-        char charAt2 = charAt(i5);
+        int i4 = this.bp;
+        int i5 = i4 + 1;
+        char charAt2 = charAt(i4);
         if (charAt2 == '\"') {
-            int indexOf = indexOf('\"', i6);
+            int indexOf = indexOf('\"', i5);
             if (indexOf == -1) {
                 throw new JSONException("unclosed str");
             }
-            this.bp = i6;
-            if (scanISO8601DateIfMatch(false, indexOf - i6)) {
+            this.bp = i5;
+            if (scanISO8601DateIfMatch(false, indexOf - i5)) {
                 date = this.calendar.getTime();
-                char charAt3 = charAt(indexOf + 1);
-                this.bp = i4;
-                while (true) {
-                    i3 = indexOf;
-                    c2 = charAt3;
-                    if (c2 == ',' || c2 == ']') {
-                        break;
-                    } else if (isWhitespace(c2)) {
-                        indexOf = i3 + 1;
-                        charAt3 = charAt(indexOf + 1);
+                c2 = charAt(indexOf + 1);
+                this.bp = i3;
+                while (c2 != ',' && c2 != ']') {
+                    if (isWhitespace(c2)) {
+                        indexOf++;
+                        c2 = charAt(indexOf + 1);
                     } else {
-                        this.bp = i4;
+                        this.bp = i3;
                         this.ch = c3;
                         this.matchStat = -1;
                         return null;
                     }
                 }
-                this.bp = i3 + 1;
+                this.bp = indexOf + 1;
                 this.ch = c2;
             } else {
-                this.bp = i4;
+                this.bp = i3;
                 this.ch = c3;
                 this.matchStat = -1;
                 return null;
             }
         } else if (charAt2 == '-' || (charAt2 >= '0' && charAt2 <= '9')) {
             long j = 0;
-            if (charAt2 != '-') {
-                z = false;
-                i = i6;
-            } else {
-                charAt2 = charAt(i6);
-                i = i6 + 1;
+            if (charAt2 == '-') {
+                i = i5 + 1;
+                charAt2 = charAt(i5);
                 z = true;
+            } else {
+                i = i5;
             }
             if (charAt2 >= '0' && charAt2 <= '9') {
                 j = charAt2 - '0';
@@ -1932,7 +1948,7 @@ public final class JSONScanner extends JSONLexerBase {
                 }
             }
             if (j < 0) {
-                this.bp = i4;
+                this.bp = i3;
                 this.ch = c3;
                 this.matchStat = -1;
                 return null;
@@ -1944,54 +1960,54 @@ public final class JSONScanner extends JSONLexerBase {
             c2 = charAt2;
         } else {
             if (charAt2 == 'n') {
-                int i7 = i6 + 1;
-                if (charAt(i6) == 'u') {
-                    int i8 = i7 + 1;
-                    if (charAt(i7) == 'l') {
-                        int i9 = i8 + 1;
-                        if (charAt(i8) == 'l') {
+                int i6 = i5 + 1;
+                if (charAt(i5) == 'u') {
+                    int i7 = i6 + 1;
+                    if (charAt(i6) == 'l') {
+                        int i8 = i7 + 1;
+                        if (charAt(i7) == 'l') {
+                            c2 = charAt(i8);
+                            this.bp = i8;
                             date = null;
-                            c2 = charAt(i9);
-                            this.bp = i9;
                         }
                     }
                 }
             }
-            this.bp = i4;
+            this.bp = i3;
             this.ch = c3;
             this.matchStat = -1;
             return null;
         }
         if (c2 == ',') {
-            int i10 = this.bp + 1;
-            this.bp = i10;
-            this.ch = charAt(i10);
+            int i9 = this.bp + 1;
+            this.bp = i9;
+            this.ch = charAt(i9);
             this.matchStat = 3;
             return date;
         }
-        int i11 = this.bp + 1;
-        this.bp = i11;
-        char charAt4 = charAt(i11);
-        if (charAt4 == ',') {
+        int i10 = this.bp + 1;
+        this.bp = i10;
+        char charAt3 = charAt(i10);
+        if (charAt3 == ',') {
             this.token = 16;
+            int i11 = this.bp + 1;
+            this.bp = i11;
+            this.ch = charAt(i11);
+        } else if (charAt3 == ']') {
+            this.token = 15;
             int i12 = this.bp + 1;
             this.bp = i12;
             this.ch = charAt(i12);
-        } else if (charAt4 == ']') {
-            this.token = 15;
+        } else if (charAt3 == '}') {
+            this.token = 13;
             int i13 = this.bp + 1;
             this.bp = i13;
             this.ch = charAt(i13);
-        } else if (charAt4 == '}') {
-            this.token = 13;
-            int i14 = this.bp + 1;
-            this.bp = i14;
-            this.ch = charAt(i14);
-        } else if (charAt4 == 26) {
+        } else if (charAt3 == 26) {
             this.ch = JSONLexer.EOI;
             this.token = 20;
         } else {
-            this.bp = i4;
+            this.bp = i3;
             this.ch = c3;
             this.matchStat = -1;
             return null;
@@ -2014,7 +2030,6 @@ public final class JSONScanner extends JSONLexerBase {
     public String[] scanFieldStringArray(char[] cArr, int i, SymbolTable symbolTable) {
         int i2;
         char c;
-        String[] strArr;
         int i3 = this.bp;
         char c2 = this.ch;
         while (isWhitespace(this.ch)) {
@@ -2055,8 +2070,8 @@ public final class JSONScanner extends JSONLexerBase {
         if (c == '[') {
             this.bp = i2;
             this.ch = this.text.charAt(this.bp);
-            String[] strArr2 = i >= 0 ? new String[i] : new String[4];
             int i6 = 0;
+            String[] strArr = i >= 0 ? new String[i] : new String[4];
             while (true) {
                 if (isWhitespace(this.ch)) {
                     next();
@@ -2067,10 +2082,9 @@ public final class JSONScanner extends JSONLexerBase {
                     return null;
                 } else {
                     String scanSymbol = scanSymbol(symbolTable, '\"');
-                    if (i6 == strArr2.length) {
-                        strArr = new String[strArr2.length + (strArr2.length >> 1) + 1];
-                        System.arraycopy(strArr2, 0, strArr, 0, strArr2.length);
-                    } else {
+                    if (i6 == strArr.length) {
+                        String[] strArr2 = new String[strArr.length + (strArr.length >> 1) + 1];
+                        System.arraycopy(strArr, 0, strArr2, 0, strArr.length);
                         strArr = strArr2;
                     }
                     int i7 = i6 + 1;
@@ -2081,7 +2095,6 @@ public final class JSONScanner extends JSONLexerBase {
                     if (this.ch == ',') {
                         next();
                         i6 = i7;
-                        strArr2 = strArr;
                     } else {
                         if (strArr.length != i7) {
                             String[] strArr3 = new String[i7];

@@ -1,29 +1,29 @@
 package com.baidu.spswitch.b;
 
 import com.baidu.spswitch.emotion.EmotionType;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private static a czd;
+    private static a cDW;
     private boolean isNightMode;
 
     /* renamed from: com.baidu.spswitch.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0375a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0368a {
         void a(EmotionType emotionType, int i, String str, String str2);
     }
 
     private a() {
     }
 
-    public static a ahZ() {
-        if (czd == null) {
+    public static a aji() {
+        if (cDW == null) {
             synchronized (a.class) {
-                if (czd == null) {
-                    czd = new a();
+                if (cDW == null) {
+                    cDW = new a();
                 }
             }
         }
-        return czd;
+        return cDW;
     }
 
     public boolean isNightMode() {

@@ -6,18 +6,18 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.g;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tieba.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes22.dex */
+/* loaded from: classes.dex */
 public class e {
-    private TbPageContext eNx;
+    private TbPageContext eXu;
 
     public e(TbPageContext tbPageContext) {
-        this.eNx = tbPageContext;
+        this.eXu = tbPageContext;
         MessageManager.getInstance().registerStickyMode(2921453);
     }
 
@@ -30,30 +30,30 @@ public class e {
         if (intent != null) {
             String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
             if (!TextUtils.isEmpty(stringExtra)) {
-                String string = this.eNx.getString(R.string.des_page_home_recommend);
-                bg bgVar = new bg();
+                String string = this.eXu.getString(R.string.des_page_home_recommend);
+                bh bhVar = new bh();
                 Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME));
                 if (matcher.find()) {
-                    bgVar.tid = matcher.group(1);
+                    bhVar.tid = matcher.group(1);
                 }
                 if (stringExtra.equals(string)) {
-                    bgVar.eHM = 1;
+                    bhVar.eRE = 1;
                 } else {
-                    bgVar.eHM = 2;
-                    bgVar.tabName = stringExtra;
+                    bhVar.eRE = 2;
+                    bhVar.tabName = stringExtra;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, bgVar));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, bhVar));
                 if (stringExtra.equals(string)) {
                     intent.putExtra("sub_locate_type", 1);
                 } else {
                     intent.putExtra("sub_locate_type", stringExtra);
                     i = 1;
                 }
-                if (dVar != null && dVar.cEf() != null) {
-                    dVar.cEf().setCurrentTabByType(i);
-                    FragmentTabHost.b pM = dVar.cEf().pM(i);
-                    if (pM != null && (pM.mContentFragment instanceof g)) {
-                        ((g) pM.mContentFragment).B(intent);
+                if (dVar != null && dVar.cHa() != null) {
+                    dVar.cHa().setCurrentTabByType(i);
+                    FragmentTabHost.b pW = dVar.cHa().pW(i);
+                    if (pW != null && (pW.mContentFragment instanceof g)) {
+                        ((g) pW.mContentFragment).C(intent);
                     }
                 }
             }

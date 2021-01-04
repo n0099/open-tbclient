@@ -6,10 +6,10 @@ import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class SingleCache<T> extends w<T> implements y<T> {
-    static final CacheDisposable[] pHo = new CacheDisposable[0];
-    static final CacheDisposable[] pHp = new CacheDisposable[0];
+    static final CacheDisposable[] qiR = new CacheDisposable[0];
+    static final CacheDisposable[] qiS = new CacheDisposable[0];
     Throwable error;
     final AtomicReference<CacheDisposable<T>[]> observers;
     final aa<? extends T> source;
@@ -44,7 +44,7 @@ public final class SingleCache<T> extends w<T> implements y<T> {
         CacheDisposable<T>[] cacheDisposableArr2;
         do {
             cacheDisposableArr = this.observers.get();
-            if (cacheDisposableArr == pHp) {
+            if (cacheDisposableArr == qiS) {
                 return false;
             }
             int length = cacheDisposableArr.length;
@@ -76,7 +76,7 @@ public final class SingleCache<T> extends w<T> implements y<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        cacheDisposableArr2 = pHo;
+                        cacheDisposableArr2 = qiR;
                     } else {
                         cacheDisposableArr2 = new CacheDisposable[length - 1];
                         System.arraycopy(cacheDisposableArr, 0, cacheDisposableArr2, 0, i);
@@ -99,7 +99,7 @@ public final class SingleCache<T> extends w<T> implements y<T> {
     public void onSuccess(T t) {
         CacheDisposable<T>[] andSet;
         this.value = t;
-        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(pHp)) {
+        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qiS)) {
             if (!cacheDisposable.isDisposed()) {
                 cacheDisposable.actual.onSuccess(t);
             }
@@ -110,7 +110,7 @@ public final class SingleCache<T> extends w<T> implements y<T> {
     public void onError(Throwable th) {
         CacheDisposable<T>[] andSet;
         this.error = th;
-        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(pHp)) {
+        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(qiS)) {
             if (!cacheDisposable.isDisposed()) {
                 cacheDisposable.actual.onError(th);
             }
@@ -118,7 +118,7 @@ public final class SingleCache<T> extends w<T> implements y<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class CacheDisposable<T> extends AtomicBoolean implements io.reactivex.disposables.b {
         private static final long serialVersionUID = 7514387411091976596L;
         final y<? super T> actual;

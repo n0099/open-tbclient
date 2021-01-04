@@ -10,9 +10,9 @@ import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CaptureFailure;
 import android.hardware.camera2.CaptureRequest;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.util.Range;
 import android.view.Surface;
+import androidx.annotation.Nullable;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +22,7 @@ import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
 /* JADX INFO: Access modifiers changed from: package-private */
 @TargetApi(21)
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class Camera2Session implements CameraSession {
     private static final String TAG = "Camera2Session";
     private final Context applicationContext;
@@ -53,7 +53,7 @@ public class Camera2Session implements CameraSession {
     private static final Histogram camera2StopTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera2.StopTimeMs", 1, 10000, 50);
     private static final Histogram camera2ResolutionHistogram = Histogram.createEnumeration("WebRTC.Android.Camera2.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     private static class CameraCaptureCallback extends CameraCaptureSession.CaptureCallback {
         private CameraCaptureCallback() {
         }
@@ -65,7 +65,7 @@ public class Camera2Session implements CameraSession {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public class CameraStateCallback extends CameraDevice.StateCallback {
         private CameraStateCallback() {
         }
@@ -130,7 +130,7 @@ public class Camera2Session implements CameraSession {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public class CaptureSessionCallback extends CameraCaptureSession.StateCallback {
         private CaptureSessionCallback() {
         }
@@ -222,7 +222,7 @@ public class Camera2Session implements CameraSession {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum SessionState {
         RUNNING,
         STOPPED

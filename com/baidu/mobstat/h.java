@@ -7,7 +7,7 @@ import com.baidu.swan.games.utils.so.SoUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class h {
     public static JSONObject a(Context context) {
         JSONObject jSONObject = new JSONObject();
@@ -34,11 +34,11 @@ public class h {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put(Config.TRACE_FAILED_CNT, 0);
             jSONObject2.put("send_index", 0);
-            String b = bw.b();
-            if (b == null) {
-                b = "";
+            String b2 = bw.b();
+            if (b2 == null) {
+                b2 = "";
             }
-            jSONObject2.put(Config.ROM, b);
+            jSONObject2.put(Config.ROM, b2);
             jSONObject.put(Config.TRACE_PART, jSONObject2);
         } catch (JSONException e2) {
             bb.c().b(e2);

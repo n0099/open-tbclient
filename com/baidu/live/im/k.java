@@ -1,41 +1,46 @@
 package com.baidu.live.im;
 
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface k {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        boolean Nh();
+        boolean ME();
 
-        void Ni();
+        void MF();
 
-        void Nj();
+        void MG();
 
-        void Nk();
+        void MH();
 
-        boolean Nl();
+        void MI();
 
-        int Nm();
+        boolean MJ();
 
-        void id(String str);
+        int MK();
+
+        boolean ML();
+
+        void hO(String str);
     }
 
-    void DN();
+    void Dc();
 
-    j Nd();
+    j MA();
 
-    com.baidu.live.view.input.a Ne();
+    com.baidu.live.view.input.a MB();
 
-    com.baidu.live.view.input.b Nf();
+    com.baidu.live.view.input.b MC();
 
-    int Ng();
+    int MD();
 
-    void a(ViewGroup viewGroup, w wVar, List<String> list, RelativeLayout.LayoutParams layoutParams);
+    void a(ViewGroup viewGroup, x xVar, List<String> list, RelativeLayout.LayoutParams layoutParams);
 
     void a(a aVar);
 
@@ -48,6 +53,8 @@ public interface k {
     int getImMsgListViewHeight();
 
     int getImMsgListViewTop();
+
+    View getTextView();
 
     void onDestroy();
 

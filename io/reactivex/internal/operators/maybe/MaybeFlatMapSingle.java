@@ -9,7 +9,7 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.NoSuchElementException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class MaybeFlatMapSingle<T, R> extends w<R> {
     final h<? super T, ? extends aa<? extends R>> mapper;
     final o<T> source;
@@ -19,7 +19,7 @@ public final class MaybeFlatMapSingle<T, R> extends w<R> {
         this.source.a(new FlatMapMaybeObserver(yVar, this.mapper));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class FlatMapMaybeObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 4827726964688405508L;
         final y<? super R> actual;
@@ -55,7 +55,7 @@ public final class MaybeFlatMapSingle<T, R> extends w<R> {
                     aaVar.a(new a(this, this.actual));
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 onError(th);
             }
         }
@@ -71,19 +71,19 @@ public final class MaybeFlatMapSingle<T, R> extends w<R> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class a<R> implements y<R> {
         final y<? super R> actual;
-        final AtomicReference<io.reactivex.disposables.b> pFa;
+        final AtomicReference<io.reactivex.disposables.b> qgC;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, y<? super R> yVar) {
-            this.pFa = atomicReference;
+            this.qgC = atomicReference;
             this.actual = yVar;
         }
 
         @Override // io.reactivex.y
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.pFa, bVar);
+            DisposableHelper.replace(this.qgC, bVar);
         }
 
         @Override // io.reactivex.y

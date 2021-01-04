@@ -4,12 +4,12 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class IoUtils {
     public static final int CONTINUE_LOADING_PERCENTAGE = 75;
     public static final int DEFAULT_BUFFER_SIZE = 32768;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     public interface CopyListener {
         boolean onBytesCopied(int i, int i2);
     }

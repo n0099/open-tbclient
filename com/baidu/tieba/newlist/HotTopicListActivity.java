@@ -2,28 +2,28 @@ package com.baidu.tieba.newlist;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.x;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements b {
     private String callFrom = "";
-    private HotTopicListModel lwL;
-    private HotTopicListView lwM;
-    private List<q> lwN;
+    private HotTopicListModel lBT;
+    private HotTopicListView lBU;
+    private List<n> lBV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         an(bundle);
-        this.lwL = new HotTopicListModel(getPageContext(), this);
-        this.lwM = new HotTopicListView(getPageContext(), this, bundle);
-        setContentView(this.lwM);
+        this.lBT = new HotTopicListModel(getPageContext(), this);
+        this.lBU = new HotTopicListView(getPageContext(), this, bundle);
+        setContentView(this.lBU);
         setIsAddSwipeBackLayout(false);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
@@ -34,7 +34,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        TiebaStatic.log(new ar("c13741").dY("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new aq("c13741").dX("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     private void an(Bundle bundle) {
@@ -48,43 +48,43 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
 
     @Override // com.baidu.tieba.newlist.b
     public void loadData() {
-        boolean LoadData = this.lwL.LoadData();
-        if (y.isEmpty(this.lwN)) {
+        boolean LoadData = this.lBT.LoadData();
+        if (x.isEmpty(this.lBV)) {
             if (LoadData) {
-                this.lwM.showLoadingView();
-                this.lwM.Yb();
+                this.lBU.showLoadingView();
+                this.lBU.Zi();
                 return;
             }
-            this.lwM.hideLoadingView();
-            this.lwM.px(false);
+            this.lBU.hideLoadingView();
+            this.lBU.pU(false);
         } else if (!LoadData) {
-            this.lwM.hideLoadingView();
-            this.lwM.bSm();
+            this.lBU.hideLoadingView();
+            this.lBU.bUO();
         }
     }
 
     @Override // com.baidu.tieba.newlist.b
-    public void o(int i, List<q> list) {
-        this.lwM.hideLoadingView();
-        this.lwM.bSm();
-        this.lwM.Yb();
-        if (i != 0 || y.isEmpty(list)) {
-            if (y.isEmpty(this.lwN)) {
-                this.lwM.px(false);
+    public void o(int i, List<n> list) {
+        this.lBU.hideLoadingView();
+        this.lBU.bUO();
+        this.lBU.Zi();
+        if (i != 0 || x.isEmpty(list)) {
+            if (x.isEmpty(this.lBV)) {
+                this.lBU.pU(false);
                 return;
             }
             return;
         }
-        this.lwM.setData(list);
-        this.lwM.Ya();
-        this.lwN = list;
+        this.lBU.setData(list);
+        this.lBU.Zh();
+        this.lBV = list;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.lwM.onChangeSkinType();
+        this.lBU.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a

@@ -12,7 +12,7 @@ import kotlin.e;
 import kotlin.jvm.internal.p;
 import org.json.JSONObject;
 @e
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public final class a extends com.baidu.swan.gamecenter.c.a {
     public a() {
         super("navigateToSwanGame");
@@ -20,12 +20,12 @@ public final class a extends com.baidu.swan.gamecenter.c.a {
 
     @Override // com.baidu.swan.gamecenter.c.a
     public b b(JSONObject jSONObject, com.baidu.swan.apps.o.b bVar) {
-        b.a aJY;
-        b.a aJY2;
+        b.a aMo;
+        b.a aMo2;
         p.o(jSONObject, "paramsJson");
         p.o(bVar, BuyTBeanActivityConfig.CALLBACK);
-        Application aza = com.baidu.swan.apps.t.a.aza();
-        if (aza == null) {
+        Application aAr = com.baidu.swan.apps.t.a.aAr();
+        if (aAr == null) {
             bVar.onFail(202, "params may be error");
         } else {
             String optString = jSONObject.optString("appKey");
@@ -34,18 +34,18 @@ public final class a extends com.baidu.swan.gamecenter.c.a {
                 bVar.onFail(202, "params may be error");
             } else {
                 JSONObject jSONObject2 = new JSONObject();
-                com.baidu.swan.apps.runtime.e aJV = com.baidu.swan.apps.runtime.e.aJV();
-                jSONObject2.put("pre_source", (aJV == null || (aJY2 = aJV.aJY()) == null || (r0 = aJY2.aBe()) == null) ? "" : "");
-                com.baidu.swan.apps.runtime.e aJV2 = com.baidu.swan.apps.runtime.e.aJV();
-                jSONObject2.put("pre_appid", (aJV2 == null || (aJY = aJV2.aJY()) == null || (r0 = aJY.getAppKey()) == null) ? "" : "");
+                com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+                jSONObject2.put("pre_source", (aMl == null || (aMo2 = aMl.aMo()) == null || (r0 = aMo2.aCv()) == null) ? "" : "");
+                com.baidu.swan.apps.runtime.e aMl2 = com.baidu.swan.apps.runtime.e.aMl();
+                jSONObject2.put("pre_appid", (aMl2 == null || (aMo = aMl2.aMo()) == null || (r0 = aMo.getAppKey()) == null) ? "" : "");
                 jSONObject.put("ubc", jSONObject2);
-                String b = c.b(optString, 1, jSONObject);
-                String str2 = b;
-                Uri parse = str2 == null || str2.length() == 0 ? null : Uri.parse(b);
+                String b2 = c.b(optString, 1, jSONObject);
+                String str2 = b2;
+                Uri parse = str2 == null || str2.length() == 0 ? null : Uri.parse(b2);
                 if (parse == null) {
                     bVar.onFail(202, "params may be error");
-                } else if (SchemeRouter.invokeScheme(aza, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                    bVar.aA(null);
+                } else if (SchemeRouter.invokeScheme(aAr, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                    bVar.aI(null);
                 } else {
                     bVar.onFail(202, "params may be error");
                 }

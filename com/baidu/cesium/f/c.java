@@ -5,22 +5,21 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class c {
-    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: java.lang.String */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x003c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r0v0, types: [java.io.FileReader] */
     /* JADX WARN: Type inference failed for: r0v10 */
     /* JADX WARN: Type inference failed for: r0v11 */
-    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v7 */
     /* JADX WARN: Type inference failed for: r0v8 */
     /* JADX WARN: Type inference failed for: r0v9 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String a(File file) {
-        Throwable th;
         FileReader fileReader;
         String str = 0;
         str = 0;
@@ -61,8 +60,8 @@ public final class c {
                     }
                     return str;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 if (0 != 0) {
                     try {
                         str.close();
@@ -75,8 +74,8 @@ public final class c {
         } catch (Exception e5) {
             e = e5;
             fileReader = null;
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th2) {
+            th = th2;
             if (0 != 0) {
             }
             throw th;

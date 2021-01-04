@@ -1,8 +1,8 @@
 package com.baidu.ala.helper;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaConstants {
     public static final String STAT_AR_INFO = "arInfo";
-    public static final String STAT_AUDIP_CAPTURE_TYPE = "kStatAudioCap";
+    public static final String STAT_AUDIO_CAPTURE_TYPE = "kStatAudioCap";
     public static final String STAT_DELAY_OFF = "kStatDelayOff";
     public static final String STAT_FIRST_FRAME = "kStatFirstFrame";
     public static final String STAT_PERF_KEY = "perf";

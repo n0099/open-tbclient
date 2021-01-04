@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.serializer;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class SerialContext {
     public final int features;
     public final Object fieldName;

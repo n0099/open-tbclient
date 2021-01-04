@@ -1,7 +1,7 @@
 package com.baidu.android.common.others.lang;
 
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class StringUtils {
     private StringUtils() {
     }
@@ -52,12 +52,13 @@ public final class StringUtils {
         }
         int i2 = 0;
         while (true) {
-            int indexOf = str.indexOf(str2, i);
+            int i3 = i;
+            int indexOf = str.indexOf(str2, i2);
             if (indexOf != -1) {
-                i2++;
-                i = indexOf + str2.length();
+                i = i3 + 1;
+                i2 = indexOf + str2.length();
             } else {
-                return i2;
+                return i3;
             }
         }
     }
@@ -93,8 +94,8 @@ public final class StringUtils {
 
     public static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }

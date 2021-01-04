@@ -5,17 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class HomeWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f1540a = "HomeWatcher";
-    private final Context b;
+    static final String f2067a = "HomeWatcher";
+
+    /* renamed from: b  reason: collision with root package name */
+    private final Context f2068b;
     private final IntentFilter c = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
     private OnHomePressedListener d;
     private InnerRecevier e;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public interface OnHomePressedListener {
         void onHomeLongPressed();
 
@@ -23,7 +25,7 @@ public class HomeWatcher {
     }
 
     public HomeWatcher(Context context) {
-        this.b = context;
+        this.f2068b = context;
     }
 
     public void setOnHomePressedListener(OnHomePressedListener onHomePressedListener) {
@@ -33,22 +35,24 @@ public class HomeWatcher {
 
     public void startWatch() {
         if (this.e != null) {
-            this.b.registerReceiver(this.e, this.c);
+            this.f2068b.registerReceiver(this.e, this.c);
         }
     }
 
     public void stopWatch() {
         if (this.e != null) {
-            this.b.unregisterReceiver(this.e);
+            this.f2068b.unregisterReceiver(this.e);
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     class InnerRecevier extends BroadcastReceiver {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f1541a = TiebaInitialize.LogFields.REASON;
-        final String b = "globalactions";
+        final String f2069a = TiebaInitialize.LogFields.REASON;
+
+        /* renamed from: b  reason: collision with root package name */
+        final String f2070b = "globalactions";
         final String c = "recentapps";
         final String d = "homekey";
 

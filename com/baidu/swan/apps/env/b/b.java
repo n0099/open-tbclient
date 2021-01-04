@@ -6,31 +6,31 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public static final Set<String> cXF = i.N("zeus");
-    public static final Set<String> cXG = new HashSet(cXF);
-    private static final Set<String> cXH = new HashSet(cXG);
-    private static final Map<String, a> cXI = new HashMap();
-    private static boolean cXJ = false;
+    public static final Set<String> dcA = i.R("zeus");
+    public static final Set<String> dcB = new HashSet(dcA);
+    private static final Set<String> dcC = new HashSet(dcB);
+    private static final Map<String, a> dcD = new HashMap();
+    private static boolean dcE = false;
 
-    public static a oz(String str) {
-        avT();
-        return cXI.get(str);
+    public static a os(String str) {
+        axl();
+        return dcD.get(str);
     }
 
-    private static void avT() {
-        if (!cXJ) {
-            for (String str : cXH) {
+    private static void axl() {
+        if (!dcE) {
+            for (String str : dcC) {
                 if ("zeus".equals(str)) {
-                    cXI.put(str, avU());
+                    dcD.put(str, axm());
                 }
             }
         }
-        cXJ = true;
+        dcE = true;
     }
 
-    private static a avU() {
-        return new a.C0448a().oy("zeus").a(com.baidu.swan.apps.t.a.azN().akV()).fu(com.baidu.swan.apps.t.a.azN().akT()).avS();
+    private static a axm() {
+        return new a.C0440a().or("zeus").a(com.baidu.swan.apps.t.a.aBe().amf()).fD(com.baidu.swan.apps.t.a.aBe().amd()).axk();
     }
 }

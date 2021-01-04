@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.BannerImage;
 /* loaded from: classes.dex */
-public class l extends BaseCardInfo implements com.baidu.adp.widget.ListView.q {
-    public static BdUniqueId eFd = BdUniqueId.gen();
+public class l extends BaseCardInfo implements com.baidu.adp.widget.ListView.n {
+    public static BdUniqueId eOT = BdUniqueId.gen();
     public List<k> dataList = new ArrayList();
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return eFd;
+        return eOT;
     }
 
     public void parserProtobuf(List<BannerImage> list) {

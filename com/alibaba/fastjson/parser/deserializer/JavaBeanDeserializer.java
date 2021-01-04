@@ -17,7 +17,6 @@ import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -32,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class JavaBeanDeserializer implements ObjectDeserializer {
     private final Map<String, FieldDeserializer> alterNameFieldDeserializers;
     public final JavaBeanInfo beanInfo;
@@ -287,26 +286,26 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [898=16, 899=12, 901=12] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:493:0x0203 */
-    /* JADX WARN: Code restructure failed: missing block: B:374:0x06dd, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:498:0x0204 */
+    /* JADX WARN: Code restructure failed: missing block: B:374:0x06d7, code lost:
         throw new com.alibaba.fastjson.JSONException("syntax error, unexpect token " + com.alibaba.fastjson.parser.JSONToken.name(r11.token()));
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x01eb A[Catch: all -> 0x04a4, TryCatch #3 {all -> 0x04a4, blocks: (B:99:0x019e, B:101:0x01a7, B:104:0x01c0, B:130:0x0236, B:142:0x026d, B:112:0x01eb, B:114:0x01f5, B:116:0x01fd, B:249:0x0461, B:129:0x022e, B:255:0x0474, B:257:0x047f, B:259:0x048c, B:260:0x048e, B:262:0x049b, B:263:0x04a3, B:288:0x0529, B:266:0x04a7, B:268:0x04b0, B:270:0x04b6, B:271:0x04b9, B:272:0x04c9, B:275:0x04d3, B:277:0x04d7, B:278:0x04da, B:280:0x04de, B:281:0x04e1, B:282:0x04f1, B:285:0x04fb, B:286:0x050b, B:287:0x0528, B:293:0x0544, B:297:0x0550, B:299:0x055b, B:301:0x0570, B:306:0x0588, B:308:0x0597, B:309:0x05b2, B:311:0x05be, B:313:0x05c2, B:303:0x057a, B:305:0x0582, B:317:0x05d8, B:318:0x05e0, B:295:0x054c, B:322:0x05e6, B:324:0x05ec, B:325:0x05f6, B:327:0x0600, B:145:0x027e, B:150:0x0291, B:152:0x0299, B:155:0x02aa, B:160:0x02be, B:163:0x02cf, B:168:0x02e3, B:171:0x02f4, B:174:0x0300, B:184:0x0331, B:194:0x0362, B:204:0x0393, B:206:0x0399, B:209:0x03af, B:211:0x03b9, B:213:0x03bd, B:217:0x03da, B:222:0x03ec, B:225:0x03fd, B:230:0x040f, B:233:0x0420, B:238:0x0432, B:241:0x0443, B:244:0x044f, B:198:0x0372, B:201:0x0387, B:188:0x0341, B:191:0x0356, B:178:0x0310, B:181:0x0325, B:134:0x0246, B:137:0x025a, B:108:0x01d6, B:126:0x0224), top: B:492:0x019e }] */
-    /* JADX WARN: Removed duplicated region for block: B:319:0x05e1  */
-    /* JADX WARN: Removed duplicated region for block: B:321:0x05e4 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:324:0x05ec A[Catch: all -> 0x04a4, TryCatch #3 {all -> 0x04a4, blocks: (B:99:0x019e, B:101:0x01a7, B:104:0x01c0, B:130:0x0236, B:142:0x026d, B:112:0x01eb, B:114:0x01f5, B:116:0x01fd, B:249:0x0461, B:129:0x022e, B:255:0x0474, B:257:0x047f, B:259:0x048c, B:260:0x048e, B:262:0x049b, B:263:0x04a3, B:288:0x0529, B:266:0x04a7, B:268:0x04b0, B:270:0x04b6, B:271:0x04b9, B:272:0x04c9, B:275:0x04d3, B:277:0x04d7, B:278:0x04da, B:280:0x04de, B:281:0x04e1, B:282:0x04f1, B:285:0x04fb, B:286:0x050b, B:287:0x0528, B:293:0x0544, B:297:0x0550, B:299:0x055b, B:301:0x0570, B:306:0x0588, B:308:0x0597, B:309:0x05b2, B:311:0x05be, B:313:0x05c2, B:303:0x057a, B:305:0x0582, B:317:0x05d8, B:318:0x05e0, B:295:0x054c, B:322:0x05e6, B:324:0x05ec, B:325:0x05f6, B:327:0x0600, B:145:0x027e, B:150:0x0291, B:152:0x0299, B:155:0x02aa, B:160:0x02be, B:163:0x02cf, B:168:0x02e3, B:171:0x02f4, B:174:0x0300, B:184:0x0331, B:194:0x0362, B:204:0x0393, B:206:0x0399, B:209:0x03af, B:211:0x03b9, B:213:0x03bd, B:217:0x03da, B:222:0x03ec, B:225:0x03fd, B:230:0x040f, B:233:0x0420, B:238:0x0432, B:241:0x0443, B:244:0x044f, B:198:0x0372, B:201:0x0387, B:188:0x0341, B:191:0x0356, B:178:0x0310, B:181:0x0325, B:134:0x0246, B:137:0x025a, B:108:0x01d6, B:126:0x0224), top: B:492:0x019e }] */
-    /* JADX WARN: Removed duplicated region for block: B:327:0x0600 A[Catch: all -> 0x04a4, TRY_LEAVE, TryCatch #3 {all -> 0x04a4, blocks: (B:99:0x019e, B:101:0x01a7, B:104:0x01c0, B:130:0x0236, B:142:0x026d, B:112:0x01eb, B:114:0x01f5, B:116:0x01fd, B:249:0x0461, B:129:0x022e, B:255:0x0474, B:257:0x047f, B:259:0x048c, B:260:0x048e, B:262:0x049b, B:263:0x04a3, B:288:0x0529, B:266:0x04a7, B:268:0x04b0, B:270:0x04b6, B:271:0x04b9, B:272:0x04c9, B:275:0x04d3, B:277:0x04d7, B:278:0x04da, B:280:0x04de, B:281:0x04e1, B:282:0x04f1, B:285:0x04fb, B:286:0x050b, B:287:0x0528, B:293:0x0544, B:297:0x0550, B:299:0x055b, B:301:0x0570, B:306:0x0588, B:308:0x0597, B:309:0x05b2, B:311:0x05be, B:313:0x05c2, B:303:0x057a, B:305:0x0582, B:317:0x05d8, B:318:0x05e0, B:295:0x054c, B:322:0x05e6, B:324:0x05ec, B:325:0x05f6, B:327:0x0600, B:145:0x027e, B:150:0x0291, B:152:0x0299, B:155:0x02aa, B:160:0x02be, B:163:0x02cf, B:168:0x02e3, B:171:0x02f4, B:174:0x0300, B:184:0x0331, B:194:0x0362, B:204:0x0393, B:206:0x0399, B:209:0x03af, B:211:0x03b9, B:213:0x03bd, B:217:0x03da, B:222:0x03ec, B:225:0x03fd, B:230:0x040f, B:233:0x0420, B:238:0x0432, B:241:0x0443, B:244:0x044f, B:198:0x0372, B:201:0x0387, B:188:0x0341, B:191:0x0356, B:178:0x0310, B:181:0x0325, B:134:0x0246, B:137:0x025a, B:108:0x01d6, B:126:0x0224), top: B:492:0x019e }] */
-    /* JADX WARN: Removed duplicated region for block: B:330:0x060f  */
-    /* JADX WARN: Removed duplicated region for block: B:334:0x0620  */
-    /* JADX WARN: Removed duplicated region for block: B:357:0x0670 A[Catch: all -> 0x0667, TryCatch #5 {all -> 0x0667, blocks: (B:331:0x0611, B:332:0x0618, B:366:0x069c, B:368:0x06a4, B:369:0x06ad, B:371:0x06b5, B:373:0x06bc, B:374:0x06dd, B:336:0x0625, B:338:0x062e, B:339:0x063a, B:343:0x0645, B:345:0x064b, B:347:0x0651, B:349:0x0657, B:351:0x065d, B:353:0x0663, B:356:0x066c, B:357:0x0670, B:359:0x067c, B:361:0x0684, B:362:0x068b, B:364:0x0693, B:365:0x069b), top: B:494:0x0611 }] */
-    /* JADX WARN: Removed duplicated region for block: B:366:0x069c A[Catch: all -> 0x0667, TryCatch #5 {all -> 0x0667, blocks: (B:331:0x0611, B:332:0x0618, B:366:0x069c, B:368:0x06a4, B:369:0x06ad, B:371:0x06b5, B:373:0x06bc, B:374:0x06dd, B:336:0x0625, B:338:0x062e, B:339:0x063a, B:343:0x0645, B:345:0x064b, B:347:0x0651, B:349:0x0657, B:351:0x065d, B:353:0x0663, B:356:0x066c, B:357:0x0670, B:359:0x067c, B:361:0x0684, B:362:0x068b, B:364:0x0693, B:365:0x069b), top: B:494:0x0611 }] */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x01ec A[Catch: all -> 0x04a8, TryCatch #5 {all -> 0x04a8, blocks: (B:99:0x019e, B:101:0x01a7, B:104:0x01bf, B:130:0x0235, B:142:0x026d, B:112:0x01ec, B:114:0x01f6, B:116:0x01fe, B:249:0x0466, B:129:0x022e, B:255:0x0478, B:257:0x0483, B:259:0x0490, B:260:0x0492, B:262:0x049f, B:263:0x04a7, B:288:0x052d, B:266:0x04ab, B:268:0x04b4, B:270:0x04ba, B:271:0x04bd, B:272:0x04cd, B:275:0x04d7, B:277:0x04db, B:278:0x04de, B:280:0x04e2, B:281:0x04e5, B:282:0x04f5, B:285:0x04ff, B:286:0x050f, B:287:0x052c, B:293:0x0548, B:297:0x0554, B:299:0x055f, B:301:0x0574, B:306:0x058c, B:308:0x059b, B:309:0x05b1, B:311:0x05bd, B:313:0x05c1, B:303:0x057e, B:305:0x0586, B:317:0x05d7, B:318:0x05df, B:295:0x0550, B:322:0x05e5, B:324:0x05eb, B:325:0x05f5, B:327:0x05ff, B:145:0x0280, B:150:0x0292, B:152:0x029a, B:155:0x02ad, B:160:0x02c0, B:163:0x02d3, B:168:0x02e6, B:171:0x02f9, B:174:0x0304, B:184:0x0336, B:194:0x0368, B:204:0x039a, B:206:0x03a0, B:209:0x03b2, B:211:0x03bc, B:213:0x03c0, B:217:0x03db, B:222:0x03ec, B:225:0x03ff, B:230:0x0410, B:233:0x0423, B:238:0x0434, B:241:0x0447, B:244:0x0452, B:198:0x0378, B:201:0x038f, B:188:0x0346, B:191:0x035d, B:178:0x0314, B:181:0x032b, B:134:0x0245, B:137:0x025b, B:108:0x01d5, B:126:0x0225), top: B:505:0x019e }] */
+    /* JADX WARN: Removed duplicated region for block: B:319:0x05e0  */
+    /* JADX WARN: Removed duplicated region for block: B:321:0x05e3 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:324:0x05eb A[Catch: all -> 0x04a8, TryCatch #5 {all -> 0x04a8, blocks: (B:99:0x019e, B:101:0x01a7, B:104:0x01bf, B:130:0x0235, B:142:0x026d, B:112:0x01ec, B:114:0x01f6, B:116:0x01fe, B:249:0x0466, B:129:0x022e, B:255:0x0478, B:257:0x0483, B:259:0x0490, B:260:0x0492, B:262:0x049f, B:263:0x04a7, B:288:0x052d, B:266:0x04ab, B:268:0x04b4, B:270:0x04ba, B:271:0x04bd, B:272:0x04cd, B:275:0x04d7, B:277:0x04db, B:278:0x04de, B:280:0x04e2, B:281:0x04e5, B:282:0x04f5, B:285:0x04ff, B:286:0x050f, B:287:0x052c, B:293:0x0548, B:297:0x0554, B:299:0x055f, B:301:0x0574, B:306:0x058c, B:308:0x059b, B:309:0x05b1, B:311:0x05bd, B:313:0x05c1, B:303:0x057e, B:305:0x0586, B:317:0x05d7, B:318:0x05df, B:295:0x0550, B:322:0x05e5, B:324:0x05eb, B:325:0x05f5, B:327:0x05ff, B:145:0x0280, B:150:0x0292, B:152:0x029a, B:155:0x02ad, B:160:0x02c0, B:163:0x02d3, B:168:0x02e6, B:171:0x02f9, B:174:0x0304, B:184:0x0336, B:194:0x0368, B:204:0x039a, B:206:0x03a0, B:209:0x03b2, B:211:0x03bc, B:213:0x03c0, B:217:0x03db, B:222:0x03ec, B:225:0x03ff, B:230:0x0410, B:233:0x0423, B:238:0x0434, B:241:0x0447, B:244:0x0452, B:198:0x0378, B:201:0x038f, B:188:0x0346, B:191:0x035d, B:178:0x0314, B:181:0x032b, B:134:0x0245, B:137:0x025b, B:108:0x01d5, B:126:0x0225), top: B:505:0x019e }] */
+    /* JADX WARN: Removed duplicated region for block: B:327:0x05ff A[Catch: all -> 0x04a8, TRY_LEAVE, TryCatch #5 {all -> 0x04a8, blocks: (B:99:0x019e, B:101:0x01a7, B:104:0x01bf, B:130:0x0235, B:142:0x026d, B:112:0x01ec, B:114:0x01f6, B:116:0x01fe, B:249:0x0466, B:129:0x022e, B:255:0x0478, B:257:0x0483, B:259:0x0490, B:260:0x0492, B:262:0x049f, B:263:0x04a7, B:288:0x052d, B:266:0x04ab, B:268:0x04b4, B:270:0x04ba, B:271:0x04bd, B:272:0x04cd, B:275:0x04d7, B:277:0x04db, B:278:0x04de, B:280:0x04e2, B:281:0x04e5, B:282:0x04f5, B:285:0x04ff, B:286:0x050f, B:287:0x052c, B:293:0x0548, B:297:0x0554, B:299:0x055f, B:301:0x0574, B:306:0x058c, B:308:0x059b, B:309:0x05b1, B:311:0x05bd, B:313:0x05c1, B:303:0x057e, B:305:0x0586, B:317:0x05d7, B:318:0x05df, B:295:0x0550, B:322:0x05e5, B:324:0x05eb, B:325:0x05f5, B:327:0x05ff, B:145:0x0280, B:150:0x0292, B:152:0x029a, B:155:0x02ad, B:160:0x02c0, B:163:0x02d3, B:168:0x02e6, B:171:0x02f9, B:174:0x0304, B:184:0x0336, B:194:0x0368, B:204:0x039a, B:206:0x03a0, B:209:0x03b2, B:211:0x03bc, B:213:0x03c0, B:217:0x03db, B:222:0x03ec, B:225:0x03ff, B:230:0x0410, B:233:0x0423, B:238:0x0434, B:241:0x0447, B:244:0x0452, B:198:0x0378, B:201:0x038f, B:188:0x0346, B:191:0x035d, B:178:0x0314, B:181:0x032b, B:134:0x0245, B:137:0x025b, B:108:0x01d5, B:126:0x0225), top: B:505:0x019e }] */
+    /* JADX WARN: Removed duplicated region for block: B:330:0x060d  */
+    /* JADX WARN: Removed duplicated region for block: B:334:0x061e  */
+    /* JADX WARN: Removed duplicated region for block: B:357:0x066c A[Catch: all -> 0x0664, TryCatch #3 {all -> 0x0664, blocks: (B:331:0x060f, B:332:0x0616, B:366:0x0697, B:368:0x069f, B:369:0x06a7, B:371:0x06af, B:373:0x06b6, B:374:0x06d7, B:336:0x0623, B:338:0x062c, B:339:0x0638, B:343:0x0642, B:345:0x0648, B:347:0x064e, B:349:0x0654, B:351:0x065a, B:353:0x0660, B:356:0x0668, B:357:0x066c, B:359:0x0678, B:361:0x0680, B:362:0x0686, B:364:0x068e, B:365:0x0696), top: B:502:0x060f }] */
+    /* JADX WARN: Removed duplicated region for block: B:366:0x0697 A[Catch: all -> 0x0664, TryCatch #3 {all -> 0x0664, blocks: (B:331:0x060f, B:332:0x0616, B:366:0x0697, B:368:0x069f, B:369:0x06a7, B:371:0x06af, B:373:0x06b6, B:374:0x06d7, B:336:0x0623, B:338:0x062c, B:339:0x0638, B:343:0x0642, B:345:0x0648, B:347:0x064e, B:349:0x0654, B:351:0x065a, B:353:0x0660, B:356:0x0668, B:357:0x066c, B:359:0x0678, B:361:0x0680, B:362:0x0686, B:364:0x068e, B:365:0x0696), top: B:502:0x060f }] */
     /* JADX WARN: Removed duplicated region for block: B:90:0x0176  */
-    /* JADX WARN: Type inference failed for: r26v0, types: [com.alibaba.fastjson.parser.DefaultJSONParser] */
-    /* JADX WARN: Type inference failed for: r29v0, types: [java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r29v2 */
-    /* JADX WARN: Type inference failed for: r29v4, types: [T, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r4v55, types: [java.lang.reflect.Method] */
+    /* JADX WARN: Type inference failed for: r24v0, types: [com.alibaba.fastjson.parser.DefaultJSONParser] */
+    /* JADX WARN: Type inference failed for: r27v0, types: [java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r27v2 */
+    /* JADX WARN: Type inference failed for: r27v4, types: [T, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r4v65, types: [java.lang.reflect.Method] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -315,20 +314,16 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         JSONField jSONField;
         Class<?> cls;
         FieldInfo fieldInfo;
-        DefaultFieldDeserializer defaultFieldDeserializer;
+        Object obj4;
         boolean z;
         boolean z2;
         ParseContext parseContext;
-        Object obj4;
         String str;
         ParseContext parseContext2;
         ParseContext parseContext3;
         Object[] objArr;
-        JavaBeanDeserializer javaBeanDeserializer;
-        Class<?> cls2;
         int i2;
         boolean z3;
-        boolean z4;
         if (type == JSON.class || type == JSONObject.class) {
             return (T) defaultJSONParser.parse();
         }
@@ -342,7 +337,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         ParseContext context = defaultJSONParser.getContext();
         ParseContext parseContext4 = (obj2 == 0 || context == null) ? context : context.parent;
         ParseContext parseContext5 = null;
-        HashMap hashMap = null;
+        Map<String, Object> map = null;
         try {
             if (i3 == 13) {
                 jSONLexerBase.nextToken(16);
@@ -388,10 +383,10 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                         Class<?>[] seeAlso = this.beanInfo.jsonType.seeAlso();
                         int length = seeAlso.length;
                         for (int i5 = 0; i5 < length; i5++) {
-                            Class<?> cls3 = seeAlso[i5];
-                            if (Enum.class.isAssignableFrom(cls3)) {
+                            Class<?> cls2 = seeAlso[i5];
+                            if (Enum.class.isAssignableFrom(cls2)) {
                                 try {
-                                    T t3 = (T) Enum.valueOf(cls3, stringVal);
+                                    T t3 = (T) Enum.valueOf(cls2, stringVal);
                                     if (0 != 0) {
                                         parseContext5.object = obj2;
                                     }
@@ -429,111 +424,72 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             int[] iArr2 = iArr;
             obj3 = obj2;
             while (true) {
+                FieldDeserializer fieldDeserializer = null;
                 try {
                     if (i6 < this.sortedFieldDeserializers.length) {
-                        FieldDeserializer fieldDeserializer = this.sortedFieldDeserializers[i6];
+                        fieldDeserializer = this.sortedFieldDeserializers[i6];
                         FieldInfo fieldInfo2 = fieldDeserializer.fieldInfo;
-                        Class<?> cls4 = fieldInfo2.fieldClass;
+                        Class<?> cls3 = fieldInfo2.fieldClass;
                         jSONField = fieldInfo2.getAnnotation();
-                        cls = cls4;
+                        cls = cls3;
                         fieldInfo = fieldInfo2;
-                        defaultFieldDeserializer = fieldDeserializer;
                     } else {
                         jSONField = null;
                         cls = null;
                         fieldInfo = null;
-                        defaultFieldDeserializer = null;
                     }
-                    Object obj5 = null;
-                    if (defaultFieldDeserializer != null) {
+                    boolean z4 = false;
+                    if (fieldDeserializer != null) {
                         char[] cArr = fieldInfo.name_chars;
                         if (cls == Integer.TYPE || cls == Integer.class) {
-                            obj5 = Integer.valueOf(jSONLexerBase.scanFieldInt(cArr));
+                            Integer valueOf = Integer.valueOf(jSONLexerBase.scanFieldInt(cArr));
                             if (jSONLexerBase.matchStat > 0) {
+                                obj4 = valueOf;
                                 z = true;
                                 z2 = true;
-                                if (z2) {
-                                    str = jSONLexerBase.scanSymbol(defaultJSONParser.symbolTable);
-                                    if (str == null) {
-                                        int i7 = jSONLexerBase.token();
-                                        if (i7 == 13) {
-                                            jSONLexerBase.nextToken(16);
-                                            parseContext3 = parseContext5;
-                                            break;
-                                        } else if (i7 == 16 && jSONLexerBase.isEnabled(Feature.AllowArbitraryCommas)) {
-                                            parseContext = parseContext5;
-                                            obj4 = obj3;
-                                        }
+                            } else if (jSONLexerBase.matchStat == -2) {
+                                parseContext = parseContext5;
+                                i6++;
+                                parseContext5 = parseContext;
+                            } else {
+                                obj4 = valueOf;
+                                z = false;
+                                z2 = false;
+                            }
+                            if (z2) {
+                                str = jSONLexerBase.scanSymbol(defaultJSONParser.symbolTable);
+                                if (str == null) {
+                                    int i7 = jSONLexerBase.token();
+                                    if (i7 == 13) {
+                                        jSONLexerBase.nextToken(16);
+                                        parseContext3 = parseContext5;
+                                        break;
+                                    } else if (i7 == 16 && jSONLexerBase.isEnabled(Feature.AllowArbitraryCommas)) {
+                                        parseContext = parseContext5;
+                                        i6++;
+                                        parseContext5 = parseContext;
                                     }
-                                    if ("$ref" == str && parseContext4 != null) {
-                                        jSONLexerBase.nextTokenWithColon(4);
-                                        if (jSONLexerBase.token() == 4) {
-                                            String stringVal2 = jSONLexerBase.stringVal();
-                                            if (UgcConstant.AT_RULE_TAG.equals(stringVal2)) {
-                                                obj3 = parseContext4.object;
-                                            } else if (IStringUtil.TOP_PATH.equals(stringVal2)) {
-                                                ParseContext parseContext6 = parseContext4.parent;
-                                                if (parseContext6.object != null) {
-                                                    obj3 = parseContext6.object;
-                                                } else {
-                                                    defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext6, stringVal2));
-                                                    defaultJSONParser.resolveStatus = 1;
-                                                }
-                                            } else if ("$".equals(stringVal2)) {
-                                                ParseContext parseContext7 = parseContext4;
-                                                while (parseContext7.parent != null) {
-                                                    parseContext7 = parseContext7.parent;
-                                                }
-                                                if (parseContext7.object != null) {
-                                                    obj3 = parseContext7.object;
-                                                } else {
-                                                    defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext7, stringVal2));
-                                                    defaultJSONParser.resolveStatus = 1;
-                                                }
-                                            } else {
-                                                Object resolveReference = defaultJSONParser.resolveReference(stringVal2);
-                                                if (resolveReference != null) {
-                                                    obj3 = resolveReference;
-                                                } else {
-                                                    defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext4, stringVal2));
-                                                    defaultJSONParser.resolveStatus = 1;
-                                                }
-                                            }
-                                            jSONLexerBase.nextToken(13);
-                                            if (jSONLexerBase.token() != 13) {
-                                                throw new JSONException("illegal ref");
-                                            }
-                                            jSONLexerBase.nextToken(16);
-                                            defaultJSONParser.setContext(parseContext4, obj3, obj);
-                                            if (parseContext5 != null) {
-                                                parseContext5.object = obj3;
-                                            }
-                                            defaultJSONParser.setContext(parseContext4);
-                                            return (T) obj3;
-                                        }
-                                        throw new JSONException("illegal ref, " + JSONToken.name(i2));
-                                    } else if ((str2 != null && str2.equals(str)) || JSON.DEFAULT_TYPE_KEY == str) {
+                                }
+                                if ("$ref" != str || parseContext4 == null) {
+                                    if ((str2 != null && str2.equals(str)) || JSON.DEFAULT_TYPE_KEY == str) {
                                         jSONLexerBase.nextTokenWithColon(4);
                                         if (jSONLexerBase.token() != 4) {
                                             throw new JSONException("syntax error");
                                         }
-                                        String stringVal3 = jSONLexerBase.stringVal();
+                                        String stringVal2 = jSONLexerBase.stringVal();
                                         jSONLexerBase.nextToken(16);
-                                        if (!stringVal3.equals(this.beanInfo.typeName) && !defaultJSONParser.isEnabled(Feature.IgnoreAutoType)) {
-                                            JavaBeanDeserializer seeAlso2 = getSeeAlso(config, this.beanInfo, stringVal3);
+                                        if (!stringVal2.equals(this.beanInfo.typeName) && !defaultJSONParser.isEnabled(Feature.IgnoreAutoType)) {
+                                            ObjectDeserializer seeAlso2 = getSeeAlso(config, this.beanInfo, stringVal2);
+                                            Class<?> cls4 = null;
                                             if (seeAlso2 == null) {
-                                                Class<?> checkAutoType = config.checkAutoType(stringVal3, TypeUtils.getClass(type), jSONLexerBase.getFeatures());
-                                                javaBeanDeserializer = defaultJSONParser.getConfig().getDeserializer(checkAutoType);
-                                                cls2 = checkAutoType;
-                                            } else {
-                                                javaBeanDeserializer = seeAlso2;
-                                                cls2 = null;
+                                                cls4 = config.checkAutoType(stringVal2, TypeUtils.getClass(type), jSONLexerBase.getFeatures());
+                                                seeAlso2 = defaultJSONParser.getConfig().getDeserializer(cls4);
                                             }
-                                            T t4 = (T) javaBeanDeserializer.deserialze(defaultJSONParser, cls2, obj);
-                                            if (javaBeanDeserializer instanceof JavaBeanDeserializer) {
-                                                JavaBeanDeserializer javaBeanDeserializer2 = javaBeanDeserializer;
+                                            T t4 = (T) seeAlso2.deserialze(defaultJSONParser, cls4, obj);
+                                            if (seeAlso2 instanceof JavaBeanDeserializer) {
+                                                JavaBeanDeserializer javaBeanDeserializer = (JavaBeanDeserializer) seeAlso2;
                                                 if (str2 != null) {
-                                                    javaBeanDeserializer2.getFieldDeserializer(str2).setValue((Object) t4, stringVal3);
+                                                    javaBeanDeserializer.getFieldDeserializer(str2).setValue((Object) t4, stringVal2);
                                                 }
                                             }
                                             if (parseContext5 != null) {
@@ -541,330 +497,444 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                             }
                                             defaultJSONParser.setContext(parseContext4);
                                             return t4;
-                                        }
-                                        if (jSONLexerBase.token() == 13) {
+                                        } else if (jSONLexerBase.token() == 13) {
                                             jSONLexerBase.nextToken();
                                             parseContext3 = parseContext5;
                                             break;
                                         }
-                                        parseContext = parseContext5;
-                                        obj4 = obj3;
                                     }
                                 } else {
-                                    str = null;
-                                }
-                                if (obj3 == null && hashMap == null) {
-                                    obj3 = createInstance((DefaultJSONParser) defaultJSONParser, type);
-                                    if (obj3 == null) {
-                                        hashMap = new HashMap(this.fieldDeserializers.length);
-                                    }
-                                    parseContext5 = defaultJSONParser.setContext(parseContext4, obj3, obj);
-                                    if (iArr2 == null) {
-                                        iArr2 = new int[(this.fieldDeserializers.length / 32) + 1];
-                                        parseContext2 = parseContext5;
-                                        obj4 = obj3;
-                                        if (z2) {
-                                            if (z) {
-                                                if (obj4 == null) {
-                                                    hashMap.put(fieldInfo.name, obj5);
-                                                } else if (obj5 != null) {
-                                                    defaultFieldDeserializer.setValue(obj4, obj5);
-                                                } else if (cls != Integer.TYPE && cls != Long.TYPE && cls != Float.TYPE && cls != Double.TYPE && cls != Boolean.TYPE) {
-                                                    defaultFieldDeserializer.setValue(obj4, obj5);
-                                                }
-                                                if (iArr2 != null) {
-                                                    int i8 = i6 / 32;
-                                                    iArr2[i8] = (1 >> (i6 % 32)) | iArr2[i8];
-                                                }
-                                                if (jSONLexerBase.matchStat == 4) {
-                                                    parseContext3 = parseContext2;
-                                                    obj3 = obj4;
-                                                    break;
-                                                }
+                                    jSONLexerBase.nextTokenWithColon(4);
+                                    if (jSONLexerBase.token() == 4) {
+                                        String stringVal3 = jSONLexerBase.stringVal();
+                                        if ("@".equals(stringVal3)) {
+                                            obj3 = parseContext4.object;
+                                        } else if (IStringUtil.TOP_PATH.equals(stringVal3)) {
+                                            ParseContext parseContext6 = parseContext4.parent;
+                                            if (parseContext6.object != null) {
+                                                obj3 = parseContext6.object;
                                             } else {
-                                                try {
-                                                    defaultFieldDeserializer.parseField(defaultJSONParser, obj4, type, hashMap);
-                                                } catch (Throwable th) {
-                                                    th = th;
-                                                    obj3 = obj4;
-                                                    parseContext5 = parseContext2;
-                                                    if (parseContext5 != null) {
-                                                    }
-                                                    defaultJSONParser.setContext(parseContext4);
-                                                    throw th;
-                                                }
+                                                defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext6, stringVal3));
+                                                defaultJSONParser.resolveStatus = 1;
                                             }
-                                            if (jSONLexerBase.token() != 16) {
-                                                parseContext = parseContext2;
-                                            } else if (jSONLexerBase.token() == 13) {
-                                                jSONLexerBase.nextToken(16);
-                                                parseContext3 = parseContext2;
-                                                obj3 = obj4;
-                                                break;
+                                        } else if ("$".equals(stringVal3)) {
+                                            ParseContext parseContext7 = parseContext4;
+                                            while (parseContext7.parent != null) {
+                                                parseContext7 = parseContext7.parent;
+                                            }
+                                            if (parseContext7.object != null) {
+                                                obj3 = parseContext7.object;
                                             } else {
-                                                if (jSONLexerBase.token() == 18 || jSONLexerBase.token() == 1) {
-                                                    break;
-                                                }
-                                                parseContext = parseContext2;
-                                            }
-                                        } else if (parseField(defaultJSONParser, str, obj4, type, hashMap, iArr2)) {
-                                            if (jSONLexerBase.token() == 17) {
-                                                throw new JSONException("syntax error, unexpect token ':'");
-                                            }
-                                            if (jSONLexerBase.token() != 16) {
+                                                defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext7, stringVal3));
+                                                defaultJSONParser.resolveStatus = 1;
                                             }
                                         } else {
-                                            if (jSONLexerBase.token() == 13) {
-                                                jSONLexerBase.nextToken();
+                                            Object resolveReference = defaultJSONParser.resolveReference(stringVal3);
+                                            if (resolveReference != null) {
+                                                obj3 = resolveReference;
+                                            } else {
+                                                defaultJSONParser.addResolveTask(new DefaultJSONParser.ResolveTask(parseContext4, stringVal3));
+                                                defaultJSONParser.resolveStatus = 1;
+                                            }
+                                        }
+                                        jSONLexerBase.nextToken(13);
+                                        if (jSONLexerBase.token() != 13) {
+                                            throw new JSONException("illegal ref");
+                                        }
+                                        jSONLexerBase.nextToken(16);
+                                        defaultJSONParser.setContext(parseContext4, obj3, obj);
+                                        if (parseContext5 != null) {
+                                            parseContext5.object = obj3;
+                                        }
+                                        defaultJSONParser.setContext(parseContext4);
+                                        return (T) obj3;
+                                    }
+                                    throw new JSONException("illegal ref, " + JSONToken.name(i2));
+                                }
+                            } else {
+                                str = null;
+                            }
+                            if (obj3 == null && map == null) {
+                                obj3 = createInstance((DefaultJSONParser) defaultJSONParser, type);
+                                if (obj3 == null) {
+                                    map = new HashMap<>(this.fieldDeserializers.length);
+                                }
+                                parseContext5 = defaultJSONParser.setContext(parseContext4, obj3, obj);
+                                if (iArr2 == null) {
+                                    iArr2 = new int[(this.fieldDeserializers.length / 32) + 1];
+                                    parseContext2 = parseContext5;
+                                    if (z2) {
+                                        if (z) {
+                                            if (obj3 == null) {
+                                                map.put(fieldInfo.name, obj4);
+                                            } else if (obj4 != null) {
+                                                fieldDeserializer.setValue(obj3, obj4);
+                                            } else if (cls != Integer.TYPE && cls != Long.TYPE && cls != Float.TYPE && cls != Double.TYPE && cls != Boolean.TYPE) {
+                                                fieldDeserializer.setValue(obj3, obj4);
+                                            }
+                                            if (iArr2 != null) {
+                                                int i8 = i6 / 32;
+                                                iArr2[i8] = (1 >> (i6 % 32)) | iArr2[i8];
+                                            }
+                                            if (jSONLexerBase.matchStat == 4) {
                                                 parseContext3 = parseContext2;
-                                                obj3 = obj4;
+                                                break;
+                                            }
+                                        } else {
+                                            try {
+                                                fieldDeserializer.parseField(defaultJSONParser, obj3, type, map);
+                                            } catch (Throwable th) {
+                                                th = th;
+                                                parseContext5 = parseContext2;
+                                                if (parseContext5 != null) {
+                                                    parseContext5.object = obj3;
+                                                }
+                                                defaultJSONParser.setContext(parseContext4);
+                                                throw th;
+                                            }
+                                        }
+                                        if (jSONLexerBase.token() != 16) {
+                                            parseContext = parseContext2;
+                                        } else if (jSONLexerBase.token() == 13) {
+                                            jSONLexerBase.nextToken(16);
+                                            parseContext3 = parseContext2;
+                                            break;
+                                        } else {
+                                            if (jSONLexerBase.token() == 18 || jSONLexerBase.token() == 1) {
                                                 break;
                                             }
                                             parseContext = parseContext2;
                                         }
+                                    } else if (parseField(defaultJSONParser, str, obj3, type, map, iArr2)) {
+                                        if (jSONLexerBase.token() == 17) {
+                                            throw new JSONException("syntax error, unexpect token ':'");
+                                        }
+                                        if (jSONLexerBase.token() != 16) {
+                                        }
+                                    } else {
+                                        if (jSONLexerBase.token() == 13) {
+                                            jSONLexerBase.nextToken();
+                                            parseContext3 = parseContext2;
+                                            break;
+                                        }
+                                        parseContext = parseContext2;
                                     }
+                                    i6++;
+                                    parseContext5 = parseContext;
                                 }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
-                            } else if (jSONLexerBase.matchStat == -2) {
-                                parseContext = parseContext5;
-                                obj4 = obj3;
                             }
+                            parseContext2 = parseContext5;
+                            if (z2) {
+                            }
+                            i6++;
+                            parseContext5 = parseContext;
                         } else if (cls == Long.TYPE || cls == Long.class) {
-                            obj5 = Long.valueOf(jSONLexerBase.scanFieldLong(cArr));
+                            Long valueOf2 = Long.valueOf(jSONLexerBase.scanFieldLong(cArr));
                             if (jSONLexerBase.matchStat > 0) {
+                                obj4 = valueOf2;
                                 z = true;
                                 z2 = true;
-                                if (z2) {
-                                }
-                                if (obj3 == null) {
-                                    obj3 = createInstance((DefaultJSONParser) defaultJSONParser, type);
-                                    if (obj3 == null) {
-                                    }
-                                    parseContext5 = defaultJSONParser.setContext(parseContext4, obj3, obj);
-                                    if (iArr2 == null) {
-                                    }
-                                }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
                             } else if (jSONLexerBase.matchStat == -2) {
                                 parseContext = parseContext5;
-                                obj4 = obj3;
-                            }
-                        } else if (cls == String.class) {
-                            obj5 = jSONLexerBase.scanFieldString(cArr);
-                            if (jSONLexerBase.matchStat > 0) {
-                                z = true;
-                                z2 = true;
-                                if (z2) {
-                                }
-                                if (obj3 == null) {
-                                }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
-                            } else if (jSONLexerBase.matchStat == -2) {
-                                parseContext = parseContext5;
-                                obj4 = obj3;
-                            }
-                        } else if (cls == Date.class && fieldInfo.format == null) {
-                            obj5 = jSONLexerBase.scanFieldDate(cArr);
-                            if (jSONLexerBase.matchStat > 0) {
-                                z = true;
-                                z2 = true;
-                                if (z2) {
-                                }
-                                if (obj3 == null) {
-                                }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
-                            } else if (jSONLexerBase.matchStat == -2) {
-                                parseContext = parseContext5;
-                                obj4 = obj3;
-                            }
-                        } else if (cls == BigDecimal.class) {
-                            obj5 = jSONLexerBase.scanFieldDecimal(cArr);
-                            if (jSONLexerBase.matchStat > 0) {
-                                z = true;
-                                z2 = true;
-                                if (z2) {
-                                }
-                                if (obj3 == null) {
-                                }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
-                            } else if (jSONLexerBase.matchStat == -2) {
-                                parseContext = parseContext5;
-                                obj4 = obj3;
-                            }
-                        } else if (cls == BigInteger.class) {
-                            obj5 = jSONLexerBase.scanFieldBigInteger(cArr);
-                            if (jSONLexerBase.matchStat > 0) {
-                                z = true;
-                                z2 = true;
-                                if (z2) {
-                                }
-                                if (obj3 == null) {
-                                }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
-                            } else if (jSONLexerBase.matchStat == -2) {
-                                parseContext = parseContext5;
-                                obj4 = obj3;
-                            }
-                        } else if (cls == Boolean.TYPE || cls == Boolean.class) {
-                            obj5 = Boolean.valueOf(jSONLexerBase.scanFieldBoolean(cArr));
-                            if (jSONLexerBase.matchStat > 0) {
-                                z = true;
-                                z2 = true;
-                                if (z2) {
-                                }
-                                if (obj3 == null) {
-                                }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
-                            } else if (jSONLexerBase.matchStat == -2) {
-                                parseContext = parseContext5;
-                                obj4 = obj3;
-                            }
-                        } else if (cls == Float.TYPE || cls == Float.class) {
-                            obj5 = Float.valueOf(jSONLexerBase.scanFieldFloat(cArr));
-                            if (jSONLexerBase.matchStat > 0) {
-                                z = true;
-                                z2 = true;
-                                if (z2) {
-                                }
-                                if (obj3 == null) {
-                                }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
-                            } else if (jSONLexerBase.matchStat == -2) {
-                                parseContext = parseContext5;
-                                obj4 = obj3;
-                            }
-                        } else if (cls == Double.TYPE || cls == Double.class) {
-                            obj5 = Double.valueOf(jSONLexerBase.scanFieldDouble(cArr));
-                            if (jSONLexerBase.matchStat > 0) {
-                                z = true;
-                                z2 = true;
-                                if (z2) {
-                                }
-                                if (obj3 == null) {
-                                }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
-                            } else if (jSONLexerBase.matchStat == -2) {
-                                parseContext = parseContext5;
-                                obj4 = obj3;
-                            }
-                        } else if (cls.isEnum() && (defaultJSONParser.getConfig().getDeserializer(cls) instanceof EnumDeserializer) && (jSONField == null || jSONField.deserializeUsing() == Void.class)) {
-                            if (defaultFieldDeserializer instanceof DefaultFieldDeserializer) {
-                                Enum scanEnum = scanEnum(jSONLexerBase, cArr, defaultFieldDeserializer.fieldValueDeserilizer);
-                                if (jSONLexerBase.matchStat > 0) {
-                                    z4 = true;
-                                    z3 = true;
-                                } else if (jSONLexerBase.matchStat == -2) {
-                                    parseContext = parseContext5;
-                                    obj4 = obj3;
-                                } else {
-                                    z3 = false;
-                                    z4 = false;
-                                }
-                                z2 = z4;
-                                boolean z5 = z3;
-                                obj5 = scanEnum;
-                                z = z5;
-                                if (z2) {
-                                }
-                                if (obj3 == null) {
-                                }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
-                            }
-                        } else if (cls == int[].class) {
-                            obj5 = jSONLexerBase.scanFieldIntArray(cArr);
-                            if (jSONLexerBase.matchStat > 0) {
-                                z = true;
-                                z2 = true;
-                                if (z2) {
-                                }
-                                if (obj3 == null) {
-                                }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
-                            } else if (jSONLexerBase.matchStat == -2) {
-                                parseContext = parseContext5;
-                                obj4 = obj3;
-                            }
-                        } else if (cls == float[].class) {
-                            obj5 = jSONLexerBase.scanFieldFloatArray(cArr);
-                            if (jSONLexerBase.matchStat > 0) {
-                                z = true;
-                                z2 = true;
-                                if (z2) {
-                                }
-                                if (obj3 == null) {
-                                }
-                                parseContext2 = parseContext5;
-                                obj4 = obj3;
-                                if (z2) {
-                                }
-                            } else if (jSONLexerBase.matchStat == -2) {
-                                parseContext = parseContext5;
-                                obj4 = obj3;
-                            }
-                        } else {
-                            if (cls == float[][].class) {
-                                obj5 = jSONLexerBase.scanFieldFloatArray2(cArr);
-                                if (jSONLexerBase.matchStat > 0) {
-                                    z = true;
-                                    z2 = true;
-                                } else if (jSONLexerBase.matchStat == -2) {
-                                    parseContext = parseContext5;
-                                    obj4 = obj3;
-                                }
+                                i6++;
+                                parseContext5 = parseContext;
                             } else {
-                                if (jSONLexerBase.matchField(cArr)) {
-                                    z = false;
-                                    z2 = true;
+                                obj4 = valueOf2;
+                                z = false;
+                                z2 = false;
+                            }
+                            if (z2) {
+                            }
+                            if (obj3 == null) {
+                                obj3 = createInstance((DefaultJSONParser) defaultJSONParser, type);
+                                if (obj3 == null) {
                                 }
+                                parseContext5 = defaultJSONParser.setContext(parseContext4, obj3, obj);
+                                if (iArr2 == null) {
+                                }
+                            }
+                            parseContext2 = parseContext5;
+                            if (z2) {
+                            }
+                            i6++;
+                            parseContext5 = parseContext;
+                        } else if (cls == String.class) {
+                            String scanFieldString = jSONLexerBase.scanFieldString(cArr);
+                            if (jSONLexerBase.matchStat > 0) {
+                                obj4 = scanFieldString;
+                                z = true;
+                                z2 = true;
+                            } else if (jSONLexerBase.matchStat == -2) {
                                 parseContext = parseContext5;
-                                obj4 = obj3;
+                                i6++;
+                                parseContext5 = parseContext;
+                            } else {
+                                obj4 = scanFieldString;
+                                z = false;
+                                z2 = false;
                             }
                             if (z2) {
                             }
                             if (obj3 == null) {
                             }
                             parseContext2 = parseContext5;
-                            obj4 = obj3;
                             if (z2) {
                             }
+                            i6++;
+                            parseContext5 = parseContext;
+                        } else if (cls == Date.class && fieldInfo.format == null) {
+                            Date scanFieldDate = jSONLexerBase.scanFieldDate(cArr);
+                            if (jSONLexerBase.matchStat > 0) {
+                                obj4 = scanFieldDate;
+                                z = true;
+                                z2 = true;
+                            } else if (jSONLexerBase.matchStat == -2) {
+                                parseContext = parseContext5;
+                                i6++;
+                                parseContext5 = parseContext;
+                            } else {
+                                obj4 = scanFieldDate;
+                                z = false;
+                                z2 = false;
+                            }
+                            if (z2) {
+                            }
+                            if (obj3 == null) {
+                            }
+                            parseContext2 = parseContext5;
+                            if (z2) {
+                            }
+                            i6++;
+                            parseContext5 = parseContext;
+                        } else if (cls == BigDecimal.class) {
+                            BigDecimal scanFieldDecimal = jSONLexerBase.scanFieldDecimal(cArr);
+                            if (jSONLexerBase.matchStat > 0) {
+                                obj4 = scanFieldDecimal;
+                                z = true;
+                                z2 = true;
+                            } else if (jSONLexerBase.matchStat == -2) {
+                                parseContext = parseContext5;
+                                i6++;
+                                parseContext5 = parseContext;
+                            } else {
+                                obj4 = scanFieldDecimal;
+                                z = false;
+                                z2 = false;
+                            }
+                            if (z2) {
+                            }
+                            if (obj3 == null) {
+                            }
+                            parseContext2 = parseContext5;
+                            if (z2) {
+                            }
+                            i6++;
+                            parseContext5 = parseContext;
+                        } else if (cls == BigInteger.class) {
+                            BigInteger scanFieldBigInteger = jSONLexerBase.scanFieldBigInteger(cArr);
+                            if (jSONLexerBase.matchStat > 0) {
+                                obj4 = scanFieldBigInteger;
+                                z = true;
+                                z2 = true;
+                            } else if (jSONLexerBase.matchStat == -2) {
+                                parseContext = parseContext5;
+                                i6++;
+                                parseContext5 = parseContext;
+                            } else {
+                                obj4 = scanFieldBigInteger;
+                                z = false;
+                                z2 = false;
+                            }
+                            if (z2) {
+                            }
+                            if (obj3 == null) {
+                            }
+                            parseContext2 = parseContext5;
+                            if (z2) {
+                            }
+                            i6++;
+                            parseContext5 = parseContext;
+                        } else if (cls == Boolean.TYPE || cls == Boolean.class) {
+                            Boolean valueOf3 = Boolean.valueOf(jSONLexerBase.scanFieldBoolean(cArr));
+                            if (jSONLexerBase.matchStat > 0) {
+                                obj4 = valueOf3;
+                                z = true;
+                                z2 = true;
+                            } else if (jSONLexerBase.matchStat == -2) {
+                                parseContext = parseContext5;
+                                i6++;
+                                parseContext5 = parseContext;
+                            } else {
+                                obj4 = valueOf3;
+                                z = false;
+                                z2 = false;
+                            }
+                            if (z2) {
+                            }
+                            if (obj3 == null) {
+                            }
+                            parseContext2 = parseContext5;
+                            if (z2) {
+                            }
+                            i6++;
+                            parseContext5 = parseContext;
+                        } else if (cls == Float.TYPE || cls == Float.class) {
+                            Float valueOf4 = Float.valueOf(jSONLexerBase.scanFieldFloat(cArr));
+                            if (jSONLexerBase.matchStat > 0) {
+                                obj4 = valueOf4;
+                                z = true;
+                                z2 = true;
+                            } else if (jSONLexerBase.matchStat == -2) {
+                                parseContext = parseContext5;
+                                i6++;
+                                parseContext5 = parseContext;
+                            } else {
+                                obj4 = valueOf4;
+                                z = false;
+                                z2 = false;
+                            }
+                            if (z2) {
+                            }
+                            if (obj3 == null) {
+                            }
+                            parseContext2 = parseContext5;
+                            if (z2) {
+                            }
+                            i6++;
+                            parseContext5 = parseContext;
+                        } else if (cls == Double.TYPE || cls == Double.class) {
+                            Double valueOf5 = Double.valueOf(jSONLexerBase.scanFieldDouble(cArr));
+                            if (jSONLexerBase.matchStat > 0) {
+                                obj4 = valueOf5;
+                                z = true;
+                                z2 = true;
+                            } else if (jSONLexerBase.matchStat == -2) {
+                                parseContext = parseContext5;
+                                i6++;
+                                parseContext5 = parseContext;
+                            } else {
+                                obj4 = valueOf5;
+                                z = false;
+                                z2 = false;
+                            }
+                            if (z2) {
+                            }
+                            if (obj3 == null) {
+                            }
+                            parseContext2 = parseContext5;
+                            if (z2) {
+                            }
+                            i6++;
+                            parseContext5 = parseContext;
+                        } else if (cls.isEnum() && (defaultJSONParser.getConfig().getDeserializer(cls) instanceof EnumDeserializer) && (jSONField == null || jSONField.deserializeUsing() == Void.class)) {
+                            if (fieldDeserializer instanceof DefaultFieldDeserializer) {
+                                obj4 = scanEnum(jSONLexerBase, cArr, ((DefaultFieldDeserializer) fieldDeserializer).fieldValueDeserilizer);
+                                if (jSONLexerBase.matchStat > 0) {
+                                    z3 = true;
+                                    z4 = true;
+                                } else if (jSONLexerBase.matchStat == -2) {
+                                    parseContext = parseContext5;
+                                    i6++;
+                                    parseContext5 = parseContext;
+                                } else {
+                                    z3 = false;
+                                }
+                                z = z3;
+                                z2 = z4;
+                                if (z2) {
+                                }
+                                if (obj3 == null) {
+                                }
+                                parseContext2 = parseContext5;
+                                if (z2) {
+                                }
+                                i6++;
+                                parseContext5 = parseContext;
+                            }
+                        } else if (cls == int[].class) {
+                            int[] scanFieldIntArray = jSONLexerBase.scanFieldIntArray(cArr);
+                            if (jSONLexerBase.matchStat > 0) {
+                                obj4 = scanFieldIntArray;
+                                z = true;
+                                z2 = true;
+                            } else if (jSONLexerBase.matchStat == -2) {
+                                parseContext = parseContext5;
+                                i6++;
+                                parseContext5 = parseContext;
+                            } else {
+                                obj4 = scanFieldIntArray;
+                                z = false;
+                                z2 = false;
+                            }
+                            if (z2) {
+                            }
+                            if (obj3 == null) {
+                            }
+                            parseContext2 = parseContext5;
+                            if (z2) {
+                            }
+                            i6++;
+                            parseContext5 = parseContext;
+                        } else if (cls == float[].class) {
+                            float[] scanFieldFloatArray = jSONLexerBase.scanFieldFloatArray(cArr);
+                            if (jSONLexerBase.matchStat > 0) {
+                                obj4 = scanFieldFloatArray;
+                                z = true;
+                                z2 = true;
+                            } else if (jSONLexerBase.matchStat == -2) {
+                                parseContext = parseContext5;
+                                i6++;
+                                parseContext5 = parseContext;
+                            } else {
+                                obj4 = scanFieldFloatArray;
+                                z = false;
+                                z2 = false;
+                            }
+                            if (z2) {
+                            }
+                            if (obj3 == null) {
+                            }
+                            parseContext2 = parseContext5;
+                            if (z2) {
+                            }
+                            i6++;
+                            parseContext5 = parseContext;
+                        } else {
+                            if (cls == float[][].class) {
+                                float[][] scanFieldFloatArray2 = jSONLexerBase.scanFieldFloatArray2(cArr);
+                                if (jSONLexerBase.matchStat > 0) {
+                                    obj4 = scanFieldFloatArray2;
+                                    z = true;
+                                    z2 = true;
+                                } else if (jSONLexerBase.matchStat == -2) {
+                                    parseContext = parseContext5;
+                                    i6++;
+                                    parseContext5 = parseContext;
+                                } else {
+                                    obj4 = scanFieldFloatArray2;
+                                    z = false;
+                                    z2 = false;
+                                }
+                            } else if (jSONLexerBase.matchField(cArr)) {
+                                obj4 = null;
+                                z = false;
+                                z2 = true;
+                            }
+                            if (z2) {
+                            }
+                            if (obj3 == null) {
+                            }
+                            parseContext2 = parseContext5;
+                            if (z2) {
+                            }
+                            i6++;
+                            parseContext5 = parseContext;
                         }
+                        parseContext = parseContext5;
                         i6++;
-                        obj3 = obj4;
                         parseContext5 = parseContext;
                     }
+                    obj4 = null;
                     z = false;
                     z2 = false;
                     if (z2) {
@@ -872,11 +942,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                     if (obj3 == null) {
                     }
                     parseContext2 = parseContext5;
-                    obj4 = obj3;
                     if (z2) {
                     }
                     i6++;
-                    obj3 = obj4;
                     parseContext5 = parseContext;
                 } catch (Throwable th2) {
                     th = th2;
@@ -885,7 +953,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             try {
                 if (obj3 == null) {
                     try {
-                        if (hashMap == null) {
+                        if (map == null) {
                             T t5 = (T) createInstance((DefaultJSONParser) defaultJSONParser, type);
                             ParseContext context2 = parseContext3 == null ? defaultJSONParser.setContext(parseContext4, t5, obj) : parseContext3;
                             if (context2 != null) {
@@ -898,7 +966,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                         if (strArr != null) {
                             objArr = new Object[strArr.length];
                             for (int i9 = 0; i9 < strArr.length; i9++) {
-                                long remove = hashMap.remove(strArr[i9]);
+                                long remove = map.remove(strArr[i9]);
                                 if (remove == null) {
                                     Type type2 = this.beanInfo.creatorConstructorParameterTypes[i9];
                                     FieldInfo fieldInfo3 = this.beanInfo.fields[i9];
@@ -928,7 +996,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                             objArr = new Object[length2];
                             for (int i10 = 0; i10 < length2; i10++) {
                                 FieldInfo fieldInfo4 = fieldInfoArr[i10];
-                                long j = hashMap.get(fieldInfo4.name);
+                                long j = map.get(fieldInfo4.name);
                                 if (j == null) {
                                     Type type3 = fieldInfo4.fieldType;
                                     if (type3 == Byte.TYPE) {
@@ -956,7 +1024,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                             try {
                                 obj3 = this.beanInfo.creatorConstructor.newInstance(objArr);
                                 if (strArr != null) {
-                                    for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
+                                    for (Map.Entry<String, Object> entry : map.entrySet()) {
                                         FieldDeserializer fieldDeserializer2 = getFieldDeserializer(entry.getKey());
                                         if (fieldDeserializer2 != null) {
                                             fieldDeserializer2.setValue(obj3, entry.getValue());
@@ -1009,11 +1077,6 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                 th = th4;
                 parseContext5 = parseContext3;
                 obj3 = obj2;
-                if (parseContext5 != null) {
-                    parseContext5.object = obj3;
-                }
-                defaultJSONParser.setContext(parseContext4);
-                throw th;
             }
         } catch (Throwable th5) {
             th = th5;
@@ -1167,13 +1230,12 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         return smartMatch(str, null);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:36:0x009a  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0098  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public FieldDeserializer smartMatch(String str, int[] iArr) {
         FieldDeserializer fieldDeserializer;
-        int i;
         boolean z;
         if (str == null) {
             return null;
@@ -1183,8 +1245,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             long fnv1a_64_lower = TypeUtils.fnv1a_64_lower(str);
             if (this.smartMatchHashArray == null) {
                 long[] jArr = new long[this.sortedFieldDeserializers.length];
-                for (int i2 = 0; i2 < this.sortedFieldDeserializers.length; i2++) {
-                    jArr[i2] = TypeUtils.fnv1a_64_lower(this.sortedFieldDeserializers[i2].fieldInfo.name);
+                for (int i = 0; i < this.sortedFieldDeserializers.length; i++) {
+                    jArr[i] = TypeUtils.fnv1a_64_lower(this.sortedFieldDeserializers[i].fieldInfo.name);
                 }
                 Arrays.sort(jArr);
                 this.smartMatchHashArray = jArr;
@@ -1193,29 +1255,27 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             if (binarySearch < 0) {
                 boolean startsWith = str.startsWith("is");
                 if (startsWith) {
-                    i = Arrays.binarySearch(this.smartMatchHashArray, TypeUtils.fnv1a_64_lower(str.substring(2)));
+                    binarySearch = Arrays.binarySearch(this.smartMatchHashArray, TypeUtils.fnv1a_64_lower(str.substring(2)));
                     z = startsWith;
                 } else {
-                    i = binarySearch;
                     z = startsWith;
                 }
             } else {
-                i = binarySearch;
                 z = false;
             }
-            if (i >= 0) {
+            if (binarySearch >= 0) {
                 if (this.smartMatchHashArrayMapping == null) {
                     short[] sArr = new short[this.smartMatchHashArray.length];
                     Arrays.fill(sArr, (short) -1);
-                    for (int i3 = 0; i3 < this.sortedFieldDeserializers.length; i3++) {
-                        int binarySearch2 = Arrays.binarySearch(this.smartMatchHashArray, TypeUtils.fnv1a_64_lower(this.sortedFieldDeserializers[i3].fieldInfo.name));
+                    for (int i2 = 0; i2 < this.sortedFieldDeserializers.length; i2++) {
+                        int binarySearch2 = Arrays.binarySearch(this.smartMatchHashArray, TypeUtils.fnv1a_64_lower(this.sortedFieldDeserializers[i2].fieldInfo.name));
                         if (binarySearch2 >= 0) {
-                            sArr[binarySearch2] = (short) i3;
+                            sArr[binarySearch2] = (short) i2;
                         }
                     }
                     this.smartMatchHashArrayMapping = sArr;
                 }
-                short s = this.smartMatchHashArrayMapping[i];
+                short s = this.smartMatchHashArrayMapping[binarySearch];
                 if (s != -1 && !isSetFlag(s, iArr)) {
                     fieldDeserializer = this.sortedFieldDeserializers[s];
                     if (fieldDeserializer != null) {

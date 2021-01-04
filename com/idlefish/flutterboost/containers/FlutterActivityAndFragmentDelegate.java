@@ -2,23 +2,23 @@ package com.idlefish.flutterboost.containers;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.arch.lifecycle.Lifecycle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Lifecycle;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
-import com.baidu.tieba.u.a;
+import com.baidu.tieba.t.a;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.Utils;
 import com.idlefish.flutterboost.XFlutterView;
@@ -36,7 +36,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer {
     private static int ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = 0;
     private static final String TAG = "FlutterActivityAndFragmentDelegate";
@@ -53,7 +53,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @Nullable
     private XPlatformPlugin platformPlugin;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes7.dex */
     public interface Host extends FlutterEngineConfigurator, FlutterEngineProvider, SplashScreenProvider {
         @Override // io.flutter.embedding.android.FlutterEngineConfigurator
         void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);
@@ -63,7 +63,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
         String getContainerUrl();
 
-        Map getContainerUrlParams();
+        Map<String, Object> getContainerUrlParams();
 
         @NonNull
         Context getContext();
@@ -210,7 +210,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         this.flutterEngine.getLifecycleChannel().appIsResumed();
         if (ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE == 0 || ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE != this.host.hashCode()) {
             this.flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
-            this.flutterEngine.getActivityControlSurface().attachToActivity(this.host.getActivity(), new androidx.lifecycle.a(this.host.getLifecycle()));
+            this.flutterEngine.getActivityControlSurface().attachToActivity(this.host.getActivity(), this.host.getLifecycle());
             ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = this.host.hashCode();
         }
         if (this.platformPlugin != null) {
@@ -412,7 +412,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
-    public Map getContainerUrlParams() {
+    public Map<String, Object> getContainerUrlParams() {
         return this.host.getContainerUrlParams();
     }
 

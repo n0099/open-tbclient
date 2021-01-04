@@ -1,21 +1,21 @@
 package org.java_websocket.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e extends g implements i {
-    private short pOC;
-    private String pOD;
+    private short qqe;
+    private String qqf;
 
     @Override // org.java_websocket.c.h
-    public String eFc() {
-        return this.pOD;
+    public String eNk() {
+        return this.qqf;
     }
 
     @Override // org.java_websocket.c.i
-    public void aaC(String str) {
-        this.pOD = str;
+    public void acw(String str) {
+        this.qqf = str;
     }
 
     @Override // org.java_websocket.c.i
-    public void m(short s) {
-        this.pOC = s;
+    public void n(short s) {
+        this.qqe = s;
     }
 }

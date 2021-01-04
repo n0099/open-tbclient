@@ -14,60 +14,60 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetHourRankListResponseMessage;
 import com.baidu.tieba.ala.message.AlaGetRankListResponseMessage;
 import com.baidu.tieba.ala.message.AlaGetUserRankInfoResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class f extends BdBaseModel {
-    private n gKZ;
-    private HttpMessageListener hHW = new HttpMessageListener(1021068) { // from class: com.baidu.tieba.ala.g.f.1
+    private n gWL;
+    private HttpMessageListener hTW = new HttpMessageListener(1021068) { // from class: com.baidu.tieba.ala.g.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == f.this.unique_id) {
-                f.this.gKZ.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                f.this.gWL.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
-    private HttpMessageListener hHX = new HttpMessageListener(1021070) { // from class: com.baidu.tieba.ala.g.f.2
+    private HttpMessageListener hTX = new HttpMessageListener(1021070) { // from class: com.baidu.tieba.ala.g.f.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetUserRankInfoResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == f.this.unique_id) {
-                f.this.gKZ.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                f.this.gWL.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
-    private HttpMessageListener hHY = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST) { // from class: com.baidu.tieba.ala.g.f.3
+    private HttpMessageListener hTY = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST) { // from class: com.baidu.tieba.ala.g.f.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetHourRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && f.this.gKZ != null) {
-                f.this.gKZ.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetHourRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && f.this.gWL != null) {
+                f.this.gWL.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
 
     public f(BdUniqueId bdUniqueId, n nVar) {
         this.unique_id = bdUniqueId;
-        this.gKZ = nVar;
+        this.gWL = nVar;
         registerTask();
-        registerListener(this.hHW);
-        registerListener(this.hHX);
-        registerListener(this.hHY);
+        registerListener(this.hTW);
+        registerListener(this.hTX);
+        registerListener(this.hTY);
     }
 
     private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021068, com.baidu.live.b.aAH);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021068, com.baidu.live.b.aAY);
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaGetRankListResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1021070, com.baidu.live.b.aAI);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1021070, com.baidu.live.b.aAZ);
         tbHttpMessageTask2.setIsNeedLogin(false);
         tbHttpMessageTask2.setIsNeedTbs(true);
         tbHttpMessageTask2.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask2.setResponsedClass(AlaGetUserRankInfoResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST, com.baidu.live.b.aAK);
+        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST, com.baidu.live.b.aBb);
         tbHttpMessageTask3.setIsNeedLogin(false);
         tbHttpMessageTask3.setIsNeedTbs(true);
         tbHttpMessageTask3.setIsUseCurrentBDUSS(true);
@@ -82,7 +82,7 @@ public class f extends BdBaseModel {
             httpMessage.addParam("type", SdkStaticKeys.RANK_TYPE_CHARM);
             httpMessage.addParam(Config.PACKAGE_NAME, 1);
             httpMessage.addParam("ps", 100);
-            httpMessage.addParam("time", "day");
+            httpMessage.addParam("time", Config.TRACE_VISIT_RECENT_DAY);
             httpMessage.addParam("rt", 1);
             httpMessage.addParam("merge", 1);
             httpMessage.setTag(this.unique_id);
@@ -111,7 +111,7 @@ public class f extends BdBaseModel {
     public void A(String str, long j) {
         HttpMessage httpMessage = new HttpMessage(1021070);
         httpMessage.addParam("type", str);
-        httpMessage.addParam("time", "day");
+        httpMessage.addParam("time", Config.TRACE_VISIT_RECENT_DAY);
         httpMessage.addParam("user_id", j);
         httpMessage.setTag(this.unique_id);
         MessageManager.getInstance().sendMessage(httpMessage);

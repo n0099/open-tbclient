@@ -1,7 +1,7 @@
 package okhttp3.internal.ws;
 
-import android.support.v4.media.session.PlaybackStateCompat;
 import com.alibaba.fastjson.asm.Opcodes;
+import com.baidu.live.tbadk.log.LogConfig;
 import java.io.IOException;
 import java.util.Random;
 import okio.Buffer;
@@ -9,7 +9,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Sink;
 import okio.Timeout;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 final class WebSocketWriter {
     boolean activeWriter;
     final Buffer buffer = new Buffer();
@@ -71,7 +71,7 @@ final class WebSocketWriter {
 
     private void writeControlFrame(int i, ByteString byteString) throws IOException {
         if (this.writerClosed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         int size = byteString.size();
         if (size > 125) {
@@ -112,7 +112,7 @@ final class WebSocketWriter {
 
     void writeMessageFrame(int i, long j, boolean z, boolean z2) throws IOException {
         if (this.writerClosed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         int i2 = z ? i : 0;
         if (z2) {
@@ -146,7 +146,7 @@ final class WebSocketWriter {
         this.sink.emit();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     final class FrameSink implements Sink {
         boolean closed;
         long contentLength;
@@ -159,10 +159,10 @@ final class WebSocketWriter {
         @Override // okio.Sink
         public void write(Buffer buffer, long j) throws IOException {
             if (this.closed) {
-                throw new IOException("closed");
+                throw new IOException(LogConfig.TYPE_CLOSED);
             }
             WebSocketWriter.this.buffer.write(buffer, j);
-            boolean z = this.isFirstFrame && this.contentLength != -1 && WebSocketWriter.this.buffer.size() > this.contentLength - PlaybackStateCompat.ACTION_PLAY_FROM_URI;
+            boolean z = this.isFirstFrame && this.contentLength != -1 && WebSocketWriter.this.buffer.size() > this.contentLength - 8192;
             long completeSegmentByteCount = WebSocketWriter.this.buffer.completeSegmentByteCount();
             if (completeSegmentByteCount > 0 && !z) {
                 WebSocketWriter.this.writeMessageFrame(this.formatOpcode, completeSegmentByteCount, this.isFirstFrame, false);
@@ -173,7 +173,7 @@ final class WebSocketWriter {
         @Override // okio.Sink, java.io.Flushable
         public void flush() throws IOException {
             if (this.closed) {
-                throw new IOException("closed");
+                throw new IOException(LogConfig.TYPE_CLOSED);
             }
             WebSocketWriter.this.writeMessageFrame(this.formatOpcode, WebSocketWriter.this.buffer.size(), this.isFirstFrame, false);
             this.isFirstFrame = false;
@@ -187,7 +187,7 @@ final class WebSocketWriter {
         @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             if (this.closed) {
-                throw new IOException("closed");
+                throw new IOException(LogConfig.TYPE_CLOSED);
             }
             WebSocketWriter.this.writeMessageFrame(this.formatOpcode, WebSocketWriter.this.buffer.size(), this.isFirstFrame, true);
             this.closed = true;

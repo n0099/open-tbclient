@@ -4,11 +4,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes26.dex */
-public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
+/* loaded from: classes8.dex */
+public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCardVew> {
     public MsgPhotoLiveItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
     }
@@ -16,29 +16,29 @@ public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bT */
-    public e.a<MsgPhotoLiveCardVew> c(ViewGroup viewGroup) {
+    /* renamed from: ci */
+    public MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> e(ViewGroup viewGroup) {
         MsgPhotoLiveCardVew msgPhotoLiveCardVew = new MsgPhotoLiveCardVew(this.mPageContext);
         return new a(msgPhotoLiveCardVew.getConvertView(), msgPhotoLiveCardVew);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgPhotoLiveCardVew> aVar) {
-        super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgPhotoLiveCardVew cTM = aVar.cTM();
-        cTM.a(this.mPageContext, chatMessage, viewGroup);
-        cTM.a(this.kjX);
-        cTM.setPosition(i);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> msgViewHolder) {
+        super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
+        MsgPhotoLiveCardVew cWy = msgViewHolder.cWy();
+        cWy.a(this.mPageContext, chatMessage, viewGroup);
+        cWy.a(this.kwD);
+        cWy.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
-    public class a extends e.a<MsgPhotoLiveCardVew> {
+    /* loaded from: classes8.dex */
+    public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> {
         public a(View view, MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
             super(view, msgPhotoLiveCardVew);
         }

@@ -1,7 +1,7 @@
 package com.baidu.prologue.service.network;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface j<T> {
-    void n(Throwable th);
+    void l(Throwable th);
 
     void onResponse(T t);
 }

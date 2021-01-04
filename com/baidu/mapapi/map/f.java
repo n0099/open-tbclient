@@ -5,15 +5,15 @@ import android.os.Bundle;
 import android.util.Log;
 import java.util.concurrent.locks.Lock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class f implements com.baidu.mapsdkplatform.comapi.map.z {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduMap f2073a;
+    final /* synthetic */ BaiduMap f2915a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(BaiduMap baiduMap) {
-        this.f2073a = baiduMap;
+        this.f2915a = baiduMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.z
@@ -23,23 +23,23 @@ public class f implements com.baidu.mapsdkplatform.comapi.map.z {
         TileOverlay tileOverlay;
         Lock lock3;
         TileOverlay tileOverlay2;
-        lock = this.f2073a.J;
+        lock = this.f2915a.J;
         lock.lock();
         try {
-            tileOverlay = this.f2073a.G;
+            tileOverlay = this.f2915a.G;
             if (tileOverlay != null) {
-                tileOverlay2 = this.f2073a.G;
+                tileOverlay2 = this.f2915a.G;
                 Tile a2 = tileOverlay2.a(i, i2, i3);
                 Log.e("SDKTileLayer", "mapLayerDataReq tile t == null = " + (a2 == null));
                 if (a2 != null) {
                     return a2.toBundle();
                 }
             }
-            lock3 = this.f2073a.J;
+            lock3 = this.f2915a.J;
             lock3.unlock();
             return null;
         } finally {
-            lock2 = this.f2073a.J;
+            lock2 = this.f2915a.J;
             lock2.unlock();
         }
     }

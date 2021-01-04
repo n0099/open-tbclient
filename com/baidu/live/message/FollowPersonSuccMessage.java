@@ -1,12 +1,12 @@
 package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class FollowPersonSuccMessage extends CustomResponsedMessage<FollowPersonSucc> {
-    private FollowPersonSucc brH;
+    private FollowPersonSucc bwp;
 
     public FollowPersonSuccMessage(FollowPersonSucc followPersonSucc) {
         super(2501055);
-        this.brH = followPersonSucc;
+        this.bwp = followPersonSucc;
     }
 }

@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class MapFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2021a = MapFragment.class.getSimpleName();
-    private MapView b;
+    private static final String f2833a = MapFragment.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private MapView f2834b;
     private BaiduMapOptions c;
 
     public MapFragment() {
@@ -31,14 +33,14 @@ public class MapFragment extends Fragment {
     }
 
     public BaiduMap getBaiduMap() {
-        if (this.b == null) {
+        if (this.f2834b == null) {
             return null;
         }
-        return this.b.getMap();
+        return this.f2834b.getMap();
     }
 
     public MapView getMapView() {
-        return this.b;
+        return this.f2834b;
     }
 
     @Override // android.app.Fragment
@@ -63,8 +65,8 @@ public class MapFragment extends Fragment {
 
     @Override // android.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.b = new MapView(getActivity(), this.c);
-        return this.b;
+        this.f2834b = new MapView(getActivity(), this.c);
+        return this.f2834b;
     }
 
     @Override // android.app.Fragment
@@ -75,7 +77,7 @@ public class MapFragment extends Fragment {
     @Override // android.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.b.onDestroy();
+        this.f2834b.onDestroy();
     }
 
     @Override // android.app.Fragment
@@ -86,13 +88,13 @@ public class MapFragment extends Fragment {
     @Override // android.app.Fragment
     public void onPause() {
         super.onPause();
-        this.b.onPause();
+        this.f2834b.onPause();
     }
 
     @Override // android.app.Fragment
     public void onResume() {
         super.onResume();
-        this.b.onResume();
+        this.f2834b.onResume();
     }
 
     @Override // android.app.Fragment

@@ -8,10 +8,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.http.Headers;
+import com.qq.e.comm.constants.Constants;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.utils.j;
 import com.tencent.tauth.IRequestListener;
@@ -92,12 +93,12 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class HttpUtils {
     private HttpUtils() {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class HttpStatusException extends Exception {
         public static final String ERROR_INFO = "http status code error:";
 
@@ -106,7 +107,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class NetworkUnavailableException extends Exception {
         public static final String ERROR_INFO = "network unavailable";
 
@@ -115,8 +116,8 @@ public class HttpUtils {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:58:0x01ce A[LOOP:0: B:9:0x00e8->B:58:0x01ce, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x012d A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0120 A[LOOP:0: B:9:0x00e3->B:24:0x0120, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x0100 A[EDGE_INSN: B:66:0x0100->B:13:0x0100 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -127,15 +128,10 @@ public class HttpUtils {
         ConnectTimeoutException connectTimeoutException;
         JSONObject jSONObject;
         SocketTimeoutException socketTimeoutException;
-        JSONObject jSONObject2;
         int i2;
         long j;
-        JSONObject jSONObject3;
         long j2;
-        JSONObject jSONObject4;
-        long j3;
         j.a openUrl2;
-        JSONObject d;
         com.tencent.open.a.f.a("openSDK_LOG.HttpUtils", "OpenApi request");
         if (str.toLowerCase().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
             str3 = str;
@@ -145,82 +141,75 @@ public class HttpUtils {
             str3 = g.a().a(context, "https://openmobile.qq.com/") + str;
         }
         a(context, qQToken, str);
+        JSONObject jSONObject2 = null;
         long elapsedRealtime = SystemClock.elapsedRealtime();
+        int i3 = 0;
         int a2 = f.a(context, qQToken.getAppId()).a("Common_HttpRetryCount");
         com.tencent.open.a.f.a("OpenConfig_test", "config 1:Common_HttpRetryCount            config_value:" + a2 + "   appid:" + qQToken.getAppId() + "     url:" + str3);
-        int i3 = a2 == 0 ? 3 : a2;
-        com.tencent.open.a.f.a("OpenConfig_test", "config 1:Common_HttpRetryCount            result_value:" + i3 + "   appid:" + qQToken.getAppId() + "     url:" + str3);
-        long j4 = elapsedRealtime;
-        int i4 = 0;
-        JSONObject jSONObject5 = null;
+        int i4 = a2 == 0 ? 3 : a2;
+        com.tencent.open.a.f.a("OpenConfig_test", "config 1:Common_HttpRetryCount            result_value:" + i4 + "   appid:" + qQToken.getAppId() + "     url:" + str3);
+        long j3 = elapsedRealtime;
         while (true) {
-            int i5 = i4 + 1;
+            int i5 = i3 + 1;
             try {
                 try {
                     try {
                         openUrl2 = openUrl2(context, str4, str2, bundle);
-                        d = j.d(openUrl2.f4392a);
+                        jSONObject = j.d(openUrl2.f13745a);
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        com.tencent.open.b.g.a().a(str3, j4, 0L, 0L, -4);
+                        com.tencent.open.b.g.a().a(str3, j3, 0L, 0L, -4);
                         throw e;
                     }
                 } catch (SocketTimeoutException e2) {
                     socketTimeoutException = e2;
-                    jSONObject2 = jSONObject5;
+                    jSONObject = jSONObject2;
                 } catch (ConnectTimeoutException e3) {
                     connectTimeoutException = e3;
-                    jSONObject = jSONObject5;
+                    jSONObject = jSONObject2;
                 }
                 try {
                     try {
-                        i2 = d.getInt("ret");
+                        i2 = jSONObject.getInt(Constants.KEYS.RET);
                     } catch (JSONException e4) {
                         i2 = -4;
                     }
-                    j3 = openUrl2.b;
-                    j = openUrl2.c;
-                    jSONObject4 = d;
+                    j = openUrl2.f13746b;
+                    j2 = openUrl2.c;
                     break;
                 } catch (SocketTimeoutException e5) {
-                    jSONObject2 = d;
                     socketTimeoutException = e5;
                     socketTimeoutException.printStackTrace();
                     i2 = -8;
                     j = 0;
-                    if (i5 >= i3) {
-                        com.tencent.open.b.g.a().a(str3, j4, 0L, 0L, -8);
+                    j2 = 0;
+                    if (i5 >= i4) {
+                        com.tencent.open.b.g.a().a(str3, j3, 0L, 0L, -8);
                         throw socketTimeoutException;
                     }
-                    j4 = SystemClock.elapsedRealtime();
-                    jSONObject3 = jSONObject2;
-                    j2 = 0;
-                    if (i5 < i3) {
-                        jSONObject4 = jSONObject3;
-                        j3 = j2;
-                        com.tencent.open.b.g.a().a(str3, j4, j3, j, i2);
-                        return jSONObject4;
+                    j3 = SystemClock.elapsedRealtime();
+                    if (i5 < i4) {
+                        com.tencent.open.b.g.a().a(str3, j3, j, j2, i2);
+                        return jSONObject;
                     }
-                    jSONObject5 = jSONObject3;
-                    i4 = i5;
+                    i3 = i5;
+                    jSONObject2 = jSONObject;
                 } catch (ConnectTimeoutException e6) {
-                    jSONObject = d;
                     connectTimeoutException = e6;
                     connectTimeoutException.printStackTrace();
                     i2 = -7;
                     j = 0;
-                    if (i5 >= i3) {
-                        com.tencent.open.b.g.a().a(str3, j4, 0L, 0L, -7);
+                    j2 = 0;
+                    if (i5 >= i4) {
+                        com.tencent.open.b.g.a().a(str3, j3, 0L, 0L, -7);
                         throw connectTimeoutException;
                     }
-                    j4 = SystemClock.elapsedRealtime();
-                    jSONObject3 = jSONObject;
-                    j2 = 0;
-                    if (i5 < i3) {
+                    j3 = SystemClock.elapsedRealtime();
+                    if (i5 < i4) {
                     }
                 }
-                jSONObject5 = jSONObject3;
-                i4 = i5;
+                i3 = i5;
+                jSONObject2 = jSONObject;
             } catch (HttpStatusException e7) {
                 e7.printStackTrace();
                 try {
@@ -229,23 +218,23 @@ public class HttpUtils {
                     e8.printStackTrace();
                     i = -9;
                 }
-                com.tencent.open.b.g.a().a(str3, j4, 0L, 0L, i);
+                com.tencent.open.b.g.a().a(str3, j3, 0L, 0L, i);
                 throw e7;
             } catch (NetworkUnavailableException e9) {
                 e9.printStackTrace();
                 throw e9;
             } catch (MalformedURLException e10) {
                 e10.printStackTrace();
-                com.tencent.open.b.g.a().a(str3, j4, 0L, 0L, -3);
+                com.tencent.open.b.g.a().a(str3, j3, 0L, 0L, -3);
                 throw e10;
             } catch (IOException e11) {
                 e11.printStackTrace();
-                com.tencent.open.b.g.a().a(str3, j4, 0L, 0L, getErrorCodeFromException(e11));
+                com.tencent.open.b.g.a().a(str3, j3, 0L, 0L, getErrorCodeFromException(e11));
                 throw e11;
             }
         }
-        com.tencent.open.b.g.a().a(str3, j4, j3, j, i2);
-        return jSONObject4;
+        com.tencent.open.b.g.a().a(str3, j3, j, j2, i2);
+        return jSONObject;
     }
 
     /* JADX WARN: Type inference failed for: r0v1, types: [com.tencent.open.utils.HttpUtils$1] */
@@ -429,10 +418,12 @@ public class HttpUtils {
         return -2;
     }
 
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r5v0, types: [org.apache.http.client.methods.HttpPost] */
     public static j.a openUrl2(Context context, String str, String str2, Bundle bundle) throws MalformedURLException, IOException, NetworkUnavailableException, HttpStatusException {
         Bundle bundle2;
-        HttpGet httpGet;
         int i;
+        HttpGet httpGet;
         String str3;
         ConnectivityManager connectivityManager;
         NetworkInfo activeNetworkInfo;
@@ -457,15 +448,14 @@ public class HttpUtils {
                 str3 = str + ETAG.ITEM_SEPARATOR;
             }
             com.tencent.open.a.f.a("openSDK_LOG.HttpUtils", "-->openUrl2 encodedParam =" + encodeUrl + " -- url = " + str3);
-            HttpGet httpGet2 = new HttpGet(str3 + encodeUrl);
-            httpGet2.addHeader(Headers.ACCEPT_ENCODING, "gzip");
-            httpGet = httpGet2;
+            httpGet = new HttpGet(str3 + encodeUrl);
+            httpGet.addHeader(Headers.ACCEPT_ENCODING, "gzip");
             i = length;
         } else if (!str2.equals("POST")) {
-            httpGet = null;
             i = 0;
+            httpGet = null;
         } else {
-            HttpPost httpPost = new HttpPost(str);
+            ?? httpPost = new HttpPost(str);
             httpPost.addHeader(Headers.ACCEPT_ENCODING, "gzip");
             Bundle bundle3 = new Bundle();
             for (String str4 : bundle2.keySet()) {
@@ -534,7 +524,7 @@ public class HttpUtils {
 
     public static HttpClient getHttpClient(Context context, String str, String str2) {
         int i;
-        int i2 = 0;
+        int i2;
         SchemeRegistry schemeRegistry = new SchemeRegistry();
         schemeRegistry.register(new Scheme(HttpHost.DEFAULT_SCHEME_NAME, PlainSocketFactory.getSocketFactory(), 80));
         if (Build.VERSION.SDK_INT < 16) {
@@ -543,36 +533,37 @@ public class HttpUtils {
                 keyStore.load(null, null);
                 a aVar = new a(keyStore);
                 aVar.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                schemeRegistry.register(new Scheme("https", aVar, Constants.SOCKET_PORT_SSL));
+                schemeRegistry.register(new Scheme("https", aVar, com.baidu.android.imsdk.internal.Constants.SOCKET_PORT_SSL));
             } catch (Exception e) {
-                schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), Constants.SOCKET_PORT_SSL));
+                schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), com.baidu.android.imsdk.internal.Constants.SOCKET_PORT_SSL));
             }
         } else {
-            schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), Constants.SOCKET_PORT_SSL));
+            schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), com.baidu.android.imsdk.internal.Constants.SOCKET_PORT_SSL));
         }
         BasicHttpParams basicHttpParams = new BasicHttpParams();
         f a2 = context != null ? f.a(context, str) : null;
         if (a2 != null) {
-            i = a2.a("Common_HttpConnectionTimeout");
-            i2 = a2.a("Common_SocketConnectionTimeout");
+            i2 = a2.a("Common_HttpConnectionTimeout");
+            i = a2.a("Common_SocketConnectionTimeout");
         } else {
             i = 0;
-        }
-        if (i == 0) {
-            i = 15000;
+            i2 = 0;
         }
         if (i2 == 0) {
-            i2 = 30000;
+            i2 = BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
         }
-        HttpConnectionParams.setConnectionTimeout(basicHttpParams, i);
-        HttpConnectionParams.setSoTimeout(basicHttpParams, i2);
+        if (i == 0) {
+            i = 30000;
+        }
+        HttpConnectionParams.setConnectionTimeout(basicHttpParams, i2);
+        HttpConnectionParams.setSoTimeout(basicHttpParams, i);
         HttpProtocolParams.setVersion(basicHttpParams, HttpVersion.HTTP_1_1);
         HttpProtocolParams.setContentCharset(basicHttpParams, "UTF-8");
         HttpProtocolParams.setUserAgent(basicHttpParams, "AndroidSDK_" + Build.VERSION.SDK + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.DEVICE + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.VERSION.RELEASE);
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
         c proxy = getProxy(context);
         if (proxy != null) {
-            defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f4377a, proxy.b));
+            defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f13719a, proxy.f13720b));
         }
         return defaultHttpClient;
     }
@@ -656,16 +647,18 @@ public class HttpUtils {
         return null;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f4377a;
-        public final int b;
+        public final String f13719a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final int f13720b;
 
         private c(String str, int i) {
-            this.f4377a = str;
-            this.b = i;
+            this.f13719a = str;
+            this.f13720b = i;
         }
     }
 
@@ -705,45 +698,44 @@ public class HttpUtils {
         return System.getProperty("http.proxyHost");
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class a extends SSLSocketFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private final SSLContext f4375a;
+        private final SSLContext f13717a;
 
         public a(KeyStore keyStore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
             super(keyStore);
             b bVar;
-            this.f4375a = SSLContext.getInstance("TLS");
+            this.f13717a = SSLContext.getInstance("TLS");
             try {
                 bVar = new b();
             } catch (Exception e) {
                 bVar = null;
             }
-            this.f4375a.init(null, new TrustManager[]{bVar}, null);
+            this.f13717a.init(null, new TrustManager[]{bVar}, null);
         }
 
         @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.LayeredSocketFactory
         public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException, UnknownHostException {
-            return this.f4375a.getSocketFactory().createSocket(socket, str, i, z);
+            return this.f13717a.getSocketFactory().createSocket(socket, str, i, z);
         }
 
         @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.SocketFactory
         public Socket createSocket() throws IOException {
-            return this.f4375a.getSocketFactory().createSocket();
+            return this.f13717a.getSocketFactory().createSocket();
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class b implements X509TrustManager {
 
         /* renamed from: a  reason: collision with root package name */
-        X509TrustManager f4376a;
+        X509TrustManager f13718a;
 
         b() throws Exception {
             KeyStore keyStore;
             FileInputStream fileInputStream;
-            Throwable th;
             TrustManager[] trustManagers;
             try {
                 keyStore = KeyStore.getInstance("JKS");
@@ -762,17 +754,17 @@ public class HttpUtils {
                         if (fileInputStream2 != null) {
                             fileInputStream2.close();
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th) {
+                        th = th;
                         fileInputStream = fileInputStream2;
                         if (fileInputStream != null) {
                             fileInputStream.close();
                         }
                         throw th;
                     }
-                } catch (Throwable th3) {
+                } catch (Throwable th2) {
+                    th = th2;
                     fileInputStream = null;
-                    th = th3;
                 }
             } else {
                 TrustManagerFactory trustManagerFactory2 = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -781,7 +773,7 @@ public class HttpUtils {
             }
             for (int i = 0; i < trustManagers.length; i++) {
                 if (trustManagers[i] instanceof X509TrustManager) {
-                    this.f4376a = (X509TrustManager) trustManagers[i];
+                    this.f13718a = (X509TrustManager) trustManagers[i];
                     return;
                 }
             }
@@ -790,17 +782,17 @@ public class HttpUtils {
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.f4376a.checkClientTrusted(x509CertificateArr, str);
+            this.f13718a.checkClientTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.f4376a.checkServerTrusted(x509CertificateArr, str);
+            this.f13718a.checkServerTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public X509Certificate[] getAcceptedIssuers() {
-            return this.f4376a.getAcceptedIssuers();
+            return this.f13718a.getAcceptedIssuers();
         }
     }
 }

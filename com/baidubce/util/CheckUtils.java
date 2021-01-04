@@ -1,5 +1,5 @@
 package com.baidubce.util;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class CheckUtils {
     public static <T> void isNotNull(T t, String str) {
         if (t == null) {
@@ -28,9 +28,9 @@ public class CheckUtils {
 
     static String format(String str, Object... objArr) {
         int indexOf;
-        int i = 0;
         String valueOf = String.valueOf(str);
         StringBuilder sb = new StringBuilder(valueOf.length() + (objArr.length * 16));
+        int i = 0;
         int i2 = 0;
         while (i < objArr.length && (indexOf = valueOf.indexOf("%s", i2)) != -1) {
             sb.append(valueOf.substring(i2, indexOf));

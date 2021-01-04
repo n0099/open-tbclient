@@ -1,11 +1,10 @@
 package com.baidu.live.tbadk.img;
 
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ImageUploadResult implements Serializable {
     public long picId;
     public static int INTER_ERROR_FILE_ERROR = -1;
@@ -43,7 +42,7 @@ public class ImageUploadResult implements Serializable {
         }
         if (jSONObject != null) {
             imageUploadResult.error_code = jSONObject.optInt("error_code");
-            imageUploadResult.error_msg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            imageUploadResult.error_msg = jSONObject.optString("error_msg");
             imageUploadResult.resourceId = jSONObject.optString("resourceId");
             imageUploadResult.chunkNo = jSONObject.optInt("chunkNo");
             imageUploadResult.picId = jSONObject.optInt("picId");
@@ -56,7 +55,7 @@ public class ImageUploadResult implements Serializable {
         return imageUploadResult;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class picInfo implements Serializable {
         public PicDetailedInfo bigPic;
         public PicDetailedInfo originPic;
@@ -92,7 +91,7 @@ public class ImageUploadResult implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class PicDetailedInfo implements Serializable {
         public int height;
         public String picUrl;

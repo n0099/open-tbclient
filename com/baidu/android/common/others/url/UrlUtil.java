@@ -2,6 +2,7 @@ package com.baidu.android.common.others.url;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.common.others.java.Patterns;
 import com.baidu.webkit.internal.ETAG;
 import java.io.File;
@@ -15,7 +16,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class UrlUtil {
     private static final boolean DEBUG = false;
     public static final String PERCENT_PATTEN = "%(?![0-9a-fA-F]{2})";
@@ -42,7 +43,7 @@ public class UrlUtil {
     }
 
     @Deprecated
-    public static String appendParams(String str, Map<String, String> map) {
+    public static String appendParams(String str, @NonNull Map<String, String> map) {
         return UrlUtils.appendParams(str, map);
     }
 

@@ -4,7 +4,7 @@ import android.app.Activity;
 import com.baidu.searchbox.appframework.BdBoxActivityLifecycle;
 import java.lang.ref.WeakReference;
 import java.util.LinkedList;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class BdBoxActivityManager {
     private static BdBoxActivityLifecycle sMainGlobalActivityLifecycle;
 

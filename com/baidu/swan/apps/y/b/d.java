@@ -3,9 +3,15 @@ package com.baidu.swan.apps.y.b;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.Log;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d extends a {
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00a6, code lost:
+        r0 = r0 + 1;
+     */
     @Override // com.baidu.swan.apps.y.b.a
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean a(Bitmap bitmap, Rect rect) {
         if (DEBUG) {
             Log.d("SolidErrorPageParser", "SolidErrorPageParser: start error page parse");
@@ -16,25 +22,29 @@ public class d extends a {
         if (!b(bitmap, rect)) {
             rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
         }
-        int i = 0;
-        for (int i2 = rect.left + 1; i2 < rect.right - 1; i2++) {
-            int i3 = rect.top + 1;
-            while (i3 < rect.bottom - 1) {
-                int pixel = bitmap.getPixel(i2, i3);
-                int i4 = i == 0 ? pixel : i;
-                if (i4 == pixel || pixel == 0) {
-                    i3++;
-                    i = i4;
-                } else if (com.baidu.swan.apps.b.DEBUG) {
-                    Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + ")");
-                    return false;
-                } else {
-                    return false;
+        int i = rect.left + 1;
+        int i2 = 0;
+        while (i < rect.right - 1) {
+            int i3 = rect.top;
+            while (true) {
+                i3++;
+                if (i3 < rect.bottom - 1) {
+                    int pixel = bitmap.getPixel(i, i3);
+                    if (i2 == 0) {
+                        i2 = pixel;
+                    }
+                    if (i2 != pixel && pixel != 0) {
+                        if (com.baidu.swan.apps.b.DEBUG) {
+                            Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i3 + ")");
+                            return false;
+                        }
+                        return false;
+                    }
                 }
             }
         }
         if (DEBUG) {
-            Log.d("SolidErrorPageParser", "color = " + i + "图片大小 " + rect.width() + " x " + rect.height());
+            Log.d("SolidErrorPageParser", "color = " + i2 + "图片大小 " + rect.width() + " x " + rect.height());
         }
         return true;
     }

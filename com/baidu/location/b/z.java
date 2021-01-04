@@ -2,49 +2,51 @@ package com.baidu.location.b;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    private ExecutorService f1920a;
-    private ExecutorService b;
+    private ExecutorService f2668a;
 
-    /* loaded from: classes26.dex */
+    /* renamed from: b  reason: collision with root package name */
+    private ExecutorService f2669b;
+
+    /* loaded from: classes15.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static z f1921a = new z();
+        private static z f2670a = new z();
     }
 
     private z() {
     }
 
     public static z a() {
-        return a.f1921a;
+        return a.f2670a;
     }
 
     public synchronized ExecutorService b() {
-        if (this.f1920a == null || this.f1920a.isShutdown()) {
-            this.f1920a = null;
-            this.f1920a = Executors.newSingleThreadExecutor();
+        if (this.f2668a == null || this.f2668a.isShutdown()) {
+            this.f2668a = null;
+            this.f2668a = Executors.newSingleThreadExecutor();
         }
-        return this.f1920a;
+        return this.f2668a;
     }
 
     public synchronized ExecutorService c() {
-        if (this.b == null || this.b.isShutdown()) {
-            this.b = null;
-            this.b = Executors.newFixedThreadPool(2);
+        if (this.f2669b == null || this.f2669b.isShutdown()) {
+            this.f2669b = null;
+            this.f2669b = Executors.newFixedThreadPool(2);
         }
-        return this.b;
+        return this.f2669b;
     }
 
     public void d() {
-        if (this.f1920a != null) {
-            this.f1920a.shutdown();
+        if (this.f2668a != null) {
+            this.f2668a.shutdown();
         }
-        if (this.b != null) {
-            this.b.shutdown();
+        if (this.f2669b != null) {
+            this.f2669b.shutdown();
         }
     }
 }

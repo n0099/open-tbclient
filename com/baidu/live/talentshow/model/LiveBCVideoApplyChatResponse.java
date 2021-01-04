@@ -3,15 +3,15 @@ package com.baidu.live.talentshow.model;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class LiveBCVideoApplyChatResponse extends JsonHttpResponsedMessage {
-    private String bBc;
+    private String bFP;
     private String status;
 
     public LiveBCVideoApplyChatResponse() {
         super(1021222);
         this.status = "";
-        this.bBc = "";
+        this.bFP = "";
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,7 +22,7 @@ public class LiveBCVideoApplyChatResponse extends JsonHttpResponsedMessage {
         }
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.status = optJSONObject.optString("status");
-            this.bBc = optJSONObject.optString("count_down");
+            this.bFP = optJSONObject.optString("count_down");
         }
     }
 
@@ -30,7 +30,7 @@ public class LiveBCVideoApplyChatResponse extends JsonHttpResponsedMessage {
         return this.status;
     }
 
-    public String TN() {
-        return this.bBc;
+    public String US() {
+        return this.bFP;
     }
 }

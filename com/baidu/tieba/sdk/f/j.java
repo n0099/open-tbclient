@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.scheme.SchemeCallback;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class j implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Context context, Map<String, String> map, SchemeCallback schemeCallback) {
@@ -25,9 +25,9 @@ public class j implements ILiveScheme {
             str = "";
         }
         if (TextUtils.equals(str2, "1")) {
-            com.baidu.tieba.sdk.a.dHi().bc(context, str);
+            com.baidu.tieba.sdk.a.dGX().bg(context, str);
         } else {
-            com.baidu.tieba.sdk.a.dHi().bd(context, str);
+            com.baidu.tieba.sdk.a.dGX().bh(context, str);
         }
     }
 }

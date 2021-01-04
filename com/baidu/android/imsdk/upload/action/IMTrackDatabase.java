@@ -8,7 +8,7 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.http.Headers;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.upload.action.track.Ack;
 import com.baidu.android.imsdk.upload.action.track.Connection;
 import com.baidu.android.imsdk.upload.action.track.Crash;
@@ -20,7 +20,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMTrackDatabase {
     public static final String DB_NAME = "im_track.db";
     private static final int DB_VERSION = 1;
@@ -33,7 +33,7 @@ public class IMTrackDatabase {
     public static final Object myLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public enum AckEnum {
         ackId,
         type,
@@ -46,7 +46,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public enum ConnectionEnum {
         connectionId,
         startTime,
@@ -61,7 +61,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public enum CrashEnum {
         crashId,
         exception,
@@ -73,7 +73,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public enum DbEnum {
         dbId,
         tableName,
@@ -90,7 +90,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public enum MsgEnum {
         msgId,
         msgCount,
@@ -105,7 +105,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public enum RequestEnum {
         id,
         method,
@@ -120,7 +120,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public enum UiEnum {
         uiId,
         category,
@@ -187,9 +187,9 @@ public class IMTrackDatabase {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [122=4] */
     public List<Ui> getUis() {
+        Throwable th;
         ArrayList arrayList;
         Cursor cursor;
-        Exception e;
         Cursor cursor2 = null;
         synchronized (myLock) {
             SQLiteDatabase db = getDb(this.context);
@@ -198,8 +198,8 @@ public class IMTrackDatabase {
             }
             try {
                 arrayList = new ArrayList();
-            } catch (Throwable th) {
-                th = th;
+            } catch (Throwable th2) {
+                th = th2;
             }
             try {
                 cursor = db.rawQuery("select * from ui limit 1000", null);
@@ -217,8 +217,8 @@ public class IMTrackDatabase {
                         ui.ext = cursor.getString(cursor.getColumnIndex(UiEnum.ext.name()));
                         ui.aliasId = cursor.getLong(cursor.getColumnIndex(UiEnum.aliasId.name()));
                         arrayList.add(ui);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         LogUtils.e(TAG, "IMTrack getUis error " + e.getMessage());
                         if (cursor != null) {
                             cursor.close();
@@ -232,11 +232,11 @@ public class IMTrackDatabase {
                     cursor.close();
                 }
                 db.close();
-            } catch (Exception e3) {
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
-                e = e3;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
                 if (0 != 0) {
                     cursor2.close();
                 }
@@ -269,9 +269,9 @@ public class IMTrackDatabase {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [180=4] */
     public List<Crash> getCrashes() {
+        Throwable th;
         ArrayList arrayList;
         Cursor cursor;
-        Exception e;
         Cursor cursor2 = null;
         synchronized (myLock) {
             SQLiteDatabase db = getDb(this.context);
@@ -280,8 +280,8 @@ public class IMTrackDatabase {
             }
             try {
                 arrayList = new ArrayList();
-            } catch (Throwable th) {
-                th = th;
+            } catch (Throwable th2) {
+                th = th2;
             }
             try {
                 cursor = db.rawQuery("select * from crash limit 1000", null);
@@ -296,8 +296,8 @@ public class IMTrackDatabase {
                         crash.ext = cursor.getString(cursor.getColumnIndex(CrashEnum.ext.name()));
                         crash.aliasId = cursor.getLong(cursor.getColumnIndex(CrashEnum.aliasId.name()));
                         arrayList.add(crash);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         LogUtils.e(TAG, "IMTrack getCrashes error " + e.getMessage());
                         if (cursor != null) {
                             cursor.close();
@@ -311,11 +311,11 @@ public class IMTrackDatabase {
                     cursor.close();
                 }
                 db.close();
-            } catch (Exception e3) {
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
-                e = e3;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
                 if (0 != 0) {
                     cursor2.close();
                 }
@@ -380,14 +380,12 @@ public class IMTrackDatabase {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [274=4] */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00fe A[Catch: all -> 0x00f6, TRY_ENTER, TryCatch #2 {, blocks: (B:4:0x0004, B:6:0x000c, B:8:0x000e, B:24:0x00ef, B:25:0x00f2, B:20:0x00e3, B:18:0x00dd, B:19:0x00e0, B:32:0x00fe, B:33:0x0101, B:34:0x0104), top: B:42:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00fe A[Catch: all -> 0x00f7, TRY_ENTER, TryCatch #2 {, blocks: (B:4:0x0004, B:6:0x000c, B:8:0x000e, B:25:0x00f0, B:26:0x00f3, B:21:0x00e4, B:19:0x00de, B:20:0x00e1, B:33:0x00fe, B:34:0x0101, B:35:0x0104), top: B:43:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public List<Db> getDbs() {
         Cursor cursor;
-        Throwable th;
-        Exception e;
         synchronized (myLock) {
             SQLiteDatabase db = getDb(this.context);
             if (db == null) {
@@ -413,8 +411,8 @@ public class IMTrackDatabase {
                             db2.ext = cursor.getString(cursor.getColumnIndex(DbEnum.ext.name()));
                             db2.aliasId = cursor.getLong(cursor.getColumnIndex(DbEnum.aliasId.name()));
                             arrayList.add(db2);
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             LogUtils.e(TAG, "IMTrack getDbs error " + e.getMessage());
                             if (cursor != null) {
                                 cursor.close();
@@ -422,8 +420,8 @@ public class IMTrackDatabase {
                             db.close();
                             return arrayList;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th) {
+                        th = th;
                         if (cursor != null) {
                             cursor.close();
                         }
@@ -436,12 +434,12 @@ public class IMTrackDatabase {
                     cursor.close();
                 }
                 db.close();
-            } catch (Exception e3) {
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
-                e = e3;
-            } catch (Throwable th3) {
+            } catch (Throwable th2) {
+                th = th2;
                 cursor = null;
-                th = th3;
                 if (cursor != null) {
                 }
                 db.close();
@@ -476,9 +474,9 @@ public class IMTrackDatabase {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [336=4] */
     public List<Connection> getConnections() {
+        Throwable th;
         ArrayList arrayList;
         Cursor cursor;
-        Exception e;
         Cursor cursor2 = null;
         synchronized (myLock) {
             SQLiteDatabase db = getDb(this.context);
@@ -487,8 +485,8 @@ public class IMTrackDatabase {
             }
             try {
                 arrayList = new ArrayList();
-            } catch (Throwable th) {
-                th = th;
+            } catch (Throwable th2) {
+                th = th2;
             }
             try {
                 cursor = db.rawQuery("select * from connection limit 1000", null);
@@ -506,8 +504,8 @@ public class IMTrackDatabase {
                         connection.ext = cursor.getString(cursor.getColumnIndex(ConnectionEnum.ext.name()));
                         connection.aliasId = cursor.getLong(cursor.getColumnIndex(ConnectionEnum.aliasId.name()));
                         arrayList.add(connection);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         LogUtils.e(TAG, "IMTrack getConnections error " + e.getMessage());
                         if (cursor != null) {
                             cursor.close();
@@ -521,11 +519,11 @@ public class IMTrackDatabase {
                     cursor.close();
                 }
                 db.close();
-            } catch (Exception e3) {
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
-                e = e3;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
                 if (0 != 0) {
                     cursor2.close();
                 }
@@ -589,9 +587,9 @@ public class IMTrackDatabase {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [424=4] */
     public List<Request> getRequests() {
+        Throwable th;
         ArrayList arrayList;
         Cursor cursor;
-        Exception e;
         Cursor cursor2 = null;
         synchronized (myLock) {
             SQLiteDatabase db = getDb(this.context);
@@ -600,8 +598,8 @@ public class IMTrackDatabase {
             }
             try {
                 arrayList = new ArrayList();
-            } catch (Throwable th) {
-                th = th;
+            } catch (Throwable th2) {
+                th = th2;
             }
             try {
                 cursor = db.rawQuery("select * from request limit 1000", null);
@@ -619,8 +617,8 @@ public class IMTrackDatabase {
                         request.ext = cursor.getString(cursor.getColumnIndex(RequestEnum.ext.name()));
                         request.aliasId = cursor.getLong(cursor.getColumnIndex(RequestEnum.aliasId.name()));
                         arrayList.add(request);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         LogUtils.e(TAG, "IMTrack getRequests error " + e.getMessage());
                         if (cursor != null) {
                             cursor.close();
@@ -634,11 +632,11 @@ public class IMTrackDatabase {
                     cursor.close();
                 }
                 db.close();
-            } catch (Exception e3) {
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
-                e = e3;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
                 if (0 != 0) {
                     cursor2.close();
                 }
@@ -700,9 +698,9 @@ public class IMTrackDatabase {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [509=4] */
     public List<Ack> getAcks() {
+        Throwable th;
         ArrayList arrayList;
         Cursor cursor;
-        Exception e;
         Cursor cursor2 = null;
         synchronized (myLock) {
             SQLiteDatabase db = getDb(this.context);
@@ -711,8 +709,8 @@ public class IMTrackDatabase {
             }
             try {
                 arrayList = new ArrayList();
-            } catch (Throwable th) {
-                th = th;
+            } catch (Throwable th2) {
+                th = th2;
             }
             try {
                 cursor = db.rawQuery("select * from ack limit 1000", null);
@@ -728,8 +726,8 @@ public class IMTrackDatabase {
                         ack.ext = cursor.getString(cursor.getColumnIndex(AckEnum.ext.name()));
                         ack.aliasId = cursor.getLong(cursor.getColumnIndex(AckEnum.aliasId.name()));
                         arrayList.add(ack);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         LogUtils.e(TAG, "IMTrack getAcks error " + e.getMessage());
                         if (cursor != null) {
                             cursor.close();
@@ -743,11 +741,11 @@ public class IMTrackDatabase {
                     cursor.close();
                 }
                 db.close();
-            } catch (Exception e3) {
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
-                e = e3;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
                 if (0 != 0) {
                     cursor2.close();
                 }
@@ -783,9 +781,9 @@ public class IMTrackDatabase {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [571=4] */
     public List<Msg> getMsgs() {
+        Throwable th;
         ArrayList arrayList;
         Cursor cursor;
-        Exception e;
         Cursor cursor2 = null;
         synchronized (myLock) {
             SQLiteDatabase db = getDb(this.context);
@@ -794,8 +792,8 @@ public class IMTrackDatabase {
             }
             try {
                 arrayList = new ArrayList();
-            } catch (Throwable th) {
-                th = th;
+            } catch (Throwable th2) {
+                th = th2;
             }
             try {
                 cursor = db.rawQuery("select * from msg limit 1000", null);
@@ -813,8 +811,8 @@ public class IMTrackDatabase {
                         msg.ext = cursor.getString(cursor.getColumnIndex(MsgEnum.ext.name()));
                         msg.aliasId = cursor.getLong(cursor.getColumnIndex(MsgEnum.aliasId.name()));
                         arrayList.add(msg);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         LogUtils.e(TAG, "IMTrack getMsgs error " + e.getMessage());
                         if (cursor != null) {
                             cursor.close();
@@ -828,11 +826,11 @@ public class IMTrackDatabase {
                     cursor.close();
                 }
                 db.close();
-            } catch (Exception e3) {
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
-                e = e3;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
                 if (0 != 0) {
                     cursor2.close();
                 }
@@ -910,7 +908,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         private Context context;
         private static final String SQL_TABLE_CREATE_UI = "CREATE TABLE ui (" + UiEnum.uiId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + UiEnum.category.name() + " TEXT, " + UiEnum.page.name() + " TEXT, " + UiEnum.startTime.name() + " LONG, " + UiEnum.endTime.name() + " LONG, " + UiEnum.duration.name() + " LONG, " + UiEnum.ext.name() + " TEXT, " + UiEnum.aliasId.name() + " LONG NOT NULL );";

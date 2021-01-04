@@ -8,37 +8,40 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class co implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f3812a;
-    final /* synthetic */ cg b;
+    final /* synthetic */ int f5782a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ cg f5783b;
     private int c = 0;
     private String d = "";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public co(cg cgVar, int i) {
-        this.b = cgVar;
-        this.f3812a = i;
+        this.f5783b = cgVar;
+        this.f5782a = i;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0123  */
     @Override // android.widget.AdapterView.OnItemClickListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        Exception exc;
         int i2;
-        int i3;
         JSONArray jSONArray;
         JSONObject jSONObject;
-        int i4;
-        if (this.b.f3804a.H) {
+        if (this.f5783b.f5771a.H) {
             return;
         }
         com.baidu.ufosdk.f.c.a("FeedbackInputActiviy --> FeedbackInput item clicked! " + i);
-        if (((Integer) ((Map) this.b.f3804a.h.get(this.f3812a)).get("subtype")).intValue() == 0) {
-            com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked! -- > \n" + ((Map) this.b.f3804a.h.get(this.f3812a)).get("content").toString());
+        if (((Integer) ((Map) this.f5783b.f5771a.h.get(this.f5782a)).get("subtype")).intValue() == 0) {
+            com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked! -- > \n" + ((Map) this.f5783b.f5771a.h.get(this.f5782a)).get("content").toString());
             try {
-                JSONObject jSONObject2 = (JSONObject) ((JSONArray) ((Map) this.b.f3804a.h.get(this.f3812a)).get("content")).get(i);
+                JSONObject jSONObject2 = (JSONObject) ((JSONArray) ((Map) this.f5783b.f5771a.h.get(this.f5782a)).get("content")).get(i);
                 this.c = jSONObject2.getInt(MapBundleKey.MapObjKey.OBJ_QID);
                 this.d = jSONObject2.getString("question");
             } catch (JSONException e) {
@@ -48,44 +51,56 @@ final class co implements AdapterView.OnItemClickListener {
             return;
         }
         try {
-            jSONObject = (JSONObject) ((JSONArray) ((Map) this.b.f3804a.h.get(this.f3812a)).get("content")).get(i);
-            i4 = jSONObject.getInt("id");
+            jSONObject = (JSONObject) ((JSONArray) ((Map) this.f5783b.f5771a.h.get(this.f5782a)).get("content")).get(i);
+            i2 = jSONObject.getInt("id");
         } catch (Exception e2) {
-            exc = e2;
+            e = e2;
             i2 = 0;
         }
         try {
-            jSONArray = jSONObject.has("extra_fields") ? jSONObject.getJSONArray("extra_fields") : null;
-            i3 = i4;
         } catch (Exception e3) {
-            i2 = i4;
-            exc = e3;
-            exc.printStackTrace();
-            i3 = i2;
+            e = e3;
+            e.printStackTrace();
             jSONArray = null;
-            com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked!-- product_type : " + i3 + "msgId" + this.b.f3804a.e);
+            com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked!-- product_type : " + i2 + "msgId" + this.f5783b.f5771a.e);
             Intent intent = new Intent();
-            intent.setClass(this.b.f3804a, FeedbackEditActivity.class);
+            intent.setClass(this.f5783b.f5771a, FeedbackEditActivity.class);
             intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-            intent.putExtra("product_type", i3);
+            intent.putExtra("product_type", i2);
             if (jSONArray != null) {
             }
-            intent.putExtra("msgid", this.b.f3804a.e);
+            intent.putExtra("msgid", this.f5783b.f5771a.e);
             intent.putExtra("data_array", r0);
-            intent.putExtra("im_content", this.b.f3804a.A);
+            intent.putExtra("im_content", this.f5783b.f5771a.A);
             intent.putExtra("come_from", 0);
-            this.b.f3804a.startActivity(intent);
+            this.f5783b.f5771a.startActivity(intent);
         }
-        com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked!-- product_type : " + i3 + "msgId" + this.b.f3804a.e);
-        Intent intent2 = new Intent();
-        intent2.setClass(this.b.f3804a, FeedbackEditActivity.class);
-        intent2.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-        intent2.putExtra("product_type", i3);
-        String jSONArray2 = (jSONArray != null || jSONArray.length() <= 0) ? "" : jSONArray.toString();
-        intent2.putExtra("msgid", this.b.f3804a.e);
-        intent2.putExtra("data_array", jSONArray2);
-        intent2.putExtra("im_content", this.b.f3804a.A);
-        intent2.putExtra("come_from", 0);
-        this.b.f3804a.startActivity(intent2);
+        if (jSONObject.has("extra_fields")) {
+            jSONArray = jSONObject.getJSONArray("extra_fields");
+            com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked!-- product_type : " + i2 + "msgId" + this.f5783b.f5771a.e);
+            Intent intent2 = new Intent();
+            intent2.setClass(this.f5783b.f5771a, FeedbackEditActivity.class);
+            intent2.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
+            intent2.putExtra("product_type", i2);
+            String jSONArray2 = (jSONArray != null || jSONArray.length() <= 0) ? "" : jSONArray.toString();
+            intent2.putExtra("msgid", this.f5783b.f5771a.e);
+            intent2.putExtra("data_array", jSONArray2);
+            intent2.putExtra("im_content", this.f5783b.f5771a.A);
+            intent2.putExtra("come_from", 0);
+            this.f5783b.f5771a.startActivity(intent2);
+        }
+        jSONArray = null;
+        com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked!-- product_type : " + i2 + "msgId" + this.f5783b.f5771a.e);
+        Intent intent22 = new Intent();
+        intent22.setClass(this.f5783b.f5771a, FeedbackEditActivity.class);
+        intent22.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
+        intent22.putExtra("product_type", i2);
+        if (jSONArray != null) {
+        }
+        intent22.putExtra("msgid", this.f5783b.f5771a.e);
+        intent22.putExtra("data_array", jSONArray2);
+        intent22.putExtra("im_content", this.f5783b.f5771a.A);
+        intent22.putExtra("come_from", 0);
+        this.f5783b.f5771a.startActivity(intent22);
     }
 }

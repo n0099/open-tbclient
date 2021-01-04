@@ -1,15 +1,15 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.logsystem.basic.upload.identity.LokiIdentityManager;
 import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseContentUploader {
     private static final String CONTENT_TYPE = "Content-type";
     private static final String CONTENT_TYPE_VALUE = "application/octet-stream";

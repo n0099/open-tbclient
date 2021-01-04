@@ -9,10 +9,10 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class Utf8AppleDataBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
     String value;
 
     static {

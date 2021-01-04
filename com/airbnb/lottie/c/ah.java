@@ -7,16 +7,16 @@ import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class ah {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static ShapeStroke z(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+    public static ShapeStroke z(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         char c;
         String str = null;
         com.airbnb.lottie.model.a.a aVar = null;
         com.airbnb.lottie.model.a.b bVar = null;
-        com.airbnb.lottie.model.a.d dVar = null;
+        com.airbnb.lottie.model.a.d dVar2 = null;
         ShapeStroke.LineCapType lineCapType = null;
         ShapeStroke.LineJoinType lineJoinType = null;
         com.airbnb.lottie.model.a.b bVar2 = null;
@@ -80,13 +80,13 @@ public class ah {
                     str = jsonReader.nextString();
                     break;
                 case 1:
-                    aVar = d.l(jsonReader, eVar);
+                    aVar = d.l(jsonReader, dVar);
                     break;
                 case 2:
-                    bVar = d.f(jsonReader, eVar);
+                    bVar = d.f(jsonReader, dVar);
                     break;
                 case 3:
-                    dVar = d.g(jsonReader, eVar);
+                    dVar2 = d.g(jsonReader, dVar);
                     break;
                 case 4:
                     lineCapType = ShapeStroke.LineCapType.values()[jsonReader.nextInt() - 1];
@@ -125,7 +125,7 @@ public class ah {
                                     str2 = jsonReader.nextString();
                                     break;
                                 case 1:
-                                    bVar3 = d.f(jsonReader, eVar);
+                                    bVar3 = d.f(jsonReader, dVar);
                                     break;
                                 default:
                                     jsonReader.skipValue();
@@ -182,6 +182,6 @@ public class ah {
                     break;
             }
         }
-        return new ShapeStroke(str, bVar2, arrayList, aVar, dVar, bVar, lineCapType, lineJoinType, f);
+        return new ShapeStroke(str, bVar2, arrayList, aVar, dVar2, bVar, lineCapType, lineJoinType, f);
     }
 }

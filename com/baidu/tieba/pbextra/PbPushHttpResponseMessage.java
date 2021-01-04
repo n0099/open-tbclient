@@ -3,7 +3,7 @@ package com.baidu.tieba.pbextra;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.PushThread.PushThreadResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class PbPushHttpResponseMessage extends TbHttpResponsedMessage {
     private int mPushType;
 

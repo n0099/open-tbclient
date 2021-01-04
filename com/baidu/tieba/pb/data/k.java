@@ -2,17 +2,17 @@ package com.baidu.tieba.pb.data;
 
 import java.util.List;
 import tbclient.ManagerElection;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class k {
-    private boolean idb;
-    private int lBM;
-    private int lBN;
-    private List<String> lBO;
-    private List<String> lBP;
-    private List<String> lBQ;
-    private String lBR;
-    private boolean lBS;
-    private int lBT;
+    private boolean ipA;
+    private int lGS;
+    private int lGT;
+    private List<String> lGU;
+    private List<String> lGV;
+    private List<String> lGW;
+    private String lGX;
+    private boolean lGY;
+    private int lGZ;
     private int status;
 
     public static k b(ManagerElection managerElection) {
@@ -20,16 +20,16 @@ public class k {
             return null;
         }
         k kVar = new k();
-        kVar.lBN = managerElection.begin_vote_time.intValue();
-        kVar.idb = managerElection.can_vote.intValue() == 1;
-        kVar.lBM = managerElection.vote_num.intValue();
-        kVar.lBS = managerElection.is_show_distribute.intValue() == 1;
-        kVar.lBT = managerElection.remainder_time.intValue();
+        kVar.lGT = managerElection.begin_vote_time.intValue();
+        kVar.ipA = managerElection.can_vote.intValue() == 1;
+        kVar.lGS = managerElection.vote_num.intValue();
+        kVar.lGY = managerElection.is_show_distribute.intValue() == 1;
+        kVar.lGZ = managerElection.remainder_time.intValue();
         kVar.status = managerElection.status.intValue();
-        kVar.lBR = managerElection.tail_text;
-        kVar.lBO = managerElection.vote_condition_pic;
-        kVar.lBP = managerElection.vote_condition_title;
-        kVar.lBQ = managerElection.vote_condition;
+        kVar.lGX = managerElection.tail_text;
+        kVar.lGU = managerElection.vote_condition_pic;
+        kVar.lGV = managerElection.vote_condition_title;
+        kVar.lGW = managerElection.vote_condition;
         return kVar;
     }
 
@@ -37,43 +37,43 @@ public class k {
         return this.status;
     }
 
-    public boolean dnG() {
-        return this.lBS;
+    public boolean dnp() {
+        return this.lGY;
     }
 
-    public int dnH() {
-        return this.lBT;
+    public int dnq() {
+        return this.lGZ;
     }
 
-    public int dnI() {
-        return this.lBM;
+    public int dnr() {
+        return this.lGS;
     }
 
-    public List<String> dnJ() {
-        return this.lBP;
+    public List<String> dnt() {
+        return this.lGV;
     }
 
-    public List<String> dnK() {
-        return this.lBQ;
+    public List<String> dnu() {
+        return this.lGW;
     }
 
-    public String dnL() {
-        return this.lBR;
+    public String dnv() {
+        return this.lGX;
     }
 
-    public boolean cqZ() {
-        return this.idb;
+    public boolean ctS() {
+        return this.ipA;
     }
 
-    public void oL(boolean z) {
-        this.idb = z;
+    public void pk(boolean z) {
+        this.ipA = z;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void GQ(int i) {
-        this.lBM = i;
+    public void GI(int i) {
+        this.lGS = i;
     }
 }

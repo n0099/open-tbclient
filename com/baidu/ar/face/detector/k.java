@@ -1,5 +1,5 @@
 package com.baidu.ar.face.detector;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class k {
     private double pA;
     private double pB;

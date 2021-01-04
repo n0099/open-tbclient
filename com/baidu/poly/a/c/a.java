@@ -6,58 +6,58 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: com.baidu.poly.a.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     static class RunnableC0311a implements Runnable {
-        final /* synthetic */ com.baidu.poly.b.a cgG;
+        final /* synthetic */ com.baidu.poly.b.a cnJ;
 
         /* renamed from: com.baidu.poly.a.c.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes19.dex */
+        /* loaded from: classes3.dex */
         class C0312a extends com.baidu.poly.b.a {
-            final /* synthetic */ JSONArray cgE;
+            final /* synthetic */ JSONArray cnH;
 
             C0312a(JSONArray jSONArray) {
-                this.cgE = jSONArray;
+                this.cnH = jSONArray;
             }
 
             @Override // com.baidu.poly.b.a
             public void onResult(int i, String str) {
-                com.baidu.poly.b.a aVar = RunnableC0311a.this.cgG;
+                com.baidu.poly.b.a aVar = RunnableC0311a.this.cnJ;
                 if (aVar != null) {
                     aVar.onResult(i, str);
                 }
                 if (i == 1) {
-                    a.b(this.cgE);
+                    a.b(this.cnH);
                 }
             }
         }
 
         RunnableC0311a(com.baidu.poly.b.a aVar) {
-            this.cgG = aVar;
+            this.cnJ = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            JSONArray adu = a.adu();
-            if (adu == null) {
+            JSONArray afq = a.afq();
+            if (afq == null) {
                 return;
             }
-            com.baidu.poly.a.b.a.a(adu, new C0312a(adu));
+            com.baidu.poly.a.b.a.a(afq, new C0312a(afq));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static synchronized JSONArray adu() {
+    public static synchronized JSONArray afq() {
         JSONArray jSONArray;
         JSONArray jSONArray2 = null;
         synchronized (a.class) {
-            File file = new File(g.adQ().getFilesDir(), "poly_cashier_commission_record_cache.json");
+            File file = new File(g.afL().getFilesDir(), "poly_cashier_commission_record_cache.json");
             if (file.exists()) {
                 try {
-                    jSONArray = new JSONArray(c.p(file));
+                    jSONArray = new JSONArray(c.b(file));
                     try {
                         file.delete();
                     } catch (JSONException e) {
@@ -76,7 +76,7 @@ public class a {
         synchronized (a.class) {
             if (jSONArray != null) {
                 if (jSONArray.length() != 0) {
-                    c.a(jSONArray.toString(), new File(g.adQ().getFilesDir(), "poly_cashier_commission_record_cache.json"));
+                    c.a(jSONArray.toString(), new File(g.afL().getFilesDir(), "poly_cashier_commission_record_cache.json"));
                 }
             }
         }
@@ -92,15 +92,15 @@ public class a {
                 jSONObject.put("operateTime", String.valueOf(System.currentTimeMillis() / 1000));
             } catch (JSONException e) {
             }
-            JSONArray adu = adu();
-            if (adu == null) {
-                adu = new JSONArray();
+            JSONArray afq = afq();
+            if (afq == null) {
+                afq = new JSONArray();
             }
-            adu.put(jSONObject);
-            if (adu.length() > 100) {
-                adu.remove(0);
+            afq.put(jSONObject);
+            if (afq.length() > 100) {
+                afq.remove(0);
             }
-            b(adu);
+            b(afq);
         }
     }
 }

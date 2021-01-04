@@ -5,19 +5,19 @@ import android.database.Cursor;
 import com.xiaomi.push.cb;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class bw extends cb.b<Long> {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f4595a;
+    private long f14194a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f145a;
+    private String f223a;
 
     public bw(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i, String str6) {
         super(str, list, str2, strArr, str3, str4, str5, i);
-        this.f4595a = 0L;
-        this.f145a = str6;
+        this.f14194a = 0L;
+        this.f223a = str6;
     }
 
     public static bw a(String str) {
@@ -35,7 +35,7 @@ public class bw extends cb.b<Long> {
 
     @Override // com.xiaomi.push.cb.b, com.xiaomi.push.cb.a
     public Object a() {
-        return Long.valueOf(this.f4595a);
+        return Long.valueOf(this.f14194a);
     }
 
     @Override // com.xiaomi.push.cb.b
@@ -43,6 +43,6 @@ public class bw extends cb.b<Long> {
         if (context == null || list == null || list.size() <= 0) {
             return;
         }
-        this.f4595a = list.get(0).longValue();
+        this.f14194a = list.get(0).longValue();
     }
 }

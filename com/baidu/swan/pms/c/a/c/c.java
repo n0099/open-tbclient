@@ -5,38 +5,38 @@ import com.baidu.swan.pms.c.a.d.f;
 import com.baidu.swan.pms.d;
 /* loaded from: classes6.dex */
 public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
-    private volatile f enq;
+    private volatile f ewY;
 
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0077, code lost:
-        if (r6.bep() > r0.bep()) goto L21;
+        if (r6.bgK() > r0.bgK()) goto L21;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void f(f fVar) {
         if (fVar != null) {
-            if (this.enq != null && this.enq.k(fVar)) {
-                fVar.beh().T(fVar.bei());
+            if (this.ewY != null && this.ewY.k(fVar)) {
+                fVar.bgD().T(fVar.bgE());
                 if (d.DEBUG) {
                     Log.d("PMSPriorityQueue", "enQueue: 要入队的任务和当前正在运行的任务相同->" + fVar);
                 }
             } else {
-                f am = am(fVar);
-                if (am != null) {
-                    fVar.beh().T(fVar.bei());
+                f ao = ao(fVar);
+                if (ao != null) {
+                    fVar.bgD().T(fVar.bgE());
                     if (d.DEBUG) {
                         Log.d("PMSPriorityQueue", "enQueue: 队列中已经有相同的任务在排队等待处理->" + fVar);
                     }
                 }
-                int bep = fVar.bep();
+                int bgK = fVar.bgK();
                 if (d.DEBUG) {
-                    Log.d("PMSPriorityQueue", "[enQueue] priorityOption:" + bep);
+                    Log.d("PMSPriorityQueue", "[enQueue] priorityOption:" + bgK);
                 }
-                switch (bep) {
+                switch (bgK) {
                     case 200:
-                        if (am != null) {
-                            this.mQueue.remove(am);
-                            this.mQueue.add(0, am);
+                        if (ao != null) {
+                            this.mQueue.remove(ao);
+                            this.mQueue.add(0, ao);
                             if (d.DEBUG) {
                                 Log.d("PMSPriorityQueue", "enQueue: 有更高优先级的重复任务入队，任务提队头处理");
                             }
@@ -51,9 +51,9 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
                         break;
                     case 300:
                         h(fVar);
-                        if (am != null) {
-                            this.mQueue.remove(am);
-                            this.mQueue.add(0, am);
+                        if (ao != null) {
+                            this.mQueue.remove(ao);
+                            this.mQueue.add(0, ao);
                             if (d.DEBUG) {
                                 Log.d("PMSPriorityQueue", "enQueue-stop running: 有更高优先级的重复任务入队，任务提队头处理");
                             }
@@ -67,7 +67,7 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
                         }
                         break;
                     default:
-                        if (am == null) {
+                        if (ao == null) {
                             this.mQueue.add(fVar);
                             if (d.DEBUG) {
                                 Log.d("PMSPriorityQueue", "[enQueue] append new task to queue tail. size:" + this.mQueue.size());
@@ -84,10 +84,10 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.c.a.c.a
-    /* renamed from: bed */
-    public synchronized f beb() {
+    /* renamed from: bgz */
+    public synchronized f bgx() {
         f fVar;
-        fVar = (f) super.beb();
+        fVar = (f) super.bgx();
         if (d.DEBUG) {
             Log.d("PMSPriorityQueue", "deQueue first task:" + fVar);
         }
@@ -96,7 +96,7 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.c.a.c.a
-    /* renamed from: bee */
+    /* renamed from: bgA */
     public synchronized f get() {
         f fVar;
         fVar = (f) super.get();
@@ -108,13 +108,13 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void d(f<T> fVar) {
-        this.enq = fVar;
+        this.ewY = fVar;
     }
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (this.enq == fVar) {
-            this.enq = null;
+        if (this.ewY == fVar) {
+            this.ewY = null;
             if (d.DEBUG) {
                 Log.d("PMSPriorityQueue", "notifyTaskEnd mCurrentTask == null:" + fVar);
             }
@@ -123,11 +123,11 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
     }
 
     private void g(f fVar) {
-        if (fVar.ber()) {
+        if (fVar.bgM()) {
             if (d.DEBUG) {
                 Log.d("PMSPriorityQueue", "processPendingTask:" + fVar);
             }
-            fVar.in(true);
+            fVar.iH(true);
             this.mQueue.add(0, fVar);
             if (d.DEBUG) {
                 Log.d("PMSPriorityQueue", "PendingTask added-to-Queue-head:" + fVar);
@@ -137,16 +137,16 @@ public class c extends a<f> implements com.baidu.swan.pms.c.a.d.b {
 
     private void h(f fVar) {
         f fVar2;
-        if (fVar.bep() == 300 && (fVar2 = this.enq) != null) {
-            if (fVar2.bep() == 300) {
+        if (fVar.bgK() == 300 && (fVar2 = this.ewY) != null) {
+            if (fVar2.bgK() == 300) {
                 if (d.DEBUG) {
                     Log.d("PMSPriorityQueue", "Hi-priority task is working, can't stop:" + fVar2);
                     return;
                 }
                 return;
             }
-            fVar2.beq();
-            for (int i = 0; i < 500 && this.enq != null; i++) {
+            fVar2.bgL();
+            for (int i = 0; i < 500 && this.ewY != null; i++) {
                 try {
                     Thread.sleep(10L);
                 } catch (InterruptedException e) {

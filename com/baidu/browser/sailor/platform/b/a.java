@@ -5,21 +5,23 @@ import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1283a = 12323;
-    public static int b = 12324;
-    public b agv;
-    private JSONObject agw;
+    public static int f1645a = 12323;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f1646b = 12324;
+    public b agV;
     public JSONObject d;
     public boolean e = false;
+    private JSONObject f;
 
     public final void a() {
-        if (this.agw != null) {
-            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.agw.toString());
-            this.agw = null;
+        if (this.f != null) {
+            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.f.toString());
+            this.f = null;
         }
     }
 
@@ -27,7 +29,7 @@ public final class a {
         try {
             if (this.d == null) {
                 this.d = new JSONObject();
-                this.d.put("type", f1283a);
+                this.d.put("type", f1645a);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
@@ -40,14 +42,14 @@ public final class a {
 
     public final void b(String str, String str2) {
         try {
-            if (this.agw == null) {
-                this.agw = new JSONObject();
-                this.agw.put("type", b);
+            if (this.f == null) {
+                this.f = new JSONObject();
+                this.f.put("type", f1646b);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.agw.put(str, str2);
+            this.f.put(str, str2);
         } catch (Exception e) {
             Log.e("mWebkitDownloadStatics JSON error");
         }

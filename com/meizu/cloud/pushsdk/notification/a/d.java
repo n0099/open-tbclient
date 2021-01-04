@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.notification.c.e;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.io.File;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class d extends c {
     public d(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);
@@ -32,7 +32,7 @@ public class d extends c {
     public void a(Notification notification, MessageV3 messageV3) {
         super.a(notification, messageV3);
         MessageV4 parse = MessageV4.parse(messageV3);
-        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.f4193a))) {
+        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.f11626a))) {
             com.meizu.cloud.a.a.e("AbstractPushNotification", "only wifi can download act");
             return;
         }
@@ -57,7 +57,7 @@ public class d extends c {
         com.meizu.cloud.pushsdk.c.b.a.b.a(new Runnable() { // from class: com.meizu.cloud.pushsdk.notification.a.d.1
             @Override // java.lang.Runnable
             public void run() {
-                File[] b;
+                File[] b2;
                 for (File file : com.meizu.cloud.pushsdk.notification.c.a.b(str, String.valueOf(System.currentTimeMillis() - 86400000))) {
                     com.meizu.cloud.pushsdk.notification.c.a.b(file.getPath());
                     com.meizu.cloud.a.a.i("AbstractPushNotification", "Delete file directory " + file.getName() + "\n");

@@ -4,7 +4,7 @@ import java.util.Date;
 import org.apache.http.cookie.ClientCookie;
 import org.apache.http.cookie.SetCookie;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class BasicClientCookie implements ClientCookie, SetCookie {
     public BasicClientCookie(String str, String str2) {
         throw new RuntimeException("Stub!");

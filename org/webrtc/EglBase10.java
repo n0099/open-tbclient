@@ -3,16 +3,16 @@ package org.webrtc;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
-import android.support.annotation.Nullable;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import androidx.annotation.Nullable;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import org.webrtc.EglBase;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class EglBase10 implements EglBase {
     private static final int EGL_CONTEXT_CLIENT_VERSION = 12440;
     @Nullable
@@ -22,7 +22,7 @@ class EglBase10 implements EglBase {
     private final EGL10 egl = (EGL10) EGLContext.getEGL();
     private EGLDisplay eglDisplay = getEglDisplay();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class Context implements EglBase.Context {
         private final EGLContext eglContext;
 

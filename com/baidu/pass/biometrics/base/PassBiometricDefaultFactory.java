@@ -4,13 +4,13 @@ import android.content.Context;
 import com.baidu.pass.biometrics.base.callback.PassBiometricCallback;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class PassBiometricDefaultFactory extends PassBiometricFactory {
     public static final int VERSION_CODE = 8;
     public static final String VERSION_NAME = "1.2.2";
 
     /* renamed from: a  reason: collision with root package name */
-    private static PassBiometricDefaultFactory f2690a;
+    private static PassBiometricDefaultFactory f3972a;
 
     private PassBiometricDefaultFactory() {
     }
@@ -30,14 +30,14 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
     }
 
     public static PassBiometricDefaultFactory getInstance() {
-        if (f2690a == null) {
+        if (f3972a == null) {
             synchronized (PassBiometricDefaultFactory.class) {
-                if (f2690a == null) {
-                    f2690a = new PassBiometricDefaultFactory();
+                if (f3972a == null) {
+                    f3972a = new PassBiometricDefaultFactory();
                 }
             }
         }
-        return f2690a;
+        return f3972a;
     }
 
     @Override // com.baidu.pass.biometrics.base.PassBiometricFactory

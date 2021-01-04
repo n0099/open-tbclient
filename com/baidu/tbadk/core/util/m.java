@@ -11,7 +11,7 @@ public class m {
     }
 
     public void append(String str, Object obj) {
-        if (!au.isEmpty(str) && obj != null) {
+        if (!at.isEmpty(str) && obj != null) {
             try {
                 if (this.builder == null) {
                     this.builder = new StringBuilder();

@@ -6,13 +6,13 @@ import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c extends g {
-    public int aJg;
-    public String aUg;
+    public int aJE;
+    public String aVu;
     public String cover;
-    public int eKc;
-    public ArrayList<a> gIR;
+    public int eTW;
+    public ArrayList<a> gUD;
     public String liveId;
     public int rank;
     public String room_name;
@@ -20,20 +20,20 @@ public class c extends g {
     @Override // com.baidu.tieba.yuyinala.data.g
     public void parserJson(JSONObject jSONObject) {
         this.rank = jSONObject.optInt("rank");
-        this.aJg = jSONObject.optInt(Config.EVENT_HEAT_POINT);
-        this.aUg = jSONObject.optString("room_id");
+        this.aJE = jSONObject.optInt(Config.EVENT_HEAT_POINT);
+        this.aVu = jSONObject.optString("room_id");
         this.liveId = jSONObject.optString("live_id");
         this.room_name = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
         this.cover = jSONObject.optString("cover");
-        this.eKc = jSONObject.optInt("live_status");
+        this.eTW = jSONObject.optInt("live_status");
         JSONArray optJSONArray = jSONObject.optJSONArray("bro_list");
         if (optJSONArray != null) {
-            this.gIR = new ArrayList<>();
+            this.gUD = new ArrayList<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 a aVar = new a();
                 aVar.parserJson(optJSONObject);
-                this.gIR.add(aVar);
+                this.gUD.add(aVar);
             }
         }
     }
@@ -43,9 +43,9 @@ public class c extends g {
         return this.room_name;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class a {
-        public long bmv;
+        public long boa;
         public String portrait;
         public String uk;
         public String userName;
@@ -60,7 +60,7 @@ public class c extends g {
                 this.userName = jSONObject.optString("user_name");
                 this.userNickName = jSONObject.optString("user_nickname");
                 this.portrait = jSONObject.optString("bd_portrait");
-                this.bmv = jSONObject.optLong("charm_value");
+                this.boa = jSONObject.optLong("charm_value");
             }
         }
 

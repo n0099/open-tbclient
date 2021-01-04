@@ -2,7 +2,7 @@ package protobuf.UpdateForumMask;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.BOOL)
     public final Boolean flag;
@@ -31,7 +31,7 @@ public final class DataReq extends Message {
         this.flag = builder.flag;
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Boolean flag;
         public Integer type;

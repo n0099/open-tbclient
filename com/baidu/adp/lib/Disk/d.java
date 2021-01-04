@@ -6,44 +6,44 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class d {
-    private static BdUniqueId KD = BdUniqueId.gen();
-    private static BdUniqueId KE = BdUniqueId.gen();
-    private static d KF = null;
-    private b KA;
-    private BdAsyncTaskParallel KG;
-    private BdAsyncTaskParallel KH;
+    private static BdUniqueId Kc = BdUniqueId.gen();
+    private static BdUniqueId Kd = BdUniqueId.gen();
+    private static d Ke = null;
+    private b Ka;
+    private BdAsyncTaskParallel Kf;
+    private BdAsyncTaskParallel Kg;
     private final int DISK_TASK_MAX_NUM_SDCARD = 10;
     private final int DISK_TASK_MAX_NUM_ROM = 5;
 
-    public static d lL() {
-        if (KF == null) {
+    public static d lh() {
+        if (Ke == null) {
             synchronized (d.class) {
-                if (KF == null) {
-                    KF = new d();
+                if (Ke == null) {
+                    Ke = new d();
                 }
             }
         }
-        return KF;
+        return Ke;
     }
 
     private d() {
-        this.KA = null;
-        this.KG = null;
-        this.KH = null;
-        this.KG = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.KH = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.KA = new b();
+        this.Ka = null;
+        this.Kf = null;
+        this.Kg = null;
+        this.Kf = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.Kg = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.Ka = new b();
     }
 
     public void initial(String str) {
-        this.KA.setApplicationPath(str);
+        this.Ka.setApplicationPath(str);
     }
 
     public boolean b(DiskFileOperate diskFileOperate) {
         if (diskFileOperate == null) {
             return false;
         }
-        boolean call = new e(this.KA, diskFileOperate).call();
+        boolean call = new e(this.Ka, diskFileOperate).call();
         diskFileOperate.callback(call);
         return call;
     }
@@ -53,16 +53,16 @@ public class d {
             return false;
         }
         if (diskFileOperate.isSdCard()) {
-            return a(diskFileOperate, KD, this.KG, 10);
+            return a(diskFileOperate, Kc, this.Kf, 10);
         }
-        return a(diskFileOperate, KE, this.KH, 5);
+        return a(diskFileOperate, Kd, this.Kg, 5);
     }
 
     private boolean a(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel, int i) {
         if (diskFileOperate == null) {
             return false;
         }
-        if (diskFileOperate.lN() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(bdUniqueId) < diskFileOperate.getTrySuccessWeight() + i) {
+        if (diskFileOperate.lj() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(bdUniqueId) < diskFileOperate.getTrySuccessWeight() + i) {
             return a(diskFileOperate, bdUniqueId, bdAsyncTaskParallel);
         }
         return false;
@@ -71,8 +71,8 @@ public class d {
     public void d(DiskFileOperate diskFileOperate) {
         String e = e(diskFileOperate);
         if (e != null) {
-            BdAsyncTask.removeAllTask(KD, e);
-            BdAsyncTask.removeAllTask(KE, e);
+            BdAsyncTask.removeAllTask(Kc, e);
+            BdAsyncTask.removeAllTask(Kd, e);
         }
     }
 
@@ -87,7 +87,7 @@ public class d {
     }
 
     private boolean a(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel) {
-        c cVar = new c(this.KA, diskFileOperate);
+        c cVar = new c(this.Ka, diskFileOperate);
         cVar.setTag(bdUniqueId);
         cVar.setParallel(bdAsyncTaskParallel);
         cVar.setPriority(4);

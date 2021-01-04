@@ -3,10 +3,10 @@ package com.baidu.searchbox.process.ipc.delegate.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public class ActivityResultDispatcher {
     private final Set<ActivityResultConsumer> mConsumers = new HashSet();
     public final Activity mHolder;

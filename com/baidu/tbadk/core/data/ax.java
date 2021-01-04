@@ -5,99 +5,99 @@ import org.json.JSONObject;
 import tbclient.Page;
 /* loaded from: classes.dex */
 public class ax {
-    private int eHj = 0;
+    private int eRa = 0;
     private int total_num = 0;
     private int current_page = 0;
-    private int eHl = 0;
+    private int eRc = 0;
     private int has_more = 0;
-    private int eHm = 0;
+    private int eRd = 0;
     private int total_count = 0;
-    private int eHk = 0;
+    private int eRb = 0;
 
-    public int bnA() {
-        return this.eHj;
+    public int bqa() {
+        return this.eRa;
     }
 
-    public void or(int i) {
-        this.eHj = i;
+    public void oB(int i) {
+        this.eRa = i;
     }
 
-    public int bmB() {
+    public int bpc() {
         return this.total_num;
     }
 
-    public void os(int i) {
+    public void oC(int i) {
         this.total_num = i;
     }
 
-    public int bnB() {
+    public int bqb() {
         return this.total_count;
     }
 
-    public int bnC() {
-        return this.eHk;
+    public int bqc() {
+        return this.eRb;
     }
 
-    public void ot(int i) {
-        this.eHk = i;
+    public void oD(int i) {
+        this.eRb = i;
     }
 
-    public int bnD() {
+    public int bqd() {
         return this.current_page;
     }
 
-    public void ou(int i) {
+    public void oE(int i) {
         this.current_page = i;
     }
 
-    public int bnE() {
-        return this.eHl;
+    public int bqe() {
+        return this.eRc;
     }
 
-    public void ov(int i) {
-        this.eHl = i;
+    public void oF(int i) {
+        this.eRc = i;
     }
 
-    public void ow(int i) {
+    public void oG(int i) {
         this.has_more = i;
     }
 
-    public int bnF() {
+    public int bqf() {
         return this.has_more;
     }
 
-    public void ox(int i) {
-        this.eHm = i;
+    public void oH(int i) {
+        this.eRd = i;
     }
 
-    public int bnG() {
-        return this.eHm;
+    public int bqg() {
+        return this.eRd;
     }
 
     public void a(Page page) {
         if (page != null) {
-            this.eHj = page.total_page.intValue();
+            this.eRa = page.total_page.intValue();
             this.total_num = page.total_num.intValue();
             this.total_count = page.total_count.intValue();
             this.current_page = page.current_page.intValue();
-            this.eHl = page.page_size.intValue();
+            this.eRc = page.page_size.intValue();
             this.has_more = page.has_more.intValue();
-            this.eHm = page.has_prev.intValue();
-            this.eHk = page.lz_total_floor.intValue();
+            this.eRd = page.has_prev.intValue();
+            this.eRb = page.lz_total_floor.intValue();
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.eHj = jSONObject.optInt("total_page", 0);
+                this.eRa = jSONObject.optInt("total_page", 0);
                 this.total_num = jSONObject.optInt("total_num", 0);
                 this.total_count = jSONObject.optInt("total_count", 0);
                 this.current_page = jSONObject.optInt("current_page", 0);
-                this.eHl = jSONObject.optInt("page_size", 0);
+                this.eRc = jSONObject.optInt("page_size", 0);
                 this.has_more = jSONObject.optInt("has_more", 0);
-                this.eHm = jSONObject.optInt("has_prev", 0);
-                this.eHk = jSONObject.optInt("lz_total_floor", 0);
+                this.eRd = jSONObject.optInt("has_prev", 0);
+                this.eRb = jSONObject.optInt("lz_total_floor", 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

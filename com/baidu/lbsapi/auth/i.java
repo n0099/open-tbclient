@@ -5,17 +5,17 @@ import android.os.Looper;
 import android.os.Message;
 import java.util.Hashtable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class i extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LBSAuthManager f1842a;
+    final /* synthetic */ LBSAuthManager f2543a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(LBSAuthManager lBSAuthManager, Looper looper) {
         super(looper);
-        this.f1842a = lBSAuthManager;
+        this.f2543a = lBSAuthManager;
     }
 
     @Override // android.os.Handler

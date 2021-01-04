@@ -1,14 +1,14 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class PolygonOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2038a;
+    int f2863a;
     Bundle c;
     private Stroke d;
     private List<LatLng> f;
@@ -17,21 +17,23 @@ public final class PolygonOptions extends OverlayOptions {
     private int e = ViewCompat.MEASURED_STATE_MASK;
     private boolean i = false;
     private int j = 0;
-    boolean b = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    boolean f2864b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Polygon polygon = new Polygon();
-        polygon.B = this.b;
-        polygon.A = this.f2038a;
+        polygon.B = this.f2864b;
+        polygon.A = this.f2863a;
         polygon.C = this.c;
         if (this.f == null || this.f.size() < 2) {
             throw new IllegalStateException("BDMapSDKException: when you add polyline, you must at least supply 2 points");
         }
         polygon.c = this.f;
-        polygon.b = this.e;
-        polygon.f2036a = this.d;
+        polygon.f2861b = this.e;
+        polygon.f2860a = this.d;
         polygon.d = this.g;
         polygon.e = this.h;
         polygon.f = this.i;
@@ -86,11 +88,11 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2038a;
+        return this.f2863a;
     }
 
     public boolean isVisible() {
-        return this.b;
+        return this.f2864b;
     }
 
     public PolygonOptions points(List<LatLng> list) {
@@ -130,12 +132,12 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public PolygonOptions visible(boolean z) {
-        this.b = z;
+        this.f2864b = z;
         return this;
     }
 
     public PolygonOptions zIndex(int i) {
-        this.f2038a = i;
+        this.f2863a = i;
         return this;
     }
 }

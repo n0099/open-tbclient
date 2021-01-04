@@ -1,7 +1,7 @@
 package io.reactivex.disposables;
 
 import io.reactivex.internal.util.ExceptionHelper;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 final class ActionDisposable extends ReferenceDisposable<io.reactivex.b.a> {
     private static final long serialVersionUID = -8219729196779211169L;
 
@@ -16,7 +16,7 @@ final class ActionDisposable extends ReferenceDisposable<io.reactivex.b.a> {
         try {
             aVar.run();
         } catch (Throwable th) {
-            throw ExceptionHelper.L(th);
+            throw ExceptionHelper.Q(th);
         }
     }
 }

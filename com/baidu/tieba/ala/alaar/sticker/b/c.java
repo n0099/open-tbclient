@@ -12,7 +12,7 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
     private static String TAG = "FileUtils";
 
@@ -21,10 +21,10 @@ public class c {
     }
 
     public static boolean copyFile(String str, String str2) throws IOException {
-        return g(new FileInputStream(str), str2);
+        return j(new FileInputStream(str), str2);
     }
 
-    public static boolean g(InputStream inputStream, String str) throws IOException {
+    public static boolean j(InputStream inputStream, String str) throws IOException {
         int i = 0;
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(str);

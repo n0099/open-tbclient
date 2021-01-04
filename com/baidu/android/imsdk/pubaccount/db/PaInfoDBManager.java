@@ -4,9 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.db.CursorParse;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class PaInfoDBManager extends DBBase {
     private static final String TAG = PaInfoDBManager.class.getSimpleName();
     private static PaInfoDBManager mInstance = null;
@@ -152,7 +152,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class PaInfoParse implements CursorParse {
         PaInfo info = null;
 
@@ -176,7 +176,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class PaInfoListParse implements CursorParse {
         List<PaInfo> paList = null;
 
@@ -201,7 +201,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class PaidParse implements CursorParse {
         ArrayList<Long> paList = null;
 
@@ -538,40 +538,39 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [554=4] */
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0171: MOVE  (r9 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:47:0x0171 */
     public void getShieldUserByPaId(@NonNull List<ChatSession> list, boolean z, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Cursor cursor;
+        Cursor cursor2;
         ChatSession chatSession;
         synchronized (mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             ArrayList arrayList = new ArrayList();
-            Cursor cursor2 = null;
-            if (openDatabase == null) {
-                iGetUserShieldListener.onResult(-1, "db failed", null);
-                return;
-            }
+            Cursor cursor3 = null;
             try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("shield", (Integer) 0);
-                openDatabase.update(TableDefine.DB_TABLE_PA_SUBSCRIBE, contentValues, "shield=?", new String[]{String.valueOf(1)});
-                String str = "";
-                if (list.size() > 0) {
-                    String str2 = "" + list.get(0).getContacter();
-                    int i = 1;
-                    while (i < list.size()) {
-                        String str3 = str2 + ", " + list.get(i).getContacter();
-                        i++;
-                        str2 = str3;
-                    }
-                    str = "paid in (" + str2 + ") ";
+                if (openDatabase == null) {
+                    iGetUserShieldListener.onResult(-1, "db failed", null);
+                    return;
                 }
-                cursor = openDatabase.query(TableDefine.DB_TABLE_PA_SUBSCRIBE, null, str, null, null, null, null, null);
-                while (cursor != null) {
-                    try {
+                try {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("shield", (Integer) 0);
+                    openDatabase.update(TableDefine.DB_TABLE_PA_SUBSCRIBE, contentValues, "shield=?", new String[]{String.valueOf(1)});
+                    String str = "";
+                    if (list.size() > 0) {
+                        String str2 = "" + list.get(0).getContacter();
+                        for (int i = 1; i < list.size(); i++) {
+                            str2 = str2 + ", " + list.get(i).getContacter();
+                        }
+                        str = "paid in (" + str2 + ") ";
+                    }
+                    cursor2 = openDatabase.query(TableDefine.DB_TABLE_PA_SUBSCRIBE, null, str, null, null, null, null, null);
+                    while (cursor2 != null) {
                         try {
-                            if (!cursor.moveToNext()) {
+                            if (!cursor2.moveToNext()) {
                                 break;
                             }
-                            long j = cursor.getLong(cursor.getColumnIndex("paid"));
+                            long j = cursor2.getLong(cursor2.getColumnIndex("paid"));
                             ChatSession chatSession2 = new ChatSession();
                             int i2 = 0;
                             while (true) {
@@ -587,39 +586,39 @@ public class PaInfoDBManager extends DBBase {
                                 }
                             }
                             list.remove(chatSession);
-                            arrayList.add(constructShieldUsers(chatSession, cursor, false));
+                            arrayList.add(constructShieldUsers(chatSession, cursor2, false));
                         } catch (Exception e) {
                             e = e;
                             LogUtils.e(TAG, "getShieldUser:", e);
                             iGetUserShieldListener.onResult(-1, "exception", null);
-                            if (cursor != null) {
-                                cursor.close();
+                            if (cursor2 != null) {
+                                cursor2.close();
                             }
                         }
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        throw th;
                     }
+                    LogUtils.e(TAG, "getShieldUserByUids whereClause :" + str + ", update :" + arrayList.size() + ", user :" + list.size());
+                    updateAllShield(arrayList);
+                    if (list.size() <= 0) {
+                        iGetUserShieldListener.onResult(0, "ok", arrayList);
+                    } else {
+                        getPaInfo(list, arrayList, iGetUserShieldListener);
+                    }
+                    if (cursor2 != null) {
+                        cursor2.close();
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor2 = null;
+                } catch (Throwable th) {
+                    th = th;
+                    if (cursor3 != null) {
+                        cursor3.close();
+                    }
+                    throw th;
                 }
-                LogUtils.e(TAG, "getShieldUserByUids whereClause :" + str + ", update :" + arrayList.size() + ", user :" + list.size());
-                updateAllShield(arrayList);
-                if (list.size() <= 0) {
-                    iGetUserShieldListener.onResult(0, "ok", arrayList);
-                } else {
-                    getPaInfo(list, arrayList, iGetUserShieldListener);
-                }
-                if (cursor != null) {
-                    cursor.close();
-                }
-            } catch (Exception e2) {
-                e = e2;
-                cursor = null;
             } catch (Throwable th2) {
                 th = th2;
+                cursor3 = cursor;
             }
         }
     }

@@ -1,26 +1,26 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.by;
-/* loaded from: classes21.dex */
+import com.baidu.tbadk.core.data.bz;
+/* loaded from: classes.dex */
 public class e extends k {
-    public static final BdUniqueId imQ = BdUniqueId.gen();
+    public static final BdUniqueId izl = BdUniqueId.gen();
 
-    public e(by byVar) {
-        this.eCR = byVar;
+    public e(bz bzVar) {
+        this.eMv = bzVar;
     }
 
-    @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return imQ;
+        return izl;
     }
 
-    public static boolean ad(by byVar) {
-        return byVar != null && byVar.getType() == by.eJh;
+    public static boolean ad(bz bzVar) {
+        return bzVar != null && bzVar.getType() == bz.eTa;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.b, com.baidu.tbadk.core.data.a
-    public by bmn() {
-        return this.eCR;
+    public bz boO() {
+        return this.eMv;
     }
 }

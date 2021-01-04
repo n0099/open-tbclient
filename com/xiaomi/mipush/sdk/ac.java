@@ -7,23 +7,23 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import com.vivo.push.PushClientConstants;
 import com.xiaomi.push.bf;
 import java.util.HashMap;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 class ac {
     public static HashMap<String, String> a(Context context, String str) {
         HashMap<String, String> hashMap = new HashMap<>();
         try {
-            hashMap.put("appToken", b.m87a(context).b());
+            hashMap.put("appToken", b.m113a(context).b());
             hashMap.put("regId", MiPushClient.getRegId(context));
-            hashMap.put("appId", b.m87a(context).m88a());
-            hashMap.put("regResource", b.m87a(context).e());
+            hashMap.put("appId", b.m113a(context).m114a());
+            hashMap.put("regResource", b.m113a(context).e());
             if (!com.xiaomi.push.l.d()) {
                 String g = com.xiaomi.push.i.g(context);
                 if (!TextUtils.isEmpty(g)) {
                     hashMap.put("imeiMd5", bf.a(g));
                 }
             }
-            hashMap.put("isMIUI", String.valueOf(com.xiaomi.push.l.m493a()));
-            hashMap.put("miuiVersion", com.xiaomi.push.l.m490a());
+            hashMap.put("isMIUI", String.valueOf(com.xiaomi.push.l.m519a()));
+            hashMap.put("miuiVersion", com.xiaomi.push.l.m516a());
             hashMap.put("devId", com.xiaomi.push.i.a(context, true));
             hashMap.put("model", Build.MODEL);
             hashMap.put(PushClientConstants.TAG_PKG_NAME, context.getPackageName());

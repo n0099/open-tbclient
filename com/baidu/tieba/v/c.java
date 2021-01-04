@@ -1,54 +1,31 @@
 package com.baidu.tieba.v;
 
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import java.util.List;
-import org.json.JSONObject;
-/* loaded from: classes23.dex */
+import android.os.Build;
+import android.view.Window;
+import android.view.WindowManager;
+import java.lang.reflect.Field;
+/* loaded from: classes.dex */
 public class c {
-    public static boolean e(byte[] bArr, String str) {
-        if (bArr == null) {
-            return false;
+    public static int LE(int i) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return 2038;
         }
-        com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-        eVar.mx().setUrl(str);
-        eVar.mx().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        eVar.mx().addPostData("", bArr);
-        new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
-        int i = eVar.my().responseCode;
-        byte[] bArr2 = eVar.my().retBytes;
-        if (bArr2 == null || i != 200) {
-            return false;
-        }
-        try {
-            if (new JSONObject(new String(bArr2, "utf-8")).optJSONObject(BdStatsConstant.StatsType.ERROR).optInt(BaseJsonData.TAG_ERRNO) != 0) {
-                return false;
+        return i;
+    }
+
+    public static void a(int i, WindowManager.LayoutParams layoutParams, Window window) {
+        if (layoutParams != null && window != null) {
+            try {
+                Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
+                if (declaredField != null) {
+                    declaredField.set(layoutParams, Integer.valueOf(i));
+                    window.setAttributes(layoutParams);
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e2) {
+                e2.printStackTrace();
             }
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
         }
-    }
-
-    public static byte[] gd(List<String> list) {
-        if (list == null) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            sb.append(list.get(i));
-            sb.append("\n");
-        }
-        return sb.toString().getBytes();
-    }
-
-    public static byte[] ey(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
-        }
-        return jSONObject.toString().getBytes();
     }
 }

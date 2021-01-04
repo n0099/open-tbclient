@@ -10,17 +10,19 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2585a;
-    private List<b> b = new ArrayList();
+    private boolean f3790a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private List<b> f3791b = new ArrayList();
     private String c;
     private bk d;
     private boolean e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void a(View view, boolean z);
     }
@@ -34,10 +36,10 @@ public class bi {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f2585a = ((JSONObject) jSONObject.get(MetaBox.TYPE)).getInt("matchAll") != 0;
+                this.f3790a = ((JSONObject) jSONObject.get(MetaBox.TYPE)).getInt("matchAll") != 0;
             } catch (Exception e) {
             }
-            if (!this.f2585a) {
+            if (!this.f3790a) {
                 try {
                     JSONArray jSONArray = (JSONArray) jSONObject.get("data");
                     for (int i = 0; i < jSONArray.length(); i++) {
@@ -47,7 +49,7 @@ public class bi {
                         int optInt = jSONObject2.optInt("contentAsLabel");
                         boolean z = jSONObject2.optInt("ignoreCellIndex") != 0;
                         if (this.c.equals(optString)) {
-                            this.b.add(new b(optString, optString2, z, optInt));
+                            this.f3791b.add(new b(optString, optString2, z, optInt));
                         }
                     }
                 } catch (Exception e2) {
@@ -57,7 +59,7 @@ public class bi {
     }
 
     public void a(Activity activity) {
-        if (this.e || this.f2585a || (this.b != null && this.b.size() != 0)) {
+        if (this.e || this.f3790a || (this.f3791b != null && this.f3791b.size() != 0)) {
             View a2 = bj.a(activity);
             a(activity, a2, null, a2);
         }
@@ -67,7 +69,7 @@ public class bi {
         if (view != null && !ai.a(view) && !bj.c(activity, view)) {
             c cVar2 = new c(view, cVar, view2);
             if (cVar != null) {
-                boolean b2 = this.f2585a ? bj.b(view, cVar2.c()) : a(this.b, cVar2.a(), cVar2.b());
+                boolean b2 = this.f3790a ? bj.b(view, cVar2.c()) : a(this.f3791b, cVar2.a(), cVar2.b());
                 if (b2 || this.e) {
                     if (bd.c().b() && b2) {
                         bd.c().a("accumulate view:" + view.getClass().getName() + "; content:" + bj.h(view));
@@ -90,44 +92,48 @@ public class bi {
     private boolean a(List<b> list, String str, String str2) {
         for (b bVar : list) {
             String str3 = bVar.c ? str2 : str;
-            if (!TextUtils.isEmpty(str3) && str3.equals(bVar.b)) {
+            if (!TextUtils.isEmpty(str3) && str3.equals(bVar.f3793b)) {
                 return true;
             }
         }
         return false;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2586a;
-        public String b;
+        public String f3792a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f3793b;
         public boolean c;
         public int d;
 
         public b(String str, String str2, boolean z, int i) {
-            this.f2586a = str;
-            this.b = str2;
+            this.f3792a = str;
+            this.f3793b = str2;
             this.c = z;
             this.d = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2587a;
-        public String b;
+        public String f3794a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f3795b;
         public String c;
         public c d;
 
         public c(View view, c cVar, View view2) {
             this.d = cVar;
-            this.f2587a = bj.l(view);
-            this.b = bj.b(view);
+            this.f3794a = bj.l(view);
+            this.f3795b = bj.b(view);
             String c = bj.c(view);
             if (TextUtils.isEmpty(c)) {
                 c = bj.a(view, c());
@@ -149,25 +155,21 @@ public class bi {
 
         public String b() {
             boolean z;
-            boolean z2;
             StringBuilder sb = new StringBuilder();
-            boolean z3 = false;
+            boolean z2 = false;
             while (this != null) {
-                if (!z3) {
+                if (!z2) {
                     String c = this.c();
                     if ("ListView".equals(c) || "RecyclerView".equals(c) || "GridView".equals(c)) {
-                        z2 = true;
                         z = true;
-                        sb.insert(0, this.a(z2));
+                        z2 = true;
+                        sb.insert(0, this.a(z));
                         this = this.d;
-                        z3 = z;
                     }
                 }
-                z = z3;
-                z2 = false;
-                sb.insert(0, this.a(z2));
+                z = false;
+                sb.insert(0, this.a(z));
                 this = this.d;
-                z3 = z;
             }
             return sb.toString();
         }
@@ -175,7 +177,7 @@ public class bi {
         public String a(boolean z) {
             StringBuilder sb = new StringBuilder();
             sb.append("/");
-            sb.append(this.f2587a);
+            sb.append(this.f3794a);
             if (!z) {
                 sb.append("[");
                 sb.append(this.c);
@@ -185,7 +187,7 @@ public class bi {
         }
 
         public String c() {
-            return this.d == null ? "" : this.d.b;
+            return this.d == null ? "" : this.d.f3795b;
         }
     }
 }

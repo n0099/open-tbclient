@@ -1,7 +1,7 @@
 package protobuf.PushNotify;
 
 import com.squareup.wire.Message;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public final class PushNotifyReqIdl extends Message {
     private PushNotifyReqIdl(Builder builder, boolean z) {
         super(builder);
@@ -9,7 +9,7 @@ public final class PushNotifyReqIdl extends Message {
         }
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<PushNotifyReqIdl> {
         public Builder() {
         }

@@ -2,7 +2,7 @@ package com.baidu.ar.auth;
 
 import android.content.Context;
 import com.baidu.ar.h.n;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 class d {
     private static int jB = 0;
 

@@ -1,11 +1,10 @@
 package com.baidu.tieba.hottopic.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
 import java.io.Serializable;
 import tbclient.Hottopic.RelateForum;
-/* loaded from: classes21.dex */
-public class RelateForumItemData implements q, Serializable {
+/* loaded from: classes8.dex */
+public class RelateForumItemData implements com.baidu.adp.widget.ListView.n, Serializable {
     public static final BdUniqueId TYPE_FORUM_CARD = BdUniqueId.gen();
     private static final long serialVersionUID = 1;
     public long forumId = 0;
@@ -34,7 +33,7 @@ public class RelateForumItemData implements q, Serializable {
         this.isLiked = z;
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         return TYPE_FORUM_CARD;
     }

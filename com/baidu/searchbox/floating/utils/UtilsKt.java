@@ -4,9 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.live.tbadk.img.effect.FilterImageAction;
 import com.baidu.searchbox.player.helper.VideoSystemHelper;
 import com.tencent.open.SocialConstants;
@@ -14,7 +14,7 @@ import kotlin.TypeCastException;
 import kotlin.e;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class UtilsKt {
     public static final WindowManager getWindowManager(Context context) {
         p.o(context, "$receiver");

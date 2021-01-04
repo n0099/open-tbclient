@@ -1,10 +1,8 @@
 package com.baidu.live.data;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class aa {
-    public boolean aLj;
-    public String groupId;
-    public String liveId;
-    public int tabType;
-    public String userId;
-    public String userName;
+    public String aLJ;
+    public String aLK;
+    public String dialogTitle;
+    public String iconUrl;
 }

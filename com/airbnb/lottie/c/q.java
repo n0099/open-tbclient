@@ -1,67 +1,65 @@
 package com.airbnb.lottie.c;
 
 import android.graphics.PointF;
-import android.support.annotation.Nullable;
-import android.support.v4.util.SparseArrayCompat;
-import android.support.v4.view.animation.PathInterpolatorCompat;
 import android.util.JsonReader;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+import androidx.annotation.Nullable;
+import androidx.collection.SparseArrayCompat;
+import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class q {
-    private static SparseArrayCompat<WeakReference<Interpolator>> HO;
+    private static SparseArrayCompat<WeakReference<Interpolator>> Hx;
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
 
     q() {
     }
 
-    private static SparseArrayCompat<WeakReference<Interpolator>> kR() {
-        if (HO == null) {
-            HO = new SparseArrayCompat<>();
+    private static SparseArrayCompat<WeakReference<Interpolator>> kq() {
+        if (Hx == null) {
+            Hx = new SparseArrayCompat<>();
         }
-        return HO;
+        return Hx;
     }
 
     @Nullable
     private static WeakReference<Interpolator> Y(int i) {
         WeakReference<Interpolator> weakReference;
         synchronized (q.class) {
-            weakReference = kR().get(i);
+            weakReference = kq().get(i);
         }
         return weakReference;
     }
 
-    private static void a(int i, WeakReference<Interpolator> weakReference) {
+    private static void b(int i, WeakReference<Interpolator> weakReference) {
         synchronized (q.class) {
-            HO.put(i, weakReference);
+            Hx.put(i, weakReference);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> com.airbnb.lottie.e.a<T> a(JsonReader jsonReader, com.airbnb.lottie.e eVar, float f, aj<T> ajVar, boolean z) throws IOException {
-        return z ? a(eVar, jsonReader, f, ajVar) : a(jsonReader, f, ajVar);
+    public static <T> com.airbnb.lottie.e.a<T> a(JsonReader jsonReader, com.airbnb.lottie.d dVar, float f, aj<T> ajVar, boolean z) throws IOException {
+        return z ? a(dVar, jsonReader, f, ajVar) : a(jsonReader, f, ajVar);
     }
 
-    private static <T> com.airbnb.lottie.e.a<T> a(com.airbnb.lottie.e eVar, JsonReader jsonReader, float f, aj<T> ajVar) throws IOException {
+    private static <T> com.airbnb.lottie.e.a<T> a(com.airbnb.lottie.d dVar, JsonReader jsonReader, float f, aj<T> ajVar) throws IOException {
         Interpolator interpolator;
-        Interpolator interpolator2;
-        PointF g;
-        PointF pointF;
-        PointF pointF2;
         T t;
-        boolean z;
-        PointF pointF3;
+        Interpolator interpolator2;
+        PointF l;
+        PointF pointF;
+        T t2;
+        PointF pointF2 = null;
+        PointF pointF3 = null;
+        float f2 = 0.0f;
+        T t3 = null;
+        T t4 = null;
+        boolean z = false;
         PointF pointF4 = null;
         PointF pointF5 = null;
-        float f2 = 0.0f;
-        T t2 = null;
-        T t3 = null;
-        boolean z2 = false;
-        PointF pointF6 = null;
-        PointF pointF7 = null;
         jsonReader.beginObject();
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
@@ -119,101 +117,70 @@ class q {
             switch (c) {
                 case 0:
                     f2 = (float) jsonReader.nextDouble();
-                    g = pointF7;
+                    l = pointF5;
                     pointF = pointF4;
-                    pointF2 = pointF5;
-                    t = t2;
-                    z = z2;
-                    pointF3 = pointF6;
+                    t2 = t4;
                     break;
                 case 1:
-                    g = pointF7;
+                    t3 = ajVar.g(jsonReader, f);
+                    l = pointF5;
                     pointF = pointF4;
-                    pointF2 = pointF5;
-                    t = ajVar.b(jsonReader, f);
-                    z = z2;
-                    pointF3 = pointF6;
+                    t2 = t4;
                     break;
                 case 2:
-                    t3 = ajVar.b(jsonReader, f);
-                    g = pointF7;
+                    t2 = ajVar.g(jsonReader, f);
+                    l = pointF5;
                     pointF = pointF4;
-                    pointF2 = pointF5;
-                    t = t2;
-                    z = z2;
-                    pointF3 = pointF6;
                     break;
                 case 3:
-                    pointF2 = pointF5;
-                    t = t2;
-                    z = z2;
-                    pointF3 = pointF6;
-                    PointF pointF8 = pointF7;
-                    pointF = p.g(jsonReader, f);
-                    g = pointF8;
+                    pointF2 = p.l(jsonReader, f);
+                    l = pointF5;
+                    pointF = pointF4;
+                    t2 = t4;
                     break;
                 case 4:
-                    t = t2;
-                    z = z2;
-                    pointF3 = pointF6;
-                    PointF pointF9 = pointF7;
+                    pointF3 = p.l(jsonReader, f);
+                    l = pointF5;
                     pointF = pointF4;
-                    pointF2 = p.g(jsonReader, f);
-                    g = pointF9;
+                    t2 = t4;
                     break;
                 case 5:
-                    pointF3 = pointF6;
-                    PointF pointF10 = pointF7;
-                    pointF = pointF4;
-                    pointF2 = pointF5;
-                    t = t2;
                     z = jsonReader.nextInt() == 1;
-                    g = pointF10;
+                    l = pointF5;
+                    pointF = pointF4;
+                    t2 = t4;
                     break;
                 case 6:
-                    PointF pointF11 = pointF7;
-                    pointF = pointF4;
-                    pointF2 = pointF5;
-                    t = t2;
-                    z = z2;
-                    pointF3 = p.g(jsonReader, f);
-                    g = pointF11;
+                    pointF = p.l(jsonReader, f);
+                    l = pointF5;
+                    t2 = t4;
                     break;
                 case 7:
-                    g = p.g(jsonReader, f);
+                    l = p.l(jsonReader, f);
                     pointF = pointF4;
-                    pointF2 = pointF5;
-                    t = t2;
-                    z = z2;
-                    pointF3 = pointF6;
+                    t2 = t4;
                     break;
                 default:
                     jsonReader.skipValue();
-                    g = pointF7;
+                    l = pointF5;
                     pointF = pointF4;
-                    pointF2 = pointF5;
-                    t = t2;
-                    z = z2;
-                    pointF3 = pointF6;
+                    t2 = t4;
                     break;
             }
-            pointF6 = pointF3;
-            z2 = z;
-            t2 = t;
-            pointF5 = pointF2;
+            pointF5 = l;
             pointF4 = pointF;
-            pointF7 = g;
+            t4 = t2;
         }
         jsonReader.endObject();
-        if (z2) {
+        if (z) {
             interpolator = LINEAR_INTERPOLATOR;
-            t3 = t2;
-        } else if (pointF4 != null && pointF5 != null) {
-            pointF4.x = com.airbnb.lottie.d.e.clamp(pointF4.x, -f, f);
-            pointF4.y = com.airbnb.lottie.d.e.clamp(pointF4.y, -100.0f, 100.0f);
-            pointF5.x = com.airbnb.lottie.d.e.clamp(pointF5.x, -f, f);
-            pointF5.y = com.airbnb.lottie.d.e.clamp(pointF5.y, -100.0f, 100.0f);
-            int d = com.airbnb.lottie.d.f.d(pointF4.x, pointF4.y, pointF5.x, pointF5.y);
+            t = t3;
+        } else if (pointF2 != null && pointF3 != null) {
+            pointF2.x = com.airbnb.lottie.d.e.clamp(pointF2.x, -f, f);
+            pointF2.y = com.airbnb.lottie.d.e.clamp(pointF2.y, -100.0f, 100.0f);
+            pointF3.x = com.airbnb.lottie.d.e.clamp(pointF3.x, -f, f);
+            pointF3.y = com.airbnb.lottie.d.e.clamp(pointF3.y, -100.0f, 100.0f);
+            int d = com.airbnb.lottie.d.f.d(pointF2.x, pointF2.y, pointF3.x, pointF3.y);
             WeakReference<Interpolator> Y = Y(d);
             if (Y == null) {
                 interpolator2 = null;
@@ -221,23 +188,25 @@ class q {
                 interpolator2 = Y.get();
             }
             if (Y == null || interpolator2 == null) {
-                interpolator2 = PathInterpolatorCompat.create(pointF4.x / f, pointF4.y / f, pointF5.x / f, pointF5.y / f);
+                interpolator2 = PathInterpolatorCompat.create(pointF2.x / f, pointF2.y / f, pointF3.x / f, pointF3.y / f);
                 try {
-                    a(d, new WeakReference(interpolator2));
+                    b(d, new WeakReference(interpolator2));
                 } catch (ArrayIndexOutOfBoundsException e) {
                 }
             }
             interpolator = interpolator2;
+            t = t4;
         } else {
             interpolator = LINEAR_INTERPOLATOR;
+            t = t4;
         }
-        com.airbnb.lottie.e.a<T> aVar = new com.airbnb.lottie.e.a<>(eVar, t2, t3, interpolator, f2, null);
-        aVar.Il = pointF6;
-        aVar.Im = pointF7;
+        com.airbnb.lottie.e.a<T> aVar = new com.airbnb.lottie.e.a<>(dVar, t3, t, interpolator, f2, null);
+        aVar.HU = pointF4;
+        aVar.HV = pointF5;
         return aVar;
     }
 
     private static <T> com.airbnb.lottie.e.a<T> a(JsonReader jsonReader, float f, aj<T> ajVar) throws IOException {
-        return new com.airbnb.lottie.e.a<>(ajVar.b(jsonReader, f));
+        return new com.airbnb.lottie.e.a<>(ajVar.g(jsonReader, f));
     }
 }

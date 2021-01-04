@@ -2,7 +2,7 @@ package com.baidu.location;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 final class e implements Parcelable.Creator<PoiRegion> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */

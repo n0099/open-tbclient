@@ -1,7 +1,7 @@
 package com.google.zxing.datamatrix.decoder;
 
 import com.google.zxing.datamatrix.decoder.Version;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class DataBlock {
     private final byte[] codewords;
     private final int numDataCodewords;
@@ -20,56 +20,50 @@ final class DataBlock {
             i += ecb.getCount();
         }
         DataBlock[] dataBlockArr = new DataBlock[i];
-        int length = eCBlocks2.length;
         int i2 = 0;
-        int i3 = 0;
-        while (i2 < length) {
-            Version.ECB ecb2 = eCBlocks2[i2];
-            int i4 = i3;
-            int i5 = 0;
-            while (i5 < ecb2.getCount()) {
+        for (Version.ECB ecb2 : eCBlocks2) {
+            int i3 = 0;
+            while (i3 < ecb2.getCount()) {
                 int dataCodewords = ecb2.getDataCodewords();
-                dataBlockArr[i4] = new DataBlock(dataCodewords, new byte[eCBlocks.getECCodewords() + dataCodewords]);
-                i5++;
-                i4++;
+                dataBlockArr[i2] = new DataBlock(dataCodewords, new byte[eCBlocks.getECCodewords() + dataCodewords]);
+                i3++;
+                i2++;
             }
-            i2++;
-            i3 = i4;
         }
-        int length2 = dataBlockArr[0].codewords.length - eCBlocks.getECCodewords();
-        int i6 = length2 - 1;
-        int i7 = 0;
-        for (int i8 = 0; i8 < i6; i8++) {
-            int i9 = 0;
-            while (i9 < i3) {
-                dataBlockArr[i9].codewords[i8] = bArr[i7];
-                i9++;
+        int length = dataBlockArr[0].codewords.length - eCBlocks.getECCodewords();
+        int i4 = length - 1;
+        int i5 = 0;
+        for (int i6 = 0; i6 < i4; i6++) {
+            int i7 = 0;
+            while (i7 < i2) {
+                dataBlockArr[i7].codewords[i6] = bArr[i5];
                 i7++;
+                i5++;
             }
         }
         boolean z = version.getVersionNumber() == 24;
-        int i10 = z ? 8 : i3;
-        int i11 = 0;
-        while (i11 < i10) {
-            dataBlockArr[i11].codewords[length2 - 1] = bArr[i7];
-            i11++;
-            i7++;
+        int i8 = z ? 8 : i2;
+        int i9 = 0;
+        while (i9 < i8) {
+            dataBlockArr[i9].codewords[length - 1] = bArr[i5];
+            i9++;
+            i5++;
         }
-        int length3 = dataBlockArr[0].codewords.length;
-        int i12 = i7;
-        while (length2 < length3) {
-            int i13 = 0;
-            int i14 = i12;
-            while (i13 < i3) {
-                int i15 = z ? (i13 + 8) % i3 : i13;
-                dataBlockArr[i15].codewords[(!z || i15 <= 7) ? length2 : length2 - 1] = bArr[i14];
-                i13++;
-                i14++;
+        int length2 = dataBlockArr[0].codewords.length;
+        int i10 = i5;
+        while (length < length2) {
+            int i11 = 0;
+            int i12 = i10;
+            while (i11 < i2) {
+                int i13 = z ? (i11 + 8) % i2 : i11;
+                dataBlockArr[i13].codewords[(!z || i13 <= 7) ? length : length - 1] = bArr[i12];
+                i11++;
+                i12++;
             }
-            length2++;
-            i12 = i14;
+            length++;
+            i10 = i12;
         }
-        if (i12 != bArr.length) {
+        if (i10 != bArr.length) {
             throw new IllegalArgumentException();
         }
         return dataBlockArr;

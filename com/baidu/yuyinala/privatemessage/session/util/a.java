@@ -12,19 +12,19 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public final class a {
-    private static long oXL = -1;
+    private static long pdU = -1;
 
-    public static String j(Context context, long j) {
-        Calendar calendar = Calendar.getInstance(eoo());
+    public static String k(Context context, long j) {
+        Calendar calendar = Calendar.getInstance(eow());
         calendar.setTimeInMillis(j);
         Date time = calendar.getTime();
-        Calendar calendar2 = Calendar.getInstance(eoo());
-        calendar2.setTimeInMillis(m43if(System.currentTimeMillis()));
+        Calendar calendar2 = Calendar.getInstance(eow());
+        calendar2.setTimeInMillis(hZ(System.currentTimeMillis()));
         SimpleDateFormat simpleDateFormat = null;
         if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5)) {
-            simpleDateFormat = new SimpleDateFormat("HH:mm", eoo());
+            simpleDateFormat = new SimpleDateFormat("HH:mm", eow());
         } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5) - 1) {
             return "昨天";
         } else {
@@ -52,30 +52,29 @@ public final class a {
                     return "星期日";
                 }
             } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) != calendar2.get(5)) {
-                simpleDateFormat = new SimpleDateFormat("MM-dd", eoo());
+                simpleDateFormat = new SimpleDateFormat("MM-dd", eow());
             } else {
-                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", eoo());
+                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", eow());
             }
         }
         return simpleDateFormat.format(time);
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public static long m43if(long j) {
-        if (oXL < 0) {
-            oXL = j;
+    public static long hZ(long j) {
+        if (pdU < 0) {
+            pdU = j;
         }
-        if (Math.abs(oXL - j) > 1000) {
-            oXL = j;
+        if (Math.abs(pdU - j) > 1000) {
+            pdU = j;
         }
-        return oXL;
+        return pdU;
     }
 
-    public static Locale eoo() {
+    public static Locale eow() {
         return BdBaseApplication.getInst().getResources().getConfiguration().locale;
     }
 
-    public static String ig(long j) {
+    public static String ia(long j) {
         if (j <= 0) {
             return null;
         }
@@ -89,8 +88,8 @@ public final class a {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new af(context, j + "", str, str4, z, str2, str3, j2 + "", str5)));
     }
 
-    public static void ih(long j) {
-        b.eol().ie(j);
+    public static void ib(long j) {
+        b.eot().hY(j);
     }
 
     public static String b(ChatSession chatSession) {

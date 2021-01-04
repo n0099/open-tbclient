@@ -1,5 +1,5 @@
 package com.baidu.live.adp.widget.scrollview;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface BdOnAnimationOverListener {
     void onOver();
 }

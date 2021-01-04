@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.internal;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMNetWorkFlowStatic {
     private static IMNetWorkFlowStatic mStatic = null;
     private long mMobileFlow;

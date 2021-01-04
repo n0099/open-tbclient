@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes8.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> kNv;
-    public int kNt = 0;
+    public ArrayList<ArrayList<String>> kSZ;
+    public int kSX = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String kNu = null;
-    boolean kNw = false;
-    public String kNx = null;
+    public String kSY = null;
+    boolean kTa = false;
+    public String kTb = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -23,19 +23,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject != null) {
-                    this.kNt = optJSONObject.optInt("errorno");
+                    this.kSX = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.kNw = true;
+                    this.kTa = true;
                 } else {
-                    this.kNw = false;
+                    this.kTa = false;
                 }
-                this.kNx = jSONObject.optString("cdn_domain");
+                this.kTb = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.kNu = optJSONObject2.optString("img_md5");
+                    this.kSY = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -58,7 +58,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.kNv = arrayList;
+                        this.kSZ = arrayList;
                     }
                 }
             } catch (Exception e) {

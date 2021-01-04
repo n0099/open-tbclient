@@ -10,12 +10,14 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class CheckUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1509a = "CheckUtils";
-    private static final int b = 3;
+    private static final String f2015a = "CheckUtils";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final int f2016b = 3;
     private static final int c = 12;
     private static final int d = 4;
     private static long e;
@@ -262,7 +264,7 @@ public final class CheckUtils {
                         z = file.createNewFile();
                     } catch (IOException e2) {
                         if (ApollonConstants.DEBUG) {
-                            Log.w(f1509a, "isExternalStorageWriteable() can't create test file.");
+                            Log.w(f2015a, "isExternalStorageWriteable() can't create test file.");
                         }
                     }
                 }
@@ -270,7 +272,7 @@ public final class CheckUtils {
         }
         long currentTimeMillis2 = System.currentTimeMillis();
         if (ApollonConstants.DEBUG) {
-            Log.i(f1509a, "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.");
+            Log.i(f2015a, "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.");
         }
         return z;
     }

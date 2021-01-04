@@ -4,18 +4,18 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.ap;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class FrsRedpackRunView extends RelativeLayout {
-    private AutoScrollTextView jCq;
-    private TBLottieAnimationView jCr;
+    private AutoScrollTextView jOS;
+    private TBLottieAnimationView jOT;
     private String mContent;
     private Context mContext;
     private View rootView;
@@ -34,39 +34,39 @@ public class FrsRedpackRunView extends RelativeLayout {
 
     private void initUI(Context context) {
         this.rootView = LayoutInflater.from(context).inflate(R.layout.frs_main_redpack_run_view, this);
-        this.jCq = (AutoScrollTextView) findViewById(R.id.tv_redpack_live_title);
-        this.jCr = (TBLottieAnimationView) findViewById(R.id.frs_tblottie_anim);
+        this.jOS = (AutoScrollTextView) findViewById(R.id.tv_redpack_live_title);
+        this.jOT = (TBLottieAnimationView) findViewById(R.id.frs_tblottie_anim);
     }
 
     public void settextTitle(String str) {
-        if (this.jCq != null) {
+        if (this.jOS != null) {
             this.mContent = str;
-            this.jCq.setText(str);
-            this.jCq.b(((Activity) this.mContext).getWindowManager());
+            this.jOS.setText(str);
+            this.jOS.b(((Activity) this.mContext).getWindowManager());
             show();
         }
     }
 
     public void show() {
-        ap.a(this.jCr, R.raw.lottie_redpack_run);
-        this.jCr.setImageAssetsFolder("lottie_redpack_runscoll");
-        this.jCr.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.1
+        ao.a(this.jOT, R.raw.lottie_redpack_run);
+        this.jOT.setImageAssetsFolder("lottie_redpack_runscoll");
+        this.jOT.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning() && valueAnimator.getAnimatedFraction() > 0.5d) {
-                    FrsRedpackRunView.this.jCq.aG(valueAnimator.getAnimatedFraction());
+                    FrsRedpackRunView.this.jOS.aI(valueAnimator.getAnimatedFraction());
                 }
             }
         });
-        this.jCr.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.2
+        this.jOT.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                FrsRedpackRunView.this.jCq.b(((Activity) FrsRedpackRunView.this.mContext).getWindowManager());
-                FrsRedpackRunView.this.jCq.cET();
+                FrsRedpackRunView.this.jOS.b(((Activity) FrsRedpackRunView.this.mContext).getWindowManager());
+                FrsRedpackRunView.this.jOS.cHO();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -77,7 +77,7 @@ public class FrsRedpackRunView extends RelativeLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.jCr.playAnimation();
+        this.jOT.playAnimation();
     }
 
     public void hide() {
@@ -87,8 +87,8 @@ public class FrsRedpackRunView extends RelativeLayout {
         if (this.rootView != null) {
             this.rootView.setOnClickListener(onClickListener);
         }
-        if (this.jCq != null) {
-            this.jCq.setClickliner(onClickListener);
+        if (this.jOS != null) {
+            this.jOS.setClickliner(onClickListener);
         }
     }
 }

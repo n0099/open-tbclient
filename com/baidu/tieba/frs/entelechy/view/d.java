@@ -8,31 +8,31 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.bh;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.xiaomi.mipush.sdk.Constants;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class d extends c {
-    private RelativeLayout jfO;
-    private TextView jfP;
-    private TextView jfQ;
-    private TextView jfR;
+    private RelativeLayout jsn;
+    private TextView jso;
+    private TextView jsp;
+    private TextView jsq;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         View view = getView();
-        this.jfO = (RelativeLayout) view.findViewById(R.id.lottery_info_layout);
-        this.jfP = (TextView) view.findViewById(R.id.lottery_time_tv);
-        this.jfQ = (TextView) view.findViewById(R.id.lottery_join_count_tv);
-        this.jfR = (TextView) view.findViewById(R.id.lottery_btn);
+        this.jsn = (RelativeLayout) view.findViewById(R.id.lottery_info_layout);
+        this.jso = (TextView) view.findViewById(R.id.lottery_time_tv);
+        this.jsp = (TextView) view.findViewById(R.id.lottery_join_count_tv);
+        this.jsq = (TextView) view.findViewById(R.id.lottery_btn);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.b
@@ -43,56 +43,56 @@ public class d extends c {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.b
-    public void a(by byVar) {
-        if (byVar != null) {
-            if (y.getCount(byVar.boY()) > 1) {
+    public void a(bz bzVar) {
+        if (bzVar != null) {
+            if (x.getCount(bzVar.brz()) > 1) {
                 ArrayList<MediaData> arrayList = new ArrayList<>();
-                arrayList.add(byVar.boY().get(0));
-                byVar.G(arrayList);
+                arrayList.add(bzVar.brz().get(0));
+                bzVar.G(arrayList);
             }
-            super.a(byVar);
-            this.ijF.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
+            super.a(bzVar);
+            this.iwa.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
                 @Override // com.baidu.tbadk.widget.layout.d
-                public void b(View view, int i, boolean z) {
-                    if (d.this.ahA != null && d.this.Le()) {
-                        bf.bua().b(d.this.mTbPageContext, new String[]{d.this.ahA.getActUrl()});
+                public void c(View view, int i, boolean z) {
+                    if (d.this.aim != null && d.this.KE()) {
+                        be.bwu().b(d.this.mTbPageContext, new String[]{d.this.aim.getActUrl()});
                     }
                 }
             });
-            com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) y.getItem(byVar.boZ(), 0);
+            com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) x.getItem(bzVar.brA(), 0);
             if (bVar != null) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-                this.jfP.setText(StringUtils.string(getContext().getResources().getString(R.string.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.bmz()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.bmA())))));
-                this.jfQ.setText(String.format(getContext().getResources().getString(R.string.lottery_join_num), String.valueOf(bVar.bmB())));
-                this.jfR.setText(R.string.lottery_btn_text);
-                this.hbN.setCommentNumEnable(false);
+                this.jso.setText(StringUtils.string(getContext().getResources().getString(R.string.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.bpa()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.bpb())))));
+                this.jsp.setText(String.format(getContext().getResources().getString(R.string.lottery_join_num), String.valueOf(bVar.bpc())));
+                this.jsq.setText(R.string.lottery_btn_text);
+                this.hnz.setCommentNumEnable(false);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.c
-    protected void oR(boolean z) {
-        if (this.ahA != null && Le()) {
-            bf.bua().b(this.mTbPageContext, new String[]{this.ahA.getActUrl()});
+    protected void pp(boolean z) {
+        if (this.aim != null && KE()) {
+            be.bwu().b(this.mTbPageContext, new String[]{this.aim.getActUrl()});
         }
     }
 
-    protected boolean Le() {
+    protected boolean KE() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        bh.skipToLoginActivity(this.mTbPageContext.getPageActivity());
+        bg.skipToLoginActivity(this.mTbPageContext.getPageActivity());
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundColor(this.jfO, R.color.CAM_X0205);
-            ap.setViewTextColor(this.jfP, (int) R.color.CAM_X0106);
-            ap.setViewTextColor(this.jfQ, (int) R.color.CAM_X0106);
-            ap.setViewTextColor(this.jfR, (int) R.color.CAM_X0302);
-            ap.setBackgroundResource(this.jfR, R.drawable.bg_card_frs_lottery_btn);
+            ao.setBackgroundColor(this.jsn, R.color.CAM_X0205);
+            ao.setViewTextColor(this.jso, R.color.CAM_X0106);
+            ao.setViewTextColor(this.jsp, R.color.CAM_X0106);
+            ao.setViewTextColor(this.jsq, R.color.CAM_X0302);
+            ao.setBackgroundResource(this.jsq, R.drawable.bg_card_frs_lottery_btn);
         }
         super.onChangeSkinType(tbPageContext, i);
     }

@@ -5,27 +5,27 @@ import com.baidu.swan.apps.b;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static JSONObject dGt;
+    private static JSONObject dOX;
 
-    public static synchronized JSONObject aNw() {
+    public static synchronized JSONObject aPM() {
         JSONObject jSONObject;
         synchronized (a.class) {
-            if (dGt != null) {
+            if (dOX != null) {
                 if (DEBUG) {
-                    Log.d("SwanCoreConfigHelper", "return cache obj : " + dGt.toString());
+                    Log.d("SwanCoreConfigHelper", "return cache obj : " + dOX.toString());
                 }
-                jSONObject = dGt;
+                jSONObject = dOX;
             } else {
-                JSONObject rawSwitch = com.baidu.swan.apps.t.a.azd().getRawSwitch();
+                JSONObject rawSwitch = com.baidu.swan.apps.t.a.aAu().getRawSwitch();
                 if (rawSwitch == null) {
-                    dGt = new JSONObject();
+                    dOX = new JSONObject();
                     if (DEBUG) {
                         Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
                     }
-                    jSONObject = dGt;
+                    jSONObject = dOX;
                 } else {
                     Iterator<String> keys = rawSwitch.keys();
                     while (keys.hasNext()) {
@@ -33,30 +33,30 @@ public class a {
                             keys.remove();
                         }
                     }
-                    dGt = rawSwitch;
+                    dOX = rawSwitch;
                     if (DEBUG) {
-                        Log.d("SwanCoreConfigHelper", "return new obj : " + dGt.toString());
+                        Log.d("SwanCoreConfigHelper", "return new obj : " + dOX.toString());
                     }
-                    jSONObject = dGt;
+                    jSONObject = dOX;
                 }
             }
         }
         return jSONObject;
     }
 
-    public static synchronized void aNx() {
+    public static synchronized void aPN() {
         synchronized (a.class) {
             if (DEBUG) {
                 Log.d("SwanCoreConfigHelper", "release cache ab obj ");
             }
-            dGt = null;
+            dOX = null;
         }
     }
 
-    public static JSONObject aNy() {
+    public static JSONObject aPO() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("abTestSwitch", aNw());
+            jSONObject.put("abTestSwitch", aPM());
         } catch (JSONException e) {
             e.printStackTrace();
         }

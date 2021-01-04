@@ -8,8 +8,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.Keep;
 import android.util.Log;
+import androidx.annotation.Keep;
 import com.baidu.ar.dumix.face.FaceListener;
 import com.baidu.ar.dumix.face.FaceSession;
 import com.baidu.smallgame.sdk.permission.PermissionListener;
@@ -19,7 +19,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.util.List;
 @Keep
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class DuXRSessionFace {
     private static final boolean DEBUG = false;
     private static final int FACE_INPUT_IMAGE_BGR = 0;
@@ -81,8 +81,8 @@ public class DuXRSessionFace {
             return;
         }
         this.mTextureId = i3;
-        if (com.baidu.smallgame.sdk.a.cxm != null) {
-            com.baidu.smallgame.sdk.a.cxm.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.arface.DuXRSessionFace.1
+        if (com.baidu.smallgame.sdk.a.cCg != null) {
+            com.baidu.smallgame.sdk.a.cCg.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.arface.DuXRSessionFace.1
                 @Override // com.baidu.smallgame.sdk.permission.PermissionListener
                 public void onPermissionResult(String str, int i4) {
                     if (i4 == 0) {
@@ -168,28 +168,23 @@ public class DuXRSessionFace {
     }
 
     private void setOptimalPreviewSize(List<Camera.Size> list, int i, int i2) {
-        double d;
-        Camera.Size size;
         if (list != null) {
-            double d2 = i / i2;
-            Camera.Size size2 = null;
-            double d3 = Double.MAX_VALUE;
-            for (Camera.Size size3 : list) {
-                if (Math.abs((size3.width / size3.height) - d2) <= 0.1d) {
-                    if (Math.abs(size3.height - i2) < d3) {
-                        d = Math.abs(size3.height - i2);
-                        size = size3;
+            double d = i / i2;
+            Camera.Size size = null;
+            double d2 = Double.MAX_VALUE;
+            for (Camera.Size size2 : list) {
+                if (Math.abs((size2.width / size2.height) - d) <= 0.1d) {
+                    if (Math.abs(size2.height - i2) < d2) {
+                        d2 = Math.abs(size2.height - i2);
                     } else {
-                        d = d3;
-                        size = size2;
+                        size2 = size;
                     }
-                    size2 = size;
-                    d3 = d;
+                    size = size2;
                 }
             }
-            if (size2 != null) {
-                this.mPreviewWidth = size2.width;
-                this.mPreviewHeight = size2.height;
+            if (size != null) {
+                this.mPreviewWidth = size.width;
+                this.mPreviewHeight = size.height;
             }
         }
     }
@@ -221,7 +216,7 @@ public class DuXRSessionFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);

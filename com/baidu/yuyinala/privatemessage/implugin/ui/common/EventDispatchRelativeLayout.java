@@ -6,9 +6,9 @@ import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 import com.baidu.yuyinala.privatemessage.implugin.a.a;
 import com.baidu.yuyinala.privatemessage.implugin.util.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class EventDispatchRelativeLayout extends RelativeLayout {
-    private a.f oPQ;
+    private a.f oWa;
 
     public EventDispatchRelativeLayout(Context context) {
         super(context);
@@ -37,10 +37,10 @@ public class EventDispatchRelativeLayout extends RelativeLayout {
     }
 
     public void setSubviewLongClickListener(a.f fVar) {
-        this.oPQ = fVar;
+        this.oWa = fVar;
     }
 
     public a.f getSubViewLongClickListener() {
-        return this.oPQ;
+        return this.oWa;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.down.common;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class DownDetail {
     public static final int RETRY_STRATEGY_DOWNFLOW_FAIL = 2;
     public static final int RETRY_STRATEGY_DOWNFLOW_FAIL_DATA_NO_MATCH = 5;

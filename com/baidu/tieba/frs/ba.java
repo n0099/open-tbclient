@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-public class ba {
-    public Object ext;
-    public String forumId;
-    public String forumName;
-    public boolean iXT = false;
-    public int pn;
-    public String stType;
+public class ba extends ax {
+    public int errCode;
+    public String errMsg;
+    public boolean isLocal = true;
+    public boolean hasMore = true;
+    public boolean aur = true;
+    public boolean jkh = true;
 }

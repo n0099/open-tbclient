@@ -8,12 +8,14 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f4018a;
-    private String b;
+    String f8012a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f8013b;
     private Map<String, String> c;
     private String d;
     private boolean e;
@@ -21,15 +23,15 @@ public class c {
     private long h;
     private String i;
     private int j;
-    private Network oZT;
-    private g oZU;
+    private Network pri;
+    private g prj;
 
     private c(String str, Map<String, String> map, g gVar, String str2, String str3) {
         this.e = false;
-        this.b = str;
-        this.oZU = gVar;
+        this.f8013b = str;
+        this.prj = gVar;
         this.c = map == null ? new HashMap<>() : map;
-        this.f4018a = gVar == null ? "" : gVar.b().toString();
+        this.f8012a = gVar == null ? "" : gVar.b().toString();
         this.d = str2;
         this.f = str3;
         this.i = gVar == null ? "" : gVar.a();
@@ -53,7 +55,7 @@ public class c {
     }
 
     public String a() {
-        return this.b;
+        return this.f8013b;
     }
 
     public boolean b() {
@@ -70,7 +72,7 @@ public class c {
     }
 
     public String d() {
-        return this.f4018a;
+        return this.f8012a;
     }
 
     public String e() {
@@ -82,15 +84,15 @@ public class c {
     }
 
     public boolean g() {
-        return !e.a(this.f) || this.b.contains("logReport") || this.b.contains("uniConfig");
+        return !e.a(this.f) || this.f8013b.contains("logReport") || this.f8013b.contains("uniConfig");
     }
 
-    public Network eoE() {
-        return this.oZT;
+    public Network esQ() {
+        return this.pri;
     }
 
-    public void f(Network network) {
-        this.oZT = network;
+    public void d(Network network) {
+        this.pri = network;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -109,7 +111,7 @@ public class c {
         return i < 2;
     }
 
-    public g eoF() {
-        return this.oZU;
+    public g esR() {
+        return this.prj;
     }
 }

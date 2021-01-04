@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.map.commonmemcache;
 
 import com.baidu.platform.comjni.NativeComponent;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class NACommonMemCache extends NativeComponent {
     public NACommonMemCache() {
         create();

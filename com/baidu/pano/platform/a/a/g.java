@@ -17,14 +17,14 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class g implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final HttpClient f2645a;
+    protected final HttpClient f3894a;
 
     public g(HttpClient httpClient) {
-        this.f2645a = httpClient;
+        this.f3894a = httpClient;
     }
 
     private static void a(HttpUriRequest httpUriRequest, Map<String, String> map) {
@@ -35,15 +35,15 @@ public class g implements i {
 
     @Override // com.baidu.pano.platform.a.a.i
     public HttpResponse a(com.baidu.pano.platform.a.n<?> nVar, Map<String, String> map) throws IOException, com.baidu.pano.platform.a.a {
-        HttpUriRequest b = b(nVar, map);
-        a(b, map);
-        a(b, nVar.i());
-        a(b);
-        HttpParams params = b.getParams();
+        HttpUriRequest b2 = b(nVar, map);
+        a(b2, map);
+        a(b2, nVar.i());
+        a(b2);
+        HttpParams params = b2.getParams();
         int t = nVar.t();
         HttpConnectionParams.setConnectionTimeout(params, 5000);
         HttpConnectionParams.setSoTimeout(params, t);
-        return this.f2645a.execute(b);
+        return this.f3894a.execute(b2);
     }
 
     static HttpUriRequest b(com.baidu.pano.platform.a.n<?> nVar, Map<String, String> map) throws com.baidu.pano.platform.a.a {
@@ -97,7 +97,7 @@ public class g implements i {
     protected void a(HttpUriRequest httpUriRequest) throws IOException {
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static final class a extends HttpEntityEnclosingRequestBase {
         public a() {
         }

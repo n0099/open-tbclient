@@ -4,7 +4,7 @@ import com.baidu.ar.auth.ARAuth;
 import com.baidu.ar.auth.FeatureCodes;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static volatile Map<String, Integer> bv = Z();
     private static volatile Map<String, Integer> bw = aa();

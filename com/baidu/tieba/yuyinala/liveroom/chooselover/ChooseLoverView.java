@@ -1,10 +1,10 @@
 package com.baidu.tieba.yuyinala.liveroom.chooselover;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ChooseLoverView extends TextView {
     public ChooseLoverView(@NonNull Context context) {
         super(context);

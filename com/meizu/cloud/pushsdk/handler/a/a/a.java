@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.handler.a.b.g;
 import com.meizu.cloud.pushsdk.notification.c;
 import com.meizu.cloud.pushsdk.util.d;
 import java.io.File;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -34,16 +34,17 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(g gVar, c cVar) {
         String message;
-        File file = null;
+        File file;
         com.meizu.cloud.a.a.flush();
         String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + gVar.d().b().a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + gVar.d().b().d() + ".zip";
         try {
             new b(str).a(gVar.c());
-            message = null;
             file = new File(str);
+            message = null;
         } catch (Exception e) {
             message = e.getMessage();
             com.meizu.cloud.a.a.e("AbstractMessageHandler", "zip error message " + message);
+            file = null;
         }
         if (file != null && file.length() / 1024 > gVar.a()) {
             message = "the upload file exceeds the max size";

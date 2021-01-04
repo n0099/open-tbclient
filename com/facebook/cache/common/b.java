@@ -1,11 +1,9 @@
 package com.facebook.cache.common;
 
 import android.net.Uri;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface b {
-    boolean K(Uri uri);
+    boolean L(Uri uri);
 
-    String epd();
-
-    int hashCode();
+    String etj();
 }

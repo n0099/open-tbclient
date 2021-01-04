@@ -4,32 +4,32 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends a {
-    public static final BdUniqueId ezr = BdUniqueId.gen();
-    private final ArrayList<String> ezs = new ArrayList<>(2);
-    private com.baidu.tbadk.a.e ezt;
+    public static final BdUniqueId eIP = BdUniqueId.gen();
+    private final ArrayList<String> eIQ = new ArrayList<>(2);
+    private com.baidu.tbadk.a.e eIR;
 
     public d() {
-        this.ezs.add("11_9_frs_page_guide");
-        this.ezs.add("11_9_frs_page_guide_a");
+        this.eIQ.add("11_9_frs_page_guide");
+        this.eIQ.add("11_9_frs_page_guide_a");
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public BdUniqueId bkH() {
-        return ezr;
+    public BdUniqueId bnb() {
+        return eIP;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public ArrayList<String> bkI() {
-        return this.ezs;
+    public ArrayList<String> bnc() {
+        return this.eIQ;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public com.baidu.tbadk.a.e bkJ() {
-        return this.ezt;
+    public com.baidu.tbadk.a.e bnd() {
+        return this.eIR;
     }
 
     @Override // com.baidu.tbadk.a.a.a
     public void a(com.baidu.tbadk.a.e eVar) {
-        this.ezt = eVar;
+        this.eIR = eVar;
     }
 }

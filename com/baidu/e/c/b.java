@@ -6,61 +6,61 @@ import com.baidu.fsg.base.statistics.j;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class b {
-    private static b aoq;
-    private c aor;
-    private f aos;
-    private h aot;
-    private String aou;
+    private static b aoR;
+    private c aoS;
+    private f aoT;
+    private h aoU;
+    private String aoV;
     private volatile String mC3Aid = null;
 
     private b() {
         init();
     }
 
-    public static b uR() {
-        if (aoq == null) {
+    public static b uq() {
+        if (aoR == null) {
             synchronized (b.class) {
-                if (aoq == null) {
-                    aoq = new b();
+                if (aoR == null) {
+                    aoR = new b();
                 }
             }
         }
-        return aoq;
+        return aoR;
     }
 
     private void init() {
-        this.aos = new f();
-        this.aor = new c();
-        this.aot = new h();
-        String deviceId = a.uP().getDeviceId();
+        this.aoT = new f();
+        this.aoS = new c();
+        this.aoU = new h();
+        String deviceId = a.uo().getDeviceId();
         if (!TextUtils.isEmpty(deviceId)) {
-            this.aou = new String(Base64Encoder.B64Encode(deviceId.getBytes()));
+            this.aoV = new String(Base64Encoder.B64Encode(deviceId.getBytes()));
         }
     }
 
     public String processUrl(String str) {
-        d uP = a.uP();
-        String ua = this.aot.getUA();
-        String appName = com.baidu.e.b.a.uN().getAppName();
-        String zid = uP.getZid();
-        String bDVCInfo = uP.getBDVCInfo();
-        String sid = uP.getSid();
-        String deviceInfo = this.aor.getDeviceInfo();
-        String str2 = this.aou;
-        String from = uP.getFrom();
-        String cfrom = uP.getCfrom();
-        String schemeHeader = uP.getSchemeHeader();
+        d uo = a.uo();
+        String ua = this.aoU.getUA();
+        String appName = com.baidu.e.b.a.um().getAppName();
+        String zid = uo.getZid();
+        String bDVCInfo = uo.getBDVCInfo();
+        String sid = uo.getSid();
+        String deviceInfo = this.aoS.getDeviceInfo();
+        String str2 = this.aoV;
+        String from = uo.getFrom();
+        String cfrom = uo.getCfrom();
+        String schemeHeader = uo.getSchemeHeader();
         if (TextUtils.isEmpty(from)) {
-            from = com.baidu.e.a.a.uM().getChannel();
+            from = com.baidu.e.a.a.ul().getChannel();
         }
         if (TextUtils.isEmpty(cfrom)) {
-            cfrom = com.baidu.e.a.a.uM().getLastChannel();
+            cfrom = com.baidu.e.a.a.ul().getLastChannel();
         }
-        String k = uP.k(this.aos.addNetWorkParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "appname", appName), UbcStatConstant.KEY_CONTENT_EXT_SID, sid), "ut", deviceInfo), j.c, ua), "bdvc", bDVCInfo), "zid", zid), "uid", str2), BdStatsConstant.StatsKey.CURRENT_CHANNEL, cfrom), "from", from), "scheme", schemeHeader), true), true);
+        String k = uo.k(this.aoT.addNetWorkParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "appname", appName), UbcStatConstant.KEY_CONTENT_EXT_SID, sid), "ut", deviceInfo), j.c, ua), "bdvc", bDVCInfo), "zid", zid), "uid", str2), BdStatsConstant.StatsKey.CURRENT_CHANNEL, cfrom), "from", from), "scheme", schemeHeader), true), true);
         if (TextUtils.isEmpty(this.mC3Aid)) {
-            this.mC3Aid = uP.getC3Aid();
+            this.mC3Aid = uo.getC3Aid();
         }
         if (!TextUtils.isEmpty(this.mC3Aid)) {
             return addParam(k, "c3_aid", this.mC3Aid);

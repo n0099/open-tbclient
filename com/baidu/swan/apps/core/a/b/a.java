@@ -4,44 +4,44 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.b;
 import java.util.HashMap;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static a cOb;
-    private boolean cOc = false;
-    private boolean cOd = false;
+    private static a cSW;
+    private boolean cSX = false;
+    private boolean cSY = false;
     private boolean mIsCanceled = false;
     private boolean mIsEnabled = false;
-    private boolean cOe = false;
-    private int cOf = 3000;
-    private HashMap<String, Long> cOg = new HashMap<>();
-    private boolean cOh = false;
+    private boolean cSZ = false;
+    private int cTa = 3000;
+    private HashMap<String, Long> cTb = new HashMap<>();
+    private boolean cTc = false;
 
-    public static a apW() {
-        if (cOb == null) {
+    public static a ari() {
+        if (cSW == null) {
             synchronized (a.class) {
-                if (cOb == null) {
-                    cOb = new a();
+                if (cSW == null) {
+                    cSW = new a();
                 }
             }
         }
-        return cOb;
+        return cSW;
     }
 
     private a() {
     }
 
-    public boolean no(String str) {
+    public boolean nh(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.cOg == null || !this.cOg.containsKey(str) || currentTimeMillis - this.cOg.get(str).longValue() > 18000000) {
+        if (this.cTb == null || !this.cTb.containsKey(str) || currentTimeMillis - this.cTb.get(str).longValue() > 18000000) {
             if (DEBUG) {
-                if (this.cOg == null || !this.cOg.containsKey(str)) {
+                if (this.cTb == null || !this.cTb.containsKey(str)) {
                     Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
                 } else {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.cOg.get(str) + " ，id = " + str);
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.cTb.get(str) + " ，id = " + str);
                 }
             }
             return false;
@@ -52,7 +52,7 @@ public final class a {
         return true;
     }
 
-    public boolean apX() {
-        return this.cOd;
+    public boolean arj() {
+        return this.cSY;
     }
 }

@@ -1,11 +1,10 @@
 package com.baidu.tieba.frs.forumRule.message;
 
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.tbadk.core.data.ForumRuleBaseData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ResponseHttpRorumRuleDraftMessage extends JsonHttpResponsedMessage {
     ForumRuleBaseData ruleBaseData;
 
@@ -31,7 +30,7 @@ public class ResponseHttpRorumRuleDraftMessage extends JsonHttpResponsedMessage 
                 return;
             }
             setError(parseInt);
-            setErrorString(jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG));
+            setErrorString(jSONObject.optString("error_msg"));
         }
     }
 }

@@ -16,26 +16,26 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MercatorModel {
-    private final a.InterfaceC0020a gAr;
-    private boolean noT;
+    private final a.InterfaceC0015a gLu;
+    private boolean nuD;
 
     private MercatorModel() {
-        this.noT = false;
-        this.gAr = new a.InterfaceC0020a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
-            @Override // com.baidu.adp.lib.c.a.InterfaceC0020a
+        this.nuD = false;
+        this.gLu = new a.InterfaceC0015a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
+            @Override // com.baidu.adp.lib.c.a.InterfaceC0015a
             public void onLocationGeted(int i, String str, Address address) {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                if (i == 0 && address != null && inst != null && !MercatorModel.this.noT) {
-                    MercatorModel.this.noT = true;
+                if (i == 0 && address != null && inst != null && !MercatorModel.this.nuD) {
+                    MercatorModel.this.nuD = true;
                     String valueOf = String.valueOf(address.getLatitude());
                     String valueOf2 = String.valueOf(address.getLongitude());
                     String locString = BDLocManager.getInstance(inst).getLocString();
                     String version = TbConfig.getVersion();
                     String cuid = TbadkCoreApplication.getInst().getCuid();
                     String clientIP = UtilHelper.getClientIP();
-                    com.baidu.tieba.recapp.d.a.dFY().MX(valueOf);
-                    com.baidu.tieba.recapp.d.a.dFY().MW(valueOf2);
-                    com.baidu.tieba.recapp.d.a.dFY().hB(System.currentTimeMillis());
+                    com.baidu.tieba.recapp.c.a.dFN().RR(valueOf);
+                    com.baidu.tieba.recapp.c.a.dFN().RQ(valueOf2);
+                    com.baidu.tieba.recapp.c.a.dFN().hw(System.currentTimeMillis());
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
                     httpMessage.addParam("cuid", cuid);
                     httpMessage.addParam("cip", clientIP);
@@ -44,7 +44,7 @@ public class MercatorModel {
                     httpMessage.addParam("longitude", valueOf2);
                     httpMessage.addParam("latitude", valueOf);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    MercatorModel.this.noT = false;
+                    MercatorModel.this.nuD = false;
                 }
             }
         };
@@ -54,29 +54,29 @@ public class MercatorModel {
     }
 
     public void startLoad() {
-        com.baidu.adp.lib.c.a.mk().a(true, this.gAr);
+        com.baidu.adp.lib.c.a.lI().a(true, this.gLu);
     }
 
-    public static MercatorModel dQm() {
-        return a.npa;
+    public static MercatorModel dQi() {
+        return a.nuK;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final MercatorModel npa = new MercatorModel();
+        private static final MercatorModel nuK = new MercatorModel();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(MercatorData mercatorData) {
         TbSingleton.getInstance().setMercatorData(mercatorData);
-        com.baidu.tbadk.core.sharedPref.b.bsO().putString("key_mercator_location", MercatorData.jsonStrWithObject(mercatorData));
+        com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_mercator_location", MercatorData.jsonStrWithObject(mercatorData));
     }
 
     public MercatorData getMercatorData() {
         MercatorData mercatorData = TbSingleton.getInstance().getMercatorData();
         if (mercatorData == null) {
-            return (MercatorData) MercatorData.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.bsO().getString("key_mercator_location", null), MercatorData.class);
+            return (MercatorData) MercatorData.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.bvq().getString("key_mercator_location", null), MercatorData.class);
         }
         return mercatorData;
     }
@@ -98,41 +98,41 @@ public class MercatorModel {
 
     /* loaded from: classes.dex */
     public static class MercatorData extends OrmObject {
-        String noV;
-        String noW;
-        String noX;
-        int noY;
-        long noZ;
+        String nuF;
+        String nuG;
+        String nuH;
+        int nuI;
+        long nuJ;
 
         public MercatorData() {
         }
 
         public MercatorData(String str, String str2, String str3, int i, long j) {
-            this.noV = str;
-            this.noW = str2;
-            this.noX = str3;
-            this.noY = i;
-            this.noZ = j;
+            this.nuF = str;
+            this.nuG = str2;
+            this.nuH = str3;
+            this.nuI = i;
+            this.nuJ = j;
         }
 
-        public String dQn() {
-            return this.noV;
+        public String dQj() {
+            return this.nuF;
         }
 
-        public String dQo() {
-            return this.noW;
+        public String dQk() {
+            return this.nuG;
         }
 
-        public String dQp() {
-            return this.noX;
+        public String dQl() {
+            return this.nuH;
         }
 
-        public int dQq() {
-            return this.noY;
+        public int dQm() {
+            return this.nuI;
         }
 
-        public long dQr() {
-            return this.noZ;
+        public long dQn() {
+            return this.nuJ;
         }
     }
 }

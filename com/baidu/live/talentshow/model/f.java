@@ -2,7 +2,7 @@ package com.baidu.live.talentshow.model;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.mobstat.Config;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class f extends HttpMessage {
     public f() {
         super(1021224);
@@ -16,7 +16,7 @@ public class f extends HttpMessage {
         addParam("room_id", j);
     }
 
-    public void h(long j, long j2) {
+    public void k(long j, long j2) {
         addParam("connect_user_id1", j);
         addParam("connect_user_id2", j2);
     }

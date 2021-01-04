@@ -10,7 +10,6 @@ import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.tbadk.pay.PayHelper;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.ufosdk.f.i;
@@ -27,7 +26,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public class UfoSDK {
     public static boolean localFirstCall;
     private static Context mApplication;
@@ -81,15 +80,15 @@ public class UfoSDK {
         hashMap.put("6", "请描述您遇到的问题");
         hashMap.put("7", "帮助与反馈");
         hashMap.put("8", "常见问题");
-        hashMap.put(PublishType.TYPE_VIDEO_SHARE, "小时以前");
-        hashMap.put("10", "我要反馈");
-        hashMap.put("11", "刚刚");
-        hashMap.put("12", "请输入反馈内容不少于4个有效字符");
+        hashMap.put("9", "小时以前");
+        hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "我要反馈");
+        hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "刚刚");
+        hashMap.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "请输入反馈内容不少于4个有效字符");
         hashMap.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, "正在加载...");
-        hashMap.put("14", "分钟以前");
+        hashMap.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "分钟以前");
         hashMap.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "个月以前");
         hashMap.put(Constants.VIA_REPORT_TYPE_START_WAP, "输入超过200字");
-        hashMap.put("17", "我的反馈");
+        hashMap.put(Constants.VIA_REPORT_TYPE_START_GROUP, "我的反馈");
         hashMap.put(Constants.VIA_ACT_TYPE_NINETEEN, "网络不给力，请稍后再试");
         hashMap.put("20", "您还没有反馈");
         hashMap.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "图片过大，请调整上传图片大小");
@@ -146,15 +145,15 @@ public class UfoSDK {
         hashMap.put("6", "Please describe the problems");
         hashMap.put("7", "Help & Feedback");
         hashMap.put("8", "FAQ");
-        hashMap.put(PublishType.TYPE_VIDEO_SHARE, " hours ago");
-        hashMap.put("10", "Feeback");
-        hashMap.put("11", "just now");
-        hashMap.put("12", "Please input feedback not less than 4 valid characters");
+        hashMap.put("9", " hours ago");
+        hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "Feeback");
+        hashMap.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "just now");
+        hashMap.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "Please input feedback not less than 4 valid characters");
         hashMap.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, "Loading…");
-        hashMap.put("14", " minutes ago");
+        hashMap.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, " minutes ago");
         hashMap.put(Constants.VIA_REPORT_TYPE_WPA_STATE, " months ago");
         hashMap.put(Constants.VIA_REPORT_TYPE_START_WAP, "Please don't exceed 200 characters.");
-        hashMap.put("17", "My Feedback");
+        hashMap.put(Constants.VIA_REPORT_TYPE_START_GROUP, "My Feedback");
         hashMap.put(Constants.VIA_ACT_TYPE_NINETEEN, "Network is not avaiable, please try again later.");
         hashMap.put("20", "You have no current feedback");
         hashMap.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "The picture is oversized, please resize the picture you uploaded.");
@@ -294,7 +293,7 @@ public class UfoSDK {
             hashMap.put("devid", devid);
             hashMap.put("uid", b.d);
             hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.b);
+            hashMap.put("username", b.f5638b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
@@ -384,7 +383,7 @@ public class UfoSDK {
             hashMap.put("devid", devid);
             hashMap.put("uid", b.d);
             hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.b);
+            hashMap.put("username", b.f5638b);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
             if (!TextUtils.isEmpty(a2)) {
@@ -433,7 +432,7 @@ public class UfoSDK {
             hashMap.put("devid", devid);
             hashMap.put("uid", b.d);
             hashMap.put(DpStatConstants.KEY_USER_ID, b.d);
-            hashMap.put("username", b.b);
+            hashMap.put("username", b.f5638b);
             hashMap.put("output_style", 1);
             hashMap.put("interval", String.valueOf(b.ai));
             String a2 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
@@ -522,11 +521,11 @@ public class UfoSDK {
             localFirstCall = sharedPreferences.getBoolean("UfoLocalFirstCall", true);
             String string = sharedPreferences.getString("lastStart", "");
             startStr = string;
-            String b = i.b(System.currentTimeMillis());
-            com.baidu.ufosdk.f.c.c("--UfoSDK:206 -- today : " + b + "; lastStart : " + startStr);
-            if (string.contains(b)) {
-                com.baidu.ufosdk.f.c.c("--UfoSDK:212 -- today : " + b + "; lastStart : " + startStr);
-                if (string.equals(b + "-enable")) {
+            String b2 = i.b(System.currentTimeMillis());
+            com.baidu.ufosdk.f.c.c("--UfoSDK:206 -- today : " + b2 + "; lastStart : " + startStr);
+            if (string.contains(b2)) {
+                com.baidu.ufosdk.f.c.c("--UfoSDK:212 -- today : " + b2 + "; lastStart : " + startStr);
+                if (string.equals(b2 + "-enable")) {
                     int i = sharedPreferences.getInt("editFeedbackViewUV", 0);
                     int i2 = sharedPreferences.getInt("editFeedbackViewFromRobotUV", 0);
                     int i3 = sharedPreferences.getInt("editFeedbackViewFromFaqUV", 0);
@@ -549,8 +548,8 @@ public class UfoSDK {
                 com.baidu.ufosdk.f.c.a("--UfoSDK:182 -- edit.commit()");
                 if (i5 == 0 && i6 == 0 && i7 == 0 && i8 == 0) {
                     com.baidu.ufosdk.f.c.a("--UfoSDK:203 -- all zero!!");
-                    startStr = b + "-enable";
-                    edit.putString("lastStart", b + "-enable");
+                    startStr = b2 + "-enable";
+                    edit.putString("lastStart", b2 + "-enable");
                     edit.commit();
                 } else {
                     com.baidu.ufosdk.f.c.a("--UfoSDK:189 -- not all zero!!");
@@ -568,7 +567,7 @@ public class UfoSDK {
     }
 
     public static void openLogcatSwitch() {
-        b.f3703a = true;
+        b.f5637a = true;
     }
 
     public static void openRobotAnswer() {
@@ -799,7 +798,7 @@ public class UfoSDK {
     }
 
     public static void setUserName(String str) {
-        b.b = str;
+        b.f5638b = str;
     }
 
     public static void setUserStatus(int i) {

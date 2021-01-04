@@ -6,10 +6,10 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.c.h;
 import com.facebook.imagepipeline.c.j;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private static a pds;
-    private static final Class<?> paF = c.class;
+    private static a puy;
+    private static final Class<?> prQ = c.class;
     private static volatile boolean sIsInitialized = false;
 
     private c() {
@@ -21,7 +21,7 @@ public class c {
 
     public static void a(Context context, @Nullable h hVar, @Nullable b bVar) {
         if (sIsInitialized) {
-            com.facebook.common.c.a.g(paF, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
+            com.facebook.common.c.a.h(prQ, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
         } else {
             sIsInitialized = true;
         }
@@ -35,50 +35,50 @@ public class c {
     }
 
     private static void a(Context context, @Nullable b bVar) {
-        pds = new a(context, bVar);
-        SimpleDraweeView.b(pds);
+        puy = new a(context, bVar);
+        SimpleDraweeView.b(puy);
     }
 
-    public static e eqG() {
-        return pds.get().get();
+    public static e euI() {
+        return puy.get().get();
     }
 
-    public static j eqH() {
-        return j.euz();
+    public static j euJ() {
+        return j.eyi();
     }
 
-    public static com.facebook.imagepipeline.c.g eqI() {
-        return eqH().eqI();
+    public static com.facebook.imagepipeline.c.g euK() {
+        return euJ().euK();
     }
 
-    public static boolean eqJ() {
+    public static boolean euL() {
         return sIsInitialized;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class a implements com.facebook.common.internal.j<com.facebook.common.internal.j<? extends AbstractDraweeControllerBuilder>> {
         private Context mContext;
-        private b pdt;
-        private volatile f pdu = null;
+        private volatile f puA = null;
+        private b puz;
 
         a(Context context, b bVar) {
             this.mContext = context;
-            this.pdt = bVar;
+            this.puz = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.internal.j
-        /* renamed from: eqK */
+        /* renamed from: euM */
         public com.facebook.common.internal.j<e> get() {
-            if (this.pdu == null) {
+            if (this.puA == null) {
                 synchronized (this) {
-                    if (this.pdu == null) {
-                        this.pdu = new f(this.mContext, this.pdt);
+                    if (this.puA == null) {
+                        this.puA = new f(this.mContext, this.puz);
                     }
                 }
             }
-            return this.pdu;
+            return this.puA;
         }
     }
 }

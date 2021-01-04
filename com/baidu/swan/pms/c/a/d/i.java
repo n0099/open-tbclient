@@ -7,33 +7,33 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class i implements b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private com.baidu.swan.pms.a.d dct;
-    private List<com.baidu.swan.pms.model.e> enK = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> enL = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> enM = new ArrayList();
-    private List<com.baidu.swan.pms.c.a.b> enJ = new ArrayList();
+    private com.baidu.swan.pms.a.d dhn;
+    private List<com.baidu.swan.pms.model.e> exr = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> exs = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> exu = new ArrayList();
+    private List<com.baidu.swan.pms.c.a.b> exq = new ArrayList();
 
     public i(com.baidu.swan.pms.a.d dVar) {
-        this.dct = dVar;
-        d.beg().c(this);
+        this.dhn = dVar;
+        d.bgC().c(this);
     }
 
     public void a(com.baidu.swan.pms.c.a.b bVar) {
         if (bVar != null) {
-            this.enJ.add(bVar);
+            this.exq.add(bVar);
         }
     }
 
-    public void bes() {
-        if (!bet()) {
+    public void bgN() {
+        if (!bgO()) {
             if (DEBUG) {
-                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bdz().getProcessName() + " startDownload: total=" + this.enJ.size());
+                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bfV().getProcessName() + " startDownload: total=" + this.exq.size());
             }
-            for (com.baidu.swan.pms.c.a.b bVar : this.enJ) {
+            for (com.baidu.swan.pms.c.a.b bVar : this.exq) {
                 if (DEBUG) {
-                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bdz().getProcessName() + " startDownload: for handler=" + bVar);
+                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bfV().getProcessName() + " startDownload: for handler=" + bVar);
                 }
-                bVar.ij(false);
+                bVar.iD(false);
             }
         }
     }
@@ -44,43 +44,43 @@ public class i implements b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (!fVar.ber()) {
-            Iterator<com.baidu.swan.pms.c.a.b> it = this.enJ.iterator();
+        if (!fVar.bgM()) {
+            Iterator<com.baidu.swan.pms.c.a.b> it = this.exq.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.swan.pms.c.a.b next = it.next();
                 if (next.a(fVar)) {
-                    int bej = fVar.bej();
-                    this.enJ.remove(next);
-                    switch (bej) {
+                    int taskState = fVar.getTaskState();
+                    this.exq.remove(next);
+                    switch (taskState) {
                         case 2:
-                            this.enM.add(next.bea().enC.enB);
+                            this.exu.add(next.bgw().exj.exi);
                             break;
                         case 3:
-                            this.enL.add(next.bea().enC.enB);
+                            this.exs.add(next.bgw().exj.exi);
                             break;
                         case 10:
-                            this.enK.add(next.bea().enC.enB);
+                            this.exr.add(next.bgw().exj.exi);
                             break;
                         default:
                             if (com.baidu.swan.pms.d.DEBUG) {
-                                Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + bej);
+                                Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + taskState);
                                 break;
                             }
                             break;
                     }
                 }
             }
-            bet();
+            bgO();
         }
     }
 
-    private boolean bet() {
-        if (this.enJ.isEmpty()) {
-            this.dct.asH();
-            d.beg().d(this);
+    private boolean bgO() {
+        if (this.exq.isEmpty()) {
+            this.dhn.atY();
+            d.bgC().d(this);
             return true;
         }
         return false;

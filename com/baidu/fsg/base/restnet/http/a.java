@@ -18,12 +18,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class a implements b<String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1475a = "Host";
-    private static final String b = "Accept";
+    public static final String f1958a = "Host";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f1959b = "Accept";
     private static final String c = "Accept-Charset";
     private static final String d = "Accept-Encoding";
     private static final String e = "Accept-Language";
@@ -86,11 +88,11 @@ public class a implements b<String, String> {
     }
 
     public String a() {
-        return c(b);
+        return c(f1959b);
     }
 
     public void a(String str) {
-        a(b, str);
+        a(f1959b, str);
     }
 
     public List<Charset> b() {

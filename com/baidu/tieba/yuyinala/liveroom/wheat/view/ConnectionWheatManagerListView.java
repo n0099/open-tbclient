@@ -1,10 +1,10 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ListAdapter;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.data.AlaWheatInfoData;
 import com.baidu.live.sdk.a;
@@ -12,10 +12,10 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ConnectionWheatManagerListView extends BaseConnectionWheatListView {
-    private d.a orP;
-    private d oyz;
+    private d oFP;
+    private d.a oyd;
 
     public ConnectionWheatManagerListView(@NonNull Context context) {
         this(context, null);
@@ -34,36 +34,36 @@ public class ConnectionWheatManagerListView extends BaseConnectionWheatListView 
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
-    protected void dCQ() {
-        this.oyz = new d(getContext());
-        this.ovG.setAdapter((ListAdapter) this.oyz);
+    protected void dCF() {
+        this.oFP = new d(getContext());
+        this.oCu.setAdapter((ListAdapter) this.oFP);
     }
 
-    public void eff() {
-        zU(false);
+    public void efg() {
+        zV(false);
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            efv();
+            efy();
         } else {
-            efw();
+            efz();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
-    public void zU(boolean z) {
-        this.oyz.NI(o.efe().Za().size());
+    public void zV(boolean z) {
+        this.oFP.Ny(o.eff().aap().size());
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(o.efe().Za());
-        arrayList.addAll(o.efe().YZ());
-        gA(arrayList);
-        if (this.orP != null && this.oyz != null) {
-            this.orP.NJ(this.oyz.getCount());
+        arrayList.addAll(o.eff().aap());
+        arrayList.addAll(o.eff().aao());
+        gs(arrayList);
+        if (this.oyd != null && this.oFP != null) {
+            this.oyd.Nz(this.oFP.getCount());
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public int getCount() {
-        if (this.oyz != null) {
-            return this.oyz.getCount();
+        if (this.oFP != null) {
+            return this.oFP.getCount();
         }
         return 0;
     }
@@ -73,16 +73,16 @@ public class ConnectionWheatManagerListView extends BaseConnectionWheatListView 
         return getContext().getString(a.h.yuyin_ala_connection_wheat_no_user_on_wheat_text);
     }
 
-    private void gA(List<AlaWheatInfoData> list) {
-        if (this.oyz != null) {
-            this.oyz.setData(list);
+    private void gs(List<AlaWheatInfoData> list) {
+        if (this.oFP != null) {
+            this.oFP.setData(list);
         }
     }
 
     public void setListener(d.a aVar) {
-        this.orP = aVar;
-        if (this.oyz != null) {
-            this.oyz.setListener(aVar);
+        this.oyd = aVar;
+        if (this.oFP != null) {
+            this.oFP.setListener(aVar);
         }
     }
 

@@ -1,10 +1,14 @@
 package com.baidu.mobads.a;
-/* loaded from: classes7.dex */
+
+import com.baidu.ar.constants.HttpConstants;
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2317a = b.f2318a.booleanValue();
-    public static final int b;
+    public static final boolean f3335a = b.f3337a.booleanValue();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f3336b;
     public static String c;
     public static final Object d;
     public static final Object e;
@@ -25,9 +29,9 @@ public final class a {
     public static String t;
 
     static {
-        b = f2317a ? 2 : 4;
+        f3336b = f3335a ? 2 : 4;
         c = "0.0";
-        d = "android";
+        d = HttpConstants.OS_TYPE_VALUE;
         e = "androidlunpan";
         f = "androidinter";
         g = "androidintin";

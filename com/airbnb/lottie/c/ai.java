@@ -4,10 +4,10 @@ import android.util.JsonReader;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class ai {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ShapeTrimPath A(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+    public static ShapeTrimPath A(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         com.airbnb.lottie.model.a.b bVar = null;
         com.airbnb.lottie.model.a.b bVar2 = null;
         com.airbnb.lottie.model.a.b bVar3 = null;
@@ -50,13 +50,13 @@ class ai {
             }
             switch (c) {
                 case 0:
-                    bVar3 = d.a(jsonReader, eVar, false);
+                    bVar3 = d.a(jsonReader, dVar, false);
                     break;
                 case 1:
-                    bVar2 = d.a(jsonReader, eVar, false);
+                    bVar2 = d.a(jsonReader, dVar, false);
                     break;
                 case 2:
-                    bVar = d.a(jsonReader, eVar, false);
+                    bVar = d.a(jsonReader, dVar, false);
                     break;
                 case 3:
                     str = jsonReader.nextString();

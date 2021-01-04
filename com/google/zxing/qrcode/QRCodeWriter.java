@@ -10,7 +10,7 @@ import com.google.zxing.qrcode.encoder.ByteMatrix;
 import com.google.zxing.qrcode.encoder.Encoder;
 import com.google.zxing.qrcode.encoder.QRCode;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class QRCodeWriter implements Writer {
     private static final int QUIET_ZONE_SIZE = 4;
 
@@ -21,8 +21,6 @@ public final class QRCodeWriter implements Writer {
 
     @Override // com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
-        ErrorCorrectionLevel errorCorrectionLevel;
-        int i3;
         if (str.isEmpty()) {
             throw new IllegalArgumentException("Found empty contents");
         }
@@ -32,19 +30,16 @@ public final class QRCodeWriter implements Writer {
         if (i < 0 || i2 < 0) {
             throw new IllegalArgumentException("Requested dimensions are too small: " + i + 'x' + i2);
         }
-        ErrorCorrectionLevel errorCorrectionLevel2 = ErrorCorrectionLevel.L;
+        ErrorCorrectionLevel errorCorrectionLevel = ErrorCorrectionLevel.L;
+        int i3 = 4;
         if (map != null) {
             if (map.containsKey(EncodeHintType.ERROR_CORRECTION)) {
-                errorCorrectionLevel2 = ErrorCorrectionLevel.valueOf(map.get(EncodeHintType.ERROR_CORRECTION).toString());
+                errorCorrectionLevel = ErrorCorrectionLevel.valueOf(map.get(EncodeHintType.ERROR_CORRECTION).toString());
             }
             if (map.containsKey(EncodeHintType.MARGIN)) {
-                errorCorrectionLevel = errorCorrectionLevel2;
                 i3 = Integer.parseInt(map.get(EncodeHintType.MARGIN).toString());
-                return renderResult(Encoder.encode(str, errorCorrectionLevel, map), i, i2, i3);
             }
         }
-        errorCorrectionLevel = errorCorrectionLevel2;
-        i3 = 4;
         return renderResult(Encoder.encode(str, errorCorrectionLevel, map), i, i2, i3);
     }
 

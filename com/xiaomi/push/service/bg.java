@@ -4,52 +4,52 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class bg implements af {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile bg f4849a;
+    private static volatile bg f14570a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f889a;
+    private long f967a;
 
     /* renamed from: a  reason: collision with other field name */
-    Context f890a;
+    Context f968a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f891a;
+    private SharedPreferences f969a;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile boolean f893a = false;
+    private volatile boolean f971a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private ConcurrentHashMap<String, a> f892a = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, a> f970a = new ConcurrentHashMap<>();
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        long f4850a;
+        long f14571a;
 
         /* renamed from: a  reason: collision with other field name */
-        String f894a;
+        String f972a;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(String str, long j) {
-            this.f894a = str;
-            this.f4850a = j;
+            this.f972a = str;
+            this.f14571a = j;
         }
 
         abstract void a(bg bgVar);
 
         @Override // java.lang.Runnable
         public void run() {
-            if (bg.f4849a != null) {
-                Context context = bg.f4849a.f890a;
+            if (bg.f14570a != null) {
+                Context context = bg.f14570a.f968a;
                 if (com.xiaomi.push.az.c(context)) {
-                    if (System.currentTimeMillis() - bg.f4849a.f891a.getLong(":ts-" + this.f894a, 0L) > this.f4850a || com.xiaomi.push.af.a(context)) {
-                        com.xiaomi.push.r.a(bg.f4849a.f891a.edit().putLong(":ts-" + this.f894a, System.currentTimeMillis()));
-                        a(bg.f4849a);
+                    if (System.currentTimeMillis() - bg.f14570a.f969a.getLong(":ts-" + this.f972a, 0L) > this.f14571a || com.xiaomi.push.af.a(context)) {
+                        com.xiaomi.push.r.a(bg.f14570a.f969a.edit().putLong(":ts-" + this.f972a, System.currentTimeMillis()));
+                        a(bg.f14570a);
                     }
                 }
             }
@@ -57,46 +57,46 @@ public final class bg implements af {
     }
 
     private bg(Context context) {
-        this.f890a = context.getApplicationContext();
-        this.f891a = context.getSharedPreferences("sync", 0);
+        this.f968a = context.getApplicationContext();
+        this.f969a = context.getSharedPreferences("sync", 0);
     }
 
     public static bg a(Context context) {
-        if (f4849a == null) {
+        if (f14570a == null) {
             synchronized (bg.class) {
-                if (f4849a == null) {
-                    f4849a = new bg(context);
+                if (f14570a == null) {
+                    f14570a = new bg(context);
                 }
             }
         }
-        return f4849a;
+        return f14570a;
     }
 
     public String a(String str, String str2) {
-        return this.f891a.getString(str + ":" + str2, "");
+        return this.f969a.getString(str + ":" + str2, "");
     }
 
     @Override // com.xiaomi.push.service.af
     /* renamed from: a  reason: collision with other method in class */
-    public void mo559a() {
-        if (this.f893a) {
+    public void mo585a() {
+        if (this.f971a) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f889a >= BdKVCache.MILLS_1Hour) {
-            this.f889a = currentTimeMillis;
-            this.f893a = true;
-            com.xiaomi.push.ai.a(this.f890a).a(new bh(this), (int) (Math.random() * 10.0d));
+        if (currentTimeMillis - this.f967a >= BdKVCache.MILLS_1Hour) {
+            this.f967a = currentTimeMillis;
+            this.f971a = true;
+            com.xiaomi.push.ai.a(this.f968a).a(new bh(this), (int) (Math.random() * 10.0d));
         }
     }
 
     public void a(a aVar) {
-        if (this.f892a.putIfAbsent(aVar.f894a, aVar) == null) {
-            com.xiaomi.push.ai.a(this.f890a).a(aVar, ((int) (Math.random() * 30.0d)) + 10);
+        if (this.f970a.putIfAbsent(aVar.f972a, aVar) == null) {
+            com.xiaomi.push.ai.a(this.f968a).a(aVar, ((int) (Math.random() * 30.0d)) + 10);
         }
     }
 
     public void a(String str, String str2, String str3) {
-        com.xiaomi.push.r.a(f4849a.f891a.edit().putString(str + ":" + str2, str3));
+        com.xiaomi.push.r.a(f14570a.f969a.edit().putString(str + ":" + str2, str3));
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.cesium.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 final class h extends f {
     public h(int i, int i2) {
         this.c = 4294967295L;

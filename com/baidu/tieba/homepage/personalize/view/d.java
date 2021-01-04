@@ -2,220 +2,44 @@ package com.baidu.tieba.homepage.personalize.view;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.afd.videopaster.d;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tieba.play.operableVideoView.d;
-import java.util.HashMap;
-import tbclient.VideoInfo;
-/* loaded from: classes22.dex */
-public class d extends com.baidu.tieba.play.operableVideoView.b {
-    private by ahA;
-    private com.baidu.afd.videopaster.d ijd;
-    private CustomMessageListener ijs;
-    private Runnable jVA;
-    private boolean jVy;
-    protected boolean jVz;
+import com.baidu.tbadk.TbPageContext;
+/* loaded from: classes2.dex */
+public class d extends com.baidu.card.a<com.baidu.tbadk.core.data.a> {
+    private com.baidu.tieba.homepage.topic.topictab.view.a kiO;
+    private int mSkinType;
 
-    public d(Context context, View view) {
-        super(context, view);
-        this.jVy = false;
-        this.ijs = new CustomMessageListener(2921395) { // from class: com.baidu.tieba.homepage.personalize.view.d.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                com.baidu.afd.videopaster.data.b bVar;
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.afd.videopaster.data.b) && (bVar = (com.baidu.afd.videopaster.data.b) customResponsedMessage.getData()) != null) {
-                    String videoId = bVar.getVideoId();
-                    if (!StringUtils.isNull(videoId) && d.this.ahA != null && videoId.equals(d.this.ahA.getId())) {
-                        d.this.ijd.a(d.this.a(d.this.ahA, bVar));
-                    }
-                }
-            }
-        };
-        this.jVA = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.view.d.4
-            @Override // java.lang.Runnable
-            public void run() {
-                if (d.this.ijd != null) {
-                    d.this.jVz = false;
-                    d.this.ijd.stop();
-                    d.this.ijd.onDestroy();
-                }
-            }
-        };
-        xc(true);
-        cQB();
+    public d(Context context, TbPageContext<?> tbPageContext) {
+        super(context);
+        this.mSkinType = 3;
+        this.kiO = new com.baidu.tieba.homepage.topic.topictab.view.a(tbPageContext);
     }
 
-    protected void cQB() {
-        this.ijd = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) dBI());
-        this.ijd.a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.d.1
-            @Override // com.baidu.afd.videopaster.d.a
-            public void rT() {
-            }
-
-            @Override // com.baidu.afd.videopaster.d.a
-            public void rS() {
-                d.this.startPlay();
-            }
-
-            @Override // com.baidu.afd.videopaster.d.a
-            public void rR() {
-            }
-
-            @Override // com.baidu.afd.videopaster.d.a
-            public boolean rU() {
-                return false;
-            }
-        });
-        a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.d.2
-            @Override // com.baidu.tieba.play.operableVideoView.d.a
-            public void cM(int i, int i2) {
-                if (!d.this.dCG()) {
-                    if (i2 >= i) {
-                        if (d.this.ijd.a(false, false, "NEWINDEX")) {
-                        }
-                    } else if (i != 0 && !d.this.amX && (i2 * 100) / i >= 80 && i > 15000) {
-                        d.this.aE(d.this.ahA);
-                    }
-                }
-            }
-        });
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.a
+    public View getView() {
+        return this.kiO.cUk();
     }
 
-    @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        super.setUniqueId(bdUniqueId);
-        this.ijs.setTag(this.ajD);
-        MessageManager.getInstance().registerListener(this.ijs);
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.b, com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public void setData(by byVar) {
-        if (byVar != null) {
-            super.setData(byVar);
-            boolean z = this.ahA == byVar;
-            this.ahA = byVar;
-            if (this.ijd != null) {
-                if (this.jVy && z) {
-                    this.jVy = false;
-                } else {
-                    this.ijd.reset();
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.card.p
+    /* renamed from: b */
+    public void D(com.baidu.tbadk.core.data.a aVar) {
+        if (aVar instanceof com.baidu.tieba.homepage.topic.topictab.b.a) {
+            this.kiO.a((com.baidu.tieba.homepage.topic.topictab.b.a) aVar);
         }
     }
 
-    @Override // com.baidu.tieba.play.operableVideoView.b, com.baidu.tieba.play.operableVideoView.d, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
-        if (!this.ijd.a(false, false, "NEWINDEX")) {
-            startPlay();
+    @Override // com.baidu.card.q
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        if (this.mSkinType != i) {
+            this.kiO.onChangeSkinType(tbPageContext, i);
+            g(getView(), 3);
         }
+        this.mSkinType = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aE(by byVar) {
-        if (byVar != null && byVar.getId() != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921394, byVar.getId()));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.afd.videopaster.a a(by byVar, com.baidu.afd.videopaster.data.b bVar) {
-        int i;
-        int i2;
-        int i3;
-        int i4 = -1;
-        if (byVar == null || bVar == null) {
-            return null;
-        }
-        int rY = bVar.rY();
-        int rZ = bVar.rZ();
-        int rX = bVar.rX();
-        if (rX != -1) {
-            i = rY != -1 ? (rX - rY) - 1 : -1;
-            if (rZ != -1) {
-                i4 = (rZ - rX) - 1;
-            }
-        } else {
-            i = -1;
-        }
-        VideoInfo bph = byVar.bph();
-        if (bph != null) {
-            i3 = bph.video_width.intValue();
-            i2 = bph.video_height.intValue();
-        } else {
-            i2 = 0;
-            i3 = 0;
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put("video_vid", byVar.getId());
-        hashMap.put("video_title", byVar.getTitle());
-        hashMap.put("forum_id", String.valueOf(byVar.getFid()));
-        hashMap.put("forum_name", byVar.boT());
-        hashMap.put("up_distance", String.valueOf(i));
-        hashMap.put("down_distance", String.valueOf(i4));
-        com.baidu.afd.videopaster.a a2 = com.baidu.afd.videopaster.c.a(3, 0, "1546854828072", rX + 1, i3, i2);
-        a2.u(hashMap);
-        return a2;
-    }
-
-    public void onPause() {
-    }
-
-    public void onResume() {
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public boolean rJ(boolean z) {
-        if (this.ijd != null) {
-            if (z) {
-                if (this.ijd.rC()) {
-                    this.jVz = false;
-                    this.ijd.stop();
-                }
-            } else if (this.ijd.rC()) {
-                this.jVy = true;
-                this.ijd.aA(true);
-            }
-        }
-        return super.rJ(z);
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public void startPlay() {
-        if (this.ijd != null && this.ijd.rC()) {
-            this.jVz = true;
-            this.ijd.resume();
-            return;
-        }
-        super.startPlay();
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public void stopPlay() {
-        super.stopPlay();
-        if (this.ijd != null && this.ijd.rC()) {
-            com.baidu.adp.lib.f.e.mY().removeCallbacks(this.jVA);
-            com.baidu.adp.lib.f.e.mY().post(this.jVA);
-        }
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.d
-    protected int cQC() {
-        return 1;
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public boolean isPlaying() {
-        if (this.ijd == null || !this.ijd.rC()) {
-            return super.isPlaying();
-        }
-        return this.jVz || this.ijd.rM();
+    public void setTag(BdUniqueId bdUniqueId) {
+        this.kiO.setTag(bdUniqueId);
     }
 }

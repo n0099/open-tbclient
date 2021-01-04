@@ -1,77 +1,70 @@
 package com.baidu.live.i;
 
-import android.graphics.Rect;
-import android.util.Log;
-import android.view.View;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-/* loaded from: classes4.dex */
+import android.text.TextUtils;
+import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.adp.lib.util.Md5;
+import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.util.FileHelper;
+import java.io.File;
+/* loaded from: classes11.dex */
 public class a {
-    private final HashMap<b, Rect> aUt = new HashMap<>();
-    private final HashSet<b> aUu = new HashSet<>();
-    private final LinkedList<C0190a> aUv = new LinkedList<>();
+    public static String getFileMd5(File file) {
+        String md5 = Md5.toMd5(FileHelper.GetStreamFromFile(file));
+        if (!StringUtils.isNull(md5)) {
+            return md5.toLowerCase();
+        }
+        return md5;
+    }
 
-    public void a(b bVar) {
-        if (bVar != null) {
-            this.aUu.add(bVar);
+    public static boolean existFile(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            return new File(str).exists();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return false;
         }
     }
 
-    public void b(b bVar) {
-        if (bVar != null) {
-            this.aUu.remove(bVar);
+    public static boolean isDirectory(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            return new File(str).isDirectory();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return false;
         }
     }
 
-    public void Gh() {
-        Log.e("LiveDrag", "start refreshViewRect");
-        if (!this.aUu.isEmpty()) {
-            Iterator<b> it = this.aUu.iterator();
-            while (it.hasNext()) {
-                b next = it.next();
-                if (next != null && next.getOverlayView() != null) {
-                    Rect rect = new Rect();
-                    next.getOverlayView().getGlobalVisibleRect(rect);
-                    this.aUt.put(next, rect);
-                    Log.e("LiveDrag", "view" + next.getOverlayView().getId() + " left=" + rect.left + " top=" + rect.top + " right=" + rect.right + " bottom=" + rect.bottom);
+    public static void cleanDir(File file) {
+        if (file != null) {
+            String absolutePath = file.getAbsolutePath();
+            if (!TextUtils.isEmpty(absolutePath)) {
+                if (!absolutePath.startsWith(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath()) && !absolutePath.startsWith(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath())) {
+                    BdLog.w("warning!! clean illegal dir=" + absolutePath);
+                    return;
                 }
-            }
-        }
-        Log.e("LiveDrag", "end refreshViewRect");
-    }
-
-    public void L(View view) {
-        if (!this.aUv.isEmpty()) {
-            LinkedList linkedList = new LinkedList();
-            Iterator<C0190a> it = this.aUv.iterator();
-            while (it.hasNext()) {
-                C0190a next = it.next();
-                if (next != null && next.aUw == view) {
-                    linkedList.add(next);
-                }
-            }
-            if (!linkedList.isEmpty()) {
-                Iterator it2 = linkedList.iterator();
-                while (it2.hasNext()) {
-                    C0190a c0190a = (C0190a) it2.next();
-                    if (c0190a.aUx != null) {
-                        c0190a.aUx.setViewTouchable(true);
+                try {
+                    if (file.exists() && file.isDirectory()) {
+                        File[] listFiles = file.listFiles();
+                        int length = listFiles.length;
+                        for (int i = 0; i < length; i++) {
+                            if (listFiles[i].isFile()) {
+                                listFiles[i].delete();
+                            } else {
+                                cleanDir(listFiles[i]);
+                            }
+                        }
                     }
-                    this.aUv.remove(c0190a);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
             }
-        }
-    }
-
-    /* renamed from: com.baidu.live.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private static class C0190a {
-        public View aUw;
-        public b aUx;
-
-        private C0190a() {
         }
     }
 }

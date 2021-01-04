@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.api.a;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface b {
     @NonNull
-    CallbackHandler alW();
+    CallbackHandler ang();
 
     @NonNull
-    com.baidu.swan.apps.core.container.a alX();
+    com.baidu.swan.apps.core.container.a anh();
 
     @NonNull
     Context getContext();

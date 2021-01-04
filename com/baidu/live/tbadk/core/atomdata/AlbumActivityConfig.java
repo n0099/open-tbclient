@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.atomdata;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlbumActivityConfig extends IntentConfig {
     public static final String ALBUM_RESULT = "album_result";
     public static final String AUTO_PHOTO_NAME = "auto_photo_name";

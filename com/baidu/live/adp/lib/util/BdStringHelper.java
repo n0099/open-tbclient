@@ -3,7 +3,6 @@ package com.baidu.live.adp.lib.util;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import com.baidu.live.tbadk.core.util.StringHelper;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import java.lang.Character;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -14,14 +13,14 @@ import java.util.GregorianCalendar;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdStringHelper {
     protected static SimpleDateFormat FORMATE_DATE_ALL = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     protected static SimpleDateFormat FORMATE_DATE_YEAR = new SimpleDateFormat("yyyy年");
     protected static SimpleDateFormat FORMATE_DATE_TIME = new SimpleDateFormat("HH:mm");
     protected static SimpleDateFormat FORMATE_DATE_MOUTH = new SimpleDateFormat("M月d日");
     protected static SimpleDateFormat FORMATE_DATE_MOUTH_TIME = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat FORMATE_DATE_DAY = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
+    protected static SimpleDateFormat FORMATE_DATE_DAY = new SimpleDateFormat("yyyy-MM-dd");
     protected static SimpleDateFormat FORMATE_DATE_DAY_WEEK = new SimpleDateFormat("yyyy-MM-dd E");
     protected static SimpleDateFormat FORMATE_DATE_DAY_1 = new SimpleDateFormat("yy-M-d");
     protected static SimpleDateFormat FORMATE_DATE_MS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -343,14 +342,20 @@ public class BdStringHelper {
 
     public static int byteLength(String str) {
         int i = 0;
-        for (int i2 = 0; i2 < str.length(); i2++) {
-            if (Integer.toHexString(str.charAt(i2)).length() == 4) {
-                i += 2;
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 < str.length()) {
+                if (Integer.toHexString(str.charAt(i2)).length() == 4) {
+                    i = i3 + 2;
+                } else {
+                    i = i3 + 1;
+                }
+                i2++;
             } else {
-                i++;
+                return i3;
             }
         }
-        return i;
     }
 
     public static String cutString(String str, int i) {
@@ -396,25 +401,14 @@ public class BdStringHelper {
     }
 
     public static String getHighLightString(String str, Color color) {
-        String str2;
-        Exception exc;
-        String replaceAll;
         if (str == null) {
             return "";
         }
         try {
-            replaceAll = str.replaceAll("<em>", "<font color='#007bd1'>");
+            return str.replaceAll("<em>", "<font color='#007bd1'>").replaceAll("</em>", "</font>");
         } catch (Exception e) {
-            str2 = null;
-            exc = e;
-        }
-        try {
-            return replaceAll.replaceAll("</em>", "</font>");
-        } catch (Exception e2) {
-            str2 = replaceAll;
-            exc = e2;
-            BdLog.e(exc.toString());
-            return str2;
+            BdLog.e(e.toString());
+            return null;
         }
     }
 

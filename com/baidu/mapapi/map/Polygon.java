@@ -6,12 +6,14 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class Polygon extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    Stroke f2036a;
-    int b;
+    Stroke f2860a;
+
+    /* renamed from: b  reason: collision with root package name */
+    int f2861b;
     List<LatLng> c;
     List<HoleOptions> d;
     HoleOptions e;
@@ -32,9 +34,9 @@ public final class Polygon extends Overlay {
 
     private void c(List<HoleOptions> list, Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        boolean b = Overlay.b(list, bundle2);
-        bundle.putInt("has_holes", b ? 1 : 0);
-        if (b) {
+        boolean b2 = Overlay.b(list, bundle2);
+        bundle.putInt("has_holes", b2 ? 1 : 0);
+        if (b2) {
             bundle.putBundle("holes", bundle2);
         }
     }
@@ -47,12 +49,12 @@ public final class Polygon extends Overlay {
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         Overlay.a(this.c, bundle);
-        Overlay.a(this.b, bundle);
-        if (this.f2036a == null) {
+        Overlay.a(this.f2861b, bundle);
+        if (this.f2860a == null) {
             bundle.putInt("has_stroke", 0);
         } else {
             bundle.putInt("has_stroke", 1);
-            bundle.putBundle("stroke", this.f2036a.a(new Bundle()));
+            bundle.putBundle("stroke", this.f2860a.a(new Bundle()));
         }
         if (this.d != null && this.d.size() != 0) {
             c(this.d, bundle);
@@ -75,7 +77,7 @@ public final class Polygon extends Overlay {
     }
 
     public int getFillColor() {
-        return this.b;
+        return this.f2861b;
     }
 
     public HoleOptions getHoleOption() {
@@ -91,11 +93,11 @@ public final class Polygon extends Overlay {
     }
 
     public Stroke getStroke() {
-        return this.f2036a;
+        return this.f2860a;
     }
 
     public void setFillColor(int i) {
-        this.b = i;
+        this.f2861b = i;
         this.listener.b(this);
     }
 
@@ -144,7 +146,7 @@ public final class Polygon extends Overlay {
     }
 
     public void setStroke(Stroke stroke) {
-        this.f2036a = stroke;
+        this.f2860a = stroke;
         this.listener.b(this);
     }
 }

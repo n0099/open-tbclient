@@ -6,72 +6,72 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class a implements View.OnClickListener {
-    private ViewGroup ibQ;
-    private TextView kOU;
-    private TextView kOV;
-    private ImageView kOW;
-    private TextView kOX;
-    private ImageView kOY;
-    private TextView kOZ;
-    private int kPa;
-    private int kPb;
-    private int kPc;
+    private ViewGroup ioq;
+    private TextView kUA;
+    private ImageView kUB;
+    private TextView kUC;
+    private ImageView kUD;
+    private TextView kUE;
+    private int kUF;
+    private int kUG;
+    private int kUH;
+    private TextView kUz;
 
     public a(Context context) {
-        this.ibQ = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
-        this.kOU = (TextView) this.ibQ.findViewById(R.id.choose_like_label);
-        this.kOV = (TextView) this.ibQ.findViewById(R.id.recommend_interest_thread);
-        this.kOW = (ImageView) this.ibQ.findViewById(R.id.male_icon);
-        this.kOX = (TextView) this.ibQ.findViewById(R.id.male_text);
-        this.kOY = (ImageView) this.ibQ.findViewById(R.id.female_icon);
-        this.kOZ = (TextView) this.ibQ.findViewById(R.id.female_text);
-        this.kOW.setOnClickListener(this);
-        this.kOY.setOnClickListener(this);
+        this.ioq = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
+        this.kUz = (TextView) this.ioq.findViewById(R.id.choose_like_label);
+        this.kUA = (TextView) this.ioq.findViewById(R.id.recommend_interest_thread);
+        this.kUB = (ImageView) this.ioq.findViewById(R.id.male_icon);
+        this.kUC = (TextView) this.ioq.findViewById(R.id.male_text);
+        this.kUD = (ImageView) this.ioq.findViewById(R.id.female_icon);
+        this.kUE = (TextView) this.ioq.findViewById(R.id.female_text);
+        this.kUB.setOnClickListener(this);
+        this.kUD.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        ap.setViewTextColor(this.kOU, R.color.CAM_X0105);
-        ap.setViewTextColor(this.kOV, R.color.CAM_X0109);
-        ap.setImageResource(this.kOW, R.drawable.img_lable_boy_n);
-        ap.setViewTextColor(this.kOX, R.color.CAM_X0109);
-        ap.setImageResource(this.kOY, R.drawable.img_lable_girl_n);
-        ap.setViewTextColor(this.kOZ, R.color.CAM_X0109);
+        ao.setViewTextColor(this.kUz, R.color.CAM_X0105);
+        ao.setViewTextColor(this.kUA, R.color.CAM_X0109);
+        ao.setImageResource(this.kUB, R.drawable.img_lable_boy_n);
+        ao.setViewTextColor(this.kUC, R.color.CAM_X0109);
+        ao.setImageResource(this.kUD, R.drawable.img_lable_girl_n);
+        ao.setViewTextColor(this.kUE, R.color.CAM_X0109);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
-        if (y.getCount(list) == 2) {
-            this.kPa = list.get(0).labelId;
-            this.kPb = list.get(1).labelId;
+        if (x.getCount(list) == 2) {
+            this.kUF = list.get(0).labelId;
+            this.kUG = list.get(1).labelId;
         }
     }
 
-    public ViewGroup dcV() {
-        return this.ibQ;
+    public ViewGroup dcF() {
+        return this.ioq;
     }
 
-    public int dcW() {
-        return this.kPc;
+    public int dcG() {
+        return this.kUH;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        if (view == this.kOW) {
+        if (view == this.kUB) {
             z = true;
         } else {
-            z = view == this.kOY ? false : false;
+            z = view == this.kUD ? false : false;
         }
-        this.kPc = z ? this.kPa : this.kPb;
-        ap.setImageResource(this.kOW, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
-        ap.setViewTextColor(this.kOX, z ? R.color.CAM_X0302 : R.color.CAM_X0109);
-        ap.setImageResource(this.kOY, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
-        ap.setViewTextColor(this.kOZ, z ? R.color.CAM_X0109 : R.color.CAM_X0301);
+        this.kUH = z ? this.kUF : this.kUG;
+        ao.setImageResource(this.kUB, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
+        ao.setViewTextColor(this.kUC, z ? R.color.CAM_X0302 : R.color.CAM_X0109);
+        ao.setImageResource(this.kUD, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
+        ao.setViewTextColor(this.kUE, z ? R.color.CAM_X0109 : R.color.CAM_X0301);
     }
 }

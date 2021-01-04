@@ -4,15 +4,15 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a implements IAdapterData {
-    public static final BdUniqueId oLe = BdUniqueId.gen();
+    public static final BdUniqueId oRr = BdUniqueId.gen();
     private String mAction;
     private String mIconUrl;
     private String mId;
     private String mName;
-    private boolean oLf;
-    private boolean oLg;
+    private boolean oRs;
+    private boolean oRt;
 
     public String getId() {
         return this.mId;
@@ -30,16 +30,16 @@ public class a implements IAdapterData {
         return this.mAction;
     }
 
-    public boolean ekM() {
-        return this.oLf;
+    public boolean ekV() {
+        return this.oRs;
     }
 
-    public boolean ekN() {
-        return this.oLg;
+    public boolean ekW() {
+        return this.oRt;
     }
 
     public void At(boolean z) {
-        this.oLg = z;
+        this.oRt = z;
     }
 
     public void parse(JSONObject jSONObject) {
@@ -48,12 +48,12 @@ public class a implements IAdapterData {
             this.mIconUrl = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             this.mName = jSONObject.optString("text");
             this.mAction = jSONObject.optString("action");
-            this.oLf = jSONObject.optInt("red_note", 0) == 1;
+            this.oRs = jSONObject.optInt("red_note", 0) == 1;
         }
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return oLe;
+        return oRr;
     }
 }

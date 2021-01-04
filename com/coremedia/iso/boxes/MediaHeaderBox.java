@@ -7,24 +7,25 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.util.DateHelper;
+import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
 import java.util.Date;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MediaHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mdhd";
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_9 = null;
     private Date creationTime;
     private long duration;
     private String language;
@@ -47,7 +48,7 @@ public class MediaHeaderBox extends AbstractFullBox {
         ajc$tjp_6 = bVar.a("method-execution", bVar.d("1", "setModificationTime", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_DATE, "modificationTime", "", "void"), 83);
         ajc$tjp_7 = bVar.a("method-execution", bVar.d("1", "setTimescale", "com.coremedia.iso.boxes.MediaHeaderBox", "long", "timescale", "", "void"), 87);
         ajc$tjp_8 = bVar.a("method-execution", bVar.d("1", "setDuration", "com.coremedia.iso.boxes.MediaHeaderBox", "long", "duration", "", "void"), 91);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_STRING, "language", "", "void"), 95);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.MediaHeaderBox", FieldUtil.TYPE_STRING, KsMediaMeta.KSM_KEY_LANGUAGE, "", "void"), 95);
     }
 
     public MediaHeaderBox() {
@@ -98,12 +99,12 @@ public class MediaHeaderBox extends AbstractFullBox {
     }
 
     public void setTimescale(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.iI(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.js(j)));
         this.timescale = j;
     }
 
     public void setDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.iI(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_8, this, this, org.aspectj.a.a.a.js(j)));
         this.duration = j;
     }
 

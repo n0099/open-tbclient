@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class LoadErrorCode {
     public static final String COLON = ":";
     public static final int GET_INTERN_PACKAGEINFO_FAIL = 2;
@@ -49,7 +49,7 @@ public class LoadErrorCode {
     private volatile StringBuilder mDetails;
     private volatile int mErrorCode;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class Statistics {
         private static final boolean DEBUG = true;
         private static final String KEY_ERROR_CNT = "error_cnt";
@@ -68,7 +68,7 @@ public class LoadErrorCode {
         private static final String RECORD_FILE_NAME = "/load_error.json".replace('/', File.separatorChar);
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes12.dex */
+        /* loaded from: classes4.dex */
         public static class ErrorItem {
             public int mCount;
             public String mDetails;
@@ -223,73 +223,65 @@ public class LoadErrorCode {
             }
         }
 
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0064 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:3:0x0007 */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Type inference failed for: r0v0, types: [java.io.FileInputStream] */
-        /* JADX WARN: Type inference failed for: r0v10, types: [org.json.JSONObject] */
-        /* JADX WARN: Type inference failed for: r0v11 */
-        /* JADX WARN: Type inference failed for: r0v12 */
-        /* JADX WARN: Type inference failed for: r0v13 */
-        /* JADX WARN: Type inference failed for: r0v4 */
-        /* JADX WARN: Type inference failed for: r0v5 */
-        /* JADX WARN: Type inference failed for: r0v7 */
-        /* JADX WARN: Type inference failed for: r0v9 */
         private static JSONObject fileToJSON() {
             FileInputStream fileInputStream;
-            ?? r0 = 0;
-            r0 = 0;
-            r0 = 0;
-            r0 = 0;
+            JSONObject jSONObject;
+            FileInputStream fileInputStream2 = null;
             try {
-                if (sRecordFile.exists()) {
-                    try {
-                        fileInputStream = new FileInputStream(sRecordFile);
-                        try {
-                            int available = fileInputStream.available();
-                            if (available > 0) {
-                                byte[] bArr = new byte[available];
-                                fileInputStream.read(bArr);
-                                JSONObject jSONObject = new JSONObject(new String(bArr));
-                                try {
-                                    Log.d(TAG, "readJSON " + jSONObject);
-                                    r0 = jSONObject;
-                                } catch (Exception e) {
-                                    r0 = jSONObject;
-                                    e = e;
-                                    addInfo(e.getMessage());
-                                    e.printStackTrace();
-                                    if (fileInputStream != null) {
-                                        try {
-                                            fileInputStream.close();
-                                        } catch (IOException e2) {
-                                        }
-                                    }
-                                    return r0;
-                                }
-                            }
-                            try {
-                                fileInputStream.close();
-                            } catch (IOException e3) {
-                            }
-                        } catch (Exception e4) {
-                            e = e4;
-                        }
-                    } catch (Exception e5) {
-                        e = e5;
-                        fileInputStream = null;
-                    } catch (Throwable th) {
-                        th = th;
-                        if (0 != 0) {
-                            try {
-                                r0.close();
-                            } catch (IOException e6) {
-                            }
-                        }
-                        throw th;
-                    }
+                if (!sRecordFile.exists()) {
+                    return null;
                 }
-                return r0;
+                try {
+                    fileInputStream = new FileInputStream(sRecordFile);
+                    try {
+                        int available = fileInputStream.available();
+                        if (available > 0) {
+                            byte[] bArr = new byte[available];
+                            fileInputStream.read(bArr);
+                            jSONObject = new JSONObject(new String(bArr));
+                            try {
+                                Log.d(TAG, "readJSON " + jSONObject);
+                            } catch (Exception e) {
+                                e = e;
+                                addInfo(e.getMessage());
+                                e.printStackTrace();
+                                if (fileInputStream != null) {
+                                    try {
+                                        fileInputStream.close();
+                                        return jSONObject;
+                                    } catch (IOException e2) {
+                                        return jSONObject;
+                                    }
+                                }
+                                return jSONObject;
+                            }
+                        } else {
+                            jSONObject = null;
+                        }
+                        try {
+                            fileInputStream.close();
+                            return jSONObject;
+                        } catch (IOException e3) {
+                            return jSONObject;
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
+                        jSONObject = null;
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    fileInputStream = null;
+                    jSONObject = null;
+                } catch (Throwable th) {
+                    th = th;
+                    if (0 != 0) {
+                        try {
+                            fileInputStream2.close();
+                        } catch (IOException e6) {
+                        }
+                    }
+                    throw th;
+                }
             } catch (Throwable th2) {
                 th = th2;
             }

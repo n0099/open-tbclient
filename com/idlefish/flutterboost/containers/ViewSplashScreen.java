@@ -3,12 +3,12 @@ package com.idlefish.flutterboost.containers;
 import android.animation.Animator;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import io.flutter.embedding.android.SplashScreen;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public final class ViewSplashScreen implements SplashScreen {
     private final long crossfadeDurationInMillis = 5;
     private final View splashView;

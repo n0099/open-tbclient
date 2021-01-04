@@ -1,93 +1,93 @@
 package com.baidu.swan.apps.framework;
 
-import android.support.annotation.NonNull;
 import android.view.KeyEvent;
+import androidx.annotation.NonNull;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d implements b {
-    private List<b> dar = new CopyOnWriteArrayList();
+    private List<b> dfo = new CopyOnWriteArrayList();
 
     public void c(@NonNull b bVar) {
-        this.dar.add(bVar);
+        this.dfo.add(bVar);
     }
 
     public void d(@NonNull b bVar) {
-        this.dar.remove(bVar);
+        this.dfo.remove(bVar);
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void awY() {
-        if (this.dar != null && this.dar.size() > 0) {
-            for (b bVar : this.dar) {
-                bVar.awY();
+    public void ayp() {
+        if (this.dfo != null && this.dfo.size() > 0) {
+            for (b bVar : this.dfo) {
+                bVar.ayp();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void awZ() {
-        if (this.dar != null && this.dar.size() > 0) {
-            for (b bVar : this.dar) {
-                bVar.awZ();
+    public void ayq() {
+        if (this.dfo != null && this.dfo.size() > 0) {
+            for (b bVar : this.dfo) {
+                bVar.ayq();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void amg() {
-        if (this.dar != null && this.dar.size() > 0) {
-            for (b bVar : this.dar) {
-                bVar.amg();
+    public void anq() {
+        if (this.dfo != null && this.dfo.size() > 0) {
+            for (b bVar : this.dfo) {
+                bVar.anq();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void any() {
-        if (this.dar != null && this.dar.size() > 0) {
-            for (b bVar : this.dar) {
-                bVar.any();
+    public void aoJ() {
+        if (this.dfo != null && this.dfo.size() > 0) {
+            for (b bVar : this.dfo) {
+                bVar.aoJ();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void apA() {
-        if (this.dar != null && this.dar.size() > 0) {
-            for (b bVar : this.dar) {
-                bVar.apA();
+    public void aqM() {
+        if (this.dfo != null && this.dfo.size() > 0) {
+            for (b bVar : this.dfo) {
+                bVar.aqM();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void amf() {
-        if (this.dar != null && this.dar.size() > 0) {
-            for (b bVar : this.dar) {
-                bVar.amf();
+    public void anp() {
+        if (this.dfo != null && this.dfo.size() > 0) {
+            for (b bVar : this.dfo) {
+                bVar.anp();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.framework.b
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.dar == null || this.dar.size() <= 0) {
+        if (this.dfo == null || this.dfo.size() <= 0) {
             return false;
         }
         boolean z = false;
-        for (b bVar : this.dar) {
+        for (b bVar : this.dfo) {
             z = z || bVar.onKeyDown(i, keyEvent);
         }
         return z;
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void amh() {
-        if (this.dar != null && this.dar.size() > 0) {
-            for (b bVar : this.dar) {
+    public void anr() {
+        if (this.dfo != null && this.dfo.size() > 0) {
+            for (b bVar : this.dfo) {
                 if (bVar != null) {
-                    bVar.amh();
+                    bVar.anr();
                 }
             }
         }

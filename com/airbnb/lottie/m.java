@@ -1,164 +1,56 @@
 package com.airbnb.lottie;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
-import android.util.Log;
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
+import androidx.collection.ArraySet;
+import androidx.core.util.Pair;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-import java.util.concurrent.FutureTask;
-/* loaded from: classes7.dex */
-public class m<T> {
-    public static Executor Dp = Executors.newCachedThreadPool();
-    @Nullable
-    private Thread Dq;
-    private final Set<i<T>> Dr;
-    private final Set<i<Throwable>> Ds;
-    private final FutureTask<l<T>> Dt;
-    @Nullable
-    private volatile l<T> Du;
-    private final Handler handler;
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public m(Callable<l<T>> callable) {
-        this(callable, false);
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    m(Callable<l<T>> callable, boolean z) {
-        this.Dr = new LinkedHashSet(1);
-        this.Ds = new LinkedHashSet(1);
-        this.handler = new Handler(Looper.getMainLooper());
-        this.Du = null;
-        this.Dt = new FutureTask<>(callable);
-        if (z) {
-            try {
-                a(callable.call());
-                return;
-            } catch (Throwable th) {
-                a(new l<>(th));
-                return;
+/* loaded from: classes3.dex */
+public class m {
+    private boolean enabled = false;
+    private final Set<a> Dm = new ArraySet();
+    private final Map<String, com.airbnb.lottie.d.d> Dn = new HashMap();
+    private final Comparator<Pair<String, Float>> Do = new Comparator<Pair<String, Float>>() { // from class: com.airbnb.lottie.m.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: b */
+        public int compare(Pair<String, Float> pair, Pair<String, Float> pair2) {
+            float floatValue = pair.second.floatValue();
+            float floatValue2 = pair2.second.floatValue();
+            if (floatValue2 > floatValue) {
+                return 1;
             }
+            if (floatValue > floatValue2) {
+                return -1;
+            }
+            return 0;
         }
-        Dp.execute(this.Dt);
-        iQ();
+    };
+
+    /* loaded from: classes3.dex */
+    public interface a {
+        void g(float f);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(@Nullable l<T> lVar) {
-        if (this.Du != null) {
-            throw new IllegalStateException("A task may only be set once.");
-        }
-        this.Du = lVar;
-        iP();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setEnabled(boolean z) {
+        this.enabled = z;
     }
 
-    public synchronized m<T> a(i<T> iVar) {
-        if (this.Du != null && this.Du.getValue() != null) {
-            iVar.onResult(this.Du.getValue());
-        }
-        this.Dr.add(iVar);
-        iQ();
-        return this;
-    }
-
-    public synchronized m<T> b(i<T> iVar) {
-        this.Dr.remove(iVar);
-        iR();
-        return this;
-    }
-
-    public synchronized m<T> c(i<Throwable> iVar) {
-        if (this.Du != null && this.Du.iO() != null) {
-            iVar.onResult(this.Du.iO());
-        }
-        this.Ds.add(iVar);
-        iQ();
-        return this;
-    }
-
-    public synchronized m<T> d(i<Throwable> iVar) {
-        this.Ds.remove(iVar);
-        iR();
-        return this;
-    }
-
-    private void iP() {
-        this.handler.post(new Runnable() { // from class: com.airbnb.lottie.m.1
-            @Override // java.lang.Runnable
-            public void run() {
-                if (m.this.Du != null && !m.this.Dt.isCancelled()) {
-                    l lVar = m.this.Du;
-                    if (lVar.getValue() != null) {
-                        m.this.o(lVar.getValue());
-                    } else {
-                        m.this.f(lVar.iO());
-                    }
+    public void c(String str, float f) {
+        if (this.enabled) {
+            com.airbnb.lottie.d.d dVar = this.Dn.get(str);
+            if (dVar == null) {
+                dVar = new com.airbnb.lottie.d.d();
+                this.Dn.put(str, dVar);
+            }
+            dVar.add(f);
+            if (str.equals("__container")) {
+                for (a aVar : this.Dm) {
+                    aVar.g(f);
                 }
             }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void o(T t) {
-        for (i iVar : new ArrayList(this.Dr)) {
-            iVar.onResult(t);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f(Throwable th) {
-        ArrayList<i> arrayList = new ArrayList(this.Ds);
-        if (arrayList.isEmpty()) {
-            Log.w("LOTTIE", "Lottie encountered an error but no failure listener was added.", th);
-            return;
-        }
-        for (i iVar : arrayList) {
-            iVar.onResult(th);
-        }
-    }
-
-    private synchronized void iQ() {
-        if (!iS() && this.Du == null) {
-            this.Dq = new Thread("LottieTaskObserver") { // from class: com.airbnb.lottie.m.2
-                private boolean Dw = false;
-
-                @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
-                    while (!isInterrupted() && !this.Dw) {
-                        if (m.this.Dt.isDone()) {
-                            try {
-                                m.this.a((l) m.this.Dt.get());
-                            } catch (InterruptedException | ExecutionException e) {
-                                m.this.a(new l(e));
-                            }
-                            this.Dw = true;
-                            m.this.iR();
-                        }
-                    }
-                }
-            };
-            this.Dq.start();
-            d.debug("Starting TaskObserver thread");
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void iR() {
-        if (iS() && (this.Dr.isEmpty() || this.Du != null)) {
-            this.Dq.interrupt();
-            this.Dq = null;
-            d.debug("Stopping TaskObserver thread");
-        }
-    }
-
-    private boolean iS() {
-        return this.Dq != null && this.Dq.isAlive();
     }
 }

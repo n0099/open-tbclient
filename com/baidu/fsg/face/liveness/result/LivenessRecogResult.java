@@ -7,7 +7,7 @@ import com.baidu.fsg.face.base.c.a;
 import com.baidu.fsg.face.base.d.d;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LivenessRecogResult extends a {
     public static final int ERROR_CODE_CONTRAST_FAIL = -302;
     public static final int ERROR_CODE_FACE_SDK_INIT_FAIL = -303;

@@ -27,7 +27,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class JSONPath implements JSONAware {
     static final long SIZE = 5614464919154503228L;
     private static ConcurrentMap<String, JSONPath> pathCache = new ConcurrentHashMap(128, 0.75f, 1);
@@ -37,13 +37,13 @@ public class JSONPath implements JSONAware {
     private SerializeConfig serializeConfig;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface Filter {
         boolean apply(JSONPath jSONPath, Object obj, Object obj2, Object obj3);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public enum Operator {
         EQ,
         NE,
@@ -62,7 +62,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface Segement {
         Object eval(JSONPath jSONPath, Object obj, Object obj2);
     }
@@ -153,15 +153,12 @@ public class JSONPath implements JSONAware {
         if (objArr != null && objArr.length != 0 && obj != null) {
             init();
             Object obj2 = null;
-            int i2 = 0;
             Object obj3 = obj;
-            while (i2 < this.segments.length) {
+            for (int i2 = 0; i2 < this.segments.length; i2++) {
                 if (i2 == this.segments.length - 1) {
                     obj2 = obj3;
                 }
-                Object eval = this.segments[i2].eval(this, obj, obj3);
-                i2++;
-                obj3 = eval;
+                obj3 = this.segments[i2].eval(this, obj, obj3);
             }
             if (obj3 == null) {
                 throw new JSONPathException("value not found in path " + this.path);
@@ -252,7 +249,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x004e  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x006a  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0069  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -312,9 +309,8 @@ public class JSONPath implements JSONAware {
                 }
             }
             i++;
-            Object obj5 = obj4;
+            obj3 = obj4;
             obj4 = eval;
-            obj3 = obj5;
         }
         if (obj4 != null) {
             Segement segement3 = this.segments[this.segments.length - 1];
@@ -487,7 +483,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class JSONPathParser {
         private char ch;
         private int level;
@@ -584,7 +580,7 @@ public class JSONPath implements JSONAware {
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:250:0x0458, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:250:0x0452, code lost:
             r1 = r13.pos - 1;
          */
         /*
@@ -593,7 +589,6 @@ public class JSONPath implements JSONAware {
         Segement parseArrayAccess(boolean z) {
             boolean z2;
             String str;
-            String str2;
             Operator operator;
             int i = 0;
             if (z) {
@@ -749,44 +744,38 @@ public class JSONPath implements JSONAware {
                                 }
                             } else {
                                 String[] split = readString.split("%");
+                                String str2 = null;
                                 String[] strArr2 = null;
                                 if (indexOf == 0) {
                                     if (readString.charAt(readString.length() - 1) == '%') {
                                         strArr2 = new String[split.length - 1];
                                         System.arraycopy(split, 1, strArr2, 0, strArr2.length);
                                         str = null;
-                                        str2 = null;
                                     } else {
-                                        String str3 = split[split.length - 1];
+                                        str2 = split[split.length - 1];
                                         if (split.length <= 2) {
-                                            str = str3;
-                                            str2 = null;
+                                            str = null;
                                         } else {
                                             strArr2 = new String[split.length - 2];
                                             System.arraycopy(split, 1, strArr2, 0, strArr2.length);
-                                            str = str3;
-                                            str2 = null;
+                                            str = null;
                                         }
                                     }
                                 } else if (readString.charAt(readString.length() - 1) == '%') {
                                     strArr2 = split;
-                                    str2 = null;
                                     str = null;
                                 } else if (split.length == 1) {
-                                    str2 = split[0];
-                                    str = null;
+                                    str = split[0];
                                 } else if (split.length == 2) {
-                                    str2 = split[0];
-                                    str = split[1];
+                                    str = split[0];
+                                    str2 = split[1];
                                 } else {
-                                    String str4 = split[0];
-                                    String str5 = split[split.length - 1];
+                                    str = split[0];
+                                    str2 = split[split.length - 1];
                                     strArr2 = new String[split.length - 2];
                                     System.arraycopy(split, 1, strArr2, 0, strArr2.length);
-                                    str = str5;
-                                    str2 = str4;
                                 }
-                                return new FilterSegement(new MatchSegement(readName, str2, str, strArr2, z8));
+                                return new FilterSegement(new MatchSegement(readName, str, str2, strArr2, z8));
                             }
                         } else {
                             operator = readOp;
@@ -1122,7 +1111,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class SizeSegement implements Segement {
         public static final SizeSegement instance = new SizeSegement();
 
@@ -1137,7 +1126,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class PropertySegement implements Segement {
         private final boolean deep;
         private final String propertyName;
@@ -1173,7 +1162,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class MultiPropertySegement implements Segement {
         private final String[] propertyNames;
         private final long[] propertyNamesHash;
@@ -1197,7 +1186,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class WildCardSegement implements Segement {
         public static WildCardSegement instance = new WildCardSegement();
 
@@ -1211,7 +1200,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class ArrayAccessSegement implements Segement {
         private final int index;
 
@@ -1234,7 +1223,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class MultiIndexSegement implements Segement {
         private final int[] indexes;
 
@@ -1253,7 +1242,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class RangeSegement implements Segement {
         private final int end;
         private final int start;
@@ -1284,7 +1273,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class NotNullSegement implements Filter {
         private final String propertyName;
         private final long propertyNameHash;
@@ -1301,7 +1290,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class NullSegement implements Filter {
         private final String propertyName;
         private final long propertyNameHash;
@@ -1318,7 +1307,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class ValueSegment implements Filter {
         private boolean eq;
         private final String propertyName;
@@ -1347,7 +1336,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class IntInSegement implements Filter {
         private final boolean not;
         private final String propertyName;
@@ -1382,7 +1371,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class IntBetweenSegement implements Filter {
         private final long endValue;
         private final boolean not;
@@ -1415,7 +1404,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class IntObjInSegement implements Filter {
         private final boolean not;
         private final String propertyName;
@@ -1454,7 +1443,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class StringInSegement implements Filter {
         private final boolean not;
         private final String propertyName;
@@ -1484,7 +1473,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class IntOpSegement implements Filter {
         private final Operator op;
         private final String propertyName;
@@ -1513,7 +1502,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class DoubleOpSegement implements Filter {
         private final Operator op;
         private final String propertyName;
@@ -1542,7 +1531,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class MatchSegement implements Filter {
         private final String[] containsValues;
         private final String endsWithValue;
@@ -1553,7 +1542,6 @@ public class JSONPath implements JSONAware {
         private final String startsWithValue;
 
         public MatchSegement(String str, String str2, String str3, String[] strArr, boolean z) {
-            int i = 0;
             this.propertyName = str;
             this.propertyNameHash = TypeUtils.fnv1a_64(str);
             this.startsWithValue = str2;
@@ -1563,11 +1551,8 @@ public class JSONPath implements JSONAware {
             int length = str2 != null ? str2.length() + 0 : 0;
             length = str3 != null ? length + str3.length() : length;
             if (strArr != null) {
-                int length2 = strArr.length;
-                while (i < length2) {
-                    int length3 = strArr[i].length() + length;
-                    i++;
-                    length = length3;
+                for (String str4 : strArr) {
+                    length += str4.length();
                 }
             }
             this.minLength = length;
@@ -1610,7 +1595,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class RlikeSegement implements Filter {
         private final boolean not;
         private final Pattern pattern;
@@ -1636,7 +1621,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class StringOpSegement implements Filter {
         private final Operator op;
         private final String propertyName;
@@ -1667,7 +1652,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class FilterSegement implements Segement {
         private final Filter filter;
 

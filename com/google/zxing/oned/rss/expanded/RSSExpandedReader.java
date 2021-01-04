@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class RSSExpandedReader extends AbstractRSSReader {
     private static final int FINDER_PAT_A = 0;
     private static final int FINDER_PAT_B = 1;
@@ -40,7 +40,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
     private static final int[] EVEN_TOTAL_SUBSET = {4, 20, 52, 104, 204};
     private static final int[] GSUM = {0, 348, 1388, 2948, 3988};
     private static final int[][] FINDER_PATTERNS = {new int[]{1, 8, 4, 1}, new int[]{3, 6, 4, 1}, new int[]{3, 4, 6, 1}, new int[]{3, 2, 8, 1}, new int[]{2, 6, 5, 1}, new int[]{2, 2, 9, 1}};
-    private static final int[][] WEIGHTS = {new int[]{1, 3, 9, 27, 81, 32, 96, 77}, new int[]{20, 60, 180, 118, 143, 7, 21, 63}, new int[]{189, 145, 13, 39, 117, 140, FAUEnum.PR_TIMEOUT, 205}, new int[]{193, 157, 49, 147, 19, 57, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 91}, new int[]{62, 186, 136, Constants.METHOD_IM_DELIVER_CONFIG_MSG, Opcodes.RET, 85, 44, IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER}, new int[]{185, 133, Opcodes.NEWARRAY, 142, 4, 12, 36, 108}, new int[]{113, 128, 173, 97, 80, 29, 87, 50}, new int[]{150, 28, 84, 41, Constants.METHOD_IM_FRIEND_GROUP_QUERY, Opcodes.IFLE, 52, 156}, new int[]{46, 138, 203, Opcodes.NEW, 139, 206, 196, Opcodes.IF_ACMPNE}, new int[]{76, 17, 51, Opcodes.IFEQ, 37, 111, 122, 155}, new int[]{43, 129, Opcodes.ARETURN, 106, 107, 110, 119, 146}, new int[]{16, 48, 144, 10, 30, 90, 59, Opcodes.RETURN}, new int[]{109, 116, 137, 200, Opcodes.GETSTATIC, 112, Constants.METHOD_IM_FRIEND_GROUP_ASSIGN, 164}, new int[]{70, 210, FAUEnum.PR_ANIMATE_FAILED, 202, Opcodes.INVOKESTATIC, IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER, 179, 115}, new int[]{134, 191, Opcodes.DCMPL, 31, 93, 68, 204, 190}, new int[]{Opcodes.LCMP, 22, 66, Opcodes.IFNULL, 172, 94, 71, 2}, new int[]{6, 18, 54, 162, 64, 192, Opcodes.IFNE, 40}, new int[]{120, Opcodes.FCMPL, 25, 75, 14, 42, Opcodes.IAND, 167}, new int[]{79, 26, 78, 23, 69, 207, Opcodes.IFNONNULL, 175}, new int[]{103, 98, 83, 38, 114, IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER, Opcodes.INVOKEVIRTUAL, Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER}, new int[]{161, 61, 183, 127, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 88, 53, Opcodes.IF_ICMPEQ}, new int[]{55, Opcodes.IF_ACMPEQ, 73, 8, 24, 72, 5, 15}, new int[]{45, 135, DownloadConstants.STATUS_WAITING_TO_RETRY, 160, 58, 174, 100, 89}};
+    private static final int[][] WEIGHTS = {new int[]{1, 3, 9, 27, 81, 32, 96, 77}, new int[]{20, 60, 180, 118, 143, 7, 21, 63}, new int[]{189, 145, 13, 39, 117, 140, FAUEnum.PR_TIMEOUT, 205}, new int[]{193, 157, 49, 147, 19, 57, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 91}, new int[]{62, 186, 136, Constants.METHOD_IM_DELIVER_CONFIG_MSG, Opcodes.RET, 85, 44, IMPushPb.PushImClient.ACTIONS_FIELD_NUMBER}, new int[]{185, 133, Opcodes.NEWARRAY, 142, 4, 12, 36, 108}, new int[]{113, 128, 173, 97, 80, 29, 87, 50}, new int[]{150, 28, 84, 41, Constants.METHOD_IM_FRIEND_GROUP_QUERY, Opcodes.IFLE, 52, 156}, new int[]{46, 138, 203, Opcodes.NEW, 139, 206, 196, Opcodes.IF_ACMPNE}, new int[]{76, 17, 51, Opcodes.IFEQ, 37, 111, 122, 155}, new int[]{43, 129, Opcodes.ARETURN, 106, 107, 110, 119, 146}, new int[]{16, 48, 144, 10, 30, 90, 59, Opcodes.RETURN}, new int[]{109, 116, 137, 200, Opcodes.GETSTATIC, 112, Constants.METHOD_IM_FRIEND_GROUP_ASSIGN, 164}, new int[]{70, 210, 208, 202, Opcodes.INVOKESTATIC, IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER, 179, 115}, new int[]{134, 191, Opcodes.DCMPL, 31, 93, 68, 204, 190}, new int[]{Opcodes.LCMP, 22, 66, Opcodes.IFNULL, 172, 94, 71, 2}, new int[]{6, 18, 54, 162, 64, 192, Opcodes.IFNE, 40}, new int[]{120, Opcodes.FCMPL, 25, 75, 14, 42, Opcodes.IAND, 167}, new int[]{79, 26, 78, 23, 69, 207, Opcodes.IFNONNULL, 175}, new int[]{103, 98, 83, 38, 114, IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER, Opcodes.INVOKEVIRTUAL, Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER}, new int[]{161, 61, 183, 127, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 88, 53, Opcodes.IF_ICMPEQ}, new int[]{55, Opcodes.IF_ACMPEQ, 73, 8, 24, 72, 5, 15}, new int[]{45, 135, DownloadConstants.STATUS_WAITING_TO_RETRY, 160, 58, 174, 100, 89}};
     private static final int[][] FINDER_PATTERN_SEQUENCES = {new int[]{0, 0}, new int[]{0, 1, 1}, new int[]{0, 2, 1, 3}, new int[]{0, 4, 1, 3, 2}, new int[]{0, 4, 1, 3, 3, 5}, new int[]{0, 4, 1, 3, 4, 5, 5}, new int[]{0, 0, 1, 1, 2, 2, 3, 3}, new int[]{0, 0, 1, 1, 2, 2, 3, 4, 4}, new int[]{0, 0, 1, 1, 2, 2, 3, 4, 5, 5}, new int[]{0, 0, 1, 1, 2, 3, 3, 4, 4, 5, 5}};
 
     @Override // com.google.zxing.oned.OneDReader
@@ -173,9 +173,10 @@ public final class RSSExpandedReader extends AbstractRSSReader {
             if (expandedRow.getRowNumber() > i) {
                 z2 = expandedRow.isEquivalent(this.pairs);
                 break;
+            } else {
+                i2++;
+                z3 = expandedRow.isEquivalent(this.pairs);
             }
-            i2++;
-            z3 = expandedRow.isEquivalent(this.pairs);
         }
         if (!z2 && !z3 && !isPartialRow(this.pairs, this.rows)) {
             this.rows.add(i2, new ExpandedRow(this.pairs, i, z));
@@ -278,8 +279,8 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         if (rightChar == null) {
             return false;
         }
-        int i = 2;
         int checksumPortion = rightChar.getChecksumPortion();
+        int i = 2;
         for (int i2 = 1; i2 < this.pairs.size(); i2++) {
             ExpandedPair expandedPair2 = this.pairs.get(i2);
             checksumPortion += expandedPair2.getLeftChar().getChecksumPortion();
@@ -336,6 +337,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
     }
 
     private void findNextPair(BitArray bitArray, List<ExpandedPair> list, int i) throws NotFoundException {
+        int i2;
         int[] decodeFinderCounters = getDecodeFinderCounters();
         decodeFinderCounters[0] = 0;
         decodeFinderCounters[1] = 0;
@@ -354,35 +356,36 @@ public final class RSSExpandedReader extends AbstractRSSReader {
             z = !z;
         }
         boolean z2 = false;
-        int i2 = i;
-        while (i2 < size) {
-            z2 = !bitArray.get(i2);
+        int i3 = i;
+        while (i3 < size) {
+            z2 = !bitArray.get(i3);
             if (!z2) {
                 break;
             }
-            i2++;
+            i3++;
         }
-        int i3 = i2;
         int i4 = 0;
-        boolean z3 = z2;
         int i5 = i3;
-        for (int i6 = i2; i6 < size; i6++) {
-            if (bitArray.get(i6) ^ z3) {
+        int i6 = i3;
+        boolean z3 = z2;
+        while (i5 < size) {
+            if (bitArray.get(i5) ^ z3) {
                 decodeFinderCounters[i4] = decodeFinderCounters[i4] + 1;
+                i2 = i6;
             } else {
                 if (i4 == 3) {
                     if (z) {
                         reverseCounters(decodeFinderCounters);
                     }
                     if (isFinderPattern(decodeFinderCounters)) {
-                        this.startEnd[0] = i5;
-                        this.startEnd[1] = i6;
+                        this.startEnd[0] = i6;
+                        this.startEnd[1] = i5;
                         return;
                     }
                     if (z) {
                         reverseCounters(decodeFinderCounters);
                     }
-                    i5 += decodeFinderCounters[0] + decodeFinderCounters[1];
+                    i2 = decodeFinderCounters[0] + decodeFinderCounters[1] + i6;
                     decodeFinderCounters[0] = decodeFinderCounters[2];
                     decodeFinderCounters[1] = decodeFinderCounters[3];
                     decodeFinderCounters[2] = 0;
@@ -390,10 +393,13 @@ public final class RSSExpandedReader extends AbstractRSSReader {
                     i4--;
                 } else {
                     i4++;
+                    i2 = i6;
                 }
                 decodeFinderCounters[i4] = 1;
                 z3 = !z3;
             }
+            i5++;
+            i6 = i2;
         }
         throw NotFoundException.getNotFoundInstance();
     }
@@ -495,10 +501,10 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         int i7 = 0;
         while (length2 >= 0) {
             if (isNotA1left(finderPattern, z, z2)) {
-                i7 += WEIGHTS[value][length2 * 2] * oddCounts[length2];
+                i6 += WEIGHTS[value][length2 * 2] * oddCounts[length2];
             }
             length2--;
-            i6 = oddCounts[length2] + i6;
+            i7 = oddCounts[length2] + i7;
         }
         int i8 = 0;
         for (int length3 = evenCounts.length - 1; length3 >= 0; length3--) {
@@ -506,11 +512,11 @@ public final class RSSExpandedReader extends AbstractRSSReader {
                 i8 += WEIGHTS[value][(length3 * 2) + 1] * evenCounts[length3];
             }
         }
-        int i9 = i7 + i8;
-        if ((i6 & 1) != 0 || i6 > 13 || i6 < 4) {
+        int i9 = i6 + i8;
+        if ((i7 & 1) != 0 || i7 > 13 || i7 < 4) {
             throw NotFoundException.getNotFoundInstance();
         }
-        int i10 = (13 - i6) / 2;
+        int i10 = (13 - i7) / 2;
         int i11 = SYMBOL_WIDEST[i10];
         return new DataCharacter(GSUM[i10] + (RSSUtils.getRSSvalue(oddCounts, i11, true) * EVEN_TOTAL_SUBSET[i10]) + RSSUtils.getRSSvalue(evenCounts, 9 - i11, false), i9);
     }
@@ -524,9 +530,6 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         boolean z2;
         boolean z3;
         boolean z4;
-        boolean z5;
-        boolean z6;
-        boolean z7 = true;
         int sum = MathUtils.sum(getOddCounts());
         int sum2 = MathUtils.sum(getEvenCounts());
         if (sum > 13) {
@@ -550,74 +553,58 @@ public final class RSSExpandedReader extends AbstractRSSReader {
             z4 = false;
         }
         int i2 = (sum + sum2) - i;
-        boolean z8 = (sum & 1) == 1;
-        boolean z9 = (sum2 & 1) == 0;
+        boolean z5 = (sum & 1) == 1;
+        boolean z6 = (sum2 & 1) == 0;
         if (i2 == 1) {
-            if (z8) {
-                if (z9) {
+            if (z5) {
+                if (z6) {
                     throw NotFoundException.getNotFoundInstance();
                 }
-                z6 = z2;
-                z7 = z4;
-                z5 = true;
-            } else if (!z9) {
+                z = true;
+            } else if (!z6) {
                 throw NotFoundException.getNotFoundInstance();
             } else {
                 z3 = true;
-                z7 = z4;
-                z5 = z;
-                z6 = z2;
             }
         } else if (i2 == -1) {
-            if (z8) {
-                if (z9) {
+            if (z5) {
+                if (z6) {
                     throw NotFoundException.getNotFoundInstance();
                 }
-                boolean z10 = z4;
-                z5 = z;
-                z6 = true;
-                z7 = z10;
-            } else if (!z9) {
+                z2 = true;
+            } else if (!z6) {
                 throw NotFoundException.getNotFoundInstance();
             } else {
-                z5 = z;
-                z6 = z2;
+                z4 = true;
             }
         } else if (i2 == 0) {
-            if (z8) {
-                if (!z9) {
+            if (z5) {
+                if (!z6) {
                     throw NotFoundException.getNotFoundInstance();
                 }
                 if (sum < sum2) {
                     z3 = true;
-                    boolean z11 = z4;
-                    z5 = z;
-                    z6 = true;
-                    z7 = z11;
+                    z2 = true;
                 } else {
-                    z5 = true;
-                    z6 = z2;
+                    z4 = true;
+                    z = true;
                 }
-            } else if (z9) {
+            } else if (z6) {
                 throw NotFoundException.getNotFoundInstance();
-            } else {
-                z7 = z4;
-                z5 = z;
-                z6 = z2;
             }
         } else {
             throw NotFoundException.getNotFoundInstance();
         }
-        if (z6) {
-            if (z5) {
+        if (z2) {
+            if (z) {
                 throw NotFoundException.getNotFoundInstance();
             }
             increment(getOddCounts(), getOddRoundingErrors());
         }
-        if (z5) {
+        if (z) {
             decrement(getOddCounts(), getOddRoundingErrors());
         }
-        if (z7) {
+        if (z4) {
             if (z3) {
                 throw NotFoundException.getNotFoundInstance();
             }

@@ -1,13 +1,57 @@
 package com.baidu.live.utils;
 
-import android.app.Activity;
-/* loaded from: classes4.dex */
+import android.text.TextUtils;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+/* loaded from: classes11.dex */
 public class q {
-    public static void e(Activity activity, boolean z) {
-        if (z) {
-            activity.getWindow().clearFlags(1024);
-        } else {
-            activity.getWindow().addFlags(1024);
+    private static String bOX = "";
+
+    public static String Ia() {
+        if (TbadkCoreApplication.getInst().isMobileBaidu()) {
+            return "ala_subapp_shoubai_android_consume";
         }
+        if (TbadkCoreApplication.getInst().isHaokan()) {
+            return "ala_subapp_haokan_android_consume";
+        }
+        if (TbadkCoreApplication.getInst().isQuanmin()) {
+            return "ala_subapp_quanmin_android_consume";
+        }
+        if (TbadkCoreApplication.getInst().isTieba()) {
+            return "ala_tieba_android_consume";
+        }
+        if (TbadkCoreApplication.getInst().isYinbo()) {
+            return "ala_subapp_yinbo_android_consume";
+        }
+        return "";
+    }
+
+    public static String XF() {
+        if (TextUtils.isEmpty(bOX)) {
+            if (TbadkCoreApplication.getInst().isMobileBaidu()) {
+                return "ala_subapp_shoubai_android_consume";
+            }
+            if (TbadkCoreApplication.getInst().isHaokan()) {
+                return "ala_subapp_haokan_android_consume";
+            }
+            if (TbadkCoreApplication.getInst().isQuanmin()) {
+                return "ala_subapp_quanmin_android_consume";
+            }
+            if (TbadkCoreApplication.getInst().isTieba()) {
+                return "ala_tieba_android_consume";
+            }
+            if (TbadkCoreApplication.getInst().isYinbo()) {
+                return "ala_subapp_yinbo_android_consume";
+            }
+            return "";
+        }
+        return bOX;
+    }
+
+    public static void iU(String str) {
+        bOX = str;
+    }
+
+    public static String XG() {
+        return bOX;
     }
 }

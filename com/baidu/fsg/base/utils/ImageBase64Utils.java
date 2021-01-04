@@ -8,15 +8,17 @@ import android.util.Base64;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class ImageBase64Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1515a = "ImageBase64Utils";
-    private static int b = 70;
+    private static final String f2026a = "ImageBase64Utils";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static int f2027b = 70;
     private static ImageBase64Utils c;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public interface ImageBase64Listener {
         void onBase64Result(String str);
     }
@@ -53,9 +55,9 @@ public class ImageBase64Utils {
             try {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
-                LogUtil.d(f1515a, "compress size:\t" + byteArray.length + "\timagesize" + byteArray.length + "\twidth" + bitmap.getWidth());
+                LogUtil.d(f2026a, "compress size:\t" + byteArray.length + "\timagesize" + byteArray.length + "\twidth" + bitmap.getWidth());
                 byte[] encode = Base64.encode(byteArray, 0, byteArray.length, 2);
-                LogUtil.d(f1515a, "base64 size:\t" + (byteArray.length / 1024));
+                LogUtil.d(f2026a, "base64 size:\t" + (byteArray.length / 1024));
                 String str = new String(encode);
                 try {
                     byteArrayOutputStream.close();
@@ -93,19 +95,19 @@ public class ImageBase64Utils {
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inJustDecodeBounds = true;
                     BitmapFactory.decodeFile(str, options);
-                    LogUtil.d(f1515a, "original size\t " + (file.length() / 1000) + "\twidth" + options.outWidth + "\theight" + options.outHeight);
+                    LogUtil.d(f2026a, "original size\t " + (file.length() / 1000) + "\twidth" + options.outWidth + "\theight" + options.outHeight);
                     int computeSampleSize = ImageCompressor.computeSampleSize(options, i, -1);
                     options.inSampleSize = computeSampleSize;
                     options.inJustDecodeBounds = false;
                     Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    decodeFile.compress(Bitmap.CompressFormat.JPEG, b, byteArrayOutputStream);
+                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f2027b, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    LogUtil.d(f1515a, "compress size:\t" + byteArray.length + "\tsampleSize" + computeSampleSize + "\twidth" + decodeFile.getWidth());
+                    LogUtil.d(f2026a, "compress size:\t" + byteArray.length + "\tsampleSize" + computeSampleSize + "\twidth" + decodeFile.getWidth());
                     decodeFile.recycle();
                     byteArrayOutputStream.close();
                     byte[] encode = Base64.encode(byteArray, 0, byteArray.length, 2);
-                    LogUtil.d(f1515a, "base64 size:\t" + (byteArray.length / 1024));
+                    LogUtil.d(f2026a, "base64 size:\t" + (byteArray.length / 1024));
                     return new String(encode);
                 }
             } catch (Throwable th) {
@@ -118,14 +120,16 @@ public class ImageBase64Utils {
         new ImageBase64AsyncTask(imageBase64Listener, str, i).execute("");
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     class ImageBase64AsyncTask extends AsyncTask<String, Integer, String> {
-        private ImageBase64Listener b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private ImageBase64Listener f2029b;
         private String c;
         private int d;
 
         public ImageBase64AsyncTask(ImageBase64Listener imageBase64Listener, String str, int i) {
-            this.b = imageBase64Listener;
+            this.f2029b = imageBase64Listener;
             this.c = str;
             this.d = i;
         }
@@ -144,8 +148,8 @@ public class ImageBase64Utils {
         /* renamed from: a */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            if (this.b != null) {
-                this.b.onBase64Result(str);
+            if (this.f2029b != null) {
+                this.f2029b.onBase64Result(str);
             }
         }
     }

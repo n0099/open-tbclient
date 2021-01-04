@@ -5,10 +5,10 @@ import android.view.View;
 import android.webkit.WebView;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public interface NativeResponse {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public enum MaterialType {
         NORMAL,
         VIDEO,

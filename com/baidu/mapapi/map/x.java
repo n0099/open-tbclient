@@ -3,15 +3,15 @@ package com.baidu.mapapi.map;
 import android.view.View;
 import com.baidu.mapapi.map.SwipeDismissTouchListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class x implements SwipeDismissTouchListener.DismissCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SwipeDismissView f2090a;
+    final /* synthetic */ SwipeDismissView f2939a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(SwipeDismissView swipeDismissView) {
-        this.f2090a = swipeDismissView;
+        this.f2939a = swipeDismissView;
     }
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
@@ -21,17 +21,17 @@ public class x implements SwipeDismissTouchListener.DismissCallbacks {
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
     public void onDismiss(View view, Object obj) {
-        if (this.f2090a.f2047a == null) {
+        if (this.f2939a.f2877a == null) {
             return;
         }
-        this.f2090a.f2047a.onDismiss();
+        this.f2939a.f2877a.onDismiss();
     }
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
     public void onNotify() {
-        if (this.f2090a.f2047a == null) {
+        if (this.f2939a.f2877a == null) {
             return;
         }
-        this.f2090a.f2047a.onNotify();
+        this.f2939a.f2877a.onNotify();
     }
 }

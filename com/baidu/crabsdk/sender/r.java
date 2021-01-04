@@ -1,43 +1,35 @@
 package com.baidu.crabsdk.sender;
 
-import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class r {
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0137: ARRAY_LENGTH  (r4v10 int A[REMOVE]) = (r9v0 byte[]))] */
-    /* JADX WARN: Removed duplicated region for block: B:117:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0103 A[Catch: Exception -> 0x0209, TryCatch #6 {Exception -> 0x0209, blocks: (B:20:0x00fe, B:22:0x0103, B:24:0x0108, B:26:0x010d), top: B:99:0x00fe }] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0108 A[Catch: Exception -> 0x0209, TryCatch #6 {Exception -> 0x0209, blocks: (B:20:0x00fe, B:22:0x0103, B:24:0x0108, B:26:0x010d), top: B:99:0x00fe }] */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x010d A[Catch: Exception -> 0x0209, TRY_LEAVE, TryCatch #6 {Exception -> 0x0209, blocks: (B:20:0x00fe, B:22:0x0103, B:24:0x0108, B:26:0x010d), top: B:99:0x00fe }] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x01ad A[Catch: Exception -> 0x020f, TryCatch #1 {Exception -> 0x020f, blocks: (B:44:0x01a8, B:46:0x01ad, B:48:0x01b2, B:50:0x01b7), top: B:97:0x01a8 }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x01b2 A[Catch: Exception -> 0x020f, TryCatch #1 {Exception -> 0x020f, blocks: (B:44:0x01a8, B:46:0x01ad, B:48:0x01b2, B:50:0x01b7), top: B:97:0x01a8 }] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x01b7 A[Catch: Exception -> 0x020f, TRY_LEAVE, TryCatch #1 {Exception -> 0x020f, blocks: (B:44:0x01a8, B:46:0x01ad, B:48:0x01b2, B:50:0x01b7), top: B:97:0x01a8 }] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x01a8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x00fe A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0132: ARRAY_LENGTH  (r4v9 int A[REMOVE]) = (r8v0 byte[]))] */
+    /* JADX WARN: Removed duplicated region for block: B:110:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x00fe A[Catch: Exception -> 0x0203, TryCatch #12 {Exception -> 0x0203, blocks: (B:20:0x00f9, B:22:0x00fe, B:24:0x0103, B:26:0x0108), top: B:98:0x00f9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0103 A[Catch: Exception -> 0x0203, TryCatch #12 {Exception -> 0x0203, blocks: (B:20:0x00f9, B:22:0x00fe, B:24:0x0103, B:26:0x0108), top: B:98:0x00f9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0108 A[Catch: Exception -> 0x0203, TRY_LEAVE, TryCatch #12 {Exception -> 0x0203, blocks: (B:20:0x00f9, B:22:0x00fe, B:24:0x0103, B:26:0x0108), top: B:98:0x00f9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x01a8 A[Catch: Exception -> 0x0209, TryCatch #4 {Exception -> 0x0209, blocks: (B:44:0x01a3, B:46:0x01a8, B:48:0x01ad, B:50:0x01b2), top: B:94:0x01a3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x01ad A[Catch: Exception -> 0x0209, TryCatch #4 {Exception -> 0x0209, blocks: (B:44:0x01a3, B:46:0x01a8, B:48:0x01ad, B:50:0x01b2), top: B:94:0x01a3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x01b2 A[Catch: Exception -> 0x0209, TRY_LEAVE, TryCatch #4 {Exception -> 0x0209, blocks: (B:44:0x01a3, B:46:0x01a8, B:48:0x01ad, B:50:0x01b2), top: B:94:0x01a3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x01a3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x00f9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String a(String str, byte[] bArr, String str2, String str3) {
+        Throwable th;
+        InputStreamReader inputStreamReader;
         BufferedReader bufferedReader;
         HttpURLConnection httpURLConnection;
         DataOutputStream dataOutputStream;
-        InputStreamReader inputStreamReader;
-        DataOutputStream dataOutputStream2;
+        Exception e;
         String p;
-        BufferedReader bufferedReader2;
-        InputStreamReader inputStreamReader2 = null;
-        r2 = null;
-        inputStreamReader2 = null;
-        r2 = null;
-        inputStreamReader2 = null;
-        r2 = null;
-        inputStreamReader2 = null;
-        BufferedReader bufferedReader3 = null;
         try {
             com.baidu.crabsdk.c.a.v("Upload data size is: " + (bArr.length / 1024) + "KB");
             HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
@@ -78,21 +70,21 @@ public final class r {
                         httpURLConnection2.setRequestProperty("EncryptType", "RSA-AES");
                     }
                     httpURLConnection2.setRequestProperty("EncryptData", p);
-                    httpURLConnection2.setRequestProperty("User-Agent", g.a(str2, h.dR(str3)));
+                    httpURLConnection2.setRequestProperty("User-Agent", g.a(str2, h.dI(str3)));
                 }
-                httpURLConnection2.setConnectTimeout(CoolPraiseGuideLottieView.ANIM_DURATION);
-                httpURLConnection2.setReadTimeout(CoolPraiseGuideLottieView.ANIM_DURATION);
+                httpURLConnection2.setConnectTimeout(8000);
+                httpURLConnection2.setReadTimeout(8000);
                 dataOutputStream = new DataOutputStream(httpURLConnection2.getOutputStream());
                 try {
                     dataOutputStream.write(bArr);
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     StringBuffer stringBuffer = new StringBuffer();
-                    com.baidu.crabsdk.c.a.dE("response code is " + httpURLConnection2.getResponseCode());
+                    com.baidu.crabsdk.c.a.dx("response code is " + httpURLConnection2.getResponseCode());
                     if (httpURLConnection2.getResponseCode() == 200) {
-                        InputStreamReader inputStreamReader3 = new InputStreamReader(httpURLConnection2.getInputStream());
+                        inputStreamReader = new InputStreamReader(httpURLConnection2.getInputStream());
                         try {
-                            bufferedReader = new BufferedReader(inputStreamReader3);
+                            bufferedReader = new BufferedReader(inputStreamReader);
                             while (true) {
                                 try {
                                     String readLine = bufferedReader.readLine();
@@ -100,43 +92,37 @@ public final class r {
                                         break;
                                     }
                                     stringBuffer.append(readLine).append("\n");
-                                } catch (Exception e) {
-                                    bufferedReader3 = bufferedReader;
-                                    dataOutputStream2 = dataOutputStream;
-                                    inputStreamReader = inputStreamReader3;
+                                } catch (Exception e2) {
+                                    e = e2;
                                     httpURLConnection = httpURLConnection2;
-                                    e = e;
                                     try {
                                         com.baidu.crabsdk.c.a.a("Upload Data Error!", e);
-                                        if (dataOutputStream2 != null) {
+                                        if (dataOutputStream != null) {
                                             try {
-                                                dataOutputStream2.close();
-                                            } catch (Exception e2) {
-                                                e2.printStackTrace();
+                                                dataOutputStream.close();
+                                            } catch (Exception e3) {
+                                                e3.printStackTrace();
                                                 return "N/A";
                                             }
                                         }
                                         if (httpURLConnection != null) {
                                             httpURLConnection.disconnect();
                                         }
-                                        if (bufferedReader3 != null) {
-                                            bufferedReader3.close();
+                                        if (bufferedReader != null) {
+                                            bufferedReader.close();
                                         }
                                         if (inputStreamReader == null) {
                                             inputStreamReader.close();
                                             return "N/A";
                                         }
                                         return "N/A";
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        dataOutputStream = dataOutputStream2;
-                                        bufferedReader = bufferedReader3;
-                                        inputStreamReader2 = inputStreamReader;
+                                    } catch (Throwable th2) {
+                                        th = th2;
                                         if (dataOutputStream != null) {
                                             try {
                                                 dataOutputStream.close();
-                                            } catch (Exception e3) {
-                                                e3.printStackTrace();
+                                            } catch (Exception e4) {
+                                                e4.printStackTrace();
                                                 throw th;
                                             }
                                         }
@@ -146,121 +132,109 @@ public final class r {
                                         if (bufferedReader != null) {
                                             bufferedReader.close();
                                         }
-                                        if (inputStreamReader2 != null) {
-                                            inputStreamReader2.close();
+                                        if (inputStreamReader != null) {
+                                            inputStreamReader.close();
                                         }
                                         throw th;
                                     }
-                                } catch (Throwable th2) {
-                                    inputStreamReader2 = inputStreamReader3;
+                                } catch (Throwable th3) {
+                                    th = th3;
                                     httpURLConnection = httpURLConnection2;
-                                    th = th2;
                                     if (dataOutputStream != null) {
                                     }
                                     if (httpURLConnection != null) {
                                     }
                                     if (bufferedReader != null) {
                                     }
-                                    if (inputStreamReader2 != null) {
+                                    if (inputStreamReader != null) {
                                     }
                                     throw th;
                                 }
                             }
-                            inputStreamReader3.close();
+                            inputStreamReader.close();
                             bufferedReader.close();
-                            inputStreamReader2 = inputStreamReader3;
-                            bufferedReader2 = bufferedReader;
-                        } catch (Exception e4) {
-                            dataOutputStream2 = dataOutputStream;
-                            httpURLConnection = httpURLConnection2;
-                            e = e4;
-                            inputStreamReader = inputStreamReader3;
-                        } catch (Throwable th3) {
+                        } catch (Exception e5) {
+                            e = e5;
                             bufferedReader = null;
-                            inputStreamReader2 = inputStreamReader3;
                             httpURLConnection = httpURLConnection2;
-                            th = th3;
+                            com.baidu.crabsdk.c.a.a("Upload Data Error!", e);
+                            if (dataOutputStream != null) {
+                            }
+                            if (httpURLConnection != null) {
+                            }
+                            if (bufferedReader != null) {
+                            }
+                            if (inputStreamReader == null) {
+                            }
+                        } catch (Throwable th4) {
+                            th = th4;
+                            bufferedReader = null;
+                            httpURLConnection = httpURLConnection2;
+                            if (dataOutputStream != null) {
+                            }
+                            if (httpURLConnection != null) {
+                            }
+                            if (bufferedReader != null) {
+                            }
+                            if (inputStreamReader != null) {
+                            }
+                            throw th;
                         }
                     } else {
                         stringBuffer.append("N/A");
-                        bufferedReader2 = null;
+                        inputStreamReader = null;
+                        bufferedReader = null;
                     }
+                    httpURLConnection2.disconnect();
+                    String stringBuffer2 = stringBuffer.toString();
                     try {
-                        httpURLConnection2.disconnect();
-                        String stringBuffer2 = stringBuffer.toString();
-                        try {
-                            dataOutputStream.close();
-                            if (httpURLConnection2 != null) {
-                                httpURLConnection2.disconnect();
-                            }
-                            if (bufferedReader2 != null) {
-                                bufferedReader2.close();
-                            }
-                            if (inputStreamReader2 != null) {
-                                inputStreamReader2.close();
-                            }
-                        } catch (Exception e5) {
-                            e5.printStackTrace();
-                        }
-                        return stringBuffer2;
-                    } catch (Exception e6) {
-                        dataOutputStream2 = dataOutputStream;
-                        InputStreamReader inputStreamReader4 = inputStreamReader2;
-                        bufferedReader3 = bufferedReader2;
-                        httpURLConnection = httpURLConnection2;
-                        e = e6;
-                        inputStreamReader = inputStreamReader4;
-                        com.baidu.crabsdk.c.a.a("Upload Data Error!", e);
-                        if (dataOutputStream2 != null) {
-                        }
-                        if (httpURLConnection != null) {
-                        }
-                        if (bufferedReader3 != null) {
-                        }
-                        if (inputStreamReader == null) {
-                        }
-                    } catch (Throwable th4) {
-                        bufferedReader = bufferedReader2;
-                        httpURLConnection = httpURLConnection2;
-                        th = th4;
-                        if (dataOutputStream != null) {
-                        }
-                        if (httpURLConnection != null) {
+                        dataOutputStream.close();
+                        if (httpURLConnection2 != null) {
+                            httpURLConnection2.disconnect();
                         }
                         if (bufferedReader != null) {
+                            bufferedReader.close();
                         }
-                        if (inputStreamReader2 != null) {
+                        if (inputStreamReader != null) {
+                            inputStreamReader.close();
                         }
-                        throw th;
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
                     }
+                    return stringBuffer2;
                 } catch (Exception e7) {
-                    httpURLConnection = httpURLConnection2;
-                    dataOutputStream2 = dataOutputStream;
                     e = e7;
                     inputStreamReader = null;
-                } catch (Throwable th5) {
                     bufferedReader = null;
                     httpURLConnection = httpURLConnection2;
+                } catch (Throwable th5) {
                     th = th5;
+                    inputStreamReader = null;
+                    bufferedReader = null;
+                    httpURLConnection = httpURLConnection2;
                 }
             } catch (Exception e8) {
-                httpURLConnection = httpURLConnection2;
-                dataOutputStream2 = null;
                 e = e8;
                 inputStreamReader = null;
-            } catch (Throwable th6) {
                 bufferedReader = null;
                 httpURLConnection = httpURLConnection2;
                 dataOutputStream = null;
+            } catch (Throwable th6) {
                 th = th6;
+                inputStreamReader = null;
+                bufferedReader = null;
+                httpURLConnection = httpURLConnection2;
+                dataOutputStream = null;
             }
         } catch (Exception e9) {
             e = e9;
             inputStreamReader = null;
+            bufferedReader = null;
             httpURLConnection = null;
-            dataOutputStream2 = null;
+            dataOutputStream = null;
         } catch (Throwable th7) {
             th = th7;
+            inputStreamReader = null;
             bufferedReader = null;
             httpURLConnection = null;
             dataOutputStream = null;
@@ -308,17 +282,16 @@ public final class r {
 
     private static HttpURLConnection b(long j, String str, String str2) {
         HttpURLConnection httpURLConnection;
-        Exception e;
         try {
-            com.baidu.crabsdk.c.a.dE("发送数据的 url is : " + str2);
+            com.baidu.crabsdk.c.a.dx("发送数据的 url is : " + str2);
             httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
             try {
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setUseCaches(false);
-                httpURLConnection.setConnectTimeout(15000);
-                httpURLConnection.setReadTimeout(15000);
+                httpURLConnection.setConnectTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+                httpURLConnection.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
                 httpURLConnection.setRequestProperty("Content-Encoding", "gzip");
                 httpURLConnection.setRequestProperty("Encrypt-Data", str);
                 httpURLConnection.setRequestProperty("Content-Type", "application/octet-stream");
@@ -326,14 +299,14 @@ public final class r {
                 httpURLConnection.setRequestProperty("User-Agent", com.baidu.crabsdk.a.d);
                 httpURLConnection.setRequestProperty("Encrypt-Type", "2");
                 httpURLConnection.setRequestProperty("ver", "v5");
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 e.printStackTrace();
                 return httpURLConnection;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             httpURLConnection = null;
-            e = e3;
         }
         return httpURLConnection;
     }

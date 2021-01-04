@@ -6,34 +6,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bd {
-    private ArrayList<UserData> bCz = new ArrayList<>();
-    private ArrayList<UserData> eHy = new ArrayList<>();
-    private ax eHz = new ax();
-    private int eHA = 0;
-    private int eHB = 0;
+    private ArrayList<UserData> bHm = new ArrayList<>();
+    private ArrayList<UserData> eRp = new ArrayList<>();
+    private ax eRq = new ax();
+    private int eRr = 0;
+    private int eRs = 0;
 
     public void setPage(ax axVar) {
-        this.eHz = axVar;
+        this.eRq = axVar;
     }
 
     public ax getPage() {
-        return this.eHz;
+        return this.eRq;
     }
 
-    public ArrayList<UserData> bnI() {
-        return this.bCz;
+    public ArrayList<UserData> bqi() {
+        return this.bHm;
     }
 
-    public ArrayList<UserData> bnJ() {
-        return this.eHy;
+    public ArrayList<UserData> bqj() {
+        return this.eRp;
     }
 
-    public int bnK() {
-        return this.eHA;
+    public int bqk() {
+        return this.eRr;
     }
 
-    public int bnL() {
-        return this.eHB;
+    public int bql() {
+        return this.eRs;
     }
 
     public void parserJson(String str) {
@@ -54,7 +54,7 @@ public class bd {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.bCz.add(userData);
+                        this.bHm.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -62,12 +62,12 @@ public class bd {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.eHy.add(userData2);
+                        this.eRp.add(userData2);
                     }
                 }
-                this.eHz.parserJson(jSONObject.optJSONObject("page"));
-                this.eHA = jSONObject.optInt("tafriendnum", 0);
-                this.eHB = jSONObject.optInt("commonfriendnum", 0);
+                this.eRq.parserJson(jSONObject.optJSONObject("page"));
+                this.eRr = jSONObject.optInt("tafriendnum", 0);
+                this.eRs = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

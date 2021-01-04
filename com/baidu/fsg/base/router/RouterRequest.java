@@ -3,17 +3,19 @@ package com.baidu.fsg.base.router;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class RouterRequest {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1484a = "RouterRequest";
-    private String b = "";
+    private static final String f1975a = "RouterRequest";
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f1976b = "";
     private String c = "";
     private HashMap d = new HashMap();
 
     public String getProvider() {
-        return this.b;
+        return this.f1976b;
     }
 
     public String getAction() {
@@ -27,7 +29,7 @@ public class RouterRequest {
     public String toString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("provider", this.b);
+            jSONObject.put("provider", this.f1976b);
             jSONObject.put("action", this.c);
             try {
                 JSONObject jSONObject2 = new JSONObject();
@@ -46,7 +48,7 @@ public class RouterRequest {
     }
 
     public RouterRequest provider(String str) {
-        this.b = str;
+        this.f1976b = str;
         return this;
     }
 

@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class PDF417HighLevelEncoder {
     private static final int BYTE_COMPACTION = 1;
     private static final int ECI_CHARSET = 927;
@@ -33,16 +33,16 @@ final class PDF417HighLevelEncoder {
     static {
         Arrays.fill(MIXED, (byte) -1);
         for (int i = 0; i < TEXT_MIXED_RAW.length; i++) {
-            byte b = TEXT_MIXED_RAW[i];
-            if (b > 0) {
-                MIXED[b] = (byte) i;
+            byte b2 = TEXT_MIXED_RAW[i];
+            if (b2 > 0) {
+                MIXED[b2] = (byte) i;
             }
         }
         Arrays.fill(PUNCTUATION, (byte) -1);
         for (int i2 = 0; i2 < TEXT_PUNCTUATION_RAW.length; i2++) {
-            byte b2 = TEXT_PUNCTUATION_RAW[i2];
-            if (b2 > 0) {
-                PUNCTUATION[b2] = (byte) i2;
+            byte b3 = TEXT_PUNCTUATION_RAW[i2];
+            if (b3 > 0) {
+                PUNCTUATION[b3] = (byte) i2;
             }
         }
     }
@@ -78,8 +78,8 @@ final class PDF417HighLevelEncoder {
                     sb.append((char) 902);
                     i = 2;
                     encodeNumeric(str, i3, determineConsecutiveDigitCount, sb);
-                    i3 += determineConsecutiveDigitCount;
                     i2 = 0;
+                    i3 = determineConsecutiveDigitCount + i3;
                 } else {
                     int determineConsecutiveTextCount = determineConsecutiveTextCount(str, i3);
                     if (determineConsecutiveTextCount >= 5 || determineConsecutiveDigitCount == length) {
@@ -309,7 +309,7 @@ final class PDF417HighLevelEncoder {
         return i2;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0029, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0027, code lost:
         return (r0 - r7) - r1;
      */
     /*
@@ -323,12 +323,9 @@ final class PDF417HighLevelEncoder {
             int i3 = 0;
             while (i3 < 13 && isDigit(charAt) && i2 < length) {
                 i3++;
-                int i4 = i2 + 1;
-                if (i4 < length) {
-                    charAt = charSequence.charAt(i4);
-                    i2 = i4;
-                } else {
-                    i2 = i4;
+                i2++;
+                if (i2 < length) {
+                    charAt = charSequence.charAt(i2);
                 }
             }
             if (i3 <= 0) {

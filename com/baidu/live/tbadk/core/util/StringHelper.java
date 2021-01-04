@@ -1,6 +1,5 @@
 package com.baidu.live.tbadk.core.util;
 
-import android.support.media.ExifInterface;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -14,6 +13,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.baidu.swan.games.utils.so.SoUtils;
+import com.kwad.sdk.core.response.model.SdkConfigData;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class StringHelper extends BdStringHelper {
     public static final String STRING_MORE = "...";
     private static long MS_TO_SEC = 1000;
@@ -64,7 +64,7 @@ public class StringHelper extends BdStringHelper {
         int i2 = i / 1000;
         int i3 = i2 % 60;
         int i4 = (i2 / 60) % 60;
-        int i5 = i2 / 3600;
+        int i5 = i2 / SdkConfigData.DEFAULT_REQUEST_INTERVAL;
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb, Locale.getDefault());
         sb.setLength(0);
@@ -321,8 +321,6 @@ public class StringHelper extends BdStringHelper {
     }
 
     public static String getHighLightString(String str, String str2) {
-        String str3;
-        Exception exc;
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -330,18 +328,10 @@ public class StringHelper extends BdStringHelper {
             str2 = "#007bd1";
         }
         try {
-            String replaceAll = str.replaceAll("<em>", "<font color='" + str2 + "'>");
-            try {
-                return replaceAll.replaceAll("</em>", "</font>");
-            } catch (Exception e) {
-                str3 = replaceAll;
-                exc = e;
-                BdLog.e(exc.toString());
-                return str3;
-            }
-        } catch (Exception e2) {
-            str3 = null;
-            exc = e2;
+            return str.replaceAll("<em>", "<font color='" + str2 + "'>").replaceAll("</em>", "</font>");
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+            return null;
         }
     }
 
@@ -585,9 +575,9 @@ public class StringHelper extends BdStringHelper {
         if (j < 9999000.0d) {
             float f = ((float) (j / 1000)) / 10.0f;
             if (f % 1.0f == 0.0f) {
-                return ((int) f) + ExifInterface.LONGITUDE_WEST;
+                return ((int) f) + "W";
             }
-            return f + ExifInterface.LONGITUDE_WEST;
+            return f + "W";
         }
         return "999.9W";
     }
@@ -602,9 +592,9 @@ public class StringHelper extends BdStringHelper {
         if (j < 10000000) {
             float f = ((float) (j / 1000)) / 10.0f;
             if (f % 1.0f == 0.0f) {
-                return ((int) f) + ExifInterface.LONGITUDE_WEST;
+                return ((int) f) + "W";
             }
-            return f + ExifInterface.LONGITUDE_WEST;
+            return f + "W";
         }
         float f2 = ((float) (j / TimeUtils.NANOS_PER_MS)) / 10.0f;
         if (f2 >= 9999.0f) {
@@ -628,7 +618,7 @@ public class StringHelper extends BdStringHelper {
 
     public static String numFormatOver10000ReturnInt(long j) {
         if (j > 9999) {
-            return ((int) (((float) j) / 10000.0f)) + ExifInterface.LONGITUDE_WEST;
+            return ((int) (((float) j) / 10000.0f)) + "W";
         }
         if (j < 0) {
             return "0";
@@ -651,7 +641,7 @@ public class StringHelper extends BdStringHelper {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
+            return String.valueOf(j / 10000) + "W";
         }
         if (j > 10000) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
@@ -670,7 +660,7 @@ public class StringHelper extends BdStringHelper {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
+            return String.valueOf(j / 10000) + "W";
         }
         if (j > 10000) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
@@ -691,7 +681,7 @@ public class StringHelper extends BdStringHelper {
             if (((float) round) > f) {
                 round--;
             }
-            return round + ExifInterface.LONGITUDE_WEST;
+            return round + "W";
         } else if (j < 0) {
             return "0";
         } else {
@@ -706,7 +696,7 @@ public class StringHelper extends BdStringHelper {
             if (((float) round) > f) {
                 round--;
             }
-            return round >= 9999 ? "9999W+" : j + ExifInterface.LONGITUDE_WEST;
+            return round >= 9999 ? "9999W+" : j + "W";
         } else if (j < 0) {
             return "0";
         } else {
@@ -736,7 +726,7 @@ public class StringHelper extends BdStringHelper {
             if (((float) round) > f) {
                 round--;
             }
-            return round + ExifInterface.LONGITUDE_WEST;
+            return round + "W";
         } else if (j < 0) {
             return "0";
         } else {
@@ -967,13 +957,13 @@ public class StringHelper extends BdStringHelper {
             DecimalFormat decimalFormat = new DecimalFormat("#.#");
             float f = ((float) j) / 10000.0f;
             if (f < 1000.0f) {
-                return decimalFormat.format(f) + ExifInterface.LONGITUDE_WEST;
+                return decimalFormat.format(f) + "W";
             }
             long round = Math.round(f);
             if (((float) round) > f) {
                 round--;
             }
-            return round + ExifInterface.LONGITUDE_WEST;
+            return round + "W";
         }
         return String.valueOf(j);
     }
@@ -1108,40 +1098,49 @@ public class StringHelper extends BdStringHelper {
     }
 
     public static String subString(String str, int i) {
-        int i2 = 0;
+        int i2;
         if (str == null || i <= 0) {
             return String.valueOf("");
         }
         int length = str.length();
         StringBuilder sb = new StringBuilder();
-        for (int i3 = 0; i3 < length; i3++) {
+        int i3 = 0;
+        int i4 = 0;
+        while (i3 < length) {
             char charAt = str.charAt(i3);
             if (isChinese(charAt)) {
-                i2 += 2;
+                i2 = i4 + 2;
             } else {
-                i2++;
+                i2 = i4 + 1;
             }
             if (i2 > i) {
                 break;
             }
             sb.append(charAt);
+            i3++;
+            i4 = i2;
         }
         return sb.toString();
     }
 
     public static int getChineseAndEnglishLength(String str) {
-        int i = 0;
-        if (str != null) {
-            int length = str.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (isChinese(str.charAt(i2))) {
-                    i += 2;
-                } else {
-                    i++;
-                }
-            }
+        int i;
+        if (str == null) {
+            return 0;
         }
-        return i;
+        int length = str.length();
+        int i2 = 0;
+        int i3 = 0;
+        while (i2 < length) {
+            if (isChinese(str.charAt(i2))) {
+                i = i3 + 2;
+            } else {
+                i = i3 + 1;
+            }
+            i2++;
+            i3 = i;
+        }
+        return i3;
     }
 
     public static String cutForumNameWithSuffix(String str, int i, String str2) {
@@ -1179,15 +1178,16 @@ public class StringHelper extends BdStringHelper {
     }
 
     public static int getRealSize(String str) {
+        if (str == null || str.length() <= 0) {
+            return 0;
+        }
+        int length = str.length();
         int i = 0;
-        if (str != null && str.length() > 0) {
-            int length = str.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (isChinese(str.charAt(i2))) {
-                    i += 2;
-                } else {
-                    i++;
-                }
+        for (int i2 = 0; i2 < length; i2++) {
+            if (isChinese(str.charAt(i2))) {
+                i += 2;
+            } else {
+                i++;
             }
         }
         return i;
@@ -1195,34 +1195,35 @@ public class StringHelper extends BdStringHelper {
 
     public static int getRealSize2(String str) {
         byte[] bytes;
+        if (str == null || (bytes = str.getBytes()) == null) {
+            return 0;
+        }
+        int length = bytes.length;
         int i = 0;
-        if (str != null && (bytes = str.getBytes()) != null) {
-            int length = bytes.length;
-            int i2 = 0;
-            while (i2 < length) {
-                int i3 = bytes[i2] & 255;
-                if (i3 >= 252) {
-                    i2 += 6;
-                    i += 2;
-                } else if (i3 >= 248) {
-                    i2 += 5;
-                    i += 2;
-                } else if (i3 >= 240) {
-                    i2 += 4;
-                    i += 2;
-                } else if (i3 >= 224) {
-                    i2 += 3;
-                    i += 2;
-                } else if (i3 >= 192) {
-                    i2 += 2;
-                    i += 2;
-                } else {
-                    i2++;
-                    i++;
-                }
+        int i2 = 0;
+        while (i < length) {
+            int i3 = bytes[i] & 255;
+            if (i3 >= 252) {
+                i2 += 2;
+                i += 6;
+            } else if (i3 >= 248) {
+                i2 += 2;
+                i += 5;
+            } else if (i3 >= 240) {
+                i2 += 2;
+                i += 4;
+            } else if (i3 >= 224) {
+                i2 += 2;
+                i += 3;
+            } else if (i3 >= 192) {
+                i2 += 2;
+                i += 2;
+            } else {
+                i2++;
+                i++;
             }
         }
-        return i;
+        return i2;
     }
 
     public static String subString2(String str, int i) {
@@ -1443,7 +1444,7 @@ public class StringHelper extends BdStringHelper {
         int i2 = i / 1000;
         int i3 = i2 % 60;
         int i4 = (i2 / 60) % 60;
-        int i5 = i2 / 3600;
+        int i5 = i2 / SdkConfigData.DEFAULT_REQUEST_INTERVAL;
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb, Locale.getDefault());
         sb.setLength(0);

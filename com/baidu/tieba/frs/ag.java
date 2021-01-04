@@ -1,8 +1,23 @@
 package com.baidu.tieba.frs;
 
-import java.util.List;
-/* loaded from: classes.dex */
+import androidx.collection.LongSparseArray;
+import java.util.LinkedList;
+/* loaded from: classes2.dex */
 public class ag {
-    public int iXw;
-    public List<ae> iXx;
+    private static final ag jjQ = new ag();
+    private LongSparseArray<LinkedList<String>> jjP = new LongSparseArray<>();
+
+    private ag() {
+    }
+
+    public static ag cHj() {
+        return jjQ;
+    }
+
+    public void gm(long j) {
+        LinkedList<String> linkedList = this.jjP.get(j);
+        if (linkedList != null) {
+            linkedList.clear();
+        }
+    }
 }

@@ -6,16 +6,18 @@ import android.os.Message;
 import com.baidu.sofire.rp.receiver.Receiver;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class g {
-    private static Lock b = new ReentrantLock();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static Lock f5538b = new ReentrantLock();
     private static g c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.sofire.h.a f3635a;
+    public com.baidu.sofire.h.a f5539a;
 
     private g(Context context) {
-        this.f3635a = new com.baidu.sofire.h.a(context);
+        this.f5539a = new com.baidu.sofire.h.a(context);
     }
 
     public static g a(Context context) {
@@ -23,25 +25,25 @@ public final class g {
             return c;
         }
         try {
-            b.lock();
+            f5538b.lock();
             if (c == null) {
                 c = new g(context);
             }
             return c;
         } finally {
-            b.unlock();
+            f5538b.unlock();
         }
     }
 
     public final void a() {
-        com.baidu.sofire.h.a aVar = this.f3635a;
+        com.baidu.sofire.h.a aVar = this.f5539a;
         if (!"tvshield".equals("sofire")) {
             if (aVar.c == null) {
                 aVar.c = new Receiver();
             }
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.b.r.p");
-            aVar.b.getApplicationContext().registerReceiver(aVar.c, intentFilter, aVar.b.getPackageName() + ".permission.sofire.RECEIVE", null);
+            aVar.f5533b.getApplicationContext().registerReceiver(aVar.c, intentFilter, aVar.f5533b.getPackageName() + ".permission.sofire.RECEIVE", null);
         }
         Message message = new Message();
         message.what = 5;
@@ -49,7 +51,7 @@ public final class g {
     }
 
     public final void b() {
-        com.baidu.sofire.h.a aVar = this.f3635a;
+        com.baidu.sofire.h.a aVar = this.f5539a;
         Message message = new Message();
         message.what = 7;
         aVar.a(message);
@@ -58,6 +60,6 @@ public final class g {
     public final void c() {
         Message message = new Message();
         message.what = 2;
-        this.f3635a.a(message);
+        this.f5539a.a(message);
     }
 }

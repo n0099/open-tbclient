@@ -2,7 +2,7 @@ package kotlin;
 
 import java.io.Serializable;
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class InitializedLazyImpl<T> implements Serializable, c<T> {
     private final T value;
 

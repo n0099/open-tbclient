@@ -208,175 +208,159 @@ public final class SoLoader implements NoProGuard {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [299=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x009e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x00d2 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:68:0x00d9 */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: java.nio.channels.FileLock */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.nio.channels.FileChannel */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: java.nio.channels.FileChannel */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v4, resolved type: java.nio.channels.FileChannel */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: java.nio.channels.FileChannel */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x00de  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x0076 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x0093 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x008e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x0071 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x004d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:98:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [java.io.File] */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v9 */
-    /* JADX WARN: Type inference failed for: r3v0, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r3v1 */
-    /* JADX WARN: Type inference failed for: r3v10, types: [java.nio.channels.FileChannel] */
-    /* JADX WARN: Type inference failed for: r3v11, types: [java.nio.channels.FileChannel] */
-    /* JADX WARN: Type inference failed for: r3v12 */
-    /* JADX WARN: Type inference failed for: r3v13 */
-    /* JADX WARN: Type inference failed for: r3v9 */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x00da  */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0076 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x004d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x0091 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x008c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x00bd A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x00b8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x0071 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:99:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean executeRelease(Context context, ZipFile zipFile, String str, String str2) {
-        Throwable th;
-        Exception e;
         FileLock fileLock;
+        FileChannel fileChannel;
         boolean releaseFileFromApk;
         FileLock fileLock2 = null;
         if (zipFile == null) {
             return false;
         }
-        FileLock releaseSoFilePath = getReleaseSoFilePath(context);
-        FileChannel exists = releaseSoFilePath.exists();
-        if (exists == 0) {
+        File releaseSoFilePath = getReleaseSoFilePath(context);
+        if (!releaseSoFilePath.exists()) {
             releaseSoFilePath.mkdirs();
         }
-        File file = new File((File) releaseSoFilePath, str);
+        File file = new File(releaseSoFilePath, str);
         try {
-            try {
-                File file2 = new File((File) releaseSoFilePath, str + ".lock");
-                if (!file2.exists()) {
-                    try {
-                        file2.createNewFile();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                }
+            File file2 = new File(releaseSoFilePath, str + ".lock");
+            if (!file2.exists()) {
                 try {
-                    exists = new RandomAccessFile(file2, "rw").getChannel();
-                } catch (FileNotFoundException e3) {
-                    e = e3;
-                    exists = 0;
+                    file2.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            }
+            try {
+                fileChannel = new RandomAccessFile(file2, "rw").getChannel();
+            } catch (FileNotFoundException e2) {
+                e = e2;
+                fileChannel = null;
             }
             try {
                 try {
-                    fileLock2 = exists.lock();
-                } catch (IOException e4) {
+                    fileLock2 = fileChannel.lock();
+                } catch (IOException e3) {
                     try {
-                        e4.printStackTrace();
-                    } catch (FileNotFoundException e5) {
-                        e = e5;
+                        e3.printStackTrace();
+                    } catch (FileNotFoundException e4) {
+                        e = e4;
                         e.printStackTrace();
                         fileLock = null;
-                        exists = exists;
                         if (fileLock != null) {
                         }
                         releaseFileFromApk = true;
                         if (fileLock != null) {
                         }
-                        if (exists != 0) {
+                        if (fileChannel != null) {
                         }
                     }
                 }
                 fileLock = fileLock2;
-                exists = exists;
                 if (fileLock != null) {
                     try {
-                        if (fileLock.isValid()) {
-                            releaseFileFromApk = releaseFileFromApk(zipFile, file, str2 + File.separator + str);
+                        try {
+                            if (fileLock.isValid()) {
+                                releaseFileFromApk = releaseFileFromApk(zipFile, file, str2 + File.separator + str);
+                                if (fileLock != null) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (IOException e5) {
+                                        e5.printStackTrace();
+                                    }
+                                }
+                                if (fileChannel != null) {
+                                    try {
+                                        fileChannel.close();
+                                        return releaseFileFromApk;
+                                    } catch (IOException e6) {
+                                        e6.printStackTrace();
+                                        return releaseFileFromApk;
+                                    }
+                                }
+                                return releaseFileFromApk;
+                            }
+                        } catch (Exception e7) {
+                            e = e7;
+                            e.printStackTrace();
                             if (fileLock != null) {
                                 try {
                                     fileLock.release();
-                                } catch (IOException e6) {
-                                    e6.printStackTrace();
+                                } catch (IOException e8) {
+                                    e8.printStackTrace();
                                 }
                             }
-                            if (exists != 0) {
+                            if (fileChannel == null) {
                                 try {
-                                    exists.close();
-                                    return releaseFileFromApk;
-                                } catch (IOException e7) {
-                                    e7.printStackTrace();
-                                    return releaseFileFromApk;
+                                    fileChannel.close();
+                                    return true;
+                                } catch (IOException e9) {
+                                    e9.printStackTrace();
+                                    return true;
                                 }
                             }
-                            return releaseFileFromApk;
+                            return true;
                         }
-                    } catch (Exception e8) {
-                        e = e8;
-                        e.printStackTrace();
+                    } catch (Throwable th) {
+                        th = th;
                         if (fileLock != null) {
                             try {
                                 fileLock.release();
-                            } catch (IOException e9) {
-                                e9.printStackTrace();
-                            }
-                        }
-                        if (exists == 0) {
-                            try {
-                                exists.close();
-                                return true;
                             } catch (IOException e10) {
                                 e10.printStackTrace();
-                                return true;
                             }
                         }
-                        return true;
+                        if (fileChannel != null) {
+                            try {
+                                fileChannel.close();
+                            } catch (IOException e11) {
+                                e11.printStackTrace();
+                            }
+                        }
+                        throw th;
                     }
                 }
                 releaseFileFromApk = true;
                 if (fileLock != null) {
                 }
-                if (exists != 0) {
+                if (fileChannel != null) {
                 }
-            } catch (Exception e11) {
+            } catch (Exception e12) {
+                e = e12;
                 fileLock = null;
-                e = e11;
                 e.printStackTrace();
                 if (fileLock != null) {
                 }
-                if (exists == 0) {
+                if (fileChannel == null) {
                 }
-            } catch (Throwable th3) {
-                releaseSoFilePath = 0;
-                th = th3;
-                if (releaseSoFilePath != 0) {
-                    try {
-                        releaseSoFilePath.release();
-                    } catch (IOException e12) {
-                        e12.printStackTrace();
-                    }
+            } catch (Throwable th2) {
+                th = th2;
+                fileLock = null;
+                if (fileLock != null) {
                 }
-                if (exists != 0) {
-                    try {
-                        exists.close();
-                    } catch (IOException e13) {
-                        e13.printStackTrace();
-                    }
+                if (fileChannel != null) {
                 }
                 throw th;
             }
-        } catch (Exception e14) {
-            exists = 0;
-            e = e14;
+        } catch (Exception e13) {
+            e = e13;
             fileLock = null;
-        } catch (Throwable th4) {
-            releaseSoFilePath = 0;
-            exists = 0;
-            th = th4;
+            fileChannel = null;
+        } catch (Throwable th3) {
+            th = th3;
+            fileLock = null;
+            fileChannel = null;
         }
     }
 
@@ -400,106 +384,101 @@ public final class SoLoader implements NoProGuard {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [361=5, 363=4, 364=4, 365=4, 369=4, 371=4, 372=4, 373=4] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0097 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0094 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x0099 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean releaseFileFromApk(ZipFile zipFile, File file, String str) {
         FileOutputStream fileOutputStream;
         InputStream inputStream;
-        InputStream inputStream2 = null;
         File file2 = new File(file.getAbsoluteFile() + ".tmp");
         if (zipFile != null) {
             try {
                 inputStream = zipFile.getInputStream(zipFile.getEntry(str));
                 try {
                     fileOutputStream = new FileOutputStream(file2);
-                } catch (Exception e) {
-                    e = e;
-                    fileOutputStream = null;
-                    inputStream2 = inputStream;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = null;
-                    inputStream2 = inputStream;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream = null;
-            }
-            try {
-                if (SoUtils.copyStream(inputStream, fileOutputStream, 256) > 0) {
-                    boolean renameTo = file2.renameTo(file);
-                    if (inputStream != null) {
+                    try {
                         try {
-                            inputStream.close();
+                            if (SoUtils.copyStream(inputStream, fileOutputStream, 256) > 0) {
+                                boolean renameTo = file2.renameTo(file);
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                        return renameTo;
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                        return renameTo;
+                                    }
+                                }
+                                return renameTo;
+                            }
                         } catch (Exception e3) {
-                            e3.printStackTrace();
+                            e = e3;
+                            if (DEBUG) {
+                                Log.e(TAG, "SoLoader releaseFileFromApk exception.", e);
+                            }
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (Exception e4) {
+                                    e4.printStackTrace();
+                                }
+                            }
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                } catch (Exception e5) {
+                                    e5.printStackTrace();
+                                }
+                            }
+                            return false;
                         }
+                    } catch (Throwable th) {
+                        th = th;
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e6) {
+                                e6.printStackTrace();
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Exception e7) {
+                                e7.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (Exception e8) {
+                    e = e8;
+                    fileOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream = null;
+                    if (inputStream != null) {
                     }
                     if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                            return renameTo;
-                        } catch (Exception e4) {
-                            e4.printStackTrace();
-                            return renameTo;
-                        }
-                    }
-                    return renameTo;
-                }
-            } catch (Exception e5) {
-                e = e5;
-                inputStream2 = inputStream;
-                try {
-                    if (DEBUG) {
-                        Log.e(TAG, "SoLoader releaseFileFromApk exception.", e);
-                    }
-                    if (inputStream2 != null) {
-                        try {
-                            inputStream2.close();
-                        } catch (Exception e6) {
-                            e6.printStackTrace();
-                        }
-                    }
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e7) {
-                            e7.printStackTrace();
-                        }
-                    }
-                    return false;
-                } catch (Throwable th3) {
-                    th = th3;
-                    if (inputStream2 != null) {
-                        try {
-                            inputStream2.close();
-                        } catch (Exception e8) {
-                            e8.printStackTrace();
-                        }
-                    }
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e9) {
-                            e9.printStackTrace();
-                        }
                     }
                     throw th;
                 }
-            } catch (Throwable th4) {
-                th = th4;
-                inputStream2 = inputStream;
-                if (inputStream2 != null) {
-                }
-                if (fileOutputStream != null) {
-                }
-                throw th;
+            } catch (Exception e9) {
+                e = e9;
+                fileOutputStream = null;
+                inputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                fileOutputStream = null;
+                inputStream = null;
             }
         } else {
             fileOutputStream = null;

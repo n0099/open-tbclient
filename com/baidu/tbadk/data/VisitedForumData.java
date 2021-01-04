@@ -2,7 +2,7 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.frs.FrsTabItemData;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,17 +11,17 @@ import tbclient.HistoryForumInfo;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes.dex */
 public class VisitedForumData extends OrmObject {
-    private boolean ftc;
-    private int ftd;
-    private String fte;
-    private int ftf;
-    private boolean ftg;
-    private int fth;
-    private boolean fti;
-    private boolean ftj;
-    private String ftk;
-    private List<FrsTabItemData> ftl;
-    private PostPrefixData ftm;
+    private boolean fCI;
+    private int fCJ;
+    private String fCK;
+    private int fCL;
+    private boolean fCM;
+    private int fCN;
+    private boolean fCO;
+    private boolean fCP;
+    private String fCQ;
+    private List<FrsTabItemData> fCR;
+    private PostPrefixData fCS;
     public boolean isForumBusinessAccount;
     private String mForumId;
     private String mForumImageUrl;
@@ -30,28 +30,28 @@ public class VisitedForumData extends OrmObject {
 
     public VisitedForumData() {
         this.mForumImageUrl = "";
-        this.ftc = false;
-        this.ftd = 0;
+        this.fCI = false;
+        this.fCJ = 0;
         this.mForumName = "";
         this.mForumId = "";
-        this.fte = "";
+        this.fCK = "";
         this.mThemeColorInfo = null;
-        this.ftf = 0;
-        this.ftg = false;
-        this.fti = false;
-        this.ftj = false;
-        this.ftk = "";
+        this.fCL = 0;
+        this.fCM = false;
+        this.fCO = false;
+        this.fCP = false;
+        this.fCQ = "";
     }
 
     public VisitedForumData(String str, String str2, String str3, String str4, boolean z, ThemeColorInfo themeColorInfo, int i) {
         this.mForumImageUrl = str3;
-        this.ftc = z;
+        this.fCI = z;
         this.mForumName = str2;
         this.mForumId = str;
-        this.fte = str4;
-        this.ftd = 0;
+        this.fCK = str4;
+        this.fCJ = 0;
         this.mThemeColorInfo = themeColorInfo;
-        this.ftf = i;
+        this.fCL = i;
     }
 
     public void a(HistoryForumInfo historyForumInfo) {
@@ -59,43 +59,43 @@ public class VisitedForumData extends OrmObject {
             this.mForumImageUrl = historyForumInfo.avatar;
             this.mForumId = String.valueOf(historyForumInfo.forum_id);
             this.mForumName = historyForumInfo.forum_name;
-            this.ftc = historyForumInfo.is_liveforum.intValue() == 1;
-            this.ftd = historyForumInfo.unread_num.intValue();
-            this.fte = historyForumInfo.visit_time;
+            this.fCI = historyForumInfo.is_liveforum.intValue() == 1;
+            this.fCJ = historyForumInfo.unread_num.intValue();
+            this.fCK = historyForumInfo.visit_time;
             this.mThemeColorInfo = historyForumInfo.theme_color;
-            this.ftf = historyForumInfo.follow_num.intValue();
-            this.ftg = historyForumInfo.need_trans.booleanValue();
-            this.fth = historyForumInfo.level_id.intValue();
+            this.fCL = historyForumInfo.follow_num.intValue();
+            this.fCM = historyForumInfo.need_trans.booleanValue();
+            this.fCN = historyForumInfo.level_id.intValue();
             if (historyForumInfo.block_pop_info != null) {
-                this.ftj = historyForumInfo.block_pop_info.can_post.intValue() == 1;
-                this.ftk = historyForumInfo.block_pop_info.block_info;
+                this.fCP = historyForumInfo.block_pop_info.can_post.intValue() == 1;
+                this.fCQ = historyForumInfo.block_pop_info.block_info;
             }
-            if (!y.isEmpty(historyForumInfo.tab_info)) {
-                this.ftl = new ArrayList();
+            if (!x.isEmpty(historyForumInfo.tab_info)) {
+                this.fCR = new ArrayList();
                 for (FrsTabInfo frsTabInfo : historyForumInfo.tab_info) {
                     if (frsTabInfo != null) {
-                        this.ftl.add(new FrsTabItemData(frsTabInfo));
+                        this.fCR.add(new FrsTabItemData(frsTabInfo));
                     }
                 }
             }
             if (historyForumInfo.has_postpre.booleanValue()) {
-                this.ftm = new PostPrefixData();
-                this.ftm.parserProtobuf(historyForumInfo.post_prefix);
+                this.fCS = new PostPrefixData();
+                this.fCS.parserProtobuf(historyForumInfo.post_prefix);
             }
             this.isForumBusinessAccount = historyForumInfo.is_forum_business_account.intValue() == 1;
         }
     }
 
-    public String bBP() {
+    public String bEk() {
         return this.mForumImageUrl;
     }
 
-    public boolean bBQ() {
-        return this.ftc;
+    public boolean bEl() {
+        return this.fCI;
     }
 
-    public int bBR() {
-        return this.ftd;
+    public int bEm() {
+        return this.fCJ;
     }
 
     public String getForumName() {
@@ -110,47 +110,47 @@ public class VisitedForumData extends OrmObject {
         this.mForumId = str;
     }
 
-    public String bBS() {
-        return this.fte;
+    public String bEn() {
+        return this.fCK;
     }
 
-    public int bBT() {
-        return this.ftf;
+    public int bEo() {
+        return this.fCL;
     }
 
     public ThemeColorInfo getThemeColorInfo() {
         return this.mThemeColorInfo;
     }
 
-    public boolean bBU() {
-        return this.ftg;
+    public boolean bEp() {
+        return this.fCM;
     }
 
-    public void kl(boolean z) {
-        this.fti = z;
+    public void kH(boolean z) {
+        this.fCO = z;
     }
 
-    public boolean bBV() {
-        return this.fti;
+    public boolean bEq() {
+        return this.fCO;
     }
 
     public int getLevel() {
-        return this.fth;
+        return this.fCN;
     }
 
-    public boolean bBW() {
-        return this.ftj;
+    public boolean bEr() {
+        return this.fCP;
     }
 
-    public String bBX() {
-        return this.ftk;
+    public String bEs() {
+        return this.fCQ;
     }
 
-    public List<FrsTabItemData> bBY() {
-        return this.ftl;
+    public List<FrsTabItemData> bEt() {
+        return this.fCR;
     }
 
-    public PostPrefixData bBZ() {
-        return this.ftm;
+    public PostPrefixData bEu() {
+        return this.fCS;
     }
 }

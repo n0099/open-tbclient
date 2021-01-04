@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeSet;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class RetrieveReportRequest extends BaseHttpRequest {
     private static final String APP_NAME = "imsdk";
     private static final String REPORT_HOST_ONLINE = "https://mbd.baidu.com/";
@@ -77,7 +77,7 @@ public class RetrieveReportRequest extends BaseHttpRequest {
         String str = null;
         switch (Utility.readIntData(this.mContext, com.baidu.android.imsdk.internal.Constants.KEY_ENV, 0)) {
             case 0:
-                str = "https://mbd.baidu.com/";
+                str = REPORT_HOST_ONLINE;
                 break;
             case 1:
             case 2:

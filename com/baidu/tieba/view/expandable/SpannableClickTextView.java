@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class SpannableClickTextView extends TextView {
-    private boolean joq;
+    private boolean jAN;
 
     public SpannableClickTextView(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.joq) {
+        if (this.jAN) {
             return true;
         }
         return super.performClick();
@@ -36,17 +36,17 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.joq = false;
+        this.jAN = false;
         return super.onTouchEvent(motionEvent);
     }
 
     public void setCustomMovementMethod() {
-        setMovementMethod(a.dYk());
+        setMovementMethod(a.dXN());
     }
 
     /* loaded from: classes.dex */
     private static class a extends LinkMovementMethod {
-        private static a nSl;
+        private static a nVG;
 
         private a() {
         }
@@ -69,7 +69,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).joq = true;
+                        ((SpannableClickTextView) textView).jAN = true;
                     }
                     return true;
                 }
@@ -80,11 +80,11 @@ public class SpannableClickTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a dYk() {
-            if (nSl == null) {
-                nSl = new a();
+        public static a dXN() {
+            if (nVG == null) {
+                nVG = new a();
             }
-            return nSl;
+            return nVG;
         }
     }
 }

@@ -1,113 +1,88 @@
 package com.baidu.tbadk.core.util;
+
+import android.content.pm.PackageInfo;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class av {
-    private static av eUi = null;
-    private boolean mIsWifiCache = false;
-    private boolean eUj = false;
-    private int mPostImageSize = 1300;
-    private String mUrlQuality = String.valueOf(45);
+    private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public static av btX() {
-        if (eUi == null) {
-            synchronized (av.class) {
-                if (eUi == null) {
-                    eUi = new av();
+    public static String creatSignInt(PackageInfo packageInfo) throws NumberFormatException {
+        long j = 0;
+        String signMd5 = getSignMd5(packageInfo);
+        if (signMd5 == null || signMd5.length() < 32) {
+            return "-1";
+        }
+        String substring = signMd5.substring(8, 24);
+        long j2 = 0;
+        for (int i = 0; i < 8; i++) {
+            j2 = (j2 * 16) + Integer.parseInt(substring.substring(i, i + 1), 16);
+        }
+        for (int i2 = 8; i2 < substring.length(); i2++) {
+            j = (j * 16) + Integer.parseInt(substring.substring(i2, i2 + 1), 16);
+        }
+        return String.valueOf((j + j2) & 4294967295L);
+    }
+
+    private static String getSignMd5(PackageInfo packageInfo) {
+        if (packageInfo == null || packageInfo.signatures == null || packageInfo.signatures.length == 0 || packageInfo.signatures[0] == null) {
+            return null;
+        }
+        try {
+            return com.baidu.adp.lib.util.s.toMd5(packageInfo.signatures[0].toCharsString().getBytes());
+        } catch (Exception e) {
+            BdLog.detailException(e);
+            return null;
+        }
+    }
+
+    public static String getAPKHexMD5(byte[] bArr) {
+        int i = 0;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            char[] cArr = new char[32];
+            int i2 = 0;
+            while (true) {
+                int i3 = i;
+                if (i3 >= 16) {
+                    return new String(cArr);
                 }
+                byte b2 = digest[i3];
+                int i4 = i2 + 1;
+                cArr[i2] = HEX_DIGITS[(b2 >>> 4) & 15];
+                i2 = i4 + 1;
+                cArr[i4] = HEX_DIGITS[b2 & 15];
+                i = i3 + 1;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String getAPKMd5(PackageInfo packageInfo) {
+        if (packageInfo == null) {
+            return null;
+        }
+        File file = new File(packageInfo.applicationInfo.publicSourceDir);
+        if (file.exists()) {
+            try {
+                return com.baidu.adp.lib.util.s.toMd5(new FileInputStream(file));
+            } catch (FileNotFoundException e) {
+                BdLog.detailException(e);
+                return null;
             }
         }
-        return eUi;
+        return null;
     }
 
-    public av() {
-        updateNetworkStatusCache();
-        updateAll();
-    }
-
-    private void updateAll() {
-        updateFrsShowBigImage();
-        updateUrlQuality();
-        updatePostImageSize();
-    }
-
-    public void jt(boolean z) {
-        this.eUj = z;
-    }
-
-    public boolean btY() {
-        return this.eUj;
-    }
-
-    public void setNetworkIsWifi(boolean z) {
-        this.mIsWifiCache = z;
-        updateAll();
-    }
-
-    private void updateNetworkStatusCache() {
-        this.mIsWifiCache = com.baidu.adp.lib.util.j.isWifiNet();
-    }
-
-    public boolean getIsWifi() {
-        return this.mIsWifiCache;
-    }
-
-    public String getUrlQuality() {
-        return this.mUrlQuality;
-    }
-
-    public int getPostImageSize() {
-        updatePostImageSize();
-        return this.mPostImageSize;
-    }
-
-    public int getPostImageHeightLimit() {
-        return 18000;
-    }
-
-    public void updateFrsShowBigImage() {
-        boolean z = true;
-        if (com.baidu.tbadk.core.k.blV().getViewImageQuality() != 0 ? com.baidu.tbadk.core.k.blV().getViewImageQuality() != 1 : !this.mIsWifiCache) {
-            z = false;
-        }
-        jt(z);
-    }
-
-    public void updateUrlQuality() {
-        String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.k.blV().getViewImageQuality() == 0) {
-            if (getIsWifi()) {
-                valueOf = String.valueOf(80);
-            }
-        } else if (com.baidu.tbadk.core.k.blV().getViewImageQuality() == 1) {
-            valueOf = String.valueOf(80);
-        }
-        this.mUrlQuality = valueOf;
-    }
-
-    public void updatePostImageSize() {
-        int i = 2000;
-        switch (com.baidu.tbadk.core.k.blV().getUploadImageQuality()) {
-            case 0:
-                if (!getIsWifi()) {
-                    i = 1300;
-                    break;
-                }
-                break;
-            case 1:
-                break;
-            case 2:
-                i = 1800;
-                break;
-            case 3:
-                i = 1300;
-                break;
-            default:
-                i = 1800;
-                break;
-        }
-        this.mPostImageSize = i;
-    }
-
-    public static boolean btZ() {
-        return n.checkSD() && com.baidu.adp.gif.c.lK();
+    public static String getNameMd5FromUrl(String str) {
+        return com.baidu.adp.lib.util.s.toMd5(str);
     }
 }

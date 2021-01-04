@@ -1,13 +1,13 @@
 package com.xiaomi.push;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 interface ar {
     String a();
 
     /* renamed from: a  reason: collision with other method in class */
-    boolean m130a();
+    boolean m156a();
 
     /* renamed from: b */
-    String mo128b();
+    String mo154b();
 
     String c();
 

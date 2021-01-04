@@ -1,14 +1,16 @@
 package com.baidu.live.yuyingift.giftlist;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c extends HttpMessage {
+    private boolean bgw;
     private String giftId;
     private boolean isHost;
 
-    public c(boolean z, String str) {
+    public c(boolean z, boolean z2, String str) {
         super(1031058);
         this.isHost = z;
+        this.bgw = z2;
         this.giftId = str;
     }
 
@@ -16,7 +18,7 @@ public class c extends HttpMessage {
         return this.isHost;
     }
 
-    public String Kq() {
+    public String JS() {
         return this.giftId;
     }
 }

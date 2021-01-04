@@ -11,24 +11,24 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1271a;
-    private c aeO;
+    private Context f1617a;
+    private c aft;
 
     public g(Context context, c cVar) {
-        this.f1271a = context;
-        this.aeO = cVar;
+        this.f1617a = context;
+        this.aft = cVar;
     }
 
     private f P(Context context) {
         String str;
         f fVar;
         f fVar2 = null;
-        List<b> O = this.aeO.O(context);
-        if (O != null) {
+        List<b> b2 = this.aft.b(context);
+        if (b2 != null) {
             File filesDir = context.getFilesDir();
             if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
                 str = com.baidu.fsg.face.base.b.c.g;
@@ -36,11 +36,11 @@ public class g {
                 Log.e("CuidV266Manager", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                 str = filesDir.getName();
             }
-            for (b bVar : O) {
+            for (b bVar : b2) {
                 if (!bVar.d) {
-                    File file = new File(new File(bVar.adT.dataDir, str), "libcuid.so");
+                    File file = new File(new File(bVar.aeJ.dataDir, str), "libcuid.so");
                     if (file.exists()) {
-                        fVar = f.dd(com.baidu.b.f.c.a(file));
+                        fVar = f.cW(com.baidu.b.f.c.a(file));
                         if (fVar != null) {
                             return fVar;
                         }
@@ -56,23 +56,19 @@ public class g {
     }
 
     private boolean b(String str) {
-        return this.f1271a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        return this.f1617a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
     private String c(String str) {
         try {
-            return Settings.System.getString(this.f1271a.getContentResolver(), str);
+            return Settings.System.getString(this.f1617a.getContentResolver(), str);
         } catch (Exception e) {
             com.baidu.b.f.c.a(e);
             return null;
         }
     }
 
-    private String d(String str) {
-        return "0";
-    }
-
-    private f dg(String str) {
+    private f cZ(String str) {
         String str2 = "";
         String str3 = "";
         File file = new File(Environment.getExternalStorageDirectory(), "baidu/.cuid");
@@ -104,39 +100,43 @@ public class g {
         return f.M(str2, str3);
     }
 
-    private f sT() {
+    private String d(String str) {
+        return "0";
+    }
+
+    private f st() {
         File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
-            return f.dd(com.baidu.b.f.c.a(file));
+            return f.cW(com.baidu.b.f.c.a(file));
         }
         return null;
     }
 
-    private f sU() {
+    private f su() {
         return f.M(c("com.baidu.deviceid"), c("bd_setting_i"));
     }
 
-    public f df(String str) {
-        f P = 0 == 0 ? P(this.f1271a) : null;
+    public f cY(String str) {
+        f P = 0 == 0 ? P(this.f1617a) : null;
         if (P == null) {
-            P = f.dd(c("com.baidu.deviceid.v2"));
+            P = f.cW(c("com.baidu.deviceid.v2"));
         }
-        boolean b = b("android.permission.READ_EXTERNAL_STORAGE");
-        f sT = (P == null && b) ? sT() : P;
-        if (sT == null) {
-            sT = sU();
+        boolean b2 = b("android.permission.READ_EXTERNAL_STORAGE");
+        f st = (P == null && b2) ? st() : P;
+        if (st == null) {
+            st = su();
         }
         boolean z = false;
-        if (sT == null && b) {
+        if (st == null && b2) {
             z = true;
-            sT = dg(d(""));
+            st = cZ(d(""));
         }
         if (!z) {
             d("");
         }
-        if (sT != null) {
-            sT.c();
+        if (st != null) {
+            st.c();
         }
-        return sT;
+        return st;
     }
 }

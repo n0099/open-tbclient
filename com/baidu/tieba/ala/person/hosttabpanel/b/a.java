@@ -2,14 +2,14 @@ package com.baidu.tieba.ala.person.hosttabpanel.b;
 
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-import com.baidu.live.data.w;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
 public class a extends com.baidu.live.tieba.b.a.a implements IAdapterData {
-    public static BdUniqueId hJH = BdUniqueId.gen();
-    public w hJI;
+    public static BdUniqueId hVT = BdUniqueId.gen();
+    public x hVU;
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return hJH;
+        return hVT;
     }
 }

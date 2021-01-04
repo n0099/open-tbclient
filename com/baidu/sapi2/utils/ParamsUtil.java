@@ -1,6 +1,7 @@
 package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ParamsUtil implements NoProguard {
     private static HttpCookie a(String str, String str2, String str3) {
         HttpCookie httpCookie = new HttpCookie(str, str2);
@@ -90,7 +91,7 @@ public class ParamsUtil implements NoProguard {
         hashMap.put("act", "optional");
         hashMap.put("supportGuestAccount", "1");
         hashMap.put("app_key", sapiConfiguration.twitterAppKey);
-        hashMap.put("client", "android");
+        hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
         hashMap.put("clientfrom", "native");
         return str + SapiUtils.mapToUrlParams(hashMap, false);
     }
@@ -117,7 +118,7 @@ public class ParamsUtil implements NoProguard {
         hashMap.put("clientfrom", "native");
         hashMap.put("tpl", sapiConfiguration.tpl);
         hashMap.put("login_share_strategy", sapiConfiguration.loginShareStrategy().getStrValue());
-        hashMap.put("client", "android");
+        hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
         if (z) {
             hashMap.put("adapter", sapiConfiguration.customActionBarEnabled ? "3" : "");
         }
@@ -132,7 +133,7 @@ public class ParamsUtil implements NoProguard {
             hashMap.put("connect", "1");
         }
         if (sapiConfiguration.language == Language.ENGLISH) {
-            hashMap.put("lang", com.baidu.fsg.base.statistics.h.f1497a);
+            hashMap.put("lang", com.baidu.fsg.base.statistics.h.f1996a);
         }
         hashMap.put("suppcheck", "1");
         if (sapiConfiguration.supportFaceLogin) {

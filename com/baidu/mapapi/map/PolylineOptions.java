@@ -1,16 +1,16 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
 import android.util.Log;
+import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class PolylineOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2041a;
+    int f2868a;
     Bundle c;
     private List<LatLng> e;
     private List<Integer> f;
@@ -21,7 +21,9 @@ public final class PolylineOptions extends OverlayOptions {
     private int h = 5;
     private boolean k = true;
     private boolean l = false;
-    boolean b = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    boolean f2869b = true;
     private boolean m = false;
     private boolean n = true;
     private int o = 0;
@@ -29,13 +31,13 @@ public final class PolylineOptions extends OverlayOptions {
     private LineCapType q = LineCapType.LineCapButt;
     private boolean r = true;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum LineCapType {
         LineCapButt,
         LineCapRound
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum LineJoinType {
         LineJoinBevel,
         LineJoinMiter,
@@ -48,15 +50,15 @@ public final class PolylineOptions extends OverlayOptions {
     public Overlay a() {
         int i = 0;
         Polyline polyline = new Polyline();
-        polyline.B = this.b;
+        polyline.B = this.f2869b;
         polyline.f = this.m;
-        polyline.A = this.f2041a;
+        polyline.A = this.f2868a;
         polyline.C = this.c;
         if (this.e == null || this.e.size() < 2) {
             throw new IllegalStateException("BDMapSDKException: when you add polyline, you must at least supply 2 points");
         }
-        polyline.b = this.e;
-        polyline.f2039a = this.d;
+        polyline.f2866b = this.e;
+        polyline.f2865a = this.d;
         polyline.e = this.h;
         polyline.j = this.i;
         polyline.k = this.j;
@@ -184,7 +186,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2041a;
+        return this.f2868a;
     }
 
     public boolean isDottedLine() {
@@ -201,7 +203,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public boolean isVisible() {
-        return this.b;
+        return this.f2869b;
     }
 
     public PolylineOptions keepScale(boolean z) {
@@ -245,7 +247,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public PolylineOptions visible(boolean z) {
-        this.b = z;
+        this.f2869b = z;
         return this;
     }
 
@@ -257,7 +259,7 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public PolylineOptions zIndex(int i) {
-        this.f2041a = i;
+        this.f2868a = i;
         return this;
     }
 }

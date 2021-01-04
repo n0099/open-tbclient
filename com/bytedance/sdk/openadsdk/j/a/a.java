@@ -1,0 +1,15 @@
+package com.bytedance.sdk.openadsdk.j.a;
+
+import java.io.File;
+/* loaded from: classes4.dex */
+public abstract class a {
+    public abstract File c(String str);
+
+    public abstract File d(String str);
+
+    public void a(String str) {
+    }
+
+    public void b(String str) {
+    }
+}

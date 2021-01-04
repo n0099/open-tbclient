@@ -3,12 +3,12 @@ package com.baidu.tieba.personPolymeric.tab.view;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Canvas;
-import android.support.annotation.Nullable;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.au;
-/* loaded from: classes24.dex */
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.at;
+/* loaded from: classes8.dex */
 public class AlignTextView extends TextView {
     public AlignTextView(Context context) {
         super(context);
@@ -43,7 +43,7 @@ public class AlignTextView extends TextView {
         }
         String str = (String) text;
         Layout layout = getLayout();
-        if (!au.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
+        if (!at.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
             int paddingTop = getPaddingTop() + layout.getLineBaseline(0);
             float measureText = getPaint().measureText(str);
             float paddingLeft = getPaddingLeft();

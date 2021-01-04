@@ -4,7 +4,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class MaybeObserveOn<T> extends a<T, T> {
     final v scheduler;
 
@@ -13,7 +13,7 @@ public final class MaybeObserveOn<T> extends a<T, T> {
         this.source.a(new ObserveOnMaybeObserver(mVar, this.scheduler));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ObserveOnMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T>, Runnable {
         private static final long serialVersionUID = 8571289934935992137L;
         final m<? super T> actual;
@@ -46,18 +46,18 @@ public final class MaybeObserveOn<T> extends a<T, T> {
         @Override // io.reactivex.m
         public void onSuccess(T t) {
             this.value = t;
-            DisposableHelper.replace(this, this.scheduler.G(this));
+            DisposableHelper.replace(this, this.scheduler.E(this));
         }
 
         @Override // io.reactivex.m
         public void onError(Throwable th) {
             this.error = th;
-            DisposableHelper.replace(this, this.scheduler.G(this));
+            DisposableHelper.replace(this, this.scheduler.E(this));
         }
 
         @Override // io.reactivex.m
         public void onComplete() {
-            DisposableHelper.replace(this, this.scheduler.G(this));
+            DisposableHelper.replace(this, this.scheduler.E(this));
         }
 
         @Override // java.lang.Runnable

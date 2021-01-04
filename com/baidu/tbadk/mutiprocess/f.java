@@ -7,17 +7,17 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
 public class f {
-    private static boolean azx = false;
+    private static boolean azN = false;
     private static String bduss;
     private static String stoken;
     private static String tbs;
 
-    public static void kK(boolean z) {
-        azx = z;
+    public static void lg(boolean z) {
+        azN = z;
     }
 
     public static boolean isLogin() {
-        return azx;
+        return azN;
     }
 
     public static void setBduss(String str) {
@@ -45,10 +45,10 @@ public class f {
     }
 
     public static boolean checkUpIsLogin(Context context) {
-        if (!azx) {
+        if (!azN) {
             skipToLoginActivity(context);
         }
-        return azx;
+        return azN;
     }
 
     public static void skipToLoginActivity(Context context) {

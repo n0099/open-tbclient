@@ -5,13 +5,15 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class r implements SensorEventListener {
     private static r d;
 
     /* renamed from: a  reason: collision with root package name */
-    private float[] f1912a;
-    private float[] b;
+    private float[] f2657a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private float[] f2658b;
     private SensorManager c;
     private float e;
     private boolean f = false;
@@ -82,17 +84,17 @@ public class r implements SensorEventListener {
     public void onSensorChanged(SensorEvent sensorEvent) {
         switch (sensorEvent.sensor.getType()) {
             case 2:
-                this.b = (float[]) sensorEvent.values.clone();
-                Math.sqrt((this.b[0] * this.b[0]) + (this.b[1] * this.b[1]) + (this.b[2] * this.b[2]));
-                if (this.b != null) {
+                this.f2658b = (float[]) sensorEvent.values.clone();
+                Math.sqrt((this.f2658b[0] * this.f2658b[0]) + (this.f2658b[1] * this.f2658b[1]) + (this.f2658b[2] * this.f2658b[2]));
+                if (this.f2658b != null) {
                 }
                 return;
             case 11:
-                this.f1912a = (float[]) sensorEvent.values.clone();
-                if (this.f1912a != null) {
+                this.f2657a = (float[]) sensorEvent.values.clone();
+                if (this.f2657a != null) {
                     float[] fArr = new float[9];
                     try {
-                        SensorManager.getRotationMatrixFromVector(fArr, this.f1912a);
+                        SensorManager.getRotationMatrixFromVector(fArr, this.f2657a);
                         float[] fArr2 = new float[3];
                         SensorManager.getOrientation(fArr, fArr2);
                         this.e = (float) Math.toDegrees(fArr2[0]);

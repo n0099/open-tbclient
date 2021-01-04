@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.charm.charmrank;
 
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class g implements View.OnTouchListener {
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {

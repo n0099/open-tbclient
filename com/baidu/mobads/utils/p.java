@@ -28,6 +28,7 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.tencent.map.geoloclite.tsa.TencentLiteLocationListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -44,7 +45,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class p implements IXAdSystemUtils {
     private String d;
     private String e;
@@ -57,8 +58,10 @@ public class p implements IXAdSystemUtils {
     private String m;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f2448a = new JSONArray();
-    private String b = "";
+    public JSONArray f3544a = new JSONArray();
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f3545b = "";
     private String c = "";
     private int h = -1;
 
@@ -70,7 +73,7 @@ public class p implements IXAdSystemUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public String getSnFrom(Context context) {
-        return this.b + this.c;
+        return this.f3545b + this.c;
     }
 
     private boolean a(String str) {
@@ -96,19 +99,19 @@ public class p implements IXAdSystemUtils {
             if (a(deviceId)) {
                 String string = Settings.System.getString(context.getContentResolver(), "bd_setting_i");
                 if (a(string)) {
-                    this.b = "2";
+                    this.f3545b = "2";
                     return "";
                 }
-                this.b = "1";
+                this.f3545b = "1";
                 return string;
             }
-            this.b = "0";
+            this.f3545b = "0";
             return deviceId;
         }
-        this.b = "1";
+        this.f3545b = "1";
         String string2 = Settings.System.getString(context.getContentResolver(), "bd_setting_i");
         if (a(string2)) {
-            this.b = "2";
+            this.f3545b = "2";
             string2 = "";
         }
         try {
@@ -378,70 +381,65 @@ public class p implements IXAdSystemUtils {
         BufferedReader bufferedReader;
         FileReader fileReader;
         IXAdLogger adLogger;
-        FileReader fileReader2 = null;
         if (this.h < 0) {
             try {
                 fileReader = new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq");
+            } catch (Exception e) {
+                e = e;
+                bufferedReader = null;
+                fileReader = null;
+            } catch (Throwable th) {
+                th = th;
+                bufferedReader = null;
+                fileReader = null;
+            }
+            try {
+                bufferedReader = new BufferedReader(fileReader);
                 try {
-                    bufferedReader = new BufferedReader(fileReader);
                     try {
                         this.h = Integer.parseInt(bufferedReader.readLine().trim()) / 1000;
+                    } catch (Exception e2) {
+                        e = e2;
+                        XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
                         try {
                             fileReader.close();
                             bufferedReader.close();
-                        } catch (IOException e) {
-                            e = e;
+                        } catch (IOException e3) {
+                            e = e3;
                             adLogger = XAdSDKFoundationFacade.getInstance().getAdLogger();
                             adLogger.d(e);
                             return this.h + "";
                         }
-                    } catch (Exception e2) {
-                        e = e2;
-                        fileReader2 = fileReader;
-                        try {
-                            XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
-                            try {
-                                fileReader2.close();
-                                bufferedReader.close();
-                            } catch (IOException e3) {
-                                e = e3;
-                                adLogger = XAdSDKFoundationFacade.getInstance().getAdLogger();
-                                adLogger.d(e);
-                                return this.h + "";
-                            }
-                            return this.h + "";
-                        } catch (Throwable th) {
-                            th = th;
-                            fileReader = fileReader2;
-                            try {
-                                fileReader.close();
-                                bufferedReader.close();
-                            } catch (IOException e4) {
-                                XAdSDKFoundationFacade.getInstance().getAdLogger().d(e4);
-                            }
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
+                        return this.h + "";
+                    }
+                    try {
                         fileReader.close();
                         bufferedReader.close();
-                        throw th;
+                    } catch (IOException e4) {
+                        e = e4;
+                        adLogger = XAdSDKFoundationFacade.getInstance().getAdLogger();
+                        adLogger.d(e);
+                        return this.h + "";
                     }
-                } catch (Exception e5) {
-                    e = e5;
-                    bufferedReader = null;
-                    fileReader2 = fileReader;
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedReader = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        fileReader.close();
+                        bufferedReader.close();
+                    } catch (IOException e5) {
+                        XAdSDKFoundationFacade.getInstance().getAdLogger().d(e5);
+                    }
+                    throw th;
                 }
             } catch (Exception e6) {
                 e = e6;
                 bufferedReader = null;
-            } catch (Throwable th4) {
-                th = th4;
+            } catch (Throwable th3) {
+                th = th3;
                 bufferedReader = null;
-                fileReader = null;
+                fileReader.close();
+                bufferedReader.close();
+                throw th;
             }
         }
         return this.h + "";
@@ -501,7 +499,6 @@ public class p implements IXAdSystemUtils {
     @SuppressLint({"DefaultLocale"})
     @TargetApi(3)
     public String getNetworkType(Context context) {
-        Exception e;
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo == null || !activeNetworkInfo.isConnectedOrConnecting()) {
@@ -515,36 +512,42 @@ public class p implements IXAdSystemUtils {
                     return "unknown";
                 }
                 return activeNetworkInfo.getSubtypeName().toLowerCase();
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 XAdSDKFoundationFacade.getInstance().getAdLogger().i(e);
                 return "none";
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
         }
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public String getNetType(Context context) {
+        Exception e;
         String str;
-        String str2 = "";
         try {
-            str2 = PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            NetworkInfo networkInfo = connectivityManager.getNetworkInfo(0);
-            NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(1);
-            if (networkInfo != null && networkInfo.isAvailable()) {
-                str = networkInfo.getExtraInfo() + str2;
-            } else {
-                str = (networkInfo2 == null || !networkInfo2.isAvailable()) ? str2 : "wifi" + str2;
+            String str2 = PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                NetworkInfo networkInfo = connectivityManager.getNetworkInfo(0);
+                NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(1);
+                if (networkInfo != null && networkInfo.isAvailable()) {
+                    str = networkInfo.getExtraInfo() + str2;
+                } else {
+                    str = (networkInfo2 == null || !networkInfo2.isAvailable()) ? str2 : "wifi" + str2;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                str = str2;
+                m.a().e(e);
+                return str;
             }
-            return str;
-        } catch (Exception e) {
-            String str3 = str2;
-            m.a().e(e);
-            return str3;
+        } catch (Exception e3) {
+            e = e3;
+            str = "";
         }
+        return str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:21:0x004d, code lost:
@@ -662,7 +665,7 @@ public class p implements IXAdSystemUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public List<String[]> getCell(Context context) {
         try {
-            Object a2 = XAdSDKFoundationFacade.getInstance().getCommonUtils().a("cell");
+            Object a2 = XAdSDKFoundationFacade.getInstance().getCommonUtils().a(TencentLiteLocationListener.CELL);
             if (a2 != null) {
                 return (List) a2;
             }
@@ -687,7 +690,7 @@ public class p implements IXAdSystemUtils {
                 }
                 arrayList.add(strArr);
             }
-            XAdSDKFoundationFacade.getInstance().getCommonUtils().a("cell", arrayList);
+            XAdSDKFoundationFacade.getInstance().getCommonUtils().a(TencentLiteLocationListener.CELL, arrayList);
         } catch (Exception e2) {
         }
         return arrayList;
@@ -811,7 +814,7 @@ public class p implements IXAdSystemUtils {
                 if (packageManager.getLaunchIntentForPackage(runningAppProcessInfo.processName) != null && packageManager.getApplicationInfo(runningAppProcessInfo.processName, 128) != null) {
                     for (String str : supportedBrowsers) {
                         if (runningAppProcessInfo.processName.equals(str)) {
-                            this.f2448a.put(runningAppProcessInfo.processName);
+                            this.f3544a.put(runningAppProcessInfo.processName);
                         }
                     }
                 }
@@ -819,8 +822,8 @@ public class p implements IXAdSystemUtils {
         } catch (Exception e) {
             adLogger.d(e);
         }
-        adLogger.d("bgBrowsers:" + this.f2448a);
-        return this.f2448a;
+        adLogger.d("bgBrowsers:" + this.f3544a);
+        return this.f3544a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils

@@ -7,12 +7,14 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapView;
 import java.lang.ref.SoftReference;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    SoftReference<MapView> f3159a = null;
-    private BaiduMap b;
+    SoftReference<MapView> f4706a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private BaiduMap f4707b;
     private WNaviBaiduMap c;
     private f d;
 
@@ -21,25 +23,25 @@ public class a {
     }
 
     public void a() {
-        this.f3159a = null;
+        this.f4706a = null;
     }
 
     public void a(MapView mapView) {
-        this.f3159a = new SoftReference<>(mapView);
-        this.b = this.f3159a.get().getMap();
+        this.f4706a = new SoftReference<>(mapView);
+        this.f4707b = this.f4706a.get().getMap();
         this.c = WNaviBaiduMap.getInstance();
     }
 
     public void b() {
-        this.f3159a = null;
+        this.f4706a = null;
     }
 
     public void a(MapStatusUpdate mapStatusUpdate) {
-        this.b.setMapStatus(mapStatusUpdate);
+        this.f4707b.setMapStatus(mapStatusUpdate);
     }
 
     public MapStatus c() {
-        return this.b.getMapStatus();
+        return this.f4707b.getMapStatus();
     }
 
     public float d() {
@@ -48,15 +50,15 @@ public class a {
 
     public void a(f fVar) {
         this.d = fVar;
-        this.b.setOnMapStatusChangeListener(new b(this));
+        this.f4707b.setOnMapStatusChangeListener(new b(this));
     }
 
     public void a(MapStatus mapStatus, int i) {
-        this.b.animateMapStatus(com.baidu.platform.comapi.wnplatform.p.f.a(mapStatus), i);
+        this.f4707b.animateMapStatus(com.baidu.platform.comapi.wnplatform.p.f.a(mapStatus), i);
     }
 
     public void a(int i, int i2) {
-        this.b.setCompassPosition(new Point(i, i2));
+        this.f4707b.setCompassPosition(new Point(i, i2));
     }
 
     public void e() {

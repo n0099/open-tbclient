@@ -1,4 +1,4 @@
 package com.baidu.platform.domain;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class HttpsEnable {
 }

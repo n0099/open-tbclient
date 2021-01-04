@@ -13,12 +13,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class ca implements by {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<cd> f2600a;
-    public static int b;
+    public static final List<cd> f3817a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f3818b;
     public static boolean c;
     static final /* synthetic */ boolean h;
     public final BlockingQueue<ByteBuffer> d;
@@ -40,11 +42,11 @@ public class ca implements by {
 
     static {
         h = !ca.class.desiredAssertionStatus();
-        f2600a = new ArrayList(4);
-        b = 16384;
+        f3817a = new ArrayList(4);
+        f3818b = 16384;
         c = false;
-        f2600a.add(new cf());
-        f2600a.add(new ce());
+        f3817a.add(new cf());
+        f3817a.add(new ce());
     }
 
     public ca(cb cbVar, cd cdVar) {
@@ -168,7 +170,6 @@ public class ca implements by {
 
     private void d(ByteBuffer byteBuffer) {
         String str;
-        int i;
         try {
         } catch (ch e) {
             this.i.a(this, e);
@@ -183,13 +184,14 @@ public class ca implements by {
             boolean d = cqVar.d();
             if (this.k != by.a.CLOSING) {
                 if (f == cq.a.CLOSING) {
+                    int i = 1005;
                     if (!(cqVar instanceof cn)) {
                         str = "";
-                        i = 1005;
                     } else {
                         cn cnVar = (cn) cqVar;
-                        i = cnVar.a();
+                        int a2 = cnVar.a();
                         str = cnVar.b();
+                        i = a2;
                     }
                     if (this.k == by.a.CLOSING) {
                         a(i, str, true);

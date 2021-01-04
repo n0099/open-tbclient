@@ -1,20 +1,22 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public enum Language {
     CHINESE(0, "chinese"),
     ENGLISH(1, "english");
     
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3552a;
-    private String b;
+    private int f5401a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f5402b;
 
     Language(int i, String str) {
-        this.f3552a = i;
-        this.b = str;
+        this.f5401a = i;
+        this.f5402b = str;
     }
 
     public int getType() {
-        return this.f3552a;
+        return this.f5401a;
     }
 }

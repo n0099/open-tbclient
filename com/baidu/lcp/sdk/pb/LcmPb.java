@@ -11,10 +11,10 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class LcmPb {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class Common extends GeneratedMessageLite implements com.baidu.lcp.sdk.pb.a {
         public static final int APP_ID_FIELD_NUMBER = 6;
         public static final int APP_VERSION_FIELD_NUMBER = 7;
@@ -439,9 +439,9 @@ public final class LcmPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -566,7 +566,7 @@ public final class LcmPb {
         }
 
         public static a newBuilder() {
-            return a.AB();
+            return a.zP();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -585,7 +585,7 @@ public final class LcmPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends GeneratedMessageLite.Builder<Common, a> implements com.baidu.lcp.sdk.pb.a {
             private int bitField0_;
             private Object cuid_ = "";
@@ -607,13 +607,13 @@ public final class LcmPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a AB() {
+            public static a zP() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: AC */
+            /* renamed from: zQ */
             public a clear() {
                 super.clear();
                 this.cuid_ = "";
@@ -641,9 +641,9 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: AD */
+            /* renamed from: zR */
             public a clone() {
-                return AB().mergeFrom(buildPartial());
+                return zP().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -654,7 +654,7 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: AE */
+            /* renamed from: zS */
             public Common build() {
                 Common buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -665,7 +665,7 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: AF */
+            /* renamed from: zT */
             public Common buildPartial() {
                 Common common2 = new Common(this);
                 int i = this.bitField0_;
@@ -766,15 +766,14 @@ public final class LcmPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: c */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Common common2;
-                Throwable th;
+                Common common2 = null;
                 try {
                     try {
                         Common parsePartialFrom = Common.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -782,9 +781,8 @@ public final class LcmPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        common2 = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (common2 != null) {
                             mergeFrom(common2);
                         }
@@ -794,9 +792,9 @@ public final class LcmPb {
                     Common common3 = (Common) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         common2 = common3;
-                        th = th3;
                         if (common2 != null) {
                         }
                         throw th;
@@ -804,7 +802,7 @@ public final class LcmPb {
                 }
             }
 
-            public a fM(String str) {
+            public a fw(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -813,7 +811,7 @@ public final class LcmPb {
                 return this;
             }
 
-            public a fN(String str) {
+            public a fx(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -822,7 +820,7 @@ public final class LcmPb {
                 return this;
             }
 
-            public a fO(String str) {
+            public a fy(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -831,7 +829,7 @@ public final class LcmPb {
                 return this;
             }
 
-            public a fP(String str) {
+            public a fz(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -840,7 +838,7 @@ public final class LcmPb {
                 return this;
             }
 
-            public a fQ(String str) {
+            public a fA(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -849,7 +847,7 @@ public final class LcmPb {
                 return this;
             }
 
-            public a fR(String str) {
+            public a fB(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -858,7 +856,7 @@ public final class LcmPb {
                 return this;
             }
 
-            public a fS(String str) {
+            public a fC(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -867,7 +865,7 @@ public final class LcmPb {
                 return this;
             }
 
-            public a fT(String str) {
+            public a fD(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -876,7 +874,7 @@ public final class LcmPb {
                 return this;
             }
 
-            public a fU(String str) {
+            public a fE(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -885,7 +883,7 @@ public final class LcmPb {
                 return this;
             }
 
-            public a fV(String str) {
+            public a fF(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -896,7 +894,7 @@ public final class LcmPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class LcmRequest extends GeneratedMessageLite implements c {
         public static final int ACTION_FIELD_NUMBER = 5;
         public static final int COMMON_FIELD_NUMBER = 3;
@@ -1129,9 +1127,9 @@ public final class LcmPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasLogId()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -1242,7 +1240,7 @@ public final class LcmPb {
         }
 
         public static a newBuilder() {
-            return a.AN();
+            return a.Ab();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1261,7 +1259,7 @@ public final class LcmPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends GeneratedMessageLite.Builder<LcmRequest, a> implements c {
             private int action_;
             private int bitField0_;
@@ -1280,13 +1278,13 @@ public final class LcmPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a AN() {
+            public static a Ab() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: AO */
+            /* renamed from: Ac */
             public a clear() {
                 super.clear();
                 this.logId_ = 0L;
@@ -1308,9 +1306,9 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: AP */
+            /* renamed from: Ad */
             public a clone() {
-                return AN().mergeFrom(buildPartial());
+                return Ab().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1321,7 +1319,7 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: AQ */
+            /* renamed from: Ae */
             public LcmRequest build() {
                 LcmRequest buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1332,7 +1330,7 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: AR */
+            /* renamed from: Af */
             public LcmRequest buildPartial() {
                 LcmRequest lcmRequest = new LcmRequest(this);
                 int i = this.bitField0_;
@@ -1372,7 +1370,7 @@ public final class LcmPb {
             public a mergeFrom(LcmRequest lcmRequest) {
                 if (lcmRequest != LcmRequest.getDefaultInstance()) {
                     if (lcmRequest.hasLogId()) {
-                        ad(lcmRequest.getLogId());
+                        ac(lcmRequest.getLogId());
                     }
                     if (lcmRequest.hasToken()) {
                         this.bitField0_ |= 2;
@@ -1382,16 +1380,16 @@ public final class LcmPb {
                         c(lcmRequest.getCommon());
                     }
                     if (lcmRequest.hasTimestamp()) {
-                        ae(lcmRequest.getTimestamp());
+                        ad(lcmRequest.getTimestamp());
                     }
                     if (lcmRequest.hasAction()) {
-                        dA(lcmRequest.getAction());
+                        dx(lcmRequest.getAction());
                     }
                     if (lcmRequest.hasStartType()) {
-                        dB(lcmRequest.getStartType());
+                        dy(lcmRequest.getStartType());
                     }
                     if (lcmRequest.hasConnType()) {
-                        dC(lcmRequest.getConnType());
+                        dz(lcmRequest.getConnType());
                     }
                 }
                 return this;
@@ -1403,15 +1401,14 @@ public final class LcmPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: g */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                LcmRequest lcmRequest;
-                Throwable th;
+                LcmRequest lcmRequest = null;
                 try {
                     try {
                         LcmRequest parsePartialFrom = LcmRequest.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -1419,9 +1416,8 @@ public final class LcmPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        lcmRequest = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (lcmRequest != null) {
                             mergeFrom(lcmRequest);
                         }
@@ -1431,9 +1427,9 @@ public final class LcmPb {
                     LcmRequest lcmRequest2 = (LcmRequest) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         lcmRequest = lcmRequest2;
-                        th = th3;
                         if (lcmRequest != null) {
                         }
                         throw th;
@@ -1445,13 +1441,13 @@ public final class LcmPb {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a ad(long j) {
+            public a ac(long j) {
                 this.bitField0_ |= 1;
                 this.logId_ = j;
                 return this;
             }
 
-            public a fW(String str) {
+            public a fG(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -1479,25 +1475,25 @@ public final class LcmPb {
                 return this;
             }
 
-            public a ae(long j) {
+            public a ad(long j) {
                 this.bitField0_ |= 8;
                 this.timestamp_ = j;
                 return this;
             }
 
-            public a dA(int i) {
+            public a dx(int i) {
                 this.bitField0_ |= 16;
                 this.action_ = i;
                 return this;
             }
 
-            public a dB(int i) {
+            public a dy(int i) {
                 this.bitField0_ |= 32;
                 this.startType_ = i;
                 return this;
             }
 
-            public a dC(int i) {
+            public a dz(int i) {
                 this.bitField0_ |= 64;
                 this.connType_ = i;
                 return this;
@@ -1505,7 +1501,7 @@ public final class LcmPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class LcmResponse extends GeneratedMessageLite implements d {
         public static final int ERROR_CODE_FIELD_NUMBER = 2;
         public static final int ERROR_MSG_FIELD_NUMBER = 3;
@@ -1669,9 +1665,9 @@ public final class LcmPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasLogId()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -1770,7 +1766,7 @@ public final class LcmPb {
         }
 
         public static a newBuilder() {
-            return a.AT();
+            return a.Ah();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1789,7 +1785,7 @@ public final class LcmPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends GeneratedMessageLite.Builder<LcmResponse, a> implements d {
             private int bitField0_;
             private int errorCode_;
@@ -1805,13 +1801,13 @@ public final class LcmPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a AT() {
+            public static a Ah() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: AU */
+            /* renamed from: Ai */
             public a clear() {
                 super.clear();
                 this.logId_ = 0L;
@@ -1827,9 +1823,9 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: AV */
+            /* renamed from: Aj */
             public a clone() {
-                return AT().mergeFrom(buildPartial());
+                return Ah().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1840,7 +1836,7 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: AW */
+            /* renamed from: Ak */
             public LcmResponse build() {
                 LcmResponse buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1851,7 +1847,7 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: AX */
+            /* renamed from: Al */
             public LcmResponse buildPartial() {
                 LcmResponse lcmResponse = new LcmResponse(this);
                 int i = this.bitField0_;
@@ -1879,17 +1875,17 @@ public final class LcmPb {
             public a mergeFrom(LcmResponse lcmResponse) {
                 if (lcmResponse != LcmResponse.getDefaultInstance()) {
                     if (lcmResponse.hasLogId()) {
-                        af(lcmResponse.getLogId());
+                        ae(lcmResponse.getLogId());
                     }
                     if (lcmResponse.hasErrorCode()) {
-                        dD(lcmResponse.getErrorCode());
+                        dA(lcmResponse.getErrorCode());
                     }
                     if (lcmResponse.hasErrorMsg()) {
                         this.bitField0_ |= 4;
                         this.errorMsg_ = lcmResponse.errorMsg_;
                     }
                     if (lcmResponse.hasNextIntervalMs()) {
-                        ag(lcmResponse.getNextIntervalMs());
+                        af(lcmResponse.getNextIntervalMs());
                     }
                 }
                 return this;
@@ -1901,15 +1897,14 @@ public final class LcmPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: i */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                LcmResponse lcmResponse;
-                Throwable th;
+                LcmResponse lcmResponse = null;
                 try {
                     try {
                         LcmResponse parsePartialFrom = LcmResponse.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -1917,9 +1912,8 @@ public final class LcmPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        lcmResponse = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (lcmResponse != null) {
                             mergeFrom(lcmResponse);
                         }
@@ -1929,9 +1923,9 @@ public final class LcmPb {
                     LcmResponse lcmResponse2 = (LcmResponse) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         lcmResponse = lcmResponse2;
-                        th = th3;
                         if (lcmResponse != null) {
                         }
                         throw th;
@@ -1943,7 +1937,7 @@ public final class LcmPb {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a af(long j) {
+            public a ae(long j) {
                 this.bitField0_ |= 1;
                 this.logId_ = j;
                 return this;
@@ -1953,7 +1947,7 @@ public final class LcmPb {
                 return (this.bitField0_ & 2) == 2;
             }
 
-            public a dD(int i) {
+            public a dA(int i) {
                 this.bitField0_ |= 2;
                 this.errorCode_ = i;
                 return this;
@@ -1963,7 +1957,7 @@ public final class LcmPb {
                 return (this.bitField0_ & 4) == 4;
             }
 
-            public a ag(long j) {
+            public a af(long j) {
                 this.bitField0_ |= 8;
                 this.nextIntervalMs_ = j;
                 return this;
@@ -1971,7 +1965,7 @@ public final class LcmPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class LcmNotify extends GeneratedMessageLite implements b {
         public static final int ACTION_FIELD_NUMBER = 2;
         public static final int LOG_ID_FIELD_NUMBER = 1;
@@ -2086,9 +2080,9 @@ public final class LcmPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasLogId()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -2169,7 +2163,7 @@ public final class LcmPb {
         }
 
         public static a newBuilder() {
-            return a.AH();
+            return a.zV();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2188,7 +2182,7 @@ public final class LcmPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends GeneratedMessageLite.Builder<LcmNotify, a> implements b {
             private int action_;
             private int bitField0_;
@@ -2202,13 +2196,13 @@ public final class LcmPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a AH() {
+            public static a zV() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: AI */
+            /* renamed from: zW */
             public a clear() {
                 super.clear();
                 this.logId_ = 0L;
@@ -2220,9 +2214,9 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: AJ */
+            /* renamed from: zX */
             public a clone() {
-                return AH().mergeFrom(buildPartial());
+                return zV().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2233,7 +2227,7 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: AK */
+            /* renamed from: zY */
             public LcmNotify build() {
                 LcmNotify buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -2244,7 +2238,7 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: AL */
+            /* renamed from: zZ */
             public LcmNotify buildPartial() {
                 LcmNotify lcmNotify = new LcmNotify(this);
                 int i = this.bitField0_;
@@ -2264,10 +2258,10 @@ public final class LcmPb {
             public a mergeFrom(LcmNotify lcmNotify) {
                 if (lcmNotify != LcmNotify.getDefaultInstance()) {
                     if (lcmNotify.hasLogId()) {
-                        ac(lcmNotify.getLogId());
+                        ab(lcmNotify.getLogId());
                     }
                     if (lcmNotify.hasAction()) {
-                        dz(lcmNotify.getAction());
+                        dw(lcmNotify.getAction());
                     }
                 }
                 return this;
@@ -2279,15 +2273,14 @@ public final class LcmPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: e */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                LcmNotify lcmNotify;
-                Throwable th;
+                LcmNotify lcmNotify = null;
                 try {
                     try {
                         LcmNotify parsePartialFrom = LcmNotify.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -2295,9 +2288,8 @@ public final class LcmPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        lcmNotify = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (lcmNotify != null) {
                             mergeFrom(lcmNotify);
                         }
@@ -2307,9 +2299,9 @@ public final class LcmPb {
                     LcmNotify lcmNotify2 = (LcmNotify) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         lcmNotify = lcmNotify2;
-                        th = th3;
                         if (lcmNotify != null) {
                         }
                         throw th;
@@ -2321,13 +2313,13 @@ public final class LcmPb {
                 return (this.bitField0_ & 1) == 1;
             }
 
-            public a ac(long j) {
+            public a ab(long j) {
                 this.bitField0_ |= 1;
                 this.logId_ = j;
                 return this;
             }
 
-            public a dz(int i) {
+            public a dw(int i) {
                 this.bitField0_ |= 2;
                 this.action_ = i;
                 return this;
@@ -2335,7 +2327,7 @@ public final class LcmPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class RpcData extends GeneratedMessageLite implements e {
         public static final int LCM_NOTIFY_FIELD_NUMBER = 3;
         public static final int LCM_REQUEST_FIELD_NUMBER = 1;
@@ -2484,9 +2476,9 @@ public final class LcmPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (hasLcmRequest() && !getLcmRequest().isInitialized()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -2579,7 +2571,7 @@ public final class LcmPb {
         }
 
         public static a newBuilder() {
-            return a.AZ();
+            return a.An();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2598,7 +2590,7 @@ public final class LcmPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends GeneratedMessageLite.Builder<RpcData, a> implements e {
             private int bitField0_;
             private LcmRequest lcmRequest_ = LcmRequest.getDefaultInstance();
@@ -2613,13 +2605,13 @@ public final class LcmPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a AZ() {
+            public static a An() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: Ba */
+            /* renamed from: Ao */
             public a clear() {
                 super.clear();
                 this.lcmRequest_ = LcmRequest.getDefaultInstance();
@@ -2633,9 +2625,9 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bb */
+            /* renamed from: Ap */
             public a clone() {
-                return AZ().mergeFrom(buildPartial());
+                return An().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2646,7 +2638,7 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bc */
+            /* renamed from: Aq */
             public RpcData build() {
                 RpcData buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -2657,7 +2649,7 @@ public final class LcmPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: Bd */
+            /* renamed from: Ar */
             public RpcData buildPartial() {
                 RpcData rpcData = new RpcData(this);
                 int i = this.bitField0_;
@@ -2705,15 +2697,14 @@ public final class LcmPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /* renamed from: k */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public a mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                RpcData rpcData;
-                Throwable th;
+                RpcData rpcData = null;
                 try {
                     try {
                         RpcData parsePartialFrom = RpcData.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -2721,9 +2712,8 @@ public final class LcmPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        rpcData = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (rpcData != null) {
                             mergeFrom(rpcData);
                         }
@@ -2733,9 +2723,9 @@ public final class LcmPb {
                     RpcData rpcData2 = (RpcData) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         rpcData = rpcData2;
-                        th = th3;
                         if (rpcData != null) {
                         }
                         throw th;

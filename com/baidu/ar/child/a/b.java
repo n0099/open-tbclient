@@ -5,7 +5,7 @@ import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelType;
 import com.baidu.ar.d.j;
 import io.flutter.plugin.platform.PlatformPlugin;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class b extends j {
     public b() {
         this.nk = new PixelReadParams(PixelType.BGR);

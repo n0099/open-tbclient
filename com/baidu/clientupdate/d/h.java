@@ -3,8 +3,9 @@ package com.baidu.clientupdate.d;
 import com.baidu.clientupdate.appinfo.AppInfo;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class h {
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.clientupdate.appinfo.ClientUpdateInfo */
     /* JADX WARN: Multi-variable type inference failed */
@@ -21,7 +22,7 @@ public final class h {
             } else if (3 == i) {
                 RuleInfo ruleInfo3 = new RuleInfo();
                 ruleInfo3.mUpgradeid = jSONObject.optString("upgradeid");
-                ruleInfo3.mLevel = jSONObject.optString("level");
+                ruleInfo3.mLevel = jSONObject.optString(MapBundleKey.MapObjKey.OBJ_LEVEL);
                 ruleInfo3.mSilentDown = jSONObject.optString("silent_down");
                 ruleInfo3.mCategory = jSONObject.optString("category");
                 ruleInfo3.mRemind = jSONObject.optString("remind");

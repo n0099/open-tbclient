@@ -4,12 +4,12 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.minivideo.plugin.capture.download.DownloadRequest;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadCallback;
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
 import com.baidu.minivideo.plugin.capture.download.utils.CommonUtils;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class CaptureDownloadService extends Service {
     public static final String ACTION_CANCEL = "com.baidu.ugc.download.ACTION_CANCEL";
     public static final String ACTION_CANCEL_ALL = "com.baidu.ugc.download.ACTION_CANCEL_ALL";
@@ -162,7 +162,7 @@ public class CaptureDownloadService extends Service {
         this.mDownloadManager.download(new DownloadRequest.Builder().setUri(requestTask.getUrl()).build(), str, new ProgressCallback(i, requestTask, getApplicationContext()));
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static class ProgressCallback extends DownloadCallback {
         private RequestTask mAppInfo;
         private int mLastProgress;

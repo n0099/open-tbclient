@@ -1,5 +1,5 @@
 package com.baidu.mapapi.bikenavi.model;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public enum RouteGuideKind {
     NE_Maneuver_Kind_Invalid,
     NE_Maneuver_Kind_Start,

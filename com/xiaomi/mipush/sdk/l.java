@@ -1,25 +1,25 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 /* synthetic */ class l {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f4543a = new int[d.values().length];
+    static final /* synthetic */ int[] f14132a = new int[d.values().length];
 
     static {
         try {
-            f4543a[d.ASSEMBLE_PUSH_HUAWEI.ordinal()] = 1;
+            f14132a[d.ASSEMBLE_PUSH_HUAWEI.ordinal()] = 1;
         } catch (NoSuchFieldError e) {
         }
         try {
-            f4543a[d.ASSEMBLE_PUSH_FCM.ordinal()] = 2;
+            f14132a[d.ASSEMBLE_PUSH_FCM.ordinal()] = 2;
         } catch (NoSuchFieldError e2) {
         }
         try {
-            f4543a[d.ASSEMBLE_PUSH_COS.ordinal()] = 3;
+            f14132a[d.ASSEMBLE_PUSH_COS.ordinal()] = 3;
         } catch (NoSuchFieldError e3) {
         }
         try {
-            f4543a[d.ASSEMBLE_PUSH_FTOS.ordinal()] = 4;
+            f14132a[d.ASSEMBLE_PUSH_FTOS.ordinal()] = 4;
         } catch (NoSuchFieldError e4) {
         }
     }

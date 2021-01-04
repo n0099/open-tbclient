@@ -2,74 +2,74 @@ package com.baidu.swan.apps.component.b;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.CallSuper;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import com.baidu.swan.apps.component.b.b;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import rx.d;
 import rx.j;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class a<V extends View, M extends b> {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @Nullable
-    private com.baidu.swan.apps.component.c.a cIL;
+    private com.baidu.swan.apps.component.c.a cNE;
     @NonNull
-    private M cIM;
+    private M cNF;
     @Nullable
-    private M cIN;
+    private M cNG;
     @Nullable
-    private SwanAppComponentContainerView cIO;
+    private SwanAppComponentContainerView cNH;
     @Nullable
-    private j cIP;
+    private j cNI;
     private int mFlags;
     @Nullable
     private V mView;
 
     @NonNull
-    protected abstract V bQ(@NonNull Context context);
+    protected abstract V cx(@NonNull Context context);
 
     public a(@Nullable Context context, @NonNull M m) {
-        this.cIM = c((a<V, M>) m);
-        this.cIL = com.baidu.swan.apps.component.container.a.e(this.cIM);
-        if (this.cIL == null) {
+        this.cNF = c((a<V, M>) m);
+        this.cNE = com.baidu.swan.apps.component.container.a.e(this.cNF);
+        if (this.cNE == null) {
             com.baidu.swan.apps.console.c.e("Component-Base", getName() + " context is null !");
         } else if (context != null) {
-            this.cIL.cx(context);
+            this.cNE.cF(context);
         }
     }
 
-    @UiThread
     @NonNull
-    public final c ann() {
+    @UiThread
+    public final c aow() {
         String name = getName();
-        c b = b((a<V, M>) this.cIM);
-        if (!b.isSuccess()) {
-            com.baidu.swan.apps.console.c.e("Component-Base", name + " insert with a invalid model => " + b.msg);
-            return b;
+        c b2 = b((a<V, M>) this.cNF);
+        if (!b2.isSuccess()) {
+            com.baidu.swan.apps.console.c.e("Component-Base", name + " insert with a invalid model => " + b2.msg);
+            return b2;
         }
         if (DEBUG) {
             Log.i("Component-Base", "=====================" + name + " start insert=====================");
         }
-        if (this.cIL == null) {
+        if (this.cNE == null) {
             com.baidu.swan.apps.console.c.e("Component-Base", name + " insert with a null component context!");
             return new c(202, "component context is null");
         }
-        Context context = this.cIL.getContext();
-        if (this.cIO != null || this.mView != null) {
+        Context context = this.cNE.getContext();
+        if (this.cNH != null || this.mView != null) {
             com.baidu.swan.apps.console.c.w("Component-Base", name + " repeat insert");
         }
-        this.mView = bQ(this.cIL.getContext());
-        aq(this.mView);
-        this.cIO = cq(context);
-        this.cIO.setTargetView(this.mView);
-        a(this.mView, this.cIM, new com.baidu.swan.apps.component.d.b(true));
-        if (a(this.cIL)) {
+        this.mView = cx(this.cNE.getContext());
+        ax(this.mView);
+        this.cNH = cy(context);
+        this.cNH.setTargetView(this.mView);
+        a(this.mView, this.cNF, new com.baidu.swan.apps.component.d.b(true));
+        if (a(this.cNE)) {
             if (DEBUG) {
                 Log.d("Component-Base", name + " insert: success");
             }
@@ -79,33 +79,33 @@ public abstract class a<V extends View, M extends b> {
         return new c(1001, "attach fail");
     }
 
-    @UiThread
     @Nullable
-    public final j ano() {
+    @UiThread
+    public final j aox() {
         final String name = getName();
-        c b = b((a<V, M>) this.cIM);
-        if (!b.isSuccess()) {
-            com.baidu.swan.apps.console.c.e("Component-Base", name + " insert delayed with a invalid model => " + b.msg);
+        c b2 = b((a<V, M>) this.cNF);
+        if (!b2.isSuccess()) {
+            com.baidu.swan.apps.console.c.e("Component-Base", name + " insert delayed with a invalid model => " + b2.msg);
             return null;
         }
         if (DEBUG) {
             Log.i("Component-Base", "=====================" + name + " start insertDelayed=====================");
         }
-        if (this.cIL == null) {
-            com.baidu.swan.apps.component.e.a.bs("Component-Base", name + " insert delayed with a null component context!");
+        if (this.cNE == null) {
+            com.baidu.swan.apps.component.e.a.br("Component-Base", name + " insert delayed with a null component context!");
             return null;
         }
-        if (this.cIO != null) {
+        if (this.cNH != null) {
             com.baidu.swan.apps.console.c.w("Component-Base", name + " repeat insert delayed: container view repeat");
         }
-        if (this.cIP != null && !this.cIP.isUnsubscribed()) {
-            this.cIP.unsubscribe();
-            this.cIP = null;
+        if (this.cNI != null && !this.cNI.isUnsubscribed()) {
+            this.cNI.unsubscribe();
+            this.cNI = null;
             com.baidu.swan.apps.console.c.w("Component-Base", name + " insert delayed repeat: subscriber repeat");
         }
-        this.cIO = cq(this.cIL.getContext());
-        a((a<V, M>) this.cIM, new com.baidu.swan.apps.component.d.b(true));
-        if (a(this.cIL)) {
+        this.cNH = cy(this.cNE.getContext());
+        a((a<V, M>) this.cNF, new com.baidu.swan.apps.component.d.b(true));
+        if (a(this.cNE)) {
             if (DEBUG) {
                 Log.d("Component-Base", name + " insert delayed（container view）: success");
             }
@@ -118,9 +118,9 @@ public abstract class a<V extends View, M extends b> {
                         Log.d("Component-Base", "insert delayed => save thread: " + Thread.currentThread().getName());
                     }
                     if (id != Thread.currentThread().getId()) {
-                        com.baidu.swan.apps.component.e.a.bs("Component-Base", "save subscriber and return subscriber: nolinear !");
+                        com.baidu.swan.apps.component.e.a.br("Component-Base", "save subscriber and return subscriber: nolinear !");
                     }
-                    a.this.cIP = jVar;
+                    a.this.cNI = jVar;
                 }
             }).b(new j<Object>() { // from class: com.baidu.swan.apps.component.b.a.1
                 /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: com.baidu.swan.apps.component.b.a */
@@ -128,10 +128,10 @@ public abstract class a<V extends View, M extends b> {
                 /* JADX WARN: Multi-variable type inference failed */
                 @Override // rx.e
                 public void onCompleted() {
-                    a.this.mView = a.this.bQ(a.this.cIL.getContext());
-                    a.this.aq(a.this.mView);
-                    a.this.cIO.setTargetView(a.this.mView, 0);
-                    a.this.a(a.this.mView, a.this.cIM, new com.baidu.swan.apps.component.d.b(true));
+                    a.this.mView = a.this.cx(a.this.cNE.getContext());
+                    a.this.ax(a.this.mView);
+                    a.this.cNH.setTargetView(a.this.mView, 0);
+                    a.this.a(a.this.mView, a.this.cNF, new com.baidu.swan.apps.component.d.b(true));
                     if (a.DEBUG) {
                         Log.d("Component-Base", name + " insert delayed（view）: success");
                     }
@@ -143,7 +143,7 @@ public abstract class a<V extends View, M extends b> {
                     if (a.DEBUG && th != null && TextUtils.equals(th.getMessage(), "save subscriber and return subscriber: nolinear !")) {
                         throw new RuntimeException("save subscriber and return subscriber: nolinear !");
                     }
-                    a.this.anp();
+                    a.this.aoy();
                 }
 
                 @Override // rx.e
@@ -151,50 +151,50 @@ public abstract class a<V extends View, M extends b> {
                     com.baidu.swan.apps.console.c.w("Component-Base", name + " success should call onCompleted");
                 }
             });
-            return this.cIP;
+            return this.cNI;
         }
         com.baidu.swan.apps.console.c.e("Component-Base", name + " insert delayed: attach fail");
         return null;
     }
 
-    @UiThread
     @NonNull
+    @UiThread
     public final c a(@NonNull M m) {
         String name = getName();
-        c b = b((a<V, M>) m);
-        if (!b.isSuccess()) {
-            com.baidu.swan.apps.console.c.e("Component-Base", name + " update with a invalid model => " + b.msg);
-            return b;
+        c b2 = b((a<V, M>) m);
+        if (!b2.isSuccess()) {
+            com.baidu.swan.apps.console.c.e("Component-Base", name + " update with a invalid model => " + b2.msg);
+            return b2;
         }
         if (DEBUG) {
             Log.i("Component-Base", "=====================" + name + " start update=====================");
         }
-        if (this.cIM == m) {
+        if (this.cNF == m) {
             String str = name + " update with the same model";
-            com.baidu.swan.apps.component.e.a.bs("Component-Base", str);
+            com.baidu.swan.apps.component.e.a.br("Component-Base", str);
             return new c(202, str);
-        } else if (!TextUtils.equals(this.cIM.cIV, m.cIV)) {
-            String str2 = name + " update with different id: " + this.cIM.cIV + ", " + m.cIV;
-            com.baidu.swan.apps.component.e.a.bs("Component-Base", str2);
+        } else if (!TextUtils.equals(this.cNF.cNO, m.cNO)) {
+            String str2 = name + " update with different id: " + this.cNF.cNO + ", " + m.cNO;
+            com.baidu.swan.apps.component.e.a.br("Component-Base", str2);
             return new c(202, str2);
-        } else if (!TextUtils.equals(this.cIM.cIW, m.cIW)) {
-            String str3 = name + " update with different slave id: " + this.cIM.cIW + ", " + m.cIW;
-            com.baidu.swan.apps.component.e.a.bs("Component-Base", str3);
+        } else if (!TextUtils.equals(this.cNF.cNP, m.cNP)) {
+            String str3 = name + " update with different slave id: " + this.cNF.cNP + ", " + m.cNP;
+            com.baidu.swan.apps.component.e.a.br("Component-Base", str3);
             return new c(202, str3);
-        } else if (this.mView == null || this.cIO == null) {
+        } else if (this.mView == null || this.cNH == null) {
             String str4 = name + " update must after insert succeeded";
-            com.baidu.swan.apps.component.e.a.bs("Component-Base", str4);
+            com.baidu.swan.apps.component.e.a.br("Component-Base", str4);
             return new c(202, str4);
-        } else if (this.cIL == null) {
-            com.baidu.swan.apps.component.e.a.bs("Component-Base", name + " update with a null component context!");
+        } else if (this.cNE == null) {
+            com.baidu.swan.apps.component.e.a.br("Component-Base", name + " update with a null component context!");
             return new c(202, "component context is null");
         } else {
-            this.cIN = this.cIM;
-            com.baidu.swan.apps.component.d.b a2 = a(this.cIM, m);
-            this.cIM = c((a<V, M>) m);
-            a(this.mView, this.cIM, a2);
-            boolean a3 = this.cIL.anF().a(this, a2);
-            this.cIN = null;
+            this.cNG = this.cNF;
+            com.baidu.swan.apps.component.d.b a2 = a(this.cNF, m);
+            this.cNF = c((a<V, M>) m);
+            a(this.mView, this.cNF, a2);
+            boolean a3 = this.cNE.aoQ().a(this, a2);
+            this.cNG = null;
             if (!a3) {
                 String str5 = name + " update component fail";
                 com.baidu.swan.apps.console.c.e("Component-Base", str5);
@@ -207,20 +207,20 @@ public abstract class a<V extends View, M extends b> {
         }
     }
 
-    @UiThread
     @NonNull
-    public final c anp() {
+    @UiThread
+    public final c aoy() {
         String name = getName();
         if (DEBUG) {
             Log.i("Component-Base", "=====================" + name + " start remove=====================");
         }
-        if (this.cIL == null) {
-            com.baidu.swan.apps.component.e.a.bs("Component-Base", name + " remove with a null component context!");
+        if (this.cNE == null) {
+            com.baidu.swan.apps.component.e.a.br("Component-Base", name + " remove with a null component context!");
             return new c(202, "component context is null");
-        } else if (this.cIO == null) {
+        } else if (this.cNH == null) {
             com.baidu.swan.apps.console.c.e("Component-Base", name + " remove must after insert");
             return new c(202, "component remove must after insert");
-        } else if (!this.cIL.anF().f(this)) {
+        } else if (!this.cNE.aoQ().f(this)) {
             String str = name + " remove fail";
             com.baidu.swan.apps.console.c.e("Component-Base", str);
             return new c(1001, str);
@@ -238,7 +238,7 @@ public abstract class a<V extends View, M extends b> {
         if (DEBUG) {
             Log.d("Component-Base", getName() + " onDestroy");
         }
-        anv();
+        aoE();
     }
 
     @Nullable
@@ -247,42 +247,42 @@ public abstract class a<V extends View, M extends b> {
     }
 
     @NonNull
-    public final M anq() {
-        return this.cIM;
+    public final M aoz() {
+        return this.cNF;
     }
 
     @NonNull
-    public final M anr() {
-        return c((a<V, M>) this.cIM);
+    public final M aoA() {
+        return c((a<V, M>) this.cNF);
     }
 
     @Nullable
-    public final SwanAppComponentContainerView ans() {
-        return this.cIO;
+    public final SwanAppComponentContainerView aoB() {
+        return this.cNH;
     }
 
     @NonNull
     public final String getName() {
-        c b = b((a<V, M>) this.cIM);
-        return b.isSuccess() ? this.cIM.getName() : "【illegal component#" + b.msg + "】";
+        c b2 = b((a<V, M>) this.cNF);
+        return b2.isSuccess() ? this.cNF.getName() : "【illegal component#" + b2.msg + "】";
     }
 
     @NonNull
-    public final a ia(int i) {
+    public final a hU(int i) {
         this.mFlags |= i;
         return this;
     }
 
-    public final boolean ib(int i) {
+    public final boolean hV(int i) {
         return (this.mFlags & i) == i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aq(@NonNull V v) {
+    public void ax(@NonNull V v) {
     }
 
     @NonNull
-    protected SwanAppComponentContainerView cq(@NonNull Context context) {
+    protected SwanAppComponentContainerView cy(@NonNull Context context) {
         return new SwanAppComponentContainerView(context);
     }
 
@@ -293,26 +293,26 @@ public abstract class a<V extends View, M extends b> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @CallSuper
     @NonNull
+    @CallSuper
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b bVar = new com.baidu.swan.apps.component.d.b();
-        if (m2.cIZ != null && m2.cIZ.a(m.cIZ)) {
-            bVar.ie(3);
+        if (m2.cNS != null && m2.cNS.a(m.cNS)) {
+            bVar.hY(3);
         }
         if (m.hidden != m2.hidden) {
-            bVar.ie(1);
+            bVar.hY(1);
         }
-        if (m.cIY != m2.cIY) {
-            bVar.ie(2);
+        if (m.cNR != m2.cNR) {
+            bVar.hY(2);
         }
         return bVar;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
     protected void a(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull M m) {
-        final boolean z = m.cIY;
-        swanAppComponentContainerView.setOnTouchListener(new com.baidu.swan.apps.view.b.a.b(m.cIW, m.cIV, m.cIU) { // from class: com.baidu.swan.apps.component.b.a.3
+        final boolean z = m.cNR;
+        swanAppComponentContainerView.setOnTouchListener(new com.baidu.swan.apps.view.b.a.b(m.cNP, m.cNO, m.cNN) { // from class: com.baidu.swan.apps.component.b.a.3
             @Override // com.baidu.swan.apps.view.b.a.b, android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return z && super.onTouch(view, motionEvent);
@@ -321,43 +321,43 @@ public abstract class a<V extends View, M extends b> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eN(boolean z) {
+    public void eW(boolean z) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @CallSuper
     public void onRemove() {
-        anv();
+        aoE();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    public final M ant() {
-        return this.cIN;
+    public final M aoC() {
+        return this.cNG;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean anu() {
-        return this.cIN != null;
+    public final boolean aoD() {
+        return this.cNG != null;
     }
 
     private boolean a(@NonNull com.baidu.swan.apps.component.c.a aVar) {
-        boolean e = aVar.anF().e(this);
-        eN(e);
+        boolean e = aVar.aoQ().e(this);
+        eW(e);
         return e;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
     private void a(@NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
-        if (this.cIO == null) {
-            com.baidu.swan.apps.component.e.a.bs("Component-Base", "renderContainerView with a null container view");
+        if (this.cNH == null) {
+            com.baidu.swan.apps.component.e.a.br("Component-Base", "renderContainerView with a null container view");
             return;
         }
-        if (bVar.m32if(1)) {
-            this.cIO.setHidden(m.hidden);
+        if (bVar.hZ(1)) {
+            this.cNH.setHidden(m.hidden);
         }
-        if (bVar.m32if(2)) {
-            a(this.cIO, (SwanAppComponentContainerView) m);
+        if (bVar.hZ(2)) {
+            a(this.cNH, (SwanAppComponentContainerView) m);
         }
     }
 
@@ -366,7 +366,7 @@ public abstract class a<V extends View, M extends b> {
         if (m == null) {
             return new c(202, "model is null");
         }
-        if (TextUtils.isEmpty(m.cIW)) {
+        if (TextUtils.isEmpty(m.cNP)) {
             return new c(202, "slave id is empty");
         }
         if (!m.isValid()) {
@@ -382,23 +382,23 @@ public abstract class a<V extends View, M extends b> {
             bVar = (b) m.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
-            com.baidu.swan.apps.component.e.a.c("Component-Base", "model must implement cloneable", e);
+            com.baidu.swan.apps.component.e.a.f("Component-Base", "model must implement cloneable", e);
             bVar = null;
         } catch (Exception e2) {
             e2.printStackTrace();
-            com.baidu.swan.apps.component.e.a.c("Component-Base", "clone model fail ！", e2);
+            com.baidu.swan.apps.component.e.a.f("Component-Base", "clone model fail ！", e2);
             bVar = null;
         }
         if (bVar == null) {
-            com.baidu.swan.apps.component.e.a.bs("Component-Base", "clone model fail ！");
+            com.baidu.swan.apps.component.e.a.br("Component-Base", "clone model fail ！");
             return m;
         }
         return (M) bVar;
     }
 
-    private void anv() {
-        if (this.cIP != null && !this.cIP.isUnsubscribed()) {
-            this.cIP.unsubscribe();
+    private void aoE() {
+        if (this.cNI != null && !this.cNI.isUnsubscribed()) {
+            this.cNI.unsubscribe();
         }
     }
 }

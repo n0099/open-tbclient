@@ -23,13 +23,15 @@ import com.baidu.fsg.face.liveness.d;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LivenessRecogGuidActivity extends LivenessBaseActivity {
     public static final String EXTRA_PARAM_SWITCH_RECORD_VIDEO = "extra_switch_record_video";
 
     /* renamed from: a  reason: collision with root package name */
-    private Button f1664a;
-    private ImageView b;
+    private Button f2247a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private ImageView f2248b;
     private TextView c;
     private ImageView d;
     private LivenessRecogCallback e;
@@ -60,8 +62,8 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
     }
 
     private void a() {
-        this.f1664a = (Button) findViewById(R.id.btn_start_photo);
-        this.f1664a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.1
+        this.f2247a = (Button) findViewById(R.id.btn_start_photo);
+        this.f2247a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 RimStatisticsUtil.onEventWithValue(d.c, LivenessRecogGuidActivity.this.livenessRecogDTO != null ? LivenessRecogGuidActivity.this.livenessRecogDTO.getSpno() : "");
@@ -69,8 +71,8 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
                 LivenessRecogGuidActivity.this.d();
             }
         });
-        this.b = (ImageView) findViewById(R.id.sapi_bio_title_btn_left);
-        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.2
+        this.f2248b = (ImageView) findViewById(R.id.sapi_bio_title_btn_left);
+        this.f2248b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LivenessRecogGuidActivity.this.c();

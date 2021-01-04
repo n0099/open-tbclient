@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.pixel;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class FrameSize {
     private int mHeight;
     private int mWidth;

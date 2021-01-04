@@ -2,8 +2,8 @@ package com.baidu.tieba.ala.guardclub.model;
 
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.utils.p;
-/* loaded from: classes4.dex */
+import com.baidu.live.utils.q;
+/* loaded from: classes11.dex */
 public class j extends HttpMessage {
     private String id;
 
@@ -16,7 +16,7 @@ public class j extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("scene_from", p.Iz());
+        addParam("scene_from", q.Ia());
         addParam("guard_club_id", this.id);
         addParam("client_type", 2);
     }

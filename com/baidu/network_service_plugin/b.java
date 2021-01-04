@@ -1,13 +1,14 @@
 package com.baidu.network_service_plugin;
 
 import android.os.Build;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.network_service_plugin.FlutterNetModelAuto;
 import com.baidu.network_service_plugin.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,11 +23,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.HttpHost;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
-    private HashMap<String, a> cfW = new HashMap<>();
+    private HashMap<String, a> cmY = new HashMap<>();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         boolean cancelLoadData();
     }
@@ -68,25 +69,25 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
             hashMap2.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
             if (booleanValue) {
                 BdUniqueId gen = BdUniqueId.gen();
-                int jT = c.jT(str2);
-                h a2 = c.a(jT, hashMap, hashMap2);
-                if (jT != 0 && a2 != null) {
-                    FlutterNetModelAuto J = c.J(str3, jT);
-                    J.setUniqueId(gen);
-                    J.jS(str2);
-                    J.a(new FlutterNetModelAuto.a() { // from class: com.baidu.network_service_plugin.b.1
+                int jP = c.jP(str2);
+                h a2 = c.a(jP, hashMap, hashMap2);
+                if (jP != 0 && a2 != null) {
+                    FlutterNetModelAuto L = c.L(str3, jP);
+                    L.setUniqueId(gen);
+                    L.jO(str2);
+                    L.a(new FlutterNetModelAuto.a() { // from class: com.baidu.network_service_plugin.b.1
                         @Override // com.baidu.network_service_plugin.FlutterNetModelAuto.a
                         public void a(String str4, HashMap hashMap5, MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
-                            b.this.cfW.remove(str4);
+                            b.this.cmY.remove(str4);
                             if (hashMap5 != null) {
                                 hashMap5.put("start_time", String.valueOf(currentTimeMillis));
                             }
                             result.success(b.this.a(hashMap5, null, mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString(), str4));
                         }
                     });
-                    this.cfW.put(str3, J);
+                    this.cmY.put(str3, L);
                     try {
-                        J.loadData();
+                        L.loadData();
                         return;
                     } catch (Exception e) {
                         BdLog.e("netModel loadData exception" + e.toString());
@@ -96,11 +97,12 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 return;
             }
             com.baidu.network_service_plugin.a aVar = new com.baidu.network_service_plugin.a(str3);
-            aVar.jS(str2);
+            aVar.jO(str2);
+            aVar.bJ(currentTimeMillis);
             aVar.a(new a.b() { // from class: com.baidu.network_service_plugin.b.2
                 @Override // com.baidu.network_service_plugin.a.b
                 public void a(HashMap<String, String> hashMap5, HashMap<String, String> hashMap6, int i, String str4, Object obj2, String str5) {
-                    b.this.cfW.remove(str5);
+                    b.this.cmY.remove(str5);
                     if (hashMap5 != null) {
                         hashMap5.put("start_time", String.valueOf(currentTimeMillis));
                     }
@@ -121,11 +123,11 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     return;
                 }
                 hashMap2.put("debugfile", bArr);
-                hashMap2.put("type", "android");
-                aVar.dX(true);
+                hashMap2.put("type", HttpConstants.OS_TYPE_VALUE);
+                aVar.ee(true);
             }
             aVar.setParams(hashMap2);
-            this.cfW.put(str3, aVar);
+            this.cmY.put(str3, aVar);
             try {
                 aVar.loadData();
             } catch (Exception e2) {
@@ -137,7 +139,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 Map map = (Map) list.get(i);
                 String str4 = (String) map.get("api");
                 ((Integer) map.get("cmd")).intValue();
-                a aVar2 = this.cfW.get((String) map.get("identifier"));
+                a aVar2 = this.cmY.get((String) map.get("identifier"));
                 if (aVar2 != null) {
                     aVar2.cancelLoadData();
                 }
@@ -153,13 +155,13 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
             a3.a(new FlutterNetModelAuto.b() { // from class: com.baidu.network_service_plugin.b.3
                 @Override // com.baidu.network_service_plugin.FlutterNetModelAuto.b
                 public void a(String str6, HashMap hashMap5, SocketResponsedMessage socketResponsedMessage, SocketMessage socketMessage, NetMessage netMessage) {
-                    b.this.cfW.remove(str6);
+                    b.this.cmY.remove(str6);
                     a3.a((FlutterNetModelAuto.b) null);
                     result.success(b.this.a(hashMap5, c.d(socketResponsedMessage), socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), str6));
                 }
             });
             a3.setUniqueId(BdUniqueId.gen());
-            this.cfW.put(str5, a3);
+            this.cmY.put(str5, a3);
             if (a3 != null) {
                 try {
                     a3.loadData();

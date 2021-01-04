@@ -1,5 +1,5 @@
 package com.baidu.tieba.enterForum.recommend.view;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public interface a {
-    void yU(int i);
+    void zh(int i);
 }

@@ -2,18 +2,18 @@ package com.airbnb.lottie.c;
 
 import android.graphics.Color;
 import android.graphics.PointF;
-import android.support.annotation.ColorInt;
 import android.util.JsonReader;
 import android.util.JsonToken;
+import androidx.annotation.ColorInt;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class p {
     /* JADX INFO: Access modifiers changed from: package-private */
     @ColorInt
-    public static int b(JsonReader jsonReader) throws IOException {
+    public static int d(JsonReader jsonReader) throws IOException {
         jsonReader.beginArray();
         int nextDouble = (int) (jsonReader.nextDouble() * 255.0d);
         int nextDouble2 = (int) (jsonReader.nextDouble() * 255.0d);
@@ -26,12 +26,12 @@ class p {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static List<PointF> f(JsonReader jsonReader, float f) throws IOException {
+    public static List<PointF> k(JsonReader jsonReader, float f) throws IOException {
         ArrayList arrayList = new ArrayList();
         jsonReader.beginArray();
         while (jsonReader.peek() == JsonToken.BEGIN_ARRAY) {
             jsonReader.beginArray();
-            arrayList.add(g(jsonReader, f));
+            arrayList.add(l(jsonReader, f));
             jsonReader.endArray();
         }
         jsonReader.endArray();
@@ -40,41 +40,41 @@ class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.airbnb.lottie.c.p$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] HN = new int[JsonToken.values().length];
+        static final /* synthetic */ int[] Hw = new int[JsonToken.values().length];
 
         static {
             try {
-                HN[JsonToken.NUMBER.ordinal()] = 1;
+                Hw[JsonToken.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                HN[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
+                Hw[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                HN[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
+                Hw[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static PointF g(JsonReader jsonReader, float f) throws IOException {
-        switch (AnonymousClass1.HN[jsonReader.peek().ordinal()]) {
+    public static PointF l(JsonReader jsonReader, float f) throws IOException {
+        switch (AnonymousClass1.Hw[jsonReader.peek().ordinal()]) {
             case 1:
-                return h(jsonReader, f);
+                return m(jsonReader, f);
             case 2:
-                return i(jsonReader, f);
+                return n(jsonReader, f);
             case 3:
-                return j(jsonReader, f);
+                return o(jsonReader, f);
             default:
                 throw new IllegalArgumentException("Unknown point starts with " + jsonReader.peek());
         }
     }
 
-    private static PointF h(JsonReader jsonReader, float f) throws IOException {
+    private static PointF m(JsonReader jsonReader, float f) throws IOException {
         float nextDouble = (float) jsonReader.nextDouble();
         float nextDouble2 = (float) jsonReader.nextDouble();
         while (jsonReader.hasNext()) {
@@ -83,7 +83,7 @@ class p {
         return new PointF(nextDouble * f, nextDouble2 * f);
     }
 
-    private static PointF i(JsonReader jsonReader, float f) throws IOException {
+    private static PointF n(JsonReader jsonReader, float f) throws IOException {
         jsonReader.beginArray();
         float nextDouble = (float) jsonReader.nextDouble();
         float nextDouble2 = (float) jsonReader.nextDouble();
@@ -94,47 +94,52 @@ class p {
         return new PointF(nextDouble * f, nextDouble2 * f);
     }
 
-    private static PointF j(JsonReader jsonReader, float f) throws IOException {
+    private static PointF o(JsonReader jsonReader, float f) throws IOException {
         float f2 = 0.0f;
         jsonReader.beginObject();
         float f3 = 0.0f;
-        while (jsonReader.hasNext()) {
-            String nextName = jsonReader.nextName();
-            char c = 65535;
-            switch (nextName.hashCode()) {
-                case 120:
-                    if (nextName.equals("x")) {
-                        c = 0;
+        while (true) {
+            float f4 = f2;
+            if (jsonReader.hasNext()) {
+                String nextName = jsonReader.nextName();
+                char c = 65535;
+                switch (nextName.hashCode()) {
+                    case 120:
+                        if (nextName.equals("x")) {
+                            c = 0;
+                            break;
+                        }
                         break;
-                    }
-                    break;
-                case Constants.METHOD_IM_FRIEND_GROUP_DROP /* 121 */:
-                    if (nextName.equals("y")) {
-                        c = 1;
+                    case Constants.METHOD_IM_FRIEND_GROUP_DROP /* 121 */:
+                        if (nextName.equals("y")) {
+                            c = 1;
+                            break;
+                        }
                         break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    f3 = c(jsonReader);
-                    break;
-                case 1:
-                    f2 = c(jsonReader);
-                    break;
-                default:
-                    jsonReader.skipValue();
-                    break;
+                }
+                switch (c) {
+                    case 0:
+                        f4 = e(jsonReader);
+                        break;
+                    case 1:
+                        f3 = e(jsonReader);
+                        break;
+                    default:
+                        jsonReader.skipValue();
+                        break;
+                }
+                f2 = f4;
+            } else {
+                jsonReader.endObject();
+                return new PointF(f4 * f, f3 * f);
             }
         }
-        jsonReader.endObject();
-        return new PointF(f3 * f, f2 * f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static float c(JsonReader jsonReader) throws IOException {
+    public static float e(JsonReader jsonReader) throws IOException {
         JsonToken peek = jsonReader.peek();
-        switch (AnonymousClass1.HN[peek.ordinal()]) {
+        switch (AnonymousClass1.Hw[peek.ordinal()]) {
             case 1:
                 return (float) jsonReader.nextDouble();
             case 2:

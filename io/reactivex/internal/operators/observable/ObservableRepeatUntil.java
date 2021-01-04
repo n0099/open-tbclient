@@ -5,18 +5,18 @@ import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ObservableRepeatUntil<T> extends a<T, T> {
-    final e pFO;
+    final e qhq;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         SequentialDisposable sequentialDisposable = new SequentialDisposable();
         uVar.onSubscribe(sequentialDisposable);
-        new RepeatUntilObserver(uVar, this.pFO, sequentialDisposable, this.source).subscribeNext();
+        new RepeatUntilObserver(uVar, this.qhq, sequentialDisposable, this.source).subscribeNext();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class RepeatUntilObserver<T> extends AtomicInteger implements u<T> {
         private static final long serialVersionUID = -7098360935104053232L;
         final u<? super T> actual;
@@ -55,7 +55,7 @@ public final class ObservableRepeatUntil<T> extends a<T, T> {
                     subscribeNext();
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 this.actual.onError(th);
             }
         }

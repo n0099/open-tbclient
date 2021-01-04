@@ -27,7 +27,7 @@ import com.baidu.live.tbadk.widget.largeimage.tools.BitmapDecoderCreator;
 import com.baidu.live.tbadk.widget.largeimage.tools.LoadBlockBitmapTaskManager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class LargeImageDelegate implements ILoadBlockBitmapCallback {
     private static final int ANDROID_MAX_PIC_SIZE = 4096;
     public static final int DEFAULT_ANIMATION_TIME = 400;
@@ -341,33 +341,27 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
     }
 
     private void getAllAvailableBlock(Point[] pointArr, int i, boolean z) {
-        int i2;
-        boolean z2;
         List<BlockBitmap> list;
+        boolean z2 = true;
         if (this.mLoadBitmapTaskManager == null) {
             this.mLoadBitmapTaskManager = new LoadBlockBitmapTaskManager(this.mViewPoint, this.mBitmapRegionDecoder);
         }
-        int i3 = pointArr[0].y;
-        int i4 = pointArr[0].x;
-        int i5 = pointArr[1].y;
-        int i6 = pointArr[1].x;
+        int i2 = pointArr[0].x;
+        int i3 = pointArr[1].y;
+        int i4 = pointArr[1].x;
         if (z) {
-            i2 = i3;
-            z2 = true;
             list = null;
         } else {
             List<BlockBitmap> blockBitmapList = this.mViewPoint.getBlockBitmapList();
             blockBitmapList.clear();
-            i2 = i3;
-            z2 = true;
             list = blockBitmapList;
         }
-        while (i2 < i5) {
-            for (int i7 = i4; i7 < i6; i7++) {
-                BlockBitmap blockBitmapFromLru = getBlockBitmapFromLru(i2, i7, i);
+        for (int i5 = pointArr[0].y; i5 < i3; i5++) {
+            for (int i6 = i2; i6 < i4; i6++) {
+                BlockBitmap blockBitmapFromLru = getBlockBitmapFromLru(i5, i6, i);
                 if (blockBitmapFromLru == null) {
                     if (z) {
-                        startTask(i2, i7, i);
+                        startTask(i5, i6, i);
                         z2 = false;
                     } else {
                         z2 = false;
@@ -376,7 +370,6 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
                     list.add(blockBitmapFromLru);
                 }
             }
-            i2++;
         }
         if (z2) {
             this.mLoadBitmapTaskManager.clearAllTask();
@@ -413,7 +406,7 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
         this.mImageView.postInvalidate();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private class MoveGestureListener extends GestureDetector.SimpleOnGestureListener {
         private MoveGestureListener() {
         }
@@ -489,7 +482,7 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
         this.scaleAnimator.start();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private class ScaleGestureListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
         private ScaleGestureListener() {
         }
@@ -599,7 +592,7 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
         viewpoint.setScaleLevel(1.0f / this.mCurrentScaled);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private class FlingScroller extends Scroller {
         int mOldValueX;
         int mOldValueY;

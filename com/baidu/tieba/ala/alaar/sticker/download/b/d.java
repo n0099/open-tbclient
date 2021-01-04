@@ -15,11 +15,11 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.e {
-    private final a gkt;
-    private final i gku;
-    private final e.a gkv;
+    private final a guS;
+    private final i guT;
+    private final e.a guU;
     private volatile int mCommend = 0;
     private volatile int mStatus;
     private String mTag;
@@ -37,9 +37,9 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
     protected abstract String getTag();
 
     public d(a aVar, i iVar, e.a aVar2) {
-        this.gkt = aVar;
-        this.gku = iVar;
-        this.gkv = aVar2;
+        this.guS = aVar;
+        this.guT = iVar;
+        this.guU = aVar2;
         this.mTag = getTag();
         if (TextUtils.isEmpty(this.mTag)) {
             this.mTag = getClass().getSimpleName();
@@ -69,13 +69,13 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
     @Override // java.lang.Runnable
     public void run() {
         Process.setThreadPriority(10);
-        a(this.gku);
+        a(this.guT);
         try {
             this.mStatus = 104;
             executeDownload();
-            synchronized (this.gkv) {
+            synchronized (this.guU) {
                 this.mStatus = 105;
-                this.gkv.onDownloadCompleted(createFileSavedPath());
+                this.guU.onDownloadCompleted(createFileSavedPath());
             }
         } catch (DownloadException e) {
             e(e);
@@ -84,19 +84,19 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
 
     private void e(DownloadException downloadException) {
         if (downloadException.getErrorCode() == 108) {
-            synchronized (this.gkv) {
+            synchronized (this.guU) {
                 this.mStatus = 108;
-                this.gkv.c(downloadException);
+                this.guU.c(downloadException);
             }
         } else if (downloadException.getErrorCode() == 106) {
-            synchronized (this.gkv) {
+            synchronized (this.guU) {
                 this.mStatus = 106;
-                this.gkv.onDownloadPaused();
+                this.guU.onDownloadPaused();
             }
         } else if (downloadException.getErrorCode() == 107) {
-            synchronized (this.gkv) {
+            synchronized (this.guU) {
                 this.mStatus = 107;
-                this.gkv.onDownloadCanceled();
+                this.guU.onDownloadCanceled();
             }
         } else {
             throw new IllegalArgumentException("Unknown state");
@@ -104,25 +104,28 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
     }
 
     private void executeDownload() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
+        Throwable th;
         HttpURLConnection httpURLConnection;
         try {
             HttpURLConnection httpURLConnection2 = null;
             try {
                 try {
-                    httpURLConnection = (HttpURLConnection) new URL(this.gku.getUri()).openConnection();
-                } catch (Throwable th) {
-                    th = th;
+                    httpURLConnection = (HttpURLConnection) new URL(this.guT.getUri()).openConnection();
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (ProtocolException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
+            } catch (ProtocolException e3) {
+                e2 = e3;
+            } catch (IOException e4) {
+                e = e4;
             }
             try {
                 httpURLConnection.setConnectTimeout(4000);
                 httpURLConnection.setReadTimeout(4000);
                 httpURLConnection.setRequestMethod("GET");
-                setHttpHeader(c(this.gku), httpURLConnection);
+                setHttpHeader(c(this.guT), httpURLConnection);
                 int responseCode = httpURLConnection.getResponseCode();
                 if (responseCode == getResponseCode()) {
                     transferData(httpURLConnection);
@@ -133,22 +136,22 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
                     return;
                 }
                 throw new DownloadException(108, "UnSupported response code:" + responseCode);
-            } catch (ProtocolException e3) {
-                e = e3;
-                throw new DownloadException(108, "Protocol error", e);
-            } catch (IOException e4) {
-                e = e4;
+            } catch (ProtocolException e5) {
+                e2 = e5;
+                throw new DownloadException(108, "Protocol error", e2);
+            } catch (IOException e6) {
+                e = e6;
                 throw new DownloadException(108, "IO error", e);
-            } catch (Throwable th2) {
+            } catch (Throwable th3) {
+                th = th3;
                 httpURLConnection2 = httpURLConnection;
-                th = th2;
                 if (httpURLConnection2 != null) {
                     httpURLConnection2.disconnect();
                 }
                 throw th;
             }
-        } catch (MalformedURLException e5) {
-            throw new DownloadException(108, "Bad url.", e5);
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 
@@ -161,46 +164,53 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
     }
 
     private void transferData(HttpURLConnection httpURLConnection) throws DownloadException {
+        RandomAccessFile randomAccessFile;
         InputStream inputStream;
         try {
             try {
                 inputStream = httpURLConnection.getInputStream();
-            } catch (IOException e) {
-                throw new DownloadException(108, "http get inputStream error", e);
-            }
-        } catch (Throwable th) {
-            th = th;
-            inputStream = null;
-        }
-        try {
-            long start = this.gku.getStart() + this.gku.getFinished();
-            try {
-                File dir = this.gkt.getDir();
-                if (!dir.exists()) {
-                    dir.mkdirs();
-                }
-                RandomAccessFile file = getFile(dir, this.gkt.getName(), start);
-                transferData(inputStream, file);
                 try {
-                    close(inputStream);
-                    close(file);
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                    long start = this.guT.getStart() + this.guT.getFinished();
+                    try {
+                        File dir = this.guS.getDir();
+                        if (!dir.exists()) {
+                            dir.mkdirs();
+                        }
+                        randomAccessFile = getFile(dir, this.guS.getName(), start);
+                        try {
+                            transferData(inputStream, randomAccessFile);
+                            try {
+                                close(inputStream);
+                                close(randomAccessFile);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            try {
+                                close(inputStream);
+                                close(randomAccessFile);
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                            throw th;
+                        }
+                    } catch (IOException e3) {
+                        throw new DownloadException(108, "File occur IOException ", e3);
+                    } catch (Exception e4) {
+                        throw new DownloadException(108, "Occur Exception ", e4);
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    randomAccessFile = null;
                 }
-            } catch (IOException e3) {
-                throw new DownloadException(108, "File occur IOException ", e3);
-            } catch (Exception e4) {
-                throw new DownloadException(108, "Occur Exception ", e4);
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            try {
-                close(inputStream);
-                close(null);
             } catch (IOException e5) {
-                e5.printStackTrace();
+                throw new DownloadException(108, "http get inputStream error", e5);
             }
-            throw th;
+        } catch (Throwable th3) {
+            th = th3;
+            randomAccessFile = null;
+            inputStream = null;
         }
     }
 
@@ -212,16 +222,16 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
                 int read = inputStream.read(bArr);
                 if (read != -1) {
                     randomAccessFile.write(bArr, 0, read);
-                    this.gku.setFinished(this.gku.getFinished() + read);
-                    synchronized (this.gkv) {
-                        this.gkt.setFinished(this.gkt.getFinished() + read);
-                        this.gkv.onDownloadProgress(this.gkt.getFinished(), this.gkt.getLength());
+                    this.guT.setFinished(this.guT.getFinished() + read);
+                    synchronized (this.guU) {
+                        this.guS.setFinished(this.guS.getFinished() + read);
+                        this.guU.onDownloadProgress(this.guS.getFinished(), this.guS.getLength());
                     }
                 } else {
                     return;
                 }
             } catch (IOException e) {
-                b(this.gku);
+                b(this.guT);
                 throw new DownloadException(108, e);
             }
         }
@@ -232,7 +242,7 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
             throw new DownloadException(107, "Download canceled!");
         }
         if (this.mCommend == 106) {
-            b(this.gku);
+            b(this.guT);
             throw new DownloadException(106, "Download paused!");
         }
     }
@@ -246,6 +256,6 @@ public abstract class d implements com.baidu.tieba.ala.alaar.sticker.download.a.
     }
 
     private final String createFileSavedPath() {
-        return this.gkt.getDir().getAbsolutePath() + File.separator + this.gkt.getName();
+        return this.guS.getDir().getAbsolutePath() + File.separator + this.guS.getName();
     }
 }

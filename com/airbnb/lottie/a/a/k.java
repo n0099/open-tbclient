@@ -8,43 +8,43 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 @TargetApi(19)
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class k implements i, l {
-    private final MergePaths Ek;
+    private final MergePaths DZ;
     private final String name;
-    private final Path Ei = new Path();
-    private final Path Ej = new Path();
+    private final Path DX = new Path();
+    private final Path DY = new Path();
     private final Path path = new Path();
-    private final List<l> DT = new ArrayList();
+    private final List<l> DG = new ArrayList();
 
     public k(MergePaths mergePaths) {
         if (Build.VERSION.SDK_INT < 19) {
             throw new IllegalStateException("Merge paths are not supported pre-KitKat.");
         }
         this.name = mergePaths.getName();
-        this.Ek = mergePaths;
+        this.DZ = mergePaths;
     }
 
     @Override // com.airbnb.lottie.a.a.i
-    public void a(ListIterator<b> listIterator) {
+    public void b(ListIterator<b> listIterator) {
         while (listIterator.hasPrevious() && listIterator.previous() != this) {
         }
         while (listIterator.hasPrevious()) {
             b previous = listIterator.previous();
             if (previous instanceof l) {
-                this.DT.add((l) previous);
+                this.DG.add((l) previous);
                 listIterator.remove();
             }
         }
     }
 
     @Override // com.airbnb.lottie.a.a.b
-    public void b(List<b> list, List<b> list2) {
+    public void c(List<b> list, List<b> list2) {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.DT.size()) {
-                this.DT.get(i2).b(list, list2);
+            if (i2 < this.DG.size()) {
+                this.DG.get(i2).c(list, list2);
                 i = i2 + 1;
             } else {
                 return;
@@ -53,23 +53,23 @@ public class k implements i, l {
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path iW() {
+    public Path iv() {
         this.path.reset();
-        switch (this.Ek.kc()) {
+        switch (this.DZ.jB()) {
             case Merge:
-                ja();
+                iz();
                 break;
             case Add:
-                a(Path.Op.UNION);
+                b(Path.Op.UNION);
                 break;
             case Subtract:
-                a(Path.Op.REVERSE_DIFFERENCE);
+                b(Path.Op.REVERSE_DIFFERENCE);
                 break;
             case Intersect:
-                a(Path.Op.INTERSECT);
+                b(Path.Op.INTERSECT);
                 break;
             case ExcludeIntersections:
-                a(Path.Op.XOR);
+                b(Path.Op.XOR);
                 break;
         }
         return this.path;
@@ -80,12 +80,12 @@ public class k implements i, l {
         return this.name;
     }
 
-    private void ja() {
+    private void iz() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.DT.size()) {
-                this.path.addPath(this.DT.get(i2).iW());
+            if (i2 < this.DG.size()) {
+                this.path.addPath(this.DG.get(i2).iv());
                 i = i2 + 1;
             } else {
                 return;
@@ -94,39 +94,39 @@ public class k implements i, l {
     }
 
     @TargetApi(19)
-    private void a(Path.Op op) {
-        this.Ej.reset();
-        this.Ei.reset();
-        int size = this.DT.size() - 1;
+    private void b(Path.Op op) {
+        this.DY.reset();
+        this.DX.reset();
+        int size = this.DG.size() - 1;
         while (true) {
             int i = size;
             if (i < 1) {
                 break;
             }
-            l lVar = this.DT.get(i);
+            l lVar = this.DG.get(i);
             if (lVar instanceof c) {
-                List<l> iU = ((c) lVar).iU();
-                for (int size2 = iU.size() - 1; size2 >= 0; size2--) {
-                    Path iW = iU.get(size2).iW();
-                    iW.transform(((c) lVar).iV());
-                    this.Ej.addPath(iW);
+                List<l> it = ((c) lVar).it();
+                for (int size2 = it.size() - 1; size2 >= 0; size2--) {
+                    Path iv = it.get(size2).iv();
+                    iv.transform(((c) lVar).iu());
+                    this.DY.addPath(iv);
                 }
             } else {
-                this.Ej.addPath(lVar.iW());
+                this.DY.addPath(lVar.iv());
             }
             size = i - 1;
         }
-        l lVar2 = this.DT.get(0);
+        l lVar2 = this.DG.get(0);
         if (lVar2 instanceof c) {
-            List<l> iU2 = ((c) lVar2).iU();
-            for (int i2 = 0; i2 < iU2.size(); i2++) {
-                Path iW2 = iU2.get(i2).iW();
-                iW2.transform(((c) lVar2).iV());
-                this.Ei.addPath(iW2);
+            List<l> it2 = ((c) lVar2).it();
+            for (int i2 = 0; i2 < it2.size(); i2++) {
+                Path iv2 = it2.get(i2).iv();
+                iv2.transform(((c) lVar2).iu());
+                this.DX.addPath(iv2);
             }
         } else {
-            this.Ei.set(lVar2.iW());
+            this.DX.set(lVar2.iv());
         }
-        this.path.op(this.Ei, this.Ej, op);
+        this.path.op(this.DX, this.DY, op);
     }
 }

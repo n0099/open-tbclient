@@ -4,7 +4,7 @@ import android.opengl.GLES10;
 import com.baidu.sumeru.universalimageloader.core.assist.ImageSize;
 import com.baidu.sumeru.universalimageloader.core.assist.ViewScaleType;
 import com.baidu.sumeru.universalimageloader.core.imageaware.ImageAware;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class ImageSizeUtils {
     private static final int DEFAULT_MAX_BITMAP_DIMENSION = 2048;
     private static ImageSize maxBitmapSize;
@@ -45,15 +45,13 @@ public final class ImageSizeUtils {
                     min = Math.max(i, i2);
                     break;
                 } else {
-                    int i3 = width;
-                    int i4 = height;
                     min = 1;
                     while (true) {
-                        if (i3 / 2 < width2 && i4 / 2 < height2) {
+                        if (width / 2 < width2 && height / 2 < height2) {
                             break;
                         } else {
-                            i3 /= 2;
-                            i4 /= 2;
+                            width /= 2;
+                            height /= 2;
                             min *= 2;
                         }
                     }
@@ -61,12 +59,10 @@ public final class ImageSizeUtils {
                 break;
             case CROP:
                 if (z) {
-                    int i5 = width;
-                    int i6 = height;
                     min = 1;
-                    while (i5 / 2 >= width2 && i6 / 2 >= height2) {
-                        i5 /= 2;
-                        i6 /= 2;
+                    while (width / 2 >= width2 && height / 2 >= height2) {
+                        width /= 2;
+                        height /= 2;
                         min *= 2;
                     }
                 } else {
@@ -92,7 +88,6 @@ public final class ImageSizeUtils {
 
     public static float computeImageScale(ImageSize imageSize, ImageSize imageSize2, ViewScaleType viewScaleType, boolean z) {
         int i;
-        int i2;
         int width = imageSize.getWidth();
         int height = imageSize.getHeight();
         int width2 = imageSize2.getWidth();
@@ -100,15 +95,14 @@ public final class ImageSizeUtils {
         float f = width / width2;
         float f2 = height / height2;
         if ((viewScaleType == ViewScaleType.FIT_INSIDE && f >= f2) || (viewScaleType == ViewScaleType.CROP && f < f2)) {
-            i = width2;
-            i2 = (int) (height / f);
+            i = (int) (height / f);
         } else {
-            i = (int) (width / f2);
-            i2 = height2;
+            width2 = (int) (width / f2);
+            i = height2;
         }
-        if ((z || i >= width || i2 >= height) && (!z || i == width || i2 == height)) {
+        if ((z || width2 >= width || i >= height) && (!z || width2 == width || i == height)) {
             return 1.0f;
         }
-        return i / width;
+        return width2 / width;
     }
 }

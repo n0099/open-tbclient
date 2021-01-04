@@ -1,9 +1,9 @@
 package com.baidu.tieba.ad.download.a;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.download.state.StopStatus;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public interface d {
     void a(@NonNull DownloadCacheKey downloadCacheKey, int i);
 

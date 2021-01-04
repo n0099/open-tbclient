@@ -20,19 +20,21 @@ import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.m;
 import com.baidu.mobads.vo.a.d;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.webkit.internal.ETAG;
+import com.tencent.connect.common.Constants;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f2323a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+    protected final IXAdLogger f3346a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private Context e;
     private static a d = new a();
-    public static volatile String b = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile String f3345b = "";
     public static volatile String c = "";
     private static boolean f = false;
 
@@ -51,24 +53,24 @@ public class a {
     }
 
     public void a(Context context, com.baidu.mobads.command.a aVar) {
-        a(context, PublishType.TYPE_VIDEO_SHARE, aVar);
+        a(context, "9", aVar);
     }
 
     public void a(com.baidu.mobads.command.a aVar) {
     }
 
     public void a(Context context, IXAppInfo iXAppInfo) {
-        a(context, "11", iXAppInfo);
+        a(context, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, iXAppInfo);
     }
 
     public void b(Context context, IXAppInfo iXAppInfo) {
-        a(context, "10", iXAppInfo);
+        a(context, Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, iXAppInfo);
     }
 
     public void a(String str) {
         if (!TextUtils.isEmpty(str) && str.contains("temp_for_feed_response_html")) {
             if (!f) {
-                a("temp_for_feed_response_html", TbEnum.SystemMessage.EVENT_ID_DELETE_FRIEND, b + "___" + c);
+                a("temp_for_feed_response_html", TbEnum.SystemMessage.EVENT_ID_DELETE_FRIEND, f3345b + "___" + c);
                 f = true;
                 return;
             }
@@ -116,7 +118,7 @@ public class a {
 
     private void a(Context context, String str, IXAppInfo iXAppInfo) {
         com.baidu.mobads.vo.a.c cVar = new com.baidu.mobads.vo.a.c(context, iXAppInfo);
-        cVar.b = iXAppInfo.getAdId();
+        cVar.f3554b = iXAppInfo.getAdId();
         b(a(context, str, cVar.c()));
     }
 
@@ -187,12 +189,12 @@ public class a {
             }
             sb2.append("mobads,");
             String md5 = commonUtils.getMD5(sb2.toString());
-            this.f2323a.d("ExtraQuery.allValue:" + ((Object) sb2));
+            this.f3346a.d("ExtraQuery.allValue:" + ((Object) sb2));
             sb.append("vd=" + md5 + ETAG.ITEM_SEPARATOR);
-            this.f2323a.d("ExtraQuery.params:" + ((Object) sb));
+            this.f3346a.d("ExtraQuery.params:" + ((Object) sb));
             return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();
         } catch (Exception e) {
-            this.f2323a.d(e);
+            this.f3346a.d(e);
             return "";
         }
     }

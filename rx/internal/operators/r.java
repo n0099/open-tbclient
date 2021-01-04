@@ -1,76 +1,59 @@
 package rx.internal.operators;
 
-import java.util.concurrent.TimeUnit;
-import rx.g;
+import rx.exceptions.CompositeException;
 import rx.h;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class r<T> implements h.a<T> {
-    final long delay;
-    final h.a<T> pST;
-    final rx.g scheduler;
-    final TimeUnit unit;
+    final rx.h<T> quw;
+    final rx.functions.b<? super T> qux;
+    final rx.functions.b<Throwable> quy;
 
-    public r(h.a<T> aVar, long j, TimeUnit timeUnit, rx.g gVar) {
-        this.pST = aVar;
-        this.scheduler = gVar;
-        this.delay = j;
-        this.unit = timeUnit;
+    public r(rx.h<T> hVar, rx.functions.b<? super T> bVar, rx.functions.b<Throwable> bVar2) {
+        this.quw = hVar;
+        this.qux = bVar;
+        this.quy = bVar2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     /* renamed from: b */
     public void call(rx.i<? super T> iVar) {
-        g.a createWorker = this.scheduler.createWorker();
-        a aVar = new a(iVar, createWorker, this.delay, this.unit);
-        iVar.add(createWorker);
+        a aVar = new a(iVar, this.qux, this.quy);
         iVar.add(aVar);
-        this.pST.call(aVar);
+        this.quw.a(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
-    public static final class a<T> extends rx.i<T> implements rx.functions.a {
+    /* loaded from: classes15.dex */
+    public static final class a<T> extends rx.i<T> {
         final rx.i<? super T> actual;
-        final long delay;
-        Throwable error;
-        final g.a pSU;
-        final TimeUnit unit;
-        T value;
+        final rx.functions.b<? super T> qux;
+        final rx.functions.b<Throwable> quy;
 
-        public a(rx.i<? super T> iVar, g.a aVar, long j, TimeUnit timeUnit) {
+        a(rx.i<? super T> iVar, rx.functions.b<? super T> bVar, rx.functions.b<Throwable> bVar2) {
             this.actual = iVar;
-            this.pSU = aVar;
-            this.delay = j;
-            this.unit = timeUnit;
+            this.qux = bVar;
+            this.quy = bVar2;
         }
 
         @Override // rx.i
         public void onSuccess(T t) {
-            this.value = t;
-            this.pSU.a(this, this.delay, this.unit);
+            try {
+                this.qux.call(t);
+                this.actual.onSuccess(t);
+            } catch (Throwable th) {
+                rx.exceptions.a.a(th, this, t);
+            }
         }
 
         @Override // rx.i
         public void onError(Throwable th) {
-            this.error = th;
-            this.pSU.a(this, this.delay, this.unit);
-        }
-
-        @Override // rx.functions.a
-        public void call() {
             try {
-                Throwable th = this.error;
-                if (th != null) {
-                    this.error = null;
-                    this.actual.onError(th);
-                } else {
-                    T t = this.value;
-                    this.value = null;
-                    this.actual.onSuccess(t);
-                }
-            } finally {
-                this.pSU.unsubscribe();
+                this.quy.call(th);
+                this.actual.onError(th);
+            } catch (Throwable th2) {
+                rx.exceptions.a.O(th2);
+                this.actual.onError(new CompositeException(th, th2));
             }
         }
     }

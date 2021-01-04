@@ -2,12 +2,14 @@ package com.baidu.lbsapi.model;
 
 import android.text.TextUtils;
 import com.baidu.pano.platform.c.j;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class BaiduPanoData {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1847a;
-    private String b;
+    private String f2552a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2553b;
     private int c = 0;
     private int d = 0;
     private String e = j.a();
@@ -37,19 +39,19 @@ public class BaiduPanoData {
     }
 
     public String getPid() {
-        return this.f1847a;
+        return this.f2552a;
     }
 
     public void setPid(String str) {
-        this.f1847a = str;
+        this.f2552a = str;
     }
 
     public String getName() {
-        return this.b;
+        return this.f2553b;
     }
 
     public void setName(String str) {
-        this.b = str;
+        this.f2553b = str;
     }
 
     public int getErrorCode() {
@@ -65,10 +67,10 @@ public class BaiduPanoData {
     }
 
     public boolean hasStreetPano() {
-        return !TextUtils.isEmpty(this.f1847a);
+        return !TextUtils.isEmpty(this.f2552a);
     }
 
     public String toString() {
-        return "BaiduPanoData [pid = " + this.f1847a + ", name=" + this.b + ",x=" + this.c + ", y=" + this.d + ", sdkVersion=" + this.e + ", errorCode=" + this.f + ", hasStreetPano=" + hasStreetPano() + "]";
+        return "BaiduPanoData [pid = " + this.f2552a + ", name=" + this.f2553b + ",x=" + this.c + ", y=" + this.d + ", sdkVersion=" + this.e + ", errorCode=" + this.f + ", hasStreetPano=" + hasStreetPano() + "]";
     }
 }

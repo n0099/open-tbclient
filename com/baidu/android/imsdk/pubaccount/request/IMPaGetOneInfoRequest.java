@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.db.TableDefine;
@@ -26,7 +25,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     private static final String TAG = "IMPaGetOneInfoRequest";
     private long mAppid;
@@ -103,7 +102,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x01d3  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x01d1  */
     /* JADX WARN: Removed duplicated region for block: B:58:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
@@ -121,7 +120,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         try {
             jSONObject = new JSONObject(new String(bArr));
             i2 = jSONObject.getInt("error_code");
-            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+            str = jSONObject.optString("error_msg", "");
         } catch (JSONException e) {
             jSONException = e;
             arrayList = null;
@@ -180,9 +179,9 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                         jSONException = e3;
                         arrayList = arrayList4;
                         LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", jSONException);
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(jSONException)).build();
                         i2 = 1010;
                         str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(jSONException)).build();
                         arrayList2 = arrayList;
                         iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
                         if (iGetPaInfoListener != null) {

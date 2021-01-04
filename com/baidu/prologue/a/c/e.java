@@ -9,12 +9,12 @@ import java.io.InputStream;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class e {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        void aeG();
+        void agC();
     }
 
     public static void c(InputStream inputStream, File file) throws IOException {
@@ -28,19 +28,19 @@ public final class e {
                 j = channel.transferFrom(newChannel, j2, ImageUploadStrategy.FILE_SIZE_4M);
                 j2 += j;
             } finally {
-                l.d(fileOutputStream);
+                l.e(fileOutputStream);
             }
         }
     }
 
     public static void a(final File file, String str, final a aVar) {
-        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).afA().afz().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
+        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).ahw().ahv().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
             @Override // com.baidu.prologue.service.network.l
             public void a(long j, InputStream inputStream) {
                 try {
                     e.c(inputStream, file);
                     if (aVar != null) {
-                        aVar.aeG();
+                        aVar.agC();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -48,13 +48,13 @@ public final class e {
             }
 
             @Override // com.baidu.prologue.service.network.l
-            public void n(Throwable th) {
+            public void l(Throwable th) {
             }
         });
     }
 
-    public static int q(File file) {
-        int q;
+    public static int u(File file) {
+        int u;
         int i = 0;
         if (file.isDirectory()) {
             File[] listFiles = file.listFiles();
@@ -65,17 +65,17 @@ public final class e {
                 while (i2 < length) {
                     File file2 = listFiles[i2];
                     if (file2.isFile()) {
-                        q = file2.delete() ? 1 : 0;
+                        u = file2.delete() ? 1 : 0;
                     } else {
-                        q = q(file2);
+                        u = u(file2);
                     }
                     i2++;
-                    i3 = q + i3;
+                    i3 = u + i3;
                 }
                 i = i3;
             }
             if (!file.delete()) {
-                g.cmb.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
+                g.ctf.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
             }
         }
         return i;

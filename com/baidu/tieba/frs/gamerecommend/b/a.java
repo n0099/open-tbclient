@@ -1,185 +1,149 @@
 package com.baidu.tieba.frs.gamerecommend.b;
 
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.data.FeatureCardGod;
-import com.baidu.tieba.f.c;
-import com.baidu.tieba.f.d;
-import com.baidu.tieba.f.e;
-import com.baidu.tieba.f.f;
-import com.baidu.tieba.f.g;
-import com.baidu.tieba.f.h;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
-import com.baidu.tieba.frs.gamerecommend.data.b;
-import com.baidu.tieba.frs.x;
-import java.util.ArrayList;
-import java.util.Arrays;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.j;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.widget.ListView.n;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tbadk.core.view.f;
+import com.baidu.tbadk.core.view.g;
+import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private Object[] jmt;
-    private List<q> mData = new ArrayList();
-    private List<by> jms = new ArrayList();
+    private BdTypeListView gAY;
+    private PbListView gCf;
+    private com.baidu.tieba.frs.gamerecommend.adapter.a jyS;
+    private FrameLayout jyT;
+    private String mForumId;
+    private String mForumName;
+    private NavigationBar mNavigationBar;
+    private NoNetworkView mNetworkView;
+    private TbPageContext mPageContext;
+    private g mPullView;
+    private View mRootView;
 
-    public void a(int i, com.baidu.tieba.frs.gamerecommend.data.a aVar) {
-        if (aVar != null) {
-            if (1 == i) {
-                this.mData.clear();
-                this.jms.clear();
-                this.jmt = new Object[aVar.jme + 10];
+    public a(TbPageContext tbPageContext, String str, String str2) {
+        this.mPageContext = tbPageContext;
+        this.mForumId = str;
+        this.mForumName = str2;
+        initView();
+    }
+
+    private void initView() {
+        this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.frs_game_recommend_layout, (ViewGroup) null);
+        this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
+        this.jyT = (FrameLayout) this.mRootView.findViewById(R.id.game_recom_container);
+        this.gAY = (BdTypeListView) this.mRootView.findViewById(R.id.game_recom_listview);
+        this.gAY.setDivider(null);
+        this.mPullView = new g(this.mPageContext);
+        this.mPullView.setTag(this.mPageContext.getUniqueId());
+        this.gAY.setPullRefresh(this.mPullView);
+        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamerecommend.b.a.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                a.this.goBack();
             }
-            if (!y.isEmpty(aVar.jmf)) {
-                ArrayList arrayList = new ArrayList(aVar.jmf.size());
-                for (by byVar : aVar.jmf) {
-                    if (byVar != null) {
-                        arrayList.add(byVar);
-                    }
-                }
-                this.jms.addAll(arrayList);
+        });
+        this.mNavigationBar.showBottomLine();
+        this.gCf = new PbListView(this.mPageContext.getPageActivity());
+        this.gCf.createView();
+        this.jyS = new com.baidu.tieba.frs.gamerecommend.adapter.a(this.mPageContext, this.gAY, this.mForumId, this.mForumName);
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void setData(List<n> list, boolean z) {
+        if (z) {
+            bUE();
+        } else {
+            bUD();
+        }
+        this.jyS.setData(list);
+    }
+
+    private void bUD() {
+        if (this.gCf != null) {
+            if (this.gCf.getView().getParent() == null) {
+                this.gAY.setNextPage(this.gCf);
             }
-            if (1 == i) {
-                a(aVar);
-            }
-            this.mData.clear();
-            cHJ();
-            cHK();
-            b(aVar);
+            this.gCf.setText(this.mPageContext.getPageActivity().getResources().getString(R.string.list_no_more));
+            this.gCf.endLoadData();
         }
     }
 
-    private void a(com.baidu.tieba.frs.gamerecommend.data.a aVar) {
-        if (!y.isEmpty(aVar.jmh)) {
-            for (FeatureCardHot featureCardHot : aVar.jmh) {
-                if (featureCardHot != null && featureCardHot.isValid()) {
-                    AX(featureCardHot.floor.intValue());
-                    this.jmt[featureCardHot.floor.intValue()] = featureCardHot;
-                }
+    private void bUE() {
+        if (this.gCf != null) {
+            if (this.gCf.getView().getParent() == null) {
+                this.gAY.setNextPage(this.gCf);
             }
-        }
-        if (!y.isEmpty(aVar.jmi)) {
-            for (FeatureCardTopic featureCardTopic : aVar.jmi) {
-                if (featureCardTopic != null && featureCardTopic.isValid()) {
-                    AX(featureCardTopic.floor.intValue());
-                    this.jmt[featureCardTopic.floor.intValue()] = featureCardTopic;
-                }
-            }
-        }
-        if (!y.isEmpty(aVar.jmj)) {
-            for (b bVar : aVar.jmj) {
-                if (bVar != null && bVar.isValid()) {
-                    AX(bVar.floor.intValue());
-                    this.jmt[bVar.floor.intValue()] = bVar;
-                }
-            }
-        }
-        if (!y.isEmpty(aVar.jmk)) {
-            for (FeatureCardCompetition featureCardCompetition : aVar.jmk) {
-                if (featureCardCompetition != null && featureCardCompetition.isValid()) {
-                    AX(featureCardCompetition.floor.intValue());
-                    this.jmt[featureCardCompetition.floor.intValue()] = featureCardCompetition;
-                }
-            }
-        }
-        if (!y.isEmpty(aVar.jml)) {
-            for (FeatureCardGod featureCardGod : aVar.jml) {
-                if (featureCardGod != null && featureCardGod.isValid()) {
-                    AX(featureCardGod.floor.intValue());
-                    this.jmt[featureCardGod.floor.intValue()] = featureCardGod;
-                }
-            }
-        }
-        if (!y.isEmpty(aVar.jmm)) {
-            for (FeatureCardGame featureCardGame : aVar.jmm) {
-                if (featureCardGame != null && featureCardGame.isValid()) {
-                    AX(featureCardGame.floor.intValue());
-                    this.jmt[featureCardGame.floor.intValue()] = featureCardGame;
-                }
-            }
+            this.gCf.showLoadingViewWithoutEmptyView();
+            this.gCf.startLoadData();
         }
     }
 
-    private void AX(int i) {
-        if (i >= this.jmt.length) {
-            this.jmt = Arrays.copyOf(this.jmt, i + 1);
+    public void bVp() {
+        this.gAY.setNextPage(null);
+    }
+
+    public void completePullRefresh() {
+        this.gAY.completePullRefresh();
+    }
+
+    public void b(BdListView.e eVar) {
+        this.gAY.setOnSrollToBottomListener(eVar);
+    }
+
+    public void setListPullRefreshListener(f.c cVar) {
+        this.mPullView.setListPullRefreshListener(cVar);
+    }
+
+    public void bVE() {
+        if (this.gAY != null && j.isNetWorkAvailable()) {
+            this.gAY.startPullRefresh();
         }
     }
 
-    private void cHJ() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < this.jms.size()) {
-                by byVar = this.jms.get(i2);
-                if (byVar != null) {
-                    if (i2 % 4 == 0) {
-                        com.baidu.tieba.f.a aVar = new com.baidu.tieba.f.a();
-                        aVar.setData(byVar);
-                        this.mData.add(aVar);
-                    } else {
-                        com.baidu.tieba.f.b bVar = new com.baidu.tieba.f.b();
-                        bVar.setData(byVar);
-                        this.mData.add(bVar);
-                    }
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
+    public View getRootView() {
+        return this.mRootView;
+    }
+
+    public FrameLayout cKL() {
+        return this.jyT;
+    }
+
+    public NavigationBar bYq() {
+        return this.mNavigationBar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void goBack() {
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
+        customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, this.mPageContext.getUniqueId()));
+        MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.mNetworkView != null) {
+            this.mNetworkView.onChangeSkinType(this.mPageContext, i);
+        }
+        if (this.mNavigationBar != null) {
+            this.mNavigationBar.onChangeSkinType(this.mPageContext, i);
         }
     }
 
-    private void cHK() {
-        if (this.jmt != null && this.jmt.length > 0) {
-            for (int i = 0; i < this.jmt.length; i++) {
-                Object obj = this.jmt[i];
-                if (obj != null) {
-                    int i2 = i - 1;
-                    if (i2 < 0) {
-                        i2 = 0;
-                    } else if (i2 >= this.mData.size()) {
-                        i2 = this.mData.size();
-                    }
-                    if (obj instanceof FeatureCardHot) {
-                        e eVar = new e();
-                        eVar.a((FeatureCardHot) obj);
-                        this.mData.add(i2, eVar);
-                    } else if (obj instanceof FeatureCardTopic) {
-                        h hVar = new h();
-                        hVar.a((FeatureCardTopic) obj);
-                        this.mData.add(i2, hVar);
-                    } else if (obj instanceof b) {
-                        d dVar = new d();
-                        dVar.a((b) obj);
-                        this.mData.add(i2, dVar);
-                    } else if (obj instanceof FeatureCardCompetition) {
-                        c cVar = new c();
-                        cVar.a((FeatureCardCompetition) obj);
-                        this.mData.add(i2, cVar);
-                    } else if (obj instanceof FeatureCardGod) {
-                        x xVar = new x();
-                        xVar.a((FeatureCardGod) obj);
-                        this.mData.add(i2, xVar);
-                    } else if (obj instanceof FeatureCardGame) {
-                        f fVar = new f();
-                        fVar.a((FeatureCardGame) obj);
-                        this.mData.add(i2, fVar);
-                    }
-                }
-            }
-        }
-    }
-
-    private void b(com.baidu.tieba.frs.gamerecommend.data.a aVar) {
-        g gVar = new g();
-        gVar.a(aVar.jmg);
-        this.mData.add(0, gVar);
-    }
-
-    public List<q> getData() {
-        return this.mData;
+    public void onDestroy() {
     }
 }

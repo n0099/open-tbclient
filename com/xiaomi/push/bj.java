@@ -13,7 +13,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class bj {
     public static String a() {
         return Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL;
@@ -23,7 +23,7 @@ public class bj {
         String a2 = bm.a(context).a("sp_client_report_status", "sp_client_report_key", "");
         if (TextUtils.isEmpty(a2)) {
             String a3 = bf.a(20);
-            bm.a(context).m164a("sp_client_report_status", "sp_client_report_key", a3);
+            bm.a(context).m190a("sp_client_report_status", "sp_client_report_key", a3);
             return a3;
         }
         return a2;
@@ -38,16 +38,13 @@ public class bj {
         context.sendBroadcast(intent, "com.xiaomi.xmsf.permission.USE_XMSF_UPLOAD");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0126  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static void a(Context context, String str, String str2) {
-        RandomAccessFile randomAccessFile;
-        Exception exc;
+        Throwable th;
         File file;
         FileLock fileLock;
-        RandomAccessFile randomAccessFile2;
+        RandomAccessFile randomAccessFile;
+        File file2;
+        FileLock lock;
         File externalFilesDir = context.getExternalFilesDir(str2);
         if (externalFilesDir != null) {
             if (!externalFilesDir.exists()) {
@@ -63,127 +60,113 @@ public class bj {
                 if (listFiles == null || listFiles.length <= 0) {
                     return;
                 }
-                RandomAccessFile randomAccessFile3 = null;
-                FileLock fileLock2 = null;
-                File file2 = null;
                 long currentTimeMillis = System.currentTimeMillis();
                 int length = listFiles.length;
                 int i = 0;
+                File file3 = null;
+                FileLock fileLock2 = null;
+                RandomAccessFile randomAccessFile2 = null;
                 while (i < length) {
-                    File file3 = listFiles[i];
-                    if (file3 != null) {
+                    File file4 = listFiles[i];
+                    if (file4 != null) {
                         try {
                         } catch (Exception e) {
-                            exc = e;
-                            file = file2;
+                            e = e;
+                            file2 = file3;
+                            randomAccessFile = randomAccessFile2;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            file = file3;
                             fileLock = fileLock2;
-                            randomAccessFile2 = randomAccessFile3;
-                        } catch (Throwable th) {
-                            th = th;
-                            randomAccessFile = randomAccessFile3;
+                            randomAccessFile = randomAccessFile2;
                         }
-                        if (!TextUtils.isEmpty(file3.getAbsolutePath())) {
-                            file = new File(file3.getAbsolutePath() + ".lock");
+                        if (!TextUtils.isEmpty(file4.getAbsolutePath())) {
+                            file2 = new File(file4.getAbsolutePath() + ".lock");
                             try {
-                                y.m583a(file);
-                                randomAccessFile = new RandomAccessFile(file, "rw");
+                                y.m609a(file2);
+                                randomAccessFile = new RandomAccessFile(file2, "rw");
                                 try {
-                                    fileLock = randomAccessFile.getChannel().lock();
-                                } catch (Exception e2) {
-                                    fileLock = fileLock2;
-                                    randomAccessFile2 = randomAccessFile;
-                                    exc = e2;
-                                } catch (Throwable th2) {
-                                    file2 = file;
-                                    th = th2;
-                                }
-                                try {
-                                    File file4 = new File(externalFilesDir.getAbsolutePath() + File.separator + file3.getName() + currentTimeMillis);
                                     try {
-                                        y.b(file3, file4);
-                                    } catch (IOException e3) {
-                                        e3.printStackTrace();
-                                        file3.delete();
-                                        file4.delete();
-                                    }
-                                    file3.delete();
-                                    if (fileLock != null && fileLock.isValid()) {
-                                        try {
-                                            fileLock.release();
-                                        } catch (IOException e4) {
-                                            com.xiaomi.channel.commonutils.logger.b.a(e4);
-                                        }
-                                    }
-                                    y.a(randomAccessFile);
-                                    if (file != null) {
-                                        file.delete();
-                                        randomAccessFile2 = randomAccessFile;
-                                    } else {
-                                        randomAccessFile2 = randomAccessFile;
-                                    }
-                                } catch (Exception e5) {
-                                    randomAccessFile2 = randomAccessFile;
-                                    exc = e5;
-                                    try {
-                                        com.xiaomi.channel.commonutils.logger.b.a(exc);
-                                        if (fileLock != null && fileLock.isValid()) {
-                                            try {
-                                                fileLock.release();
-                                            } catch (IOException e6) {
-                                                com.xiaomi.channel.commonutils.logger.b.a(e6);
-                                            }
-                                        }
-                                        y.a(randomAccessFile2);
-                                        if (file != null) {
-                                            file.delete();
-                                        }
-                                        i++;
-                                        randomAccessFile3 = randomAccessFile2;
-                                        fileLock2 = fileLock;
-                                        file2 = file;
+                                        lock = randomAccessFile.getChannel().lock();
                                     } catch (Throwable th3) {
-                                        randomAccessFile = randomAccessFile2;
-                                        fileLock2 = fileLock;
-                                        file2 = file;
                                         th = th3;
-                                        if (fileLock2 != null && fileLock2.isValid()) {
-                                            try {
-                                                fileLock2.release();
-                                            } catch (IOException e7) {
-                                                com.xiaomi.channel.commonutils.logger.b.a(e7);
-                                            }
-                                        }
-                                        y.a(randomAccessFile);
-                                        if (file2 != null) {
-                                            file2.delete();
-                                        }
-                                        throw th;
+                                        file = file2;
+                                        fileLock = fileLock2;
                                     }
-                                } catch (Throwable th4) {
-                                    fileLock2 = fileLock;
-                                    file2 = file;
-                                    th = th4;
-                                    if (fileLock2 != null) {
-                                        fileLock2.release();
-                                    }
-                                    y.a(randomAccessFile);
-                                    if (file2 != null) {
-                                    }
-                                    throw th;
+                                } catch (Exception e2) {
+                                    e = e2;
                                 }
-                            } catch (Exception e8) {
-                                exc = e8;
+                            } catch (Exception e3) {
+                                e = e3;
+                                randomAccessFile = randomAccessFile2;
+                            } catch (Throwable th4) {
+                                th = th4;
+                                file = file2;
                                 fileLock = fileLock2;
-                                randomAccessFile2 = randomAccessFile3;
+                                randomAccessFile = randomAccessFile2;
+                            }
+                            try {
+                                File file5 = new File(externalFilesDir.getAbsolutePath() + File.separator + file4.getName() + currentTimeMillis);
+                                try {
+                                    y.b(file4, file5);
+                                } catch (IOException e4) {
+                                    e4.printStackTrace();
+                                    file4.delete();
+                                    file5.delete();
+                                }
+                                file4.delete();
+                                if (lock != null && lock.isValid()) {
+                                    try {
+                                        lock.release();
+                                    } catch (IOException e5) {
+                                        com.xiaomi.channel.commonutils.logger.b.a(e5);
+                                    }
+                                }
+                                y.a(randomAccessFile);
+                                if (file2 != null) {
+                                    file2.delete();
+                                    fileLock2 = lock;
+                                } else {
+                                    fileLock2 = lock;
+                                }
+                            } catch (Exception e6) {
+                                e = e6;
+                                fileLock2 = lock;
+                                com.xiaomi.channel.commonutils.logger.b.a(e);
+                                if (fileLock2 != null && fileLock2.isValid()) {
+                                    try {
+                                        fileLock2.release();
+                                    } catch (IOException e7) {
+                                        com.xiaomi.channel.commonutils.logger.b.a(e7);
+                                    }
+                                }
+                                y.a(randomAccessFile);
+                                if (file2 != null) {
+                                    file2.delete();
+                                }
+                                i++;
+                                file3 = file2;
+                                randomAccessFile2 = randomAccessFile;
                             } catch (Throwable th5) {
-                                randomAccessFile = randomAccessFile3;
                                 th = th5;
-                                file2 = file;
+                                file = file2;
+                                fileLock = lock;
+                                if (fileLock != null && fileLock.isValid()) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (IOException e8) {
+                                        com.xiaomi.channel.commonutils.logger.b.a(e8);
+                                    }
+                                }
+                                y.a(randomAccessFile);
+                                if (file != null) {
+                                    file.delete();
+                                }
+                                throw th;
                             }
                             i++;
-                            randomAccessFile3 = randomAccessFile2;
-                            fileLock2 = fileLock;
-                            file2 = file;
+                            file3 = file2;
+                            randomAccessFile2 = randomAccessFile;
                         }
                     }
                     if (fileLock2 != null && fileLock2.isValid()) {
@@ -193,28 +176,25 @@ public class bj {
                             com.xiaomi.channel.commonutils.logger.b.a(e9);
                         }
                     }
-                    y.a(randomAccessFile3);
-                    if (file2 != null) {
-                        file2.delete();
-                        file = file2;
-                        fileLock = fileLock2;
-                        randomAccessFile2 = randomAccessFile3;
+                    y.a(randomAccessFile2);
+                    if (file3 != null) {
+                        file3.delete();
+                        file2 = file3;
+                        randomAccessFile = randomAccessFile2;
                     } else {
-                        file = file2;
-                        fileLock = fileLock2;
-                        randomAccessFile2 = randomAccessFile3;
+                        file2 = file3;
+                        randomAccessFile = randomAccessFile2;
                     }
                     i++;
-                    randomAccessFile3 = randomAccessFile2;
-                    fileLock2 = fileLock;
-                    file2 = file;
+                    file3 = file2;
+                    randomAccessFile2 = randomAccessFile;
                 }
             }
         }
     }
 
     public static void a(Context context, List<String> list) {
-        if (list == null || list.size() <= 0 || !m160a(context)) {
+        if (list == null || list.size() <= 0 || !m186a(context)) {
             return;
         }
         for (String str : list) {
@@ -225,7 +205,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m160a(Context context) {
+    public static boolean m186a(Context context) {
         try {
             return context.getApplicationContext().getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0).versionCode >= 108;
         } catch (PackageManager.NameNotFoundException e) {
@@ -235,9 +215,9 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m161a(Context context, String str) {
+    public static boolean m187a(Context context, String str) {
         File file = new File(str);
-        long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m51a().getMaxFileLength();
+        long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m77a().getMaxFileLength();
         if (file.exists()) {
             try {
                 if (file.length() > maxFileLength) {
@@ -248,21 +228,21 @@ public class bj {
                 return false;
             }
         } else {
-            y.m583a(file);
+            y.m609a(file);
         }
         return true;
     }
 
     @TargetApi(9)
     public static byte[] a(String str) {
-        byte[] copyOf = Arrays.copyOf(bc.m155a(str), 16);
+        byte[] copyOf = Arrays.copyOf(bc.m181a(str), 16);
         copyOf[0] = 68;
         copyOf[15] = 84;
         return copyOf;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static File[] m162a(Context context, String str) {
+    public static File[] m188a(Context context, String str) {
         File externalFilesDir = context.getExternalFilesDir(str);
         if (externalFilesDir != null) {
             return externalFilesDir.listFiles(new bl());

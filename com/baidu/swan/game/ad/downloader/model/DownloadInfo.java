@@ -5,7 +5,7 @@ import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.game.ad.downloader.c.b;
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 import java.io.Serializable;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class DownloadInfo implements Serializable {
     private long mCreateAt;
     private transient b mDownloadListener;
@@ -121,35 +121,35 @@ public class DownloadInfo implements Serializable {
         return this.mStatus == SwanAdDownloadState.DOWNLOAD_PAUSED.value() || this.mStatus == SwanAdDownloadState.DOWNLOAD_FAILED.value() || this.mStatus == SwanAdDownloadState.DELETED.value();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
-        private long dRY = -1;
+        private long eaV = -1;
         private String id;
         private String packageName;
         private String path;
         private String url;
 
-        public a dc(long j) {
-            this.dRY = j;
+        public a dd(long j) {
+            this.eaV = j;
             return this;
         }
 
-        public a vW(String str) {
+        public a vV(String str) {
             this.url = str;
             return this;
         }
 
-        public a vX(String str) {
+        public a vW(String str) {
             this.path = str;
             return this;
         }
 
-        public a vY(String str) {
+        public a vX(String str) {
             this.packageName = str;
             return this;
         }
 
-        public DownloadInfo aSR() {
+        public DownloadInfo aVl() {
             DownloadInfo downloadInfo = new DownloadInfo();
             if (TextUtils.isEmpty(this.url)) {
                 throw new DownloadException(0, "uri cannot be null.");
@@ -162,8 +162,8 @@ public class DownloadInfo implements Serializable {
             if (TextUtils.isEmpty(this.packageName)) {
                 downloadInfo.setPackageName(this.packageName);
             }
-            if (this.dRY == -1) {
-                dc(System.currentTimeMillis());
+            if (this.eaV == -1) {
+                dd(System.currentTimeMillis());
             }
             if (TextUtils.isEmpty(this.id)) {
                 downloadInfo.setId(this.url);

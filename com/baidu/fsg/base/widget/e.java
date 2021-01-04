@@ -3,15 +3,15 @@ package com.baidu.fsg.base.widget;
 import android.view.KeyEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class e implements View.OnKeyListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SafeKeyBoardEditText f1553a;
+    final /* synthetic */ SafeKeyBoardEditText f2088a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(SafeKeyBoardEditText safeKeyBoardEditText) {
-        this.f1553a = safeKeyBoardEditText;
+        this.f2088a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnKeyListener
@@ -21,14 +21,14 @@ public class e implements View.OnKeyListener {
         SafeScrollView safeScrollView2;
         SafeScrollView safeScrollView3;
         if (keyEvent.getAction() == 0 && i == 4) {
-            z = this.f1553a.l;
+            z = this.f2088a.l;
             if (z) {
-                safeScrollView = this.f1553a.d;
+                safeScrollView = this.f2088a.d;
                 if (safeScrollView != null) {
-                    safeScrollView2 = this.f1553a.d;
+                    safeScrollView2 = this.f2088a.d;
                     if (safeScrollView2.isPopupWindowShowing()) {
-                        safeScrollView3 = this.f1553a.d;
-                        safeScrollView3.dismissKeyBoard(this.f1553a);
+                        safeScrollView3 = this.f2088a.d;
+                        safeScrollView3.dismissKeyBoard(this.f2088a);
                         return true;
                     }
                     return false;

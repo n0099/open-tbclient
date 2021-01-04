@@ -1,29 +1,28 @@
 package com.tencent.open.a;
 
-import android.support.media.ExifInterface;
 import android.text.format.Time;
 import android.util.Log;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f4352a = new h();
+    public static final h f13681a = new h();
 
     public final String a(int i) {
         switch (i) {
             case 1:
-                return ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
+                return "V";
             case 2:
                 return "D";
             case 4:
                 return "I";
             case 8:
-                return ExifInterface.LONGITUDE_WEST;
+                return "W";
             case 16:
-                return ExifInterface.LONGITUDE_EAST;
+                return "E";
             case 32:
-                return ExifInterface.GPS_MEASUREMENT_IN_PROGRESS;
+                return "A";
             default:
                 return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         }

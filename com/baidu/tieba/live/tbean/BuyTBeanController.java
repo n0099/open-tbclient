@@ -46,7 +46,7 @@ import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.CallBack {
     public static final String ACTION_CALLBACK_LIVE_BUYTBEAN_RESULT = "action_callback_live_buytbean_result";
     public static final String GIFT_TBEAN = "gift_tbean";
@@ -268,7 +268,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             String valueOf = String.valueOf(i);
             String valueOf2 = String.valueOf(i2);
             String valueOf3 = String.valueOf(i3);
-            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !d.bf(this.activity)) {
+            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !d.bl(this.activity)) {
                 payWalletActivityConfig = new PayWalletActivityOpaqueConfig(this.activity, 2, "0", str2, valueOf, valueOf2, true, valueOf3, false, PageDialogHelper.PayForm.NOT_SET, getReferPage(), getClickZone(), RequestResponseCode.REQUEST_DO_PAY);
                 if (!TextUtils.isEmpty(this.from)) {
                     ((PayWalletActivityOpaqueConfig) payWalletActivityConfig).setFrom(this.from);
@@ -342,48 +342,36 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                     jSONObject2.putOpt("td_num", this.tdouNum);
                 } catch (Exception e2) {
                 }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject2));
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "chargeres_show").setContentExt(null, null, jSONObject2));
+                notifyPayResult(true, i2, str);
+                return;
+            case 1:
+                this.mPayStatus = 1;
                 JSONObject jSONObject3 = new JSONObject();
                 try {
                     jSONObject3.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
                     if (this.entry != null) {
                         jSONObject3.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
                     }
-                    jSONObject3.putOpt("charge_status", "1");
+                    jSONObject3.putOpt("order_id", this.orderId);
+                    jSONObject3.putOpt("charge_status", "2");
                     jSONObject3.putOpt("charge_id", this.chargeId);
                     jSONObject3.putOpt("td_num", this.tdouNum);
                 } catch (Exception e3) {
                 }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "chargeres_show").setContentExt(null, null, jSONObject3));
-                notifyPayResult(true, i2, str);
-                return;
-            case 1:
-                this.mPayStatus = 1;
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject3));
                 JSONObject jSONObject4 = new JSONObject();
                 try {
                     jSONObject4.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
                     if (this.entry != null) {
                         jSONObject4.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
                     }
-                    jSONObject4.putOpt("order_id", this.orderId);
                     jSONObject4.putOpt("charge_status", "2");
                     jSONObject4.putOpt("charge_id", this.chargeId);
                     jSONObject4.putOpt("td_num", this.tdouNum);
                 } catch (Exception e4) {
                 }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject4));
-                JSONObject jSONObject5 = new JSONObject();
-                try {
-                    jSONObject5.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
-                    if (this.entry != null) {
-                        jSONObject5.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
-                    }
-                    jSONObject5.putOpt("charge_status", "2");
-                    jSONObject5.putOpt("charge_id", this.chargeId);
-                    jSONObject5.putOpt("td_num", this.tdouNum);
-                } catch (Exception e5) {
-                }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "chargeres_show").setContentExt(null, null, jSONObject5));
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "chargeres_show").setContentExt(null, null, jSONObject4));
                 return;
             case 2:
             case 3:
@@ -393,31 +381,31 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                 this.mPayStatus = 2;
                 this.mView.showPayResultView(false, this.mLastPayItemTbeanCount, this.mLastPayDataInfo);
                 notifyPayResult(false, i2, str);
+                JSONObject jSONObject5 = new JSONObject();
+                try {
+                    jSONObject5.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
+                    if (this.entry != null) {
+                        jSONObject5.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
+                    }
+                    jSONObject5.putOpt("order_id", this.orderId);
+                    jSONObject5.putOpt("charge_status", "0");
+                    jSONObject5.putOpt("charge_id", this.chargeId);
+                    jSONObject5.putOpt("td_num", this.tdouNum);
+                } catch (Exception e5) {
+                }
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject5));
                 JSONObject jSONObject6 = new JSONObject();
                 try {
                     jSONObject6.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
                     if (this.entry != null) {
                         jSONObject6.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
                     }
-                    jSONObject6.putOpt("order_id", this.orderId);
                     jSONObject6.putOpt("charge_status", "0");
                     jSONObject6.putOpt("charge_id", this.chargeId);
                     jSONObject6.putOpt("td_num", this.tdouNum);
                 } catch (Exception e6) {
                 }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, "popup", jSONObject6));
-                JSONObject jSONObject7 = new JSONObject();
-                try {
-                    jSONObject7.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
-                    if (this.entry != null) {
-                        jSONObject7.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
-                    }
-                    jSONObject7.putOpt("charge_status", "0");
-                    jSONObject7.putOpt("charge_id", this.chargeId);
-                    jSONObject7.putOpt("td_num", this.tdouNum);
-                } catch (Exception e7) {
-                }
-                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "chargeres_show").setContentExt(null, null, jSONObject7));
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "chargeres_show").setContentExt(null, null, jSONObject6));
                 return;
             default:
                 return;

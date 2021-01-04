@@ -6,12 +6,12 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a implements SensorEventListener {
     private Context mContext;
     private SensorManager rH;
     private Sensor vS;
-    private InterfaceC0085a vT;
+    private InterfaceC0077a vT;
     private boolean vU = true;
     private LinkedList<Double> vV = new LinkedList<>();
     private LinkedList<Float> vW = new LinkedList<>();
@@ -23,8 +23,8 @@ public class a implements SensorEventListener {
     private boolean wc = false;
 
     /* renamed from: com.baidu.ar.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0085a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0077a {
         void b(float f, float f2, float f3, float f4);
 
         void destroy();
@@ -38,8 +38,8 @@ public class a implements SensorEventListener {
         this.vU = z;
     }
 
-    public void a(InterfaceC0085a interfaceC0085a) {
-        this.vT = interfaceC0085a;
+    public void a(InterfaceC0077a interfaceC0077a) {
+        this.vT = interfaceC0077a;
     }
 
     public void a(LinkedList linkedList, double d) {
@@ -67,11 +67,11 @@ public class a implements SensorEventListener {
         a((LinkedList) this.vX, Math.abs(f2));
         a((LinkedList) this.vY, Math.abs(f3));
         if (this.vV.size() == this.vZ) {
-            int i = 0;
             double d = 0.0d;
             float f4 = 0.0f;
             float f5 = 0.0f;
             float f6 = 0.0f;
+            int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 >= this.vV.size()) {

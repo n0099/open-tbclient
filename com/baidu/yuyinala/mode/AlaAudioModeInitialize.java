@@ -5,24 +5,24 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.HttpMessageTask;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaAudioModeInitialize {
-    private static int oKA = -1;
+    private static int oQM = -1;
 
     static {
-        ekx();
-        eky();
-        ekl();
+        ekG();
+        ekH();
+        eks();
     }
 
-    private static void ekx() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031079, TbConfig.SERVER_ADDRESS + "ala/audio/room/changeMode");
+    private static void ekG() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031079, com.baidu.live.a.aAH + "ala/audio/room/changeMode");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
@@ -33,7 +33,7 @@ public class AlaAudioModeInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void eky() {
+    private static void ekH() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501008) { // from class: com.baidu.yuyinala.mode.AlaAudioModeInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -42,21 +42,21 @@ public class AlaAudioModeInitialize {
                     HashMap hashMap = (HashMap) customResponsedMessage.getData();
                     Object obj = hashMap.get("context");
                     Object obj2 = hashMap.get("ala_live_show_data");
-                    if ((obj instanceof TbPageContext) && (obj2 instanceof w)) {
-                        a.eku().b((TbPageContext) obj, (w) obj2);
+                    if ((obj instanceof TbPageContext) && (obj2 instanceof x)) {
+                        a.ekD().b((TbPageContext) obj, (x) obj2);
                     }
                 }
             }
         });
     }
 
-    private static void ekl() {
+    private static void eks() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.mode.AlaAudioModeInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.eku().ID();
+                    a.ekD().If();
                 }
             }
         });

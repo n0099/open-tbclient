@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.inlinewidget.f;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.api.module.k.j;
 import com.baidu.swan.apps.inlinewidget.f.a.e;
 import com.baidu.swan.apps.inlinewidget.f.a.f;
@@ -20,112 +20,112 @@ import com.baidu.swan.apps.inlinewidget.f.a.r;
 import com.baidu.swan.apps.inlinewidget.f.a.s;
 import com.baidu.swan.apps.inlinewidget.f.a.t;
 import com.baidu.swan.apps.inlinewidget.f.c.a;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 final class b extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inlinewidget.f.c.a> {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final a.InterfaceC0457a dbV;
+    private final a.InterfaceC0449a dgQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(@NonNull com.baidu.swan.apps.inlinewidget.f.c.a aVar) {
         super(aVar);
-        this.dbV = new a.InterfaceC0457a() { // from class: com.baidu.swan.apps.inlinewidget.f.b.1
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0457a
+        this.dgQ = new a.InterfaceC0449a() { // from class: com.baidu.swan.apps.inlinewidget.f.b.1
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
             public void onPrepared() {
-                if (b.this.daZ != null) {
-                    b.this.daZ.onCallback(b.this, "onPrepared", null);
+                if (b.this.dfU != null) {
+                    b.this.dfU.onCallback(b.this, "onPrepared", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0457a
-            public void pm(String str) {
-                if (b.this.daZ != null) {
-                    b.this.daZ.onCallback(b.this, "onPlayed", null);
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
+            public void pf(String str) {
+                if (b.this.dfU != null) {
+                    b.this.dfU.onCallback(b.this, "onPlayed", null);
                 }
-                j.amD().P(str, true);
-                j.amD().ms(str);
+                j.anN().P(str, true);
+                j.anN().ml(str);
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0457a
-            public void pn(String str) {
-                if (b.this.daZ != null) {
-                    b.this.daZ.onCallback(b.this, "onPaused", null);
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
+            public void pg(String str) {
+                if (b.this.dfU != null) {
+                    b.this.dfU.onCallback(b.this, "onPaused", null);
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    j.amD().P(str, false);
+                    j.anN().P(str, false);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0457a
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
             public void onEnded() {
-                if (b.this.daZ != null) {
-                    b.this.daZ.onCallback(b.this, "onEnded", null);
+                if (b.this.dfU != null) {
+                    b.this.dfU.onCallback(b.this, "onEnded", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0457a
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
             public void onError(int i) {
-                if (b.this.daZ != null) {
-                    b.this.daZ.onCallback(b.this, "onError", Integer.valueOf(i));
+                if (b.this.dfU != null) {
+                    b.this.dfU.onCallback(b.this, "onError", Integer.valueOf(i));
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0457a
-            public void jp(int i) {
-                if (b.this.daZ != null) {
-                    b.this.daZ.onCallback(b.this, "onInfo", Integer.valueOf(i));
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
+            public void jk(int i) {
+                if (b.this.dfU != null) {
+                    b.this.dfU.onCallback(b.this, "onInfo", Integer.valueOf(i));
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0457a
-            public void ayx() {
-                if (b.this.daZ != null) {
-                    b.this.daZ.onCallback(b.this, "onVideoSizeChanged", null);
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
+            public void azO() {
+                if (b.this.dfU != null) {
+                    b.this.dfU.onCallback(b.this, "onVideoSizeChanged", null);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0457a
-            public void jq(int i) {
-                if (b.this.daZ != null) {
-                    b.this.daZ.onCallback(b.this, "onStateChange", Integer.valueOf(i));
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
+            public void jl(int i) {
+                if (b.this.dfU != null) {
+                    b.this.dfU.onCallback(b.this, "onStateChange", Integer.valueOf(i));
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0457a
-            public void po(@NonNull String str) {
-                if (b.this.daZ != null) {
-                    b.this.daZ.onCallback(b.this, "onNetStatus", str);
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
+            public void ph(@NonNull String str) {
+                if (b.this.dfU != null) {
+                    b.this.dfU.onCallback(b.this, "onNetStatus", str);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0457a
-            public void hB(String str) {
+            @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
+            public void hm(String str) {
                 if (b.DEBUG) {
                     Log.i("InlineVideoController", "onRelease: " + str);
                 }
-                j.amD().mq(str);
+                j.anN().mj(str);
             }
         };
-        aVar.a(this.dbV);
-        j.amD().a(aVar);
-        this.daY.a(new com.baidu.swan.apps.inlinewidget.f.a.a());
-        this.daY.a(new com.baidu.swan.apps.inlinewidget.f.a.b());
-        this.daY.a(new com.baidu.swan.apps.inlinewidget.f.a.c());
-        this.daY.a(new com.baidu.swan.apps.inlinewidget.f.a.d());
-        this.daY.a(new e());
-        this.daY.a(new f());
-        this.daY.a(new g());
-        this.daY.a(new h());
-        this.daY.a(new com.baidu.swan.apps.inlinewidget.f.a.j());
-        this.daY.a(new k());
-        this.daY.a(new l());
-        this.daY.a(new m());
-        this.daY.a(new o());
-        this.daY.a(new p());
-        this.daY.a(new q());
-        this.daY.a(new s());
-        this.daY.a(new t());
-        this.daY.a(new n());
-        this.daY.a(new i());
-        this.daY.a(new r());
+        aVar.a(this.dgQ);
+        j.anN().a(aVar);
+        this.dfT.a(new com.baidu.swan.apps.inlinewidget.f.a.a());
+        this.dfT.a(new com.baidu.swan.apps.inlinewidget.f.a.b());
+        this.dfT.a(new com.baidu.swan.apps.inlinewidget.f.a.c());
+        this.dfT.a(new com.baidu.swan.apps.inlinewidget.f.a.d());
+        this.dfT.a(new e());
+        this.dfT.a(new f());
+        this.dfT.a(new g());
+        this.dfT.a(new h());
+        this.dfT.a(new com.baidu.swan.apps.inlinewidget.f.a.j());
+        this.dfT.a(new k());
+        this.dfT.a(new l());
+        this.dfT.a(new m());
+        this.dfT.a(new o());
+        this.dfT.a(new p());
+        this.dfT.a(new q());
+        this.dfT.a(new s());
+        this.dfT.a(new t());
+        this.dfT.a(new n());
+        this.dfT.a(new i());
+        this.dfT.a(new r());
     }
 }

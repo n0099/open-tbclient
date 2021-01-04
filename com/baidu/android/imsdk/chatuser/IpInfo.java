@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatuser;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.NoProGuard;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IpInfo implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<IpInfo> CREATOR = new Parcelable.Creator<IpInfo>() { // from class: com.baidu.android.imsdk.chatuser.IpInfo.1
         /* JADX DEBUG: Method merged with bridge method */

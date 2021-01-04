@@ -12,8 +12,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.storage.StorageManager;
 import android.preference.PreferenceManager;
-import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
+import androidx.core.content.FileProvider;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.util.LogUtil;
@@ -21,30 +21,25 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f1334a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-    private static String b = "";
+    static final char[] f1731a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f1732b = "";
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
-        Object obj2;
-        Exception e;
+        Object obj2 = null;
         try {
             obj2 = obj.getClass().getMethod(str, clsArr).invoke(obj, objArr);
-        } catch (Exception e2) {
-            obj2 = null;
-            e = e2;
-        }
-        try {
             LogUtil.logD("Utility", "Method \"" + str + "\" invoked success!");
-        } catch (Exception e3) {
-            e = e3;
+            return obj2;
+        } catch (Exception e) {
             LogUtil.logD("Utility", "Method \"" + str + "\" invoked failed: " + e.getMessage());
             return obj2;
         }
-        return obj2;
     }
 
     public static String a(Context context, String str) {
@@ -71,8 +66,8 @@ public final class j {
         try {
             if (Build.VERSION.SDK_INT >= 24) {
                 intent.setFlags(RouterCallback.CODE_ERROR);
-                String str = b;
-                if (TextUtils.isEmpty(b)) {
+                String str = f1732b;
+                if (TextUtils.isEmpty(f1732b)) {
                     str = context.getPackageName() + ".fileprovider";
                 }
                 intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
@@ -91,7 +86,7 @@ public final class j {
     }
 
     public static void a(String str) {
-        b = str;
+        f1732b = str;
     }
 
     public static boolean a(Context context) {

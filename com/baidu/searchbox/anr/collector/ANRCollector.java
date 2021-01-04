@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class ANRCollector {
     private static final String DEFAULT_TRACE_PATH = "/data/anr/traces.txt";
 

@@ -1,11 +1,11 @@
 package com.baidu.tieba.homepage.hotTopic.tab.net;
 
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public interface a {
-    List<q> getDataList();
+    List<n> getDataList();
 
     HotThreadListResIdl getResData();
 }

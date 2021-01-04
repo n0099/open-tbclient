@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
-import com.baidu.swan.apps.ap.ah;
-import com.baidu.swan.apps.ap.ak;
-import com.baidu.swan.apps.ap.u;
+import com.baidu.swan.apps.ao.ah;
+import com.baidu.swan.apps.ao.ak;
+import com.baidu.swan.apps.ao.u;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.runtime.d;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class SwanAppLauncherActivity extends Activity {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -20,12 +20,12 @@ public class SwanAppLauncherActivity extends Activity {
         int releaseFixedOrientation = ak.releaseFixedOrientation(this);
         super.onCreate(bundle);
         ak.fixedOrientation(this, releaseFixedOrientation);
-        ah.S(this);
+        ah.U(this);
         if (DEBUG) {
             Log.d("SwanAppLauncherActivity", MissionEvent.MESSAGE_CREATE);
         }
-        if (!u.checkActivityRefuseServiceAndFinish(this)) {
-            SwanLauncher.avL().t(getIntent().getExtras());
+        if (!u.S(this)) {
+            SwanLauncher.axd().t(getIntent().getExtras());
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.SwanAppLauncherActivity.1
                 @Override // java.lang.Runnable
                 public void run() {

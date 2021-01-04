@@ -1,31 +1,31 @@
 package com.baidu.swan.apps.v.a;
 
-import android.support.annotation.Nullable;
-/* loaded from: classes25.dex */
+import androidx.annotation.Nullable;
+/* loaded from: classes9.dex */
 class d implements a {
     @Nullable
-    private com.baidu.swan.games.f.a dfg;
+    private com.baidu.swan.games.f.a dka;
 
     @Override // com.baidu.swan.apps.v.a.a
     public void onPause() {
-        aCH();
-        if (this.dfg != null) {
-            this.dfg.onPause();
+        aDY();
+        if (this.dka != null) {
+            this.dka.onPause();
         }
     }
 
     @Override // com.baidu.swan.apps.v.a.a
     public void onResume() {
-        aCH();
-        if (this.dfg != null) {
-            this.dfg.onResume();
+        aDY();
+        if (this.dka != null) {
+            this.dka.onResume();
         }
     }
 
-    private void aCH() {
-        com.baidu.swan.apps.core.g.a auz;
-        if ((this.dfg == null || this.dfg.isDestroyed()) && (auz = com.baidu.swan.apps.core.turbo.d.aui().auz()) != null && (auz.alX() instanceof com.baidu.swan.games.f.a)) {
-            this.dfg = (com.baidu.swan.games.f.a) auz.alX();
+    private void aDY() {
+        com.baidu.swan.apps.core.g.a avR;
+        if ((this.dka == null || this.dka.isDestroyed()) && (avR = com.baidu.swan.apps.core.turbo.d.avA().avR()) != null && (avR.anh() instanceof com.baidu.swan.games.f.a)) {
+            this.dka = (com.baidu.swan.games.f.a) avR.anh();
         }
     }
 }

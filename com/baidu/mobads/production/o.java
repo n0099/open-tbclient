@@ -2,21 +2,23 @@ package com.baidu.mobads.production;
 
 import com.baidu.mobads.interfaces.IXAdContainerContext;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IXAdContainerContext f2424a;
-    final /* synthetic */ b b;
+    final /* synthetic */ IXAdContainerContext f3501a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ b f3502b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(b bVar, IXAdContainerContext iXAdContainerContext) {
-        this.b = bVar;
-        this.f2424a = iXAdContainerContext;
+        this.f3502b = bVar;
+        this.f3501a = iXAdContainerContext;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.a(this.f2424a);
+        this.f3502b.a(this.f3501a);
     }
 }

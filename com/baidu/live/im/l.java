@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Handler;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.android.imrtc.BIMRtcClient;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -20,34 +20,34 @@ import com.baidu.live.tbadk.util.SingleRunnable;
 import com.baidu.live.tbadk.util.TbSingleExecutor;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class l implements ILoginListener {
-    private static volatile l bmN;
-    static boolean bmO = true;
-    private a bmM;
+    private static volatile l bos;
+    static boolean bot = true;
+    private a bor;
     private boolean mIsDestroy;
     private boolean mIsLogin;
-    private boolean bmL = false;
+    private boolean boq = false;
     private Handler handler = new Handler();
-    private BroadcastReceiver bmP = new AnonymousClass1();
+    private BroadcastReceiver bou = new AnonymousClass1();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void r(int i, String str);
+        void s(int i, String str);
     }
 
     private l() {
     }
 
-    public static l Nn() {
-        if (bmN == null) {
+    public static l MM() {
+        if (bos == null) {
             synchronized (l.class) {
-                if (bmN == null) {
-                    bmN = new l();
+                if (bos == null) {
+                    bos = new l();
                 }
             }
         }
-        return bmN;
+        return bos;
     }
 
     public void init(Context context) {
@@ -57,7 +57,7 @@ public class l implements ILoginListener {
         String subappVersionName = TbConfig.getSubappVersionName();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
-        LocalBroadcastManager.getInstance(context).registerReceiver(this.bmP, intentFilter);
+        LocalBroadcastManager.getInstance(context).registerReceiver(this.bou, intentFilter);
         com.baidu.lcp.sdk.d.e.k(context, true);
         BIMManager.setProductLine(context, 3, subappVersionName);
         String cuid = ExtraParamsManager.getInstance().buildParamsExtra().getCuid();
@@ -73,19 +73,19 @@ public class l implements ILoginListener {
             BIMRtcClient.setRtcDebugAndLogEnable(context, false, false);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        aZ(context);
-        this.bmL = true;
+        aY(context);
+        this.boq = true;
     }
 
-    private void aZ(Context context) {
+    private void aY(Context context) {
         int i;
         Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP context=" + context);
-        if (bmO) {
+        if (bot) {
             i = 1;
         } else {
             i = 2;
         }
-        bmO = false;
+        bot = false;
         com.baidu.lcp.sdk.client.a.c(context, "10773430", ExtraParamsManager.getInstance().buildParamsExtra().getCuid(), i);
         Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP connect end");
     }
@@ -93,7 +93,7 @@ public class l implements ILoginListener {
     public void a(a aVar) {
         Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM listener=" + aVar);
         this.mIsLogin = true;
-        this.bmM = aVar;
+        this.bor = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -110,16 +110,16 @@ public class l implements ILoginListener {
         LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuid + ", from = " + fromHost + ", cfrom = " + currentFromHost);
     }
 
-    public void No() {
+    public void MN() {
         AccountManager.disconnect(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
         Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLoginResult errno=" + i + ", errMsg=" + str);
-        if (this.bmM != null) {
-            this.bmM.r(i, str);
-            this.bmM = null;
+        if (this.bor != null) {
+            this.bor.s(i, str);
+            this.bor = null;
         }
     }
 
@@ -132,7 +132,7 @@ public class l implements ILoginListener {
     }
 
     /* renamed from: com.baidu.live.im.l$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     class AnonymousClass1 extends BroadcastReceiver {
         AnonymousClass1() {
         }
@@ -166,7 +166,7 @@ public class l implements ILoginListener {
     public void destroy() {
         this.mIsDestroy = true;
         this.handler.removeCallbacksAndMessages(null);
-        No();
+        MN();
     }
 
     public static boolean isDebug() {

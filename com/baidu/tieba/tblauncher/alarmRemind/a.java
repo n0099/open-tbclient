@@ -13,13 +13,13 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
-/* loaded from: classes22.dex */
+/* loaded from: classes.dex */
 public class a {
-    public static boolean dHb() {
+    public static boolean dGQ() {
         return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append(SharedPrefConfig.REMIND_RECOMMEND_SERVER_SWITCH).toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage Un(String str) {
+    public static RemindRecommendMessage Ua(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -53,11 +53,10 @@ public class a {
         }
     }
 
-    public static long hI(long j) {
+    public static long hD(long j) {
         int i;
         int i2;
         int i3;
-        int i4;
         String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.REMIND_RECOMMEND_DLALOG_TIME, "12:05:00");
         if (TextUtils.isEmpty(loadString)) {
             loadString = "12:05:00";
@@ -75,9 +74,7 @@ public class a {
         if (i3 < 0 || i3 > 23 || i2 < 0 || i2 > 59 || i < 0 || i > 59) {
             i = 0;
             i2 = 5;
-            i4 = 12;
-        } else {
-            i4 = i3;
+            i3 = 12;
         }
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(j);
@@ -85,21 +82,21 @@ public class a {
         calendar.set(13, i);
         Application app = TbadkCoreApplication.getInst().getApp();
         if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
-            calendar.set(11, i4);
+            calendar.set(11, i3);
         } else {
-            if (i4 >= 12) {
-                i4 -= 12;
+            if (i3 >= 12) {
+                i3 -= 12;
                 calendar.set(9, 1);
             } else {
                 calendar.set(9, 0);
             }
-            calendar.set(10, i4);
+            calendar.set(10, i3);
         }
         return calendar.getTimeInMillis();
     }
 
-    public static long dRL() {
-        return hI(System.currentTimeMillis());
+    public static long dRW() {
+        return hD(System.currentTimeMillis());
     }
 
     public static boolean isTaday(long j) {
@@ -112,7 +109,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean dRM() {
-        return com.baidu.tbadk.core.sharedPref.b.bsO().getInt(SharedPrefConfig.SYNC_LOCAL_DOALOG, 1) == 1;
+    public static boolean dRX() {
+        return com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.SYNC_LOCAL_DOALOG, 1) == 1;
     }
 }

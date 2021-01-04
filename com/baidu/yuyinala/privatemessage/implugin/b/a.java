@@ -10,30 +10,30 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.yuyinala.privatemessage.implugin.d.b;
 import com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c;
 import com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a oOc;
+    private static a oUm;
     private Context mContext;
-    private LongSparseArray<ImageMsg> oOd = new LongSparseArray<>();
+    private LongSparseArray<ImageMsg> oUn = new LongSparseArray<>();
 
     private a(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    public static a hf(Context context) {
-        if (oOc == null) {
+    public static a hu(Context context) {
+        if (oUm == null) {
             synchronized (a.class) {
-                if (oOc == null) {
-                    oOc = new a(context);
+                if (oUm == null) {
+                    oUm = new a(context);
                 }
             }
         }
-        return oOc;
+        return oUm;
     }
 
     public void a(ChatMsg chatMsg, String str) {
-        com.baidu.yuyinala.privatemessage.implugin.d.b.elh().saveMessage(this.mContext, chatMsg);
+        com.baidu.yuyinala.privatemessage.implugin.d.b.ell().saveMessage(this.mContext, chatMsg);
         switch (chatMsg.getMsgType()) {
             case 0:
                 b(chatMsg, str);
@@ -49,7 +49,7 @@ public class a {
 
     private void b(ChatMsg chatMsg, String str) {
         if (chatMsg instanceof TextMsg) {
-            com.baidu.yuyinala.privatemessage.implugin.d.b.elh().a(this.mContext, chatMsg, new C0964a(str));
+            com.baidu.yuyinala.privatemessage.implugin.d.b.ell().a(this.mContext, chatMsg, new C0940a(str));
         } else {
             LogUtils.e(TAG, "sendTextChatMsg msg error");
         }
@@ -57,7 +57,7 @@ public class a {
 
     private void c(ChatMsg chatMsg, String str) {
         if (chatMsg instanceof SignleGraphicTextMsg) {
-            com.baidu.yuyinala.privatemessage.implugin.d.b.elh().a(this.mContext, chatMsg, new C0964a(str));
+            com.baidu.yuyinala.privatemessage.implugin.d.b.ell().a(this.mContext, chatMsg, new C0940a(str));
         } else {
             LogUtils.e(TAG, "sendTextChatMsg msg error");
         }
@@ -68,9 +68,9 @@ public class a {
     }
 
     public void a(ImageMsg imageMsg) {
-        if (this.oOd != null) {
-            if (this.oOd.get(imageMsg.getRowId()) != null) {
-                imageMsg.setProgress(this.oOd.get(imageMsg.getRowId()).getProgress());
+        if (this.oUn != null) {
+            if (this.oUn.get(imageMsg.getRowId()) != null) {
+                imageMsg.setProgress(this.oUn.get(imageMsg.getRowId()).getProgress());
             } else {
                 imageMsg.setStatus(2);
             }
@@ -78,28 +78,28 @@ public class a {
     }
 
     public void a(int i, ChatMsg chatMsg, String str) {
-        c YK = d.emA().YK(str);
-        if (YK != null) {
-            YK.onSendMessageResult(i, chatMsg);
+        c Yu = d.emC().Yu(str);
+        if (Yu != null) {
+            Yu.onSendMessageResult(i, chatMsg);
         }
         if (chatMsg.getMsgType() == 1) {
-            this.oOd.remove(chatMsg.getRowId());
+            this.oUn.remove(chatMsg.getRowId());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C0964a implements b.f {
+    /* loaded from: classes11.dex */
+    public class C0940a implements b.f {
         private String mListenerKey;
 
-        private C0964a(String str) {
+        private C0940a(String str) {
             this.mListenerKey = str;
         }
 
         @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
         public void onSendMessageResult(int i, ChatMsg chatMsg) {
-            a.hf(a.this.mContext).a(i, chatMsg, this.mListenerKey);
+            a.hu(a.this.mContext).a(i, chatMsg, this.mListenerKey);
         }
     }
 }

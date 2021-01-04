@@ -1,12 +1,12 @@
 package com.baidu.live.c;
 
 import android.view.ViewGroup;
-import com.baidu.live.data.w;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
 public interface a {
-    void Do();
+    void Bf();
 
-    void b(ViewGroup viewGroup, w wVar);
+    void b(ViewGroup viewGroup, x xVar);
 
     void onDestroy();
 

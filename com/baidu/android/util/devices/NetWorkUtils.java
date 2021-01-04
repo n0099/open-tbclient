@@ -6,12 +6,13 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class NetWorkUtils {
     private static final boolean DEBUG = false;
     public static final String NETWORK_TYPE_CELL_2G = "2g";
@@ -24,7 +25,7 @@ public class NetWorkUtils {
     public static final String NETWORK_TYPE_WIFI = "wifi";
     private static final String TAG = "NetWorkUtils";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),
@@ -226,7 +227,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static boolean isWapNetWorkConnected(Context context) {
+    public static boolean isWapNetWorkConnected(@NonNull Context context) {
         return isWapNetWorkConnected();
     }
 
@@ -243,7 +244,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getNetworkInfo(Context context) {
+    public static String getNetworkInfo(@NonNull Context context) {
         return getNetworkInfo();
     }
 
@@ -301,7 +302,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getBSSID(Context context) {
+    public static String getBSSID(@NonNull Context context) {
         return getBSSID();
     }
 
@@ -311,7 +312,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getWifiName(Context context) {
+    public static String getWifiName(@NonNull Context context) {
         return getWifiName();
     }
 
@@ -321,7 +322,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static int getIPAddress(Context context) {
+    public static int getIPAddress(@NonNull Context context) {
         return getIPAddress();
     }
 
@@ -334,7 +335,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static int getNetworkId(Context context) {
+    public static int getNetworkId(@NonNull Context context) {
         return getNetworkId();
     }
 
@@ -347,7 +348,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getWifiInfo(Context context) {
+    public static String getWifiInfo(@NonNull Context context) {
         return getWifiInfo();
     }
 

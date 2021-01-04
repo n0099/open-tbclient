@@ -11,12 +11,12 @@ import android.os.Build;
 import android.os.Debug;
 import android.os.Process;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.Closeables;
@@ -43,7 +43,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class Utility {
     private static final String TAG = "Utility";
 
@@ -198,68 +198,61 @@ public class Utility {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [303=4] */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: java.io.BufferedReader */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final void obtainLogcatFile(@NonNull File file) {
         FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2;
-        FileOutputStream fileOutputStream3 = null;
-        if (!file.exists() || !file.isFile()) {
+        Closeable closeable;
+        BufferedReader bufferedReader;
+        if (!file.exists()) {
             return;
         }
         try {
-            fileOutputStream = new FileOutputStream(file);
+            if (!file.isFile()) {
+                return;
+            }
             try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("logcat -v time -t 1000").getInputStream()));
-                while (true) {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            fileOutputStream.flush();
+                fileOutputStream = new FileOutputStream(file);
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("logcat -v time -t 1000").getInputStream()));
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                fileOutputStream.flush();
+                                Closeables.closeSafely(bufferedReader);
+                                Closeables.closeSafely(fileOutputStream);
+                                return;
+                            }
+                            fileOutputStream.write(readLine.getBytes());
+                            fileOutputStream.write("\n".getBytes());
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
                             Closeables.closeSafely(bufferedReader);
                             Closeables.closeSafely(fileOutputStream);
                             return;
                         }
-                        fileOutputStream.write(readLine.getBytes());
-                        fileOutputStream.write("\n".getBytes());
-                    } catch (Exception e) {
-                        e = e;
-                        fileOutputStream3 = fileOutputStream;
-                        fileOutputStream2 = bufferedReader;
-                        try {
-                            e.printStackTrace();
-                            Closeables.closeSafely(fileOutputStream2);
-                            Closeables.closeSafely(fileOutputStream3);
-                            return;
-                        } catch (Throwable th) {
-                            th = th;
-                            fileOutputStream = fileOutputStream3;
-                            fileOutputStream3 = fileOutputStream2;
-                            Closeables.closeSafely(fileOutputStream3);
-                            Closeables.closeSafely(fileOutputStream);
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileOutputStream3 = bufferedReader;
-                        Closeables.closeSafely(fileOutputStream3);
-                        Closeables.closeSafely(fileOutputStream);
-                        throw th;
                     }
+                } catch (Exception e2) {
+                    e = e2;
+                    bufferedReader = null;
+                } catch (Throwable th) {
+                    th = th;
+                    closeable = null;
+                    Closeables.closeSafely(closeable);
+                    Closeables.closeSafely(fileOutputStream);
+                    throw th;
                 }
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream2 = null;
-                fileOutputStream3 = fileOutputStream;
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Exception e3) {
+                e = e3;
+                bufferedReader = null;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                closeable = null;
+                fileOutputStream = null;
             }
-        } catch (Exception e3) {
-            e = e3;
-            fileOutputStream2 = null;
-        } catch (Throwable th4) {
-            th = th4;
-            fileOutputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 
@@ -679,7 +672,6 @@ public class Utility {
     public static final Pair<String, Boolean> readFile(@NonNull File file, int i) {
         Closeable closeable;
         FileInputStream fileInputStream;
-        Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;
         byte[] bArr;
         Boolean bool;
@@ -691,8 +683,8 @@ public class Utility {
             try {
                 bArr = new byte[1024];
                 fileInputStream = new FileInputStream(file);
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
             }
         } catch (FileNotFoundException e) {
             e = e;
@@ -702,10 +694,10 @@ public class Utility {
             e = e2;
             byteArrayOutputStream = null;
             fileInputStream = null;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             closeable = null;
             fileInputStream = null;
-            th = th3;
         }
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
@@ -748,9 +740,9 @@ public class Utility {
         } catch (IOException e6) {
             e = e6;
             byteArrayOutputStream = null;
-        } catch (Throwable th4) {
+        } catch (Throwable th3) {
+            th = th3;
             closeable = null;
-            th = th4;
             Closeables.closeSafely(fileInputStream);
             Closeables.closeSafely(closeable);
             throw th;

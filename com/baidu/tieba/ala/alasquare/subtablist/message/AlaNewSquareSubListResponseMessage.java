@@ -2,17 +2,17 @@ package com.baidu.tieba.ala.alasquare.subtablist.message;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage {
     private boolean hasMore;
     private int liveCount;
-    private List<by> liveList;
+    private List<bz> liveList;
     private List<String> sortType;
 
     public AlaNewSquareSubListResponseMessage() {
@@ -33,9 +33,9 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     if (optJSONObject != null) {
-                        by byVar = new by();
-                        byVar.parserJson(optJSONObject);
-                        this.liveList.add(byVar);
+                        bz bzVar = new bz();
+                        bzVar.parserJson(optJSONObject);
+                        this.liveList.add(bzVar);
                     }
                 }
             } else {
@@ -54,7 +54,7 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
         }
     }
 
-    public List<by> getLiveList() {
+    public List<bz> getLiveList() {
         return this.liveList;
     }
 

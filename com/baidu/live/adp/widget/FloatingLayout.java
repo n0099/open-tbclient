@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.R;
 import com.baidu.sapi2.utils.enums.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class FloatingLayout extends LinearLayout {
     private static final boolean DEBUG = false;
     private int mMeasuredHeight;
@@ -186,7 +186,7 @@ public class FloatingLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         private static final int CLEAR_AFTER = 2;
         private static final int CLEAR_BEFORE = 1;

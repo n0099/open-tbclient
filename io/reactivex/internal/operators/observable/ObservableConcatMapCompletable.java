@@ -9,7 +9,7 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
     final int bufferSize;
     final h<? super T, ? extends e> mapper;
@@ -20,7 +20,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
         this.source.subscribe(new SourceObserver(cVar, this.mapper, this.bufferSize));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class SourceObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 6893587405571511048L;
         volatile boolean active;
@@ -134,7 +134,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
                                     this.active = true;
                                     eVar.a(this.inner);
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.J(th);
+                                    io.reactivex.exceptions.a.O(th);
                                     dispose();
                                     this.queue.clear();
                                     this.actual.onError(th);
@@ -142,7 +142,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
                                 }
                             }
                         } catch (Throwable th2) {
-                            io.reactivex.exceptions.a.J(th2);
+                            io.reactivex.exceptions.a.O(th2);
                             dispose();
                             this.queue.clear();
                             this.actual.onError(th2);
@@ -158,7 +158,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         public static final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements c {
             private static final long serialVersionUID = -5987419458390772447L;
             final c actual;

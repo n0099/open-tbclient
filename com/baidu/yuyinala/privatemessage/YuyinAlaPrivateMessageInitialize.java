@@ -9,26 +9,26 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.yuyinala.privatemessage.model.c;
 import com.baidu.yuyinala.privatemessage.session.activity.ChatListActivity;
 import com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class YuyinAlaPrivateMessageInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ag.class, ChatListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(af.class, SplashChatAcitity.class);
-        ekS();
-        ekT();
+        ela();
+        elb();
     }
 
-    private static void ekS() {
+    private static void ela() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501053) { // from class: com.baidu.yuyinala.privatemessage.YuyinAlaPrivateMessageInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c.enX();
+                c.eoc();
             }
         });
     }
 
-    private static void ekT() {
+    private static void elb() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501049) { // from class: com.baidu.yuyinala.privatemessage.YuyinAlaPrivateMessageInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

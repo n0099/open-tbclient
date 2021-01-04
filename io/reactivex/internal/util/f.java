@@ -1,37 +1,37 @@
 package io.reactivex.internal.util;
 
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class f {
     final int capacityHint;
-    Object[] pIN;
-    Object[] pIO;
-    int pIP;
+    Object[] qkq;
+    Object[] qkr;
+    int qks;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.pIN = new Object[this.capacityHint + 1];
-            this.pIO = this.pIN;
-            this.pIN[0] = obj;
-            this.pIP = 1;
+            this.qkq = new Object[this.capacityHint + 1];
+            this.qkr = this.qkq;
+            this.qkq[0] = obj;
+            this.qks = 1;
             this.size = 1;
-        } else if (this.pIP == this.capacityHint) {
+        } else if (this.qks == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.pIO[this.capacityHint] = objArr;
-            this.pIO = objArr;
-            this.pIP = 1;
+            this.qkr[this.capacityHint] = objArr;
+            this.qkr = objArr;
+            this.qks = 1;
             this.size++;
         } else {
-            this.pIO[this.pIP] = obj;
-            this.pIP++;
+            this.qkr[this.qks] = obj;
+            this.qks++;
             this.size++;
         }
     }
 
-    public Object[] eDs() {
-        return this.pIN;
+    public Object[] eLA() {
+        return this.qkq;
     }
 
     public int size() {
@@ -43,15 +43,17 @@ public class f {
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] eDs = eDs();
         int i4 = 0;
-        while (i3 < i2) {
-            arrayList.add(eDs[i4]);
-            i3++;
+        Object[] eLA = eLA();
+        while (i4 < i2) {
+            arrayList.add(eLA[i3]);
             i4++;
-            if (i4 == i) {
-                eDs = (Object[]) eDs[i];
-                i4 = 0;
+            int i5 = i3 + 1;
+            if (i5 == i) {
+                i3 = 0;
+                eLA = eLA[i];
+            } else {
+                i3 = i5;
             }
         }
         return arrayList.toString();

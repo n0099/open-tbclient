@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.live.sdk.a;
 import com.baidu.live.view.web.CommonWebLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaAirDropView extends RelativeLayout {
-    private CommonWebLayout bug;
+    private CommonWebLayout byR;
     public RelativeLayout mContainer;
     private View mView;
 
@@ -19,7 +19,7 @@ public class AlaAirDropView extends RelativeLayout {
     }
 
     public CommonWebLayout getWebView() {
-        return this.bug;
+        return this.byR;
     }
 
     public View getView() {
@@ -29,16 +29,16 @@ public class AlaAirDropView extends RelativeLayout {
     private void init() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.ala_air_drop_view, (ViewGroup) this, true);
         this.mContainer = (RelativeLayout) this.mView.findViewById(a.f.layout_container);
-        n(this.mContainer);
+        q(this.mContainer);
     }
 
-    private void n(ViewGroup viewGroup) {
-        this.bug = new CommonWebLayout(getContext());
-        viewGroup.addView(this.bug, -1, -1);
-        this.bug.setLayoutParams((RelativeLayout.LayoutParams) this.bug.getLayoutParams());
+    private void q(ViewGroup viewGroup) {
+        this.byR = new CommonWebLayout(getContext());
+        viewGroup.addView(this.byR, -1, -1);
+        this.byR.setLayoutParams((RelativeLayout.LayoutParams) this.byR.getLayoutParams());
     }
 
     public boolean isShowing() {
-        return this.bug.getVisibility() == 0;
+        return this.byR.getVisibility() == 0;
     }
 }

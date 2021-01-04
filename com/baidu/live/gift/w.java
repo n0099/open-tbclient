@@ -9,30 +9,30 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.media.duplayer.LibsInfoDef;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class w {
-    public static boolean aXR = false;
+    public static boolean aZw = false;
 
     public static void f(com.baidu.live.gift.a.c cVar) {
         com.baidu.live.im.h hVar = new com.baidu.live.im.h();
-        hVar.count = cVar.bcU;
+        hVar.count = cVar.beC;
         hVar.giftId = cVar.giftId;
-        if (cVar.bcN.Hf()) {
+        if (cVar.bex.GG()) {
             hVar.giftName = TbadkCoreApplication.getInst().getString(a.h.text_gift_graffiti);
         } else {
-            hVar.giftName = cVar.bcN.GY();
+            hVar.giftName = cVar.bex.Gy();
         }
-        hVar.bmx = cVar.bcN.Hi();
-        hVar.bmC = cVar.bcN.Hy();
-        hVar.aWT = cVar.aWT;
-        hVar.bmy = cVar.bcU;
-        hVar.bmA.add(Long.valueOf(hVar.aWT));
-        if (aXR && !cVar.bcS) {
-            String If = If();
-            if (If != null) {
+        hVar.boc = cVar.bex.GJ();
+        hVar.boh = cVar.bex.GZ();
+        hVar.aYz = cVar.aYz;
+        hVar.bod = cVar.beC;
+        hVar.bof.add(Long.valueOf(hVar.aYz));
+        if (aZw && !cVar.beA) {
+            String HG = HG();
+            if (HG != null) {
                 try {
-                    JSONObject jSONObject = new JSONObject(If);
-                    hVar.bmB = jSONObject.optString("pk_honer_buff_multiple");
+                    JSONObject jSONObject = new JSONObject(HG);
+                    hVar.bog = jSONObject.optString("pk_honer_buff_multiple");
                     hVar.text = jSONObject.optString("pk_honer_buff_text");
                     hVar.fontColor = jSONObject.optString("pk_honer_buff_text_font_color");
                     hVar.startColor = jSONObject.optString("pk_honer_buff_text_color_start");
@@ -41,7 +41,7 @@ public class w {
                     e.printStackTrace();
                 }
             } else {
-                hVar.bmB = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION;
+                hVar.bog = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION;
                 hVar.text = "荣耀值";
                 hVar.fontColor = "#FFFFFF";
                 hVar.startColor = "#F53DC7";
@@ -53,37 +53,37 @@ public class w {
 
     public static void g(com.baidu.live.gift.a.c cVar) {
         com.baidu.live.im.i iVar = new com.baidu.live.im.i();
-        iVar.bcO = cVar.bcO;
-        iVar.bmD = cVar.msgId;
-        iVar.bmE = cVar.bcU;
-        iVar.bmF = cVar.aWT;
+        iVar.bey = cVar.bey;
+        iVar.boi = cVar.msgId;
+        iVar.boj = cVar.beC;
+        iVar.bok = cVar.aYz;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913184, iVar));
     }
 
     public static void a(com.baidu.live.gift.a.c cVar, com.baidu.live.gift.a.c cVar2) {
-        if (cVar != null && cVar2 != null && TextUtils.equals(cVar.JK(), cVar2.JK())) {
+        if (cVar != null && cVar2 != null && TextUtils.equals(cVar.Jm(), cVar2.Jm())) {
             com.baidu.live.im.i iVar = new com.baidu.live.im.i();
-            iVar.bcO = cVar.bcO;
-            iVar.bmD = cVar.msgId;
-            iVar.bmE = cVar.bcU;
-            iVar.bmF = cVar.aWT;
-            iVar.bmG = cVar2.msgId;
-            iVar.bmH = cVar2.bcU;
-            iVar.bmI = cVar2.aWT;
+            iVar.bey = cVar.bey;
+            iVar.boi = cVar.msgId;
+            iVar.boj = cVar.beC;
+            iVar.bok = cVar.aYz;
+            iVar.bol = cVar2.msgId;
+            iVar.bom = cVar2.beC;
+            iVar.bon = cVar2.aYz;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913183, iVar));
         }
     }
 
     public static void a(long j, String str, String str2, String str3, long j2, long j3) {
         com.baidu.live.im.i iVar = new com.baidu.live.im.i();
-        iVar.bcO = str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
-        iVar.bmD = j;
-        iVar.bmJ = j2;
-        iVar.bmK = j3;
+        iVar.bey = str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
+        iVar.boi = j;
+        iVar.boo = j2;
+        iVar.bop = j3;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913195, iVar));
     }
 
-    private static String If() {
-        return com.baidu.live.ae.a.RB().brA.aMa;
+    private static String HG() {
+        return com.baidu.live.af.a.SE().bwi.aME;
     }
 }

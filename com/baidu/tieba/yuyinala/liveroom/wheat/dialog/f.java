@@ -16,25 +16,25 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class f extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implements DialogInterface.OnDismissListener, View.OnClickListener {
-    private View bTg;
-    public CustomMessageListener bgy;
-    private CountDownTimer gEo;
-    private TextView ovW;
-    private TextView ovX;
-    private TextView ovY;
-    private TextView ovZ;
-    private TextView owa;
-    private TextView owb;
-    private a owc;
-    private int owd;
-    private LinearLayout owe;
-    private boolean owf;
+    private View bYQ;
+    public CustomMessageListener bih;
+    private CountDownTimer gPY;
+    private TextView oCK;
+    private TextView oCL;
+    private TextView oCM;
+    private TextView oCN;
+    private TextView oCO;
+    private TextView oCP;
+    private a oCQ;
+    private int oCR;
+    private LinearLayout oCS;
+    private boolean oCT;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void amS();
+        void aoc();
 
         void eeK();
 
@@ -42,15 +42,15 @@ public class f extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     }
 
     static /* synthetic */ int h(f fVar) {
-        int i = fVar.owd;
-        fVar.owd = i - 1;
+        int i = fVar.oCR;
+        fVar.oCR = i - 1;
         return i;
     }
 
     public f(Activity activity) {
         super(activity);
-        this.owf = false;
-        this.bgy = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.4
+        this.oCT = false;
+        this.bih = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -63,17 +63,17 @@ public class f extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     }
 
     protected void initView() {
-        this.bTg = findViewById(a.f.view);
-        this.ovW = (TextView) findViewById(a.f.tv_name);
-        this.ovX = (TextView) findViewById(a.f.temp_tv_name);
-        this.ovY = (TextView) findViewById(a.f.tv_invite_info);
-        this.ovZ = (TextView) findViewById(a.f.tv_countdown);
-        this.owa = (TextView) findViewById(a.f.tv_give_up);
-        this.owb = (TextView) findViewById(a.f.tv_accept_invite);
-        this.owe = (LinearLayout) findViewById(a.f.ll_invite_info);
-        this.bTg.setOnClickListener(this);
-        this.owa.setOnClickListener(this);
-        this.owb.setOnClickListener(this);
+        this.bYQ = findViewById(a.f.view);
+        this.oCK = (TextView) findViewById(a.f.tv_name);
+        this.oCL = (TextView) findViewById(a.f.temp_tv_name);
+        this.oCM = (TextView) findViewById(a.f.tv_invite_info);
+        this.oCN = (TextView) findViewById(a.f.tv_countdown);
+        this.oCO = (TextView) findViewById(a.f.tv_give_up);
+        this.oCP = (TextView) findViewById(a.f.tv_accept_invite);
+        this.oCS = (LinearLayout) findViewById(a.f.ll_invite_info);
+        this.bYQ.setOnClickListener(this);
+        this.oCO.setOnClickListener(this);
+        this.oCP.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -87,16 +87,16 @@ public class f extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
     protected View getView() {
-        return LayoutInflater.from(this.beD).inflate(a.g.yuyin_layout_dialog_connnection_wheat_invite, (ViewGroup) null);
+        return LayoutInflater.from(this.mContext).inflate(a.g.yuyin_layout_dialog_connnection_wheat_invite, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean Ty() {
+    protected boolean UD() {
         return true;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean Tz() {
+    protected boolean UE() {
         return true;
     }
 
@@ -112,8 +112,8 @@ public class f extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        this.owf = false;
-        MessageManager.getInstance().registerListener(this.bgy);
+        this.oCT = false;
+        MessageManager.getInstance().registerListener(this.bih);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -123,58 +123,58 @@ public class f extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bTg) {
+        if (view == this.bYQ) {
             dismiss();
-        } else if (view == this.owa) {
-            this.owf = true;
+        } else if (view == this.oCO) {
+            this.oCT = true;
             dismiss();
-            if (this.owc != null) {
-                this.owc.eeL();
+            if (this.oCQ != null) {
+                this.oCQ.eeL();
             }
-        } else if (view == this.owb) {
-            this.owf = true;
+        } else if (view == this.oCP) {
+            this.oCT = true;
             dismiss();
-            if (this.owc != null) {
-                this.owc.eeK();
+            if (this.oCQ != null) {
+                this.oCQ.eeK();
             }
         }
     }
 
-    public void WS(final String str) {
+    public void WC(final String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.ovX.setText(str);
+            this.oCL.setText(str);
         }
-        this.ovW.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.1
+        this.oCK.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.1
             @Override // java.lang.Runnable
             public void run() {
-                if (f.this.ovX.getMeasuredWidth() + f.this.ovY.getMeasuredWidth() > f.this.owe.getMeasuredWidth()) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) f.this.ovW.getLayoutParams();
+                if (f.this.oCL.getMeasuredWidth() + f.this.oCM.getMeasuredWidth() > f.this.oCS.getMeasuredWidth()) {
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) f.this.oCK.getLayoutParams();
                     layoutParams.weight = 1.0f;
-                    f.this.ovW.setLayoutParams(layoutParams);
+                    f.this.oCK.setLayoutParams(layoutParams);
                 } else {
-                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) f.this.ovW.getLayoutParams();
+                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) f.this.oCK.getLayoutParams();
                     layoutParams2.weight = 0.0f;
                     layoutParams2.width = -2;
-                    f.this.ovW.setLayoutParams(layoutParams2);
+                    f.this.oCK.setLayoutParams(layoutParams2);
                 }
-                f.this.ovW.setText(str);
+                f.this.oCK.setText(str);
             }
         });
     }
 
-    public void NS(int i) {
-        efz();
-        this.owd = i / 1000;
-        this.gEo = new CountDownTimer(2147483647L, 1000L) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.2
+    public void NJ(int i) {
+        efF();
+        this.oCR = i / 1000;
+        this.gPY = new CountDownTimer(2147483647L, 1000L) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.2
             @Override // android.os.CountDownTimer
             public void onTick(long j) {
                 try {
-                    if (f.this.owd >= 0) {
-                        f.this.efz();
-                        if (f.this.owd == 0) {
+                    if (f.this.oCR >= 0) {
+                        f.this.efF();
+                        if (f.this.oCR == 0) {
                             f.this.dismiss();
-                            if (f.this.owc != null) {
-                                f.this.owc.amS();
+                            if (f.this.oCQ != null) {
+                                f.this.oCQ.aoc();
                             }
                         }
                         f.h(f.this);
@@ -187,37 +187,37 @@ public class f extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
             public void onFinish() {
             }
         };
-        this.gEo.start();
+        this.gPY.start();
     }
 
-    private void efy() {
-        if (this.gEo != null) {
-            this.gEo.cancel();
-            this.gEo = null;
+    private void efE() {
+        if (this.gPY != null) {
+            this.gPY.cancel();
+            this.gPY = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void efz() {
-        this.ovZ.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.3
+    public void efF() {
+        this.oCN.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.3
             @Override // java.lang.Runnable
             public void run() {
-                SpannableString spannableString = new SpannableString(String.format(f.this.beD.getString(a.h.yuyin_ala_connection_wheat_give_up_invite_text), Integer.valueOf(f.this.owd)));
+                SpannableString spannableString = new SpannableString(String.format(f.this.mContext.getString(a.h.yuyin_ala_connection_wheat_give_up_invite_text), Integer.valueOf(f.this.oCR)));
                 spannableString.setSpan(new ForegroundColorSpan(TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_color_ff1e66)), 0, 2, 34);
-                f.this.ovZ.setText(spannableString);
+                f.this.oCN.setText(spannableString);
             }
         });
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        if (this.owf) {
-            efy();
+        if (this.oCT) {
+            efE();
         }
-        MessageManager.getInstance().unRegisterListener(this.bgy);
+        MessageManager.getInstance().unRegisterListener(this.bih);
     }
 
     public void a(a aVar) {
-        this.owc = aVar;
+        this.oCQ = aVar;
     }
 }

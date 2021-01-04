@@ -3,9 +3,9 @@ package com.baidu.searchbox.v8engine;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.util.Base64;
 import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.bean.ImageBitmapBean;
 import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.searchbox.v8engine.util.BitmapReferenceMap;
@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.http.HttpHost;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebGLImageLoader {
     private static final String ASSET_URL = "asset://";
     static final String BDFILE = "bdfile://";
@@ -87,7 +87,7 @@ public class WebGLImageLoader {
         }
         if (obj instanceof String) {
             String str2 = (String) obj;
-            if (a.kI(str2)) {
+            if (a.kB(str2)) {
                 bitmap = BitmapFactory.decodeFile(str2, options);
                 if (bitmap == null) {
                     bitmap = BitmapFactory.decodeFile(str2);
@@ -267,7 +267,7 @@ public class WebGLImageLoader {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         private final WebGLImage mImage;
         private final int mImageId;

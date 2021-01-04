@@ -2,12 +2,12 @@ package com.baidu.swan.apps.database.subscribe;
 
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static void y(@NonNull SQLiteDatabase sQLiteDatabase) {
         try {
@@ -18,9 +18,9 @@ public final class a {
     }
 
     @WorkerThread
-    public static void r(@Nullable String... strArr) {
-        Application aza;
-        if (com.baidu.swan.apps.t.a.aza() == null || strArr == null) {
+    public static void y(@Nullable String... strArr) {
+        Application aAr;
+        if (com.baidu.swan.apps.t.a.aAr() == null || strArr == null) {
             c.w("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
             return;
         }
@@ -35,6 +35,6 @@ public final class a {
                 }
             }
         }
-        c.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + aza.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()}) + ", appKey=" + sb.toString());
+        c.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + aAr.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()}) + ", appKey=" + sb.toString());
     }
 }

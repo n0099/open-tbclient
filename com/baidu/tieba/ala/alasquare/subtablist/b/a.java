@@ -1,15 +1,16 @@
 package com.baidu.tieba.ala.alasquare.subtablist.b;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.ala.alasquare.a.e;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseCardInfo {
-    public static final BdUniqueId gzx = BdUniqueId.gen();
-    public com.baidu.tieba.ala.alasquare.a.c grW;
-    public com.baidu.tieba.ala.alasquare.a.c grX;
+    public static final BdUniqueId gKA = BdUniqueId.gen();
+    public e gCV;
+    public e gCW;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return gzx;
+        return gKA;
     }
 }

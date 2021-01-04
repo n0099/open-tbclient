@@ -18,7 +18,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GLTextureView extends TextureView implements TextureView.SurfaceTextureListener, View.OnLayoutChangeListener {
     private static final boolean DEBUG = false;
     public static final int DEBUG_CHECK_GL_ERROR = 1;
@@ -46,31 +46,31 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     private Renderer mRenderer;
     private final WeakReference<GLTextureView> mThisWeakRef;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface EGLConfigChooser {
         EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface EGLContextFactory {
         EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void destroyContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface EGLWindowSurfaceFactory {
         EGLSurface createWindowSurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj);
 
         void destroySurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLSurface eGLSurface);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface GLWrapper {
         GL wrap(GL gl);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface Renderer {
         void onDrawFrame(GL10 gl10);
 
@@ -242,7 +242,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     private class DefaultContextFactory implements EGLContextFactory {
         private int EGL_CONTEXT_CLIENT_VERSION;
 
@@ -269,7 +269,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     private static class DefaultWindowSurfaceFactory implements EGLWindowSurfaceFactory {
         private DefaultWindowSurfaceFactory() {
         }
@@ -290,7 +290,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     private abstract class BaseConfigChooser implements EGLConfigChooser {
         protected int[] mConfigSpec;
 
@@ -335,7 +335,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     private class ComponentSizeChooser extends BaseConfigChooser {
         protected int mAlphaSize;
         protected int mBlueSize;
@@ -382,7 +382,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     private class SimpleEGLConfigChooser extends ComponentSizeChooser {
         public SimpleEGLConfigChooser(boolean z) {
             super(8, 8, 8, 0, z ? 16 : 0, 0);
@@ -390,7 +390,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class EglHelper {
         EGL10 mEgl;
         EGLConfig mEglConfig;
@@ -533,7 +533,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class GLThread extends Thread {
         private EglHelper mEglHelper;
         private boolean mExited;
@@ -590,75 +590,58 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1461=4] */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         private void guardedRun() throws InterruptedException {
+            GL10 gl10;
             boolean z;
             int i;
-            Runnable remove;
-            boolean z2;
-            boolean z3;
-            boolean z4;
-            boolean z5;
-            boolean z6;
-            boolean z7;
-            int i2;
-            boolean z8;
-            GL10 gl10;
-            boolean z9;
-            boolean z10;
-            boolean z11;
-            boolean z12;
-            boolean z13;
-            boolean z14;
-            int i3;
-            int i4;
             this.mEglHelper = new EglHelper(this.mGLSurfaceViewWeakRef);
             this.mHaveEglContext = false;
             this.mHaveEglSurface = false;
-            boolean z15 = false;
-            GL10 gl102 = null;
-            int i5 = 0;
-            boolean z16 = false;
-            boolean z17 = false;
-            boolean z18 = false;
-            boolean z19 = false;
-            boolean z20 = false;
-            boolean z21 = false;
+            boolean z2 = false;
+            boolean z3 = false;
+            boolean z4 = false;
+            boolean z5 = false;
+            boolean z6 = false;
+            boolean z7 = false;
+            boolean z8 = false;
+            boolean z9 = false;
+            int i2 = 0;
+            int i3 = 0;
             Runnable runnable = null;
-            int i6 = 0;
-            boolean z22 = false;
+            GL10 gl102 = null;
             while (true) {
                 try {
                     synchronized (GLTextureView.sGLThreadManager) {
                         while (!this.mShouldExit) {
                             if (this.mEventQueue.isEmpty()) {
                                 if (this.mPaused != this.mRequestPaused) {
-                                    boolean z23 = this.mRequestPaused;
+                                    boolean z10 = this.mRequestPaused;
                                     this.mPaused = this.mRequestPaused;
                                     GLTextureView.sGLThreadManager.notifyAll();
-                                    z9 = z23;
+                                    z = z10;
                                 } else {
-                                    z9 = false;
+                                    z = false;
                                 }
                                 if (this.mShouldReleaseEglContext) {
                                     stopEglSurfaceLocked();
                                     stopEglContextLocked();
                                     this.mShouldReleaseEglContext = false;
-                                    z16 = true;
+                                    z9 = true;
                                 }
-                                if (z19) {
+                                if (z5) {
                                     stopEglSurfaceLocked();
                                     stopEglContextLocked();
-                                    z19 = false;
+                                    z5 = false;
                                 }
-                                if (z9 && this.mHaveEglSurface) {
+                                if (z && this.mHaveEglSurface) {
                                     stopEglSurfaceLocked();
                                 }
-                                if (z9 && this.mHaveEglContext) {
+                                if (z && this.mHaveEglContext) {
                                     GLTextureView gLTextureView = this.mGLSurfaceViewWeakRef.get();
                                     if (!(gLTextureView == null ? false : gLTextureView.mPreserveEGLContextOnPause) || GLTextureView.sGLThreadManager.shouldReleaseEGLContextWhenPausing()) {
                                         stopEglContextLocked();
                                     }
                                 }
-                                if (z9 && GLTextureView.sGLThreadManager.shouldTerminateEGLWhenPausing()) {
+                                if (z && GLTextureView.sGLThreadManager.shouldTerminateEGLWhenPausing()) {
                                     this.mEglHelper.finish();
                                 }
                                 if (!this.mHasSurface && !this.mWaitingForSurface) {
@@ -673,21 +656,21 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                     this.mWaitingForSurface = false;
                                     GLTextureView.sGLThreadManager.notifyAll();
                                 }
-                                if (z22) {
-                                    z17 = false;
-                                    z22 = false;
+                                if (z8) {
+                                    z7 = false;
+                                    z8 = false;
                                     this.mRenderComplete = true;
                                     GLTextureView.sGLThreadManager.notifyAll();
                                 }
                                 if (readyToDraw()) {
                                     if (!this.mHaveEglContext) {
-                                        if (z16) {
-                                            z16 = false;
+                                        if (z9) {
+                                            z9 = false;
                                         } else if (GLTextureView.sGLThreadManager.tryAcquireEglContextLocked(this)) {
                                             try {
                                                 this.mEglHelper.start();
                                                 this.mHaveEglContext = true;
-                                                z15 = true;
+                                                z2 = true;
                                                 GLTextureView.sGLThreadManager.notifyAll();
                                             } catch (RuntimeException e) {
                                                 GLTextureView.sGLThreadManager.releaseEglContextLocked(this);
@@ -695,61 +678,31 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                             }
                                         }
                                     }
-                                    if (!this.mHaveEglContext || this.mHaveEglSurface) {
-                                        z10 = z18;
-                                        z11 = z20;
-                                    } else {
+                                    if (this.mHaveEglContext && !this.mHaveEglSurface) {
                                         this.mHaveEglSurface = true;
-                                        z21 = true;
-                                        z10 = true;
-                                        z11 = true;
+                                        z3 = true;
+                                        z4 = true;
+                                        z6 = true;
                                     }
                                     if (this.mHaveEglSurface) {
                                         if (this.mSizeChanged) {
-                                            z14 = true;
-                                            i4 = this.mWidth;
-                                            i3 = this.mHeight;
-                                            z13 = true;
-                                            z12 = true;
+                                            z6 = true;
+                                            i2 = this.mWidth;
+                                            i = this.mHeight;
+                                            z7 = true;
+                                            z3 = true;
                                             this.mSizeChanged = false;
                                         } else {
-                                            z12 = z21;
-                                            int i7 = i6;
-                                            z13 = z17;
-                                            z14 = z10;
-                                            i3 = i5;
-                                            i4 = i7;
+                                            i = i3;
                                         }
                                         this.mRequestRender = false;
                                         GLTextureView.sGLThreadManager.notifyAll();
-                                        z3 = z11;
-                                        z6 = z13;
-                                        remove = runnable;
-                                        z = z22;
-                                        i = i4;
-                                        int i8 = i3;
-                                        z2 = z12;
-                                        z4 = z19;
-                                        z5 = z14;
-                                        z7 = z16;
-                                        i2 = i8;
-                                    } else {
-                                        z20 = z11;
-                                        z18 = z10;
+                                        i3 = i;
                                     }
                                 }
                                 GLTextureView.sGLThreadManager.wait();
                             } else {
-                                z = z22;
-                                i = i6;
-                                remove = this.mEventQueue.remove(0);
-                                z2 = z21;
-                                z3 = z20;
-                                z4 = z19;
-                                z5 = z18;
-                                z6 = z17;
-                                z7 = z16;
-                                i2 = i5;
+                                runnable = this.mEventQueue.remove(0);
                             }
                         }
                         synchronized (GLTextureView.sGLThreadManager) {
@@ -758,62 +711,41 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                         }
                         return;
                     }
-                    if (remove != null) {
-                        remove.run();
-                        i5 = i2;
-                        z16 = z7;
-                        z17 = z6;
-                        z18 = z5;
-                        z19 = z4;
-                        z20 = z3;
-                        z21 = z2;
-                        boolean z24 = z;
+                    if (runnable != null) {
+                        runnable.run();
                         runnable = null;
-                        i6 = i;
-                        z22 = z24;
                     } else {
-                        if (!z2) {
-                            z8 = z2;
-                        } else if (this.mEglHelper.createSurface()) {
-                            z8 = false;
-                        } else {
-                            synchronized (GLTextureView.sGLThreadManager) {
-                                this.mSurfaceIsBad = true;
-                                GLTextureView.sGLThreadManager.notifyAll();
-                            }
-                            i5 = i2;
-                            z16 = z7;
-                            z17 = z6;
-                            z18 = z5;
-                            z19 = z4;
-                            z20 = z3;
-                            z21 = z2;
-                            boolean z25 = z;
-                            runnable = remove;
-                            i6 = i;
-                            z22 = z25;
-                        }
                         if (z3) {
+                            if (this.mEglHelper.createSurface()) {
+                                z3 = false;
+                            } else {
+                                synchronized (GLTextureView.sGLThreadManager) {
+                                    this.mSurfaceIsBad = true;
+                                    GLTextureView.sGLThreadManager.notifyAll();
+                                }
+                            }
+                        }
+                        if (z4) {
                             GL10 gl103 = (GL10) this.mEglHelper.createGL();
                             GLTextureView.sGLThreadManager.checkGLDriver(gl103);
-                            z3 = false;
+                            z4 = false;
                             gl10 = gl103;
                         } else {
                             gl10 = gl102;
                         }
-                        if (z15) {
+                        if (z2) {
                             GLTextureView gLTextureView2 = this.mGLSurfaceViewWeakRef.get();
                             if (gLTextureView2 != null) {
                                 gLTextureView2.mRenderer.onSurfaceCreated(gl10, this.mEglHelper.mEglConfig);
                             }
-                            z15 = false;
+                            z2 = false;
                         }
-                        if (z5) {
+                        if (z6) {
                             GLTextureView gLTextureView3 = this.mGLSurfaceViewWeakRef.get();
                             if (gLTextureView3 != null) {
-                                gLTextureView3.mRenderer.onSurfaceChanged(gl10, i, i2);
+                                gLTextureView3.mRenderer.onSurfaceChanged(gl10, i2, i3);
                             }
-                            z5 = false;
+                            z6 = false;
                         }
                         GLTextureView gLTextureView4 = this.mGLSurfaceViewWeakRef.get();
                         if (gLTextureView4 != null) {
@@ -824,7 +756,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                             case CommandMessage.COMMAND_BASE /* 12288 */:
                                 break;
                             case 12302:
-                                z4 = true;
+                                z5 = true;
                                 break;
                             default:
                                 EglHelper.logEglErrorAsWarning("GLThread", "eglSwapBuffers", swap);
@@ -834,19 +766,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                     break;
                                 }
                         }
-                        boolean z26 = z6 ? true : z;
-                        runnable = remove;
+                        z8 = z7 ? true : z8;
                         gl102 = gl10;
-                        i6 = i;
-                        z22 = z26;
-                        boolean z27 = z7;
-                        z17 = z6;
-                        z18 = z5;
-                        z19 = z4;
-                        z20 = z3;
-                        z21 = z8;
-                        i5 = i2;
-                        z16 = z27;
                     }
                 } catch (Throwable th) {
                     synchronized (GLTextureView.sGLThreadManager) {
@@ -1000,7 +921,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class LogWriter extends Writer {
         private StringBuilder mBuilder = new StringBuilder();
 
@@ -1044,7 +965,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class GLThreadManager {
         private static String TAG = "GLThreadManager";
         private static final int kGLES_20 = 131072;

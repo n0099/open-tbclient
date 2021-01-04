@@ -64,7 +64,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
         getIntent().putExtra("from", str4);
-        getIntent().putExtra("source_from", str5);
+        getIntent().putExtra(SOURCE_FROM, str5);
         getIntent().setSourceBounds(rect);
     }
 

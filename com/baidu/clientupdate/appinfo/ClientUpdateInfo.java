@@ -1,5 +1,5 @@
 package com.baidu.clientupdate.appinfo;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ClientUpdateInfo extends AppInfo {
     public String mContentUrl;
     public String mIsForceUpdate;

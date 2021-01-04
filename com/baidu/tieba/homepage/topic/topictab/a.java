@@ -1,10 +1,10 @@
 package com.baidu.tieba.homepage.topic.topictab;
 
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public interface a {
     void loadData();
 
-    void o(int i, List<q> list);
+    void o(int i, List<n> list);
 }

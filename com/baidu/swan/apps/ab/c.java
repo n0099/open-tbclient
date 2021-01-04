@@ -3,42 +3,42 @@ package com.baidu.swan.apps.ab;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c dpJ;
-    private SparseArray<a> dpH = new SparseArray<>();
-    private Set<String> dpI = new HashSet();
+    private static volatile c duI;
+    private SparseArray<a> duG = new SparseArray<>();
+    private Set<String> duH = new HashSet();
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
-    public static c aGQ() {
-        if (dpJ == null) {
+    public static c aIj() {
+        if (duI == null) {
             synchronized (com.baidu.swan.games.audio.b.b.class) {
-                if (dpJ == null) {
-                    dpJ = new c();
+                if (duI == null) {
+                    duI = new c();
                 }
             }
         }
-        return dpJ;
+        return duI;
     }
 
     @TargetApi(23)
     public void a(Activity activity, int i, @NonNull String[] strArr, a aVar) {
         if (aVar != null) {
-            if (!v(strArr)) {
-                this.dpH.put(i, aVar);
+            if (!C(strArr)) {
+                this.duG.put(i, aVar);
                 activity.requestPermissions(strArr, i);
                 if (DEBUG) {
                     Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -50,28 +50,28 @@ public final class c {
         }
     }
 
-    private boolean v(@NonNull String[] strArr) {
+    private boolean C(@NonNull String[] strArr) {
         if (strArr.length <= 0) {
             return true;
         }
         for (String str : strArr) {
-            if (!TextUtils.isEmpty(str) && this.dpI.contains(str)) {
+            if (!TextUtils.isEmpty(str) && this.duH.contains(str)) {
                 return true;
             }
         }
         return false;
     }
 
-    public void a(Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void b(Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (Build.VERSION.SDK_INT >= 23) {
-            a(activity, strArr, iArr);
+            b(activity, strArr, iArr);
         }
-        a aVar = this.dpH.get(i);
+        a aVar = this.duG.get(i);
         if (aVar != null) {
             if (strArr.length > 0 && iArr.length > 0) {
                 aVar.onRequestPermissionsResult(i, strArr, iArr);
             }
-            this.dpH.remove(i);
+            this.duG.remove(i);
         }
         if (DEBUG) {
             Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -80,14 +80,14 @@ public final class c {
     }
 
     @RequiresApi(api = 23)
-    private void a(Activity activity, @NonNull String[] strArr, @NonNull int[] iArr) {
+    private void b(Activity activity, @NonNull String[] strArr, @NonNull int[] iArr) {
         int length;
         if (Build.VERSION.SDK_INT >= 23 && activity != null && (length = strArr.length) == iArr.length && length > 0) {
             for (int i = 0; i < length; i++) {
                 int i2 = iArr[i];
                 String str = strArr[i];
                 if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
-                    this.dpI.add(str);
+                    this.duH.add(str);
                 }
             }
         }

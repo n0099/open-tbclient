@@ -1,7 +1,7 @@
 package com.baidu.live.challenge;
 
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
     public long anchorId;
     public long challengeId;

@@ -6,7 +6,8 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
-/* loaded from: classes25.dex */
+import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
+/* loaded from: classes9.dex */
 public class b extends UnitedSchemeBaseInterceptor {
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
     public String getInterceptorName() {
@@ -19,7 +20,7 @@ public class b extends UnitedSchemeBaseInterceptor {
         String firstPath = unitedSchemeEntity.getFirstPath();
         if (uri != null && !TextUtils.isEmpty(uri.getHost()) && !TextUtils.isEmpty(firstPath)) {
             String host = uri.getHost();
-            if (host.toLowerCase().matches("v\\d+") && TextUtils.equals(firstPath, "swan")) {
+            if (host.toLowerCase().matches("v\\d+") && TextUtils.equals(firstPath, GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME)) {
                 String uri2 = uri.toString();
                 if (!TextUtils.isEmpty(uri2)) {
                     unitedSchemeEntity.resetUriAndPath(Uri.parse(uri2.replace(UnitedSchemeEntity.UNITED_SCHEME + host + "/" + firstPath, UnitedSchemeEntity.UNITED_SCHEME + "swanAPI")));

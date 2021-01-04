@@ -1,57 +1,24 @@
 package com.baidu.live.utils;
 
-import android.text.TextUtils;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes4.dex */
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.util.ScreenHelper;
+/* loaded from: classes11.dex */
 public class p {
-    private static String bKk = "";
-
-    public static String Iz() {
-        if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            return "ala_subapp_shoubai_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isHaokan()) {
-            return "ala_subapp_haokan_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
-            return "ala_subapp_quanmin_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isTieba()) {
-            return "ala_tieba_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isYinbo()) {
-            return "ala_subapp_yinbo_android_consume";
-        }
-        return "";
+    public static int bs(Context context) {
+        return context.getResources().getDimensionPixelOffset(a.d.sdk_ds248);
     }
 
-    public static String WB() {
-        if (TextUtils.isEmpty(bKk)) {
-            if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                return "ala_subapp_shoubai_android_consume";
-            }
-            if (TbadkCoreApplication.getInst().isHaokan()) {
-                return "ala_subapp_haokan_android_consume";
-            }
-            if (TbadkCoreApplication.getInst().isQuanmin()) {
-                return "ala_subapp_quanmin_android_consume";
-            }
-            if (TbadkCoreApplication.getInst().isTieba()) {
-                return "ala_tieba_android_consume";
-            }
-            if (TbadkCoreApplication.getInst().isYinbo()) {
-                return "ala_subapp_yinbo_android_consume";
-            }
-            return "";
-        }
-        return bKk;
+    public static int t(Activity activity) {
+        return ScreenHelper.getRealScreenWidth(activity);
     }
 
-    public static void je(String str) {
-        bKk = str;
+    public static int u(Activity activity) {
+        return (t(activity) * 9) / 16;
     }
 
-    public static String WC() {
-        return bKk;
+    public static int v(Activity activity) {
+        return bs(activity) + u(activity);
     }
 }

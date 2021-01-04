@@ -3,8 +3,6 @@ package com.googlecode.mp4parser.boxes.apple;
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.live.adp.lib.util.FieldUtil;
 import com.baidu.searchbox.http.HttpConfig;
-import com.baidu.searchbox.ugc.model.PublishType;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.baidu.tbadk.pay.PayConfig;
@@ -19,14 +17,14 @@ import java.util.HashMap;
 import java.util.Locale;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_5 = null;
     private static HashMap<String, String> language;
     int dataCountry;
     int dataLanguage;
@@ -83,7 +81,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataCountry(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.RZ(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Ts(i)));
         this.dataCountry = i;
     }
 
@@ -93,7 +91,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataLanguage(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.RZ(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Ts(i)));
         this.dataLanguage = i;
     }
 
@@ -147,15 +145,15 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("6", "Spanish");
         language.put("7", "Danish");
         language.put("8", "Portuguese");
-        language.put(PublishType.TYPE_VIDEO_SHARE, "Norwegian");
-        language.put("10", "Hebrew");
-        language.put("11", "Japanese");
-        language.put("12", "Arabic");
+        language.put("9", "Norwegian");
+        language.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, "Hebrew");
+        language.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "Japanese");
+        language.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "Arabic");
         language.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, "Finnish");
-        language.put("14", "Greek");
+        language.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "Greek");
         language.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "Icelandic");
         language.put(Constants.VIA_REPORT_TYPE_START_WAP, "Maltese");
-        language.put("17", "Turkish");
+        language.put(Constants.VIA_REPORT_TYPE_START_GROUP, "Turkish");
         language.put("18", "Croatian");
         language.put(Constants.VIA_ACT_TYPE_NINETEEN, "Traditional_Chinese");
         language.put("20", "Urdu");
@@ -209,7 +207,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("68", "Assamese");
         language.put("69", "Gujarati");
         language.put("70", "Punjabi");
-        language.put(UgcUBCUtils.LAND_PAGE_PV, "Oriya");
+        language.put("71", "Oriya");
         language.put("72", "Malayalam");
         language.put("73", "Kannada");
         language.put("74", "Tamil");

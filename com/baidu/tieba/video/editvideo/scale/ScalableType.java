@@ -1,5 +1,5 @@
 package com.baidu.tieba.video.editvideo.scale;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public enum ScalableType {
     NONE,
     FIT_XY,

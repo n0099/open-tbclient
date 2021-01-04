@@ -14,7 +14,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class DefaultClientConnection extends SocketHttpClientConnection implements OperatedClientConnection {
     public DefaultClientConnection() {
         throw new RuntimeException("Stub!");

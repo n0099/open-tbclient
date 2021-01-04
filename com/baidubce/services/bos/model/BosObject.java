@@ -3,7 +3,7 @@ package com.baidubce.services.bos.model;
 import com.baidubce.services.bos.BosObjectInputStream;
 import java.io.Closeable;
 import java.io.IOException;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class BosObject implements Closeable {
     private BosObjectInputStream objectContent;
     private String bucketName = null;

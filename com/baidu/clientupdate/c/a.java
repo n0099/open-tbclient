@@ -11,6 +11,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.android.common.util.CommonParam;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.clientupdate.a.d;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
@@ -30,13 +31,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a {
     private static StringBuilder A;
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1325a;
-    private static Context b;
+    private static a f1719a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static Context f1720b;
     private static String c;
     private static String d;
     private static String f;
@@ -64,18 +67,18 @@ public final class a {
     private Boolean z = false;
 
     private a(Context context) {
-        b = context.getApplicationContext();
-        this.B = d.a(b);
+        f1720b = context.getApplicationContext();
+        this.B = d.a(f1720b);
         d();
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1325a == null) {
-                f1325a = new a(context);
+            if (f1719a == null) {
+                f1719a = new a(context);
             }
-            aVar = f1325a;
+            aVar = f1719a;
         }
         return aVar;
     }
@@ -85,7 +88,10 @@ public final class a {
         int i = displayMetrics.widthPixels;
         int i2 = displayMetrics.heightPixels;
         int i3 = displayMetrics.densityDpi;
-        String str = TextUtils.isEmpty(this.v) ? "android" : this.v;
+        String str = HttpConstants.OS_TYPE_VALUE;
+        if (!TextUtils.isEmpty(this.v)) {
+            str = this.v;
+        }
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(i);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -118,20 +124,20 @@ public final class a {
     }
 
     private void d() {
-        this.e = b.getPackageName();
-        this.s = (ActivityManager) b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        this.e = f1720b.getPackageName();
+        this.s = (ActivityManager) f1720b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         try {
-            PackageInfo packageInfo = b.getPackageManager().getPackageInfo(this.e, 64);
+            PackageInfo packageInfo = f1720b.getPackageManager().getPackageInfo(this.e, 64);
             c = packageInfo.versionName;
             d = String.valueOf(packageInfo.versionCode);
             x = new File(packageInfo.applicationInfo.publicSourceDir).length() + "";
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        w = j.a(b, this.e);
+        w = j.a(f1720b, this.e);
         f = g();
         this.h = f();
-        g = b(b);
+        g = b(f1720b);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0084 */
@@ -214,7 +220,7 @@ public final class a {
         String str;
         if (TextUtils.isEmpty(f)) {
             try {
-                str = CommonParam.getCUID(b);
+                str = CommonParam.getCUID(f1720b);
             } catch (Exception e) {
                 e.printStackTrace();
                 str = System.currentTimeMillis() + "";
@@ -246,7 +252,7 @@ public final class a {
     private String j() {
         if (Build.VERSION.SDK_INT >= 16) {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+            ((ActivityManager) f1720b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
             if (memoryInfo != null) {
                 return Long.toHexString(memoryInfo.totalMem);
             }
@@ -290,7 +296,7 @@ public final class a {
 
     public void a(String str) {
         this.v = str;
-        g = b(b);
+        g = b(f1720b);
     }
 
     public void a(String str, String str2) {
@@ -312,8 +318,8 @@ public final class a {
         A.append("\"cvc\":\"" + d + "\",");
         A.append("\"csz\":\"" + x + "\",");
         A.append("\"cmd5\":\"" + w + "\",");
-        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(b).a();
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(b).b();
+        ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f1720b).a();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f1720b).b();
         if (a2 == null || b2 == null) {
             A.append("\"ug\":\"\",");
             A.append("\"vn\":\"\",");
@@ -341,7 +347,7 @@ public final class a {
             bVar.a(com.baidu.fsg.base.statistics.j.c, g);
             bVar.a("ut", this.h);
             bVar.a("auto", String.valueOf(this.i));
-            this.j = c(b);
+            this.j = c(f1720b);
             bVar.a("network", this.j);
             this.t = h();
             if (this.t != null) {
@@ -360,7 +366,7 @@ public final class a {
             if (!TextUtils.isEmpty(w)) {
                 bVar.a("usermd5", w);
             }
-            this.y = j.a(b, "com.baidu.appsearch");
+            this.y = j.a(f1720b, "com.baidu.appsearch");
             if (!TextUtils.isEmpty(this.y)) {
                 bVar.a("appsearchmd5", this.y);
             }
@@ -378,7 +384,7 @@ public final class a {
     }
 
     public String c() {
-        RuleInfo b2 = com.baidu.clientupdate.d.a.a(b).b();
+        RuleInfo b2 = com.baidu.clientupdate.d.a.a(f1720b).b();
         return b2 != null ? b2.mUpgradeid : "-1";
     }
 

@@ -1,25 +1,67 @@
 package com.baidu.tieba.frs.forumRule.b;
 
-import com.baidu.tieba.frs.forumRule.c.c;
-import java.util.List;
-/* loaded from: classes22.dex */
-public interface a {
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.n;
+import tbclient.ForumRuleDetail.DataRes;
+/* loaded from: classes2.dex */
+public class a implements n {
+    public static BdUniqueId jui = BdUniqueId.gen();
+    private String avatar;
+    private String forum_name;
+    private String name_show;
+    private String portrait;
+    private String publish_time;
 
-    /* renamed from: com.baidu.tieba.frs.forumRule.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public interface InterfaceC0742a {
-        void KT(String str);
+    public void a(DataRes dataRes) {
+        this.publish_time = dataRes.publish_time;
+        if (dataRes.bazhu != null) {
+            this.portrait = dataRes.bazhu.portrait;
+            this.name_show = dataRes.bazhu.name_show;
+        }
+        if (dataRes.forum != null) {
+            this.avatar = dataRes.forum.avatar;
+            this.forum_name = dataRes.forum.forum_name;
+        }
+    }
 
-        void a(com.baidu.tieba.frs.forumRule.c.a aVar);
+    public String getPortrait() {
+        return this.portrait;
+    }
 
-        void a(com.baidu.tieba.frs.forumRule.c.b bVar);
+    public void setPortrait(String str) {
+        this.portrait = str;
+    }
 
-        void bDm();
+    public String getAvatar() {
+        return this.avatar;
+    }
 
-        void dm(List<c> list);
+    public void setAvatar(String str) {
+        this.avatar = str;
+    }
 
-        void finish();
+    public String cJB() {
+        return this.publish_time;
+    }
 
-        void t(boolean z, String str);
+    public String bru() {
+        return this.forum_name;
+    }
+
+    public void Bd(String str) {
+        this.forum_name = str;
+    }
+
+    public String getName_show() {
+        return this.name_show;
+    }
+
+    public void setName_show(String str) {
+        this.name_show = str;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.n
+    public BdUniqueId getType() {
+        return jui;
     }
 }

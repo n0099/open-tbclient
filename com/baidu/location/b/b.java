@@ -7,8 +7,8 @@ import android.os.DeadObjectException;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
@@ -20,7 +20,7 @@ import com.baidu.platform.comapi.location.CoordinateType;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class b {
     private ArrayList<a> g;
     private static b f = null;
@@ -29,8 +29,10 @@ public class b {
     private boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1875a = false;
-    boolean b = false;
+    public boolean f2597a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    boolean f2598b = false;
     private BDLocation i = null;
     private BDLocation j = null;
     int e = 0;
@@ -40,12 +42,14 @@ public class b {
     private RunnableC0252b n = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1876a;
-        public Messenger b;
+        public String f2599a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public Messenger f2600b;
         public LocationClientOption c = new LocationClientOption();
         public int d = 0;
         final /* synthetic */ b e;
@@ -53,12 +57,12 @@ public class b {
         public a(b bVar, Message message) {
             boolean z = false;
             this.e = bVar;
-            this.f1876a = null;
-            this.b = null;
-            this.b = message.replyTo;
-            this.f1876a = message.getData().getString("packName");
+            this.f2599a = null;
+            this.f2600b = null;
+            this.f2600b = message.replyTo;
+            this.f2599a = message.getData().getString("packName");
             this.c.prodName = message.getData().getString("prodName");
-            com.baidu.location.e.b.a().a(this.c.prodName, this.f1876a);
+            com.baidu.location.e.b.a().a(this.c.prodName, this.f2599a);
             this.c.coorType = message.getData().getString("coorType");
             this.c.addrType = message.getData().getString("addrType");
             this.c.enableSimulateGps = message.getData().getBoolean("enableSimulateGps", false);
@@ -132,7 +136,7 @@ public class b {
                 r.a().a(this.c.mIsNeedDeviceDirect);
                 r.a().b();
             }
-            bVar.b = (bVar.b || this.c.isNeedAltitude) ? true : z;
+            bVar.f2598b = (bVar.f2598b || this.c.isNeedAltitude) ? true : z;
         }
 
         private double a(boolean z, BDLocation bDLocation, BDLocation bDLocation2) {
@@ -193,8 +197,8 @@ public class b {
         public void a(int i) {
             Message obtain = Message.obtain((Handler) null, i);
             try {
-                if (this.b != null) {
-                    this.b.send(obtain);
+                if (this.f2600b != null) {
+                    this.f2600b.send(obtain);
                 }
                 this.d = 0;
             } catch (Exception e) {
@@ -209,8 +213,8 @@ public class b {
             Message obtain = Message.obtain((Handler) null, i);
             obtain.setData(bundle);
             try {
-                if (this.b != null) {
-                    this.b.send(obtain);
+                if (this.f2600b != null) {
+                    this.f2600b.send(obtain);
                 }
                 this.d = 0;
             } catch (Exception e) {
@@ -228,8 +232,8 @@ public class b {
             Message obtain = Message.obtain((Handler) null, i);
             obtain.setData(bundle);
             try {
-                if (this.b != null) {
-                    this.b.send(obtain);
+                if (this.f2600b != null) {
+                    this.f2600b.send(obtain);
                 }
                 this.d = 0;
             } catch (Exception e) {
@@ -273,9 +277,9 @@ public class b {
         public int a(int i, boolean z, BDLocation bDLocation) {
             if (i == 100) {
                 if (z) {
-                    BDLocation b = b();
-                    if (b != null) {
-                        a(true, b, bDLocation);
+                    BDLocation b2 = b();
+                    if (b2 != null) {
+                        a(true, b2, bDLocation);
                     }
                 } else {
                     BDLocation c = c();
@@ -291,9 +295,9 @@ public class b {
                     return i != 500 ? 0 : 1;
                 }
                 if (z) {
-                    BDLocation b2 = b();
-                    if (b2 != null) {
-                        return a(a(true, b2, bDLocation));
+                    BDLocation b3 = b();
+                    if (b3 != null) {
+                        return a(a(true, b3, bDLocation));
                     }
                 } else {
                     BDLocation c2 = c();
@@ -307,7 +311,7 @@ public class b {
 
         public void a() {
             if (this.c.location_change_notify) {
-                if (com.baidu.location.e.l.b) {
+                if (com.baidu.location.e.l.f2734b) {
                     a(54);
                 } else {
                     a(55);
@@ -351,12 +355,14 @@ public class b {
     }
 
     /* renamed from: com.baidu.location.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     private class RunnableC0252b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ b f1877a;
-        private int b;
+        final /* synthetic */ b f2601a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private int f2602b;
         private boolean c;
 
         @Override // java.lang.Runnable
@@ -364,8 +370,8 @@ public class b {
             if (this.c) {
                 return;
             }
-            this.b++;
-            this.f1877a.m = false;
+            this.f2602b++;
+            this.f2601a.m = false;
         }
     }
 
@@ -381,7 +387,7 @@ public class b {
         Iterator<a> it = this.g.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next.b.equals(messenger)) {
+            if (next.f2600b.equals(messenger)) {
                 return next;
             }
         }
@@ -399,7 +405,7 @@ public class b {
         if (aVar == null) {
             return;
         }
-        if (a(aVar.b) != null) {
+        if (a(aVar.f2600b) != null) {
             aVar.a(14);
             return;
         }
@@ -432,7 +438,7 @@ public class b {
             }
             z = next.c.location_change_notify ? true : z;
         }
-        com.baidu.location.e.l.f1959a = z;
+        com.baidu.location.e.l.f2733a = z;
         if (this.h != z2) {
             this.h = z2;
             com.baidu.location.c.f.a().a(this.h);
@@ -459,7 +465,7 @@ public class b {
             return;
         }
         c = System.currentTimeMillis();
-        this.f1875a = true;
+        this.f2597a = true;
         com.baidu.location.c.i.a().b();
         a(new a(this, message));
         e();
@@ -478,7 +484,7 @@ public class b {
     }
 
     public void a(boolean z) {
-        this.f1875a = z;
+        this.f2597a = z;
         if (z) {
             d = 1;
         } else {
@@ -564,9 +570,9 @@ public class b {
         if (aVar.c.prodName != null) {
             stringBuffer.append(aVar.c.prodName);
         }
-        if (aVar.f1876a != null) {
+        if (aVar.f2599a != null) {
             stringBuffer.append(":");
-            stringBuffer.append(aVar.f1876a);
+            stringBuffer.append(aVar.f2599a);
             stringBuffer.append("|");
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -605,19 +611,19 @@ public class b {
             a2.c.scanSpan = message.getData().getInt("scanSpan", a2.c.scanSpan);
             if (a2.c.scanSpan < 1000) {
                 r.a().c();
-                this.f1875a = false;
+                this.f2597a = false;
             } else {
-                this.f1875a = true;
+                this.f2597a = true;
             }
             if (a2.c.scanSpan > 999 && i < 1000) {
                 if (a2.c.mIsNeedDeviceDirect || a2.c.isNeedAltitude) {
                     r.a().a(a2.c.mIsNeedDeviceDirect);
                     r.a().b();
                 }
-                if (this.b || a2.c.isNeedAltitude) {
+                if (this.f2598b || a2.c.isNeedAltitude) {
                     z = true;
                 }
-                this.b = z;
+                this.f2598b = z;
                 z = true;
             }
             a2.c.openGps = message.getData().getBoolean("openGPS", a2.c.openGps);

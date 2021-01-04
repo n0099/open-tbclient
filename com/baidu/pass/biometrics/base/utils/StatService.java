@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.restnet.beans.business.BeanConstants;
@@ -13,18 +14,18 @@ import com.baidu.pass.http.PassHttpParamDTO;
 import com.baidu.sapi2.SapiContext;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public final class StatService {
     public static final String DOMAIN_NSCLICK_URL = "https://nsclick.baidu.com/v.gif";
     public static final String TAG = "StatService";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, String> f2719a = new HashMap();
+    private static final Map<String, String> f4022a = new HashMap();
 
     static {
-        f2719a.put("pid", "111");
-        f2719a.put("type", "1023");
-        f2719a.put(Config.DEVICE_PART, "android");
+        f4022a.put("pid", "111");
+        f4022a.put("type", "1023");
+        f4022a.put(Config.DEVICE_PART, HttpConstants.OS_TYPE_VALUE);
     }
 
     private StatService() {
@@ -35,7 +36,7 @@ public final class StatService {
             try {
                 if (NetworkUtils.isNetworkAvailable(context)) {
                     HashMap hashMap = new HashMap();
-                    hashMap.putAll(f2719a);
+                    hashMap.putAll(f4022a);
                     map.put("v", String.valueOf(System.currentTimeMillis()));
                     hashMap.put("name", str);
                     hashMap.put("model", Build.MODEL);

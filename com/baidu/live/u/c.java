@@ -1,4 +1,13 @@
 package com.baidu.live.u;
-/* loaded from: classes4.dex */
+
+import android.view.ViewGroup;
+/* loaded from: classes11.dex */
 public interface c {
+    void Id();
+
+    void bd(long j);
+
+    void release();
+
+    void setParentView(ViewGroup viewGroup);
 }

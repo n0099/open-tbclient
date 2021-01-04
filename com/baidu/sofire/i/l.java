@@ -7,6 +7,7 @@ import android.os.Process;
 import android.provider.Settings;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.BufferedReader;
 import java.io.CharArrayWriter;
 import java.io.File;
@@ -17,13 +18,15 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3638a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
-    private static final String b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
-    private static final String c = f3638a + b;
+    private static final String f5544a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f5545b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+    private static final String c = f5544a + f5545b;
     private static c d;
     private Context e;
 
@@ -64,8 +67,6 @@ public final class l {
             } catch (Throwable th2) {
                 try {
                     e.a();
-                    return str;
-                } finally {
                     if (fileReader != null) {
                         try {
                             fileReader.close();
@@ -73,9 +74,20 @@ public final class l {
                             e.a();
                         }
                     }
+                    return str;
+                } catch (Throwable th4) {
+                    FileReader fileReader2 = fileReader;
+                    if (fileReader2 != null) {
+                        try {
+                            fileReader2.close();
+                        } catch (Throwable th5) {
+                            e.a();
+                        }
+                    }
+                    throw th4;
                 }
             }
-        } catch (Throwable th4) {
+        } catch (Throwable th6) {
             fileReader = null;
         }
         return str;
@@ -196,8 +208,8 @@ public final class l {
             return null;
         }
         c cVar = new c((byte) 0);
-        cVar.f3640a = str2;
-        cVar.b = str;
+        cVar.f5547a = str2;
+        cVar.f5548b = str;
         return cVar;
     }
 
@@ -218,8 +230,8 @@ public final class l {
             }
             if (!TextUtils.isEmpty(str)) {
                 c cVar = new c((byte) 0);
-                cVar.f3640a = str;
-                cVar.b = c2;
+                cVar.f5547a = str;
+                cVar.f5548b = c2;
                 return cVar;
             }
         } catch (Throwable th) {
@@ -249,17 +261,19 @@ public final class l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f3640a;
-        public String b;
+        public String f5547a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f5548b;
 
         private c() {
         }
 
-        /* synthetic */ c(byte b) {
+        /* synthetic */ c(byte b2) {
             this();
         }
 
@@ -275,8 +289,8 @@ public final class l {
                     return null;
                 }
                 c cVar = new c();
-                cVar.f3640a = string;
-                cVar.b = string2;
+                cVar.f5547a = string;
+                cVar.f5548b = string2;
                 return cVar;
             } catch (Throwable th) {
                 e.a();
@@ -286,11 +300,11 @@ public final class l {
 
         public final String a() {
             try {
-                String str = this.b;
+                String str = this.f5548b;
                 if (TextUtils.isEmpty(str)) {
                     str = "0";
                 }
-                return this.f3640a + "|" + new StringBuffer(str).reverse().toString();
+                return this.f5547a + "|" + new StringBuffer(str).reverse().toString();
             } catch (Throwable th) {
                 e.a();
                 return null;
@@ -298,7 +312,7 @@ public final class l {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public static class a {
         public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), com.baidu.sapi2.utils.e.q);
@@ -308,108 +322,98 @@ public final class l {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final byte[] f3639a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        private static final byte[] f5546a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
         public static byte[] a(byte[] bArr) {
             int i;
             int i2;
-            int i3;
-            int i4;
-            int i5;
             int length = bArr.length;
-            int i6 = (length / 4) * 3;
-            if (i6 == 0) {
+            int i3 = (length / 4) * 3;
+            if (i3 == 0) {
                 return new byte[0];
             }
-            byte[] bArr2 = new byte[i6];
-            int i7 = length;
-            int i8 = 0;
+            byte[] bArr2 = new byte[i3];
+            int i4 = 0;
             while (true) {
-                byte b = bArr[i7 - 1];
-                if (b != 10 && b != 13 && b != 32 && b != 9) {
-                    if (b != 61) {
+                byte b2 = bArr[length - 1];
+                if (b2 != 10 && b2 != 13 && b2 != 32 && b2 != 9) {
+                    if (b2 != 61) {
                         break;
                     }
-                    i8++;
+                    i4++;
                 }
-                i7--;
+                length--;
             }
-            int i9 = 0;
-            int i10 = 0;
-            int i11 = 0;
-            int i12 = 0;
-            while (i9 < i7) {
-                byte b2 = bArr[i9];
-                if (b2 == 10 || b2 == 13 || b2 == 32 || b2 == 9) {
-                    i = i10;
-                    i2 = i12;
-                    i3 = i11;
+            int i5 = 0;
+            int i6 = 0;
+            int i7 = 0;
+            int i8 = 0;
+            while (i5 < length) {
+                byte b3 = bArr[i5];
+                if (b3 == 10 || b3 == 13 || b3 == 32 || b3 == 9) {
+                    i = i8;
                 } else {
-                    if (b2 >= 65 && b2 <= 90) {
-                        i4 = b2 - 65;
-                    } else if (b2 >= 97 && b2 <= 122) {
-                        i4 = b2 - 71;
-                    } else if (b2 >= 48 && b2 <= 57) {
-                        i4 = b2 + 4;
-                    } else if (b2 == 43) {
-                        i4 = 62;
-                    } else if (b2 == 47) {
-                        i4 = 63;
+                    if (b3 >= 65 && b3 <= 90) {
+                        i2 = b3 - 65;
+                    } else if (b3 >= 97 && b3 <= 122) {
+                        i2 = b3 - 71;
+                    } else if (b3 >= 48 && b3 <= 57) {
+                        i2 = b3 + 4;
+                    } else if (b3 == 43) {
+                        i2 = 62;
+                    } else if (b3 == 47) {
+                        i2 = 63;
                     } else {
                         return null;
                     }
-                    int i13 = (i10 << 6) | ((byte) i4);
-                    if (i11 % 4 == 3) {
-                        int i14 = i12 + 1;
-                        bArr2[i12] = (byte) ((16711680 & i13) >> 16);
-                        int i15 = i14 + 1;
-                        bArr2[i14] = (byte) ((65280 & i13) >> 8);
-                        i5 = i15 + 1;
-                        bArr2[i15] = (byte) (i13 & 255);
+                    i6 = (i6 << 6) | ((byte) i2);
+                    if (i7 % 4 == 3) {
+                        int i9 = i8 + 1;
+                        bArr2[i8] = (byte) ((16711680 & i6) >> 16);
+                        int i10 = i9 + 1;
+                        bArr2[i9] = (byte) ((65280 & i6) >> 8);
+                        i = i10 + 1;
+                        bArr2[i10] = (byte) (i6 & 255);
                     } else {
-                        i5 = i12;
+                        i = i8;
                     }
-                    i3 = i11 + 1;
-                    i2 = i5;
-                    i = i13;
+                    i7++;
                 }
-                i9++;
-                i11 = i3;
-                i12 = i2;
-                i10 = i;
+                i5++;
+                i8 = i;
             }
-            if (i8 > 0) {
-                int i16 = i10 << (i8 * 6);
-                int i17 = i12 + 1;
-                bArr2[i12] = (byte) ((16711680 & i16) >> 16);
-                if (i8 == 1) {
-                    i12 = i17 + 1;
-                    bArr2[i17] = (byte) ((65280 & i16) >> 8);
+            if (i4 > 0) {
+                int i11 = i6 << (i4 * 6);
+                int i12 = i8 + 1;
+                bArr2[i8] = (byte) ((16711680 & i11) >> 16);
+                if (i4 == 1) {
+                    i8 = i12 + 1;
+                    bArr2[i12] = (byte) ((65280 & i11) >> 8);
                 } else {
-                    i12 = i17;
+                    i8 = i12;
                 }
             }
-            byte[] bArr3 = new byte[i12];
-            System.arraycopy(bArr2, 0, bArr3, 0, i12);
+            byte[] bArr3 = new byte[i8];
+            System.arraycopy(bArr2, 0, bArr3, 0, i8);
             return bArr3;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public static class d {
         public static String a(byte[] bArr) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 messageDigest.reset();
                 messageDigest.update(bArr);
                 byte[] digest = messageDigest.digest();
                 StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    String upperCase = Integer.toHexString(b & 255).toUpperCase();
+                for (byte b2 : digest) {
+                    String upperCase = Integer.toHexString(b2 & 255).toUpperCase();
                     if (upperCase.length() == 1) {
                         sb.append("0");
                     }

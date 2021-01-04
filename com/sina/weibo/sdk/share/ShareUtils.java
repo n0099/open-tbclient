@@ -18,12 +18,11 @@ import java.util.Calendar;
 public final class ShareUtils {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [65=4] */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0184: MOVE  (r6 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:78:0x0184 */
     /* JADX WARN: Removed duplicated region for block: B:104:0x0161 A[EDGE_INSN: B:104:0x0161->B:58:0x0161 ?: BREAK  , SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:105:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:15:0x0084 A[Catch: Exception -> 0x0158, all -> 0x0172, TryCatch #12 {Exception -> 0x0158, all -> 0x0172, blocks: (B:3:0x0001, B:6:0x0012, B:12:0x007b, B:13:0x007e, B:15:0x0084, B:18:0x009a, B:19:0x00a2, B:52:0x0154, B:53:0x0157, B:48:0x014a), top: B:93:0x0001 }] */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x00e3 A[Catch: all -> 0x0181, Exception -> 0x0188, TryCatch #13 {Exception -> 0x0188, all -> 0x0181, blocks: (B:20:0x00bb, B:22:0x00e3, B:23:0x00e6), top: B:101:0x00bb }] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00f6 A[Catch: Exception -> 0x00fb, all -> 0x0183, LOOP:0: B:26:0x00ef->B:28:0x00f6, LOOP_END, TRY_LEAVE, TryCatch #3 {all -> 0x0183, blocks: (B:25:0x00ed, B:26:0x00ef, B:28:0x00f6, B:58:0x0161, B:31:0x00fc), top: B:93:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x00e3 A[Catch: all -> 0x0182, Exception -> 0x0189, TryCatch #13 {Exception -> 0x0189, all -> 0x0182, blocks: (B:20:0x00bb, B:22:0x00e3, B:23:0x00e6), top: B:101:0x00bb }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00f6 A[Catch: Exception -> 0x00fb, all -> 0x0185, LOOP:0: B:26:0x00ef->B:28:0x00f6, LOOP_END, TRY_LEAVE, TryCatch #3 {all -> 0x0185, blocks: (B:25:0x00ed, B:26:0x00ef, B:28:0x00f6, B:58:0x0161, B:31:0x00fc), top: B:93:0x0001 }] */
     /* JADX WARN: Removed duplicated region for block: B:52:0x0154 A[Catch: Exception -> 0x0158, all -> 0x0172, TryCatch #12 {Exception -> 0x0158, all -> 0x0172, blocks: (B:3:0x0001, B:6:0x0012, B:12:0x007b, B:13:0x007e, B:15:0x0084, B:18:0x009a, B:19:0x00a2, B:52:0x0154, B:53:0x0157, B:48:0x014a), top: B:93:0x0001 }] */
     /* JADX WARN: Removed duplicated region for block: B:62:0x016c A[Catch: Exception -> 0x0170, TRY_LEAVE, TryCatch #0 {Exception -> 0x0170, blocks: (B:60:0x0167, B:62:0x016c), top: B:89:0x0167 }] */
     /* JADX WARN: Removed duplicated region for block: B:89:0x0167 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -31,16 +30,15 @@ public final class ShareUtils {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String copyFileToWeiboTem(Context context, Uri uri, int i) {
+        OutputStream outputStream;
         BufferedInputStream bufferedInputStream;
         FileOutputStream fileOutputStream;
-        OutputStream outputStream;
         String str;
         Cursor cursor;
         String str2;
         File file;
         byte[] bArr;
         int read;
-        OutputStream outputStream2 = null;
         try {
             try {
                 String packageName = WeiboAppManager.queryWbInfoInternal(context).getPackageName();
@@ -136,7 +134,6 @@ public final class ShareUtils {
                 bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, "r").getFileDescriptor()));
             } catch (Throwable th3) {
                 th = th3;
-                outputStream2 = outputStream;
             }
             try {
                 file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str + str2);
@@ -170,6 +167,7 @@ public final class ShareUtils {
                 fileOutputStream = null;
             } catch (Throwable th4) {
                 th = th4;
+                outputStream = null;
                 if (bufferedInputStream != null) {
                     try {
                         bufferedInputStream.close();
@@ -177,8 +175,8 @@ public final class ShareUtils {
                         throw th;
                     }
                 }
-                if (outputStream2 != null) {
-                    outputStream2.close();
+                if (outputStream != null) {
+                    outputStream.close();
                 }
                 throw th;
             }
@@ -188,6 +186,7 @@ public final class ShareUtils {
             bufferedInputStream = null;
         } catch (Throwable th5) {
             th = th5;
+            outputStream = null;
             bufferedInputStream = null;
         }
     }

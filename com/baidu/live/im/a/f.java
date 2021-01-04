@@ -1,7 +1,6 @@
 package com.baidu.live.im.a;
 
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
@@ -9,6 +8,7 @@ import android.text.TextUtils;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.framework.MessageManager;
@@ -28,17 +28,17 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class f extends b {
-    private static ImSendMsgData bom;
-    private BdPageContext bng;
-    public CustomMessageListener bon;
+    private static ImSendMsgData bpV;
+    private BdPageContext boN;
+    public CustomMessageListener bpW;
     private BdAlertDialog mDialog;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(BdPageContext bdPageContext) {
-        super(bdPageContext.getPageActivity(), com.baidu.live.im.a.bjO);
-        this.bon = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.a.f.1
+        super(bdPageContext.getPageActivity(), com.baidu.live.im.a.bls);
+        this.bpW = new CustomMessageListener(2913193) { // from class: com.baidu.live.im.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -46,47 +46,46 @@ public class f extends b {
                     ImForbiddenStateData imForbiddenStateData = (ImForbiddenStateData) customResponsedMessage.getData();
                     if (imForbiddenStateData.errno != 0) {
                         BdUtilHelper.showToast(f.this.mContext, f.this.mContext.getResources().getString(a.h.ala_im_ban_no_net_tips));
-                    } else if (imForbiddenStateData.banState != 0 || f.bom == null) {
+                    } else if (imForbiddenStateData.banState != 0 || f.bpV == null) {
                         f.this.a(imForbiddenStateData);
                     } else {
-                        a.d(f.bom);
-                        ImSendMsgData unused = f.bom = null;
+                        a.d(f.bpV);
+                        ImSendMsgData unused = f.bpV = null;
                     }
                 }
             }
         };
-        this.bng = bdPageContext;
-        MessageManager.getInstance().registerListener(this.bon);
+        this.boN = bdPageContext;
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void Nx() {
-        if (Ny()) {
-            Nz();
+    protected void MW() {
+        if (MX()) {
+            MY();
         } else {
-            NA();
+            MZ();
         }
     }
 
     @Override // com.baidu.live.im.a.b
     protected int getColor() {
-        if (Ny()) {
+        if (MX()) {
             return -1;
         }
         return this.mContext.getResources().getColor(a.c.sdk_common_color_10034);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected SpannableStringBuilder a(com.baidu.live.im.data.b bVar, com.baidu.live.im.c cVar) {
+    protected SpannableStringBuilder b(com.baidu.live.im.data.b bVar, com.baidu.live.im.c cVar) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        boolean z = (bVar instanceof com.baidu.live.im.a) && ((com.baidu.live.im.a) bVar).Mr().equals(bVar.NU().userId);
+        boolean z = (bVar instanceof com.baidu.live.im.a) && ((com.baidu.live.im.a) bVar).LO().equals(bVar.Nw().userId);
         if (z) {
             com.baidu.live.view.b bVar2 = new com.baidu.live.view.b(this.mContext, a.e.icon_im_anchor);
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder("  ");
             spannableStringBuilder2.setSpan(bVar2, 0, 1, 33);
             spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
         }
-        a(spannableStringBuilder, bVar.NU(), cVar, z, true, true);
+        a(spannableStringBuilder, bVar.Nw(), cVar, z, true, true);
         if (z) {
             cj(false);
         }
@@ -96,8 +95,8 @@ public class f extends b {
             valueOf.setSpan(new ForegroundColorSpan(-1), 0, content.length(), 33);
         }
         spannableStringBuilder.append((CharSequence) valueOf);
-        boolean equals = TextUtils.equals(bVar.NU().userId, TbadkCoreApplication.getCurrentAccount());
-        if (!((bVar instanceof com.baidu.live.im.a) && ((com.baidu.live.im.a) bVar).Mr().equals(TbadkCoreApplication.getCurrentAccount())) && m20if(content) && !equals) {
+        boolean equals = TextUtils.equals(bVar.Nw().userId, TbadkCoreApplication.getCurrentAccount());
+        if (!((bVar instanceof com.baidu.live.im.a) && ((com.baidu.live.im.a) bVar).LO().equals(TbadkCoreApplication.getCurrentAccount())) && hQ(content) && !equals) {
             com.baidu.live.view.b bVar3 = new com.baidu.live.view.b(this.mContext, a.e.icon_im_followone);
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(" ");
             spannableStringBuilder3.setSpan(bVar3, 0, 1, 33);
@@ -116,62 +115,61 @@ public class f extends b {
         return spannableStringBuilder;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    private boolean m20if(String str) {
-        return com.baidu.live.ae.a.RB().brA.aOc != null && com.baidu.live.ae.a.RB().brA.aOc.originTexts != null && com.baidu.live.ae.a.RB().brA.aOc.originTexts.size() > 0 && com.baidu.live.ae.a.RB().brA.aOc.originTexts.contains(str);
+    private boolean hQ(String str) {
+        return com.baidu.live.af.a.SE().bwi.aOG != null && com.baidu.live.af.a.SE().bwi.aOG.originTexts != null && com.baidu.live.af.a.SE().bwi.aOG.originTexts.size() > 0 && com.baidu.live.af.a.SE().bwi.aOG.originTexts.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImForbiddenStateData imForbiddenStateData) {
         String format;
         if (imForbiddenStateData.globalBan == 1) {
-            if (imForbiddenStateData.foreverInfo != null && imForbiddenStateData.foreverInfo.bpe == 1) {
+            if (imForbiddenStateData.foreverInfo != null && imForbiddenStateData.foreverInfo.bqL == 1) {
                 format = this.mContext.getResources().getString(a.h.ala_forbidden_words_ueg_block);
             } else {
-                format = String.format(this.bng.getPageActivity().getResources().getString(a.h.ala_forbidden_words_ueg_forever), imForbiddenStateData.foreverInfo.bpf);
+                format = String.format(this.boN.getPageActivity().getResources().getString(a.h.ala_forbidden_words_ueg_forever), imForbiddenStateData.foreverInfo.bqM);
             }
             this.mDialog = new BdAlertDialog(TbadkCoreApplication.getInst().getCurrentActivity());
             this.mDialog.setMessage(format);
-            this.mDialog.setPositiveButton(this.bng.getPageActivity().getResources().getString(a.h.ala_forbidden_words_btn_ok), new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.im.a.f.2
+            this.mDialog.setPositiveButton(this.boN.getPageActivity().getResources().getString(a.h.ala_forbidden_words_btn_ok), new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.im.a.f.2
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
                     if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                        BrowserHelper.startInternalWebActivity(f.this.bng.getPageActivity(), "https%3A%2F%2Fufosdk.baidu.com%2F%3Fm%3DClient%26a%3DpostViewNew%26appid%3D238780%26needFbtype%3Dtrue%26hasRt%3Dfalse%26hasTitleBar%3Dfalse%26fbtnPlace%3Dbr%26channelId%3D90953");
+                        BrowserHelper.startInternalWebActivity(f.this.boN.getPageActivity(), "https%3A%2F%2Fufosdk.baidu.com%2F%3Fm%3DClient%26a%3DpostViewNew%26appid%3D238780%26needFbtype%3Dtrue%26hasRt%3Dfalse%26hasTitleBar%3Dfalse%26fbtnPlace%3Dbr%26channelId%3D90953");
                     } else {
-                        BrowserHelper.startInternalWebActivity(f.this.bng.getPageActivity(), "https://ufosdk.baidu.com/?m=Client&a=postViewNew&appid=238780&needFbtype=true&hasRt=false&hasTitleBar=false&fbtnPlace=br&channelId=90953");
+                        BrowserHelper.startInternalWebActivity(f.this.boN.getPageActivity(), "https://ufosdk.baidu.com/?m=Client&a=postViewNew&appid=238780&needFbtype=true&hasRt=false&hasTitleBar=false&fbtnPlace=br&channelId=90953");
                     }
                     bdAlertDialog.dismiss();
                 }
             });
-            this.mDialog.setNegativeButton(this.bng.getPageActivity().getResources().getString(a.h.ala_forbidden_words_btn_cancel), new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.im.a.f.3
+            this.mDialog.setNegativeButton(this.boN.getPageActivity().getResources().getString(a.h.ala_forbidden_words_btn_cancel), new BdAlertDialog.OnClickListener() { // from class: com.baidu.live.im.a.f.3
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
                     bdAlertDialog.dismiss();
                 }
             });
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.mDialog.setPositiveButtonTextColor(this.bng.getPageActivity().getResources().getColorStateList(a.e.sdk_dialog_blue_button_txt_selector));
-                this.mDialog.setNagetiveButtonTextColor(this.bng.getPageActivity().getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
+                this.mDialog.setPositiveButtonTextColor(this.boN.getPageActivity().getResources().getColorStateList(a.e.sdk_dialog_blue_button_txt_selector));
+                this.mDialog.setNagetiveButtonTextColor(this.boN.getPageActivity().getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
             } else {
                 this.mDialog.setPositiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
                 this.mDialog.setNagetiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
             }
-            this.mDialog.create(this.bng);
+            this.mDialog.create(this.boN);
             this.mDialog.setCanceledOnTouchOutside(false);
             this.mDialog.show();
         } else if (imForbiddenStateData.anchorBan == 1) {
-            BdUtilHelper.showToast(this.bng.getPageActivity(), this.bng.getPageActivity().getResources().getString(a.h.ala_forbidden_words_is_block_2));
+            BdUtilHelper.showToast(this.boN.getPageActivity(), this.boN.getPageActivity().getResources().getString(a.h.ala_forbidden_words_is_block_2));
         } else if (imForbiddenStateData.liveBan == 1) {
-            BdUtilHelper.showToast(this.bng.getPageActivity(), this.bng.getPageActivity().getResources().getString(a.h.ala_forbidden_words_is_block_1));
+            BdUtilHelper.showToast(this.boN.getPageActivity(), this.boN.getPageActivity().getResources().getString(a.h.ala_forbidden_words_is_block_1));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a extends ClickableSpan {
-        private boolean bob;
-        private long bop;
-        private long boq = 2000;
+        private boolean bpK;
+        private long bpY;
+        private long bpZ = 2000;
         private String content;
         private Context context;
 
@@ -181,7 +179,7 @@ public class f extends b {
         }
 
         public void setClickable(boolean z) {
-            this.bob = z;
+            this.bpK = z;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -199,7 +197,7 @@ public class f extends b {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "quickadd_clk").setContentExt(null, "popup", jSONObject));
         }
 
-        private boolean Nh() {
+        private boolean ME() {
             if (TbadkCoreApplication.isLogin()) {
                 return true;
             }
@@ -207,25 +205,26 @@ public class f extends b {
             return false;
         }
 
-        private boolean NI() {
+        private boolean Ni() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.bop < this.boq) {
+            if (currentTimeMillis - this.bpY < this.bpZ) {
                 return false;
             }
-            this.bop = currentTimeMillis;
+            this.bpY = currentTimeMillis;
             return true;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (NI()) {
-                ImSendMsgData unused = f.bom = new ImSendMsgData(this.content);
-                if (!TextUtils.isEmpty(this.content) && Nh()) {
-                    if (com.baidu.live.ae.a.RB().brA.aOy == 1 && !LoginManager.getInstance(this.context).isIMLogined()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913288, true));
+            if (Ni()) {
+                ImSendMsgData unused = f.bpV = new ImSendMsgData(this.content);
+                if (!TextUtils.isEmpty(this.content) && ME()) {
+                    if (com.baidu.live.af.a.SE().bwi.aPf == 1 && !LoginManager.getInstance(this.context).isIMLogined()) {
                         BdUtilHelper.showToast(this.context, this.context.getResources().getString(a.h.ala_forbidden_words_im_link_disconnect));
                         return;
-                    } else if (com.baidu.live.ae.a.RB().brA.aOx != 1) {
-                        d(f.bom);
+                    } else if (com.baidu.live.af.a.SE().bwi.aPe != 1) {
+                        d(f.bpV);
                         return;
                     } else {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
@@ -234,7 +233,11 @@ public class f extends b {
                 }
                 return;
             }
-            BdUtilHelper.showToast(this.context, "2s内只能发一条快捷发言哦");
+            BdUtilHelper.showToast(this.context, "您按的太快，我都跟不上了~");
         }
+    }
+
+    public void Ng() {
+        MessageManager.getInstance().unRegisterListener(this.bpW);
     }
 }

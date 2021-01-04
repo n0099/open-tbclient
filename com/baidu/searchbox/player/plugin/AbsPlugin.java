@@ -1,15 +1,15 @@
 package com.baidu.searchbox.player.plugin;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.message.IMessenger;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsPlugin implements IPlugin {
     private Context mContext;
     private IMessenger mCourier;
@@ -103,8 +103,8 @@ public abstract class AbsPlugin implements IPlugin {
         }
     }
 
-    @PublicMethod
     @Nullable
+    @PublicMethod
     public BDVideoPlayer getBindPlayer() {
         if (this.mPluginManager != null) {
             return this.mPluginManager.getPlayer();
@@ -112,8 +112,8 @@ public abstract class AbsPlugin implements IPlugin {
         return null;
     }
 
-    @PublicMethod
     @Nullable
+    @PublicMethod
     public PluginManager getPluginManager() {
         return this.mPluginManager;
     }

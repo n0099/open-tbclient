@@ -10,14 +10,17 @@ import android.view.SurfaceView;
 import android.widget.Toast;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.platform.comapi.wnplatform.p.h;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback {
     public static final int WALK_AR_PERMISSION = 3001;
 
     /* renamed from: a  reason: collision with root package name */
-    SurfaceHolder f3093a;
-    Camera b;
+    SurfaceHolder f4598a;
+
+    /* renamed from: b  reason: collision with root package name */
+    Camera f4599b;
     private Context c;
 
     public ArCameraView(Context context) {
@@ -33,9 +36,9 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
     private void a(Context context) {
         try {
             this.c = context;
-            this.f3093a = getHolder();
-            this.f3093a.addCallback(this);
-            this.f3093a.setType(3);
+            this.f4598a = getHolder();
+            this.f4598a.addCallback(this);
+            this.f4598a.setType(3);
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(com.baidu.platform.comapi.wnplatform.p.b.a.a(), "相机出现错误", 0).show();
@@ -46,15 +49,15 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         Log.e("CameraView", "surfaceCreated");
         try {
-            if (this.b == null) {
-                this.b = Camera.open();
+            if (this.f4599b == null) {
+                this.f4599b = Camera.open();
             }
-            Camera.Parameters parameters = this.b.getParameters();
+            Camera.Parameters parameters = this.f4599b.getParameters();
             Camera.Size bestPreSize = getBestPreSize(h.c(this.c), h.b(this.c), parameters.getSupportedPreviewSizes());
             parameters.setPreviewSize(bestPreSize.width, bestPreSize.height);
-            if (this.b != null) {
-                this.b.setParameters(parameters);
-                this.b.setPreviewDisplay(surfaceHolder);
+            if (this.f4599b != null) {
+                this.f4599b.setParameters(parameters);
+                this.f4599b.setPreviewDisplay(surfaceHolder);
             }
             resumeCamera();
         } catch (Exception e) {
@@ -64,48 +67,38 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
     }
 
     protected Camera.Size getBestPreSize(int i, int i2, List<Camera.Size> list) {
-        double d;
-        Camera.Size size;
-        float f;
-        for (Camera.Size size2 : list) {
-            if (size2.width == i && size2.height == i2) {
-                return size2;
+        for (Camera.Size size : list) {
+            if (size.width == i && size.height == i2) {
+                return size;
             }
         }
-        float f2 = i / i2;
-        float f3 = 0.1f;
-        Camera.Size size3 = null;
-        for (Camera.Size size4 : list) {
-            float abs = Math.abs(f2 - (size4.width / size4.height));
-            if (abs < f3) {
-                f = abs;
-            } else {
-                size4 = size3;
-                f = f3;
+        float f = i / i2;
+        float f2 = 0.1f;
+        Camera.Size size2 = null;
+        for (Camera.Size size3 : list) {
+            float abs = Math.abs(f - (size3.width / size3.height));
+            if (abs >= f2) {
+                size3 = size2;
+                abs = f2;
             }
-            f3 = f;
-            size3 = size4;
+            size2 = size3;
+            f2 = abs;
         }
-        if (size3 == null) {
-            double d2 = Double.MAX_VALUE;
-            for (Camera.Size size5 : list) {
-                if (Math.abs(size5.height - i2) < d2) {
-                    d = Math.abs(size5.height - i2);
-                    size = size5;
-                } else {
-                    d = d2;
-                    size = size3;
+        if (size2 == null) {
+            double d = Double.MAX_VALUE;
+            for (Camera.Size size4 : list) {
+                if (Math.abs(size4.height - i2) < d) {
+                    d = Math.abs(size4.height - i2);
+                    size2 = size4;
                 }
-                size3 = size;
-                d2 = d;
             }
         }
-        return size3;
+        return size2;
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        if (!setCameraDisplayOrientation((Activity) this.c, getBackCameraId(), this.b)) {
+        if (!setCameraDisplayOrientation((Activity) this.c, getBackCameraId(), this.f4599b)) {
             a(90);
         }
         resumeCamera();
@@ -132,7 +125,7 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
                     i2 = 180;
                     break;
                 case 3:
-                    i2 = 270;
+                    i2 = SubsamplingScaleImageView.ORIENTATION_270;
                     break;
                 default:
                     i2 = 0;
@@ -170,8 +163,8 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     private void a(int i) {
         try {
-            if (this.b != null) {
-                this.b.setDisplayOrientation(i);
+            if (this.f4599b != null) {
+                this.f4599b.setDisplayOrientation(i);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -186,8 +179,8 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     public void resumeCamera() {
         try {
-            if (this.b != null) {
-                this.b.startPreview();
+            if (this.f4599b != null) {
+                this.f4599b.startPreview();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -197,8 +190,8 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     public void pauseCamera() {
         try {
-            if (this.b != null) {
-                this.b.stopPreview();
+            if (this.f4599b != null) {
+                this.f4599b.stopPreview();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -207,17 +200,17 @@ public class ArCameraView extends SurfaceView implements SurfaceHolder.Callback 
 
     public void releaseCamera() {
         try {
-            if (this.b != null) {
+            if (this.f4599b != null) {
                 try {
-                    this.b.setPreviewCallback(null);
-                    this.b.stopPreview();
+                    this.f4599b.setPreviewCallback(null);
+                    this.f4599b.stopPreview();
                 } catch (Exception e) {
                 }
                 try {
-                    this.b.release();
+                    this.f4599b.release();
                 } catch (Exception e2) {
                 }
-                this.b = null;
+                this.f4599b = null;
             }
         } catch (Exception e3) {
             e3.printStackTrace();

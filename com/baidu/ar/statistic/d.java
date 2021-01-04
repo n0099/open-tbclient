@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Scanner;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 class d extends ArrayList<a> {
     private boolean sM = false;
     private int wA;
@@ -31,64 +31,67 @@ class d extends ArrayList<a> {
         }
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0065 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v8 */
+    /* JADX WARN: Type inference failed for: r4v0, types: [com.baidu.ar.statistic.d] */
     private void gm() {
         Context context;
-        Scanner scanner;
         FileInputStream fileInputStream;
+        Scanner scanner;
         a aG;
-        FileInputStream fileInputStream2 = null;
-        if (this.wB <= 0 || (context = this.wn.get()) == null || !context.getFileStreamPath(this.wz).exists()) {
+        if (this.wB <= 0 || (context = this.wn.get()) == null) {
             return;
         }
+        ?? exists = context.getFileStreamPath(this.wz).exists();
         try {
-            fileInputStream = context.openFileInput(this.wz);
+            if (exists == 0) {
+                return;
+            }
             try {
-                scanner = new Scanner(fileInputStream, "utf-8");
-                while (scanner.hasNextLine()) {
-                    try {
-                        String nextLine = scanner.nextLine();
-                        if (nextLine != null && !nextLine.isEmpty() && (aG = a.aG(nextLine)) != null) {
-                            add(aG);
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        fileInputStream2 = fileInputStream;
+                fileInputStream = context.openFileInput(this.wz);
+                try {
+                    scanner = new Scanner(fileInputStream, "utf-8");
+                    while (scanner.hasNextLine()) {
                         try {
+                            String nextLine = scanner.nextLine();
+                            if (nextLine != null && !nextLine.isEmpty() && (aG = a.aG(nextLine)) != null) {
+                                add(aG);
+                            }
+                        } catch (Exception e) {
+                            e = e;
                             e.printStackTrace();
-                            a(fileInputStream2);
-                            a(scanner);
-                            return;
-                        } catch (Throwable th) {
-                            th = th;
-                            fileInputStream = fileInputStream2;
                             a(fileInputStream);
                             a(scanner);
-                            throw th;
+                            return;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        a(fileInputStream);
-                        a(scanner);
-                        throw th;
                     }
+                    a(fileInputStream);
+                    a(scanner);
+                } catch (Exception e2) {
+                    e = e2;
+                    scanner = null;
+                } catch (Throwable th) {
+                    th = th;
+                    exists = 0;
+                    a(fileInputStream);
+                    a(exists);
+                    throw th;
                 }
-                a(fileInputStream);
-                a(scanner);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e3) {
+                e = e3;
                 scanner = null;
-                fileInputStream2 = fileInputStream;
-            } catch (Throwable th3) {
-                th = th3;
-                scanner = null;
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                exists = 0;
+                fileInputStream = null;
             }
-        } catch (Exception e3) {
-            e = e3;
-            scanner = null;
-        } catch (Throwable th4) {
-            th = th4;
-            scanner = null;
-            fileInputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 

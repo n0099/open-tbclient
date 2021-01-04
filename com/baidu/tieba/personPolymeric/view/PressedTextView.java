@@ -1,10 +1,10 @@
 package com.baidu.tieba.personPolymeric.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes24.dex */
+import androidx.annotation.Nullable;
+/* loaded from: classes8.dex */
 public class PressedTextView extends TextView {
     public PressedTextView(Context context) {
         super(context);

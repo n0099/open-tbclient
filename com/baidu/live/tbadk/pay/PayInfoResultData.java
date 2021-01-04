@@ -1,12 +1,11 @@
 package com.baidu.live.tbadk.pay;
 
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.core.data.BaseData;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class PayInfoResultData extends BaseData implements Serializable {
     private static final long serialVersionUID = -3890790632004634138L;
     private String errmsg;
@@ -27,7 +26,7 @@ public class PayInfoResultData extends BaseData implements Serializable {
     public void parserNuomiJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.errno = jSONObject.optInt("error_code", 0);
-            this.errmsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            this.errmsg = jSONObject.optString("error_msg");
             JSONObject optJSONObject = jSONObject.optJSONObject("order_info");
             if (optJSONObject != null) {
                 this.pay_status = optJSONObject.optInt("result");

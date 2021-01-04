@@ -4,33 +4,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.e;
 import com.baidu.tieba.write.write.f;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class c extends a {
     private View mRootView;
-    private HorizontalListView nFq;
-    private f oad;
+    private HorizontalListView nJv;
+    private f ocq;
 
     public void a(e eVar) {
-        this.oad.b(eVar);
+        this.ocq.b(eVar);
     }
 
-    public c(com.baidu.adp.base.e eVar) {
-        super(eVar);
+    public c(com.baidu.adp.base.f fVar) {
+        super(fVar);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
-        this.nFq = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
-        this.oad = new f();
-        this.nFq.setAdapter((ListAdapter) this.oad);
+        this.nJv = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
+        this.ocq = new f();
+        this.nJv.setAdapter((ListAdapter) this.ocq);
     }
 
     public View getRootView() {
@@ -38,18 +38,18 @@ public class c extends a {
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        bWI();
+        ao.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+        bZn();
     }
 
-    public void gr(List<String> list) {
-        if (!y.isEmpty(list)) {
-            this.oad.setData(list);
-            this.oad.notifyDataSetChanged();
+    public void gk(List<String> list) {
+        if (!x.isEmpty(list)) {
+            this.ocq.setData(list);
+            this.ocq.notifyDataSetChanged();
         }
     }
 
-    public void bWI() {
-        this.oad.notifyDataSetChanged();
+    public void bZn() {
+        this.ocq.notifyDataSetChanged();
     }
 }

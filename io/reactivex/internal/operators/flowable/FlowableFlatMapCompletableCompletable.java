@@ -10,19 +10,19 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex.a {
     final boolean delayErrors;
     final h<? super T, ? extends e> mapper;
     final int maxConcurrency;
-    final g<T> pFi;
+    final g<T> qgK;
 
     @Override // io.reactivex.a
     protected void b(io.reactivex.c cVar) {
-        this.pFi.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.qgK.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class FlatMapCompletableMainSubscriber<T> extends AtomicInteger implements io.reactivex.disposables.b, j<T> {
         private static final long serialVersionUID = 8443155186132538303L;
         final io.reactivex.c actual;
@@ -66,7 +66,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
                     eVar.a(innerObserver);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 this.s.cancel();
                 onError(th);
             }
@@ -132,7 +132,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
             onError(th);
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, io.reactivex.disposables.b {
             private static final long serialVersionUID = 8606673141535671828L;
 

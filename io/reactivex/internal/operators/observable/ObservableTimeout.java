@@ -7,13 +7,13 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.operators.observable.a<T, T> {
     final t<U> firstTimeoutIndicator;
     final h<? super T, ? extends t<V>> itemTimeoutIndicator;
     final t<? extends T> other;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     interface a {
         void innerError(Throwable th);
 
@@ -29,7 +29,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class TimeoutObserver<T, U, V> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, a, u<T> {
         private static final long serialVersionUID = 2672739326310051084L;
         final u<? super T> actual;
@@ -79,7 +79,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                     tVar.subscribe(bVar2);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 dispose();
                 this.actual.onError(th);
             }
@@ -124,14 +124,14 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class b<T, U, V> extends io.reactivex.observers.a<Object> {
         boolean done;
         final long index;
-        final a pGX;
+        final a qiA;
 
         b(a aVar, long j) {
-            this.pGX = aVar;
+            this.qiA = aVar;
             this.index = j;
         }
 
@@ -140,7 +140,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
             if (!this.done) {
                 this.done = true;
                 dispose();
-                this.pGX.timeout(this.index);
+                this.qiA.timeout(this.index);
             }
         }
 
@@ -151,19 +151,19 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 return;
             }
             this.done = true;
-            this.pGX.innerError(th);
+            this.qiA.innerError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.pGX.timeout(this.index);
+                this.qiA.timeout(this.index);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class TimeoutOtherObserver<T, U, V> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, a, u<T> {
         private static final long serialVersionUID = -1957813281749686898L;
         final u<? super T> actual;
@@ -220,7 +220,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                             tVar.subscribe(bVar2);
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.J(th);
+                        io.reactivex.exceptions.a.O(th);
                         this.actual.onError(th);
                     }
                 }

@@ -15,7 +15,7 @@ import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.widget.AnimationConfig;
 import com.baidu.live.adp.widget.ViewGroupInjector;
 import com.baidu.live.adp.widget.refresh.IRefreshable;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class RefresherView extends ViewGroup implements IRefreshable {
     private static final int DEFAULT_MAX_HEIGHT = 400;
     private static final int DEFAULT_THRESHOLD_HEIGHT = 200;
@@ -184,7 +184,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class Animator {
         private boolean animating;
         private int animatingPosition;
@@ -329,7 +329,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class AnimatorHandler extends Handler {
         private AnimatorHandler() {
         }
@@ -345,7 +345,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class RefreshAsyncTask extends BdAsyncTask<Void, Void, Void> {
         private final IRefreshable.OnRefreshListener mListener;
 
@@ -383,7 +383,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private class TopRefreshViewGroupInjector implements ViewGroupInjector {
         private TopRefreshViewGroupInjector() {
         }
@@ -532,7 +532,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private class SideRefreshViewGroupInjector extends Handler implements ViewGroupInjector {
         private boolean animating;
         private float animatingPosition;

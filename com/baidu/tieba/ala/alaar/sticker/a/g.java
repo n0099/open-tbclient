@@ -4,10 +4,10 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.data.AlaLiveStickerInfo;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class g {
-    private static int gkK = 0;
-    private static volatile boolean gkL = false;
+    private static int gvj = 0;
+    private static volatile boolean gvk = false;
 
     public static void a(BdUniqueId bdUniqueId, String str, int i, int i2) {
         com.baidu.tieba.ala.alaar.messages.c cVar = new com.baidu.tieba.ala.alaar.messages.c(bdUniqueId, str, i, i2);
@@ -15,13 +15,13 @@ public class g {
         MessageManager.getInstance().sendMessage(cVar);
     }
 
-    public static void RV() {
+    public static void SZ() {
         com.baidu.tieba.ala.alaar.messages.b bVar = new com.baidu.tieba.ala.alaar.messages.b("");
         bVar.setParams();
         MessageManager.getInstance().sendMessage(bVar);
     }
 
-    public static void ep(String str, String str2) {
+    public static void eo(String str, String str2) {
         com.baidu.tieba.ala.alaar.messages.a aVar = new com.baidu.tieba.ala.alaar.messages.a();
         aVar.setParams();
         aVar.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
@@ -32,18 +32,18 @@ public class g {
     }
 
     public static void a(long j, int i, AlaLiveStickerInfo alaLiveStickerInfo) {
-        gkK = i;
-        gkL = true;
+        gvj = i;
+        gvk = true;
         com.baidu.tieba.ala.alaar.messages.d dVar = new com.baidu.tieba.ala.alaar.messages.d(j, i, alaLiveStickerInfo);
         dVar.setParams();
         MessageManager.getInstance().sendMessage(dVar);
     }
 
-    public static void bQM() {
-        gkL = false;
+    public static void bTl() {
+        gvk = false;
     }
 
-    public static boolean bQN() {
-        return gkL;
+    public static boolean bTm() {
+        return gvk;
     }
 }

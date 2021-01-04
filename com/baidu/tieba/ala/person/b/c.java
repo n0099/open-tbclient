@@ -7,52 +7,52 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.person.b.a;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private List<com.baidu.live.liveroom.d.d> aGX = new LinkedList();
-    private AlaLiveRoomPanelTabHost aHa;
-    private BdUniqueId gER;
+    private List<com.baidu.live.liveroom.d.d> aHo = new LinkedList();
+    private AlaLiveRoomPanelTabHost aHr;
+    private BdUniqueId gQC;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public c(TbPageContext tbPageContext, String str, BdUniqueId bdUniqueId) {
-        this.gER = null;
+        this.gQC = null;
         this.mPageContext = tbPageContext;
         this.mUserId = str;
-        this.gER = bdUniqueId;
+        this.gQC = bdUniqueId;
         initView();
     }
 
     private void initView() {
-        this.aHa = new AlaLiveRoomPanelTabHost(this.mPageContext.getPageActivity());
-        bUy();
+        this.aHr = new AlaLiveRoomPanelTabHost(this.mPageContext.getPageActivity());
+        bXc();
     }
 
-    private void bUy() {
-        this.aGX.add(new d(this.mPageContext, 0, this.mUserId, this.gER));
-        this.aGX.add(new d(this.mPageContext, 1, this.mUserId, this.gER));
-        this.aHa.setData(this.aGX);
+    private void bXc() {
+        this.aHo.add(new d(this.mPageContext, 0, this.mUserId, this.gQC));
+        this.aHo.add(new d(this.mPageContext, 1, this.mUserId, this.gQC));
+        this.aHr.setData(this.aHo);
     }
 
-    public void a(a.InterfaceC0707a interfaceC0707a) {
-        for (com.baidu.live.liveroom.d.d dVar : this.aGX) {
+    public void a(a.InterfaceC0699a interfaceC0699a) {
+        for (com.baidu.live.liveroom.d.d dVar : this.aHo) {
             if (dVar != null && (dVar instanceof d)) {
-                ((d) dVar).a(interfaceC0707a);
+                ((d) dVar).a(interfaceC0699a);
             }
         }
     }
 
-    public void xv(int i) {
-        if (this.aGX != null && this.aHa != null) {
+    public void xI(int i) {
+        if (this.aHo != null && this.aHr != null) {
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 < this.aGX.size()) {
-                    com.baidu.live.liveroom.d.d dVar = this.aGX.get(i3);
+                if (i3 < this.aHo.size()) {
+                    com.baidu.live.liveroom.d.d dVar = this.aHo.get(i3);
                     if (dVar == null || !(dVar instanceof d) || ((d) dVar).getTabType() != i) {
                         i2 = i3 + 1;
                     } else {
-                        this.aHa.setCurrentIndex(i3);
+                        this.aHr.setCurrentIndex(i3);
                         return;
                     }
                 } else {
@@ -62,24 +62,24 @@ public class c {
         }
     }
 
-    public void aD(String str, boolean z) {
-        for (com.baidu.live.liveroom.d.d dVar : this.aGX) {
+    public void aE(String str, boolean z) {
+        for (com.baidu.live.liveroom.d.d dVar : this.aHo) {
             if (dVar != null && (dVar instanceof d)) {
-                ((d) dVar).aD(str, z);
+                ((d) dVar).aE(str, z);
             }
         }
     }
 
     public View getView() {
-        return this.aHa;
+        return this.aHr;
     }
 
     public void enterForeground() {
-        this.aHa.enterForeground();
+        this.aHr.enterForeground();
     }
 
     public void onDestory() {
-        for (com.baidu.live.liveroom.d.d dVar : this.aGX) {
+        for (com.baidu.live.liveroom.d.d dVar : this.aHo) {
             if (dVar != null) {
                 dVar.onDestroy();
             }
@@ -87,6 +87,6 @@ public class c {
     }
 
     public void onChangeSkinType(int i) {
-        this.aHa.onChangeSkinType(i);
+        this.aHr.onChangeSkinType(i);
     }
 }

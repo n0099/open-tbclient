@@ -14,101 +14,101 @@ import com.baidu.afd.videopaster.view.VideoPasterOverlayView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.s;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class d {
-    private VideoPasterContentView aai;
-    private View aaj;
-    private a aal;
-    private com.baidu.afd.videopaster.data.a aan;
-    private int aap;
+    private VideoPasterContentView aaR;
+    private View aaS;
+    private a aaU;
+    private com.baidu.afd.videopaster.data.a aaW;
+    private int aaY;
     private Context mContext;
     private int mFloor;
     private String mFrom;
     private int mPausePosition;
     private int mStartPosition;
     private ViewGroup rootView;
-    private boolean aao = false;
-    private boolean aaq = false;
-    private boolean aar = false;
-    private com.baidu.afd.videopaster.b.b aam = new com.baidu.afd.videopaster.b.b();
-    private com.baidu.afd.videopaster.a.a aak = new com.baidu.afd.videopaster.a.a();
+    private boolean aaX = false;
+    private boolean aaZ = false;
+    private boolean aba = false;
+    private com.baidu.afd.videopaster.b.b aaV = new com.baidu.afd.videopaster.b.b();
+    private com.baidu.afd.videopaster.a.a aaT = new com.baidu.afd.videopaster.a.a();
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes.dex */
     public interface a {
-        void rR();
+        void rs();
 
-        void rS();
+        void rt();
 
-        void rT();
+        void ru();
 
-        boolean rU();
+        boolean rv();
     }
 
     public d(Context context, ViewGroup viewGroup) {
         this.mContext = context;
         this.rootView = viewGroup;
-        this.aak.a(new a.InterfaceC0033a() { // from class: com.baidu.afd.videopaster.d.1
-            @Override // com.baidu.afd.videopaster.a.a.InterfaceC0033a
+        this.aaT.a(new a.InterfaceC0027a() { // from class: com.baidu.afd.videopaster.d.1
+            @Override // com.baidu.afd.videopaster.a.a.InterfaceC0027a
             public void b(com.baidu.afd.videopaster.data.a aVar) {
-                d.this.aan = aVar;
+                d.this.aaW = aVar;
                 d.this.a(aVar);
             }
 
-            @Override // com.baidu.afd.videopaster.a.a.InterfaceC0033a
+            @Override // com.baidu.afd.videopaster.a.a.InterfaceC0027a
             public void d(int i, String str) {
-                d.this.aan = null;
+                d.this.aaW = null;
             }
         });
-        this.aai = new VideoPasterContentView(context);
-        this.aai.setOverlayViewCallback(new VideoPasterOverlayView.a() { // from class: com.baidu.afd.videopaster.d.2
+        this.aaR = new VideoPasterContentView(context);
+        this.aaR.setOverlayViewCallback(new VideoPasterOverlayView.a() { // from class: com.baidu.afd.videopaster.d.2
             @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.a
-            public void rN() {
-                d.this.aam.k(d.this.rJ());
-                com.baidu.tieba.lego.card.b.c.a(d.this.aan);
-                if (d.this.aan != null && s.aZ(d.this.mContext, d.this.aan.aav) == 1) {
-                    d.this.aam.c(d.this.rJ(), "title");
+            public void ro() {
+                d.this.aaV.k(d.this.rk());
+                com.baidu.tieba.lego.card.a.c.a(d.this.aaW);
+                if (d.this.aaW != null && s.x(d.this.mContext, d.this.aaW.abf, d.this.aaW.adid) == 1) {
+                    d.this.aaV.c(d.this.rk(), "title");
                 }
             }
 
             @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.a
-            public void rO() {
-                d.this.aam.j(d.this.rJ());
-                com.baidu.tieba.lego.card.b.c.a(d.this.aan);
-                if (d.this.aan != null && s.aZ(d.this.mContext, d.this.aan.aav) == 1) {
-                    d.this.aam.c(d.this.rJ(), "hotarea");
+            public void rp() {
+                d.this.aaV.j(d.this.rk());
+                com.baidu.tieba.lego.card.a.c.a(d.this.aaW);
+                if (d.this.aaW != null && s.x(d.this.mContext, d.this.aaW.abf, d.this.aaW.adid) == 1) {
+                    d.this.aaV.c(d.this.rk(), "hotarea");
                 }
             }
 
             @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.a
-            public void rP() {
-                d.this.aam.l(d.this.rJ());
-                com.baidu.tieba.lego.card.b.c.a(d.this.aan);
-                if (d.this.aan != null && s.aZ(d.this.mContext, d.this.aan.aav) == 1) {
-                    d.this.aam.c(d.this.rJ(), "button");
+            public void rq() {
+                d.this.aaV.l(d.this.rk());
+                com.baidu.tieba.lego.card.a.c.a(d.this.aaW);
+                if (d.this.aaW != null && s.x(d.this.mContext, d.this.aaW.abf, d.this.aaW.adid) == 1) {
+                    d.this.aaV.c(d.this.rk(), "button");
                 }
             }
 
             @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.a
-            public void rQ() {
-                d.this.aaq = true;
-                d.this.rE();
-                d.this.aam.f(d.this.rJ());
+            public void rr() {
+                d.this.aaZ = true;
+                d.this.onAdClose();
+                d.this.aaV.f(d.this.rk());
             }
 
             @Override // com.baidu.afd.videopaster.view.VideoPasterOverlayView.a
-            public void rR() {
-                d.this.aam.m(d.this.rJ());
-                if (d.this.aal != null) {
-                    d.this.aal.rR();
+            public void rs() {
+                d.this.aaV.m(d.this.rk());
+                if (d.this.aaU != null) {
+                    d.this.aaU.rs();
                 }
             }
         });
-        this.aai.setContentViewCallback(new VideoPasterContentView.a() { // from class: com.baidu.afd.videopaster.d.3
+        this.aaR.setContentViewCallback(new VideoPasterContentView.a() { // from class: com.baidu.afd.videopaster.d.3
             @Override // com.baidu.afd.videopaster.view.VideoPasterContentView.a
-            public void rS() {
-                d.this.rF();
-                if (d.this.aal != null) {
-                    d.this.aal.rS();
+            public void rt() {
+                d.this.rg();
+                if (d.this.aaU != null) {
+                    d.this.aaU.rt();
                 }
             }
 
@@ -116,96 +116,96 @@ public class d {
             public void onDetachedFromWindow() {
                 int i;
                 boolean z = true;
-                if (d.this.aai.ik()) {
+                if (d.this.aaR.isCompleted()) {
                     i = 0;
-                } else if (d.this.aaq) {
-                    d.this.aaq = false;
+                } else if (d.this.aaZ) {
+                    d.this.aaZ = false;
                     i = 1;
                 } else {
                     i = 2;
                 }
-                if (d.this.aal != null) {
+                if (d.this.aaU != null) {
                     if (i == 0 || i == 1) {
-                        d.this.bc(i);
+                        d.this.bd(i);
                     } else {
                         z = false;
                     }
-                    if (!d.this.aal.rU()) {
-                        if (d.this.aar) {
-                            d.this.aar = false;
+                    if (!d.this.aaU.rv()) {
+                        if (d.this.aba) {
+                            d.this.aba = false;
                         } else if (!z) {
-                            d.this.bc(i);
+                            d.this.bd(i);
                         }
                     }
                 }
             }
         });
-        this.aaj = new View(this.mContext);
-        this.aaj.setBackgroundResource(R.color.black_alpha100);
+        this.aaS = new View(this.mContext);
+        this.aaS.setBackgroundResource(R.color.black_alpha100);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bc(int i) {
-        this.aam.b(rJ(), i);
+    public void bd(int i) {
+        this.aaV.b(rk(), i);
         if (TextUtils.equals(this.mFrom, "VIDEO_LIST") && i == 2) {
-            this.aam.f(rJ());
+            this.aaV.f(rk());
         }
     }
 
     public void a(com.baidu.afd.videopaster.a aVar) {
-        if (this.aak != null && !this.aak.isLoading() && this.aak.sa() == null && aVar != null) {
-            this.mFloor = aVar.rp() + 1;
-            this.aak.a(new VideoPasterRequestData(aVar));
+        if (this.aaT != null && !this.aaT.isLoading() && this.aaT.rB() == null && aVar != null) {
+            this.mFloor = aVar.qR() + 1;
+            this.aaT.a(new VideoPasterRequestData(aVar));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.afd.videopaster.data.a aVar) {
-        if (aVar != null && aVar.aaB) {
-            this.aam.i(rJ());
+        if (aVar != null && aVar.abl) {
+            this.aaV.i(rk());
         }
     }
 
-    public boolean a(boolean z, boolean z2, String str) {
-        if (this.aak.isLoading()) {
+    public boolean d(boolean z, boolean z2, String str) {
+        if (this.aaT.isLoading()) {
             return false;
         }
-        this.aao = z2;
+        this.aaX = z2;
         this.mFrom = str;
-        VideoPasterResponseData sa = this.aak.sa();
-        if (sa != null) {
-            com.baidu.afd.videopaster.data.a pasterData = sa.getPasterData();
+        VideoPasterResponseData rB = this.aaT.rB();
+        if (rB != null) {
+            com.baidu.afd.videopaster.data.a pasterData = rB.getPasterData();
             if (pasterData == null) {
-                this.aak.reset();
+                this.aaT.reset();
                 return false;
             } else if (pasterData.isEmpty()) {
-                this.aam.e(rJ());
-                this.aak.reset();
+                this.aaV.e(rk());
+                this.aaT.reset();
                 return false;
             } else if (!pasterData.isValid()) {
-                this.aak.reset();
+                this.aaT.reset();
                 return false;
             } else {
-                this.rootView.removeView(this.aaj);
-                this.rootView.addView(this.aaj);
-                this.rootView.removeView(this.aai);
-                this.rootView.addView(this.aai);
+                this.rootView.removeView(this.aaS);
+                this.rootView.addView(this.aaS);
+                this.rootView.removeView(this.aaR);
+                this.rootView.addView(this.aaR);
                 if (this.rootView instanceof FrameLayout) {
-                    this.aai.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
+                    this.aaR.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
                 } else if (this.rootView instanceof RelativeLayout) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams.addRule(13);
-                    this.aai.setLayoutParams(layoutParams);
+                    this.aaR.setLayoutParams(layoutParams);
                 }
-                this.aai.setData(pasterData);
-                this.mStartPosition = this.aai.getCurDuration();
-                if (!rC()) {
-                    this.aam.e(rJ());
-                    com.baidu.tieba.lego.card.b.c.b(this.aan);
+                this.aaR.setData(pasterData);
+                this.mStartPosition = this.aaR.getCurDuration();
+                if (!re()) {
+                    this.aaV.e(rk());
+                    com.baidu.tieba.lego.card.a.c.b(this.aaW);
                 }
-                this.aai.b(z, z2, str);
-                if (this.aal != null) {
-                    this.aal.rT();
+                this.aaR.e(z, z2, str);
+                if (this.aaU != null) {
+                    this.aaU.ru();
                 }
                 return true;
             }
@@ -213,71 +213,71 @@ public class d {
         return false;
     }
 
-    public boolean rB() {
-        return this.aao;
+    public boolean rd() {
+        return this.aaX;
     }
 
-    public boolean rC() {
-        return this.aai.rC();
+    public boolean re() {
+        return this.aaR.re();
     }
 
-    public boolean rD() {
-        return this.aai.rD();
+    public boolean rf() {
+        return this.aaR.rf();
     }
 
     public void reset() {
-        rG();
-        this.aao = false;
+        rh();
+        this.aaX = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rE() {
-        rG();
-        if (this.aal != null) {
-            this.aal.rS();
+    public void onAdClose() {
+        rh();
+        if (this.aaU != null) {
+            this.aaU.rt();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rF() {
-        this.aam.h(rJ());
-        rG();
+    public void rg() {
+        this.aaV.h(rk());
+        rh();
     }
 
-    private void rG() {
-        this.aak.reset();
-        this.aai.reset();
-        this.rootView.removeView(this.aai);
-        this.rootView.removeView(this.aaj);
+    private void rh() {
+        this.aaT.reset();
+        this.aaR.reset();
+        this.rootView.removeView(this.aaR);
+        this.rootView.removeView(this.aaS);
     }
 
     public void resume() {
-        this.aai.resume();
-        if (rD()) {
-            this.mStartPosition = this.aai.getCurDuration();
-            this.aap = this.mStartPosition;
-            this.aam.g(rJ());
+        this.aaR.resume();
+        if (rf()) {
+            this.mStartPosition = this.aaR.getCurDuration();
+            this.aaY = this.mStartPosition;
+            this.aaV.g(rk());
         }
     }
 
-    public void rH() {
-        if (this.aai != null) {
-            this.aai.rH();
+    public void ri() {
+        if (this.aaR != null) {
+            this.aaR.ri();
         }
     }
 
     public void stop() {
-        this.mPausePosition = this.aai.getCurDuration();
-        if (rD() && !rI()) {
-            this.aam.f(rJ());
+        this.mPausePosition = this.aaR.getCurDuration();
+        if (rf() && !rj()) {
+            this.aaV.f(rk());
         }
-        this.aai.stop();
+        this.aaR.stop();
     }
 
-    private boolean rI() {
-        if (this.aai != null) {
+    private boolean rj() {
+        if (this.aaR != null) {
             int[] iArr = new int[2];
-            this.aai.getLocationOnScreen(iArr);
+            this.aaR.getLocationOnScreen(iArr);
             int i = iArr[1];
             if (UtilHelper.getRealScreenOrientation(this.mContext) == 1 && i == 0 && TextUtils.equals(this.mFrom, "VIDEO_LIST")) {
                 return true;
@@ -287,63 +287,63 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.aal = aVar;
+        this.aaU = aVar;
     }
 
-    public com.baidu.afd.videopaster.b.a rJ() {
+    public com.baidu.afd.videopaster.b.a rk() {
         com.baidu.afd.videopaster.b.a aVar = new com.baidu.afd.videopaster.b.a();
         aVar.startPosition = this.mStartPosition;
-        aVar.aaS = this.aap;
-        aVar.aaT = this.mPausePosition;
-        aVar.aaQ = this.aai.getTotalDuration();
-        aVar.aaR = this.aai.getCurDuration();
-        aVar.aaP = this.mFloor;
+        aVar.abD = this.aaY;
+        aVar.abE = this.mPausePosition;
+        aVar.abB = this.aaR.getTotalDuration();
+        aVar.abC = this.aaR.getCurDuration();
+        aVar.abA = this.mFloor;
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 1) {
-            aVar.aaU = 0;
+            aVar.abF = 0;
         } else if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-            aVar.aaU = 1;
+            aVar.abF = 1;
         } else if (UtilHelper.getRealScreenOrientation(this.mContext) == 0) {
-            aVar.aaU = 2;
+            aVar.abF = 2;
         } else {
-            aVar.aaU = -1;
+            aVar.abF = -1;
         }
-        if (this.aan != null) {
-            aVar.aaV = this.aan.rV();
-            aVar.tplName = this.aan.tplName;
-            aVar.extraParam = this.aan.extra;
-            aVar.aaC = this.aan.aaC;
-            aVar.aaD = this.aan.aaD;
+        if (this.aaW != null) {
+            aVar.abG = this.aaW.rw();
+            aVar.tplName = this.aaW.tplName;
+            aVar.extraParam = this.aaW.extra;
+            aVar.abm = this.aaW.abm;
+            aVar.abn = this.aaW.abn;
         }
         return aVar;
     }
 
-    public void bd(int i) {
-        if (this.aai != null) {
-            this.aai.bd(i);
+    public void be(int i) {
+        if (this.aaR != null) {
+            this.aaR.be(i);
         }
     }
 
     public void onDestroy() {
-        this.aak.onDestroy();
+        this.aaT.onDestroy();
     }
 
-    public void rK() {
-        if (this.aai != null) {
-            this.aai.rK();
+    public void rl() {
+        if (this.aaR != null) {
+            this.aaR.rl();
         }
     }
 
-    public void rL() {
-        if (this.aai != null) {
-            this.aai.rL();
+    public void rm() {
+        if (this.aaR != null) {
+            this.aaR.rm();
         }
     }
 
-    public boolean rM() {
-        return this.aai != null && this.aai.rM();
+    public boolean rn() {
+        return this.aaR != null && this.aaR.rn();
     }
 
-    public void aA(boolean z) {
-        this.aar = z;
+    public void az(boolean z) {
+        this.aba = z;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class AuthJni {
     private static volatile AuthJni jC;
     private final List<Runnable> jE = new ArrayList();

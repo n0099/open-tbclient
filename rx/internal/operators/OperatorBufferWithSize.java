@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
     final int count;
     final int skip;
@@ -22,23 +22,23 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         if (this.skip == this.count) {
             a aVar = new a(jVar, this.count);
             jVar.add(aVar);
-            jVar.setProducer(aVar.eFJ());
+            jVar.setProducer(aVar.eNR());
             return aVar;
         } else if (this.skip > this.count) {
             BufferSkip bufferSkip = new BufferSkip(jVar, this.count, this.skip);
             jVar.add(bufferSkip);
-            jVar.setProducer(bufferSkip.eFJ());
+            jVar.setProducer(bufferSkip.eNR());
             return bufferSkip;
         } else {
             BufferOverlap bufferOverlap = new BufferOverlap(jVar, this.count, this.skip);
             jVar.add(bufferOverlap);
-            jVar.setProducer(bufferOverlap.eFJ());
+            jVar.setProducer(bufferOverlap.eNR());
             return bufferOverlap;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class a<T> extends rx.j<T> {
         final rx.j<? super List<T>> actual;
         List<T> buffer;
@@ -79,7 +79,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             this.actual.onCompleted();
         }
 
-        rx.f eFJ() {
+        rx.f eNR() {
             return new rx.f() { // from class: rx.internal.operators.OperatorBufferWithSize.a.1
                 @Override // rx.f
                 public void request(long j) {
@@ -87,7 +87,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
                         throw new IllegalArgumentException("n >= required but it was " + j);
                     }
                     if (j != 0) {
-                        a.this.request(rx.internal.operators.a.O(j, a.this.count));
+                        a.this.request(rx.internal.operators.a.T(j, a.this.count));
                     }
                 }
             };
@@ -95,7 +95,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class BufferSkip<T> extends rx.j<T> {
         final rx.j<? super List<T>> actual;
         List<T> buffer;
@@ -149,12 +149,12 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             this.actual.onCompleted();
         }
 
-        rx.f eFJ() {
+        rx.f eNR() {
             return new BufferSkipProducer();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes12.dex */
+        /* loaded from: classes15.dex */
         public final class BufferSkipProducer extends AtomicBoolean implements rx.f {
             private static final long serialVersionUID = 3428177408082367154L;
 
@@ -169,9 +169,9 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
                 if (j != 0) {
                     BufferSkip bufferSkip = BufferSkip.this;
                     if (get() || !compareAndSet(false, true)) {
-                        bufferSkip.request(rx.internal.operators.a.O(j, bufferSkip.skip));
+                        bufferSkip.request(rx.internal.operators.a.T(j, bufferSkip.skip));
                     } else {
-                        bufferSkip.request(rx.internal.operators.a.N(rx.internal.operators.a.O(j, bufferSkip.count), rx.internal.operators.a.O(bufferSkip.skip - bufferSkip.count, j - 1)));
+                        bufferSkip.request(rx.internal.operators.a.S(rx.internal.operators.a.T(j, bufferSkip.count), rx.internal.operators.a.T(bufferSkip.skip - bufferSkip.count, j - 1)));
                     }
                 }
             }
@@ -179,15 +179,15 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class BufferOverlap<T> extends rx.j<T> {
         final rx.j<? super List<T>> actual;
         final int count;
         long index;
         long produced;
-        final int skip;
-        final ArrayDeque<List<T>> pRe = new ArrayDeque<>();
+        final ArrayDeque<List<T>> qsF = new ArrayDeque<>();
         final AtomicLong requested = new AtomicLong();
+        final int skip;
 
         public BufferOverlap(rx.j<? super List<T>> jVar, int i, int i2) {
             this.actual = jVar;
@@ -200,7 +200,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         public void onNext(T t) {
             long j = this.index;
             if (j == 0) {
-                this.pRe.offer(new ArrayList(this.count));
+                this.qsF.offer(new ArrayList(this.count));
             }
             long j2 = j + 1;
             if (j2 == this.skip) {
@@ -208,13 +208,13 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             } else {
                 this.index = j2;
             }
-            Iterator<List<T>> it = this.pRe.iterator();
+            Iterator<List<T>> it = this.qsF.iterator();
             while (it.hasNext()) {
                 it.next().add(t);
             }
-            List<T> peek = this.pRe.peek();
+            List<T> peek = this.qsF.peek();
             if (peek != null && peek.size() == this.count) {
-                this.pRe.poll();
+                this.qsF.poll();
                 this.produced++;
                 this.actual.onNext(peek);
             }
@@ -222,7 +222,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.pRe.clear();
+            this.qsF.clear();
             this.actual.onError(th);
         }
 
@@ -236,15 +236,15 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
                 }
                 this.requested.addAndGet(-j);
             }
-            rx.internal.operators.a.a(this.requested, this.pRe, this.actual);
+            rx.internal.operators.a.a(this.requested, this.qsF, this.actual);
         }
 
-        rx.f eFJ() {
+        rx.f eNR() {
             return new BufferOverlapProducer();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes12.dex */
+        /* loaded from: classes15.dex */
         public final class BufferOverlapProducer extends AtomicBoolean implements rx.f {
             private static final long serialVersionUID = -4015894850868853147L;
 
@@ -254,11 +254,11 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             @Override // rx.f
             public void request(long j) {
                 BufferOverlap bufferOverlap = BufferOverlap.this;
-                if (rx.internal.operators.a.a(bufferOverlap.requested, j, bufferOverlap.pRe, bufferOverlap.actual) && j != 0) {
+                if (rx.internal.operators.a.a(bufferOverlap.requested, j, bufferOverlap.qsF, bufferOverlap.actual) && j != 0) {
                     if (get() || !compareAndSet(false, true)) {
-                        bufferOverlap.request(rx.internal.operators.a.O(bufferOverlap.skip, j));
+                        bufferOverlap.request(rx.internal.operators.a.T(bufferOverlap.skip, j));
                     } else {
-                        bufferOverlap.request(rx.internal.operators.a.N(rx.internal.operators.a.O(bufferOverlap.skip, j - 1), bufferOverlap.count));
+                        bufferOverlap.request(rx.internal.operators.a.S(rx.internal.operators.a.T(bufferOverlap.skip, j - 1), bufferOverlap.count));
                     }
                 }
             }

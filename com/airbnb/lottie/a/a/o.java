@@ -4,42 +4,42 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Path;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes7.dex */
-public class o implements d, i, j, l, a.InterfaceC0011a {
-    private final com.airbnb.lottie.model.layer.a DH;
-    private final com.airbnb.lottie.a.b.a<Float, Float> Ev;
-    private final com.airbnb.lottie.a.b.a<Float, Float> Ew;
-    private final com.airbnb.lottie.a.b.o Ex;
-    private c Ey;
-    private final com.airbnb.lottie.g lottieDrawable;
+/* loaded from: classes3.dex */
+public class o implements d, i, j, l, a.InterfaceC0007a {
+    private final com.airbnb.lottie.f BJ;
+    private final com.airbnb.lottie.model.layer.a Du;
+    private final com.airbnb.lottie.a.b.a<Float, Float> Ek;
+    private final com.airbnb.lottie.a.b.a<Float, Float> El;
+    private final com.airbnb.lottie.a.b.o Em;
+    private c En;
     private final String name;
     private final Matrix matrix = new Matrix();
     private final Path path = new Path();
 
-    public o(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.g gVar2) {
-        this.lottieDrawable = gVar;
-        this.DH = aVar;
-        this.name = gVar2.getName();
-        this.Ev = gVar2.kk().jD();
-        aVar.a(this.Ev);
-        this.Ev.b(this);
-        this.Ew = gVar2.kl().jD();
-        aVar.a(this.Ew);
-        this.Ew.b(this);
-        this.Ex = gVar2.km().jM();
-        this.Ex.a(aVar);
-        this.Ex.a(this);
+    public o(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.g gVar) {
+        this.BJ = fVar;
+        this.Du = aVar;
+        this.name = gVar.getName();
+        this.Ek = gVar.jJ().jc();
+        aVar.a(this.Ek);
+        this.Ek.b(this);
+        this.El = gVar.jK().jc();
+        aVar.a(this.El);
+        this.El.b(this);
+        this.Em = gVar.jL().jl();
+        this.Em.a(aVar);
+        this.Em.a(this);
     }
 
     @Override // com.airbnb.lottie.a.a.i
-    public void a(ListIterator<b> listIterator) {
-        if (this.Ey == null) {
+    public void b(ListIterator<b> listIterator) {
+        if (this.En == null) {
             while (listIterator.hasPrevious() && listIterator.previous() != this) {
             }
             ArrayList arrayList = new ArrayList();
@@ -48,7 +48,7 @@ public class o implements d, i, j, l, a.InterfaceC0011a {
                 listIterator.remove();
             }
             Collections.reverse(arrayList);
-            this.Ey = new c(this.lottieDrawable, this.DH, "Repeater", arrayList, null);
+            this.En = new c(this.BJ, this.Du, "Repeater", arrayList, null);
         }
     }
 
@@ -58,44 +58,44 @@ public class o implements d, i, j, l, a.InterfaceC0011a {
     }
 
     @Override // com.airbnb.lottie.a.a.b
-    public void b(List<b> list, List<b> list2) {
-        this.Ey.b(list, list2);
+    public void c(List<b> list, List<b> list2) {
+        this.En.c(list, list2);
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path iW() {
-        Path iW = this.Ey.iW();
+    public Path iv() {
+        Path iv = this.En.iv();
         this.path.reset();
-        float floatValue = this.Ev.getValue().floatValue();
-        float floatValue2 = this.Ew.getValue().floatValue();
+        float floatValue = this.Ek.getValue().floatValue();
+        float floatValue2 = this.El.getValue().floatValue();
         for (int i = ((int) floatValue) - 1; i >= 0; i--) {
-            this.matrix.set(this.Ex.h(i + floatValue2));
-            this.path.addPath(iW, this.matrix);
+            this.matrix.set(this.Em.h(i + floatValue2));
+            this.path.addPath(iv, this.matrix);
         }
         return this.path;
     }
 
     @Override // com.airbnb.lottie.a.a.d
-    public void a(Canvas canvas, Matrix matrix, int i) {
-        float floatValue = this.Ev.getValue().floatValue();
-        float floatValue2 = this.Ew.getValue().floatValue();
-        float floatValue3 = this.Ex.js().getValue().floatValue() / 100.0f;
-        float floatValue4 = this.Ex.jt().getValue().floatValue() / 100.0f;
+    public void c(Canvas canvas, Matrix matrix, int i) {
+        float floatValue = this.Ek.getValue().floatValue();
+        float floatValue2 = this.El.getValue().floatValue();
+        float floatValue3 = this.Em.iR().getValue().floatValue() / 100.0f;
+        float floatValue4 = this.Em.iS().getValue().floatValue() / 100.0f;
         for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
             this.matrix.set(matrix);
-            this.matrix.preConcat(this.Ex.h(i2 + floatValue2));
-            this.Ey.a(canvas, this.matrix, (int) (i * com.airbnb.lottie.d.e.lerp(floatValue3, floatValue4, i2 / floatValue)));
+            this.matrix.preConcat(this.Em.h(i2 + floatValue2));
+            this.En.c(canvas, this.matrix, (int) (i * com.airbnb.lottie.d.e.lerp(floatValue3, floatValue4, i2 / floatValue)));
         }
     }
 
     @Override // com.airbnb.lottie.a.a.d
-    public void a(RectF rectF, Matrix matrix) {
-        this.Ey.a(rectF, matrix);
+    public void d(RectF rectF, Matrix matrix) {
+        this.En.d(rectF, matrix);
     }
 
-    @Override // com.airbnb.lottie.a.b.a.InterfaceC0011a
-    public void iT() {
-        this.lottieDrawable.invalidateSelf();
+    @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
+    public void is() {
+        this.BJ.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.model.f
@@ -105,11 +105,11 @@ public class o implements d, i, j, l, a.InterfaceC0011a {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (!this.Ex.b(t, cVar)) {
-            if (t == com.airbnb.lottie.k.Dd) {
-                this.Ev.a(cVar);
-            } else if (t == com.airbnb.lottie.k.De) {
-                this.Ew.a(cVar);
+        if (!this.Em.b(t, cVar)) {
+            if (t == com.airbnb.lottie.j.CO) {
+                this.Ek.a(cVar);
+            } else if (t == com.airbnb.lottie.j.CP) {
+                this.El.a(cVar);
             }
         }
     }

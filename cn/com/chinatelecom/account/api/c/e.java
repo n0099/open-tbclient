@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import cn.com.chinatelecom.account.api.CtAuth;
 import java.lang.reflect.Method;
-/* loaded from: classes16.dex */
+/* loaded from: classes4.dex */
 public class e {
     private static int a(int i) {
         switch (i) {
@@ -105,8 +105,6 @@ public class e {
 
     private static int h(Context context) {
         int i;
-        Exception e;
-        NullPointerException e2;
         try {
             NetworkInfo a2 = a(context);
             if (a2 != null && a2.isAvailable() && a2.isConnected()) {
@@ -116,19 +114,19 @@ public class e {
                 } else if (type == 0) {
                     try {
                         i = ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                         i = 0;
                     }
                     if (i == 0) {
                         try {
                             i = a2.getSubtype();
-                        } catch (NullPointerException e4) {
-                            e2 = e4;
-                            e2.printStackTrace();
+                        } catch (NullPointerException e2) {
+                            e = e2;
+                            e.printStackTrace();
                             return a(i);
-                        } catch (Exception e5) {
-                            e = e5;
+                        } catch (Exception e3) {
+                            e = e3;
                             e.printStackTrace();
                             return a(i);
                         }
@@ -139,14 +137,14 @@ public class e {
             } else {
                 i = -1;
             }
-        } catch (NullPointerException e6) {
+        } catch (NullPointerException e4) {
+            e = e4;
             i = 0;
-            e2 = e6;
-            e2.printStackTrace();
+            e.printStackTrace();
             return a(i);
-        } catch (Exception e7) {
+        } catch (Exception e5) {
+            e = e5;
             i = 0;
-            e = e7;
             e.printStackTrace();
             return a(i);
         }

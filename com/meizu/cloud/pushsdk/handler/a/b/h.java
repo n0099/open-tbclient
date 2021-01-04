@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class h implements Parcelable {
     public static final Parcelable.Creator<h> CREATOR = new Parcelable.Creator<h>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.h.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,18 +23,20 @@ public class h implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private b f4192a;
-    private String b;
+    private b f11624a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f11625b;
     private int c;
 
     protected h(Parcel parcel) {
-        this.f4192a = (b) parcel.readParcelable(b.class.getClassLoader());
-        this.b = parcel.readString();
+        this.f11624a = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.f11625b = parcel.readString();
         this.c = parcel.readInt();
     }
 
     public h(String str, String str2, String str3, String str4, String str5) {
-        this.b = str2;
+        this.f11625b = str2;
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (!jSONObject.isNull("notifyId")) {
@@ -43,11 +45,11 @@ public class h implements Parcelable {
         } catch (JSONException e) {
             com.meizu.cloud.a.a.e("WithDrawMessage", "parse WithDrawMessage error " + e.getMessage());
         }
-        this.f4192a = new b(str3, str4, str5);
+        this.f11624a = new b(str3, str4, str5);
     }
 
     public b a() {
-        return this.f4192a;
+        return this.f11624a;
     }
 
     public int b() {
@@ -55,7 +57,7 @@ public class h implements Parcelable {
     }
 
     public String c() {
-        return this.b;
+        return this.f11625b;
     }
 
     @Override // android.os.Parcelable
@@ -64,13 +66,13 @@ public class h implements Parcelable {
     }
 
     public String toString() {
-        return "WithDrawMessage{controlMessage=" + this.f4192a + ", revokePackageName='" + this.b + "', notifyId=" + this.c + '}';
+        return "WithDrawMessage{controlMessage=" + this.f11624a + ", revokePackageName='" + this.f11625b + "', notifyId=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f4192a, i);
-        parcel.writeString(this.b);
+        parcel.writeParcelable(this.f11624a, i);
+        parcel.writeString(this.f11625b);
         parcel.writeInt(this.c);
     }
 }

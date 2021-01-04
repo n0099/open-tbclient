@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c extends a {
     public c(j jVar) {
         super(jVar, "/swanAPI/camera/remove");
@@ -19,11 +19,11 @@ public class c extends a {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.component.components.c.a aVar = (com.baidu.swan.apps.component.components.c.a) com.baidu.swan.apps.component.container.a.d(c(unitedSchemeEntity));
+        com.baidu.swan.apps.component.components.c.a aVar = (com.baidu.swan.apps.component.components.c.a) com.baidu.swan.apps.component.container.a.d(b(unitedSchemeEntity));
         if (aVar != null) {
-            com.baidu.swan.apps.component.b.c anp = aVar.anp();
-            if (!anp.isSuccess()) {
-                com.baidu.swan.apps.console.c.e("CameraRemoveAction", "remove camera fail: " + anp.msg);
+            com.baidu.swan.apps.component.b.c aoy = aVar.aoy();
+            if (!aoy.isSuccess()) {
+                com.baidu.swan.apps.console.c.e("CameraRemoveAction", "remove camera fail: " + aoy.msg);
             }
             a(unitedSchemeEntity, callbackHandler, true);
             return true;
@@ -33,11 +33,11 @@ public class c extends a {
     }
 
     @Override // com.baidu.swan.apps.camera.a.a
-    protected com.baidu.swan.apps.component.b.b c(UnitedSchemeEntity unitedSchemeEntity) {
-        String b = b(unitedSchemeEntity);
+    protected com.baidu.swan.apps.component.b.b b(UnitedSchemeEntity unitedSchemeEntity) {
+        String a2 = a(unitedSchemeEntity);
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("CameraRemoveAction", "parseData:" + b);
+            Log.d("CameraRemoveAction", "parseData:" + a2);
         }
-        return new com.baidu.swan.apps.camera.d.a(b);
+        return new com.baidu.swan.apps.camera.d.a(a2);
     }
 }

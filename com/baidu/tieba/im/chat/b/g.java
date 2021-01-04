@@ -15,29 +15,29 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g kol;
+    private static g kAQ;
 
     private g() {
     }
 
-    public static synchronized g cUo() {
+    public static synchronized g cXa() {
         g gVar;
         synchronized (g.class) {
-            if (kol == null) {
-                kol = new g();
+            if (kAQ == null) {
+                kAQ = new g();
             }
-            gVar = kol;
+            gVar = kAQ;
         }
         return gVar;
     }
 
-    public void K(String str, long j) {
+    public void L(String str, long j) {
         if (!TextUtils.isEmpty(str) && j > 0) {
             TbadkSettings.getInst().saveLong("tb_group_msg_" + str, j);
         }
     }
 
-    public long gN(long j) {
+    public long gL(long j) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + j, -1L);
     }
 

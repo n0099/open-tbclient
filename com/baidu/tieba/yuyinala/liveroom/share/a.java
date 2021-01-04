@@ -11,8 +11,8 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.w;
 import com.baidu.live.data.x;
+import com.baidu.live.data.y;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -25,38 +25,38 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tieba.model.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private w aFN;
-    private BlueCircleProgressDialog bIB;
-    private com.baidu.live.tieba.model.a hBS;
-    private a.InterfaceC0223a hBT = new a.InterfaceC0223a() { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.2
+    private x aGe;
+    private BlueCircleProgressDialog bNp;
+    private com.baidu.live.tieba.model.a hNT;
+    private a.InterfaceC0221a hNU = new a.InterfaceC0221a() { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.2
     };
     private Handler mHandler = new Handler();
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        cks();
+        cng();
     }
 
-    public void c(w wVar, boolean z) {
+    public void d(x xVar, boolean z) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), a.h.sdk_neterror);
-        } else if (wVar != null && wVar.aJV != null && wVar.mLiveInfo != null) {
-            this.aFN = wVar;
+        } else if (xVar != null && xVar.aKu != null && xVar.mLiveInfo != null) {
+            this.aGe = xVar;
             if (TbadkCoreApplication.IS_SDK) {
-                x xVar = new x();
+                y yVar = new y();
                 if (this.mPageContext != null) {
-                    xVar.activity = this.mPageContext.getPageActivity();
+                    yVar.activity = this.mPageContext.getPageActivity();
                 }
-                xVar.alaLiveShowData = this.aFN;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2913077, xVar));
+                yVar.alaLiveShowData = this.aGe;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2913077, yVar));
             }
         }
     }
 
-    private void cks() {
+    private void cng() {
         this.mPageContext.registerListener(new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS) { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -64,31 +64,31 @@ public class a {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     Log.i("AlaLiveViewController", "@@ initShareInterface.onMessage liveOwnerUid = " + longValue);
-                    if (a.this.aFN != null && a.this.aFN.aJV != null && a.this.aFN.aJV.userId == longValue) {
-                        Log.i("AlaLiveViewController", "@@ initShareInterface live_id = " + a.this.aFN.mLiveInfo.live_id);
+                    if (a.this.aGe != null && a.this.aGe.aKu != null && a.this.aGe.aKu.userId == longValue) {
+                        Log.i("AlaLiveViewController", "@@ initShareInterface live_id = " + a.this.aGe.mLiveInfo.live_id);
                         a.this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HttpMessage httpMessage = new HttpMessage(1031078);
-                                httpMessage.addParam("live_id", a.this.aFN.mLiveInfo.live_id);
+                                httpMessage.addParam("live_id", a.this.aGe.mLiveInfo.live_id);
                                 MessageManager.getInstance().sendMessage(httpMessage);
                             }
                         });
                     }
-                    a.this.af(a.this.aFN);
+                    a.this.aj(a.this.aGe);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void af(w wVar) {
+    public void aj(x xVar) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (wVar != null && wVar.aKL != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, wVar.aKL.croom_id);
+            if (xVar != null && xVar.aLl != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, xVar.aLl.croom_id);
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -96,30 +96,30 @@ public class a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "click", UbcStatConstant.Page.VOICE_ROOM, LogConfig.VALUE_LIVE_SHARE_TO).setContentExt(jSONObject));
     }
 
-    private void cku() {
-        if (this.bIB != null) {
-            this.bIB.setDialogVisiable(false);
+    private void cni() {
+        if (this.bNp != null) {
+            this.bNp.setDialogVisiable(false);
         }
     }
 
-    public void En() {
-        cku();
+    public void DC() {
+        cni();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hBS != null) {
-            this.hBS.Vg();
+        if (this.hNT != null) {
+            this.hNT.Wk();
         }
     }
 
     public void onDestroy() {
-        cku();
+        cni();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hBS != null) {
-            this.hBS.Vg();
-            this.hBS.onDestroy();
+        if (this.hNT != null) {
+            this.hNT.Wk();
+            this.hNT.onDestroy();
         }
     }
 }

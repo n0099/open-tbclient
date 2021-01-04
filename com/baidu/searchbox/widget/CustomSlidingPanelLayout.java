@@ -3,11 +3,11 @@ package com.baidu.searchbox.widget;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import androidx.core.view.MotionEventCompat;
 import java.lang.ref.WeakReference;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     private boolean mCanSlide;
     private boolean mForceActivityTransparent;

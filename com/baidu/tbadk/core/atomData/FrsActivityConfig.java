@@ -10,23 +10,23 @@ import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
 import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tbadk.util.aa;
-import com.baidu.tieba.frs.f.j;
+import com.baidu.tbadk.util.z;
+import com.baidu.tieba.frs.d.j;
 import com.baidu.tieba.frs.mc.FrsNetModel;
 import com.baidu.tieba.recapp.r;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static final String ALA_IS_ONLIVING = "ala_is_living";
     public static final String BACK_SPECIAL = "back_special";
     public static final String FLAG = "flag";
+    public static final String FLAG_SHOW_AD = "fun_ad";
     public static final String FOLLOWED_HAS_NEW = "followed_has_new";
     public static final String FROM = "from";
     public static final String FROM_PB_OR_PERSON = "from_pb_or_person";
@@ -169,8 +169,6 @@ public class FrsActivityConfig extends IntentConfig {
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public void preJump() {
-        AccountData currentAccountObj;
-        int LG;
         Intent intent = getIntent();
         String stringExtra = intent.getStringExtra("name");
         String stringExtra2 = intent.getStringExtra("from");
@@ -188,30 +186,28 @@ public class FrsActivityConfig extends IntentConfig {
         if (TextUtils.isEmpty(stringExtra3)) {
             stringExtra3 = "";
         }
+        int i = -1;
         FrsRequestData frsRequestData = new FrsRequestData();
         if (FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(stringExtra2)) {
-            LG = 3;
+            i = 3;
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
-            LG = 6;
-        } else {
-            String str = "";
-            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                str = currentAccountObj.getID() + Constants.WAVE_SEPARATOR;
-            }
-            LG = j.LG("1~" + str + stringExtra);
+            i = 6;
         }
-        frsRequestData.setSortType(j.BD(LG));
-        if (LG == 5) {
+        if (d.bmY() && com.baidu.tbadk.a.b.a.eIU != com.baidu.tbadk.a.b.a.bni()) {
+            frsRequestData.KM(j.BP(com.baidu.tbadk.a.b.a.bni()));
+        }
+        frsRequestData.setSortType(j.BP(i));
+        if (i == 5) {
             frsRequestData.setIsGood(1);
         } else {
             frsRequestData.setIsGood(0);
         }
-        frsRequestData.gt("forum_name", k.getUrlEncode(stringExtra));
-        frsRequestData.gt("client_type", "2");
+        frsRequestData.gq("forum_name", k.getUrlEncode(stringExtra));
+        frsRequestData.gq("client_type", "2");
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
-        j.a(LG, frsRequestData);
-        frsRequestData.Tw("2");
+        j.a(i, frsRequestData);
+        frsRequestData.Tf("2");
         frsRequestData.setObjSource("-2");
         frsRequestData.setKw(stringExtra);
         frsRequestData.setWithGroup(1);
@@ -219,23 +215,23 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.setScrW(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         frsRequestData.setScrH(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         frsRequestData.setScrDip(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        frsRequestData.setqType(av.btX().btY() ? 2 : 1);
+        frsRequestData.setqType(au.bwr().bws() ? 2 : 1);
         if (uri != null) {
             frsRequestData.setSchemeUrl(uri.toString());
         }
         frsRequestData.setLastId(null);
         frsRequestData.setYuelaouLocate(stringExtra3);
-        frsRequestData.setLastClickTid(b.toLong(aa.bGM(), 0L));
+        frsRequestData.setLastClickTid(b.toLong(z.bJf(), 0L));
         frsRequestData.setStType(stringExtra2);
-        frsRequestData.KQ(1);
+        frsRequestData.KL(1);
         frsRequestData.setNeedCache(true);
         frsRequestData.setUpdateType(3);
-        frsRequestData.hG(longExtra);
-        j.a(LG, frsRequestData);
+        frsRequestData.hB(longExtra);
+        j.a(i, frsRequestData);
         frsRequestData.setLoadType(1);
-        if (by.eJG.get() && r.dFg().dFa() != null) {
-            int ba = r.dFg().dFa().ba(stringExtra, false);
-            int bb = r.dFg().dFa().bb(stringExtra, false);
+        if (bz.eTz.get() && r.dEV().dEP() != null) {
+            int ba = r.dEV().dEP().ba(stringExtra, false);
+            int bb = r.dEV().dEP().bb(stringExtra, false);
             if (frsRequestData.getLoadType() == 1) {
                 ba++;
             } else if (frsRequestData.getLoadType() == 2) {

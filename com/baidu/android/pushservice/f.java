@@ -13,7 +13,6 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.b.d;
 import com.baidu.android.pushservice.h.a.b;
@@ -24,17 +23,20 @@ import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.heytap.mcssdk.callback.PushCallback;
 import com.heytap.mcssdk.mode.SubscribeResult;
+import com.kwad.sdk.core.response.model.SdkConfigData;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static Handler i;
     private static ConnectivityManager.NetworkCallback m;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1078a = -1;
-    public static String b = null;
+    public static int f1288a = -1;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f1289b = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -46,7 +48,7 @@ public class f {
     private static long l = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Handler {
         public a(Context context) {
             super(context.getMainLooper());
@@ -62,44 +64,44 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f1084a;
+        private Context f1298a;
 
         public b(Context context) {
-            this.f1084a = context;
+            this.f1298a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             String str = null;
-            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.i.j.a(this.f1084a);
-            if (com.baidu.android.pushservice.b.d.k(this.f1084a)) {
-                str = com.baidu.android.pushservice.i.j.c(this.f1084a);
+            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.i.j.a(this.f1298a);
+            if (com.baidu.android.pushservice.b.d.k(this.f1298a)) {
+                str = com.baidu.android.pushservice.i.j.c(this.f1298a);
                 if (currentTimeMillis > -1702967296) {
                     str = "";
                 }
-            } else if (com.baidu.android.pushservice.b.d.l(this.f1084a)) {
-                str = com.baidu.android.pushservice.i.j.b(this.f1084a);
+            } else if (com.baidu.android.pushservice.b.d.l(this.f1298a)) {
+                str = com.baidu.android.pushservice.i.j.b(this.f1298a);
                 if (currentTimeMillis > 86400000) {
                     str = "";
                 }
-            } else if (com.baidu.android.pushservice.b.d.j(this.f1084a)) {
-                str = com.baidu.android.pushservice.i.j.d(this.f1084a);
+            } else if (com.baidu.android.pushservice.b.d.j(this.f1298a)) {
+                str = com.baidu.android.pushservice.i.j.d(this.f1298a);
                 if (currentTimeMillis > 172800000) {
                     str = "";
                 }
             }
             if (!TextUtils.isEmpty(str)) {
-                f.a(this.f1084a, str);
+                f.a(this.f1298a, str);
                 return;
             }
             if (!f.j.isEmpty()) {
                 f.j.poll();
             }
-            f.k(this.f1084a);
+            f.k(this.f1298a);
         }
     }
 
@@ -139,7 +141,7 @@ public class f {
             String p = p(context);
             Intent intent = new Intent();
             intent.putExtra("method", "method_bind");
-            intent.putExtra(AlaRecorderLog.KEY_ERROR_MSG, 0);
+            intent.putExtra("error_msg", 0);
             intent.putExtra("content", p.getBytes());
             intent.putExtra("bind_status", 0);
             com.baidu.android.pushservice.f.a.a("PushManagerHandler", "new startWork> sendResult to " + context.getPackageName() + " ,method:method_bind ,errorCode : 0 ,content : " + p, context.getApplicationContext());
@@ -356,7 +358,7 @@ public class f {
         m.a(context, false);
         Intent intent = new Intent();
         intent.putExtra("method", "method_bind");
-        intent.putExtra(AlaRecorderLog.KEY_ERROR_MSG, i2);
+        intent.putExtra("error_msg", i2);
         intent.putExtra("content", str2.getBytes());
         intent.putExtra("bind_status", 0);
         m.b(context, intent, "com.baidu.android.pushservice.action.RECEIVE", context.getPackageName());
@@ -423,7 +425,7 @@ public class f {
         if (m(context)) {
             return null;
         }
-        int b2 = f1078a != -1 ? f1078a : com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
+        int b2 = f1288a != -1 ? f1288a : com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
         String q = q(context);
         if (TextUtils.isEmpty(q)) {
             com.baidu.android.pushservice.f.a.b("PushManagerHandler", "Can not acquire loginValue, please check if there is a right loginValue", context);
@@ -599,7 +601,7 @@ public class f {
         String a2 = PushConstants.a(30602);
         intent.setAction("com.baidu.android.pushservice.action.RECEIVE");
         intent.putExtra("method", "method_bind");
-        intent.putExtra(AlaRecorderLog.KEY_ERROR_MSG, 30602);
+        intent.putExtra("error_msg", 30602);
         intent.putExtra("content", a2.getBytes());
         intent.setFlags(32);
         m.b(context, intent, intent.getAction(), context.getPackageName());
@@ -628,7 +630,7 @@ public class f {
     private static boolean o(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0);
         if (sharedPreferences.getBoolean("bind_status", false)) {
-            if (System.currentTimeMillis() - sharedPreferences.getLong("currbindtime", 0L) > com.baidu.android.pushservice.b.d.f(context) * 3600 * 1000) {
+            if (System.currentTimeMillis() - sharedPreferences.getLong("currbindtime", 0L) > com.baidu.android.pushservice.b.d.f(context) * SdkConfigData.DEFAULT_REQUEST_INTERVAL * 1000) {
                 sharedPreferences.edit().clear().commit();
                 return false;
             } else if (com.baidu.android.pushservice.i.j.b(context, "need_retry_proxy_bind", false)) {
@@ -665,7 +667,7 @@ public class f {
     }
 
     private static String q(Context context) {
-        return !TextUtils.isEmpty(b) ? b : com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE");
+        return !TextUtils.isEmpty(f1289b) ? f1289b : com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE");
     }
 
     private static void r(Context context) {
@@ -682,11 +684,11 @@ public class f {
     }
 
     private static boolean s(Context context) {
-        if (k >= 2 || TextUtils.isEmpty(b)) {
+        if (k >= 2 || TextUtils.isEmpty(f1289b)) {
             return false;
         }
         k++;
-        b(context, true, f1078a);
+        b(context, true, f1288a);
         return true;
     }
 

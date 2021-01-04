@@ -1,9 +1,9 @@
 package com.baidu.searchbox.player.layer;
 
-import android.support.annotation.NonNull;
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.interfaces.INeuron;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface ILayer extends INeuron {
     View getContentView();
 

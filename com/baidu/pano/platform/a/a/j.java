@@ -23,14 +23,16 @@ import org.apache.http.entity.BasicHttpEntity;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicHttpResponse;
 import org.apache.http.message.BasicStatusLine;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class j implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f2646a;
-    private final SSLSocketFactory b;
+    private final a f3895a;
 
-    /* loaded from: classes26.dex */
+    /* renamed from: b  reason: collision with root package name */
+    private final SSLSocketFactory f3896b;
+
+    /* loaded from: classes15.dex */
     public interface a {
         String a(String str);
     }
@@ -44,8 +46,8 @@ public class j implements i {
     }
 
     public j(a aVar, SSLSocketFactory sSLSocketFactory) {
-        this.f2646a = aVar;
-        this.b = sSLSocketFactory;
+        this.f3895a = aVar;
+        this.f3896b = sSLSocketFactory;
     }
 
     @Override // com.baidu.pano.platform.a.a.i
@@ -55,8 +57,8 @@ public class j implements i {
         HashMap hashMap = new HashMap();
         hashMap.putAll(nVar.i());
         hashMap.putAll(map);
-        if (this.f2646a != null) {
-            str = this.f2646a.a(c);
+        if (this.f3895a != null) {
+            str = this.f3895a.a(c);
             if (str == null) {
                 throw new IOException("URL blocked by rewriter: " + c);
             }
@@ -108,8 +110,8 @@ public class j implements i {
         a2.setReadTimeout(t);
         a2.setUseCaches(false);
         a2.setDoInput(true);
-        if ("https".equals(url.getProtocol()) && this.b != null) {
-            ((HttpsURLConnection) a2).setSSLSocketFactory(this.b);
+        if ("https".equals(url.getProtocol()) && this.f3896b != null) {
+            ((HttpsURLConnection) a2).setSSLSocketFactory(this.f3896b);
         }
         return a2;
     }

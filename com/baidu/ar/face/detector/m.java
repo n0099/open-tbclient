@@ -2,7 +2,7 @@ package com.baidu.ar.face.detector;
 
 import com.baidu.ar.face.algo.FaceAlgoData;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class m {
     private long il;
     private long mTimestamp;

@@ -3,32 +3,35 @@ package com.sdk.base.framework.a;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.kwad.sdk.collector.AppStatusRules;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public final class d {
-    private static long c = 60000;
+    private static long c = AppStatusRules.DEFAULT_GRANULARITY;
     private static final ConcurrentHashMap<String, Boolean> d;
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.sdk.base.framework.a.a.c<String, String> f4243a;
-    private int b;
+    private final com.sdk.base.framework.a.a.c<String, String> f13093a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f13094b;
 
     static {
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
         d = concurrentHashMap;
-        concurrentHashMap.put(i.f4246a.toString(), true);
+        concurrentHashMap.put(i.f13100a.toString(), true);
         new ConcurrentHashMap(10);
     }
 
     public d() {
-        this(BdStatsConstant.MAX_WRITE_LOG_SIZE, 60000L);
+        this(BdStatsConstant.MAX_WRITE_LOG_SIZE, AppStatusRules.DEFAULT_GRANULARITY);
     }
 
     private d(int i, long j) {
-        this.b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
-        this.b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
-        c = 60000L;
-        this.f4243a = new e(this, this.b);
+        this.f13094b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
+        this.f13094b = BdStatsConstant.MAX_WRITE_LOG_SIZE;
+        c = AppStatusRules.DEFAULT_GRANULARITY;
+        this.f13093a = new e(this, this.f13094b);
     }
 
     public static long a() {
@@ -46,7 +49,7 @@ public final class d {
 
     public final String a(String str) {
         if (str != null) {
-            return this.f4243a.a((com.sdk.base.framework.a.a.c<String, String>) str);
+            return this.f13093a.a((com.sdk.base.framework.a.a.c<String, String>) str);
         }
         return null;
     }
@@ -55,6 +58,6 @@ public final class d {
         if (str == null || str2 == null || j < 1) {
             return;
         }
-        this.f4243a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
+        this.f13093a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
     }
 }

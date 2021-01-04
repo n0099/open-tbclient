@@ -1,7 +1,6 @@
 package com.xiaomi.push;
 
 import android.text.TextUtils;
-import com.baidu.android.util.media.WebpUtils;
 import com.baidu.down.request.db.DownloadDataConstants;
 import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
@@ -20,15 +19,14 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f4899a = {"jpg", "png", "bmp", "gif", WebpUtils.TYPE_IMG_WEBP};
+    public static final String[] f14631a = {"jpg", "png", "bmp", "gif", "webp"};
 
     public static String a(File file) {
         InputStreamReader inputStreamReader;
-        Throwable th;
         String str = null;
         StringWriter stringWriter = new StringWriter();
         try {
@@ -53,8 +51,8 @@ public class y {
                     a(stringWriter);
                     return str;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 a(inputStreamReader);
                 a(stringWriter);
                 throw th;
@@ -62,9 +60,9 @@ public class y {
         } catch (IOException e2) {
             e = e2;
             inputStreamReader = null;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             inputStreamReader = null;
-            th = th3;
             a(inputStreamReader);
             a(stringWriter);
             throw th;
@@ -82,7 +80,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m582a(File file) {
+    public static void m608a(File file) {
         if (!file.isDirectory()) {
             if (file.exists()) {
                 file.delete();
@@ -91,41 +89,48 @@ public class y {
             return;
         }
         for (File file2 : file.listFiles()) {
-            m582a(file2);
+            m608a(file2);
         }
         file.delete();
     }
 
     public static void a(File file, File file2) {
+        Throwable th;
         ZipOutputStream zipOutputStream;
-        ZipOutputStream zipOutputStream2 = null;
+        IOException iOException;
+        ZipOutputStream zipOutputStream2;
         try {
+            zipOutputStream2 = new ZipOutputStream(new FileOutputStream(file, false));
             try {
-                zipOutputStream = new ZipOutputStream(new FileOutputStream(file, false));
-                zipOutputStream2 = null;
-            } catch (Throwable th) {
-                th = th;
+                a(zipOutputStream2, file2, null, null);
+                a(zipOutputStream2);
+            } catch (FileNotFoundException e) {
+                a(zipOutputStream2);
+            } catch (IOException e2) {
+                iOException = e2;
+                zipOutputStream = zipOutputStream2;
+                try {
+                    com.xiaomi.channel.commonutils.logger.b.m73a("zip file failure + " + iOException.getMessage());
+                    a(zipOutputStream);
+                } catch (Throwable th2) {
+                    th = th2;
+                    a(zipOutputStream);
+                    throw th;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                zipOutputStream = zipOutputStream2;
+                a(zipOutputStream);
+                throw th;
             }
-        } catch (FileNotFoundException e) {
-            zipOutputStream = null;
-        } catch (IOException e2) {
-            e = e2;
-        }
-        try {
-            a(zipOutputStream, file2, null, null);
-            a(zipOutputStream);
         } catch (FileNotFoundException e3) {
-            a(zipOutputStream);
+            zipOutputStream2 = null;
         } catch (IOException e4) {
-            zipOutputStream2 = zipOutputStream;
-            e = e4;
-            com.xiaomi.channel.commonutils.logger.b.m47a("zip file failure + " + e.getMessage());
-            a(zipOutputStream2);
-        } catch (Throwable th2) {
-            zipOutputStream2 = zipOutputStream;
-            th = th2;
-            a(zipOutputStream2);
-            throw th;
+            iOException = e4;
+            zipOutputStream = null;
+        } catch (Throwable th4) {
+            th = th4;
+            zipOutputStream = null;
         }
     }
 
@@ -163,67 +168,75 @@ public class y {
     }
 
     public static void a(ZipOutputStream zipOutputStream, File file, String str, FileFilter fileFilter) {
+        Throwable th;
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2 = null;
+        IOException iOException;
+        FileInputStream fileInputStream2;
         if (str == null) {
             str = "";
         }
         try {
-            try {
-                if (file.isDirectory()) {
-                    File[] listFiles = fileFilter != null ? file.listFiles(fileFilter) : file.listFiles();
-                    zipOutputStream.putNextEntry(new ZipEntry(str + File.separator));
-                    String str2 = TextUtils.isEmpty(str) ? "" : str + File.separator;
-                    for (int i = 0; i < listFiles.length; i++) {
-                        a(zipOutputStream, listFiles[i], str2 + listFiles[i].getName(), null);
-                    }
-                    File[] listFiles2 = file.listFiles(new z());
-                    if (listFiles2 != null) {
-                        for (File file2 : listFiles2) {
-                            a(zipOutputStream, file2, str2 + File.separator + file2.getName(), fileFilter);
-                        }
-                    }
-                    fileInputStream = null;
-                } else {
-                    if (TextUtils.isEmpty(str)) {
-                        zipOutputStream.putNextEntry(new ZipEntry(String.valueOf(new Date().getTime()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION));
-                    } else {
-                        zipOutputStream.putNextEntry(new ZipEntry(str));
-                    }
-                    fileInputStream = new FileInputStream(file);
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = fileInputStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            zipOutputStream.write(bArr, 0, read);
-                        }
-                    } catch (IOException e) {
-                        fileInputStream2 = fileInputStream;
-                        e = e;
-                        com.xiaomi.channel.commonutils.logger.b.d("zipFiction failed with exception:" + e.toString());
-                        a(fileInputStream2);
-                        return;
-                    } catch (Throwable th) {
-                        fileInputStream2 = fileInputStream;
-                        th = th;
-                        a(fileInputStream2);
-                        throw th;
+            if (file.isDirectory()) {
+                File[] listFiles = fileFilter != null ? file.listFiles(fileFilter) : file.listFiles();
+                zipOutputStream.putNextEntry(new ZipEntry(str + File.separator));
+                String str2 = TextUtils.isEmpty(str) ? "" : str + File.separator;
+                for (int i = 0; i < listFiles.length; i++) {
+                    a(zipOutputStream, listFiles[i], str2 + listFiles[i].getName(), null);
+                }
+                File[] listFiles2 = file.listFiles(new z());
+                if (listFiles2 != null) {
+                    for (File file2 : listFiles2) {
+                        a(zipOutputStream, file2, str2 + File.separator + file2.getName(), fileFilter);
                     }
                 }
-                a(fileInputStream);
-            } catch (Throwable th2) {
-                th = th2;
+                fileInputStream2 = null;
+            } else {
+                if (TextUtils.isEmpty(str)) {
+                    zipOutputStream.putNextEntry(new ZipEntry(String.valueOf(new Date().getTime()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION));
+                } else {
+                    zipOutputStream.putNextEntry(new ZipEntry(str));
+                }
+                fileInputStream2 = new FileInputStream(file);
+                try {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = fileInputStream2.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        zipOutputStream.write(bArr, 0, read);
+                    }
+                } catch (IOException e) {
+                    iOException = e;
+                    fileInputStream = fileInputStream2;
+                    try {
+                        com.xiaomi.channel.commonutils.logger.b.d("zipFiction failed with exception:" + iOException.toString());
+                        a(fileInputStream);
+                        return;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        a(fileInputStream);
+                        throw th;
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileInputStream = fileInputStream2;
+                    a(fileInputStream);
+                    throw th;
+                }
             }
+            a(fileInputStream2);
         } catch (IOException e2) {
-            e = e2;
+            iOException = e2;
+            fileInputStream = null;
+        } catch (Throwable th4) {
+            th = th4;
+            fileInputStream = null;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m583a(File file) {
+    public static boolean m609a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;
@@ -260,7 +273,6 @@ public class y {
     public static void b(File file, File file2) {
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2 = null;
         if (file.getAbsolutePath().equals(file2.getAbsolutePath())) {
             return;
         }
@@ -271,11 +283,11 @@ public class y {
             } catch (Throwable th) {
                 th = th;
                 fileOutputStream = null;
-                fileInputStream2 = fileInputStream;
             }
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
+            fileInputStream = null;
         }
         try {
             byte[] bArr = new byte[1024];
@@ -294,9 +306,8 @@ public class y {
             }
         } catch (Throwable th3) {
             th = th3;
-            fileInputStream2 = fileInputStream;
-            if (fileInputStream2 != null) {
-                fileInputStream2.close();
+            if (fileInputStream != null) {
+                fileInputStream.close();
             }
             if (fileOutputStream != null) {
                 fileOutputStream.close();

@@ -5,6 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.c;
 import com.baidu.adp.lib.util.l;
+import com.kwad.sdk.core.response.model.SdkConfigData;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class TiebaIMConfig {
@@ -18,7 +19,7 @@ public class TiebaIMConfig {
     public static final BdUniqueId IM_ASYCTASK_UNIQUEID = BdUniqueId.gen();
     private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, IM_ASYCTASK_UNIQUEID);
     public static String url = "ws://im.tieba.baidu.com:8000";
-    public static int[] reconStrategy = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
+    public static int[] reconStrategy = {30, 60, 300, 600, 1800, SdkConfigData.DEFAULT_REQUEST_INTERVAL, 7200, 14400};
     public static String POST_IMAGE_PATH = "post_image";
     public static int POST_IMAGE_DEFAULT_WIDTH = 30;
     public static int POST_IMAGE_DEFAULT_HEIGHT = 30;

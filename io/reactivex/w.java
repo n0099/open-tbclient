@@ -1,5 +1,5 @@
 package io.reactivex;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class w<T> implements aa<T> {
     protected abstract void b(y<? super T> yVar);
 
@@ -13,7 +13,7 @@ public abstract class w<T> implements aa<T> {
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             NullPointerException nullPointerException = new NullPointerException("subscribeActual failed");
             nullPointerException.initCause(th);
             throw nullPointerException;

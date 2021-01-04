@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String KEY_OPERATION = "operation";
@@ -18,25 +18,25 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
             if (DEBUG) {
                 Log.d("NetworkBroadcast", "——> onReceive: ");
             }
-            if (b.aUw().aUx() && SwanAppNetworkUtils.aFi() == SwanAppNetworkUtils.NetType.WIFI) {
+            if (b.aWQ().aWR() && SwanAppNetworkUtils.aGC() == SwanAppNetworkUtils.NetType.WIFI) {
                 if (ProcessUtils.isMainProcess()) {
-                    com.baidu.swan.gamecenter.appmanager.a.aUm().aUo();
+                    com.baidu.swan.gamecenter.appmanager.a.aWG().aWI();
                     return;
                 }
-                com.baidu.swan.apps.process.messaging.client.a aJL = com.baidu.swan.apps.runtime.d.aJQ().aJL();
-                if (aJL != null) {
+                com.baidu.swan.apps.process.messaging.client.a aMb = com.baidu.swan.apps.runtime.d.aMg().aMb();
+                if (aMb != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString(KEY_OPERATION, "resumeAllDownload");
-                    aJL.b(bundle, d.class);
+                    aMb.b(bundle, d.class);
                 }
             } else if (ProcessUtils.isMainProcess()) {
-                com.baidu.swan.gamecenter.appmanager.a.aUm().aUp();
+                com.baidu.swan.gamecenter.appmanager.a.aWG().aWJ();
             } else {
-                com.baidu.swan.apps.process.messaging.client.a aJL2 = com.baidu.swan.apps.runtime.d.aJQ().aJL();
-                if (aJL2 != null) {
+                com.baidu.swan.apps.process.messaging.client.a aMb2 = com.baidu.swan.apps.runtime.d.aMg().aMb();
+                if (aMb2 != null) {
                     Bundle bundle2 = new Bundle();
                     bundle2.putString(KEY_OPERATION, "pauseAllDownload");
-                    aJL2.b(bundle2, d.class);
+                    aMb2.b(bundle2, d.class);
                 }
             }
         }

@@ -12,117 +12,109 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f3714a;
-    private static HashMap b;
+    public static a f5657a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static HashMap f5658b;
     private static ExecutorService c;
 
     private a() {
-        if (b == null) {
-            b = new HashMap();
+        if (f5658b == null) {
+            f5658b = new HashMap();
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x0001 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:7:0x002f */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v11, types: [android.graphics.Bitmap] */
-    /* JADX WARN: Type inference failed for: r2v12 */
-    /* JADX WARN: Type inference failed for: r2v13 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r2v4, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r2v5 */
-    /* JADX WARN: Type inference failed for: r2v7 */
-    /* JADX WARN: Type inference failed for: r2v9 */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static Bitmap a(String str) {
-        OutOfMemoryError outOfMemoryError;
+        InputStream inputStream;
         Bitmap bitmap;
-        Exception exc;
-        InputStream inputStream = 0;
+        InputStream inputStream2 = null;
         try {
             try {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
                 httpURLConnection.setConnectTimeout(10000);
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.connect();
-                InputStream inputStream2 = httpURLConnection.getInputStream();
+                inputStream = httpURLConnection.getInputStream();
                 try {
-                    try {
-                        inputStream = BitmapFactory.decodeStream(inputStream2);
-                        if (inputStream != 0) {
-                            try {
-                                bitmap = Bitmap.createScaledBitmap(inputStream, inputStream.getWidth(), inputStream.getHeight(), true);
-                            } catch (Exception e) {
-                                bitmap = inputStream;
-                                inputStream = inputStream2;
-                                exc = e;
-                                c.d(exc.toString());
-                                if (inputStream != 0) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (IOException e2) {
-                                        e2.printStackTrace();
-                                    }
+                    Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
+                    if (decodeStream != null) {
+                        try {
+                            bitmap = Bitmap.createScaledBitmap(decodeStream, decodeStream.getWidth(), decodeStream.getHeight(), true);
+                        } catch (Exception e) {
+                            e = e;
+                            bitmap = decodeStream;
+                            c.d(e.toString());
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
                                 }
-                                return bitmap;
-                            } catch (OutOfMemoryError e3) {
-                                bitmap = inputStream;
-                                inputStream = inputStream2;
-                                outOfMemoryError = e3;
-                                System.gc();
-                                c.d(outOfMemoryError.toString());
-                                if (inputStream != 0) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (IOException e4) {
-                                        e4.printStackTrace();
-                                    }
+                            }
+                            return bitmap;
+                        } catch (OutOfMemoryError e3) {
+                            e = e3;
+                            bitmap = decodeStream;
+                            System.gc();
+                            c.d(e.toString());
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (IOException e4) {
+                                    e4.printStackTrace();
                                 }
-                                return bitmap;
                             }
-                        } else {
-                            bitmap = inputStream;
+                            return bitmap;
                         }
-                        if (inputStream2 != null) {
-                            try {
-                                inputStream2.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        inputStream = inputStream2;
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                        }
-                        throw th;
+                    } else {
+                        bitmap = decodeStream;
                     }
-                } catch (Exception e7) {
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                } catch (Exception e6) {
+                    e = e6;
                     bitmap = null;
-                    inputStream = inputStream2;
-                    exc = e7;
-                } catch (OutOfMemoryError e8) {
+                } catch (OutOfMemoryError e7) {
+                    e = e7;
                     bitmap = null;
-                    inputStream = inputStream2;
-                    outOfMemoryError = e8;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
+                if (0 != 0) {
+                    try {
+                        inputStream2.close();
+                    } catch (IOException e8) {
+                        e8.printStackTrace();
+                    }
+                }
+                throw th;
             }
         } catch (Exception e9) {
-            exc = e9;
+            e = e9;
+            inputStream = null;
             bitmap = null;
         } catch (OutOfMemoryError e10) {
-            outOfMemoryError = e10;
+            e = e10;
+            inputStream = null;
             bitmap = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (0 != 0) {
+            }
+            throw th;
         }
         return bitmap;
     }
@@ -130,13 +122,13 @@ public final class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f3714a == null) {
-                f3714a = new a();
+            if (f5657a == null) {
+                f5657a = new a();
                 if (c == null) {
                     c = Executors.newFixedThreadPool(1);
                 }
             }
-            aVar = f3714a;
+            aVar = f5657a;
         }
         return aVar;
     }
@@ -145,7 +137,7 @@ public final class a {
         Bitmap bitmap;
         Bitmap bitmap2;
         String c2 = k.c(str);
-        if (!b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) b.get(c2)).get()) == null) {
+        if (!f5658b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) f5658b.get(c2)).get()) == null) {
             try {
                 bitmap = f.a(c2);
             } catch (OutOfMemoryError e) {
@@ -153,7 +145,7 @@ public final class a {
                 bitmap = null;
             }
             if (bitmap != null) {
-                b.put(c2, new SoftReference(bitmap));
+                f5658b.put(c2, new SoftReference(bitmap));
                 return bitmap;
             }
             c.execute(new b(this, str, c2, nVar));

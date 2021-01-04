@@ -1,6 +1,6 @@
 package com.opensource.svgaplayer;
 @kotlin.e
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class e {
-    private static int pzf;
+    private static int pRK;
 }

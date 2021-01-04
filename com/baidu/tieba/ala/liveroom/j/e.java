@@ -5,7 +5,7 @@ import android.view.KeyEvent;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
@@ -15,28 +15,28 @@ import com.baidu.live.tbadk.apk.ApkStatus;
 import com.baidu.live.tbadk.apk.ApkStatusCallback;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.live.tbadk.log.LogManager;
-import com.baidu.live.utils.l;
-/* loaded from: classes4.dex */
+import com.baidu.live.utils.m;
+/* loaded from: classes11.dex */
 public class e implements f {
-    private static ApkData hrR;
-    private static long hrS = 0;
-    private w aFN;
-    private PendantParentView hrQ;
-    private d hrT;
-    private ApkStatusCallback hrU = new ApkStatusCallback() { // from class: com.baidu.tieba.ala.liveroom.j.e.1
+    private static ApkData hDM;
+    private static long hDN = 0;
+    private x aGe;
+    private PendantParentView hDL;
+    private d hDO;
+    private ApkStatusCallback hDP = new ApkStatusCallback() { // from class: com.baidu.tieba.ala.liveroom.j.e.1
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onJoinDownloadQueue() {
         }
 
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onApkDownloadStart(ApkData apkData) {
-            e.this.cfn();
+            e.this.cid();
         }
 
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onApkDownloadProgress(long j, long j2) {
-            if (e.this.hrT != null) {
-                e.this.hrT.setProgress((int) ((100 * j) / j2));
+            if (e.this.hDO != null) {
+                e.this.hDO.setProgress((int) ((100 * j) / j2));
             }
         }
 
@@ -47,100 +47,100 @@ public class e implements f {
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onApkDownloadFailed(ApkData apkData, int i, String str) {
             e.this.mPageContext.showToast(e.this.mPageContext.getString(a.h.ala_feedback_flow_download_fail_tip_prefix) + str);
-            e.this.cfq();
+            e.this.cig();
         }
 
         @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
         public void onApkStartInstall(ApkData apkData) {
-            e.this.cfq();
+            e.this.cig();
         }
     };
-    private String hrz;
+    private String hDv;
     private TbPageContext mPageContext;
     private long roomId;
 
     public e(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        if (hrR != null && hrS != 0) {
-            hrR.apkStatusCallBack = this.hrU;
+        if (hDM != null && hDN != 0) {
+            hDM.apkStatusCallBack = this.hDP;
         }
     }
 
-    public void b(w wVar, PendantParentView pendantParentView) {
-        this.aFN = wVar;
-        this.hrQ = pendantParentView;
-        if (isDownloading() && wVar != null && wVar.mLiveInfo != null) {
-            cfn();
-            if (this.hrT != null) {
-                if (wVar.mLiveInfo.live_id == hrS) {
-                    this.hrT.nG(false);
+    public void b(x xVar, PendantParentView pendantParentView) {
+        this.aGe = xVar;
+        this.hDL = pendantParentView;
+        if (isDownloading() && xVar != null && xVar.mLiveInfo != null) {
+            cid();
+            if (this.hDO != null) {
+                if (xVar.mLiveInfo.live_id == hDN) {
+                    this.hDO.og(false);
                 } else {
-                    this.hrT.nG(true);
+                    this.hDO.og(true);
                 }
             }
         }
     }
 
-    public void cdm() {
-        cfp();
+    public void cgc() {
+        cif();
     }
 
-    public void cfm() {
-        ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), hrR, false);
+    public void cic() {
+        ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), hDM, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfn() {
+    public void cid() {
         if (isDownloading()) {
-            cfo();
+            cie();
         }
     }
 
-    private void cfo() {
-        if (this.hrT == null) {
-            this.hrT = new d(this.mPageContext.getPageActivity());
-            this.hrT.setProgress(0);
-            this.hrT.nG(false);
+    private void cie() {
+        if (this.hDO == null) {
+            this.hDO = new d(this.mPageContext.getPageActivity());
+            this.hDO.setProgress(0);
+            this.hDO.og(false);
         }
-        if (this.hrT.cfl() != null && this.hrT.cfl().getParent() == null && this.hrQ != null) {
+        if (this.hDO.cib() != null && this.hDO.cib().getParent() == null && this.hDL != null) {
             int dimensionPixelSize = this.mPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds100);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.rightMargin = this.mPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds10);
             layoutParams.bottomMargin = this.mPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds54);
             layoutParams.gravity = 5;
-            this.hrQ.a(this.hrT.cfl(), new LinearLayout.LayoutParams(-2, -2));
+            this.hDL.a(this.hDO.cib(), new LinearLayout.LayoutParams(-2, -2));
         }
     }
 
-    private void cfp() {
-        if (this.hrT != null && this.hrT.cfl() != null && this.hrT.cfl().getParent() != null) {
-            ((ViewGroup) this.hrT.cfl().getParent()).removeView(this.hrT.cfl());
+    private void cif() {
+        if (this.hDO != null && this.hDO.cib() != null && this.hDO.cib().getParent() != null) {
+            ((ViewGroup) this.hDO.cib().getParent()).removeView(this.hDO.cib());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfq() {
-        hrS = 0L;
-        if (hrR != null) {
-            hrR.apkStatusCallBack = null;
-            hrR = null;
+    public void cig() {
+        hDN = 0L;
+        if (hDM != null) {
+            hDM.apkStatusCallBack = null;
+            hDM = null;
         }
-        cfp();
-        this.hrT = null;
+        cif();
+        this.hDO = null;
     }
 
-    public void cx(boolean z) {
-        if (z && hrR != null) {
-            ApkManager.getInstance().stopApkDownload(hrR);
-            cfq();
-        } else if (hrR != null) {
-            hrR.apkStatusCallBack = null;
+    public void cA(boolean z) {
+        if (z && hDM != null) {
+            ApkManager.getInstance().stopApkDownload(hDM);
+            cig();
+        } else if (hDM != null) {
+            hDM.apkStatusCallBack = null;
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.j.f
     public boolean isDownloading() {
-        return (hrS == 0 || hrR == null) ? false : true;
+        return (hDN == 0 || hDM == null) ? false : true;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.j.f
@@ -150,20 +150,20 @@ public class e implements f {
 
     @Override // com.baidu.tieba.ala.liveroom.j.f
     public void c(final ApkData apkData) {
-        ApkStatus b = b(apkData);
-        if (b == ApkStatus.READY) {
-            ApkManager.getInstance().launchApkByDeeplink(this.mPageContext.getPageActivity(), apkData.m21clone());
-        } else if (b == ApkStatus.DOWNLOADED) {
-            hrR = apkData.m21clone();
-            ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), apkData.m21clone(), false);
-        } else if (b == ApkStatus.NONE || b == ApkStatus.OVERTIME) {
-            if (BdNetTypeUtil.isMobileNet() && l.Ww()) {
+        ApkStatus b2 = b(apkData);
+        if (b2 == ApkStatus.READY) {
+            ApkManager.getInstance().launchApkByDeeplink(this.mPageContext.getPageActivity(), apkData.m22clone());
+        } else if (b2 == ApkStatus.DOWNLOADED) {
+            hDM = apkData.m22clone();
+            ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), apkData.m22clone(), false);
+        } else if (b2 == ApkStatus.NONE || b2 == ApkStatus.OVERTIME) {
+            if (BdNetTypeUtil.isMobileNet() && m.XA()) {
                 BdAlertDialog bdAlertDialog = new BdAlertDialog(this.mPageContext.getPageActivity());
                 bdAlertDialog.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.liveroom.j.e.2
                     @Override // android.content.DialogInterface.OnKeyListener
                     public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                         if (i == 4) {
-                            LogManager.getFeedDiversionLogger().doStopFlowDialogLog(e.this.roomId + "", e.this.hrz);
+                            LogManager.getFeedDiversionLogger().doStopFlowDialogLog(e.this.roomId + "", e.this.hDv);
                             dialogInterface.dismiss();
                             return true;
                         }
@@ -177,21 +177,21 @@ public class e implements f {
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
                         e.this.a(apkData);
-                        LogManager.getFeedDiversionLogger().doContinueFlowDialogLog(e.this.roomId + "", e.this.hrz);
+                        LogManager.getFeedDiversionLogger().doContinueFlowDialogLog(e.this.roomId + "", e.this.hDv);
                         bdAlertDialog2.dismiss();
                     }
                 });
                 bdAlertDialog.setNegativeButton(this.mPageContext.getResources().getString(a.h.sdk_stop), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.j.e.4
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
-                        LogManager.getFeedDiversionLogger().doStopFlowDialogLog(e.this.roomId + "", e.this.hrz);
+                        LogManager.getFeedDiversionLogger().doStopFlowDialogLog(e.this.roomId + "", e.this.hDv);
                         bdAlertDialog2.dismiss();
                     }
                 });
                 bdAlertDialog.setNagetiveButtonTextColor(-13421773);
                 bdAlertDialog.create(this.mPageContext);
                 bdAlertDialog.show();
-                LogManager.getFeedDiversionLogger().doDisplayFlowDialogLog(this.roomId + "", this.hrz);
+                LogManager.getFeedDiversionLogger().doDisplayFlowDialogLog(this.roomId + "", this.hDv);
                 return;
             }
             a(apkData);
@@ -200,12 +200,12 @@ public class e implements f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ApkData apkData) {
-        hrR = apkData.m21clone();
-        hrR.apkStatusCallBack = this.hrU;
-        if (this.aFN != null && this.aFN.mLiveInfo != null) {
-            hrS = this.aFN.mLiveInfo.live_id;
+        hDM = apkData.m22clone();
+        hDM.apkStatusCallBack = this.hDP;
+        if (this.aGe != null && this.aGe.mLiveInfo != null) {
+            hDN = this.aGe.mLiveInfo.live_id;
         }
-        ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), hrR, true);
+        ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), hDM, true);
     }
 
     public void setRoomId(long j) {
@@ -213,13 +213,13 @@ public class e implements f {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.j.f
-    public void It(String str) {
-        this.hrz = str;
+    public void Iv(String str) {
+        this.hDv = str;
     }
 
     public void setVisible(int i) {
-        if (this.hrT != null && this.hrT.cfl() != null) {
-            this.hrT.cfl().setVisibility(i);
+        if (this.hDO != null && this.hDO.cib() != null) {
+            this.hDO.cib().setVisibility(i);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.pass.permissions;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class PermissionsDTO implements com.baidu.pass.a {
     public Context context;
     public String dialogMsg;

@@ -12,7 +12,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class NetworkParam {
     public static final String LAST_NETWORK_TYPE = "last network type";
     private static final String NET_TYPE_ID_DISCONNECT = "5_0";

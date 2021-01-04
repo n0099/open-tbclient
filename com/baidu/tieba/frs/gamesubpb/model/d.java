@@ -1,40 +1,40 @@
 package com.baidu.tieba.frs.gamesubpb.model;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
-public class d implements q {
-    public static final BdUniqueId jnN = BdUniqueId.gen();
+/* loaded from: classes2.dex */
+public class d implements n {
+    public static final BdUniqueId jAl = BdUniqueId.gen();
     public String content;
     public String createTime;
     public String forumId;
     public String id;
-    public String jnI;
-    public String jnO;
-    public String jnP;
-    public boolean jnQ;
+    public String jAg;
+    public String jAm;
+    public String jAn;
+    public boolean jAo;
     public String userId;
     public String userName;
 
     public d(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.id = jSONObject.optString("id");
-            this.jnO = jSONObject.optString("main_tower_id");
+            this.jAm = jSONObject.optString("main_tower_id");
             this.forumId = jSONObject.optString("forum_id");
             this.userId = jSONObject.optString("user_id");
             this.userName = jSONObject.optString("user_name");
             this.createTime = jSONObject.optString("create_time");
             this.content = jSONObject.optString("content");
-            this.jnP = jSONObject.optString("reply_user_id");
-            this.jnI = jSONObject.optString("time_passed");
-            this.jnQ = jSONObject.optInt("is_main_tower_user", 0) == 1;
+            this.jAn = jSONObject.optString("reply_user_id");
+            this.jAg = jSONObject.optString("time_passed");
+            this.jAo = jSONObject.optInt("is_main_tower_user", 0) == 1;
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jnN;
+        return jAl;
     }
 
     public boolean equals(Object obj) {

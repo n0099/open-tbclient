@@ -1,12 +1,10 @@
 package com.baidu.yuyinala.privatemessage.implugin.util.audio;
-
-import com.baidu.searchbox.ugc.transcoder.TranscoderPlugin;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AudioRecords {
     private static final String TAG = AudioRecords.class.getSimpleName();
-    public static final FormatFactory oVy = FormatFactory.AMR_NB;
+    public static final FormatFactory pbD = FormatFactory.AMR_NB;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public enum FormatFactory {
         DEFAULT(0, "DEFAULT"),
         THREE_GPP(1, "3gpp"),
@@ -14,7 +12,7 @@ public class AudioRecords {
         RAW_AMR(3, "raw"),
         AMR_NB(3, "amr"),
         AMR_WB(4, "amr"),
-        AAC_ADTS(6, TranscoderPlugin.AUDIO_CODEC),
+        AAC_ADTS(6, "aac"),
         WEBM(9, "webm"),
         MP3(2, "mp3");
         

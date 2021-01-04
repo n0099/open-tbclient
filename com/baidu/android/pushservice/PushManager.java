@@ -10,10 +10,11 @@ import android.util.Log;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.i.m;
 import com.heytap.mcssdk.mode.CommandMessage;
+import com.kwai.video.player.PlayerPostEvent;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class PushManager {
     private static final String TAG = "PushManager";
 
@@ -109,8 +110,8 @@ public class PushManager {
             f.d = str2;
             com.baidu.android.pushservice.i.i.a(context, "BD_PROXY_APPKEY_KEY", str2);
         }
-        PushSettings.b = z ? 1 : 0;
-        com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", PushSettings.b);
+        PushSettings.f1165b = z ? 1 : 0;
+        com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", PushSettings.f1165b);
     }
 
     public static int getBindType(Context context) {
@@ -252,20 +253,20 @@ public class PushManager {
         if (f.m(context)) {
             return;
         }
-        f.f1078a = i;
-        f.b = str;
+        f.f1288a = i;
+        f.f1289b = str;
         h.b(context);
         String f = m.f(context, str);
         com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.CHECK_SDK", f);
         com.baidu.android.pushservice.f.a.a(TAG, "startWork from " + context.getPackageName() + " checkResult: " + f, context.getApplicationContext());
         m.a("startWork from " + context.getPackageName() + " checkResult: " + f, context);
         if ((TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f) || !PushSettings.e(context)) && i == 0) {
-            f.a(context, i, f.b);
+            f.a(context, i, f.f1289b);
         } else {
             if (i != 0) {
                 Log.e("BDPushSDK-PushManager", "Wrong LOGIN TYPE, Please use LOGIN_TYPE_API_KEY !");
             }
-            f.b(context, 10101, f);
+            f.b(context, (int) PlayerPostEvent.MEDIA_INFO_PLAY_TO_END, f);
         }
         m.l(context);
     }

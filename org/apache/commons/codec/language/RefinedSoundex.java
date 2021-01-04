@@ -3,7 +3,7 @@ package org.apache.commons.codec.language;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class RefinedSoundex implements StringEncoder {
     public static final char[] US_ENGLISH_MAPPING = null;
     public static final RefinedSoundex US_ENGLISH = null;

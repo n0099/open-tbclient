@@ -9,30 +9,30 @@ import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.swan.facade.init.SwanAppInitHelper;
 import org.apache.http.HttpHost;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static void vF(String str) {
+    private static void vE(String str) {
         SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
     }
 
-    private static void vG(String str) {
-        a.vE(str);
+    private static void vF(String str) {
+        a.vD(str);
     }
 
-    public static void vH(String str) {
+    public static void vG(String str) {
         if (!SwanAppInitHelper.entranceOK()) {
             Log.w("SwanAppLaunchHelper", "entrance not open");
-            d.a(AppRuntime.getAppContext(), "not support for this android version").showToast();
+            d.a(AppRuntime.getAppContext(), "not support for this android version").aLS();
         } else if (TextUtils.isEmpty(str)) {
-            d.a(AppRuntime.getAppContext(), "url is empty").showToast();
+            d.a(AppRuntime.getAppContext(), "url is empty").aLS();
         } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
-            vF(str);
+            vE(str);
         } else if (str.startsWith("bdswan")) {
-            vF(str.replace("bdswan", SchemeConfig.getSchemeHead()));
+            vE(str.replace("bdswan", SchemeConfig.getSchemeHead()));
         } else if (str.startsWith("https") || str.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-            vG(str);
+            vF(str);
         } else {
-            d.a(AppRuntime.getAppContext(), "not support this uri").showToast();
+            d.a(AppRuntime.getAppContext(), "not support this uri").aLS();
         }
     }
 }

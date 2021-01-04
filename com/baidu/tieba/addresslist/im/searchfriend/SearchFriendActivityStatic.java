@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SearchFriendActivityConfig;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class SearchFriendActivityStatic {
     public static String Tag = "tag";
 

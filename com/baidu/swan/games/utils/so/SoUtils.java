@@ -1,16 +1,16 @@
 package com.baidu.swan.games.utils.so;
 
 import android.os.Build;
-import android.support.annotation.Keep;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Keep;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class SoUtils {
     public static final String ARM64_V8A = "arm64-v8a";
     public static final String ARMEABI = "armeabi";
@@ -25,7 +25,7 @@ public final class SoUtils {
     private static a sUbcImpl = new c();
     public static String[] uris = {"lib/armeabi", "lib/arm64-v8a"};
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void onEvent(String str, String str2);
     }

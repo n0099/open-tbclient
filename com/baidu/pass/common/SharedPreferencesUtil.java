@@ -3,18 +3,20 @@ package com.baidu.pass.common;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class SharedPreferencesUtil implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SharedPreferencesUtil f2761a = null;
-    private static SharedPreferences b = null;
+    private static SharedPreferencesUtil f4092a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static SharedPreferences f4093b = null;
     private static final String c = "sapi_system";
     private static String d;
     private static Context e;
 
     private SharedPreferencesUtil(Context context, String str) {
-        b = context.getSharedPreferences(str, 0);
+        f4093b = context.getSharedPreferences(str, 0);
         e = context.getApplicationContext();
     }
 
@@ -51,15 +53,15 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
             }
             switch (c2) {
                 case 0:
-                    return (T) Boolean.valueOf(b.getBoolean(str, ((Boolean) t).booleanValue()));
+                    return (T) Boolean.valueOf(f4093b.getBoolean(str, ((Boolean) t).booleanValue()));
                 case 1:
-                    return (T) Long.valueOf(b.getLong(str, ((Long) t).longValue()));
+                    return (T) Long.valueOf(f4093b.getLong(str, ((Long) t).longValue()));
                 case 2:
-                    return (T) Float.valueOf(b.getFloat(str, ((Float) t).floatValue()));
+                    return (T) Float.valueOf(f4093b.getFloat(str, ((Float) t).floatValue()));
                 case 3:
-                    return (T) Integer.valueOf(b.getInt(str, ((Integer) t).intValue()));
+                    return (T) Integer.valueOf(f4093b.getInt(str, ((Integer) t).intValue()));
                 default:
-                    return (T) b.getString(str, (String) t);
+                    return (T) f4093b.getString(str, (String) t);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -81,15 +83,15 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
 
     public static synchronized void getInstance(Context context) {
         synchronized (SharedPreferencesUtil.class) {
-            if (f2761a == null) {
-                f2761a = new SharedPreferencesUtil(context, c);
+            if (f4092a == null) {
+                f4092a = new SharedPreferencesUtil(context, c);
             }
         }
     }
 
     public static boolean put(String str, Object obj) {
         boolean z = true;
-        SharedPreferences.Editor edit = b.edit();
+        SharedPreferences.Editor edit = f4093b.edit();
         String simpleName = obj.getClass().getSimpleName();
         char c2 = 65535;
         try {
@@ -145,6 +147,6 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
     }
 
     public static void remove(String str) {
-        b.edit().remove(str).apply();
+        f4093b.edit().remove(str).apply();
     }
 }

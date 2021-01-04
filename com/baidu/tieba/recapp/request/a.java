@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class a {
     private String url;
 
@@ -23,30 +23,30 @@ public class a {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap ddH = a.this.ddH();
-                HashMap b = a.this.b(str, i, i2, i3, str2, str3);
+                HashMap dds = a.this.dds();
+                HashMap b2 = a.this.b(str, i, i2, i3, str2, str3);
                 e eVar = new e();
-                eVar.mx().setUrl(a.this.url);
-                eVar.mx().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                if (ddH != null && !ddH.isEmpty()) {
-                    eVar.mx().t(a.this.ddH());
+                eVar.lV().setUrl(a.this.url);
+                eVar.lV().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+                if (dds != null && !dds.isEmpty()) {
+                    eVar.lV().t(a.this.dds());
                 }
-                if (b != null && !b.isEmpty()) {
+                if (b2 != null && !b2.isEmpty()) {
                     ArrayList arrayList = new ArrayList();
-                    for (Map.Entry<String, Object> entry : b.entrySet()) {
+                    for (Map.Entry<String, Object> entry : b2.entrySet()) {
                         arrayList.add(entry);
                     }
-                    eVar.mx().n(arrayList);
+                    eVar.lV().n(arrayList);
                 }
                 new c(eVar).f(1, 0, 0);
-                eVar.my();
+                eVar.lW();
                 return null;
             }
         }.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> ddH() {
+    public HashMap<String, String> dds() {
         String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(SM.COOKIE, cookie);

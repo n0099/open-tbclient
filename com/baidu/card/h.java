@@ -1,23 +1,30 @@
 package com.baidu.card;
 
 import android.content.Context;
-/* loaded from: classes21.dex */
-public class h extends at {
-    private boolean agX;
+/* loaded from: classes.dex */
+public abstract class h extends a<com.baidu.tbadk.core.data.a> {
+    private int aht;
+    private int ahv;
 
     public h(Context context) {
         super(context);
-        this.agX = false;
+        this.aht = 0;
+        this.ahv = 0;
     }
 
-    public h(Context context, boolean z) {
-        super(context);
-        this.agX = false;
-        this.agX = z;
+    public int getTopMargin() {
+        return this.aht;
     }
 
-    @Override // com.baidu.card.at
-    protected com.baidu.tieba.play.operableVideoView.a tK() {
-        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.ajA, this.agX);
+    public void setTopMargin(int i) {
+        this.aht = i;
+    }
+
+    public int tj() {
+        return this.ahv;
+    }
+
+    public void bv(int i) {
+        this.ahv = i;
     }
 }

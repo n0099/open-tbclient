@@ -6,7 +6,7 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
     public static final int ABSTRACT_CLOSE = 2;
@@ -45,7 +45,7 @@ public class TbConfig {
     public static final int POST_IMAGE_QUALITY = 85;
     public static final int POST_IMAGE_SMALL = 1500;
     public static final boolean PROMOTED_DEFAULT = true;
-    public static final String SDK_VERSION = "4.1.0";
+    public static final String SDK_VERSION = "4.2.0";
     public static final String ST_TYPE_USE = "use";
     private static String SUBAPP_NAME = null;
     private static int SUBAPP_VERSION = 0;
@@ -73,7 +73,7 @@ public class TbConfig {
     private static boolean isInitAppServerMap;
     public static ISdkInitCallback sdkInitCallback;
     public static String SERVER_ADDRESS = "https://tiebac.baidu.com/";
-    public static String SERVER_QUANMIN_ADDRESS = "https://quanmin.baidu.com/";
+    public static String SERVER_QUANMIN_ADDRESS = TbDomainConfig.DOMAIN_HTTPS_QUANMIN_SERVER_HOST;
     public static String SERVER_HOST = TbDomainConfig.DOMAIN_HTTPS_SERVER_HOST;
     public static String LOGIN_FULL_ADDRESS = SERVER_ADDRESS + "c/s/login";
     public static String SERVER_ADDRESS_WEB_VIEW = "http://tieba.baidu.com/";
@@ -104,7 +104,7 @@ public class TbConfig {
     public static boolean isForceNoticeIm = false;
     public static int forceImType = 0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static final class PassConfig {
         public static final String APP_ID = "1";
         public static final String CRIPT_TYPE = "1";

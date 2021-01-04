@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.ar.constants.HttpConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<DeviceLoginMsg> CREATOR = new Parcelable.Creator<DeviceLoginMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DeviceLoginMsg.1
         /* JADX DEBUG: Method merged with bridge method */

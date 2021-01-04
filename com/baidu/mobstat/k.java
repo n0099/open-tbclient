@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public enum k {
     AP_LIST(0) { // from class: com.baidu.mobstat.k.1
         @Override // com.baidu.mobstat.k
@@ -99,6 +99,7 @@ public enum k {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [253=5, 254=5] */
     public synchronized int a(ArrayList<Long> arrayList) {
+        Exception e;
         int i;
         int i2 = 0;
         synchronized (this) {
@@ -107,38 +108,48 @@ public enum k {
                     j jVar = null;
                     try {
                         jVar = a();
-                    } catch (Exception e) {
-                        i = i2;
-                        bb.c().b(e);
-                        if (jVar != null) {
-                            jVar.close();
-                        }
+                    } catch (Exception e2) {
+                        e = e2;
                     }
                     if (jVar.a()) {
                         int size = arrayList.size();
-                        int i3 = 0;
-                        while (i3 < size) {
-                            if (jVar.b(arrayList.get(i3).longValue())) {
-                                i3++;
-                                i2++;
-                            } else if (jVar != null) {
-                                jVar.close();
+                        i = 0;
+                        for (int i3 = 0; i3 < size; i3++) {
+                            try {
+                                if (jVar.b(arrayList.get(i3).longValue())) {
+                                    i++;
+                                } else if (jVar != null) {
+                                    jVar.close();
+                                }
+                            } catch (Exception e3) {
+                                e = e3;
+                                i2 = i;
+                                bb.c().b(e);
+                                if (jVar != null) {
+                                    jVar.close();
+                                }
+                                i = i2;
+                                return i;
                             }
                         }
                         if (jVar != null) {
                             jVar.close();
-                            i = i2;
+                            i2 = i;
                         } else {
-                            i = i2;
+                            i2 = i;
                         }
-                        i2 = i;
-                    } else if (jVar != null) {
-                        jVar.close();
+                        i = i2;
+                    } else {
+                        if (jVar != null) {
+                            jVar.close();
+                        }
+                        i = 0;
                     }
                 }
             }
+            i = 0;
         }
-        return i2;
+        return i;
     }
 
     public synchronized List<String> a(int i) {
@@ -150,9 +161,9 @@ public enum k {
         if (arrayList3.size() != 0 && arrayList.size() == 0 && arrayList2.size() == 0) {
             i iVar = arrayList3.get(0);
             long a2 = iVar.a();
-            String b = iVar.b();
+            String b2 = iVar.b();
             arrayList2.add(Long.valueOf(a2));
-            arrayList.add(b);
+            arrayList.add(b2);
         }
         int a3 = a(arrayList2);
         if (a3 != arrayList.size()) {
@@ -176,13 +187,13 @@ public enum k {
             while (it.hasNext()) {
                 i next = it.next();
                 long a3 = next.a();
-                String b = next.b();
-                int length = b.length();
+                String b2 = next.b();
+                int length = b2.length();
                 if (i3 + length > i) {
                     break;
                 }
                 arrayList.add(Long.valueOf(a3));
-                list.add(b);
+                list.add(b2);
                 i3 += length;
             }
             c -= i6;
@@ -214,7 +225,7 @@ public enum k {
                 }
             }
             if (jVar.a()) {
-                int b = jVar.b();
+                int b2 = jVar.b();
             }
             if (jVar != null) {
                 jVar.close();

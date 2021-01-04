@@ -5,10 +5,9 @@ import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Build;
-import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class WebRtcAudioManager {
     private static final int BITS_PER_SAMPLE = 16;
     private static final int DEFAULT_FRAME_PER_BUFFER = 256;
@@ -54,7 +53,7 @@ class WebRtcAudioManager {
     public static int getSampleRate(AudioManager audioManager) {
         if (WebRtcAudioUtils.runningOnEmulator()) {
             Logging.d(TAG, "Running emulator, overriding sample rate to 8 kHz.");
-            return CoolPraiseGuideLottieView.ANIM_DURATION;
+            return 8000;
         }
         int sampleRateForApiLevel = getSampleRateForApiLevel(audioManager);
         Logging.d(TAG, "Sample rate is set to " + sampleRateForApiLevel + " Hz");

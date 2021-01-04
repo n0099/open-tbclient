@@ -1,9 +1,9 @@
 package com.baidu.searchbox.logsystem.logsys.eventscene.handler;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.logsys.LogFile;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
     protected static final String TAG = "ForwardingCrash";
     private final List<DeviceEventSceneHandler> mEventSceneHandlers = new LinkedList();
@@ -65,23 +65,22 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
     @Nullable
     public Set<DeviceSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
         HashSet hashSet;
-        Exception e;
         Set<DeviceSnapshotType> requireGeneralSnapshots;
         HashSet hashSet2 = null;
         for (DeviceEventSceneHandler deviceEventSceneHandler : this.mEventSceneHandlers) {
             if (deviceEventSceneHandler != null) {
                 try {
                     requireGeneralSnapshots = deviceEventSceneHandler.requireGeneralSnapshots(context, eventObject);
-                } catch (Exception e2) {
+                } catch (Exception e) {
+                    e = e;
                     hashSet = hashSet2;
-                    e = e2;
                 }
                 if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0) {
                     hashSet = hashSet2 == null ? new HashSet(5) : hashSet2;
                     try {
                         hashSet.addAll(requireGeneralSnapshots);
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         if (LLog.sDebug) {
                             Log.d(TAG, Log.getStackTraceString(e));
                         }
@@ -100,7 +99,6 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
     @Nullable
     public Set<LogFile> getCustomizedSnapshots(@NonNull Context context, @NonNull File file, @NonNull EventObject eventObject) {
         HashSet hashSet;
-        Exception e;
         Set<LogFile> customizedSnapshots;
         if (context == null && LLog.sDebug) {
             Log.d(TAG, "Context is null in ForwardingEventSceneHandler.getCustomizedSnapshots.");
@@ -110,16 +108,16 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
             if (deviceEventSceneHandler != null) {
                 try {
                     customizedSnapshots = deviceEventSceneHandler.getCustomizedSnapshots(context, file, eventObject);
-                } catch (Exception e2) {
+                } catch (Exception e) {
+                    e = e;
                     hashSet = hashSet2;
-                    e = e2;
                 }
                 if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
                     hashSet = hashSet2 == null ? new HashSet(customizedSnapshots.size()) : hashSet2;
                     try {
                         hashSet.addAll(customizedSnapshots);
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         if (LLog.sDebug) {
                             Log.d(TAG, Log.getStackTraceString(e));
                         }

@@ -1,10 +1,10 @@
 package com.baidu.searchbox.logsystem.basic.util;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.logsystem.basic.track.LokiTrackUISaver;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SnapshotUtil {
     public static final String LOG_FILE_PATH_NAME_PARAMETER_DIVIDER = "=";
 
@@ -199,12 +199,10 @@ public class SnapshotUtil {
         return new LogFile(file2, true);
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [322=4, 317=4] */
     @Nullable
     public static File createPathNameKeeper(@NonNull File file, @NonNull Set<LogFile> set) {
         FileWriter fileWriter;
-        Throwable th;
         if (set.size() > 0) {
             File file2 = new File(file, SnapshotConstant.LocalConstants.LOCAL_PROCESS_PATH_NAME_KEEPER);
             if (Utility.createNewEmptyFile(file2)) {
@@ -229,13 +227,15 @@ public class SnapshotUtil {
                         fileWriter.flush();
                         if (fileWriter != null) {
                             try {
+                                fileWriter.close();
                                 return file2;
                             } catch (IOException e) {
+                                e.printStackTrace();
                                 return file2;
                             }
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th) {
+                        th = th;
                         try {
                             th.printStackTrace();
                             if (fileWriter != null) {
@@ -248,7 +248,7 @@ public class SnapshotUtil {
                                 }
                             }
                             return file2;
-                        } finally {
+                        } catch (Throwable th2) {
                             if (fileWriter != null) {
                                 try {
                                     fileWriter.close();
@@ -256,11 +256,12 @@ public class SnapshotUtil {
                                     e3.printStackTrace();
                                 }
                             }
+                            throw th2;
                         }
                     }
                 } catch (Throwable th3) {
-                    fileWriter = null;
                     th = th3;
+                    fileWriter = null;
                 }
             }
             return file2;

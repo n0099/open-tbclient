@@ -7,21 +7,21 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.k;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g implements j {
-    public static final int eNQ = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds251);
-    public static final int eNR = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds231);
+    public static final int eXN = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds251);
+    public static final int eXO = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds231);
     private Drawable drawable;
-    private k eNJ;
-    public EMTextView eNK;
-    private View eNL;
-    private int eNM;
-    private int eNN;
-    private k.b eNO;
-    private boolean eNP;
-    private boolean eNS;
+    private k eXG;
+    public EMTextView eXH;
+    private View eXI;
+    private int eXJ;
+    private int eXK;
+    private k.b eXL;
+    private boolean eXM;
+    private boolean eXP;
     private int mId;
     private ImageView mImageView;
     private final View.OnClickListener mOnClickListener;
@@ -43,23 +43,23 @@ public class g implements j {
 
     public g(String str, k kVar) {
         this.mTextColor = R.color.CAM_X0105;
-        this.eNM = R.color.CAM_X0204;
-        this.eNN = 17;
-        this.eNP = false;
-        this.eNS = false;
+        this.eXJ = R.color.CAM_X0204;
+        this.eXK = 17;
+        this.eXM = false;
+        this.eXP = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.eNO != null) {
-                    g.this.eNO.onClick();
+                if (g.this.eXL != null) {
+                    g.this.eXL.onClick();
                 }
-                if (g.this.eNJ != null && g.this.eNJ.brO() != null) {
-                    g.this.eNJ.brO().a(g.this.eNJ, g.this.mId, g.this.eNK);
+                if (g.this.eXG != null && g.this.eXG.buq() != null) {
+                    g.this.eXG.buq().a(g.this.eXG, g.this.mId, g.this.eXH);
                 }
             }
         };
         this.mText = str;
-        this.eNJ = kVar;
+        this.eXG = kVar;
         this.mId = hashCode();
         initView();
         initListener();
@@ -67,29 +67,29 @@ public class g implements j {
 
     public g(int i, String str, k kVar) {
         this.mTextColor = R.color.CAM_X0105;
-        this.eNM = R.color.CAM_X0204;
-        this.eNN = 17;
-        this.eNP = false;
-        this.eNS = false;
+        this.eXJ = R.color.CAM_X0204;
+        this.eXK = 17;
+        this.eXM = false;
+        this.eXP = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.eNO != null) {
-                    g.this.eNO.onClick();
+                if (g.this.eXL != null) {
+                    g.this.eXL.onClick();
                 }
-                if (g.this.eNJ != null && g.this.eNJ.brO() != null) {
-                    g.this.eNJ.brO().a(g.this.eNJ, g.this.mId, g.this.eNK);
+                if (g.this.eXG != null && g.this.eXG.buq() != null) {
+                    g.this.eXG.buq().a(g.this.eXG, g.this.mId, g.this.eXH);
                 }
             }
         };
         this.mId = i;
         this.mText = str;
-        this.eNJ = kVar;
+        this.eXG = kVar;
         initView();
         initListener();
     }
 
-    public String brG() {
+    public String bui() {
         return this.mText;
     }
 
@@ -100,53 +100,53 @@ public class g implements j {
 
     public void setText(String str) {
         this.mText = str;
-        this.eNK.setText(this.mText);
+        this.eXH.setText(this.mText);
     }
 
     public void a(k.b bVar) {
-        this.eNO = bVar;
+        this.eXL = bVar;
         initListener();
     }
 
     public void setTextColor(int i) {
         this.mTextColor = i;
-        ap.setViewTextColor(this.eNK, i);
+        ao.setViewTextColor(this.eXH, i);
     }
 
     @Override // com.baidu.tbadk.core.dialog.j
     public void onChangeSkinType() {
-        ap.setBackgroundResource(this.eNK, this.eNM);
-        ap.k(this.eNK, this.mTextColor);
-        ap.setBackgroundColor(this.eNL, R.color.CAM_X0204);
+        ao.setBackgroundResource(this.eXH, this.eXJ);
+        ao.n(this.eXH, this.mTextColor);
+        ao.setBackgroundColor(this.eXI, R.color.CAM_X0204);
     }
 
     private void initView() {
-        if (this.eNJ != null && this.eNJ.getContext() != null) {
-            this.mView = LayoutInflater.from(this.eNJ.getContext()).inflate(R.layout.popup_dialog_view_item, this.eNJ.getView(), false);
-            this.eNK = (EMTextView) this.mView.findViewById(R.id.item_view);
-            this.eNK.setText(this.mText);
-            this.eNK.setGravity(this.eNN);
-            this.eNL = this.mView.findViewById(R.id.divider_line);
-            if (this.eNP) {
-                this.eNL.setVisibility(0);
+        if (this.eXG != null && this.eXG.getContext() != null) {
+            this.mView = LayoutInflater.from(this.eXG.getContext()).inflate(R.layout.popup_dialog_view_item, this.eXG.getView(), false);
+            this.eXH = (EMTextView) this.mView.findViewById(R.id.item_view);
+            this.eXH.setText(this.mText);
+            this.eXH.setGravity(this.eXK);
+            this.eXI = this.mView.findViewById(R.id.divider_line);
+            if (this.eXM) {
+                this.eXI.setVisibility(0);
             } else {
-                this.eNL.setVisibility(8);
+                this.eXI.setVisibility(8);
             }
             onChangeSkinType();
         }
     }
 
-    private void brH() {
-        if (this.eNJ != null && this.eNJ.getContext() != null) {
-            this.mView = LayoutInflater.from(this.eNJ.getContext()).inflate(R.layout.popup_dialog_view_horizal_item, this.eNJ.getView(), false);
-            this.mView.getLayoutParams().width = this.eNS ? eNR : eNQ;
-            Object tag = this.eNK.getTag();
-            this.eNK = (EMTextView) this.mView.findViewById(R.id.item_view);
-            this.eNK.setText(this.mText);
-            this.eNK.setGravity(this.eNN);
-            this.eNK.setTag(tag);
-            this.eNL = this.mView.findViewById(R.id.divider_line);
-            this.eNL.setVisibility(8);
+    private void buj() {
+        if (this.eXG != null && this.eXG.getContext() != null) {
+            this.mView = LayoutInflater.from(this.eXG.getContext()).inflate(R.layout.popup_dialog_view_horizal_item, this.eXG.getView(), false);
+            this.mView.getLayoutParams().width = this.eXP ? eXO : eXN;
+            Object tag = this.eXH.getTag();
+            this.eXH = (EMTextView) this.mView.findViewById(R.id.item_view);
+            this.eXH.setText(this.mText);
+            this.eXH.setGravity(this.eXK);
+            this.eXH.setTag(tag);
+            this.eXI = this.mView.findViewById(R.id.divider_line);
+            this.eXI.setVisibility(8);
             this.mImageView = (ImageView) this.mView.findViewById(R.id.item_image);
             this.mImageView.setImageDrawable(this.drawable);
             onChangeSkinType();
@@ -155,16 +155,16 @@ public class g implements j {
     }
 
     public void setCanScroll(boolean z) {
-        this.eNS = z;
+        this.eXP = z;
     }
 
-    public void brI() {
-        brH();
+    public void buk() {
+        buj();
     }
 
     private void initListener() {
-        if (this.eNK != null) {
-            this.eNK.setOnClickListener(this.mOnClickListener);
+        if (this.eXH != null) {
+            this.eXH.setOnClickListener(this.mOnClickListener);
         }
     }
 }

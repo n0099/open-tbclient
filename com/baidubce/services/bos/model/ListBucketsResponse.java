@@ -3,7 +3,7 @@ package com.baidubce.services.bos.model;
 import com.baidubce.model.User;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class ListBucketsResponse extends BosResponse {
     private List<BucketSummary> buckets = new ArrayList();
     private User owner;

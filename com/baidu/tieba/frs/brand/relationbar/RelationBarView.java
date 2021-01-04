@@ -1,23 +1,23 @@
 package com.baidu.tieba.frs.brand.relationbar;
 
 import android.content.Context;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.OriForumInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
-    private a jby;
+    private RelationBarAdapter jnM;
     private RecyclerView mRecyclerView;
     private int mSkinType;
 
@@ -43,31 +43,31 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
         setOrientation(1);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
-        this.jby = new a(context);
-        this.mRecyclerView.setAdapter(this.jby);
+        this.jnM = new RelationBarAdapter(context);
+        this.mRecyclerView.setAdapter(this.jnM);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         int dimens = l.getDimens(context, R.dimen.tbds44);
-        this.mRecyclerView.addItemDecoration(new c(dimens, l.getDimens(context, R.dimen.tbds26), dimens));
+        this.mRecyclerView.addItemDecoration(new RelationSpaceItemDecoration(dimens, l.getDimens(context, R.dimen.tbds26), dimens));
         onChangeSkinType();
     }
 
     public void setData(List<OriForumInfo> list) {
-        if (y.isEmpty(list)) {
+        if (x.isEmpty(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.jby.setData(list);
-        this.jby.notifyDataSetChanged();
+        this.jnM.setData(list);
+        this.jnM.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            ap.setBackgroundColor(this, R.color.CAM_X0205);
-            this.jby.notifyDataSetChanged();
+            ao.setBackgroundColor(this, R.color.CAM_X0205);
+            this.jnM.notifyDataSetChanged();
         }
     }
 }

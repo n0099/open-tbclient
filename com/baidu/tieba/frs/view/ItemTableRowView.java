@@ -5,42 +5,42 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ItemTableRowView extends View {
-    private RectF Hx;
-    private int fHj;
-    private int fHl;
-    private int fHn;
-    private int fHo;
-    private int fHp;
-    private int fHr;
-    private Drawable fHs;
-    private Drawable fHt;
-    private int jCY;
-    private int jCZ;
-    private int jDa;
-    private int jDb;
-    private int jDc;
-    private int jDd;
+    private int fQL;
+    private int fQN;
+    private int fQP;
+    private int fQQ;
+    private int fQR;
+    private int fQT;
+    private Drawable fQU;
+    private Drawable fQV;
+    private int jPA;
+    private int jPB;
+    private int jPC;
+    private int jPD;
+    private int jPE;
+    private int jPF;
     private int lineHeight;
     private Paint paint;
     private float progress;
     private int radius;
-    private static final int jDe = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
-    private static final int jDf = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-    private static final int jDg = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
-    private static final int jDh = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+    private RectF rectF;
+    private static final int jPG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
+    private static final int jPH = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+    private static final int jPI = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
+    private static final int jPJ = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
     private static final int DEFAULT_RADIUS = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
-    private static final int jDi = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
-    private static final int jhH = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
+    private static final int jPK = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
+    private static final int juh = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
 
     public ItemTableRowView(Context context) {
         this(context, null);
@@ -52,24 +52,24 @@ public class ItemTableRowView extends View {
 
     public ItemTableRowView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fHj = 5;
-        this.fHo = R.drawable.icon_pure_evaluation_star24_n;
-        this.fHp = 17170445;
-        this.fHr = R.color.CAM_X0109;
-        this.jDb = R.color.CAM_X0210;
-        this.jDc = R.color.CAM_X0305;
+        this.fQL = 5;
+        this.fQQ = R.drawable.icon_pure_evaluation_star24_n;
+        this.fQR = 17170445;
+        this.fQT = R.color.CAM_X0109;
+        this.jPD = R.color.CAM_X0210;
+        this.jPE = R.color.CAM_X0305;
         init();
     }
 
     private void init() {
-        this.jCZ = jDe;
-        this.fHl = jDf;
-        this.jDa = jDg;
-        this.lineHeight = jDh;
+        this.jPB = jPG;
+        this.fQN = jPH;
+        this.jPC = jPI;
+        this.lineHeight = jPJ;
         this.radius = DEFAULT_RADIUS;
-        this.jDd = jDi;
-        bwe();
-        this.Hx = new RectF();
+        this.jPF = jPK;
+        byy();
+        this.rectF = new RectF();
         this.paint = new Paint(1);
     }
 
@@ -81,16 +81,16 @@ public class ItemTableRowView extends View {
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode2 == 1073741824) {
-            this.jCZ = (size2 - getPaddingBottom()) - getPaddingTop();
-            this.lineHeight = Math.max(0, this.jCZ - jhH);
+            this.jPB = (size2 - getPaddingBottom()) - getPaddingTop();
+            this.lineHeight = Math.max(0, this.jPB - juh);
         } else {
-            size2 = this.jCZ + getPaddingBottom() + getPaddingTop();
+            size2 = this.jPB + getPaddingBottom() + getPaddingTop();
         }
-        this.fHn = (this.jCZ * this.fHj) + (this.fHl * (this.fHj - 1));
+        this.fQP = (this.jPB * this.fQL) + (this.fQN * (this.fQL - 1));
         if (mode != 1073741824) {
-            size = this.fHn + getPaddingLeft() + getPaddingRight() + this.jDa + this.jDd;
-        } else if (size < this.fHn) {
-            this.jDa = Math.max(0, (((size - getPaddingLeft()) - getPaddingRight()) - this.fHn) - this.jDd);
+            size = this.fQP + getPaddingLeft() + getPaddingRight() + this.jPC + this.jPF;
+        } else if (size < this.fQP) {
+            this.jPC = Math.max(0, (((size - getPaddingLeft()) - getPaddingRight()) - this.fQP) - this.jPF);
         }
         setMeasuredDimension(size, size2);
     }
@@ -98,26 +98,26 @@ public class ItemTableRowView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.fHs != null && this.fHt != null) {
+        if (this.fQU != null && this.fQV != null) {
             int paddingLeft = getPaddingLeft();
-            for (int i = 0; i < this.jCY; i++) {
-                this.fHs.setBounds(paddingLeft, getPaddingTop(), this.jCZ + paddingLeft, this.jCZ + getPaddingTop());
-                this.fHs.draw(canvas);
-                paddingLeft += this.fHl + this.jCZ;
+            for (int i = 0; i < this.jPA; i++) {
+                this.fQU.setBounds(paddingLeft, getPaddingTop(), this.jPB + paddingLeft, this.jPB + getPaddingTop());
+                this.fQU.draw(canvas);
+                paddingLeft += this.fQN + this.jPB;
             }
-            for (int i2 = this.jCY; i2 < this.fHj; i2++) {
-                this.fHt.setBounds(paddingLeft, getPaddingTop(), this.jCZ + paddingLeft, this.jCZ + getPaddingTop());
-                this.fHt.draw(canvas);
-                paddingLeft += this.fHl + this.jCZ;
+            for (int i2 = this.jPA; i2 < this.fQL; i2++) {
+                this.fQV.setBounds(paddingLeft, getPaddingTop(), this.jPB + paddingLeft, this.jPB + getPaddingTop());
+                this.fQV.draw(canvas);
+                paddingLeft += this.fQN + this.jPB;
             }
-            int i3 = (paddingLeft - this.fHl) + this.jDd;
+            int i3 = (paddingLeft - this.fQN) + this.jPF;
             float measuredHeight = (((getMeasuredHeight() - getPaddingBottom()) - getPaddingTop()) - this.lineHeight) / 2;
-            this.Hx.set(i3, measuredHeight, getMeasuredWidth(), this.lineHeight + measuredHeight);
-            this.paint.setColor(ap.getColor(this.jDb));
-            canvas.drawRoundRect(this.Hx, this.radius, this.radius, this.paint);
-            this.paint.setColor(ap.getColor(this.jDc));
-            this.Hx.set(i3, measuredHeight, ((getMeasuredWidth() - i3) * this.progress) + i3, this.lineHeight + measuredHeight);
-            canvas.drawRoundRect(this.Hx, this.radius, this.radius, this.paint);
+            this.rectF.set(i3, measuredHeight, getMeasuredWidth(), this.lineHeight + measuredHeight);
+            this.paint.setColor(ao.getColor(this.jPD));
+            canvas.drawRoundRect(this.rectF, this.radius, this.radius, this.paint);
+            this.paint.setColor(ao.getColor(this.jPE));
+            this.rectF.set(i3, measuredHeight, ((getMeasuredWidth() - i3) * this.progress) + i3, this.lineHeight + measuredHeight);
+            canvas.drawRoundRect(this.rectF, this.radius, this.radius, this.paint);
         }
     }
 
@@ -130,16 +130,16 @@ public class ItemTableRowView extends View {
     }
 
     public void onChangeSkinType() {
-        bwe();
+        byy();
         invalidate();
     }
 
-    public void bwe() {
-        this.fHs = SvgManager.btW().a(this.fHo, this.fHp, (SvgManager.SvgResourceStateType) null);
-        this.fHt = SvgManager.btW().a(this.fHo, this.fHr, (SvgManager.SvgResourceStateType) null);
+    public void byy() {
+        this.fQU = SvgManager.bwq().a(this.fQQ, this.fQR, (SvgManager.SvgResourceStateType) null);
+        this.fQV = SvgManager.bwq().a(this.fQQ, this.fQT, (SvgManager.SvgResourceStateType) null);
     }
 
     public void setEmptyStartCount(int i) {
-        this.jCY = i;
+        this.jPA = i;
     }
 }

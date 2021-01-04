@@ -1,7 +1,6 @@
 package com.baidu.tieba.newdetail.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -10,126 +9,127 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.e.a;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.f.a;
 import com.baidu.tbadk.h.f;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.a.b;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class HotTopicDetailSpecialItem extends RelativeLayout implements View.OnClickListener {
-    private f<b> ajQ;
-    private TextView akq;
-    private TbImageView jQE;
-    private View jQF;
-    private View jQG;
-    private ImageView jQH;
-    private TextView jQI;
-    private int jQw;
-    private TextView kfg;
-    private ViewGroup lqY;
-    private b lqZ;
+    private TextView akS;
+    private f<b> aks;
+    private int kdK;
+    private TbImageView kdS;
+    private View kdT;
+    private View kdU;
+    private ImageView kdV;
+    private TextView kdW;
+    private TextView kss;
+    private ViewGroup lwg;
+    private b lwh;
 
     public HotTopicDetailSpecialItem(Context context) {
         super(context);
-        this.jQw = 3;
+        this.kdK = 3;
         initView();
     }
 
     public HotTopicDetailSpecialItem(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jQw = 3;
+        this.kdK = 3;
         initView();
     }
 
     public HotTopicDetailSpecialItem(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jQw = 3;
+        this.kdK = 3;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_detail_special_item, (ViewGroup) this, true);
-        this.lqY = (ViewGroup) findViewById(R.id.rootLayout);
-        this.lqY.setOnClickListener(this);
-        this.jQE = (TbImageView) findViewById(R.id.coverView);
-        this.jQF = findViewById(R.id.coverGradientMask);
-        this.jQG = findViewById(R.id.videoTimeContainer);
-        this.jQH = (ImageView) findViewById(R.id.videoPlayIcon);
-        this.jQI = (TextView) findViewById(R.id.videoPlayTime);
-        this.kfg = (TextView) findViewById(R.id.descView);
-        this.akq = (TextView) findViewById(R.id.tagView);
-        this.jQE.setPlaceHolder(2);
-        this.jQE.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
-        this.jQE.setConrers(15);
+        this.lwg = (ViewGroup) findViewById(R.id.rootLayout);
+        this.lwg.setOnClickListener(this);
+        this.kdS = (TbImageView) findViewById(R.id.coverView);
+        this.kdT = findViewById(R.id.coverGradientMask);
+        this.kdU = findViewById(R.id.videoTimeContainer);
+        this.kdV = (ImageView) findViewById(R.id.videoPlayIcon);
+        this.kdW = (TextView) findViewById(R.id.videoPlayTime);
+        this.kss = (TextView) findViewById(R.id.descView);
+        this.akS = (TextView) findViewById(R.id.tagView);
+        this.kdS.setPlaceHolder(2);
+        this.kdS.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
+        this.kdS.setConrers(15);
     }
 
     public void setOnItemCoverListener(f<b> fVar) {
-        this.ajQ = fVar;
+        this.aks = fVar;
     }
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.lqZ = bVar;
+            this.lwh = bVar;
             if (TextUtils.isEmpty(bVar.cover)) {
-                this.jQE.setVisibility(8);
-                this.jQF.setVisibility(8);
-                this.jQG.setVisibility(8);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.akq.getLayoutParams();
+                this.kdS.setVisibility(8);
+                this.kdT.setVisibility(8);
+                this.kdU.setVisibility(8);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.akS.getLayoutParams();
                 layoutParams.addRule(8, 0);
                 layoutParams.addRule(3, R.id.descView);
-                this.akq.setLayoutParams(layoutParams);
+                this.akS.setLayoutParams(layoutParams);
             } else {
-                this.jQE.startLoad(bVar.cover, 10, false);
-                this.jQE.setVisibility(0);
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.akq.getLayoutParams();
+                this.kdS.startLoad(bVar.cover, 10, false);
+                this.kdS.setVisibility(0);
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.akS.getLayoutParams();
                 layoutParams2.addRule(8, R.id.coverView);
                 layoutParams2.addRule(3, 0);
-                this.akq.setLayoutParams(layoutParams2);
+                this.akS.setLayoutParams(layoutParams2);
                 if (bVar.time > 0) {
-                    this.jQG.setVisibility(0);
-                    this.jQF.setVisibility(0);
-                    this.jQI.setText(StringUtils.translateSecondsToString(bVar.time));
+                    this.kdU.setVisibility(0);
+                    this.kdT.setVisibility(0);
+                    this.kdW.setText(StringUtils.translateSecondsToString(bVar.time));
                 } else {
-                    this.jQG.setVisibility(8);
-                    this.jQF.setVisibility(8);
+                    this.kdU.setVisibility(8);
+                    this.kdT.setVisibility(8);
                 }
             }
-            this.kfg.setText(bVar.desc);
-            String str = "" + this.akq.getContext().getResources().getString(R.string.hot_topic_special_item_reply, au.numberUniformFormatExtra(bVar.inP));
-            String numberUniformFormatExtra = au.numberUniformFormatExtra(bVar.likeNum);
+            this.kss.setText(bVar.desc);
+            String str = "" + this.akS.getContext().getResources().getString(R.string.hot_topic_special_item_reply, at.numberUniformFormatExtra(bVar.iAj));
+            String numberUniformFormatExtra = at.numberUniformFormatExtra(bVar.likeNum);
             if (str.length() > 0) {
                 str = str + "  ";
             }
-            this.akq.setText(str + this.akq.getContext().getResources().getString(R.string.hot_topic_special_item_like, numberUniformFormatExtra));
-            setPadding(0, 0, 0, bVar.iOe ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds40) : 0);
+            this.akS.setText(str + this.akS.getContext().getResources().getString(R.string.hot_topic_special_item_like, numberUniformFormatExtra));
+            setPadding(0, 0, 0, bVar.jap ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds40) : 0);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jQw != i) {
-            a.g(this.lqY, R.color.CAM_X0205, R.color.CAM_X0204);
-            ap.setViewTextColor(this.kfg, R.color.CAM_X0105);
-            ap.setViewTextColor(this.akq, R.color.CAM_X0109);
-            ap.setViewTextColor(this.jQI, R.color.CAM_X0101);
-            this.jQH.setImageDrawable(SvgManager.btW().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
-            this.jQw = i;
+        if (this.kdK != i) {
+            a.m(this.lwg, R.color.CAM_X0205, R.color.CAM_X0204);
+            ao.setViewTextColor(this.kss, R.color.CAM_X0105);
+            ao.setViewTextColor(this.akS, R.color.CAM_X0109);
+            ao.setViewTextColor(this.kdW, R.color.CAM_X0101);
+            this.kdV.setImageDrawable(SvgManager.bwq().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+            this.kdK = i;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.lqZ != null && this.lqZ.eCR != null) {
-            if (this.ajQ != null) {
-                this.ajQ.a(view, this.lqZ, 0, 0L);
+        if (this.lwh != null && this.lwh.eMv != null) {
+            if (this.aks != null) {
+                this.aks.a(view, this.lwh, 0, 0L);
             }
-            az.a((com.baidu.tbadk.core.data.a) this.lqZ.eCR, view.getContext(), 17, false);
+            ay.a((com.baidu.tbadk.core.data.a) this.lwh.eMv, view.getContext(), 17, false);
         }
     }
 }

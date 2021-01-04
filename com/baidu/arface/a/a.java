@@ -2,9 +2,9 @@ package com.baidu.arface.a;
 
 import java.lang.reflect.Array;
 import java.security.InvalidParameterException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
-    public static String F(Object obj) {
+    public static String B(Object obj) {
         if (obj == null) {
             return null;
         }

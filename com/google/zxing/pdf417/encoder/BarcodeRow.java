@@ -1,5 +1,5 @@
 package com.google.zxing.pdf417.encoder;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class BarcodeRow {
     private int currentLocation = 0;
     private final byte[] row;
@@ -10,8 +10,8 @@ final class BarcodeRow {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void set(int i, byte b) {
-        this.row[i] = b;
+    public void set(int i, byte b2) {
+        this.row[i] = b2;
     }
 
     private void set(int i, boolean z) {

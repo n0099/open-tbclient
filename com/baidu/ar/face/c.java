@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static int D(int i) {
         switch (i) {
@@ -141,6 +141,7 @@ public class c {
 
     public static int[] a(int[] iArr, int[] iArr2) {
         int[] iArr3;
+        int[] iArr4;
         boolean z;
         if (iArr == null || iArr.length == 0) {
             return iArr2;
@@ -149,26 +150,27 @@ public class c {
             return iArr;
         }
         if (iArr.length > iArr2.length) {
-            iArr3 = iArr;
-        } else if (iArr.length < iArr2.length) {
             iArr3 = iArr2;
-            iArr2 = iArr;
+            iArr4 = iArr;
+        } else if (iArr.length < iArr2.length) {
+            iArr3 = iArr;
+            iArr4 = iArr2;
         } else {
-            iArr2 = null;
             iArr3 = null;
+            iArr4 = null;
         }
-        if (iArr3 == null || iArr2 == null) {
+        if (iArr4 == null || iArr3 == null) {
             return null;
         }
-        int[] iArr4 = new int[iArr3.length - iArr2.length];
+        int[] iArr5 = new int[iArr4.length - iArr3.length];
         int i = 0;
-        for (int i2 = 0; i2 < iArr3.length; i2++) {
+        for (int i2 = 0; i2 < iArr4.length; i2++) {
             int i3 = 0;
             while (true) {
-                if (i3 >= iArr2.length) {
+                if (i3 >= iArr3.length) {
                     z = false;
                     break;
-                } else if (iArr3[i2] == iArr2[i3]) {
+                } else if (iArr4[i2] == iArr3[i3]) {
                     z = true;
                     break;
                 } else {
@@ -176,11 +178,11 @@ public class c {
                 }
             }
             if (!z) {
-                iArr4[i] = iArr3[i2];
+                iArr5[i] = iArr4[i2];
                 i++;
             }
         }
-        return iArr4;
+        return iArr5;
     }
 
     public static boolean b(String str, boolean z) {

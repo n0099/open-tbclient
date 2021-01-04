@@ -13,7 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLConnection;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static int a(int i, int i2, int i3, int i4) {
         float f = 1.0f;
@@ -103,28 +103,26 @@ public class b {
     }
 
     public static void a(k kVar, String str, String str2) throws IOException {
+        FileOutputStream fileOutputStream;
         InputStream inputStream;
-        FileOutputStream fileOutputStream = null;
         byte[] bArr = new byte[2048];
         try {
-            InputStream b = kVar.b().b();
+            inputStream = kVar.b().b();
             try {
                 File file = new File(str);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(new File(file, str2));
+                fileOutputStream = new FileOutputStream(new File(file, str2));
                 while (true) {
                     try {
-                        int read = b.read(bArr);
+                        int read = inputStream.read(bArr);
                         if (read == -1) {
                             break;
                         }
-                        fileOutputStream2.write(bArr, 0, read);
+                        fileOutputStream.write(bArr, 0, read);
                     } catch (Throwable th) {
                         th = th;
-                        fileOutputStream = fileOutputStream2;
-                        inputStream = b;
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
@@ -142,27 +140,28 @@ public class b {
                         throw th;
                     }
                 }
-                fileOutputStream2.flush();
-                if (b != null) {
+                fileOutputStream.flush();
+                if (inputStream != null) {
                     try {
-                        b.close();
+                        inputStream.close();
                     } catch (IOException e3) {
                         e3.printStackTrace();
                     }
                 }
-                if (fileOutputStream2 != null) {
+                if (fileOutputStream != null) {
                     try {
-                        fileOutputStream2.close();
+                        fileOutputStream.close();
                     } catch (IOException e4) {
                         e4.printStackTrace();
                     }
                 }
             } catch (Throwable th2) {
                 th = th2;
-                inputStream = b;
+                fileOutputStream = null;
             }
         } catch (Throwable th3) {
             th = th3;
+            fileOutputStream = null;
             inputStream = null;
         }
     }

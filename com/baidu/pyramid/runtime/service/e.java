@@ -1,19 +1,17 @@
 package com.baidu.pyramid.runtime.service;
 
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.ubc.UBC;
 import com.baidu.ubc.ae;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class e {
-    private static final HashMap<d, b<?>> coY = new HashMap<>();
+    private static final HashMap<d, b<?>> cwe = new HashMap<>();
 
     static {
-        agb();
+        ahX();
     }
 
-    private static void agb() {
-        a("account", OneKeyLoginSdkCall.k, com.baidu.tieba.write.b.b.b.class);
+    private static void ahX() {
         a("ubc", UBC.TAG, ae.class);
     }
 
@@ -28,15 +26,15 @@ public class e {
     }
 
     public static <T> void a(d dVar, b<T> bVar) {
-        synchronized (coY) {
-            coY.put(dVar, bVar);
+        synchronized (cwe) {
+            cwe.put(dVar, bVar);
         }
     }
 
     public static <T> T a(d dVar) {
-        b<?> bVar = coY.get(dVar);
+        b<?> bVar = cwe.get(dVar);
         if (bVar != null) {
-            return (T) bVar.afZ();
+            return (T) bVar.ahV();
         }
         return null;
     }

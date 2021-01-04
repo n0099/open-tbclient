@@ -12,13 +12,13 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.log.LogManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaGiftGraffitiShowView extends LinearLayout {
-    private c bfM;
-    private AlaGraffitiGiftInfoView bfN;
-    private FrameLayout bfO;
-    private int bfP;
-    private int bfQ;
+    private c bhv;
+    private AlaGraffitiGiftInfoView bhw;
+    private FrameLayout bhx;
+    private int bhy;
+    private int bhz;
 
     public AlaGiftGraffitiShowView(Context context) {
         super(context);
@@ -37,12 +37,12 @@ public class AlaGiftGraffitiShowView extends LinearLayout {
 
     private void init() {
         View.inflate(getContext(), a.g.ala_gift_graffiti_show_layout, this);
-        this.bfN = (AlaGraffitiGiftInfoView) findViewById(a.f.ala_gift_graffiti_info);
-        this.bfN.setBackgroundResource(a.e.ala_small_gift_bg_alpha_shape);
-        this.bfO = (FrameLayout) findViewById(a.f.ala_gift_graffiti_show_container);
+        this.bhw = (AlaGraffitiGiftInfoView) findViewById(a.f.ala_gift_graffiti_info);
+        this.bhw.setBackgroundResource(a.e.ala_small_gift_bg_alpha_shape);
+        this.bhx = (FrameLayout) findViewById(a.f.ala_gift_graffiti_show_container);
         int dip2px = BdUtilHelper.dip2px(getContext(), 32.0f);
-        this.bfQ = dip2px;
-        this.bfP = dip2px;
+        this.bhz = dip2px;
+        this.bhy = dip2px;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -51,48 +51,48 @@ public class AlaGiftGraffitiShowView extends LinearLayout {
     }
 
     public void setGiftItem(c cVar) {
-        this.bfM = cVar;
-        if (this.bfM != null && this.bfM.bcN.aWg != null) {
-            this.bfN.setVisibility(0);
-            this.bfN.setGiftInfo(this.bfM.portrait, this.bfM.bcN.getThumbnail_url(), String.format(getResources().getString(a.h.ala_gift_graffiti_send_info), cVar.userName, Integer.valueOf(ListUtils.getCount(cVar.bcN.aWg.aXp))));
-            if (cVar.bcX) {
+        this.bhv = cVar;
+        if (this.bhv != null && this.bhv.bex.aXM != null) {
+            this.bhw.setVisibility(0);
+            this.bhw.setGiftInfo(this.bhv.portrait, this.bhv.bex.getThumbnail_url(), String.format(getResources().getString(a.h.ala_gift_graffiti_send_info), cVar.userName, Integer.valueOf(ListUtils.getCount(cVar.bex.aXM.aYU))));
+            if (cVar.beF) {
                 LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "");
                 return;
             }
             return;
         }
-        this.bfN.setVisibility(4);
-        if (cVar.bcX) {
+        this.bhw.setVisibility(4);
+        if (cVar.beF) {
             LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW_FAIL, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "手绘信息为空");
         }
     }
 
-    public void b(View view, int i, int i2, int i3, int i4) {
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.bfQ, this.bfP);
-        layoutParams.leftMargin = (i - (this.bfQ / 2)) + i3;
+    public void d(View view, int i, int i2, int i3, int i4) {
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.bhz, this.bhy);
+        layoutParams.leftMargin = (i - (this.bhz / 2)) + i3;
         layoutParams.topMargin = i2 - i4;
-        this.bfO.addView(view, layoutParams);
+        this.bhx.addView(view, layoutParams);
     }
 
-    public void KA() {
-        for (int childCount = this.bfO.getChildCount() - 1; childCount >= 0; childCount--) {
-            this.bfO.getChildAt(childCount).clearAnimation();
-            this.bfO.removeViewAt(childCount);
+    public void Kb() {
+        for (int childCount = this.bhx.getChildCount() - 1; childCount >= 0; childCount--) {
+            this.bhx.getChildAt(childCount).clearAnimation();
+            this.bhx.removeViewAt(childCount);
         }
-        this.bfN.setVisibility(4);
+        this.bhw.setVisibility(4);
     }
 
     public View getInfoView() {
-        return this.bfN;
+        return this.bhw;
     }
 
     public void setOffsetY(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bfN.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bhw.getLayoutParams();
         layoutParams.topMargin = i;
         if (layoutParams.topMargin < 0) {
             layoutParams.topMargin = 0;
         }
-        this.bfN.setLayoutParams(layoutParams);
-        this.bfN.requestLayout();
+        this.bhw.setLayoutParams(layoutParams);
+        this.bhw.requestLayout();
     }
 }

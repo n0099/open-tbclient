@@ -4,26 +4,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.im.chat.e;
+import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes26.dex */
-public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
+/* loaded from: classes8.dex */
+public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivityView> {
     public MsgActivityViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgActivityView> aVar) {
-        super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgActivityView cTM = aVar.cTM();
-        cTM.setPosition(i);
-        cTM.setData(chatMessage);
-        cTM.a(this.kjX);
-        cTM.setOnItemViewLongClickListener(this.kjY);
-        cTM.gJ(this.gim);
-        cTM.gI(chatMessage.getCacheData().getLastMsgTime());
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> msgViewHolder) {
+        super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
+        MsgActivityView cWy = msgViewHolder.cWy();
+        cWy.setPosition(i);
+        cWy.setData(chatMessage);
+        cWy.a(this.kwD);
+        cWy.setOnItemViewLongClickListener(this.kwE);
+        cWy.gH(this.gsJ);
+        cWy.gG(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -32,15 +32,15 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bT */
-    public e.a<MsgActivityView> c(ViewGroup viewGroup) {
+    /* renamed from: ci */
+    public MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> e(ViewGroup viewGroup) {
         MsgActivityView msgActivityView = new MsgActivityView(this.mPageContext);
         return new a(msgActivityView.getConvertView(), msgActivityView);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
-    public class a extends e.a<MsgActivityView> {
+    /* loaded from: classes8.dex */
+    public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> {
         public a(View view, MsgActivityView msgActivityView) {
             super(view, msgActivityView);
         }

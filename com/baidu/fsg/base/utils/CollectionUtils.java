@@ -2,7 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class CollectionUtils {
     public static boolean isEmpty(Collection<?> collection) {
         return collection == null || collection.isEmpty();

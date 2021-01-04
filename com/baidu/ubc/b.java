@@ -13,7 +13,7 @@ import java.io.FileReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static final boolean DEBUG = AppConfig.isDebug();
     private Context mContext;
@@ -24,7 +24,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(n nVar, boolean z) {
-        a(nVar, bl(nVar.getFileName(), z));
+        a(nVar, bk(nVar.getFileName(), z));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [135=4] */
@@ -51,19 +51,19 @@ public class b {
             jSONObject.put("type", "0");
             if (!TextUtils.isEmpty(nVar.getContent())) {
                 jSONObject.put("content", nVar.getContent());
-            } else if (nVar.bge() != null) {
-                jSONObject.put("content", nVar.bge().toString());
+            } else if (nVar.biB() != null) {
+                jSONObject.put("content", nVar.biB().toString());
             }
-            if (!TextUtils.isEmpty(nVar.bgd())) {
-                jSONObject.put("abtest", nVar.bgd());
+            if (!TextUtils.isEmpty(nVar.biA())) {
+                jSONObject.put("abtest", nVar.biA());
             }
             if (!TextUtils.isEmpty(nVar.getCategory())) {
                 jSONObject.put("c", nVar.getCategory());
             }
-            if (nVar.bfZ()) {
+            if (nVar.biw()) {
                 jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
             }
-            jSONObject.put("idtype", g.eiM().zv(nVar.getId()));
+            jSONObject.put("idtype", g.eiW().zu(nVar.getId()));
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCFileData", e.getMessage());
@@ -129,7 +129,7 @@ public class b {
             file.mkdirs();
         }
         File file2 = new File(file, "filequality");
-        if (file2.length() > g.eiM().eiN()) {
+        if (file2.length() > g.eiW().eiX()) {
             if (file2.delete()) {
                 file2 = new File(file, "filequality");
             } else {
@@ -139,7 +139,7 @@ public class b {
         a(nVar, file2);
     }
 
-    private File bl(String str, boolean z) {
+    private File bk(String str, boolean z) {
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (!file.exists()) {
             file.mkdirs();
@@ -156,32 +156,26 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void B(Exception exc) {
-        ac.eje().XU(Log.getStackTraceString(exc));
+        ac.ejo().XD(Log.getStackTraceString(exc));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x00c0 */
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x00ad A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [java.io.BufferedReader] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean a(aj ajVar, boolean z) {
         BufferedReader bufferedReader;
         boolean a2 = z ? false : a(ajVar);
-        File bl = bl("", z);
-        ?? exists = bl.exists();
-        if (exists != 0) {
+        File bk = bk("", z);
+        if (bk.exists()) {
             try {
-                try {
-                    bufferedReader = new BufferedReader(new FileReader(bl));
-                    long j = Long.MAX_VALUE;
-                    long j2 = 0;
-                    while (true) {
+                bufferedReader = new BufferedReader(new FileReader(bk));
+                long j = Long.MAX_VALUE;
+                long j2 = 0;
+                while (true) {
+                    try {
                         try {
                             String readLine = bufferedReader.readLine();
                             if (readLine == null) {
@@ -189,7 +183,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ajVar.zG("1");
+                                ajVar.zF("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -200,7 +194,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            ajVar.df(jSONObject);
+                            ajVar.dn(jSONObject);
                             a2 = true;
                         } catch (Exception e) {
                             e = e;
@@ -218,37 +212,37 @@ public class b {
                             }
                             return a2;
                         }
-                    }
-                    ajVar.r(j, j2);
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (Exception e3) {
-                            if (DEBUG) {
-                                Log.d("UBCFileData", "getExceptionList close fail:", e3);
+                    } catch (Throwable th) {
+                        th = th;
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (Exception e3) {
+                                if (DEBUG) {
+                                    Log.d("UBCFileData", "getExceptionList close fail:", e3);
+                                }
                             }
                         }
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    if (exists != 0) {
-                        try {
-                            exists.close();
-                        } catch (Exception e4) {
-                            if (DEBUG) {
-                                Log.d("UBCFileData", "getExceptionList close fail:", e4);
-                            }
+                }
+                ajVar.u(j, j2);
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (Exception e4) {
+                        if (DEBUG) {
+                            Log.d("UBCFileData", "getExceptionList close fail:", e4);
                         }
                     }
-                    throw th;
                 }
             } catch (Exception e5) {
                 e = e5;
                 bufferedReader = null;
             } catch (Throwable th2) {
                 th = th2;
-                exists = 0;
-                if (exists != 0) {
+                bufferedReader = null;
+                if (bufferedReader != null) {
                 }
                 throw th;
             }
@@ -279,7 +273,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                ajVar.zG("1");
+                                ajVar.zF("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -293,7 +287,7 @@ public class b {
                             if (DEBUG) {
                                 Log.d("UBCFileData", jSONObject.toString());
                             }
-                            ajVar.df(jSONObject);
+                            ajVar.dn(jSONObject);
                             i++;
                         } catch (Throwable th) {
                             th = th;
@@ -318,7 +312,7 @@ public class b {
                         }
                     }
                 } while (i < 10);
-                ajVar.r(j, j2);
+                ajVar.u(j, j2);
                 if (DEBUG) {
                     Log.d("UBCFileData", "line num " + i + " delete file ");
                 }
@@ -341,7 +335,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void io(boolean z) {
+    public void iJ(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

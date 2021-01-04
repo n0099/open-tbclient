@@ -10,9 +10,10 @@ import android.text.TextUtils;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
 import com.baidu.ar.arplay.core.message.ARPMessage;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.down.manage.DownloadConstants;
+import com.kwai.sodler.lib.ext.PluginError;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -20,10 +21,10 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class a {
     private static a cL;
-    private static ConcurrentHashMap<String, C0076a> cO;
+    private static ConcurrentHashMap<String, C0068a> cO;
     private static HandlerThread cP;
     private static b cR;
     private static Map<String, Integer> cT;
@@ -49,13 +50,13 @@ public final class a {
         public boolean handleMessage(Message message) {
             if (ARPEngine.getInstance().isEngineCanAccess()) {
                 switch (message.what) {
-                    case CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL /* 3004 */:
+                    case 3004:
                         a.this.a(message);
                         break;
-                    case 3005:
+                    case PluginError.ERROR_INS_CAPACITY /* 3005 */:
                         a.this.b(message);
                         break;
-                    case 3006:
+                    case PluginError.ERROR_INS_INSTALL_PATH /* 3006 */:
                         a.this.c(message);
                         break;
                     case 3007:
@@ -75,16 +76,16 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.arplay.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0076a {
+    /* loaded from: classes6.dex */
+    public static class C0068a {
         MediaPlayer df;
         com.baidu.ar.arplay.a.a.b dg = new com.baidu.ar.arplay.a.a.b();
 
-        C0076a() {
+        C0068a() {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(Exception exc);
 
@@ -92,7 +93,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class c implements b {
         c(b bVar) {
             b unused = a.cR = bVar;
@@ -151,12 +152,12 @@ public final class a {
         return num.intValue();
     }
 
-    private C0076a a(MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
+    private C0068a a(MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
         com.baidu.ar.arplay.c.b.b(TAG, "initMediaPlayerInMsg start()");
         try {
-            final C0076a c0076a = new C0076a();
+            final C0068a c0068a = new C0068a();
             MediaPlayer mediaPlayer = new MediaPlayer();
-            c0076a.df = mediaPlayer;
+            c0068a.df = mediaPlayer;
             mediaPlayer.setAudioStreamType(3);
             if (onCompletionListener == null) {
                 onCompletionListener = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.ar.arplay.a.a.9
@@ -175,9 +176,9 @@ public final class a {
                     @Override // android.media.MediaPlayer.OnErrorListener
                     public boolean onError(MediaPlayer mediaPlayer2, int i, int i2) {
                         com.baidu.ar.arplay.c.b.b(a.TAG, "onError: " + i);
-                        c0076a.dg.dX = "ERROR";
-                        c0076a.dg.dY = i;
-                        a.a(c0076a);
+                        c0068a.dg.dX = "ERROR";
+                        c0068a.dg.dY = i;
+                        a.a(c0068a);
                         a.this.b(new b() { // from class: com.baidu.ar.arplay.a.a.10.1
                             @Override // com.baidu.ar.arplay.a.a.b
                             public void a(Exception exc) {
@@ -187,25 +188,25 @@ public final class a {
                             @Override // com.baidu.ar.arplay.a.a.b
                             public void onResult(boolean z) {
                             }
-                        }, c0076a.dg.dW);
+                        }, c0068a.dg.dW);
                         return false;
                     }
                 };
             }
             mediaPlayer.setOnErrorListener(onErrorListener);
-            return c0076a;
+            return c0068a;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public static C0076a a(final C0076a c0076a, final String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, int i, String str3, final long j) {
-        if ((!TextUtils.isEmpty(str2) || assetFileDescriptor != null) && c0076a != null) {
-            c0076a.dg.dT = com.baidu.ar.arplay.c.c.a((Object) str, 0L);
-            c0076a.dg.dW = str;
-            c0076a.dg.dU = str3;
-            MediaPlayer mediaPlayer = c0076a.df;
+    public static C0068a a(final C0068a c0068a, final String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, int i, String str3, final long j) {
+        if ((!TextUtils.isEmpty(str2) || assetFileDescriptor != null) && c0068a != null) {
+            c0068a.dg.dT = com.baidu.ar.arplay.c.c.a((Object) str, 0L);
+            c0068a.dg.dW = str;
+            c0068a.dg.dU = str3;
+            MediaPlayer mediaPlayer = c0068a.df;
             if (onCompletionListener != null) {
                 mediaPlayer.setOnCompletionListener(onCompletionListener);
             }
@@ -228,52 +229,52 @@ public final class a {
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer2) {
                         com.baidu.ar.arplay.c.b.b(a.TAG, "mMediaPlayer onPrepared");
-                        C0076a.this.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
-                        C0076a.this.dg.dZ = DpStatConstants.KEY_PREPARED;
-                        a.a(C0076a.this);
+                        C0068a.this.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
+                        C0068a.this.dg.dZ = DpStatConstants.KEY_PREPARED;
+                        a.a(C0068a.this);
                         if (ARPEngine.getInstance().isPaused() || a.cT == null || a.cT.get(str) == null) {
                             return;
                         }
                         if (((Integer) a.cT.get(str)).intValue() == 3004 || ((Integer) a.cT.get(str)).intValue() == 3007) {
                             a.aC();
                             try {
-                                if (C0076a.this.df.getDuration() >= 0) {
-                                    if (C0076a.this.df.getDuration() <= j || j < 0) {
-                                        C0076a.this.df.seekTo(0);
+                                if (C0068a.this.df.getDuration() >= 0) {
+                                    if (C0068a.this.df.getDuration() <= j || j < 0) {
+                                        C0068a.this.df.seekTo(0);
                                     } else {
-                                        C0076a.this.df.seekTo((int) j);
+                                        C0068a.this.df.seekTo((int) j);
                                     }
                                 }
                                 com.baidu.ar.arplay.c.b.b(a.TAG, "mMediaPlayer start");
-                                C0076a.this.df.start();
-                                C0076a.this.dg.dZ = "playing";
+                                C0068a.this.df.start();
+                                C0068a.this.dg.dZ = "playing";
                             } catch (Exception e) {
-                                a.a(C0076a.this.df);
+                                a.a(C0068a.this.df);
                                 e.printStackTrace();
                             }
                         }
                     }
                 });
-                c0076a.df.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() { // from class: com.baidu.ar.arplay.a.a.12
+                c0068a.df.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() { // from class: com.baidu.ar.arplay.a.a.12
                     @Override // android.media.MediaPlayer.OnBufferingUpdateListener
                     public void onBufferingUpdate(MediaPlayer mediaPlayer2, int i2) {
-                        C0076a.this.dg.dX = "INFO";
-                        C0076a.this.dg.eb = i2;
-                        a.a(C0076a.this);
+                        C0068a.this.dg.dX = "INFO";
+                        C0068a.this.dg.eb = i2;
+                        a.a(C0068a.this);
                     }
                 });
-                c0076a.df.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.ar.arplay.a.a.13
+                c0068a.df.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.ar.arplay.a.a.13
                     @Override // android.media.MediaPlayer.OnInfoListener
                     public boolean onInfo(MediaPlayer mediaPlayer2, int i2, int i3) {
-                        C0076a.this.dg.dX = "INFO";
+                        C0068a.this.dg.dX = "INFO";
                         switch (i2) {
                             case 701:
-                                C0076a.this.dg.ea = "buffer_start";
-                                a.a(C0076a.this);
+                                C0068a.this.dg.ea = "buffer_start";
+                                a.a(C0068a.this);
                                 return false;
-                            case CyberPlayerManager.MEDIA_INFO_BUFFERING_END /* 702 */:
-                                C0076a.this.dg.ea = "buffer_end";
-                                a.a(C0076a.this);
+                            case 702:
+                                C0068a.this.dg.ea = "buffer_end";
+                                a.a(C0068a.this);
                                 return false;
                             default:
                                 return false;
@@ -290,7 +291,7 @@ public final class a {
                 e4.printStackTrace();
             }
         }
-        return c0076a;
+        return c0068a;
     }
 
     public static void a(MediaPlayer mediaPlayer) {
@@ -307,18 +308,18 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void a(C0076a c0076a) {
-        if (c0076a == null) {
+    public static void a(C0068a c0068a) {
+        if (c0068a == null) {
             return;
         }
-        b(c0076a);
-        a(c0076a.dg);
-        com.baidu.ar.arplay.a.a.b bVar = c0076a.dg;
+        b(c0068a);
+        a(c0068a.dg);
+        com.baidu.ar.arplay.a.a.b bVar = c0068a.dg;
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", Integer.valueOf((int) ARPMessageType.MSG_TYPE_AUDIO));
         HashMap hashMap2 = new HashMap();
         hashMap2.put("action_id", String.valueOf(bVar.dT));
-        hashMap2.put("platform", "android");
+        hashMap2.put("platform", HttpConstants.OS_TYPE_VALUE);
         hashMap2.put("type", bVar.dX);
         HashMap hashMap3 = new HashMap();
         hashMap3.put("error_code", Integer.valueOf(bVar.dY));
@@ -333,7 +334,7 @@ public final class a {
 
     private void a(b bVar, String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener, int i, String str3, long j) {
         try {
-            C0076a a2 = a(str, onCompletionListener, onErrorListener);
+            C0068a a2 = a(str, onCompletionListener, onErrorListener);
             if (a2 != null) {
                 a(a2, str, str2, assetFileDescriptor, onCompletionListener, i, str3, j);
             }
@@ -342,14 +343,14 @@ public final class a {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            C0076a z = z(str);
+            C0068a z = z(str);
             A(str);
             try {
                 if (z.df != null) {
                     z.df.release();
                 }
                 try {
-                    C0076a a3 = aA().a(str, onCompletionListener, onErrorListener);
+                    C0068a a3 = aA().a(str, onCompletionListener, onErrorListener);
                     if (a3 != null) {
                         a(a3, str, str2, assetFileDescriptor, onCompletionListener, i, str3, j);
                     }
@@ -407,11 +408,11 @@ public final class a {
                 cV = new TimerTask() { // from class: com.baidu.ar.arplay.a.a.14
                     @Override // java.util.TimerTask, java.lang.Runnable
                     public void run() {
-                        C0076a c0076a;
+                        C0068a c0068a;
                         if (a.cO != null) {
                             for (Map.Entry entry : a.cO.entrySet()) {
-                                if (entry != null && (c0076a = (C0076a) entry.getValue()) != null && c0076a.dg != null && c0076a.dg.dZ == "playing") {
-                                    a.a((C0076a) entry.getValue());
+                                if (entry != null && (c0068a = (C0068a) entry.getValue()) != null && c0068a.dg != null && c0068a.dg.dZ == "playing") {
+                                    a.a((C0068a) entry.getValue());
                                 }
                             }
                         }
@@ -423,18 +424,18 @@ public final class a {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:23:0x004a -> B:27:0x0029). Please submit an issue!!! */
-    private static void b(C0076a c0076a) {
-        if (c0076a == null || c0076a.df == null) {
+    private static void b(C0068a c0068a) {
+        if (c0068a == null || c0068a.df == null) {
             return;
         }
-        com.baidu.ar.arplay.a.a.b bVar = c0076a.dg;
+        com.baidu.ar.arplay.a.a.b bVar = c0068a.dg;
         if (bVar.dZ == "playing" || bVar.dZ == "paused") {
             try {
-                bVar.dV = c0076a.df.getDuration();
+                bVar.dV = c0068a.df.getDuration();
                 if (bVar.dV <= 0) {
                     bVar.ec = 0.0f;
                 } else {
-                    bVar.ec = (c0076a.df.getCurrentPosition() * 1.0f) / bVar.dV;
+                    bVar.ec = (c0068a.df.getCurrentPosition() * 1.0f) / bVar.dV;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -451,7 +452,7 @@ public final class a {
     }
 
     private void b(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i, String str3, long j) {
-        C0076a z = z(str);
+        C0068a z = z(str);
         A(str);
         if (z != null) {
             try {
@@ -468,7 +469,7 @@ public final class a {
             }
         }
         try {
-            C0076a a2 = a(str, onCompletionListener, null);
+            C0068a a2 = a(str, onCompletionListener, null);
             if (a2 != null) {
                 a(a2, str, str2, null, onCompletionListener, i, str3, j);
             }
@@ -490,12 +491,12 @@ public final class a {
         cO.remove(str);
     }
 
-    public C0076a a(String str, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
+    public C0068a a(String str, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (cO == null || !cO.containsKey(str)) {
-            C0076a a2 = a(onCompletionListener, onErrorListener);
+            C0068a a2 = a(onCompletionListener, onErrorListener);
             if (a2 != null) {
                 if (cO == null) {
                     cO = new ConcurrentHashMap<>();
@@ -512,12 +513,12 @@ public final class a {
         Object[] objArr = (Object[]) message.obj;
         String str = (String) objArr[1];
         long longValue = ((Long) objArr[6]).longValue();
-        cT.put(str, Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL));
+        cT.put(str, 3004);
         a((b) objArr[0], str, (String) objArr[2], null, (MediaPlayer.OnCompletionListener) objArr[3], null, ((Integer) objArr[4]).intValue(), (String) objArr[5], longValue);
     }
 
     public void a(b bVar, String str) {
-        Message obtainMessage = this.mHandler.obtainMessage(3006);
+        Message obtainMessage = this.mHandler.obtainMessage(PluginError.ERROR_INS_INSTALL_PATH);
         obtainMessage.obj = new Object[]{new c(bVar), str};
         obtainMessage.sendToTarget();
     }
@@ -529,7 +530,7 @@ public final class a {
     }
 
     public void a(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i, String str3, long j) {
-        Message obtainMessage = this.mHandler.obtainMessage(CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL);
+        Message obtainMessage = this.mHandler.obtainMessage(3004);
         obtainMessage.obj = new Object[]{new c(bVar), str, str2, onCompletionListener, Integer.valueOf(i), str3, Long.valueOf(j)};
         obtainMessage.sendToTarget();
     }
@@ -555,7 +556,7 @@ public final class a {
                 if (a.this.cS == null) {
                     return;
                 }
-                C0076a z = a.this.z(aVar.getId());
+                C0068a z = a.this.z(aVar.getId());
                 if (z == null || z.dg.dZ != "paused") {
                     if (z != null) {
                         z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
@@ -602,10 +603,10 @@ public final class a {
         }
         if (cO != null) {
             try {
-                for (C0076a c0076a : cO.values()) {
-                    c0076a.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
-                    c0076a.dg.dZ = "unstarted";
-                    a(c0076a.df);
+                for (C0068a c0068a : cO.values()) {
+                    c0068a.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
+                    c0068a.dg.dZ = "unstarted";
+                    a(c0068a.df);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -623,8 +624,8 @@ public final class a {
         Object[] objArr = (Object[]) message.obj;
         b bVar = (b) objArr[0];
         String str = (String) objArr[1];
-        cT.put(str, 3005);
-        C0076a z = z(str);
+        cT.put(str, Integer.valueOf((int) PluginError.ERROR_INS_CAPACITY));
+        C0068a z = z(str);
         if (z != null) {
             try {
                 z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
@@ -649,7 +650,7 @@ public final class a {
     }
 
     public void b(b bVar, String str) {
-        Message obtainMessage = this.mHandler.obtainMessage(3005);
+        Message obtainMessage = this.mHandler.obtainMessage(PluginError.ERROR_INS_CAPACITY);
         obtainMessage.obj = new Object[]{new c(bVar), str};
         obtainMessage.sendToTarget();
     }
@@ -676,9 +677,9 @@ public final class a {
         Object[] objArr = (Object[]) message.obj;
         b bVar = (b) objArr[0];
         String str = (String) objArr[1];
-        cT.put(str, 3006);
+        cT.put(str, Integer.valueOf((int) PluginError.ERROR_INS_INSTALL_PATH));
         try {
-            C0076a z = z(str);
+            C0068a z = z(str);
             if (z.df != null && z.dg.dZ != "unstarted" && z.df.isPlaying()) {
                 z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                 z.dg.dZ = "paused";
@@ -720,7 +721,7 @@ public final class a {
                 if (a.this.cS == null) {
                     return;
                 }
-                C0076a z = a.this.z(aVar.getId());
+                C0068a z = a.this.z(aVar.getId());
                 if (z != null) {
                     z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                     z.dg.dZ = "finished";
@@ -756,7 +757,7 @@ public final class a {
         String str = (String) objArr[1];
         cT.put(str, 3009);
         try {
-            C0076a z = z(str);
+            C0068a z = z(str);
             if (z == null || z.dg.dZ == "unstarted") {
                 return;
             }
@@ -802,7 +803,7 @@ public final class a {
             }
             cT.put(str, 3007);
             try {
-                C0076a z = z(str);
+                C0068a z = z(str);
                 if (z != null && !z.df.isPlaying() && z.dg.dZ != "unstarted") {
                     z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                     z.dg.dZ = "playing";
@@ -841,9 +842,9 @@ public final class a {
         this.cM = 0;
         if (cO != null) {
             try {
-                for (C0076a c0076a : cO.values()) {
-                    if (c0076a != null) {
-                        c0076a.df.release();
+                for (C0068a c0068a : cO.values()) {
+                    if (c0068a != null) {
+                        c0068a.df.release();
                     }
                 }
             } catch (Exception e) {
@@ -856,7 +857,7 @@ public final class a {
         }
     }
 
-    public C0076a z(String str) {
+    public C0068a z(String str) {
         if (cO == null || TextUtils.isEmpty(str)) {
             return null;
         }

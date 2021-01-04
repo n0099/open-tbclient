@@ -2,7 +2,7 @@ package com.baidu.yuyinala.emoticon;
 
 import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaEmoticonListDialogData implements IBaseDialogData {
     private List<com.baidu.yuyinala.emoticon.a.a> emoticonList;
     private boolean isNetError;

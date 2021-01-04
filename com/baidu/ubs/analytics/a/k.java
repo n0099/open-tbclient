@@ -5,18 +5,18 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 final class k {
-    private SQLiteDatabase oHT = f.ejq().avd();
+    private SQLiteDatabase oOc = f.ejz().awv();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(l lVar) {
-        this.oHT.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
+        this.oOc.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<l> ejp() {
-        Cursor rawQuery = this.oHT.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+    public final List<l> J() {
+        Cursor rawQuery = this.oOc.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             l lVar = new l();
@@ -34,6 +34,6 @@ final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.oHT.execSQL("delete from tb_ab_page_log where _id <= " + i);
+        this.oOc.execSQL("delete from tb_ab_page_log where _id <= " + i);
     }
 }

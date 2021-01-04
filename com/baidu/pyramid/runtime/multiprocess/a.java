@@ -11,13 +11,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static volatile int coB = 0;
+    private static volatile int cvH = 0;
     private static volatile String sProcessName;
 
-    public static int afF() {
-        int i = coB;
+    public static int ahB() {
+        int i = cvH;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = e.getAppContext().getPackageName();
@@ -26,17 +26,17 @@ public class a {
             } else {
                 i |= 4;
             }
-            coB = i;
+            cvH = i;
         }
         return i;
     }
 
-    public static boolean afG() {
-        return (afF() & 1) != 0;
+    public static boolean ahC() {
+        return (ahB() & 1) != 0;
     }
 
-    public static boolean afH() {
-        return (afF() & 2) != 0;
+    public static boolean ahD() {
+        return (ahB() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -46,7 +46,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = e.getAppContext();
-                    str = afJ();
+                    str = ahF();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -57,7 +57,7 @@ public class a {
         return str;
     }
 
-    public static int afI() {
+    public static int ahE() {
         Context appContext = e.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -87,27 +87,25 @@ public class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [195=4] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0046 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String afJ() {
-        BufferedReader bufferedReader;
-        Exception exc;
+    private static String ahF() {
         String str;
+        BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         try {
             bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File("/proc/self/cmdline"))));
             try {
                 try {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine != null) {
+                    str = bufferedReader.readLine();
+                    if (str != null) {
                         try {
-                            str = readLine.trim();
+                            str = str.trim();
                         } catch (Exception e) {
-                            str = readLine;
-                            exc = e;
-                            c("MultiProcess", exc);
+                            e = e;
+                            c("MultiProcess", e);
                             if (bufferedReader != null) {
                                 try {
                                     bufferedReader.close();
@@ -117,8 +115,6 @@ public class a {
                             }
                             return str;
                         }
-                    } else {
-                        str = readLine;
                     }
                     if (bufferedReader != null) {
                         try {
@@ -128,8 +124,8 @@ public class a {
                         }
                     }
                 } catch (Exception e4) {
+                    e = e4;
                     str = null;
-                    exc = e4;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -144,9 +140,9 @@ public class a {
                 throw th;
             }
         } catch (Exception e6) {
-            bufferedReader = null;
-            exc = e6;
+            e = e6;
             str = null;
+            bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;
             if (bufferedReader2 != null) {

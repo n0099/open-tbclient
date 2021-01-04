@@ -1,7 +1,7 @@
 package com.baidu.tbadk.widget.timepicker.a.e;
 
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class c {
     public static int getAnimationResource(int i, boolean z) {
         switch (i) {

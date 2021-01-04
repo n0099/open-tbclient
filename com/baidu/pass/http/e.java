@@ -18,12 +18,14 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2796a = "e";
-    private static final String b = "Set-Cookie";
+    private static final String f4141a = "e";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f4142b = "Set-Cookie";
     private static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
     private static final String d = "Cookie";
     private static final String e = "https://";
@@ -47,8 +49,8 @@ class e {
         try {
             CookieSyncManager.createInstance(context);
             String cookie = CookieManager.getInstance().getCookie("https://" + new URI(passHttpParamDTO.url).getHost());
-            f.a(f2796a, "asyncCookie" + passHttpParamDTO.asyncCookie);
-            f.a(f2796a, "webviewCookies" + cookie);
+            f.a(f4141a, "asyncCookie" + passHttpParamDTO.asyncCookie);
+            f.a(f4141a, "webviewCookies" + cookie);
             String str2 = !passHttpParamDTO.asyncCookie ? null : cookie;
             List<HttpCookie> list = passHttpParamDTO.cookie;
             if (!TextUtils.isEmpty(str2) || (list != null && !list.isEmpty())) {
@@ -85,7 +87,7 @@ class e {
                                         httpCookie = httpCookie2;
                                     }
                                     str = !httpCookie.hasExpired() ? str4 + httpCookie.getName() + "=" + httpCookie.getValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : str4;
-                                    f.a(f2796a, "httpCookie webview item name:" + httpCookie.getName() + ",value:" + httpCookie.getValue());
+                                    f.a(f4141a, "httpCookie webview item name:" + httpCookie.getName() + ",value:" + httpCookie.getValue());
                                 }
                             }
                         }
@@ -105,12 +107,12 @@ class e {
                 }
                 if (!TextUtils.isEmpty(str3)) {
                     String substring = str3.substring(0, str3.length() - 1);
-                    f.a(f2796a, "cookieStr" + substring);
+                    f.a(f4141a, "cookieStr" + substring);
                     httpURLConnection.setRequestProperty("Cookie", substring);
                 }
             }
         } catch (Exception e2) {
-            f.a(f2796a, "asyncWebviewCookie2NA:" + e2.toString());
+            f.a(f4141a, "asyncWebviewCookie2NA:" + e2.toString());
         }
     }
 
@@ -120,7 +122,7 @@ class e {
         Map<String, List<String>> headerFields;
         List<String> list;
         try {
-            f.a(f2796a, "asyncCookie" + passHttpParamDTO.asyncCookie);
+            f.a(f4141a, "asyncCookie" + passHttpParamDTO.asyncCookie);
             if (passHttpParamDTO.asyncCookie && (headerFields = httpURLConnection.getHeaderFields()) != null && !headerFields.isEmpty() && (list = headerFields.get("Set-Cookie")) != null && !list.isEmpty()) {
                 CookieSyncManager.createInstance(context);
                 CookieManager cookieManager = CookieManager.getInstance();
@@ -132,9 +134,9 @@ class e {
                             if (!parse.isEmpty()) {
                                 HttpCookie httpCookie = parse.get(0);
                                 if (a(passHttpParamDTO.url, httpCookie)) {
-                                    Log.e(f2796a, "httpcookie:" + httpCookie.toString());
+                                    Log.e(f4141a, "httpcookie:" + httpCookie.toString());
                                     String a2 = a(httpCookie.getDomain(), httpCookie.getName(), httpCookie.getValue(), System.currentTimeMillis() + (httpCookie.getMaxAge() * 1000), httpCookie.getSecure());
-                                    Log.e(f2796a, "httpcookie build:" + a2);
+                                    Log.e(f4141a, "httpcookie build:" + a2);
                                     cookieManager.setCookie("https://" + httpCookie.getDomain(), a2);
                                 }
                             }
@@ -148,7 +150,7 @@ class e {
                 }
             }
         } catch (Exception e2) {
-            f.a(f2796a, "asyncNaCookie2Webview:" + e2.toString());
+            f.a(f4141a, "asyncNaCookie2Webview:" + e2.toString());
         }
     }
 

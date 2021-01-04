@@ -1,5 +1,5 @@
 package org.aspectj.lang.reflect;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class NoSuchPointcutException extends Exception {
     private static final long serialVersionUID = 3256444698657634352L;
     private String name;

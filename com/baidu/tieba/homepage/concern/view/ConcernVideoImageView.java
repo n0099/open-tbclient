@@ -8,13 +8,13 @@ import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ConcernVideoImageView extends RelativeLayout {
-    private TbImageView eCg;
+    private TbImageView eLJ;
 
     public ConcernVideoImageView(Context context) {
         super(context);
@@ -33,17 +33,17 @@ public class ConcernVideoImageView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.concern_video_img_layout, (ViewGroup) this, true);
-        this.eCg = (TbImageView) findViewById(R.id.concern_video_img);
-        this.eCg.setDefaultBgResource(R.color.CAM_X0205);
+        this.eLJ = (TbImageView) findViewById(R.id.concern_video_img);
+        this.eLJ.setDefaultBgResource(R.color.CAM_X0205);
         int equipmentWidth = l.getEquipmentWidth(getContext()) - l.getDimens(getContext(), R.dimen.ds68);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eCg.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eLJ.getLayoutParams();
         layoutParams.height = (equipmentWidth * 9) / 16;
         layoutParams.width = equipmentWidth;
     }
 
     public void setData(List<MediaData> list) {
-        if (!y.isEmpty(list) && !StringUtils.isNull(list.get(0).getPicUrl())) {
-            this.eCg.startLoad(list.get(0).getPicUrl(), 10, false);
+        if (!x.isEmpty(list) && !StringUtils.isNull(list.get(0).getPicUrl())) {
+            this.eLJ.startLoad(list.get(0).getPicUrl(), 10, false);
         }
     }
 }

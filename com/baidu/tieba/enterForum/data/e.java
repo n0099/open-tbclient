@@ -1,14 +1,14 @@
 package com.baidu.tieba.enterForum.data;
 
 import com.baidu.tbadk.core.data.v;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class e extends v {
-    public boolean iuo;
+    public boolean iGB;
     public String mTitle;
 
     public e(String str, boolean z) {
         this.mTitle = str;
-        this.iuo = z;
-        on(0);
+        this.iGB = z;
+        ox(0);
     }
 }

@@ -1,23 +1,23 @@
 package com.baidu.tieba.homepage.hotTopic.tab.net;
 
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.homepage.hotTopic.tab.c;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements a {
     private HotThreadListResIdl mData;
-    private List<q> mHotTopicDataList;
+    private List<n> mHotTopicDataList;
 
     public HotTopicTabHttpResponse() {
         super(CmdConfigHttp.CMD_HOT_TOPIC_TAB);
     }
 
     @Override // com.baidu.tieba.homepage.hotTopic.tab.net.a
-    public List<q> getDataList() {
+    public List<n> getDataList() {
         return this.mHotTopicDataList;
     }
 

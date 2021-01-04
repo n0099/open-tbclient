@@ -6,12 +6,14 @@ import android.annotation.TargetApi;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animator f2192a = null;
-    private long b = 0;
+    private Animator f3119a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private long f3120b = 0;
     private Interpolator c = null;
     private Animation.AnimationListener d = null;
     private int e = 1;
@@ -29,7 +31,7 @@ public class a extends c {
         if (ofFloat != null) {
             ofFloat.setRepeatCount(this.f);
             ofFloat.setRepeatMode(c());
-            ofFloat.setDuration(this.b);
+            ofFloat.setDuration(this.f3120b);
             if (this.c != null) {
                 ofFloat.setInterpolator(this.c);
             }
@@ -40,10 +42,10 @@ public class a extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.f2192a == null) {
+        if (this.f3119a == null) {
             return;
         }
-        this.f2192a.start();
+        this.f3119a.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -56,7 +58,7 @@ public class a extends c {
         if (j < 0) {
             j = 0;
         }
-        this.b = j;
+        this.f3120b = j;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -81,16 +83,16 @@ public class a extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
-        this.f2192a = a(marker);
-        a(this.f2192a);
+        this.f3119a = a(marker);
+        a(this.f3119a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.f2192a != null) {
-            this.f2192a.cancel();
-            this.f2192a = null;
+        if (this.f3119a != null) {
+            this.f3119a.cancel();
+            this.f3119a = null;
         }
     }
 

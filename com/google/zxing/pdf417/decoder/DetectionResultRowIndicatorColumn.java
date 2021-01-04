@@ -1,7 +1,7 @@
 package com.google.zxing.pdf417.decoder;
 
 import com.google.zxing.ResultPoint;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class DetectionResultRowIndicatorColumn extends DetectionResultColumn {
     private final boolean isLeft;
 
@@ -23,8 +23,6 @@ final class DetectionResultRowIndicatorColumn extends DetectionResultColumn {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void adjustCompleteIndicatorColumnRowNumbers(BarcodeMetadata barcodeMetadata) {
         int i;
-        int i2;
-        int i3;
         Codeword[] codewords = getCodewords();
         setRowNumbers();
         removeIncorrectCodewords(codewords, barcodeMetadata);
@@ -33,54 +31,43 @@ final class DetectionResultRowIndicatorColumn extends DetectionResultColumn {
         ResultPoint bottomLeft = this.isLeft ? boundingBox.getBottomLeft() : boundingBox.getBottomRight();
         int imageRowToCodewordIndex = imageRowToCodewordIndex((int) topLeft.getY());
         int imageRowToCodewordIndex2 = imageRowToCodewordIndex((int) bottomLeft.getY());
-        int i4 = -1;
-        int i5 = imageRowToCodewordIndex;
-        int i6 = 0;
-        int i7 = 1;
-        while (i5 < imageRowToCodewordIndex2) {
-            if (codewords[i5] != null) {
-                Codeword codeword = codewords[i5];
-                int rowNumber = codeword.getRowNumber() - i4;
+        int i2 = -1;
+        int i3 = imageRowToCodewordIndex;
+        int i4 = 0;
+        int i5 = 1;
+        while (i3 < imageRowToCodewordIndex2) {
+            if (codewords[i3] != null) {
+                Codeword codeword = codewords[i3];
+                int rowNumber = codeword.getRowNumber() - i2;
                 if (rowNumber == 0) {
-                    i = i6 + 1;
-                    i2 = i7;
-                    i3 = i4;
+                    i = i4 + 1;
                 } else if (rowNumber == 1) {
-                    int max = Math.max(i7, i6);
-                    i3 = codeword.getRowNumber();
-                    i2 = max;
+                    int max = Math.max(i5, i4);
+                    i2 = codeword.getRowNumber();
                     i = 1;
-                } else if (rowNumber < 0 || codeword.getRowNumber() >= barcodeMetadata.getRowCount() || rowNumber > i5) {
-                    codewords[i5] = null;
-                    i = i6;
-                    i2 = i7;
-                    i3 = i4;
+                    i5 = max;
+                } else if (rowNumber < 0 || codeword.getRowNumber() >= barcodeMetadata.getRowCount() || rowNumber > i3) {
+                    codewords[i3] = null;
+                    i = i4;
                 } else {
-                    int i8 = i7 > 2 ? rowNumber * (i7 - 2) : rowNumber;
-                    boolean z = i8 >= i5;
-                    for (int i9 = 1; i9 <= i8 && !z; i9++) {
-                        z = codewords[i5 - i9] != null;
+                    int i6 = i5 > 2 ? rowNumber * (i5 - 2) : rowNumber;
+                    boolean z = i6 >= i3;
+                    for (int i7 = 1; i7 <= i6 && !z; i7++) {
+                        z = codewords[i3 - i7] != null;
                     }
                     if (z) {
-                        codewords[i5] = null;
-                        i = i6;
-                        i2 = i7;
-                        i3 = i4;
+                        codewords[i3] = null;
+                        i = i4;
                     } else {
-                        i2 = i7;
-                        i3 = codeword.getRowNumber();
                         i = 1;
+                        i2 = codeword.getRowNumber();
                     }
                 }
             } else {
-                i = i6;
-                i2 = i7;
-                i3 = i4;
+                i = i4;
             }
-            i5++;
-            i4 = i3;
-            i7 = i2;
-            i6 = i;
+            i3++;
+            i4 = i;
         }
     }
 
@@ -106,26 +93,24 @@ final class DetectionResultRowIndicatorColumn extends DetectionResultColumn {
         BoundingBox boundingBox = getBoundingBox();
         ResultPoint topLeft = this.isLeft ? boundingBox.getTopLeft() : boundingBox.getTopRight();
         ResultPoint bottomLeft = this.isLeft ? boundingBox.getBottomLeft() : boundingBox.getBottomRight();
-        int imageRowToCodewordIndex = imageRowToCodewordIndex((int) topLeft.getY());
-        int imageRowToCodewordIndex2 = imageRowToCodewordIndex((int) bottomLeft.getY());
+        int imageRowToCodewordIndex = imageRowToCodewordIndex((int) bottomLeft.getY());
         Codeword[] codewords = getCodewords();
         int i = -1;
         int i2 = 0;
         int i3 = 1;
-        for (int i4 = imageRowToCodewordIndex; i4 < imageRowToCodewordIndex2; i4++) {
-            if (codewords[i4] != null) {
-                Codeword codeword = codewords[i4];
+        for (int imageRowToCodewordIndex2 = imageRowToCodewordIndex((int) topLeft.getY()); imageRowToCodewordIndex2 < imageRowToCodewordIndex; imageRowToCodewordIndex2++) {
+            if (codewords[imageRowToCodewordIndex2] != null) {
+                Codeword codeword = codewords[imageRowToCodewordIndex2];
                 codeword.setRowNumberAsRowIndicatorColumn();
                 int rowNumber = codeword.getRowNumber() - i;
                 if (rowNumber == 0) {
                     i2++;
                 } else if (rowNumber == 1) {
-                    int max = Math.max(i3, i2);
+                    i3 = Math.max(i3, i2);
                     i = codeword.getRowNumber();
-                    i3 = max;
                     i2 = 1;
                 } else if (codeword.getRowNumber() >= barcodeMetadata.getRowCount()) {
-                    codewords[i4] = null;
+                    codewords[imageRowToCodewordIndex2] = null;
                 } else {
                     i = codeword.getRowNumber();
                     i2 = 1;

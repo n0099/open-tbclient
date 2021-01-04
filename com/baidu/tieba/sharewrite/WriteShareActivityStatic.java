@@ -2,7 +2,7 @@ package com.baidu.tieba.sharewrite;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteShareActivityConfig;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class WriteShareActivityStatic {
     public static String Tag = "tag";
 

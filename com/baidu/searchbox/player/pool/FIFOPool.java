@@ -1,10 +1,10 @@
 package com.baidu.searchbox.player.pool;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.pool.IPoolItem;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class FIFOPool<T extends IPoolItem> implements IPool<T> {
     private static final int INVALID_INDEX = -1;
     private static final String TAG = "FIFOPool";

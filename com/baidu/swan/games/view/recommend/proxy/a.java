@@ -1,27 +1,27 @@
 package com.baidu.swan.games.view.recommend.proxy;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import com.baidu.swan.apps.ap.ak;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.games.view.c;
 import com.baidu.swan.games.view.recommend.a.a;
 import com.baidu.swan.games.view.recommend.a.b;
 import com.baidu.swan.games.view.recommend.a.d;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a implements b {
-    private b ehx;
+    private b eqz;
 
-    public a(final int i, @NonNull final d dVar, final a.InterfaceC0557a interfaceC0557a) {
+    public a(final int i, @NonNull final d dVar, final a.InterfaceC0550a interfaceC0550a) {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.1
             @Override // java.lang.Runnable
             public void run() {
-                Context bay = c.bay();
-                if (bay == null) {
+                Context viewContext = c.getViewContext();
+                if (viewContext == null) {
                     com.baidu.swan.apps.console.c.e("RecommendButton", "context is null.");
                     return;
                 }
-                a.this.ehx = com.baidu.swan.games.view.recommend.a.a.a(i, bay, dVar);
-                a.this.ehx.a(interfaceC0557a);
+                a.this.eqz = com.baidu.swan.games.view.recommend.a.a.a(i, viewContext, dVar);
+                a.this.eqz.a(interfaceC0550a);
             }
         });
     }
@@ -31,32 +31,32 @@ public class a implements b {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.ehx != null) {
-                    a.this.ehx.a(aVar);
+                if (a.this.eqz != null) {
+                    a.this.eqz.a(aVar);
                 }
             }
         });
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
-    public void a(final a.InterfaceC0557a interfaceC0557a) {
+    public void a(final a.InterfaceC0550a interfaceC0550a) {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.ehx != null) {
-                    a.this.ehx.a(interfaceC0557a);
+                if (a.this.eqz != null) {
+                    a.this.eqz.a(interfaceC0550a);
                 }
             }
         });
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
-    public void fS(final boolean z) {
+    public void gb(final boolean z) {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.4
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.ehx != null) {
-                    a.this.ehx.fS(z);
+                if (a.this.eqz != null) {
+                    a.this.eqz.gb(z);
                 }
             }
         });
@@ -67,8 +67,8 @@ public class a implements b {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.5
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.ehx != null) {
-                    a.this.ehx.show();
+                if (a.this.eqz != null) {
+                    a.this.eqz.show();
                 }
             }
         });
@@ -79,8 +79,8 @@ public class a implements b {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.6
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.ehx != null) {
-                    a.this.ehx.hide();
+                if (a.this.eqz != null) {
+                    a.this.eqz.hide();
                 }
             }
         });
@@ -91,8 +91,8 @@ public class a implements b {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.7
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.ehx != null) {
-                    a.this.ehx.destroy();
+                if (a.this.eqz != null) {
+                    a.this.eqz.destroy();
                 }
             }
         });
@@ -103,8 +103,8 @@ public class a implements b {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.8
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.ehx != null) {
-                    a.this.ehx.update();
+                if (a.this.eqz != null) {
+                    a.this.eqz.update();
                 }
             }
         });

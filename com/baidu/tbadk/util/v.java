@@ -1,75 +1,87 @@
 package com.baidu.tbadk.util;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.live.adp.framework.MessageConfig;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.android.imsdk.internal.IMConnection;
+import com.baidu.live.tbadk.data.Config;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.data.NewGodData;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public class v {
-    private CustomMessageListener PN;
-    private static final byte[] mlock = new byte[1];
-    private static v fFT = null;
-
-    public static v bGF() {
-        if (fFT == null) {
-            synchronized (mlock) {
-                if (fFT == null) {
-                    fFT = new v();
+    private static v fPz = null;
+    private Runnable fPA = new Runnable() { // from class: com.baidu.tbadk.util.v.1
+        @Override // java.lang.Runnable
+        public void run() {
+            HashMap hashMap = new HashMap();
+            hashMap.put("from", String.valueOf(v.this.mFrom));
+            hashMap.put("field_id", v.this.mFieldId);
+            hashMap.put("type", Integer.valueOf(v.this.mType));
+            hashMap.put("type_name", v.this.mTypeName);
+            if (v.this.mFrom == 2) {
+                hashMap.put("fid", v.this.fPy);
+            }
+            hashMap.put("animated", false);
+            hashMap.put("transparent", true);
+            hashMap.put("swipeback", false);
+            if (PluginPackageManager.px().cA("com.baidu.tieba.pluginFlutter")) {
+                if (MessageManager.getInstance().findTask(2002015) == null) {
+                    com.baidu.adp.lib.f.e.mB().postDelayed(v.this.fPA, 0L);
+                    return;
                 }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(TbadkApplication.getInst().getApplicationContext(), "GodDialog", hashMap)));
+                com.baidu.tbadk.core.sharedPref.b.bvq().putLong("key_new_god_dialog_showed_time", System.currentTimeMillis());
             }
         }
-        return fFT;
-    }
+    };
+    private String fPy;
+    private String mFieldId;
+    private int mFrom;
+    private int mType;
+    private String mTypeName;
 
     private v() {
-        com.baidu.adp.lib.util.j.init();
     }
 
-    public void registerNetworkChangedListener() {
-        try {
-            if (this.PN == null) {
-                this.PN = bGG();
-                MessageManager.getInstance().registerListener(this.PN);
+    public static synchronized v bJa() {
+        v vVar;
+        synchronized (v.class) {
+            if (fPz == null) {
+                fPz = new v();
             }
-        } catch (Exception e) {
-            this.PN = null;
-            BdLog.e(e.getMessage());
+            vVar = fPz;
+        }
+        return vVar;
+    }
+
+    private boolean a(int i, NewGodData newGodData) {
+        if (i != 5) {
+            return (((((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bvq().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) > Config.THREAD_IMAGE_SAVE_MAX_TIME ? 1 : (((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bvq().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) == Config.THREAD_IMAGE_SAVE_MAX_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+        }
+        return true;
+    }
+
+    public void b(int i, NewGodData newGodData) {
+        a(i, newGodData, true);
+    }
+
+    public void a(int i, NewGodData newGodData, boolean z) {
+        if (a(i, newGodData)) {
+            removeCallbacks();
+            this.mFrom = i;
+            this.mFieldId = newGodData.getFieldId();
+            this.mType = newGodData.getType();
+            this.mTypeName = newGodData.getTypeName();
+            com.baidu.adp.lib.f.e.mB().postDelayed(this.fPA, z ? IMConnection.RETRY_DELAY_TIMES : 0L);
         }
     }
 
-    private CustomMessageListener bGG() {
-        return new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.util.v.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    v.this.handleNetworkState();
-                }
-            }
-        };
+    public void removeCallbacks() {
+        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.fPA);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void handleNetworkState() {
-        try {
-            boolean isNetWorkAvailable = com.baidu.adp.lib.util.j.isNetWorkAvailable();
-            if (isNetWorkAvailable) {
-                if (com.baidu.adp.lib.util.j.isWifiNet()) {
-                    av.btX().setNetworkIsWifi(true);
-                    com.baidu.tieba.recapp.d.a.dFY().dGa();
-                } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
-                    av.btX().setNetworkIsWifi(false);
-                }
-            }
-            NoNetworkView.setIsHasNetwork(isNetWorkAvailable);
-            CompatibleUtile.dealWebView(null);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
+    public void setFid(String str) {
+        this.fPy = str;
     }
 }

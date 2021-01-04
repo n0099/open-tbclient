@@ -1,21 +1,21 @@
 package com.baidu.live.gift;
 
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface ad {
-    View HM();
+    View Hn();
 
-    View HN();
+    View Ho();
 
-    void HO();
+    void Hp();
 
-    void HP();
+    void Hq();
 
-    void bC(boolean z);
+    void bA(boolean z);
 
-    void ek(int i);
+    void ei(int i);
 
-    void el(int i);
+    void ej(int i);
 
     void onDestroy();
 }

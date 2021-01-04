@@ -1,7 +1,7 @@
 package com.baidu.mapapi.bikenavi.controllers.a;
 
 import com.baidu.mapapi.bikenavi.adapter.IBTTSPlayer;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 final class d implements com.baidu.platform.comapi.wnplatform.n.c {
     @Override // com.baidu.platform.comapi.wnplatform.n.c
     public void a() {
@@ -16,9 +16,9 @@ final class d implements com.baidu.platform.comapi.wnplatform.n.c {
     public int a(String str, boolean z) {
         IBTTSPlayer iBTTSPlayer;
         IBTTSPlayer iBTTSPlayer2;
-        iBTTSPlayer = a.b;
+        iBTTSPlayer = a.f2753b;
         if (iBTTSPlayer != null) {
-            iBTTSPlayer2 = a.b;
+            iBTTSPlayer2 = a.f2753b;
             return iBTTSPlayer2.playTTSText(str, z);
         }
         return 0;

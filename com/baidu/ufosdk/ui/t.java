@@ -10,15 +10,15 @@ import com.tencent.connect.common.Constants;
 import java.util.List;
 import org.json.JSONArray;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class t implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackEditActivity f3892a;
+    final /* synthetic */ FeedbackEditActivity f5894a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(FeedbackEditActivity feedbackEditActivity) {
-        this.f3892a = feedbackEditActivity;
+        this.f5894a = feedbackEditActivity;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:10:0x007f */
@@ -40,46 +40,46 @@ public final class t implements Runnable {
         EditText editText4;
         Handler handler3;
         boolean z = false;
-        list = this.f3892a.q;
+        list = this.f5894a.q;
         if (list.size() <= 0) {
-            FeedbackEditActivity feedbackEditActivity = this.f3892a;
-            Context applicationContext = this.f3892a.getApplicationContext();
+            FeedbackEditActivity feedbackEditActivity = this.f5894a;
+            Context applicationContext = this.f5894a.getApplicationContext();
             String str3 = UfoSDK.clientid;
-            str2 = this.f3892a.t;
+            str2 = this.f5894a.t;
             StringBuilder append = new StringBuilder().append(com.baidu.ufosdk.b.l);
-            editText3 = this.f3892a.m;
+            editText3 = this.f5894a.m;
             String sb = append.append(editText3.getText().toString()).append(com.baidu.ufosdk.b.m).toString();
-            editText4 = this.f3892a.n;
+            editText4 = this.f5894a.n;
             String obj = editText4.getText().toString();
-            handler3 = this.f3892a.af;
+            handler3 = this.f5894a.af;
             z = feedbackEditActivity.a(applicationContext, str3, str2, sb, obj, null, handler3);
         } else {
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < list2.size(); i++) {
-                list3 = this.f3892a.q;
+                list3 = this.f5894a.q;
                 jSONArray.put(Base64.encodeToString((byte[]) list3.get(i), 0));
             }
             if (jSONArray.toString().length() < 2097152) {
-                FeedbackEditActivity feedbackEditActivity2 = this.f3892a;
-                Context applicationContext2 = this.f3892a.getApplicationContext();
+                FeedbackEditActivity feedbackEditActivity2 = this.f5894a;
+                Context applicationContext2 = this.f5894a.getApplicationContext();
                 String str4 = UfoSDK.clientid;
-                str = this.f3892a.t;
+                str = this.f5894a.t;
                 StringBuilder append2 = new StringBuilder().append(com.baidu.ufosdk.b.l);
-                editText = this.f3892a.m;
+                editText = this.f5894a.m;
                 String sb2 = append2.append(editText.getText().toString()).append(com.baidu.ufosdk.b.m).toString();
-                editText2 = this.f3892a.n;
+                editText2 = this.f5894a.n;
                 String obj2 = editText2.getText().toString();
                 String jSONArray2 = jSONArray.toString();
-                handler = this.f3892a.af;
+                handler = this.f5894a.af;
                 z = feedbackEditActivity2.a(applicationContext2, str4, str, sb2, obj2, jSONArray2, handler);
             } else {
-                Toast.makeText(this.f3892a, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 0).show();
+                Toast.makeText(this.f5894a, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 0).show();
             }
         }
         if (z) {
             return;
         }
-        handler2 = this.f3892a.af;
+        handler2 = this.f5894a.af;
         handler2.obtainMessage(13).sendToTarget();
     }
 }

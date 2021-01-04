@@ -6,9 +6,9 @@ import java.util.Iterator;
 import kotlin.collections.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class r extends q {
-    public static final boolean K(String str, String str2, boolean z) {
+    public static final boolean N(String str, String str2, boolean z) {
         if (str == null) {
             return str2 == null;
         } else if (!z) {
@@ -22,10 +22,10 @@ public class r extends q {
         if ((i & 4) != 0) {
             z = false;
         }
-        return l.k(str, str2, str3, z);
+        return l.m(str, str2, str3, z);
     }
 
-    public static final String k(String str, String str2, String str3, boolean z) {
+    public static final String m(String str, String str2, String str3, boolean z) {
         String a2;
         kotlin.jvm.internal.p.o(str, "$receiver");
         kotlin.jvm.internal.p.o(str2, "oldValue");
@@ -58,7 +58,7 @@ public class r extends q {
                     if (!it.hasNext()) {
                         z = true;
                         break;
-                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).eyI()))) {
+                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).eCu()))) {
                         z = false;
                         break;
                     }

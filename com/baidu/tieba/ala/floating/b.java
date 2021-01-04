@@ -3,49 +3,49 @@ package com.baidu.tieba.ala.floating;
 import android.content.Context;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.tieba.ala.floating.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static String TAG = "AlaFloatLiveControllerUtil";
-    private static a gKn;
+    private static a gVZ;
 
-    public static a fG(Context context) {
-        if (gKn == null) {
-            gKn = fH(context);
+    public static a fZ(Context context) {
+        if (gVZ == null) {
+            gVZ = ga(context);
         }
-        return gKn;
+        return gVZ;
     }
 
-    private static synchronized a fH(Context context) {
+    private static synchronized a ga(Context context) {
         a aVar;
         synchronized (b.class) {
-            if (gKn == null) {
-                gKn = new a(context);
+            if (gVZ == null) {
+                gVZ = new a(context);
             }
-            aVar = gKn;
+            aVar = gVZ;
         }
         return aVar;
     }
 
-    public static AlaLiveInfoData bVq() {
-        a aVar = gKn;
+    public static AlaLiveInfoData bXV() {
+        a aVar = gVZ;
         if (aVar != null) {
-            return aVar.bVq();
+            return aVar.bXV();
         }
         return null;
     }
 
-    public static void b(a.InterfaceC0653a interfaceC0653a) {
-        a aVar = gKn;
+    public static void b(a.InterfaceC0644a interfaceC0644a) {
+        a aVar = gVZ;
         if (aVar != null) {
-            aVar.a(interfaceC0653a);
-            aVar.bVv();
+            aVar.a(interfaceC0644a);
+            aVar.bYa();
         }
     }
 
-    public static boolean bVt() {
-        a aVar = gKn;
+    public static boolean bXY() {
+        a aVar = gVZ;
         if (aVar != null) {
-            return aVar.bVt();
+            return aVar.bXY();
         }
         return false;
     }
@@ -53,8 +53,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public static synchronized void destroy() {
         synchronized (b.class) {
-            a aVar = gKn;
-            gKn = null;
+            a aVar = gVZ;
+            gVZ = null;
             if (aVar != null) {
                 aVar.onDestroy();
             }

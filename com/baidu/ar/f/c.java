@@ -9,10 +9,10 @@ import com.baidu.ar.statistic.StatisticConstants;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class c implements com.baidu.ar.lua.c {
     private Context mContext;
-    private a.InterfaceC0085a wg;
+    private a.InterfaceC0077a wg;
 
     public c(Context context) {
         this.mContext = context.getApplicationContext();
@@ -47,15 +47,15 @@ public class c implements com.baidu.ar.lua.c {
     }
 
     public void b(com.baidu.ar.lua.b bVar) {
-        this.wg = new a.InterfaceC0085a() { // from class: com.baidu.ar.f.c.1
-            @Override // com.baidu.ar.f.a.InterfaceC0085a
+        this.wg = new a.InterfaceC0077a() { // from class: com.baidu.ar.f.c.1
+            @Override // com.baidu.ar.f.a.InterfaceC0077a
             public void b(float f, float f2, float f3, float f4) {
                 com.baidu.ar.h.b.aS("acc  x " + f + " , y : " + f2 + " , z " + f3);
                 StatisticApi.onEvent(StatisticConstants.MODEL_PHONE_SHAKE);
                 c.c(f, f2, f3, f4);
             }
 
-            @Override // com.baidu.ar.f.a.InterfaceC0085a
+            @Override // com.baidu.ar.f.a.InterfaceC0077a
             public void destroy() {
             }
         };

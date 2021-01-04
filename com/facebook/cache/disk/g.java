@@ -1,5 +1,5 @@
 package com.facebook.cache.disk;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface g {
-    f epn();
+    f ets();
 }

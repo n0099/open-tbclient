@@ -1,6 +1,6 @@
 package com.baidu.android.common.others.java;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class Pair<F, S> {
     public final F mFirst;
     public final S mSecond;
@@ -29,7 +29,7 @@ public class Pair<F, S> {
         return ((this.mFirst.hashCode() + 31) * 31) + this.mSecond.hashCode();
     }
 
-    public static <A, B> Pair<A, B> create(A a2, B b) {
-        return new Pair<>(a2, b);
+    public static <A, B> Pair<A, B> create(A a2, B b2) {
+        return new Pair<>(a2, b2);
     }
 }

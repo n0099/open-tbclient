@@ -4,22 +4,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile c cgh;
+    private static volatile c cnj;
 
-    public static synchronized c adm() {
+    public static synchronized c afi() {
         c cVar;
         synchronized (c.class) {
-            if (cgh == null) {
+            if (cnj == null) {
                 synchronized (c.class) {
-                    if (cgh == null) {
-                        cgh = new c();
+                    if (cnj == null) {
+                        cnj = new c();
                     }
                 }
             }
-            cVar = cgh;
+            cVar = cnj;
         }
         return cVar;
     }
@@ -31,7 +31,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.adl().e(activity, str, aVar);
+        b.afh().e(activity, str, aVar);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.adl().f(activity, str, aVar);
+        b.afh().f(activity, str, aVar);
         return true;
     }
 
@@ -47,15 +47,15 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.adl().b(context, jSONObject, aVar);
+        b.afh().b(context, jSONObject, aVar);
         return true;
     }
 
-    public boolean f(Context context, JSONObject jSONObject) {
+    public boolean e(Context context, JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        b.adl().g(context, jSONObject);
+        b.afh().f(context, jSONObject);
         return true;
     }
 
@@ -63,7 +63,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.adl().b(activity, jSONObject, aVar);
+        b.afh().b(activity, jSONObject, aVar);
         return true;
     }
 }

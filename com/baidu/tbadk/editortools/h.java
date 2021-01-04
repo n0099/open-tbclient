@@ -1,7 +1,7 @@
 package com.baidu.tbadk.editortools;
 /* loaded from: classes.dex */
 public interface h extends b {
-    void bCm();
+    void bEH();
 
     int getToolId();
 
@@ -9,7 +9,7 @@ public interface h extends b {
 
     void onChangeSkinType(int i);
 
-    void setName(String str);
+    void rV();
 
-    void su();
+    void setName(String str);
 }

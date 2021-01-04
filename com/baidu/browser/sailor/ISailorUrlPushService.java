@@ -1,7 +1,7 @@
 package com.baidu.browser.sailor;
 
 import com.baidu.browser.core.INoProGuard;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public interface ISailorUrlPushService extends INoProGuard {
     boolean getSwitchByKey(String str);
 

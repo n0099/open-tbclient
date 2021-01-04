@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes;
 
-import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -9,7 +8,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ItemProtectionBox extends AbstractContainerBox implements FullBox {
     public static final String TYPE = "ipro";
     private int flags;
@@ -70,6 +69,6 @@ public class ItemProtectionBox extends AbstractContainerBox implements FullBox {
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || containerSize + 6 >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) ? 16 : 8) + containerSize + 6;
+        return ((this.largeBox || containerSize + 6 >= 4294967296L) ? 16 : 8) + containerSize + 6;
     }
 }

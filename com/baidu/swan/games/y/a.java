@@ -4,101 +4,101 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.games.t.a.a;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a eeS;
-    private com.baidu.swan.games.t.a.a eeT;
+    private static volatile a enT;
+    private com.baidu.swan.games.t.a.a enU;
 
     private a() {
     }
 
-    public static a aZL() {
-        if (eeS == null) {
+    public static a bcf() {
+        if (enT == null) {
             synchronized (a.class) {
-                if (eeS == null) {
-                    eeS = new a();
+                if (enT == null) {
+                    enT = new a();
                 }
             }
         }
-        return eeS;
+        return enT;
     }
 
     public void c(com.baidu.swan.games.t.a.a aVar) {
-        this.eeT = aVar;
+        this.enU = aVar;
     }
 
-    public boolean yl(String str) {
-        String ad = ad(str, 1);
-        if (TextUtils.isEmpty(ad)) {
+    public boolean yk(String str) {
+        String af = af(str, 1);
+        if (TextUtils.isEmpty(af)) {
             return false;
         }
-        if (this.eeT != null && this.eeT.edF != null && this.eeT.edF.edN != null && this.eeT.edF.edN.containsKey(ad)) {
+        if (this.enU != null && this.enU.emC != null && this.enU.emC.emK != null && this.enU.emC.emK.containsKey(af)) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
             }
-            return this.eeT.edF.edN.get(ad).booleanValue();
+            return this.enU.emC.emK.get(af).booleanValue();
         }
         if (DEBUG) {
             Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
         }
-        String aJW = e.aJW();
-        if (e.aJU() != null) {
-            String version = e.aJU().getVersion();
-            if (TextUtils.isEmpty(aJW) || TextUtils.isEmpty(version)) {
+        String aMm = e.aMm();
+        if (e.aMk() != null) {
+            String version = e.aMk().getVersion();
+            if (TextUtils.isEmpty(aMm) || TextUtils.isEmpty(version)) {
                 return false;
             }
-            boolean ah = com.baidu.swan.pms.database.a.bdF().ah(aJW, version, ad);
-            if (ah) {
-                ac(ad, true);
-                return ah;
+            boolean ak = com.baidu.swan.pms.database.a.bgb().ak(aMm, version, af);
+            if (ak) {
+                ac(af, true);
+                return ak;
             }
-            return ah;
+            return ak;
         }
         return false;
     }
 
     public void ac(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.eeT != null && this.eeT.edF != null && this.eeT.edF.edN != null) {
+        if (!TextUtils.isEmpty(str) && this.enU != null && this.enU.emC != null && this.enU.emC.emK != null) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
             }
-            this.eeT.edF.edN.put(str, Boolean.valueOf(z));
+            this.enU.emC.emK.put(str, Boolean.valueOf(z));
         }
     }
 
-    public String sA(String str) {
-        String ad = ad(str, 1);
-        if (TextUtils.isEmpty(ad) || this.eeT == null || this.eeT.edG == null || this.eeT.edG.edO == null) {
+    public String sx(String str) {
+        String af = af(str, 1);
+        if (TextUtils.isEmpty(af) || this.enU == null || this.enU.emD == null || this.enU.emD.emL == null) {
             return null;
         }
-        return this.eeT.edG.edO.get(ad);
+        return this.enU.emD.emL.get(af);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x002d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String ad(String str, int i) {
+    public String af(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (this.eeT == null || this.eeT.edF == null || this.eeT.edF.edM == null) {
+        if (this.enU == null || this.enU.emC == null || this.enU.emC.emJ == null) {
             return null;
         }
-        for (a.C0555a c0555a : this.eeT.edF.edM) {
-            if (TextUtils.equals(c0555a.name, str) || TextUtils.equals(c0555a.edK, str)) {
+        for (a.C0548a c0548a : this.enU.emC.emJ) {
+            if (TextUtils.equals(c0548a.name, str) || TextUtils.equals(c0548a.emH, str)) {
                 switch (i) {
                     case 0:
-                        return c0555a.name;
+                        return c0548a.name;
                     case 1:
-                        return c0555a.edK;
+                        return c0548a.emH;
                     case 2:
-                        return c0555a.path;
+                        return c0548a.path;
                     case 3:
-                        return c0555a.edL;
+                        return c0548a.emI;
                     default:
-                        return c0555a.edK;
+                        return c0548a.emH;
                 }
             }
             while (r2.hasNext()) {

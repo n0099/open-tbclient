@@ -1,28 +1,28 @@
 package com.baidu.swan.gamecenter.appmanager.c;
 
 import android.text.TextUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private String dVq;
-    private String dnD;
+    private String dsD;
+    private String een;
     private int mStatus;
 
     public b(String str, int i, String str2) {
-        this.dVq = str;
-        this.dnD = str2;
+        this.een = str;
+        this.dsD = str2;
         this.mStatus = i;
     }
 
-    public boolean aUN() {
-        return TextUtils.equals(this.dVq, "onSuccess");
+    public boolean aXh() {
+        return TextUtils.equals(this.een, "onSuccess");
     }
 
-    public String aUO() {
-        return this.dVq;
+    public String aXi() {
+        return this.een;
     }
 
     public String getResult() {
-        return this.dnD;
+        return this.dsD;
     }
 
     public int getStatus() {

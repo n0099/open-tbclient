@@ -10,10 +10,12 @@ import com.baidu.platform.comapi.UIMsg;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class DuplayerQualityMonitorManager {
-    private static final int[] b = {480, UIMsg.MsgDefine.MSG_NETWORK_CHANNEL, 720, 1080};
-    private static DuplayerQualityMonitorManager ccx;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final int[] f3245b = {480, UIMsg.MsgDefine.MSG_NETWORK_CHANNEL, 720, 1080};
+    private static DuplayerQualityMonitorManager cjc;
     private ConcurrentHashMap<String, Integer> c = new ConcurrentHashMap<>();
     private int d = -1;
 
@@ -32,12 +34,12 @@ public class DuplayerQualityMonitorManager {
         if (min <= 0) {
             return UIMsg.MsgDefine.MSG_NETWORK_CHANNEL;
         }
-        for (int length = b.length - 1; length >= 0; length--) {
-            if (min >= b[length]) {
-                return b[length];
+        for (int length = f3245b.length - 1; length >= 0; length--) {
+            if (min >= f3245b[length]) {
+                return f3245b[length];
             }
         }
-        return b[0];
+        return f3245b[0];
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -65,10 +67,10 @@ public class DuplayerQualityMonitorManager {
     public static synchronized DuplayerQualityMonitorManager getInstance() {
         DuplayerQualityMonitorManager duplayerQualityMonitorManager;
         synchronized (DuplayerQualityMonitorManager.class) {
-            if (ccx == null) {
-                ccx = new DuplayerQualityMonitorManager();
+            if (cjc == null) {
+                cjc = new DuplayerQualityMonitorManager();
             }
-            duplayerQualityMonitorManager = ccx;
+            duplayerQualityMonitorManager = cjc;
         }
         return duplayerQualityMonitorManager;
     }

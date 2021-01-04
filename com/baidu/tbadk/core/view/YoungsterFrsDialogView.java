@@ -1,27 +1,27 @@
 package com.baidu.tbadk.core.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class YoungsterFrsDialogView extends LinearLayout {
-    private RelativeLayout ffq;
-    private LinearLayout ffr;
-    private ImageView ffs;
-    private TextView fft;
-    private TextView ffu;
-    private TBSpecificationBtn ffv;
-    private TBSpecificationBtn ffw;
-    private NoTipAgainView ffx;
+    private RelativeLayout foY;
+    private LinearLayout foZ;
+    private ImageView fpa;
+    private TextView fpb;
+    private TextView fpc;
+    private TBSpecificationBtn fpd;
+    private TBSpecificationBtn fpe;
+    private NoTipAgainView fpf;
 
     public YoungsterFrsDialogView(Context context) {
         this(context, null);
@@ -38,70 +38,70 @@ public class YoungsterFrsDialogView extends LinearLayout {
 
     private void init() {
         inflate(getContext(), R.layout.youngster_frs_dialog_view, this);
-        this.ffq = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
-        this.ffs = (ImageView) findViewById(R.id.img_youngster_top);
-        this.fft = (TextView) findViewById(R.id.txt_youngster_dialog_title);
-        this.ffu = (TextView) findViewById(R.id.txt_youngster_dialog_content);
-        this.ffr = (LinearLayout) findViewById(R.id.youngster_dialog_group);
-        this.ffv = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_left);
+        this.foY = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
+        this.fpa = (ImageView) findViewById(R.id.img_youngster_top);
+        this.fpb = (TextView) findViewById(R.id.txt_youngster_dialog_title);
+        this.fpc = (TextView) findViewById(R.id.txt_youngster_dialog_content);
+        this.foZ = (LinearLayout) findViewById(R.id.youngster_dialog_group);
+        this.fpd = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_left);
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar.rj(R.color.CAM_X0105);
-        this.ffv.setConfig(cVar);
-        this.ffw = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_right);
+        cVar.ru(R.color.CAM_X0105);
+        this.fpd.setConfig(cVar);
+        this.fpe = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_right);
         com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar2.rh(R.color.CAM_X0302);
-        this.ffw.setConfig(cVar2);
-        this.ffx = (NoTipAgainView) findViewById(R.id.no_tip_again);
+        cVar2.rs(R.color.CAM_X0302);
+        this.fpe.setConfig(cVar2);
+        this.fpf = (NoTipAgainView) findViewById(R.id.no_tip_again);
         onChangeSkinType();
     }
 
-    public boolean brt() {
-        if (this.ffx == null) {
+    public boolean btV() {
+        if (this.fpf == null) {
             return false;
         }
-        return this.ffx.brt();
+        return this.fpf.btV();
     }
 
     public void setTxtYoungsterDialogTitleText(int i) {
-        this.fft.setText(getContext().getString(i));
+        this.fpb.setText(getContext().getString(i));
     }
 
     public void setTxtYoungsterDialogContentText(int i) {
-        this.ffu.setText(getContext().getString(i));
+        this.fpc.setText(getContext().getString(i));
     }
 
     public void setNoTipAgainViewVisible(boolean z) {
-        this.ffx.setVisibility(z ? 0 : 8);
+        this.fpf.setVisibility(z ? 0 : 8);
     }
 
     public void setLeftOnClickListener(int i, View.OnClickListener onClickListener) {
-        if (this.ffv != null) {
-            this.ffv.setText(getContext().getString(i));
-            this.ffv.setOnClickListener(onClickListener);
+        if (this.fpd != null) {
+            this.fpd.setText(getContext().getString(i));
+            this.fpd.setOnClickListener(onClickListener);
         }
     }
 
     public void setRightOnClickListener(int i, View.OnClickListener onClickListener) {
-        if (this.ffw != null) {
-            this.ffw.setText(getContext().getString(i));
-            this.ffw.setOnClickListener(onClickListener);
+        if (this.fpe != null) {
+            this.fpe.setText(getContext().getString(i));
+            this.fpe.setOnClickListener(onClickListener);
         }
     }
 
     public void setYoungsterDialogGroupMarginTop(int i) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ffr.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.foZ.getLayoutParams();
         layoutParams.topMargin = i;
-        this.ffr.setLayoutParams(layoutParams);
+        this.foZ.setLayoutParams(layoutParams);
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundResource(this, R.drawable.transparent_bg);
-        this.ffs.setImageDrawable(WebPManager.a(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
-        ap.setViewTextColor(this.fft, R.color.CAM_X0105);
-        ap.setViewTextColor(this.ffu, R.color.CAM_X0107);
-        this.ffx.onChangeSkinType();
-        ap.setBackgroundResource(this.ffq, R.drawable.dialog_background);
-        this.ffv.bvt();
-        this.ffw.bvt();
+        ao.setBackgroundResource(this, R.drawable.transparent_bg);
+        this.fpa.setImageDrawable(WebPManager.a(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
+        ao.setViewTextColor(this.fpb, R.color.CAM_X0105);
+        ao.setViewTextColor(this.fpc, R.color.CAM_X0107);
+        this.fpf.onChangeSkinType();
+        ao.setBackgroundResource(this.foY, R.drawable.dialog_background);
+        this.fpd.bxO();
+        this.fpe.bxO();
     }
 }

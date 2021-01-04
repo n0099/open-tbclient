@@ -16,7 +16,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class DBOperation {
     public static final String TAG = "DBOperation";
     public static final int TIMEOUT_DB_OPERATION = 10;
@@ -205,7 +205,7 @@ public class DBOperation {
         return this.mDb;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     private class InsertTask implements Callable<Long> {
         private ContentValues mCv;
         private String mOperationId;
@@ -241,7 +241,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     private class InsertBatchTask implements Callable<List<Long>> {
         private List<ContentValues> mCvs;
         private String mOperationId;
@@ -283,7 +283,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     private class DeleteTask implements Callable<Integer> {
         private String mOperationId;
         private String mTable;
@@ -323,7 +323,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     private class UpdateTask implements Callable<Integer> {
         private ContentValues mCv;
         private String mOperationId;
@@ -363,7 +363,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     private class QueryTask<T> implements Callable<ArrayList<T>> {
         private String[] mColumns;
         private String mGroupBy;
@@ -392,10 +392,9 @@ public class DBOperation {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         public ArrayList<T> call() throws Exception {
-            SQLException sQLException;
+            Cursor cursor;
             ArrayList<T> arrayList;
             String[] strArr;
-            Cursor cursor = null;
             LogUtils.enter(this.mOperationId);
             SQLiteDatabase openDb = DBOperation.this.openDb();
             if (openDb != null) {
@@ -408,33 +407,32 @@ public class DBOperation {
                                 LogUtils.d(DBOperation.TAG, "arg : " + strArr[i]);
                             }
                         }
-                        Cursor query = openDb.query(this.mTable, this.mColumns, this.mSelection, this.mSelectionArgs, this.mGroupBy, this.mHaving, this.mOrderBy, this.mLimit);
-                        if (query != null) {
+                        cursor = openDb.query(this.mTable, this.mColumns, this.mSelection, this.mSelectionArgs, this.mGroupBy, this.mHaving, this.mOrderBy, this.mLimit);
+                        if (cursor != null) {
                             try {
                                 arrayList = new ArrayList<>();
                             } catch (SQLException e) {
+                                e = e;
                                 arrayList = null;
-                                cursor = query;
-                                sQLException = e;
                             }
                             try {
-                                if (query.moveToFirst()) {
+                                if (cursor.moveToFirst()) {
                                     do {
-                                        T onParse = this.mParse.onParse(query);
+                                        T onParse = this.mParse.onParse(cursor);
                                         if (onParse != null) {
                                             arrayList.add(onParse);
                                         } else {
                                             LogUtils.d(DBOperation.TAG, this.mTable + ", mOperationId : " + this.mOperationId + " item onParse is null");
                                         }
-                                    } while (query.moveToNext());
-                                    query.close();
+                                    } while (cursor.moveToNext());
+                                    cursor.close();
                                 } else {
-                                    query.close();
+                                    cursor.close();
                                 }
                             } catch (SQLException e2) {
-                                cursor = query;
-                                sQLException = e2;
-                                LogUtils.e(DBOperation.TAG, "query", sQLException);
+                                e = e2;
+                                LogUtils.e(DBOperation.TAG, "query", e);
+                                DBOperation.this.closeDbInternal();
                                 LogUtils.d(DBOperation.TAG, "ret : " + cursor);
                                 LogUtils.leave(this.mOperationId);
                                 return arrayList;
@@ -442,16 +440,16 @@ public class DBOperation {
                         } else {
                             arrayList = null;
                         }
-                        DBOperation.this.closeDbInternal();
-                        cursor = query;
                     } finally {
                         DBOperation.this.closeDbInternal();
                     }
                 } catch (SQLException e3) {
-                    sQLException = e3;
+                    e = e3;
+                    cursor = null;
                     arrayList = null;
                 }
             } else {
+                cursor = null;
                 arrayList = null;
             }
             LogUtils.d(DBOperation.TAG, "ret : " + cursor);
@@ -460,7 +458,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     private class ExecSQLTask implements Callable<Integer> {
         private String mOperationId;
         private String mSql;
@@ -495,7 +493,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     private class ExecTransaction implements Callable<Integer> {
         private String mOperationId;
         private ITransaction mTransaction;

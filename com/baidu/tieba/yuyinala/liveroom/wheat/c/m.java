@@ -4,76 +4,76 @@ import android.net.http.Headers;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaManagerMikeHttpResponseMessage;
-import com.baidu.tieba.yuyinala.liveroom.wheat.model.i;
-/* loaded from: classes4.dex */
+import com.baidu.tieba.yuyinala.liveroom.wheat.model.j;
+/* loaded from: classes11.dex */
 public class m {
     private String mikeStatus;
-    private a ouZ;
+    private a oBL;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void efc();
+        void efd();
 
-        void zN(boolean z);
+        void zP(boolean z);
     }
 
-    public void gQ(final String str, final String str2) {
+    public void gO(final String str, final String str2) {
         this.mikeStatus = str2;
-        new com.baidu.tieba.yuyinala.liveroom.wheat.model.i(null, new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.m.1
-            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.i.a
+        new com.baidu.tieba.yuyinala.liveroom.wheat.model.j(null, new j.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.m.1
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.j.a
             public void a(AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage) {
                 if (!alaManagerMikeHttpResponseMessage.isError()) {
-                    m.this.gR(str, str2);
-                } else if (m.this.ouZ != null) {
-                    m.this.ouZ.efc();
+                    m.this.gP(str, str2);
+                } else if (m.this.oBL != null) {
+                    m.this.oBL.efd();
                 }
             }
 
-            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.i.a
+            @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.j.a
             public void b(AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage) {
-                if (m.this.ouZ != null) {
-                    m.this.ouZ.efc();
+                if (m.this.oBL != null) {
+                    m.this.oBL.efd();
                 }
             }
-        }).aQ(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().CZ(), str, str2);
+        }).aU(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().Cq(), str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gR(String str, String str2) {
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.b eer = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer();
-        if (eer != null) {
-            if (o.efe().Wu(str)) {
-                eer.zG(WO(str2));
-                if (this.ouZ != null) {
-                    this.ouZ.zN(true);
+    public void gP(String str, String str2) {
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.b eeq = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq();
+        if (eeq != null) {
+            if (o.eff().Wd(str)) {
+                eeq.zI(Wy(str2));
+                if (this.oBL != null) {
+                    this.oBL.zP(true);
                 }
             } else {
-                eer.bh(str, WO(str2));
-                if (this.ouZ != null) {
-                    this.ouZ.zN(false);
+                eeq.bg(str, Wy(str2));
+                if (this.oBL != null) {
+                    this.oBL.zP(false);
                 }
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009, Headers.REFRESH));
         }
     }
 
-    private boolean WO(String str) {
+    private boolean Wy(String str) {
         return "1".equals(str);
     }
 
     public void a(a aVar) {
-        this.ouZ = aVar;
+        this.oBL = aVar;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static abstract class b implements a {
         private String mikeStatus;
 
-        public void WP(String str) {
+        public void Wz(String str) {
             this.mikeStatus = str;
         }
 
-        public String efd() {
+        public String efe() {
             return this.mikeStatus;
         }
     }

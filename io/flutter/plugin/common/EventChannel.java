@@ -1,19 +1,20 @@
 package io.flutter.plugin.common;
 
 import android.util.Log;
+import androidx.annotation.UiThread;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public final class EventChannel {
     private static final String TAG = "EventChannel#";
     private final MethodCodec codec;
     private final BinaryMessenger messenger;
     private final String name;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public interface EventSink {
         void endOfStream();
 
@@ -22,7 +23,7 @@ public final class EventChannel {
         void success(Object obj);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public interface StreamHandler {
         void onCancel(Object obj);
 
@@ -39,12 +40,13 @@ public final class EventChannel {
         this.codec = methodCodec;
     }
 
+    @UiThread
     public void setStreamHandler(StreamHandler streamHandler) {
         this.messenger.setMessageHandler(this.name, streamHandler == null ? null : new IncomingStreamRequestHandler(streamHandler));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public final class IncomingStreamRequestHandler implements BinaryMessenger.BinaryMessageHandler {
         private final AtomicReference<EventSink> activeSink = new AtomicReference<>(null);
         private final StreamHandler handler;
@@ -99,7 +101,7 @@ public final class EventChannel {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes9.dex */
+        /* loaded from: classes6.dex */
         public final class EventSinkImplementation implements EventSink {
             final AtomicBoolean hasEnded;
 
@@ -108,6 +110,7 @@ public final class EventChannel {
             }
 
             @Override // io.flutter.plugin.common.EventChannel.EventSink
+            @UiThread
             public void success(Object obj) {
                 if (!this.hasEnded.get() && IncomingStreamRequestHandler.this.activeSink.get() == this) {
                     EventChannel.this.messenger.send(EventChannel.this.name, EventChannel.this.codec.encodeSuccessEnvelope(obj));
@@ -115,6 +118,7 @@ public final class EventChannel {
             }
 
             @Override // io.flutter.plugin.common.EventChannel.EventSink
+            @UiThread
             public void error(String str, String str2, Object obj) {
                 if (!this.hasEnded.get() && IncomingStreamRequestHandler.this.activeSink.get() == this) {
                     EventChannel.this.messenger.send(EventChannel.this.name, EventChannel.this.codec.encodeErrorEnvelope(str, str2, obj));
@@ -122,6 +126,7 @@ public final class EventChannel {
             }
 
             @Override // io.flutter.plugin.common.EventChannel.EventSink
+            @UiThread
             public void endOfStream() {
                 if (!this.hasEnded.getAndSet(true) && IncomingStreamRequestHandler.this.activeSink.get() == this) {
                     EventChannel.this.messenger.send(EventChannel.this.name, null);

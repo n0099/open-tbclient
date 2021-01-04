@@ -7,40 +7,44 @@ import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final List<com.meizu.cloud.pushsdk.c.a.b> f4164a;
-    protected final long b;
+    protected final List<com.meizu.cloud.pushsdk.c.a.b> f11573a;
+
+    /* renamed from: b  reason: collision with root package name */
+    protected final long f11574b;
     protected final String c;
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    public static abstract class AbstractC1010a<T extends AbstractC1010a<T>> {
+    /* loaded from: classes6.dex */
+    public static abstract class AbstractC1141a<T extends AbstractC1141a<T>> {
 
         /* renamed from: a  reason: collision with root package name */
-        private List<com.meizu.cloud.pushsdk.c.a.b> f4165a = new LinkedList();
-        private long b = System.currentTimeMillis();
+        private List<com.meizu.cloud.pushsdk.c.a.b> f11575a = new LinkedList();
+
+        /* renamed from: b  reason: collision with root package name */
+        private long f11576b = System.currentTimeMillis();
         private String c = e.b();
 
         /* JADX INFO: Access modifiers changed from: protected */
         public abstract T a();
 
         public T a(long j) {
-            this.b = j;
+            this.f11576b = j;
             return a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a(AbstractC1010a<?> abstractC1010a) {
-        d.a(((AbstractC1010a) abstractC1010a).f4165a);
-        d.a(((AbstractC1010a) abstractC1010a).c);
-        d.a(!((AbstractC1010a) abstractC1010a).c.isEmpty(), "eventId cannot be empty");
-        this.f4164a = ((AbstractC1010a) abstractC1010a).f4165a;
-        this.b = ((AbstractC1010a) abstractC1010a).b;
-        this.c = ((AbstractC1010a) abstractC1010a).c;
+    public a(AbstractC1141a<?> abstractC1141a) {
+        d.a(((AbstractC1141a) abstractC1141a).f11575a);
+        d.a(((AbstractC1141a) abstractC1141a).c);
+        d.a(!((AbstractC1141a) abstractC1141a).c.isEmpty(), "eventId cannot be empty");
+        this.f11573a = ((AbstractC1141a) abstractC1141a).f11575a;
+        this.f11574b = ((AbstractC1141a) abstractC1141a).f11576b;
+        this.c = ((AbstractC1141a) abstractC1141a).c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -51,11 +55,11 @@ public class a {
     }
 
     public List<com.meizu.cloud.pushsdk.c.a.b> a() {
-        return new ArrayList(this.f4164a);
+        return new ArrayList(this.f11573a);
     }
 
     public long b() {
-        return this.b;
+        return this.f11574b;
     }
 
     public String c() {

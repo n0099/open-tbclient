@@ -26,6 +26,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.platform.comapi.util.NetworkUtil;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
@@ -33,12 +34,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class VDeviceAPI {
 
     /* renamed from: a  reason: collision with root package name */
-    private static PowerManager.WakeLock f3905a = null;
-    private static BroadcastReceiver b = null;
+    private static PowerManager.WakeLock f5914a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static BroadcastReceiver f5915b = null;
 
     public static String getAppVersion() {
         try {
@@ -143,7 +146,7 @@ public class VDeviceAPI {
     }
 
     public static String getOsVersion() {
-        return "android";
+        return HttpConstants.OS_TYPE_VALUE;
     }
 
     @TargetApi(8)
@@ -310,20 +313,20 @@ public class VDeviceAPI {
 
     public static void setNetworkChangedCallback() {
         unsetNetworkChangedCallback();
-        b = new e();
-        VIContext.getContext().registerReceiver(b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        f5915b = new e();
+        VIContext.getContext().registerReceiver(f5915b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
     public static void setScreenAlwaysOn(boolean z) {
         if (z) {
-            if (f3905a == null) {
-                f3905a = ((PowerManager) VIContext.getContext().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+            if (f5914a == null) {
+                f5914a = ((PowerManager) VIContext.getContext().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
             }
-            f3905a.acquire();
-        } else if (f3905a == null || !f3905a.isHeld()) {
+            f5914a.acquire();
+        } else if (f5914a == null || !f5914a.isHeld()) {
         } else {
-            f3905a.release();
-            f3905a = null;
+            f5914a.release();
+            f5914a = null;
         }
     }
 
@@ -334,9 +337,9 @@ public class VDeviceAPI {
     }
 
     public static void unsetNetworkChangedCallback() {
-        if (b != null) {
-            VIContext.getContext().unregisterReceiver(b);
-            b = null;
+        if (f5915b != null) {
+            VIContext.getContext().unregisterReceiver(f5915b);
+            f5915b = null;
         }
     }
 }

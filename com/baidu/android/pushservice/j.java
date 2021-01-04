@@ -2,12 +2,14 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static j f1158a;
-    private String b;
+    private static j f1431a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f1432b;
     private String c;
     private String d;
     private String e;
@@ -15,7 +17,7 @@ public final class j {
 
     private j(Context context) {
         this.d = PushSettings.c(context);
-        this.b = PushSettings.a(context);
+        this.f1432b = PushSettings.a(context);
         if (com.baidu.android.pushservice.b.d.b(context)) {
             this.e = com.baidu.android.pushservice.i.i.a(context, "com.baidu.pushservice.channel_token_new");
             this.c = PushSettings.b(context);
@@ -24,22 +26,22 @@ public final class j {
     }
 
     public static j a(Context context) {
-        if (f1158a == null) {
+        if (f1431a == null) {
             synchronized (j.class) {
-                if (f1158a == null) {
-                    f1158a = new j(context);
+                if (f1431a == null) {
+                    f1431a = new j(context);
                 }
             }
         }
-        return f1158a;
+        return f1431a;
     }
 
     public String a() {
-        return this.b;
+        return this.f1432b;
     }
 
     public synchronized void a(String str, String str2, String str3, String str4) {
-        this.b = str;
+        this.f1432b = str;
         this.d = str2;
         this.c = str3;
         this.e = str4;
@@ -60,12 +62,12 @@ public final class j {
     }
 
     public boolean e() {
-        if (TextUtils.isEmpty(this.b)) {
-            this.b = PushSettings.a(this.f);
+        if (TextUtils.isEmpty(this.f1432b)) {
+            this.f1432b = PushSettings.a(this.f);
         }
         if (TextUtils.isEmpty(this.d)) {
             this.d = PushSettings.c(this.f);
         }
-        return (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.d)) ? false : true;
+        return (TextUtils.isEmpty(this.f1432b) || TextUtils.isEmpty(this.d)) ? false : true;
     }
 }

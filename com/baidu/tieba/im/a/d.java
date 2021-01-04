@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.a;
 
-import android.support.v4.util.LongSparseArray;
+import androidx.collection.LongSparseArray;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.b.j;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
@@ -41,7 +41,7 @@ public class d extends j {
                 }
             }
             if (!a(responsePullMessage)) {
-                b.cZh().cZo();
+                b.cYT().cZa();
                 return socketResponsedMessage;
             }
             return socketResponsedMessage;
@@ -67,12 +67,12 @@ public class d extends j {
                 return false;
             }
             LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-            LongSparseArray<Long> cYO = com.baidu.tieba.im.memorycache.b.cYD().cYO();
+            LongSparseArray<Long> cYI = com.baidu.tieba.im.memorycache.b.cYx().cYI();
             boolean z = false;
             for (GroupMsgData groupMsgData : groupMsg) {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                    if (com.baidu.tieba.im.memorycache.c.Ev(groupMsgData.getGroupInfo().getCustomType())) {
-                        Long l2 = cYO.get(groupMsgData.getGroupInfo().getGroupId());
+                    if (com.baidu.tieba.im.memorycache.c.Eq(groupMsgData.getGroupInfo().getCustomType())) {
+                        Long l2 = cYI.get(groupMsgData.getGroupInfo().getGroupId());
                         if (l2 != null && (l = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
                             if (l2.longValue() > l.longValue()) {
                                 z = true;
@@ -88,7 +88,7 @@ public class d extends j {
             if (!z || longSparseArray.size() <= 0) {
                 return false;
             }
-            b.cZh().a(longSparseArray);
+            b.cYT().a(longSparseArray);
             return true;
         }
         return false;

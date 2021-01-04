@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b extends a {
     public b(j jVar) {
         super(jVar, "/swanAPI/closeTabBar");
@@ -19,17 +19,17 @@ public class b extends a {
             com.baidu.swan.apps.console.c.e("closeTabBar", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (amk()) {
+        } else if (anu()) {
             com.baidu.swan.apps.console.c.e("CloseTabBarAction", "fail not TabBar page");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         } else {
-            com.baidu.swan.apps.tabbar.b.a amj = amj();
-            if (amj == null) {
+            com.baidu.swan.apps.tabbar.b.a ant = ant();
+            if (ant == null) {
                 com.baidu.swan.apps.console.c.e("CloseTabBarAction", "tabBarViewController is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!amj.hf(optParamsAsJo.optBoolean("animation"))) {
+            } else if (!ant.hx(optParamsAsJo.optBoolean("animation"))) {
                 com.baidu.swan.apps.console.c.e("closeTabBar", "close tab bar fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;

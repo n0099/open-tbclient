@@ -8,22 +8,22 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class TextLineView extends TextView {
-    private int bWc;
-    private int bWd;
-    private int bjV;
-    private int lVT;
-    private int lVU;
-    private int lVV;
-    private int lVW;
+    private int blz;
+    private int cby;
+    private int cbz;
     private int mHeight;
     private int mMargin;
     private Paint mPaint;
     private RectF mRectF;
     private int mWidth;
+    private int mbi;
+    private int mbj;
+    private int mbk;
+    private int mbl;
 
     public TextLineView(Context context) {
         super(context);
@@ -32,28 +32,28 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.TextLineView);
-        this.lVT = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_height, 0);
-        this.lVU = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_top_margin, 0);
-        this.lVV = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_bottom_margin, 0);
-        this.bWc = obtainStyledAttributes.getColor(R.styleable.TextLineView_text_selected_color, ap.getColor(R.color.CAM_X0105));
-        this.bWd = obtainStyledAttributes.getColor(R.styleable.TextLineView_text_unselected_color, ap.getColor(R.color.CAM_X0108));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.lVU + this.lVT + this.lVV);
-        setTextColor(this.bWc);
-        this.lVW = l.getDimens(context, R.dimen.ds56);
+        this.mbi = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_height, 0);
+        this.mbj = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_top_margin, 0);
+        this.mbk = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextLineView_bottom_line_bottom_margin, 0);
+        this.cby = obtainStyledAttributes.getColor(R.styleable.TextLineView_text_selected_color, ao.getColor(R.color.CAM_X0105));
+        this.cbz = obtainStyledAttributes.getColor(R.styleable.TextLineView_text_unselected_color, ao.getColor(R.color.CAM_X0108));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.mbj + this.mbi + this.mbk);
+        setTextColor(this.cby);
+        this.mbl = l.getDimens(context, R.dimen.ds56);
         this.mRectF = new RectF();
-        this.bjV = l.getDimens(getContext(), R.dimen.ds4);
+        this.blz = l.getDimens(getContext(), R.dimen.ds4);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        dug();
+        dtV();
         if (this.mRectF == null) {
             this.mRectF = new RectF();
         }
-        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.lVV) - this.lVT, this.mWidth - this.mMargin, this.mHeight - this.lVV);
-        canvas.drawRoundRect(this.mRectF, this.bjV, this.bjV, this.mPaint);
+        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.mbk) - this.mbi, this.mWidth - this.mMargin, this.mHeight - this.mbk);
+        canvas.drawRoundRect(this.mRectF, this.blz, this.blz, this.mPaint);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -63,30 +63,30 @@ public class TextLineView extends TextView {
         invalidate();
     }
 
-    private void dug() {
+    private void dtV() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
         if (isSelected()) {
-            this.mPaint.setColor(ap.getColor(R.color.transparent));
+            this.mPaint.setColor(ao.getColor(R.color.transparent));
         } else {
-            this.mPaint.setColor(ap.getColor(R.color.transparent));
+            this.mPaint.setColor(ao.getColor(R.color.transparent));
         }
     }
 
     public void onChangeSkinType(int i) {
         setTextSelectedUI(isSelected());
-        dug();
+        dtV();
         invalidate();
     }
 
     private void setTextSelectedUI(boolean z) {
         if (z) {
-            com.baidu.tbadk.core.elementsMaven.c.bm(this).ps(R.color.CAM_X0105).pu(R.string.F_X02);
+            com.baidu.tbadk.core.elementsMaven.c.bv(this).pC(R.color.CAM_X0105).pE(R.string.F_X02);
         } else {
-            com.baidu.tbadk.core.elementsMaven.c.bm(this).ps(R.color.CAM_X0108).pu(R.string.F_X01);
+            com.baidu.tbadk.core.elementsMaven.c.bv(this).pC(R.color.CAM_X0108).pE(R.string.F_X01);
         }
     }
 
@@ -95,6 +95,6 @@ public class TextLineView extends TextView {
         super.onSizeChanged(i, i2, i3, i4);
         this.mWidth = i;
         this.mHeight = i2;
-        this.mMargin = (this.mWidth - this.lVW) / 2;
+        this.mMargin = (this.mWidth - this.mbl) / 2;
     }
 }

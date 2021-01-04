@@ -19,7 +19,7 @@ import com.baidu.sumeru.universalimageloader.core.process.BitmapProcessor;
 import com.baidu.sumeru.universalimageloader.utils.L;
 import com.baidu.sumeru.universalimageloader.utils.StorageUtils;
 import java.util.concurrent.Executor;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class ImageLoaderConfiguration {
     final boolean customExecutor;
     final boolean customExecutorForCachedImages;
@@ -91,7 +91,7 @@ public final class ImageLoaderConfiguration {
         return new ImageSize(i, i2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static final QueueProcessingType DEFAULT_TASK_PROCESSING_TYPE = QueueProcessingType.FIFO;
         public static final int DEFAULT_THREAD_POOL_SIZE = 3;

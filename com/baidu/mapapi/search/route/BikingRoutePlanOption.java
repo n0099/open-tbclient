@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.route;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class BikingRoutePlanOption {
     public PlanNode mFrom = null;
     public PlanNode mTo = null;

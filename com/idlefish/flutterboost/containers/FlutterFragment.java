@@ -5,12 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.switchs.FlutterLifeCycleBugEnableSwitch;
 import com.idlefish.flutterboost.FlutterBoost;
@@ -26,7 +26,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public class FlutterFragment extends BaseFragment implements FlutterActivityAndFragmentDelegate.Host {
     protected static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
     protected static final String ARG_CACHED_ENGINE_ID = "cached_engine_id";
@@ -44,7 +44,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     private boolean isResumedOrVisibleToUser;
     private boolean sendReumeToDart = false;
 
-    @Override // android.support.v4.app.Fragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    @Override // androidx.fragment.app.Fragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @Nullable
     public /* bridge */ /* synthetic */ Activity getActivity() {
         return super.getActivity();
@@ -60,7 +60,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return new NewEngineFragmentBuilder();
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes7.dex */
     public static class NewEngineFragmentBuilder {
         private final Class<? extends FlutterFragment> fragmentClass;
         private boolean isUseTabHost;
@@ -143,7 +143,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         setArguments(new Bundle());
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.delegate = new FlutterActivityAndFragmentDelegate(this);
@@ -154,13 +154,13 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         this.sendReumeToDart = z;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         return this.delegate.onCreateView(layoutInflater, viewGroup, bundle);
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
         if (!isHidden()) {
@@ -168,7 +168,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
         if (!isHidden() && this.sendReumeToDart && !this.isResumedOrVisibleToUser) {
@@ -177,7 +177,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z) {
         if (this.delegate != null) {
             if (z) {
@@ -202,7 +202,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         this.delegate.onPostResume();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
         if (!isHidden() && this.sendReumeToDart && this.isResumedOrVisibleToUser) {
@@ -211,7 +211,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         }
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
         if (!isHidden()) {
@@ -219,13 +219,13 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
         this.delegate.onDestroyView();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDetach() {
         super.onDetach();
         this.delegate.onDetach();
@@ -233,7 +233,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         this.delegate = null;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onHiddenChanged(boolean z) {
         super.onHiddenChanged(z);
         if (z) {
@@ -243,7 +243,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         }
     }
 
-    @Override // android.support.v4.app.Fragment, com.baidu.n.a.a.InterfaceC0276a
+    @Override // androidx.fragment.app.Fragment, com.baidu.n.a.a.InterfaceC0277a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);
     }
@@ -256,7 +256,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         this.delegate.onBackPressed();
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         if (this.delegate != null) {
             this.delegate.onActivityResult(i, i2, intent);
@@ -271,7 +271,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         this.delegate.onTrimMemory(i);
     }
 
-    @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
+    @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
         this.delegate.onLowMemory();
@@ -353,7 +353,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return getArguments().getString("url");
     }
 
-    public Map getContainerUrlParams() {
+    public Map<String, Object> getContainerUrlParams() {
         return ((BoostFlutterActivity.SerializableMap) getArguments().getSerializable("params")).getMap();
     }
 

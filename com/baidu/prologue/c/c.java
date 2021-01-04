@@ -1,9 +1,9 @@
 package com.baidu.prologue.c;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c {
-    private static final Context sAppContext = com.baidu.prologue.a.b.a.clZ.get().aei();
+    private static final Context sAppContext = com.baidu.prologue.a.b.a.ctd.get().age();
 
     public static Context getAppContext() {
         return sAppContext;

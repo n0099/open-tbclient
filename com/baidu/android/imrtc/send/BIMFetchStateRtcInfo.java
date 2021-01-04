@@ -1,13 +1,13 @@
 package com.baidu.android.imrtc.send;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class BIMFetchStateRtcInfo extends BIMRtcInfo {
     private static final String TAG = "BIMFetchStateRtcInfo";
     private List<UserState> mUkStates = new ArrayList();
@@ -17,7 +17,7 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
         return this.mUkStates;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes6.dex */
     class UserState {
         public int status;
         public long uk;

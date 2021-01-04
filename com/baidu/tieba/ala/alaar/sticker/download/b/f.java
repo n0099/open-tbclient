@@ -10,16 +10,16 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
-    private final g.a gkA;
+    private final g.a guZ;
     private volatile long mStartTime;
     private volatile int mStatus;
     private final String mUri;
 
     public f(String str, g.a aVar) {
         this.mUri = str;
-        this.gkA = aVar;
+        this.guZ = aVar;
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.g
@@ -46,7 +46,7 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
     public void run() {
         Process.setThreadPriority(10);
         this.mStatus = 102;
-        this.gkA.onConnecting();
+        this.guZ.onConnecting();
         try {
             executeConnection();
         } catch (DownloadException e) {
@@ -55,6 +55,9 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
     }
 
     private void executeConnection() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
+        Throwable th;
         HttpURLConnection httpURLConnection;
         this.mStartTime = System.currentTimeMillis();
         HttpURLConnection httpURLConnection2 = null;
@@ -62,13 +65,13 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
             try {
                 try {
                     httpURLConnection = (HttpURLConnection) new URL(this.mUri).openConnection();
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (ProtocolException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
+            } catch (ProtocolException e3) {
+                e2 = e3;
+            } catch (IOException e4) {
+                e = e4;
             }
             try {
                 httpURLConnection.setConnectTimeout(4000);
@@ -86,22 +89,22 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
                 }
-            } catch (ProtocolException e3) {
-                e = e3;
-                throw new DownloadException(108, "Protocol error", e);
-            } catch (IOException e4) {
-                e = e4;
+            } catch (ProtocolException e5) {
+                e2 = e5;
+                throw new DownloadException(108, "Protocol error", e2);
+            } catch (IOException e6) {
+                e = e6;
                 throw new DownloadException(108, "IO error", e);
-            } catch (Throwable th2) {
+            } catch (Throwable th3) {
+                th = th3;
                 httpURLConnection2 = httpURLConnection;
-                th = th2;
                 if (httpURLConnection2 != null) {
                     httpURLConnection2.disconnect();
                 }
                 throw th;
             }
-        } catch (MalformedURLException e5) {
-            throw new DownloadException(108, "Bad url.", e5);
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 
@@ -126,7 +129,7 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
         }
         checkCanceledOrPaused();
         this.mStatus = 103;
-        this.gkA.onConnected(System.currentTimeMillis() - this.mStartTime, contentLength, z);
+        this.guZ.onConnected(System.currentTimeMillis() - this.mStartTime, contentLength, z);
     }
 
     private void checkCanceledOrPaused() throws DownloadException {
@@ -140,19 +143,19 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
 
     private void e(DownloadException downloadException) {
         if (downloadException.getErrorCode() == 108) {
-            synchronized (this.gkA) {
+            synchronized (this.guZ) {
                 this.mStatus = 108;
-                this.gkA.b(downloadException);
+                this.guZ.b(downloadException);
             }
         } else if (downloadException.getErrorCode() == 106) {
-            synchronized (this.gkA) {
+            synchronized (this.guZ) {
                 this.mStatus = 106;
-                this.gkA.onConnectPaused();
+                this.guZ.onConnectPaused();
             }
         } else if (downloadException.getErrorCode() == 107) {
-            synchronized (this.gkA) {
+            synchronized (this.guZ) {
                 this.mStatus = 107;
-                this.gkA.onConnectCanceled();
+                this.guZ.onConnectCanceled();
             }
         } else {
             throw new IllegalArgumentException("Unknown state");

@@ -6,13 +6,15 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class ReverseGeoCodeResult extends SearchResult {
     public static final Parcelable.Creator<ReverseGeoCodeResult> CREATOR = new b();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2120a;
-    private String b;
+    private String f2993a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2994b;
     private AddressComponent c;
     private LatLng d;
     private int e;
@@ -21,7 +23,7 @@ public class ReverseGeoCodeResult extends SearchResult {
     private List<PoiRegionsInfo> h;
     private int i;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class AddressComponent implements Parcelable {
         public static final Parcelable.Creator<AddressComponent> CREATOR = new c();
         public int adcode;
@@ -99,7 +101,7 @@ public class ReverseGeoCodeResult extends SearchResult {
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class PoiRegionsInfo implements Parcelable {
         public static final Parcelable.Creator<PoiRegionsInfo> CREATOR = new d();
         public String directionDesc;
@@ -159,8 +161,8 @@ public class ReverseGeoCodeResult extends SearchResult {
     /* JADX INFO: Access modifiers changed from: protected */
     public ReverseGeoCodeResult(Parcel parcel) {
         super(parcel);
-        this.f2120a = parcel.readString();
-        this.b = parcel.readString();
+        this.f2993a = parcel.readString();
+        this.f2994b = parcel.readString();
         this.c = (AddressComponent) parcel.readParcelable(AddressComponent.class.getClassLoader());
         this.d = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
         this.f = parcel.createTypedArrayList(PoiInfo.CREATOR);
@@ -178,7 +180,7 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     public String getAddress() {
-        return this.b;
+        return this.f2994b;
     }
 
     public AddressComponent getAddressDetail() {
@@ -186,7 +188,7 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     public String getBusinessCircle() {
-        return this.f2120a;
+        return this.f2993a;
     }
 
     public int getCityCode() {
@@ -214,7 +216,7 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     public void setAddress(String str) {
-        this.b = str;
+        this.f2994b = str;
     }
 
     public void setAddressDetail(AddressComponent addressComponent) {
@@ -222,7 +224,7 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     public void setBusinessCircle(String str) {
-        this.f2120a = str;
+        this.f2993a = str;
     }
 
     public void setCityCode(int i) {
@@ -247,8 +249,8 @@ public class ReverseGeoCodeResult extends SearchResult {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("ReverseGeoCodeResult: \n");
-        stringBuffer.append("businessCircle = ").append(this.f2120a);
-        stringBuffer.append("; address = ").append(this.b);
+        stringBuffer.append("businessCircle = ").append(this.f2993a);
+        stringBuffer.append("; address = ").append(this.f2994b);
         stringBuffer.append("; location = ").append(this.d);
         stringBuffer.append("; sematicDescription = ").append(this.g);
         if (this.c != null) {
@@ -311,8 +313,8 @@ public class ReverseGeoCodeResult extends SearchResult {
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeString(this.f2120a);
-        parcel.writeString(this.b);
+        parcel.writeString(this.f2993a);
+        parcel.writeString(this.f2994b);
         parcel.writeParcelable(this.c, 0);
         parcel.writeValue(this.d);
         parcel.writeTypedList(this.f);

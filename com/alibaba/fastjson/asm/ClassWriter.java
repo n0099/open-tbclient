@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.asm;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ClassWriter {
     private int access;
     FieldWriter firstField;
@@ -59,25 +59,24 @@ public class ClassWriter {
             fieldWriter = fieldWriter.next;
             i2++;
         }
-        int i3 = i;
-        int i4 = 0;
+        int i3 = 0;
         for (MethodWriter methodWriter = this.firstMethod; methodWriter != null; methodWriter = methodWriter.next) {
-            i4++;
-            i3 += methodWriter.getSize();
+            i3++;
+            i += methodWriter.getSize();
         }
-        ByteVector byteVector = new ByteVector(this.pool.length + i3);
+        ByteVector byteVector = new ByteVector(this.pool.length + i);
         byteVector.putInt(-889275714).putInt(this.version);
         byteVector.putShort(this.index).putByteArray(this.pool.data, 0, this.pool.length);
         byteVector.putShort(this.access & (-393217)).putShort(this.name).putShort(this.superName);
         byteVector.putShort(this.interfaceCount);
-        for (int i5 = 0; i5 < this.interfaceCount; i5++) {
-            byteVector.putShort(this.interfaces[i5]);
+        for (int i4 = 0; i4 < this.interfaceCount; i4++) {
+            byteVector.putShort(this.interfaces[i4]);
         }
         byteVector.putShort(i2);
         for (FieldWriter fieldWriter2 = this.firstField; fieldWriter2 != null; fieldWriter2 = fieldWriter2.next) {
             fieldWriter2.put(byteVector);
         }
-        byteVector.putShort(i4);
+        byteVector.putShort(i3);
         for (MethodWriter methodWriter2 = this.firstMethod; methodWriter2 != null; methodWriter2 = methodWriter2.next) {
             methodWriter2.put(byteVector);
         }

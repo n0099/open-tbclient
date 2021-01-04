@@ -14,27 +14,27 @@ import com.baidu.android.imsdk.chatmessage.messages.SignleGraphicTextMsg;
 import com.baidu.live.sdk.a;
 import com.baidu.sumeru.universalimageloader.core.ImageLoader;
 import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class x extends e {
-    private final TextView amU;
-    public ImageView jAF;
+    private final TextView anz;
+    public ImageView jNe;
     public View mContentView;
     public View mConvertView;
-    private final ImageView oNu;
+    private final ImageView oTC;
 
     @SuppressLint({"InflateParams"})
     public x(Context context, LayoutInflater layoutInflater) {
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_video_item, (ViewGroup) null);
-        this.oMc = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oMf = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.oMh = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
+        this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oSn = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oSp = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
-        this.jAF = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
-        this.oNu = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_play_icon);
-        this.amU = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_video_duration);
-        this.oMi = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
-        this.oMj = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
-        this.oMk = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
+        this.jNe = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
+        this.oTC = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_play_icon);
+        this.anz = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_video_duration);
+        this.oSq = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.oSr = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.oSs = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
         this.mConvertView.setTag(this);
     }
 
@@ -55,12 +55,12 @@ public class x extends e {
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.e
     public void b(Context context, ChatMsg chatMsg) {
         SignleGraphicTextMsg signleGraphicTextMsg = (SignleGraphicTextMsg) chatMsg;
-        com.baidu.yuyinala.privatemessage.implugin.util.b.hr(context);
+        com.baidu.yuyinala.privatemessage.implugin.util.b.hE(context);
         a(signleGraphicTextMsg);
         SingleGraphicTextMsgExt singleGraphicTextMsgExt = new SingleGraphicTextMsgExt(signleGraphicTextMsg);
-        double d = singleGraphicTextMsgExt.oWB;
-        String str = singleGraphicTextMsgExt.oWA;
-        this.amU.setText(singleGraphicTextMsgExt.videoDuration);
+        double d = singleGraphicTextMsgExt.pcw;
+        String str = singleGraphicTextMsgExt.pcv;
+        this.anz.setText(singleGraphicTextMsgExt.pcx);
         super.b(context, chatMsg);
     }
 
@@ -69,6 +69,6 @@ public class x extends e {
         if (TextUtils.isEmpty(covers)) {
             covers = signleGraphicTextMsg.getCover();
         }
-        ImageLoader.getInstance().displayImage(covers, this.jAF, com.baidu.yuyinala.privatemessage.implugin.util.b.enR());
+        ImageLoader.getInstance().displayImage(covers, this.jNe, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
     }
 }

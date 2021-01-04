@@ -18,6 +18,7 @@ public class ForumWriteData implements Serializable {
     public int privateThread;
     public String secondDir;
     public String specialForumType;
+    public int statisticFrom;
     public PostTopicData topicData;
     public String writeCallFrom;
     public int categoryId = -1;

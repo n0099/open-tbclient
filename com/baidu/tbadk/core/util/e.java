@@ -18,7 +18,7 @@ public class e {
         }
     };
 
-    public static e bsW() {
+    public static e bvy() {
         return new e();
     }
 

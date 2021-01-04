@@ -1,8 +1,9 @@
 package com.xiaomi.push;
 
-import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
+import com.kwai.video.player.PlayerPostEvent;
+import com.kwai.video.player.PlayerProps;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public enum fh {
     TCP_CONN_FAIL(1),
     TCP_CONN_TIME(2),
@@ -13,11 +14,11 @@ public enum fh {
     ICMP_PING_OK(7),
     CHANNEL_ONLINE_RATE(8),
     GSLB_REQUEST_SUCCESS(10000),
-    GSLB_TCP_NOACCESS(10101),
+    GSLB_TCP_NOACCESS(PlayerPostEvent.MEDIA_INFO_PLAY_TO_END),
     GSLB_TCP_NETUNREACH(10102),
-    GSLB_TCP_CONNREFUSED(Constants.REQUEST_QQ_SHARE),
-    GSLB_TCP_NOROUTETOHOST(Constants.REQUEST_QZONE_SHARE),
-    GSLB_TCP_TIMEOUT(Constants.REQUEST_QQ_FAVORITES),
+    GSLB_TCP_CONNREFUSED(10103),
+    GSLB_TCP_NOROUTETOHOST(10104),
+    GSLB_TCP_TIMEOUT(10105),
     GSLB_TCP_INVALARG(Constants.REQUEST_SEND_TO_MY_COMPUTER),
     GSLB_TCP_UKNOWNHOST(Constants.REQUEST_SHARE_TO_TROOP_BAR),
     GSLB_TCP_ERR_OTHER(10199),
@@ -35,9 +36,9 @@ public enum fh {
     CONN_BOSH_UNKNOWNHOST(20407),
     CONN_BOSH_ERR(20499),
     BIND_SUCCESS(30000),
-    BIND_TCP_READ_TIMEOUT_DEPRECTED(30101),
-    BIND_TCP_CONNRESET_DEPRECTED(30102),
-    BIND_TCP_BROKEN_PIPE_DEPRECTED(30103),
+    BIND_TCP_READ_TIMEOUT_DEPRECTED(PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH),
+    BIND_TCP_CONNRESET_DEPRECTED(PlayerProps.FFP_PROP_STRING_STREAM_ID),
+    BIND_TCP_BROKEN_PIPE_DEPRECTED(PlayerProps.FFP_PROP_STRING_DOMAIN),
     BIND_TCP_READ_TIMEOUT(30108),
     BIND_TCP_CONNRESET(30109),
     BIND_TCP_BROKEN_PIPE(30110),
@@ -58,14 +59,14 @@ public enum fh {
     CHANNEL_BOSH_ITEMNOTFIND(40401),
     CHANNEL_BOSH_EXCEPTION(40499),
     CHANNEL_TIMER_DELAYED(50001),
-    CHANNEL_STATS_COUNTER(CoolPraiseGuideLottieView.ANIM_DURATION);
+    CHANNEL_STATS_COUNTER(8000);
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f322a;
+    private final int f400a;
 
     fh(int i) {
-        this.f322a = i;
+        this.f400a = i;
     }
 
     public static fh a(int i) {
@@ -86,19 +87,19 @@ public enum fh {
                 return ICMP_PING_OK;
             case 8:
                 return CHANNEL_ONLINE_RATE;
-            case CoolPraiseGuideLottieView.ANIM_DURATION /* 8000 */:
+            case 8000:
                 return CHANNEL_STATS_COUNTER;
             case 10000:
                 return GSLB_REQUEST_SUCCESS;
-            case 10101:
+            case PlayerPostEvent.MEDIA_INFO_PLAY_TO_END /* 10101 */:
                 return GSLB_TCP_NOACCESS;
             case 10102:
                 return GSLB_TCP_NETUNREACH;
-            case Constants.REQUEST_QQ_SHARE /* 10103 */:
+            case 10103:
                 return GSLB_TCP_CONNREFUSED;
-            case Constants.REQUEST_QZONE_SHARE /* 10104 */:
+            case 10104:
                 return GSLB_TCP_NOROUTETOHOST;
-            case Constants.REQUEST_QQ_FAVORITES /* 10105 */:
+            case 10105:
                 return GSLB_TCP_TIMEOUT;
             case Constants.REQUEST_SEND_TO_MY_COMPUTER /* 10106 */:
                 return GSLB_TCP_INVALARG;
@@ -134,11 +135,11 @@ public enum fh {
                 return CONN_BOSH_ERR;
             case 30000:
                 return BIND_SUCCESS;
-            case 30101:
+            case PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH /* 30101 */:
                 return BIND_TCP_READ_TIMEOUT_DEPRECTED;
-            case 30102:
+            case PlayerProps.FFP_PROP_STRING_STREAM_ID /* 30102 */:
                 return BIND_TCP_CONNRESET_DEPRECTED;
-            case 30103:
+            case PlayerProps.FFP_PROP_STRING_DOMAIN /* 30103 */:
                 return BIND_TCP_BROKEN_PIPE_DEPRECTED;
             case 30108:
                 return BIND_TCP_READ_TIMEOUT;
@@ -186,6 +187,6 @@ public enum fh {
     }
 
     public int a() {
-        return this.f322a;
+        return this.f400a;
     }
 }

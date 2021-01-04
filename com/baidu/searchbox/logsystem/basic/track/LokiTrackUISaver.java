@@ -1,7 +1,7 @@
 package com.baidu.searchbox.logsystem.basic.track;
 
-import android.support.annotation.NonNull;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.pyramid.runtime.multiprocess.a;
 import com.baidu.searchbox.config.AppConfig;
@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class LokiTrackUISaver {
     public static final char SEPERATOR_ENTER = '\n';
     private static final String TAG = "LokiTrackUISaver";

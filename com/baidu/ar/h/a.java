@@ -1,5 +1,5 @@
 package com.baidu.ar.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static String mPackageName = null;
 

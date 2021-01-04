@@ -9,7 +9,7 @@ import rx.f;
 import rx.internal.util.a.ae;
 import rx.internal.util.a.x;
 import rx.j;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class QueuedProducer<T> extends AtomicLong implements e<T>, f {
     static final Object NULL_SENTINEL = new Object();
     private static final long serialVersionUID = 7277121710709137047L;
@@ -20,7 +20,7 @@ public final class QueuedProducer<T> extends AtomicLong implements e<T>, f {
     final AtomicInteger wip;
 
     public QueuedProducer(j<? super T> jVar) {
-        this(jVar, ae.eGo() ? new x() : new rx.internal.util.atomic.e());
+        this(jVar, ae.eOw() ? new x() : new rx.internal.util.atomic.e());
     }
 
     public QueuedProducer(j<? super T> jVar, Queue<Object> queue) {

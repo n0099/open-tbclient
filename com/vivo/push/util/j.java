@@ -3,28 +3,30 @@ package com.vivo.push.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.support.v4.view.ViewCompat;
-/* loaded from: classes11.dex */
+import androidx.core.view.ViewCompat;
+/* loaded from: classes3.dex */
 public final class j implements BaseNotifyLayoutAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Resources f4472a;
-    private String b;
+    private Resources f13987a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f13988b;
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final void init(Context context) {
-        this.b = context.getPackageName();
-        this.f4472a = context.getResources();
+        this.f13988b = context.getPackageName();
+        this.f13987a = context.getResources();
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getNotificationLayout() {
-        return this.f4472a.getIdentifier("push_notify", "layout", this.b);
+        return this.f13987a.getIdentifier("push_notify", "layout", this.f13988b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getSuitIconId() {
-        return k.g ? this.f4472a.getIdentifier("notify_icon_rom30", "id", this.b) : k.f ? this.f4472a.getIdentifier("notify_icon_rom20", "id", this.b) : this.f4472a.getIdentifier("notify_icon", "id", this.b);
+        return k.g ? this.f13987a.getIdentifier("notify_icon_rom30", "id", this.f13988b) : k.f ? this.f13987a.getIdentifier("notify_icon_rom20", "id", this.f13988b) : this.f13987a.getIdentifier("notify_icon", "id", this.f13988b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -37,7 +39,7 @@ public final class j implements BaseNotifyLayoutAdapter {
             i = 0;
         }
         if (i > 0) {
-            return this.f4472a.getColor(i);
+            return this.f13987a.getColor(i);
         }
         if (k.g) {
             return -1;

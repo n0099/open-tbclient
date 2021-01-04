@@ -5,14 +5,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.ap.e;
+import com.baidu.swan.apps.ao.e;
 import com.baidu.swan.apps.core.k.c;
 import com.baidu.swan.apps.env.b.d;
 import com.baidu.swan.apps.view.SwanAppErrorDialog;
 import com.baidu.swan.facade.a;
 import com.baidu.swan.facade.requred.webview.LoadingActivity;
 import com.baidu.swan.facade.requred.webview.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a implements b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private boolean mIsLoading = false;
@@ -47,7 +47,7 @@ public class a implements b.a {
     }
 
     @Override // com.baidu.swan.facade.requred.webview.b.a
-    public com.baidu.swan.pms.e.b akV() {
+    public com.baidu.swan.pms.e.b amf() {
         return new com.baidu.swan.d.c();
     }
 
@@ -57,11 +57,11 @@ public class a implements b.a {
         if (DEBUG) {
             Log.i("SailorSoDownloadAdapter", "startDownload: ");
         }
-        com.baidu.swan.apps.env.b.c.cXM.a(new d().a("zeus", new com.baidu.swan.apps.ap.e.b<Boolean>() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
+        com.baidu.swan.apps.env.b.c.dcH.a(new d().a("zeus", new com.baidu.swan.apps.ao.e.b<Boolean>() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.ap.e.b
-            /* renamed from: f */
-            public void M(Boolean bool) {
+            @Override // com.baidu.swan.apps.ao.e.b
+            /* renamed from: g */
+            public void L(Boolean bool) {
                 if (a.DEBUG) {
                     Log.i("SailorSoDownloadAdapter", "startDownload onCallback: " + bool);
                 }
@@ -77,7 +77,7 @@ public class a implements b.a {
     }
 
     private void a(DialogInterface.OnClickListener onClickListener) {
-        SwanAppErrorDialog.aQc().ko(a.e.aiapps_t7_download_tip_title).kp(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
+        SwanAppErrorDialog.aSx().kr(a.e.aiapps_t7_download_tip_title).ks(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -89,7 +89,7 @@ public class a implements b.a {
                 Intent intent = new Intent(appContext, LoadingActivity.class);
                 intent.addFlags(268435456);
                 intent.putExtra("so_lib_name", "zeus");
-                e.startActivitySafely(appContext, intent);
+                e.f(appContext, intent);
             }
         });
     }
@@ -99,7 +99,7 @@ public class a implements b.a {
         com.baidu.swan.apps.runtime.d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.a.a.4
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.runtime.d.aJQ().sv("loading_hide");
+                com.baidu.swan.apps.runtime.d.aMg().ss("loading_hide");
             }
         });
     }

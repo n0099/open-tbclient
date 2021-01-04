@@ -4,15 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 class bq extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f4860a;
+    final /* synthetic */ XMPushService f14581a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(XMPushService xMPushService) {
-        this.f4860a = xMPushService;
+        this.f14581a = xMPushService;
     }
 
     @Override // android.os.Handler
@@ -24,7 +24,7 @@ class bq extends Handler {
                 switch (message.what) {
                     case 17:
                         if (message.obj != null) {
-                            this.f4860a.onStart((Intent) message.obj, XMPushService.f4792a);
+                            this.f14581a.onStart((Intent) message.obj, XMPushService.f14498a);
                             break;
                         }
                         break;
@@ -32,7 +32,7 @@ class bq extends Handler {
                         Message obtain = Message.obtain((Handler) null, 0);
                         obtain.what = 18;
                         Bundle bundle = new Bundle();
-                        str = this.f4860a.f812a;
+                        str = this.f14581a.f890a;
                         bundle.putString("xmsf_region", str);
                         obtain.setData(bundle);
                         message.replyTo.send(obtain);

@@ -14,9 +14,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Environment;
-import android.support.v4.internal.view.SupportMenu;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.internal.view.SupportMenu;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
 import com.xiaomi.mipush.sdk.Constants;
@@ -31,12 +31,14 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.UUID;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1589a = "armeabi";
-    public static final String b = "armeabi-v7a";
+    public static final String f2144a = "armeabi";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f2145b = "armeabi-v7a";
     public static final String c = "x86";
     public static final String d = "arm64-v8a";
     static final int e = 480;
@@ -213,7 +215,7 @@ public class h {
     }
 
     public static String a(String str, Context context) {
-        return str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f1582a;
+        return str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f2131a;
     }
 
     public static int a(Context context, float f2) {

@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
     public FrsTabViewPager(Context context) {
         this(context, null);
@@ -20,59 +20,59 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                qk(true);
+                qI(true);
                 break;
             case 1:
-                qk(false);
+                qI(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, android.support.v4.view.ViewPager, android.view.View
+    @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                qk(false);
+                qI(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void qk(boolean z) {
+    public void qI(boolean z) {
         a aVar = new a();
-        aVar.ql(cEl());
-        aVar.qm(z);
+        aVar.qJ(cHg());
+        aVar.qK(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void cEk() {
-        qk(false);
+    public void cHf() {
+        qI(false);
     }
 
-    private boolean cEl() {
+    private boolean cHg() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public static class a {
-        private boolean iXA;
-        private boolean iXB;
+        private boolean jjN;
+        private boolean jjO;
 
-        public boolean cEm() {
-            return this.iXA;
+        public boolean cHh() {
+            return this.jjN;
         }
 
-        public void ql(boolean z) {
-            this.iXA = z;
+        public void qJ(boolean z) {
+            this.jjN = z;
         }
 
-        public boolean cEn() {
-            return this.iXB;
+        public boolean cHi() {
+            return this.jjO;
         }
 
-        public void qm(boolean z) {
-            this.iXB = z;
+        public void qK(boolean z) {
+            this.jjO = z;
         }
     }
 }

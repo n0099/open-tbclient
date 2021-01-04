@@ -2,31 +2,31 @@ package com.xiaomi.push;
 
 import com.xiaomi.push.je;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class jd {
 
     /* renamed from: a  reason: collision with root package name */
-    private ji f4767a;
+    private ji f14465a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final jp f770a;
+    private final jp f848a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final ByteArrayOutputStream f771a;
+    private final ByteArrayOutputStream f849a;
 
     public jd() {
         this(new je.a());
     }
 
     public jd(jk jkVar) {
-        this.f771a = new ByteArrayOutputStream();
-        this.f770a = new jp(this.f771a);
-        this.f4767a = jkVar.a(this.f770a);
+        this.f849a = new ByteArrayOutputStream();
+        this.f848a = new jp(this.f849a);
+        this.f14465a = jkVar.a(this.f848a);
     }
 
     public byte[] a(ix ixVar) {
-        this.f771a.reset();
-        ixVar.b(this.f4767a);
-        return this.f771a.toByteArray();
+        this.f849a.reset();
+        ixVar.b(this.f14465a);
+        return this.f849a.toByteArray();
     }
 }

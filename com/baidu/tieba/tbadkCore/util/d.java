@@ -5,40 +5,39 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    protected volatile int eXb;
-    protected volatile HashMap<Long, Integer> npc = new HashMap<>();
+    protected volatile int fgC;
+    protected volatile HashMap<Long, Integer> nuM = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.eXb = i;
+        this.fgC = i;
     }
 
-    public void Ua(String str) {
+    public void TK(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.npc.size() >= this.eXb) {
-                    dQu();
+                if (this.nuM.size() >= this.fgC) {
+                    dQq();
                 }
                 this.mWeight++;
-                this.npc.put(valueOf, Integer.valueOf(this.mWeight));
+                this.nuM.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void dQu() {
+    public void dQq() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.npc.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.nuM.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
-                    int intValue = entry.getValue().intValue();
+                    i = entry.getValue().intValue();
                     l = entry.getKey();
-                    i = intValue;
                 } else {
                     i = i2;
                     l = l2;
@@ -47,19 +46,19 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.npc.remove(l2);
+                this.nuM.remove(l2);
             } else {
-                this.npc.clear();
+                this.nuM.clear();
             }
         }
     }
 
-    public boolean Ub(String str) {
+    public boolean TL(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.npc.get(valueOf) != null;
+                z = this.nuM.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -68,18 +67,18 @@ public class d {
         }
     }
 
-    public boolean Uc(String str) {
+    public boolean TM(String str) {
         try {
-            return this.npc.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.nuM.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void dQt() {
+    public void dQp() {
         synchronized (this) {
-            this.npc.clear();
+            this.nuM.clear();
         }
     }
 }

@@ -7,18 +7,20 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.Thread;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class q implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2348a = "";
-    private static Thread.UncaughtExceptionHandler b;
+    public static String f3384a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static Thread.UncaughtExceptionHandler f3385b;
     private static volatile q c;
     private Context d;
     private a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(String str);
     }
@@ -36,7 +38,7 @@ public class q implements Thread.UncaughtExceptionHandler {
 
     private q(Context context) {
         this.d = context.getApplicationContext();
-        b = Thread.getDefaultUncaughtExceptionHandler();
+        f3385b = Thread.getDefaultUncaughtExceptionHandler();
         new Thread(new r(this)).start();
     }
 
@@ -57,8 +59,8 @@ public class q implements Thread.UncaughtExceptionHandler {
                     this.e.a(a2);
                 }
             }
-            if (b != null) {
-                b.uncaughtException(thread, th);
+            if (f3385b != null) {
+                f3385b.uncaughtException(thread, th);
             }
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(e);
@@ -114,7 +116,7 @@ public class q implements Thread.UncaughtExceptionHandler {
         SharedPreferences.Editor d = d();
         d.putString("key_crash_source", str);
         d.putString("key_crash_trace", str2);
-        d.putString("key_crash_ad", f2348a);
+        d.putString("key_crash_ad", f3384a);
         if (Build.VERSION.SDK_INT >= 9) {
             d.apply();
         } else {

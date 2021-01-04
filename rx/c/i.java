@@ -1,12 +1,12 @@
 package rx.c;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 final class i extends h {
-    private static final i pVz = new i();
+    private static final i qwZ = new i();
 
     private i() {
     }
 
-    public static h eGK() {
-        return pVz;
+    public static h eOS() {
+        return qwZ;
     }
 }

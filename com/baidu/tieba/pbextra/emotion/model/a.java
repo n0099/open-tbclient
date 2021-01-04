@@ -5,90 +5,90 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
     protected int height;
     protected Bitmap image;
-    protected int mge;
-    protected OutputStream mgg;
-    protected byte[] mgh;
-    protected byte[] mgi;
-    protected int mgj;
-    protected byte[] mgk;
+    protected byte[] mls;
+    protected byte[] mlt;
+    protected int mlu;
+    protected byte[] mlv;
+    protected OutputStream out;
+    protected int transIndex;
     protected int width;
     protected int x = 0;
     protected int y = 0;
     protected int transparent = -1;
-    protected int mgf = -1;
+    protected int mlr = -1;
     protected int delay = 0;
     protected boolean started = false;
-    protected boolean[] mgl = new boolean[256];
-    protected int mgm = 7;
-    protected int mgn = -1;
-    protected boolean mgo = false;
-    protected boolean mgp = true;
-    protected boolean mgq = false;
-    protected int mgr = 10;
+    protected boolean[] mlw = new boolean[256];
+    protected int mlx = 7;
+    protected int dispose = -1;
+    protected boolean mly = false;
+    protected boolean mlz = true;
+    protected boolean mlA = false;
+    protected int mlB = 10;
 
-    public void HY(int i) {
+    public void HR(int i) {
         if (i >= 0) {
-            this.mgf = i;
+            this.mlr = i;
         }
     }
 
-    public boolean G(Bitmap bitmap) {
+    public boolean H(Bitmap bitmap) {
         if (bitmap == null || !this.started) {
             return false;
         }
         try {
-            if (!this.mgq) {
+            if (!this.mlA) {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
             this.image = bitmap;
-            dxD();
-            dxC();
-            if (this.mgp) {
-                dxG();
-                dxI();
-                if (this.mgf >= 0) {
-                    dxH();
+            dxs();
+            dxr();
+            if (this.mlz) {
+                dxv();
+                dxx();
+                if (this.mlr >= 0) {
+                    dxw();
                 }
             }
-            dxE();
-            dxF();
-            if (!this.mgp) {
-                dxI();
+            dxt();
+            dxu();
+            if (!this.mlz) {
+                dxx();
             }
-            dxJ();
-            this.mgp = false;
+            dxy();
+            this.mlz = false;
             return true;
         } catch (IOException e) {
             return false;
         }
     }
 
-    public boolean dxB() {
+    public boolean dxq() {
         boolean z;
         if (this.started) {
             this.started = false;
             try {
-                this.mgg.write(59);
-                this.mgg.flush();
-                if (this.mgo) {
-                    this.mgg.close();
+                this.out.write(59);
+                this.out.flush();
+                if (this.mly) {
+                    this.out.close();
                 }
                 z = true;
             } catch (IOException e) {
                 z = false;
             }
-            this.mge = 0;
-            this.mgg = null;
+            this.transIndex = 0;
+            this.out = null;
             this.image = null;
-            this.mgh = null;
-            this.mgi = null;
-            this.mgk = null;
-            this.mgo = false;
-            this.mgp = true;
+            this.mls = null;
+            this.mlt = null;
+            this.mlv = null;
+            this.mly = false;
+            this.mlz = true;
             return z;
         }
         return false;
@@ -103,7 +103,7 @@ public class a {
         if (this.height < 1) {
             this.height = 240;
         }
-        this.mgq = true;
+        this.mlA = true;
     }
 
     public boolean b(OutputStream outputStream) {
@@ -111,8 +111,8 @@ public class a {
             return false;
         }
         boolean z = true;
-        this.mgo = false;
-        this.mgg = outputStream;
+        this.mly = false;
+        this.out = outputStream;
         try {
             writeString("GIF89a");
         } catch (IOException e) {
@@ -122,69 +122,66 @@ public class a {
         return z;
     }
 
-    protected void dxC() {
-        int length = this.mgh.length;
+    protected void dxr() {
+        int length = this.mls.length;
         int i = length / 3;
-        this.mgi = new byte[i];
-        c cVar = new c(this.mgh, length, this.mgr);
-        this.mgk = cVar.dxP();
-        for (int i2 = 0; i2 < this.mgk.length; i2 += 3) {
-            byte b = this.mgk[i2];
-            this.mgk[i2] = this.mgk[i2 + 2];
-            this.mgk[i2 + 2] = b;
-            this.mgl[i2 / 3] = false;
+        this.mlt = new byte[i];
+        c cVar = new c(this.mls, length, this.mlB);
+        this.mlv = cVar.dxE();
+        for (int i2 = 0; i2 < this.mlv.length; i2 += 3) {
+            byte b2 = this.mlv[i2];
+            this.mlv[i2] = this.mlv[i2 + 2];
+            this.mlv[i2 + 2] = b2;
+            this.mlw[i2 / 3] = false;
         }
         int i3 = 0;
         for (int i4 = 0; i4 < i; i4++) {
             int i5 = i3 + 1;
             int i6 = i5 + 1;
             i3 = i6 + 1;
-            int X = cVar.X(this.mgh[i3] & 255, this.mgh[i5] & 255, this.mgh[i6] & 255);
-            this.mgl[X] = true;
-            this.mgi[i4] = (byte) X;
+            int Z = cVar.Z(this.mls[i3] & 255, this.mls[i5] & 255, this.mls[i6] & 255);
+            this.mlw[Z] = true;
+            this.mlt[i4] = (byte) Z;
         }
-        this.mgh = null;
-        this.mgj = 8;
-        this.mgm = 7;
+        this.mls = null;
+        this.mlu = 8;
+        this.mlx = 7;
         if (this.transparent != -1) {
-            this.mge = HZ(this.transparent);
+            this.transIndex = HS(this.transparent);
         }
     }
 
-    protected int HZ(int i) {
-        int i2;
-        int i3 = 0;
-        if (this.mgk == null) {
+    protected int HS(int i) {
+        if (this.mlv == null) {
             return -1;
         }
-        int i4 = (i >> 16) & 255;
-        int i5 = (i >> 8) & 255;
-        int i6 = (i >> 0) & 255;
-        int i7 = 16777216;
-        int length = this.mgk.length;
-        int i8 = 0;
-        while (i3 < length) {
-            int i9 = i3 + 1;
-            int i10 = i4 - (this.mgk[i3] & 255);
-            int i11 = i9 + 1;
-            int i12 = i5 - (this.mgk[i9] & 255);
-            int i13 = i6 - (this.mgk[i11] & 255);
-            int i14 = (i10 * i10) + (i12 * i12) + (i13 * i13);
-            int i15 = i11 / 3;
-            if (!this.mgl[i15] || i14 >= i7) {
+        int i2 = (i >> 16) & 255;
+        int i3 = (i >> 8) & 255;
+        int i4 = (i >> 0) & 255;
+        int i5 = 16777216;
+        int length = this.mlv.length;
+        int i6 = 0;
+        int i7 = 0;
+        while (i6 < length) {
+            int i8 = i6 + 1;
+            int i9 = i2 - (this.mlv[i6] & 255);
+            int i10 = i8 + 1;
+            int i11 = i3 - (this.mlv[i8] & 255);
+            int i12 = i4 - (this.mlv[i10] & 255);
+            int i13 = (i9 * i9) + (i11 * i11) + (i12 * i12);
+            int i14 = i10 / 3;
+            if (!this.mlw[i14] || i13 >= i5) {
+                i13 = i5;
                 i14 = i7;
-                i2 = i8;
-            } else {
-                i2 = i15;
             }
-            i8 = i2;
+            i6 = i10 + 1;
+            i5 = i13;
             i7 = i14;
-            i3 = i11 + 1;
         }
-        return i8;
+        return i7;
     }
 
-    protected void dxD() {
+    protected void dxs() {
         int width = this.image.getWidth();
         int height = this.image.getHeight();
         if (width != this.width || height != this.height) {
@@ -192,19 +189,19 @@ public class a {
             new Canvas(createBitmap).drawBitmap(this.image, 0.0f, 0.0f, new Paint());
             this.image = createBitmap;
         }
-        int[] H = H(this.image);
-        this.mgh = new byte[H.length * 3];
-        for (int i = 0; i < H.length; i++) {
-            int i2 = H[i];
+        int[] I = I(this.image);
+        this.mls = new byte[I.length * 3];
+        for (int i = 0; i < I.length; i++) {
+            int i2 = I[i];
             int i3 = i * 3;
             int i4 = i3 + 1;
-            this.mgh[i3] = (byte) ((i2 >> 0) & 255);
-            this.mgh[i4] = (byte) ((i2 >> 8) & 255);
-            this.mgh[i4 + 1] = (byte) ((i2 >> 16) & 255);
+            this.mls[i3] = (byte) ((i2 >> 0) & 255);
+            this.mls[i4] = (byte) ((i2 >> 8) & 255);
+            this.mls[i4 + 1] = (byte) ((i2 >> 16) & 255);
         }
     }
 
-    protected int[] H(Bitmap bitmap) {
+    protected int[] I(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         int[] iArr = new int[width * height];
@@ -212,12 +209,12 @@ public class a {
         return iArr;
     }
 
-    protected void dxE() throws IOException {
+    protected void dxt() throws IOException {
         int i;
         int i2;
-        this.mgg.write(33);
-        this.mgg.write(249);
-        this.mgg.write(4);
+        this.out.write(33);
+        this.out.write(249);
+        this.out.write(4);
         if (this.transparent == -1) {
             i2 = 0;
             i = 0;
@@ -225,67 +222,67 @@ public class a {
             i = 1;
             i2 = 2;
         }
-        if (this.mgn >= 0) {
-            i2 = this.mgn & 7;
+        if (this.dispose >= 0) {
+            i2 = this.dispose & 7;
         }
-        this.mgg.write((i2 << 2) | 0 | 0 | i);
+        this.out.write((i2 << 2) | 0 | 0 | i);
         writeShort(this.delay);
-        this.mgg.write(this.mge);
-        this.mgg.write(0);
+        this.out.write(this.transIndex);
+        this.out.write(0);
     }
 
-    protected void dxF() throws IOException {
-        this.mgg.write(44);
+    protected void dxu() throws IOException {
+        this.out.write(44);
         writeShort(this.x);
         writeShort(this.y);
         writeShort(this.width);
         writeShort(this.height);
-        if (this.mgp) {
-            this.mgg.write(0);
+        if (this.mlz) {
+            this.out.write(0);
         } else {
-            this.mgg.write(this.mgm | 128);
+            this.out.write(this.mlx | 128);
         }
     }
 
-    protected void dxG() throws IOException {
+    protected void dxv() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
-        this.mgg.write(this.mgm | 240);
-        this.mgg.write(0);
-        this.mgg.write(0);
+        this.out.write(this.mlx | 240);
+        this.out.write(0);
+        this.out.write(0);
     }
 
-    protected void dxH() throws IOException {
-        this.mgg.write(33);
-        this.mgg.write(255);
-        this.mgg.write(11);
+    protected void dxw() throws IOException {
+        this.out.write(33);
+        this.out.write(255);
+        this.out.write(11);
         writeString("NETSCAPE2.0");
-        this.mgg.write(3);
-        this.mgg.write(1);
-        writeShort(this.mgf);
-        this.mgg.write(0);
+        this.out.write(3);
+        this.out.write(1);
+        writeShort(this.mlr);
+        this.out.write(0);
     }
 
-    protected void dxI() throws IOException {
-        this.mgg.write(this.mgk, 0, this.mgk.length);
-        int length = 768 - this.mgk.length;
+    protected void dxx() throws IOException {
+        this.out.write(this.mlv, 0, this.mlv.length);
+        int length = 768 - this.mlv.length;
         for (int i = 0; i < length; i++) {
-            this.mgg.write(0);
+            this.out.write(0);
         }
     }
 
-    protected void dxJ() throws IOException {
-        new b(this.width, this.height, this.mgi, this.mgj).encode(this.mgg);
+    protected void dxy() throws IOException {
+        new b(this.width, this.height, this.mlt, this.mlu).encode(this.out);
     }
 
     protected void writeShort(int i) throws IOException {
-        this.mgg.write(i & 255);
-        this.mgg.write((i >> 8) & 255);
+        this.out.write(i & 255);
+        this.out.write((i >> 8) & 255);
     }
 
     protected void writeString(String str) throws IOException {
         for (int i = 0; i < str.length(); i++) {
-            this.mgg.write((byte) str.charAt(i));
+            this.out.write((byte) str.charAt(i));
         }
     }
 }

@@ -25,7 +25,7 @@ import com.baidu.ala.recorder.video.gles.WindowSurface;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class EGLTextureReader implements ITextureReader {
     private static final boolean DEBUG = false;
     private static final int DEFAULT_UPDATE_PIC_INTERVAL = 200;
@@ -51,7 +51,7 @@ public class EGLTextureReader implements ITextureReader {
     private volatile boolean mIsPicStreaming = false;
     private volatile long mEpochTimeInNs = -1;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public interface OnPixelReadCallback {
         void onPixelRead(byte[] bArr, int i, int i2);
     }
@@ -239,7 +239,7 @@ public class EGLTextureReader implements ITextureReader {
         return !TextUtils.isEmpty(str) && new File(str).exists();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     private class WorkThread extends Thread {
         private static final int CMD_ON_EXIT = 2;
         private static final int CMD_ON_PIC_TEXTURE_UPDATE = 5;

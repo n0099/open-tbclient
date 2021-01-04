@@ -12,14 +12,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<FieldDescriptorType>> {
     private static final FieldSet DEFAULT_INSTANCE = new FieldSet(true);
     private boolean isImmutable;
     private boolean hasLazyField = false;
     private final SmallSortedMap<FieldDescriptorType, Object> fields = SmallSortedMap.newFieldMap(16);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public interface FieldDescriptorLite<T extends FieldDescriptorLite<T>> extends Comparable<T> {
         Internal.EnumLiteMap<?> getEnumType();
 
@@ -64,7 +64,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public FieldSet<FieldDescriptorType> m44clone() {
+    public FieldSet<FieldDescriptorType> m49clone() {
         FieldSet<FieldDescriptorType> newFieldSet = newFieldSet();
         int i = 0;
         while (true) {
@@ -521,9 +521,16 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     }
 
     public int getMessageSetSerializedSize() {
-        int i = 0;
-        for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
-            i += getMessageSetSerializedSize(this.fields.getArrayEntryAt(i2));
+        int i;
+        int i2 = 0;
+        int i3 = 0;
+        while (true) {
+            i = i2;
+            if (i3 >= this.fields.getNumArrayEntries()) {
+                break;
+            }
+            i2 = getMessageSetSerializedSize(this.fields.getArrayEntryAt(i3)) + i;
+            i3++;
         }
         for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
             i += getMessageSetSerializedSize(entry);

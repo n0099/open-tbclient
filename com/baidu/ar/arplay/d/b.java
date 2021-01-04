@@ -24,17 +24,17 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.ala.dumixar.utils.LuaMessageHelper;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.ar.arplay.core.engine.ARPDataInteraction;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
 import com.baidu.ar.arplay.core.message.ARPMessage;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arplay.d.a;
+import com.baidu.ar.constants.HttpConstants;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static volatile b gf = null;
     private ViewGroup gg;
@@ -50,16 +50,16 @@ public class b {
         public void handleMessage(Message message) {
             final com.baidu.ar.arplay.d.a n;
             super.handleMessage(message);
-            a.C0078a c0078a = message.obj instanceof a.C0078a ? (a.C0078a) message.obj : null;
+            a.C0070a c0070a = message.obj instanceof a.C0070a ? (a.C0070a) message.obj : null;
             switch (message.what) {
                 case 103:
-                    b.this.a(c0078a);
+                    b.this.a(c0070a);
                     return;
                 case 104:
-                    if (c0078a == null || (n = b.this.n(c0078a.dM)) == null || c0078a.ge == null) {
+                    if (c0070a == null || (n = b.this.n(c0070a.dM)) == null || c0070a.ge == null) {
                         return;
                     }
-                    n.evaluateJavascript(c0078a.ge, new ValueCallback<String>() { // from class: com.baidu.ar.arplay.d.b.1.1
+                    n.evaluateJavascript(c0070a.ge, new ValueCallback<String>() { // from class: com.baidu.ar.arplay.d.b.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         /* renamed from: K */
@@ -79,7 +79,7 @@ public class b {
                     }
                     return;
                 case 106:
-                    b.this.b(c0078a);
+                    b.this.b(c0070a);
                     return;
                 default:
                     return;
@@ -140,10 +140,10 @@ public class b {
         }
     };
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class a {
         public String gu;
-        public String gt = "android";
+        public String gt = HttpConstants.OS_TYPE_VALUE;
         public int dY = 0;
 
         public a() {
@@ -159,7 +159,7 @@ public class b {
         HashMap hashMap3 = new HashMap();
         hashMap3.put("platform", aVar.gt);
         hashMap3.put("error_code", Integer.valueOf(aVar.dY));
-        hashMap3.put(AlaRecorderLog.KEY_ERROR_MSG, aVar.gu);
+        hashMap3.put("error_msg", aVar.gu);
         hashMap2.put("data", hashMap3);
         hashMap.put("event_data", hashMap2);
         ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
@@ -167,27 +167,27 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C0078a c0078a) {
-        if (c0078a == null || !isValid()) {
+    public void a(a.C0070a c0070a) {
+        if (c0070a == null || !isValid()) {
             return;
         }
-        com.baidu.ar.arplay.d.a e = e(c0078a.width, c0078a.height);
-        e.setWebViewData(c0078a);
-        d.bp().b(c0078a.dM, c0078a.width, c0078a.height);
-        e.setTag(Integer.valueOf(c0078a.dM));
-        String str = c0078a.url;
-        if (!c0078a.gd) {
+        com.baidu.ar.arplay.d.a e = e(c0070a.width, c0070a.height);
+        e.setWebViewData(c0070a);
+        d.bp().b(c0070a.dM, c0070a.width, c0070a.height);
+        e.setTag(Integer.valueOf(c0070a.dM));
+        String str = c0070a.url;
+        if (!c0070a.gd) {
             str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
         }
         e.loadUrl(str);
         e.invalidate();
         e.setIsNeedRender(true);
-        e(c0078a);
+        e(c0070a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(a.C0078a c0078a) {
-        if (c0078a == null || !bn()) {
+    public void b(a.C0070a c0070a) {
+        if (c0070a == null || !bn()) {
             return;
         }
         if (this.gm == null) {
@@ -210,8 +210,8 @@ public class b {
             });
             this.gl.addView(this.gm, layoutParams);
         }
-        String str = c0078a.url;
-        if (!c0078a.gd) {
+        String str = c0070a.url;
+        if (!c0070a.gd) {
             str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
         }
         this.gm.loadUrl(str);
@@ -351,27 +351,27 @@ public class b {
         this.gi = onTouchListener;
     }
 
-    public void c(a.C0078a c0078a) {
+    public void c(a.C0070a c0070a) {
         Message obtainMessage = this.gn.obtainMessage();
         obtainMessage.what = 103;
-        obtainMessage.obj = c0078a;
+        obtainMessage.obj = c0070a;
         this.gn.sendMessage(obtainMessage);
     }
 
-    public void d(a.C0078a c0078a) {
+    public void d(a.C0070a c0070a) {
         Message obtainMessage = this.gn.obtainMessage();
         obtainMessage.what = 106;
-        obtainMessage.obj = c0078a;
+        obtainMessage.obj = c0070a;
         this.gn.sendMessage(obtainMessage);
     }
 
-    public void e(a.C0078a c0078a) {
+    public void e(a.C0070a c0070a) {
         Message obtainMessage = this.gn.obtainMessage();
         obtainMessage.what = 104;
-        obtainMessage.obj = c0078a;
-        com.baidu.ar.arplay.d.a n = n(c0078a.dM);
+        obtainMessage.obj = c0070a;
+        com.baidu.ar.arplay.d.a n = n(c0070a.dM);
         if (n != null) {
-            n.setWebViewData(c0078a);
+            n.setWebViewData(c0070a);
             this.gn.sendMessage(obtainMessage);
         }
     }

@@ -1,18 +1,17 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
+import tbclient.RecomPostTopic;
 /* loaded from: classes.dex */
-public class bj extends by {
-    public static final BdUniqueId eHP = BdUniqueId.gen();
-    private ArrayList<RecommendForumData> eHQ = new ArrayList<>();
+public class bj {
+    public long eRG;
+    public String recom_title;
+    public String recom_topic;
 
-    public ArrayList<RecommendForumData> bnS() {
-        return this.eHQ;
-    }
-
-    @Override // com.baidu.tbadk.core.data.by, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return eHP;
+    public void a(RecomPostTopic recomPostTopic) {
+        if (recomPostTopic != null) {
+            this.recom_title = recomPostTopic.recom_title;
+            this.recom_topic = recomPostTopic.recom_topic;
+            this.eRG = recomPostTopic.uniq_topicid.longValue();
+        }
     }
 }

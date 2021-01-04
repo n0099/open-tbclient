@@ -12,12 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnMediaSourceChangedListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private CyberPlayer f1411a;
-    private int b;
+    private CyberPlayer f1852a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f1853b;
     private RemotePlayerService c;
     private Surface e;
     private RemoteCallbackList<d> d = new RemoteCallbackList<>();
@@ -25,22 +27,22 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, RemotePlayerService remotePlayerService) {
-        this.b = i;
+        this.f1853b = i;
         this.c = remotePlayerService;
-        this.f1411a = new CyberPlayer(this.b, this, false);
-        this.f1411a.setIsInMainProcess(false);
-        this.f1411a.setOnPreparedListener(this);
-        this.f1411a.setOnCompletionListener(this);
-        this.f1411a.setOnBufferingUpdateListener(this);
-        this.f1411a.setOnVideoSizeChangedListener(this);
-        this.f1411a.setOnSeekCompleteListener(this);
-        this.f1411a.setOnErrorListener(this);
-        this.f1411a.setOnInfoListener(this);
-        this.f1411a.setOnMediaSourceChangedListener(this);
+        this.f1852a = new CyberPlayer(this.f1853b, this, false);
+        this.f1852a.setIsInMainProcess(false);
+        this.f1852a.setOnPreparedListener(this);
+        this.f1852a.setOnCompletionListener(this);
+        this.f1852a.setOnBufferingUpdateListener(this);
+        this.f1852a.setOnVideoSizeChangedListener(this);
+        this.f1852a.setOnSeekCompleteListener(this);
+        this.f1852a.setOnErrorListener(this);
+        this.f1852a.setOnInfoListener(this);
+        this.f1852a.setOnMediaSourceChangedListener(this);
     }
 
     private CyberPlayer q() {
-        return this.f1411a;
+        return this.f1852a;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
@@ -242,8 +244,8 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     @Override // com.baidu.cyberplayer.sdk.remote.b
     public void l() {
         synchronized (this) {
-            if (this.f1411a != null) {
-                this.f1411a.release();
+            if (this.f1852a != null) {
+                this.f1852a.release();
             }
         }
         synchronized (this.d) {
@@ -342,7 +344,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
     public boolean onInfo(int i, int i2, Object obj) {
         boolean z;
-        boolean b;
+        boolean b2;
         synchronized (this.d) {
             int beginBroadcast = this.d.beginBroadcast();
             int i3 = 0;
@@ -351,16 +353,16 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                 d broadcastItem = this.d.getBroadcastItem(i3);
                 if (broadcastItem != null) {
                     try {
-                        b = broadcastItem.b(i, i2, obj instanceof String ? (String) obj : null);
+                        b2 = broadcastItem.b(i, i2, obj instanceof String ? (String) obj : null);
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
                     i3++;
-                    z = b;
+                    z = b2;
                 }
-                b = z;
+                b2 = z;
                 i3++;
-                z = b;
+                z = b2;
             }
             this.d.finishBroadcast();
         }

@@ -1,11 +1,11 @@
 package com.baidu.browser.core.util;
 
 import android.graphics.Bitmap;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class d {
-    private static Bitmap agp = null;
+    private static Bitmap agP = null;
 
     public static int o(float f) {
-        return Math.round(com.baidu.browser.core.b.ti().getResources().getDisplayMetrics().density * f);
+        return Math.round(com.baidu.browser.core.b.sI().getResources().getDisplayMetrics().density * f);
     }
 }

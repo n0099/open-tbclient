@@ -1,15 +1,15 @@
 package com.baidu.ufosdk.f;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f3721a;
+    private static long f5668a;
 
     public static boolean a() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - f3721a;
+        long j = currentTimeMillis - f5668a;
         if (0 >= j || j >= 500) {
-            f3721a = currentTimeMillis;
+            f5668a = currentTimeMillis;
             return false;
         }
         return true;

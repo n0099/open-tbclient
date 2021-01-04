@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public abstract class AbstractMessageLite implements MessageLite {
     @Override // com.google.protobuf.MessageLite
     public ByteString toByteString() {
@@ -55,7 +55,7 @@ public abstract class AbstractMessageLite implements MessageLite {
         return new UninitializedMessageException(this);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static abstract class Builder<BuilderType extends Builder> implements MessageLite.Builder {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
@@ -162,7 +162,7 @@ public abstract class AbstractMessageLite implements MessageLite {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes15.dex */
         public static final class LimitedInputStream extends FilterInputStream {
             private int limit;
 

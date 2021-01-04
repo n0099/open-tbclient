@@ -1,5 +1,5 @@
 package com.baidu.ar.content;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class ErrorCode {
     public static final int CHECK_ERROR = 104;
     public static final int DOWNLOAD_ERROR = 102;

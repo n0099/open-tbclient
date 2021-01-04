@@ -7,7 +7,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitArray;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Version;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class MatrixUtil {
     private static final int TYPE_INFO_MASK_PATTERN = 21522;
     private static final int TYPE_INFO_POLY = 1335;
@@ -59,17 +59,13 @@ final class MatrixUtil {
             BitArray bitArray = new BitArray();
             makeVersionInfoBits(version, bitArray);
             int i = 17;
-            int i2 = 0;
-            while (i2 < 6) {
-                int i3 = i;
-                for (int i4 = 0; i4 < 3; i4++) {
-                    boolean z = bitArray.get(i3);
-                    i3--;
-                    byteMatrix.set(i2, (byteMatrix.getHeight() - 11) + i4, z);
-                    byteMatrix.set((byteMatrix.getHeight() - 11) + i4, i2, z);
+            for (int i2 = 0; i2 < 6; i2++) {
+                for (int i3 = 0; i3 < 3; i3++) {
+                    boolean z = bitArray.get(i);
+                    i--;
+                    byteMatrix.set(i2, (byteMatrix.getHeight() - 11) + i3, z);
+                    byteMatrix.set((byteMatrix.getHeight() - 11) + i3, i2, z);
                 }
-                i2++;
-                i = i3;
             }
         }
     }
@@ -77,50 +73,44 @@ final class MatrixUtil {
     static void embedDataBits(BitArray bitArray, int i, ByteMatrix byteMatrix) throws WriterException {
         int i2;
         int i3;
-        int i4;
-        int i5;
         boolean z;
-        int width = byteMatrix.getWidth() - 1;
         int height = byteMatrix.getHeight() - 1;
-        int i6 = -1;
-        int i7 = 0;
-        while (width > 0) {
+        int i4 = -1;
+        int i5 = 0;
+        for (int width = byteMatrix.getWidth() - 1; width > 0; width = i3 - 2) {
             if (width == 6) {
                 i2 = height;
                 i3 = width - 1;
-                i4 = i7;
             } else {
                 i2 = height;
                 i3 = width;
-                i4 = i7;
             }
             while (i2 >= 0 && i2 < byteMatrix.getHeight()) {
-                for (int i8 = 0; i8 < 2; i8++) {
-                    int i9 = i3 - i8;
-                    if (isEmpty(byteMatrix.get(i9, i2))) {
-                        if (i4 < bitArray.getSize()) {
-                            i5 = i4 + 1;
-                            z = bitArray.get(i4);
+                int i6 = 0;
+                while (i6 < 2) {
+                    int i7 = i3 - i6;
+                    if (isEmpty(byteMatrix.get(i7, i2))) {
+                        if (i5 < bitArray.getSize()) {
+                            z = bitArray.get(i5);
+                            i5++;
                         } else {
-                            i5 = i4;
                             z = false;
                         }
-                        if (i != -1 && MaskUtil.getDataMaskBit(i, i9, i2)) {
+                        if (i != -1 && MaskUtil.getDataMaskBit(i, i7, i2)) {
                             z = !z;
                         }
-                        byteMatrix.set(i9, i2, z);
-                        i4 = i5;
+                        byteMatrix.set(i7, i2, z);
                     }
+                    i6++;
+                    i5 = i5;
                 }
-                i2 += i6;
+                i2 += i4;
             }
-            i6 = -i6;
-            width = i3 - 2;
-            i7 = i4;
-            height = i2 + i6;
+            i4 = -i4;
+            height = i2 + i4;
         }
-        if (i7 != bitArray.getSize()) {
-            throw new WriterException("Not all bits consumed: " + i7 + '/' + bitArray.getSize());
+        if (i5 != bitArray.getSize()) {
+            throw new WriterException("Not all bits consumed: " + i5 + '/' + bitArray.getSize());
         }
     }
 

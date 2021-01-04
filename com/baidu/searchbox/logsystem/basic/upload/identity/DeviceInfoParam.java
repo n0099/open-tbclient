@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.util.Base64Encoder;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class DeviceInfoParam {
     private String mDeviceInfo;
     private String mEnDeviceInfo;

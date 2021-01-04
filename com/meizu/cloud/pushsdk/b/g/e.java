@@ -1,5 +1,6 @@
 package com.meizu.cloud.pushsdk.b.g;
 
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,12 +11,14 @@ import java.lang.reflect.Field;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class e implements Serializable, Comparable<e> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f4119a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-    public static final e b = a(new byte[0]);
+    static final char[] f11494a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final e f11495b = a(new byte[0]);
     private static final long serialVersionUID = 1;
     final byte[] c;
     transient int d;
@@ -49,7 +52,7 @@ public class e implements Serializable, Comparable<e> {
         if (str == null) {
             throw new IllegalArgumentException("s == null");
         }
-        e eVar = new e(str.getBytes(o.f4130a));
+        e eVar = new e(str.getBytes(o.f11513a));
         eVar.e = str;
         return eVar;
     }
@@ -116,7 +119,7 @@ public class e implements Serializable, Comparable<e> {
         if (str != null) {
             return str;
         }
-        String str2 = new String(this.c, o.f4130a);
+        String str2 = new String(this.c, o.f11513a);
         this.e = str2;
         return str2;
     }
@@ -131,18 +134,22 @@ public class e implements Serializable, Comparable<e> {
     }
 
     public e b() {
-        return b("MD5");
+        return b(EncryptUtils.ENCRYPT_MD5);
     }
 
     public String c() {
-        byte[] bArr;
         char[] cArr = new char[this.c.length * 2];
+        byte[] bArr = this.c;
+        int length = bArr.length;
         int i = 0;
-        for (byte b2 : this.c) {
-            int i2 = i + 1;
-            cArr[i] = f4119a[(b2 >> 4) & 15];
-            i = i2 + 1;
-            cArr[i2] = f4119a[b2 & 15];
+        int i2 = 0;
+        while (i < length) {
+            byte b2 = bArr[i];
+            int i3 = i2 + 1;
+            cArr[i2] = f11494a[(b2 >> 4) & 15];
+            cArr[i3] = f11494a[b2 & 15];
+            i++;
+            i2 = i3 + 1;
         }
         return new String(cArr);
     }

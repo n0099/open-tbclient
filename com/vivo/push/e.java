@@ -4,28 +4,30 @@ import com.vivo.push.cache.ISubscribeAppTagManager;
 import java.util.HashSet;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f4445a;
-    final /* synthetic */ LocalAliasTagsManager b;
+    final /* synthetic */ List f13938a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ LocalAliasTagsManager f13939b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(LocalAliasTagsManager localAliasTagsManager, List list) {
-        this.b = localAliasTagsManager;
-        this.f4445a = list;
+        this.f13939b = localAliasTagsManager;
+        this.f13938a = list;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         ISubscribeAppTagManager iSubscribeAppTagManager;
-        if (this.f4445a != null && this.f4445a.size() > 0) {
+        if (this.f13938a != null && this.f13938a.size() > 0) {
             HashSet hashSet = new HashSet();
-            for (String str : this.f4445a) {
+            for (String str : this.f13938a) {
                 hashSet.add(str);
             }
-            iSubscribeAppTagManager = this.b.mSubscribeAppTagManager;
+            iSubscribeAppTagManager = this.f13939b.mSubscribeAppTagManager;
             iSubscribeAppTagManager.setTagsSuccess(hashSet);
         }
     }

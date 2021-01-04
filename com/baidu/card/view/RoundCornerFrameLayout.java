@@ -9,118 +9,118 @@ import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.airbnb.lottie.q;
+import androidx.core.view.ViewCompat;
+import com.airbnb.lottie.o;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.Arrays;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class RoundCornerFrameLayout extends FrameLayout {
-    private RectF Hx;
-    private Paint amA;
-    private ImageView amB;
-    private ColorFilter amC;
-    private ColorFilter amD;
-    private float[] amz;
-    private Bitmap mMaskBitmap;
+    private float[] anc;
+    private Paint and;
+    private ImageView ane;
+    private Bitmap anf;
+    private ColorFilter ang;
+    private ColorFilter anh;
     private int mSkinType;
+    private RectF rectF;
 
     public RoundCornerFrameLayout(Context context) {
         super(context);
-        this.amz = new float[8];
-        this.amB = null;
+        this.anc = new float[8];
+        this.ane = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.amz = new float[8];
-        this.amB = null;
+        this.anc = new float[8];
+        this.ane = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.amz = new float[8];
-        this.amB = null;
+        this.anc = new float[8];
+        this.ane = null;
         this.mSkinType = 3;
         init();
     }
 
     private void init() {
         setWillNotDraw(false);
-        this.Hx = new RectF();
-        this.amz = com.baidu.tbadk.core.elementsMaven.a.aH(R.string.J_X05);
-        this.amA = new Paint();
-        this.amA.setStrokeWidth(0.0f);
-        this.amA.setStrokeCap(Paint.Cap.ROUND);
-        this.amA.setAntiAlias(true);
-        this.amA.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.amB = new ImageView(getContext());
-        this.amB.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.rectF = new RectF();
+        this.anc = com.baidu.tbadk.core.elementsMaven.a.aI(R.string.J_X05);
+        this.and = new Paint();
+        this.and.setStrokeWidth(0.0f);
+        this.and.setStrokeCap(Paint.Cap.ROUND);
+        this.and.setAntiAlias(true);
+        this.and.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.ane = new ImageView(getContext());
+        this.ane.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }
 
     public void setCorner(float f) {
-        Arrays.fill(this.amz, f);
-        if (this.mMaskBitmap != null) {
-            this.mMaskBitmap.recycle();
-            us();
+        Arrays.fill(this.anc, f);
+        if (this.anf != null) {
+            this.anf.recycle();
+            tR();
         }
     }
 
     public void setCornerId(int i) {
-        this.amz = com.baidu.tbadk.core.elementsMaven.a.aH(i);
-        if (this.mMaskBitmap != null) {
-            this.mMaskBitmap.recycle();
-            us();
+        this.anc = com.baidu.tbadk.core.elementsMaven.a.aI(i);
+        if (this.anf != null) {
+            this.anf.recycle();
+            tR();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.amB != null && this.mSkinType != i) {
+        if (this.ane != null && this.mSkinType != i) {
             this.mSkinType = i;
-            this.amC = new q(ap.getColor(R.color.CAM_X0201));
-            this.amD = new q(ap.getColor(R.color.CAM_X0205));
-            this.amB.setColorFilter(this.amC);
+            this.ang = new o(ao.getColor(R.color.CAM_X0201));
+            this.anh = new o(ao.getColor(R.color.CAM_X0205));
+            this.ane.setColorFilter(this.ang);
         }
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         if ((i != i3 || i2 != i4) && i > 0 && i2 > 0) {
-            if (this.mMaskBitmap != null && !this.mMaskBitmap.isRecycled()) {
-                this.mMaskBitmap.recycle();
+            if (this.anf != null && !this.anf.isRecycled()) {
+                this.anf.recycle();
             }
-            us();
+            tR();
         }
     }
 
-    public void aQ(boolean z) {
-        if (this.amB != null) {
-            this.amB.setColorFilter(z ? this.amD : this.amC);
+    public void aN(boolean z) {
+        if (this.ane != null) {
+            this.ane.setColorFilter(z ? this.anh : this.ang);
         }
     }
 
-    private void us() {
+    private void tR() {
         if (getMeasuredHeight() > 0 && getMeasuredWidth() > 0) {
-            this.Hx.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.rectF.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
             try {
-                this.mMaskBitmap = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+                this.anf = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
             } catch (OutOfMemoryError e) {
                 BdLog.e(e);
                 System.gc();
                 TbadkCoreApplication.getInst().onLowMemory();
                 try {
-                    this.mMaskBitmap = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+                    this.anf = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
                 } catch (OutOfMemoryError e2) {
                     BdLog.e(e);
                     System.gc();
@@ -128,15 +128,15 @@ public class RoundCornerFrameLayout extends FrameLayout {
                     return;
                 }
             }
-            Canvas canvas = new Canvas(this.mMaskBitmap);
+            Canvas canvas = new Canvas(this.anf);
             canvas.drawColor(ViewCompat.MEASURED_STATE_MASK);
-            this.amA.setColor(-1);
+            this.and.setColor(-1);
             Path path = new Path();
-            path.addRoundRect(this.Hx, this.amz, Path.Direction.CW);
-            canvas.drawPath(path, this.amA);
-            this.amB.setImageBitmap(this.mMaskBitmap);
-            if (this.amB.getParent() == null) {
-                addView(this.amB);
+            path.addRoundRect(this.rectF, this.anc, Path.Direction.CW);
+            canvas.drawPath(path, this.and);
+            this.ane.setImageBitmap(this.anf);
+            if (this.ane.getParent() == null) {
+                addView(this.ane);
             }
         }
     }
@@ -144,22 +144,22 @@ public class RoundCornerFrameLayout extends FrameLayout {
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        if (this.amB != null && view != this.amB) {
-            if (this.amB.getParent() != null) {
-                ((ViewGroup) this.amB.getParent()).removeView(this.amB);
+        if (this.ane != null && view != this.ane) {
+            if (this.ane.getParent() != null) {
+                ((ViewGroup) this.ane.getParent()).removeView(this.ane);
             }
-            super.addView(this.amB);
+            super.addView(this.ane);
         }
     }
 
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (this.amB != null) {
-            if (this.amB.getParent() != null) {
-                ((ViewGroup) this.amB.getParent()).removeView(this.amB);
+        if (this.ane != null) {
+            if (this.ane.getParent() != null) {
+                ((ViewGroup) this.ane.getParent()).removeView(this.ane);
             }
-            super.addView(this.amB);
+            super.addView(this.ane);
         }
     }
 }

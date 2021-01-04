@@ -2,9 +2,10 @@ package com.baidu.tieba.write.model;
 
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
     public static final int ERROR = -1;
     public static final int SUCCESS = 0;
@@ -22,7 +23,7 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             this.addLinkResponseData = new com.baidu.tieba.write.a.a();
             this.errno = jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1);
-            this.addLinkResponseData.nWl = this.errno == 0;
+            this.addLinkResponseData.nZL = this.errno == 0;
             if (this.errno == 0) {
                 this.errmsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
@@ -32,23 +33,23 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("link_content");
                     if (optJSONArray != null && optJSONArray.length() != 0) {
                         JSONObject jSONObject2 = (JSONObject) optJSONArray.get(0);
-                        this.addLinkResponseData.nWm = jSONObject2.optInt("link_type");
-                        this.addLinkResponseData.linkTitle = jSONObject2.optString("link_title");
-                        this.addLinkResponseData.eGL = jSONObject2.optString("link_abstract");
-                        this.addLinkResponseData.nWn = jSONObject2.optString("link_head_pic");
-                        this.addLinkResponseData.nWo = jSONObject2.optString("link_head_small_pic");
-                        this.addLinkResponseData.nWp = jSONObject2.optString("link_head_big_pic");
+                        this.addLinkResponseData.nZM = jSONObject2.optInt("link_type");
+                        this.addLinkResponseData.eQB = jSONObject2.optString("link_title");
+                        this.addLinkResponseData.eQC = jSONObject2.optString("link_abstract");
+                        this.addLinkResponseData.nZN = jSONObject2.optString("link_head_pic");
+                        this.addLinkResponseData.nZO = jSONObject2.optString("link_head_small_pic");
+                        this.addLinkResponseData.nZP = jSONObject2.optString("link_head_big_pic");
                         this.addLinkResponseData.videoUrl = jSONObject2.optString("video_url");
-                        this.addLinkResponseData.videoDuration = jSONObject2.optInt("video_duration", 0);
+                        this.addLinkResponseData.videoDuration = jSONObject2.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
                         this.addLinkResponseData.videoFormat = jSONObject2.optString("video_format");
-                        this.addLinkResponseData.nWq = jSONObject2.optInt("video_from", 0);
+                        this.addLinkResponseData.nZQ = jSONObject2.optInt("video_from", 0);
                         this.addLinkResponseData.videoHeight = jSONObject2.optInt("video_height", 0);
                         this.addLinkResponseData.videoWidth = jSONObject2.optInt("video_width", 0);
                         this.addLinkResponseData.videoSize = jSONObject2.optLong("video_size", 0L);
-                        this.addLinkResponseData.nWu = jSONObject2.optInt("thumbnail_height", 0);
-                        this.addLinkResponseData.nWt = jSONObject2.optInt("thumbnail_width", 0);
-                        this.addLinkResponseData.nWs = jSONObject2.optInt("thumbnail_pid", 0);
-                        this.addLinkResponseData.nWr = jSONObject2.optString("thumbnail_url");
+                        this.addLinkResponseData.nZU = jSONObject2.optInt("thumbnail_height", 0);
+                        this.addLinkResponseData.nZT = jSONObject2.optInt("thumbnail_width", 0);
+                        this.addLinkResponseData.nZS = jSONObject2.optInt("thumbnail_pid", 0);
+                        this.addLinkResponseData.nZR = jSONObject2.optString("thumbnail_url");
                     }
                 }
             }

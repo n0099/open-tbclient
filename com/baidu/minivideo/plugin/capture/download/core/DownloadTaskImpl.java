@@ -15,7 +15,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public abstract class DownloadTaskImpl implements DownloadTask {
     private volatile int mCommend = 0;
     private final DownloadInfo mDownloadInfo;
@@ -123,19 +123,22 @@ public abstract class DownloadTaskImpl implements DownloadTask {
     }
 
     private void executeDownload() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
+        Throwable th;
         HttpURLConnection httpURLConnection;
         try {
             HttpURLConnection httpURLConnection2 = null;
             try {
                 try {
                     httpURLConnection = (HttpURLConnection) new URL(this.mThreadRecord.getUri()).openConnection();
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (ProtocolException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
+            } catch (ProtocolException e3) {
+                e2 = e3;
+            } catch (IOException e4) {
+                e = e4;
             }
             try {
                 httpURLConnection.setConnectTimeout(4000);
@@ -152,22 +155,22 @@ public abstract class DownloadTaskImpl implements DownloadTask {
                     return;
                 }
                 throw new DownloadException(108, "UnSupported response code:" + responseCode);
-            } catch (ProtocolException e3) {
-                e = e3;
-                throw new DownloadException(108, "Protocol error", e);
-            } catch (IOException e4) {
-                e = e4;
+            } catch (ProtocolException e5) {
+                e2 = e5;
+                throw new DownloadException(108, "Protocol error", e2);
+            } catch (IOException e6) {
+                e = e6;
                 throw new DownloadException(108, "IO error", e);
-            } catch (Throwable th2) {
+            } catch (Throwable th3) {
+                th = th3;
                 httpURLConnection2 = httpURLConnection;
-                th = th2;
                 if (httpURLConnection2 != null) {
                     httpURLConnection2.disconnect();
                 }
                 throw th;
             }
-        } catch (MalformedURLException e5) {
-            throw new DownloadException(108, "Bad url.", e5);
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 
@@ -180,46 +183,53 @@ public abstract class DownloadTaskImpl implements DownloadTask {
     }
 
     private void transferData(HttpURLConnection httpURLConnection) throws DownloadException {
+        RandomAccessFile randomAccessFile;
         InputStream inputStream;
         try {
             try {
                 inputStream = httpURLConnection.getInputStream();
-            } catch (IOException e) {
-                throw new DownloadException(108, "http get inputStream error", e);
-            }
-        } catch (Throwable th) {
-            th = th;
-            inputStream = null;
-        }
-        try {
-            long start = this.mThreadRecord.getStart() + this.mThreadRecord.getFinished();
-            try {
-                File dir = this.mDownloadInfo.getDir();
-                if (!dir.exists()) {
-                    dir.mkdirs();
-                }
-                RandomAccessFile file = getFile(dir, this.mDownloadInfo.getName(), start);
-                transferData(inputStream, file);
                 try {
-                    close(inputStream);
-                    close(file);
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                    long start = this.mThreadRecord.getStart() + this.mThreadRecord.getFinished();
+                    try {
+                        File dir = this.mDownloadInfo.getDir();
+                        if (!dir.exists()) {
+                            dir.mkdirs();
+                        }
+                        randomAccessFile = getFile(dir, this.mDownloadInfo.getName(), start);
+                        try {
+                            transferData(inputStream, randomAccessFile);
+                            try {
+                                close(inputStream);
+                                close(randomAccessFile);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            try {
+                                close(inputStream);
+                                close(randomAccessFile);
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                            throw th;
+                        }
+                    } catch (IOException e3) {
+                        throw new DownloadException(108, "File occur IOException ", e3);
+                    } catch (Exception e4) {
+                        throw new DownloadException(108, "Occur Exception ", e4);
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    randomAccessFile = null;
                 }
-            } catch (IOException e3) {
-                throw new DownloadException(108, "File occur IOException ", e3);
-            } catch (Exception e4) {
-                throw new DownloadException(108, "Occur Exception ", e4);
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            try {
-                close(inputStream);
-                close(null);
             } catch (IOException e5) {
-                e5.printStackTrace();
+                throw new DownloadException(108, "http get inputStream error", e5);
             }
-            throw th;
+        } catch (Throwable th3) {
+            th = th3;
+            randomAccessFile = null;
+            inputStream = null;
         }
     }
 

@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.view.l;
 import tbclient.User;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
-    private l mtR;
+    private l mze;
 
     public abstract void d(User user);
 
@@ -17,34 +17,34 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     public abstract boolean isHost();
 
-    public abstract void wJ(boolean z);
+    public abstract void wK(boolean z);
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        if (this.mtR == null) {
-            this.mtR = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-            this.mtR.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
-            this.mtR.setSubText(null);
-            this.mtR.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
-            this.mtR.showRefreshButton();
-            this.mtR.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if (this.mze == null) {
+            this.mze = new l(getPageContext().getPageActivity(), getNetRefreshListener());
+            this.mze.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+            this.mze.setSubText(null);
+            this.mze.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+            this.mze.showRefreshButton();
+            this.mze.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
-        this.mtR.onChangeSkinType();
-        this.mtR.attachView(view, z);
+        this.mze.onChangeSkinType();
+        this.mze.attachView(view, z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
-        if (this.mtR != null) {
-            this.mtR.dettachView(view);
+        if (this.mze != null) {
+            this.mze.dettachView(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.mtR != null) {
-            this.mtR.onChangeSkinType();
+        if (this.mze != null) {
+            this.mze.onChangeSkinType();
         }
     }
 

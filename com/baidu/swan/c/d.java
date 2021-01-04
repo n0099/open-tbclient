@@ -2,13 +2,14 @@ package com.baidu.swan.c;
 
 import android.content.Context;
 import android.media.MediaMetadataRetriever;
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import androidx.annotation.CheckResult;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -30,7 +31,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class d {
     private static String sCacheDir = null;
     private static int INVALID_INDEX = -1;
@@ -149,60 +150,50 @@ public final class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [392=4] */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.io.OutputStream, java.io.Closeable, java.io.FileOutputStream] */
     public static long copyFile(File file, File file2) {
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
-        ?? fileOutputStream;
-        FileInputStream fileInputStream3 = null;
+        FileOutputStream fileOutputStream;
         long j = 0;
-        if (file != null && file2 != null && file.exists()) {
+        if (file != null && file2 != null) {
             try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    fileOutputStream = new FileOutputStream(file2);
-                } catch (Exception e) {
-                    e = e;
-                    fileInputStream2 = null;
-                    fileInputStream3 = fileInputStream;
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    j = copyStream(fileInputStream, fileOutputStream);
-                    closeSafely(fileInputStream);
-                    closeSafely(fileOutputStream);
-                } catch (Exception e2) {
-                    e = e2;
-                    fileInputStream3 = fileInputStream;
-                    fileInputStream2 = fileOutputStream;
+                if (file.exists()) {
                     try {
-                        e.printStackTrace();
-                        closeSafely(fileInputStream3);
-                        closeSafely(fileInputStream2);
-                        return j;
+                        fileInputStream = new FileInputStream(file);
+                    } catch (Exception e) {
+                        e = e;
+                        fileOutputStream = null;
+                        fileInputStream = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = null;
+                        fileInputStream = null;
+                    }
+                    try {
+                        fileOutputStream = new FileOutputStream(file2);
+                        try {
+                            j = copyStream(fileInputStream, fileOutputStream);
+                            closeSafely(fileInputStream);
+                            closeSafely(fileOutputStream);
+                        } catch (Exception e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            closeSafely(fileInputStream);
+                            closeSafely(fileOutputStream);
+                            return j;
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        fileOutputStream = null;
                     } catch (Throwable th2) {
                         th = th2;
-                        fileInputStream = fileInputStream3;
-                        fileInputStream3 = fileInputStream2;
+                        fileOutputStream = null;
                         closeSafely(fileInputStream);
-                        closeSafely(fileInputStream3);
+                        closeSafely(fileOutputStream);
                         throw th;
                     }
-                } catch (Throwable th3) {
-                    th = th3;
-                    fileInputStream3 = fileOutputStream;
-                    closeSafely(fileInputStream);
-                    closeSafely(fileInputStream3);
-                    throw th;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                fileInputStream2 = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileInputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
             }
         }
         return j;
@@ -259,9 +250,8 @@ public final class d {
         }
     }
 
-    public static byte[] K(File file) {
+    public static byte[] N(File file) {
         FileInputStream fileInputStream;
-        Throwable th;
         FileInputStream fileInputStream2;
         if (file == null) {
             return null;
@@ -271,9 +261,9 @@ public final class d {
             fileInputStream = new FileInputStream(file);
         } catch (Exception e) {
             fileInputStream2 = null;
-        } catch (Throwable th2) {
+        } catch (Throwable th) {
+            th = th;
             fileInputStream = null;
-            th = th2;
         }
         try {
             fileInputStream.read(bArr);
@@ -284,8 +274,8 @@ public final class d {
             fileInputStream2 = fileInputStream;
             closeSafely(fileInputStream2);
             return null;
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th2) {
+            th = th2;
             closeSafely(fileInputStream);
             throw th;
         }
@@ -314,7 +304,7 @@ public final class d {
         }
     }
 
-    public static boolean zH(String str) {
+    public static boolean zG(String str) {
         return !TextUtils.isEmpty(str) && safeDeleteFile(new File(str));
     }
 
@@ -358,18 +348,15 @@ public final class d {
     }
 
     public static boolean unzipFile(String str, String str2) {
-        return dE(str, str2) == null;
+        return dD(str, str2) == null;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [975=4] */
-    public static Exception dE(String str, String str2) {
+    public static Exception dD(String str, String str2) {
         ZipFile zipFile;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
         BufferedOutputStream bufferedOutputStream2;
-        BufferedInputStream bufferedInputStream2;
-        BufferedOutputStream bufferedOutputStream3;
-        ZipFile zipFile2 = null;
         System.currentTimeMillis();
         if (str == null) {
             return new Exception("srcFileName is null");
@@ -385,82 +372,66 @@ public final class d {
                 bufferedInputStream = null;
                 while (entries.hasMoreElements()) {
                     try {
-                        ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !zK(nextElement.getName())) {
-                            File file = new File(str2 + "/" + nextElement.getName());
-                            if (!nextElement.isDirectory()) {
-                                if (!file.exists()) {
-                                    createNewFileSafely(file);
-                                }
-                                BufferedInputStream bufferedInputStream3 = new BufferedInputStream(zipFile.getInputStream(nextElement));
-                                try {
-                                    bufferedOutputStream3 = new BufferedOutputStream(new FileOutputStream(file), 2048);
-                                } catch (IOException e) {
-                                    e = e;
-                                    zipFile2 = zipFile;
-                                    bufferedOutputStream2 = bufferedOutputStream;
-                                    bufferedInputStream2 = bufferedInputStream3;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    bufferedInputStream = bufferedInputStream3;
-                                }
-                                try {
-                                    byte[] bArr = new byte[2048];
-                                    while (true) {
-                                        int read = bufferedInputStream3.read(bArr, 0, 2048);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        bufferedOutputStream3.write(bArr, 0, read);
+                        try {
+                            ZipEntry nextElement = entries.nextElement();
+                            if (!TextUtils.isEmpty(nextElement.getName()) && !zJ(nextElement.getName())) {
+                                File file = new File(str2 + "/" + nextElement.getName());
+                                if (!nextElement.isDirectory()) {
+                                    if (!file.exists()) {
+                                        createNewFileSafely(file);
                                     }
-                                    closeSafely(bufferedInputStream3);
-                                    closeSafely(bufferedOutputStream3);
-                                    bufferedOutputStream = bufferedOutputStream3;
-                                    bufferedInputStream = bufferedInputStream3;
-                                } catch (IOException e2) {
-                                    e = e2;
-                                    zipFile2 = zipFile;
-                                    bufferedInputStream2 = bufferedInputStream3;
-                                    bufferedOutputStream2 = bufferedOutputStream3;
+                                    BufferedInputStream bufferedInputStream2 = new BufferedInputStream(zipFile.getInputStream(nextElement));
                                     try {
-                                        e.printStackTrace();
-                                        closeSafely(bufferedOutputStream2);
+                                        bufferedOutputStream2 = new BufferedOutputStream(new FileOutputStream(file), 2048);
+                                    } catch (IOException e) {
+                                        e = e;
+                                        bufferedInputStream = bufferedInputStream2;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        bufferedInputStream = bufferedInputStream2;
+                                    }
+                                    try {
+                                        byte[] bArr = new byte[2048];
+                                        while (true) {
+                                            int read = bufferedInputStream2.read(bArr, 0, 2048);
+                                            if (read == -1) {
+                                                break;
+                                            }
+                                            bufferedOutputStream2.write(bArr, 0, read);
+                                        }
                                         closeSafely(bufferedInputStream2);
-                                        closeSafely(zipFile2);
+                                        closeSafely(bufferedOutputStream2);
+                                        bufferedOutputStream = bufferedOutputStream2;
+                                        bufferedInputStream = bufferedInputStream2;
+                                    } catch (IOException e2) {
+                                        e = e2;
+                                        bufferedOutputStream = bufferedOutputStream2;
+                                        bufferedInputStream = bufferedInputStream2;
+                                        e.printStackTrace();
+                                        closeSafely(bufferedOutputStream);
+                                        closeSafely(bufferedInputStream);
+                                        closeSafely(zipFile);
                                         System.currentTimeMillis();
                                         return e;
                                     } catch (Throwable th2) {
                                         th = th2;
-                                        bufferedInputStream = bufferedInputStream2;
                                         bufferedOutputStream = bufferedOutputStream2;
-                                        zipFile = zipFile2;
+                                        bufferedInputStream = bufferedInputStream2;
                                         closeSafely(bufferedOutputStream);
                                         closeSafely(bufferedInputStream);
                                         closeSafely(zipFile);
                                         System.currentTimeMillis();
                                         throw th;
                                     }
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    bufferedOutputStream = bufferedOutputStream3;
-                                    bufferedInputStream = bufferedInputStream3;
-                                    closeSafely(bufferedOutputStream);
-                                    closeSafely(bufferedInputStream);
-                                    closeSafely(zipFile);
-                                    System.currentTimeMillis();
-                                    throw th;
+                                } else if (!file.exists()) {
+                                    file.mkdirs();
                                 }
-                            } else if (!file.exists()) {
-                                file.mkdirs();
                             }
+                        } catch (IOException e3) {
+                            e = e3;
                         }
-                    } catch (IOException e3) {
-                        e = e3;
-                        zipFile2 = zipFile;
-                        bufferedOutputStream2 = bufferedOutputStream;
-                        bufferedInputStream2 = bufferedInputStream;
-                    } catch (Throwable th4) {
-                        th = th4;
+                    } catch (Throwable th3) {
+                        th = th3;
                     }
                 }
                 closeSafely(bufferedOutputStream);
@@ -470,20 +441,20 @@ public final class d {
                 return null;
             } catch (IOException e4) {
                 e = e4;
-                bufferedInputStream2 = null;
-                zipFile2 = zipFile;
-                bufferedOutputStream2 = null;
-            } catch (Throwable th5) {
-                th = th5;
+                bufferedOutputStream = null;
+                bufferedInputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
                 bufferedOutputStream = null;
                 bufferedInputStream = null;
             }
         } catch (IOException e5) {
             e = e5;
-            bufferedOutputStream2 = null;
-            bufferedInputStream2 = null;
-        } catch (Throwable th6) {
-            th = th6;
+            zipFile = null;
+            bufferedOutputStream = null;
+            bufferedInputStream = null;
+        } catch (Throwable th5) {
+            th = th5;
             zipFile = null;
             bufferedOutputStream = null;
             bufferedInputStream = null;
@@ -491,12 +462,12 @@ public final class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1045=4] */
-    public static boolean dF(String str, String str2) {
+    public static boolean dE(String str, String str2) {
         ZipInputStream zipInputStream;
         InputStream inputStream;
+        ZipInputStream zipInputStream2;
         InputStream inputStream2;
         BufferedOutputStream bufferedOutputStream;
-        ZipInputStream zipInputStream2 = null;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return false;
         }
@@ -509,12 +480,14 @@ public final class d {
             try {
                 zipInputStream = new ZipInputStream(inputStream);
             } catch (IOException e) {
+                zipInputStream2 = null;
                 inputStream2 = inputStream;
             } catch (Throwable th) {
                 th = th;
                 zipInputStream = null;
             }
         } catch (IOException e2) {
+            zipInputStream2 = null;
             inputStream2 = null;
         } catch (Throwable th2) {
             th = th2;
@@ -530,7 +503,7 @@ public final class d {
                     closeSafely(inputStream);
                     closeSafely(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !zK(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !zJ(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -580,8 +553,8 @@ public final class d {
 
     public static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }
@@ -593,9 +566,9 @@ public final class d {
         return sb.toString();
     }
 
-    @CheckResult
     @Nullable
-    public static String zI(@Nullable String str) {
+    @CheckResult
+    public static String zH(@Nullable String str) {
         int lastIndexOf;
         if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(46)) <= -1 || lastIndexOf >= str.length() - 1) {
             return null;
@@ -615,7 +588,7 @@ public final class d {
         return str;
     }
 
-    public static String zJ(String str) {
+    public static String zI(String str) {
         int lastIndexOf;
         String fileNameFromPath = getFileNameFromPath(str);
         if (TextUtils.isEmpty(fileNameFromPath) || (lastIndexOf = fileNameFromPath.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == fileNameFromPath.length() - 1) {
@@ -627,33 +600,34 @@ public final class d {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1204=4] */
     @Nullable
     public static String readAssetData(Context context, String str) {
-        InputStream inputStream;
         Throwable th;
         BufferedReader bufferedReader;
+        InputStream inputStream;
+        BufferedReader bufferedReader2;
         String str2 = null;
         if (context != null && !TextUtils.isEmpty(str)) {
             try {
                 inputStream = context.getAssets().open(str);
                 try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                    bufferedReader2 = new BufferedReader(new InputStreamReader(inputStream));
                 } catch (IOException e) {
-                    bufferedReader = null;
+                    bufferedReader2 = null;
                 } catch (Throwable th2) {
-                    bufferedReader = null;
                     th = th2;
+                    bufferedReader = null;
                 }
             } catch (IOException e2) {
-                bufferedReader = null;
+                bufferedReader2 = null;
                 inputStream = null;
             } catch (Throwable th3) {
-                inputStream = null;
                 th = th3;
                 bufferedReader = null;
+                inputStream = null;
             }
             try {
                 StringBuilder sb = new StringBuilder();
                 while (true) {
-                    String readLine = bufferedReader.readLine();
+                    String readLine = bufferedReader2.readLine();
                     if (readLine == null) {
                         break;
                     }
@@ -661,13 +635,14 @@ public final class d {
                 }
                 str2 = sb.toString();
                 closeSafely(inputStream);
-                closeSafely(bufferedReader);
+                closeSafely(bufferedReader2);
             } catch (IOException e3) {
                 closeSafely(inputStream);
-                closeSafely(bufferedReader);
+                closeSafely(bufferedReader2);
                 return str2;
             } catch (Throwable th4) {
                 th = th4;
+                bufferedReader = bufferedReader2;
                 closeSafely(inputStream);
                 closeSafely(bufferedReader);
                 throw th;
@@ -702,7 +677,7 @@ public final class d {
         if (j < 1048576) {
             str = "KB";
             valueOf = Float.valueOf(((float) j) / 1024.0f);
-        } else if (j < 1073741824) {
+        } else if (j < KsMediaMeta.AV_CH_STEREO_RIGHT) {
             str = "MB";
             valueOf = Float.valueOf(((float) j) / 1048576.0f);
         } else {
@@ -722,15 +697,15 @@ public final class d {
         }
     }
 
-    public static boolean zK(String str) {
+    public static boolean zJ(String str) {
         return str.contains(Constants.PATH_PARENT);
     }
 
-    public static boolean L(File file) {
+    public static boolean O(File file) {
         return file != null && file.exists() && file.isFile();
     }
 
-    public static List<String> M(File file) {
+    public static List<String> P(File file) {
         try {
             return b(new FileInputStream(file));
         } catch (FileNotFoundException e) {
@@ -772,22 +747,22 @@ public final class d {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1462=4] */
     public static void b(@NonNull List<String> list, @NonNull File file) {
-        FileWriter fileWriter;
         Throwable th;
+        FileWriter fileWriter;
         if (!file.exists()) {
             return;
         }
         FileWriter fileWriter2 = null;
         try {
-            fileWriter = new FileWriter(file);
+            FileWriter fileWriter3 = new FileWriter(file);
             for (int i = 0; i < list.size(); i++) {
                 try {
-                    fileWriter.write(list.get(i));
+                    fileWriter3.write(list.get(i));
                     if (i != list.size() - 1) {
-                        fileWriter.write("\n");
+                        fileWriter3.write("\n");
                     }
                 } catch (IOException e) {
-                    fileWriter2 = fileWriter;
+                    fileWriter2 = fileWriter3;
                     if (fileWriter2 != null) {
                         try {
                             fileWriter2.close();
@@ -799,6 +774,7 @@ public final class d {
                     return;
                 } catch (Throwable th2) {
                     th = th2;
+                    fileWriter = fileWriter3;
                     if (fileWriter != null) {
                         try {
                             fileWriter.close();
@@ -808,21 +784,21 @@ public final class d {
                     throw th;
                 }
             }
-            fileWriter.flush();
-            if (fileWriter != null) {
+            fileWriter3.flush();
+            if (fileWriter3 != null) {
                 try {
-                    fileWriter.close();
+                    fileWriter3.close();
                 } catch (IOException e4) {
                 }
             }
         } catch (IOException e5) {
         } catch (Throwable th3) {
-            fileWriter = null;
             th = th3;
+            fileWriter = null;
         }
     }
 
-    public static long zL(String str) {
+    public static long zK(String str) {
         long j = -1;
         if (!TextUtils.isEmpty(str)) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

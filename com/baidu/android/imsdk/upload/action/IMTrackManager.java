@@ -1,13 +1,13 @@
 package com.baidu.android.imsdk.upload.action;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMTrackManager {
     private static final int FAIL_MAX_COUNT = 3;
     private static final int RETRY_MAX_COUNT = 1;

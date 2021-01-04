@@ -2,24 +2,24 @@ package com.baidu.swan.apps.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.util.ArrayList;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class SwanTaskDeadEvent implements Parcelable {
     public static final Parcelable.Creator<SwanTaskDeadEvent> CREATOR = new Parcelable.Creator<SwanTaskDeadEvent>() { // from class: com.baidu.swan.apps.model.SwanTaskDeadEvent.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: w */
+        /* renamed from: x */
         public SwanTaskDeadEvent createFromParcel(Parcel parcel) {
             return new SwanTaskDeadEvent(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: jT */
+        /* renamed from: jO */
         public SwanTaskDeadEvent[] newArray(int i) {
             return new SwanTaskDeadEvent[i];
         }
@@ -71,16 +71,16 @@ public class SwanTaskDeadEvent implements Parcelable {
         return this.taskId;
     }
 
-    public String aEB() {
+    public String aFU() {
         return this.pageScheme;
     }
 
-    public ArrayList<Integer> aEC() {
+    public ArrayList<Integer> aFV() {
         return this.stackList;
     }
 
     @Nullable
-    public SparseArray<SwanTaskDeadEvent> aED() {
+    public SparseArray<SwanTaskDeadEvent> aFW() {
         if (this.historyCache == null) {
             return null;
         }
@@ -91,12 +91,12 @@ public class SwanTaskDeadEvent implements Parcelable {
             if (i2 >= this.historyCache.size()) {
                 return sparseArray;
             }
-            sparseArray.put(this.historyCache.keyAt(i2), t(this.historyCache.valueAt(i2)));
+            sparseArray.put(this.historyCache.keyAt(i2), A(this.historyCache.valueAt(i2)));
             i = i2 + 1;
         }
     }
 
-    public void a(@Nullable SparseArray<SwanTaskDeadEvent> sparseArray) {
+    public void c(@Nullable SparseArray<SwanTaskDeadEvent> sparseArray) {
         SparseArray<String[]> sparseArray2 = new SparseArray<>();
         if (sparseArray != null) {
             int i = 0;
@@ -106,7 +106,7 @@ public class SwanTaskDeadEvent implements Parcelable {
                     break;
                 }
                 if (sparseArray.valueAt(i2) != null) {
-                    sparseArray2.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2).aEE());
+                    sparseArray2.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2).aFX());
                 }
                 i = i2 + 1;
             }
@@ -115,29 +115,29 @@ public class SwanTaskDeadEvent implements Parcelable {
     }
 
     @NonNull
-    private String[] aEE() {
+    private String[] aFX() {
         StringBuilder sb = new StringBuilder();
         if (this.stackList != null) {
             int size = this.stackList.size();
             for (int i = 0; i < size; i++) {
                 sb.append(this.stackList.get(i));
                 if (i < size - 1) {
-                    sb.append('#');
+                    sb.append(SEPARATOR);
                 }
             }
         }
-        return new String[]{getAppId(), aEB(), sb.toString()};
+        return new String[]{getAppId(), aFU(), sb.toString()};
     }
 
     @Nullable
-    private static SwanTaskDeadEvent t(@Nullable String[] strArr) {
+    private static SwanTaskDeadEvent A(@Nullable String[] strArr) {
         String[] split;
         if (strArr == null || strArr.length != 3) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         if (strArr[2] != null) {
-            for (String str : strArr[2].split(String.valueOf('#'))) {
+            for (String str : strArr[2].split(String.valueOf((char) SEPARATOR))) {
                 if (str != null && TextUtils.isDigitsOnly(str)) {
                     arrayList.add(Integer.valueOf(Integer.parseInt(str)));
                 }

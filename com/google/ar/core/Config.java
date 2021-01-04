@@ -1,9 +1,9 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes17.dex */
+/* loaded from: classes3.dex */
 public class Config {
-    long psZ;
+    long pKb;
 
     private static native long nativeCreate(long j);
 
@@ -37,7 +37,7 @@ public class Config {
 
     private native void nativeSetUpdateMode(long j, long j2, int i);
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes3.dex */
     public enum AugmentedFaceMode {
         DISABLED(0),
         MESH3D(2);
@@ -59,7 +59,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes3.dex */
     public enum CloudAnchorMode {
         DISABLED(0),
         ENABLED(1);
@@ -81,7 +81,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes3.dex */
     public enum FocusMode {
         FIXED(0),
         AUTO(1);
@@ -103,7 +103,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes3.dex */
     public enum LightEstimationMode {
         DISABLED(0),
         AMBIENT_INTENSITY(1);
@@ -125,7 +125,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes3.dex */
     public enum PlaneFindingMode {
         DISABLED(0),
         HORIZONTAL(1),
@@ -149,7 +149,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes3.dex */
     public enum UpdateMode {
         BLOCKING(0),
         LATEST_CAMERA_IMAGE(1);
@@ -172,8 +172,8 @@ public class Config {
     }
 
     protected void finalize() throws Throwable {
-        if (this.psZ != 0) {
-            nativeDestroy(this.psZ);
+        if (this.pKb != 0) {
+            nativeDestroy(this.pKb);
         }
         super.finalize();
     }

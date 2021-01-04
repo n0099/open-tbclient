@@ -7,24 +7,25 @@ import com.baidu.crabsdk.CrabSDK;
 import com.baidu.crabsdk.OnUploadFilesCallback;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.TbConfig;
+import com.kwai.video.player.KsMediaMeta;
 import com.vivo.push.PushClientConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class j {
     public static JSONObject a(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
         JSONObject jSONObject;
         try {
-            byte[] em = com.baidu.crabsdk.sender.i.em(str);
-            if (em == null || em.length == 0) {
+            byte[] dX = com.baidu.crabsdk.sender.i.dX(str);
+            if (dX == null || dX.length == 0) {
                 onUploadFilesCallback.onFailed("Read file error!");
                 jSONObject = null;
             } else {
-                String encodeToString = Base64.encodeToString(em, 0);
+                String encodeToString = Base64.encodeToString(dX, 0);
                 jSONObject = a(str2, str3, str4);
-                jSONObject.put("format", 1);
+                jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, 1);
                 jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, encodeToString);
                 jSONObject.put("fileName", str.substring(str.lastIndexOf("/") + 1));
             }
@@ -52,8 +53,8 @@ public final class j {
             jSONObject.put("batVN", "7.5.1");
             jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
             jSONObject.put("isRoot", q.N());
-            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.vc());
-            jSONObject.put("appLabel", p.vd());
+            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.J());
+            jSONObject.put("appLabel", p.K());
             if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
                 jSONObject.put("appVN", p.L());
             } else {
@@ -69,7 +70,7 @@ public final class j {
             jSONObject.put("curPage", a.r());
             jSONObject.put("locale", i.B());
             jSONObject.put("cuid", h.z());
-            jSONObject.put("channel", com.baidu.crabsdk.a.b);
+            jSONObject.put("channel", com.baidu.crabsdk.a.f1741b);
             jSONObject.put("cpuabi", Build.CPU_ABI);
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);

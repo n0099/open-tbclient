@@ -2,10 +2,9 @@ package com.baidu.android.pushservice.d;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class m extends c {
     protected String d;
 
@@ -19,7 +18,7 @@ public class m extends c {
     public void a(Intent intent) {
         super.a(intent);
         if (intent != null) {
-            intent.getIntExtra(AlaRecorderLog.KEY_ERROR_MSG, -1);
+            intent.getIntExtra("error_msg", -1);
         }
     }
 

@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a {
     b ku;
     private Looper kv;
@@ -65,24 +65,21 @@ public class a {
 
     private void a(Object obj, Class<?> cls) {
         int i;
-        int i2;
         CopyOnWriteArrayList<g> copyOnWriteArrayList = this.kr.get(cls);
         if (copyOnWriteArrayList != null) {
             int size = copyOnWriteArrayList.size();
-            int i3 = 0;
-            while (i3 < size) {
-                g gVar = copyOnWriteArrayList.get(i3);
+            int i2 = 0;
+            while (i2 < size) {
+                g gVar = copyOnWriteArrayList.get(i2);
                 if (gVar.kV == obj) {
                     gVar.kX = false;
-                    copyOnWriteArrayList.remove(i3);
-                    i = i3 - 1;
-                    i2 = size - 1;
+                    copyOnWriteArrayList.remove(i2);
+                    i = i2 - 1;
+                    size--;
                 } else {
-                    i = i3;
-                    i2 = size;
+                    i = i2;
                 }
-                size = i2;
-                i3 = i + 1;
+                i2 = i + 1;
             }
         }
     }

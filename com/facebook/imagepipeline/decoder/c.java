@@ -3,16 +3,16 @@ package com.facebook.imagepipeline.decoder;
 import com.facebook.c.c;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class c {
-    private final Map<com.facebook.c.c, b> pmZ;
-    private final List<c.a> pna;
+    private final Map<com.facebook.c.c, b> pCC;
+    private final List<c.a> pCD;
 
-    public Map<com.facebook.c.c, b> evm() {
-        return this.pmZ;
+    public Map<com.facebook.c.c, b> eyV() {
+        return this.pCC;
     }
 
-    public List<c.a> evn() {
-        return this.pna;
+    public List<c.a> eyW() {
+        return this.pCD;
     }
 }

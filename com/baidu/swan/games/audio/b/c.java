@@ -1,7 +1,7 @@
 package com.baidu.swan.games.audio.b;
 
 import android.media.MediaPlayer;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface c extends com.baidu.swan.games.audio.a {
     void a(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener);
 
@@ -9,9 +9,9 @@ public interface c extends com.baidu.swan.games.audio.a {
 
     void a(com.baidu.swan.nalib.audio.c cVar);
 
-    boolean aVu();
+    boolean aXO();
 
-    void hJ(boolean z);
+    void ib(boolean z);
 
     void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener);
 

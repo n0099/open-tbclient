@@ -7,24 +7,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class a extends MessageMicro {
-    private boolean arA;
-    private boolean arC;
-    private boolean arD;
-    private boolean arF;
-    private boolean arH;
-    private boolean arJ;
-    private boolean ary;
-    private int arz = 0;
-    private String arB = "";
+    private boolean arU;
+    private boolean arW;
+    private boolean arY;
+    private boolean arZ;
+    private boolean asb;
+    private boolean asd;
+    private boolean asf;
+    private int arV = 0;
+    private String arX = "";
     private int level_ = 0;
-    private String arE = "";
-    private boolean arG = false;
-    private boolean arI = false;
-    private String arK = "";
-    private List<Integer> arL = Collections.emptyList();
-    private int arM = -1;
+    private String asa = "";
+    private boolean asc = false;
+    private boolean ase = false;
+    private String asg = "";
+    private List<Integer> ash = Collections.emptyList();
+    private int asi = -1;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.micro.MessageMicro
@@ -39,22 +39,22 @@ public final class a extends MessageMicro {
                     bL(codedInputStreamMicro.readInt32());
                     break;
                 case 18:
-                    en(codedInputStreamMicro.readString());
+                    dY(codedInputStreamMicro.readString());
                     break;
                 case 24:
                     bM(codedInputStreamMicro.readInt32());
                     break;
                 case 34:
-                    eo(codedInputStreamMicro.readString());
+                    dZ(codedInputStreamMicro.readString());
                     break;
                 case 40:
-                    aU(codedInputStreamMicro.readBool());
+                    aR(codedInputStreamMicro.readBool());
                     break;
                 case 48:
-                    aV(codedInputStreamMicro.readBool());
+                    aS(codedInputStreamMicro.readBool());
                     break;
                 case 58:
-                    ep(codedInputStreamMicro.readString());
+                    ea(codedInputStreamMicro.readString());
                     break;
                 case 64:
                     bN(codedInputStreamMicro.readSInt32());
@@ -70,66 +70,66 @@ public final class a extends MessageMicro {
         return this;
     }
 
-    public a aU(boolean z) {
-        this.arF = true;
-        this.arG = z;
+    public a aR(boolean z) {
+        this.asb = true;
+        this.asc = z;
         return this;
     }
 
-    public a aV(boolean z) {
-        this.arH = true;
-        this.arI = z;
+    public a aS(boolean z) {
+        this.asd = true;
+        this.ase = z;
         return this;
     }
 
     public a bL(int i) {
-        this.ary = true;
-        this.arz = i;
+        this.arU = true;
+        this.arV = i;
         return this;
     }
 
     public a bM(int i) {
-        this.arC = true;
+        this.arY = true;
         this.level_ = i;
         return this;
     }
 
     public a bN(int i) {
-        if (this.arL.isEmpty()) {
-            this.arL = new ArrayList();
+        if (this.ash.isEmpty()) {
+            this.ash = new ArrayList();
         }
-        this.arL.add(Integer.valueOf(i));
+        this.ash.add(Integer.valueOf(i));
         return this;
     }
 
-    public a en(String str) {
-        this.arA = true;
-        this.arB = str;
+    public a dY(String str) {
+        this.arW = true;
+        this.arX = str;
         return this;
     }
 
-    public a eo(String str) {
-        this.arD = true;
-        this.arE = str;
+    public a dZ(String str) {
+        this.arZ = true;
+        this.asa = str;
         return this;
     }
 
-    public a ep(String str) {
-        this.arJ = true;
-        this.arK = str;
+    public a ea(String str) {
+        this.asf = true;
+        this.asg = str;
         return this;
     }
 
     @Override // com.google.protobuf.micro.MessageMicro
     public int getCachedSize() {
-        if (this.arM < 0) {
+        if (this.asi < 0) {
             getSerializedSize();
         }
-        return this.arM;
+        return this.asi;
     }
 
     public int getCode() {
-        return this.arz;
+        return this.arV;
     }
 
     public int getLevel() {
@@ -137,15 +137,15 @@ public final class a extends MessageMicro {
     }
 
     public String getName() {
-        return this.arE;
+        return this.asa;
     }
 
     @Override // com.google.protobuf.micro.MessageMicro
     public int getSerializedSize() {
         int i = 0;
-        int computeInt32Size = vv() ? CodedOutputStreamMicro.computeInt32Size(1, getCode()) + 0 : 0;
-        if (vx()) {
-            computeInt32Size += CodedOutputStreamMicro.computeStringSize(2, vw());
+        int computeInt32Size = uM() ? CodedOutputStreamMicro.computeInt32Size(1, getCode()) + 0 : 0;
+        if (uO()) {
+            computeInt32Size += CodedOutputStreamMicro.computeStringSize(2, uN());
         }
         if (hasLevel()) {
             computeInt32Size += CodedOutputStreamMicro.computeInt32Size(3, getLevel());
@@ -153,76 +153,76 @@ public final class a extends MessageMicro {
         if (hasName()) {
             computeInt32Size += CodedOutputStreamMicro.computeStringSize(4, getName());
         }
-        if (vz()) {
-            computeInt32Size += CodedOutputStreamMicro.computeBoolSize(5, vy());
+        if (uQ()) {
+            computeInt32Size += CodedOutputStreamMicro.computeBoolSize(5, uP());
         }
-        if (vB()) {
-            computeInt32Size += CodedOutputStreamMicro.computeBoolSize(6, vA());
+        if (uS()) {
+            computeInt32Size += CodedOutputStreamMicro.computeBoolSize(6, uR());
         }
-        int computeStringSize = vC() ? computeInt32Size + CodedOutputStreamMicro.computeStringSize(7, getUid()) : computeInt32Size;
-        for (Integer num : vD()) {
+        int computeStringSize = uT() ? computeInt32Size + CodedOutputStreamMicro.computeStringSize(7, getUid()) : computeInt32Size;
+        for (Integer num : uU()) {
             i += CodedOutputStreamMicro.computeSInt32SizeNoTag(num.intValue());
         }
-        int size = computeStringSize + i + (vD().size() * 1);
-        this.arM = size;
+        int size = computeStringSize + i + (uU().size() * 1);
+        this.asi = size;
         return size;
     }
 
     public String getUid() {
-        return this.arK;
+        return this.asg;
     }
 
     public boolean hasLevel() {
-        return this.arC;
+        return this.arY;
     }
 
     public boolean hasName() {
-        return this.arD;
+        return this.arZ;
     }
 
-    public boolean vA() {
-        return this.arI;
+    public boolean uM() {
+        return this.arU;
     }
 
-    public boolean vB() {
-        return this.arH;
+    public String uN() {
+        return this.arX;
     }
 
-    public boolean vC() {
-        return this.arJ;
+    public boolean uO() {
+        return this.arW;
     }
 
-    public List<Integer> vD() {
-        return this.arL;
+    public boolean uP() {
+        return this.asc;
     }
 
-    public boolean vv() {
-        return this.ary;
+    public boolean uQ() {
+        return this.asb;
     }
 
-    public String vw() {
-        return this.arB;
+    public boolean uR() {
+        return this.ase;
     }
 
-    public boolean vx() {
-        return this.arA;
+    public boolean uS() {
+        return this.asd;
     }
 
-    public boolean vy() {
-        return this.arG;
+    public boolean uT() {
+        return this.asf;
     }
 
-    public boolean vz() {
-        return this.arF;
+    public List<Integer> uU() {
+        return this.ash;
     }
 
     @Override // com.google.protobuf.micro.MessageMicro
     public void writeTo(CodedOutputStreamMicro codedOutputStreamMicro) throws IOException {
-        if (vv()) {
+        if (uM()) {
             codedOutputStreamMicro.writeInt32(1, getCode());
         }
-        if (vx()) {
-            codedOutputStreamMicro.writeString(2, vw());
+        if (uO()) {
+            codedOutputStreamMicro.writeString(2, uN());
         }
         if (hasLevel()) {
             codedOutputStreamMicro.writeInt32(3, getLevel());
@@ -230,16 +230,16 @@ public final class a extends MessageMicro {
         if (hasName()) {
             codedOutputStreamMicro.writeString(4, getName());
         }
-        if (vz()) {
-            codedOutputStreamMicro.writeBool(5, vy());
+        if (uQ()) {
+            codedOutputStreamMicro.writeBool(5, uP());
         }
-        if (vB()) {
-            codedOutputStreamMicro.writeBool(6, vA());
+        if (uS()) {
+            codedOutputStreamMicro.writeBool(6, uR());
         }
-        if (vC()) {
+        if (uT()) {
             codedOutputStreamMicro.writeString(7, getUid());
         }
-        for (Integer num : vD()) {
+        for (Integer num : uU()) {
             codedOutputStreamMicro.writeSInt32(8, num.intValue());
         }
     }

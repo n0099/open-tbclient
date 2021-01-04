@@ -1,18 +1,18 @@
 package com.baidu.tieba.yuyinala.liveroom.views;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface d {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface b {
-        void ciu();
+        void clh();
 
-        void civ();
+        void cli();
 
-        void ciy();
+        void cll();
 
         void onCloseClicked();
     }

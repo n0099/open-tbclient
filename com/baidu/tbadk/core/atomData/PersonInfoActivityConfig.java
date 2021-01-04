@@ -37,7 +37,7 @@ public class PersonInfoActivityConfig extends IntentConfig {
         getIntent().putExtra("from", str3);
         getIntent().putExtra("st_type", str4);
         getIntent().putExtra("thread_id", str5);
-        getIntent().putExtra("nid", str6);
+        getIntent().putExtra(IntentConfig.NID, str6);
     }
 
     public PersonInfoActivityConfig(Context context, String str, String str2, int i) {

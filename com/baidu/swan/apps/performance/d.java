@@ -2,22 +2,22 @@ package com.baidu.swan.apps.performance;
 
 import android.util.Log;
 import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes25.dex */
-public class d implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
+/* loaded from: classes9.dex */
+public class d implements com.baidu.swan.apps.ao.e.b<HybridUbcFlow> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.ap.e.b
+    @Override // com.baidu.swan.apps.ao.e.b
     /* renamed from: a */
-    public void M(HybridUbcFlow hybridUbcFlow) {
-        PMSAppInfo yO;
+    public void L(HybridUbcFlow hybridUbcFlow) {
+        PMSAppInfo yN;
         if (DEBUG) {
             Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
         }
-        if (hybridUbcFlow != null && (yO = com.baidu.swan.pms.database.a.bdF().yO(com.baidu.swan.apps.runtime.d.aJQ().getAppId())) != null) {
-            UbcFlowEvent rr = hybridUbcFlow.rr("naStart");
-            yO.dl(rr == null ? System.currentTimeMillis() : rr.aGk());
-            com.baidu.swan.pms.database.a.bdF().s(yO);
+        if (hybridUbcFlow != null && (yN = com.baidu.swan.pms.database.a.bgb().yN(com.baidu.swan.apps.runtime.d.aMg().getAppId())) != null) {
+            UbcFlowEvent rk = hybridUbcFlow.rk("naStart");
+            yN.dm(rk == null ? System.currentTimeMillis() : rk.aHD());
+            com.baidu.swan.pms.database.a.bgb().s(yN);
         }
     }
 }

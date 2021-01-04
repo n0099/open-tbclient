@@ -1,5 +1,5 @@
 package com.baidu.ar.arrender;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class Texture {
     public static final long NOT_CREATE_INSIDE = -1;
     public static final int NO_TEXTURE = -1;

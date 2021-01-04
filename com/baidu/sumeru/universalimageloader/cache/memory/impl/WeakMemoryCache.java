@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.sumeru.universalimageloader.cache.memory.BaseMemoryCache;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class WeakMemoryCache extends BaseMemoryCache<String, Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */

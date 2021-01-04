@@ -1,7 +1,7 @@
 package com.baidu.live.core.a;
 
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface a {
     View getRootLayout();
 

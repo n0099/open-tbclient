@@ -36,27 +36,29 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static IWTTSPlayer f2173a;
+    private static IWTTSPlayer f3084a;
     private static com.baidu.platform.comapi.wnplatform.n.c h = new e();
     private FrameLayout c;
     private RelativeLayout d;
     private ArCameraView e;
     private WalkNaviModeSwitchListener g;
-    private MapView b = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private MapView f3085b = null;
     private View f = null;
 
     public void a(Activity activity, IWEngineInitListener iWEngineInitListener) {
         if (iWEngineInitListener == null) {
             throw new com.baidu.mapapi.walknavi.controllers.a("BDMapSDKException: engine init listener cannot be null");
         }
-        if (this.b == null) {
-            this.b = new MapView(activity);
+        if (this.f3085b == null) {
+            this.f3085b = new MapView(activity);
         }
-        com.baidu.platform.comapi.walknavi.b.a().a(activity, this.b);
+        com.baidu.platform.comapi.walknavi.b.a().a(activity, this.f3085b);
         com.baidu.platform.comapi.walknavi.b.a().a(activity, WNaviBaiduMap.getId(), new b(this, iWEngineInitListener));
     }
 
@@ -82,7 +84,7 @@ public class a {
     }
 
     public void a(IWTTSPlayer iWTTSPlayer) {
-        f2173a = iWTTSPlayer;
+        f3084a = iWTTSPlayer;
     }
 
     public void a(WLocData wLocData) {
@@ -128,7 +130,7 @@ public class a {
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -1);
         this.d = new RelativeLayout(activity);
         this.d.setLayoutParams(layoutParams2);
-        this.c.addView(this.b);
+        this.c.addView(this.f3085b);
         this.c.addView(this.d);
         this.c.addView(this.f);
         return this.c;
@@ -161,7 +163,7 @@ public class a {
             this.e.resumeCamera();
         }
         if (Build.VERSION.SDK_INT >= 26) {
-            this.b.setZOrderMediaOverlay(true);
+            this.f3085b.setZOrderMediaOverlay(true);
         }
         c(activity);
     }
@@ -174,34 +176,34 @@ public class a {
         com.baidu.platform.comapi.walknavi.b.a().J().d();
         com.baidu.platform.comapi.walknavi.b.a().J().a(false);
         com.baidu.platform.comapi.walknavi.b.a().J().f();
-        this.b.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(1096.0f));
-        this.b.getMap().setPixelFormatTransparent(true);
-        this.b.getMap().hideSDKLayer();
-        this.b.setBackgroundColor(0);
-        this.b.setAlpha(1.0f);
+        this.f3085b.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(1096.0f));
+        this.f3085b.getMap().setPixelFormatTransparent(true);
+        this.f3085b.getMap().hideSDKLayer();
+        this.f3085b.setBackgroundColor(0);
+        this.f3085b.setAlpha(1.0f);
         this.g.onSuccess();
     }
 
     public void c() {
-        if (this.b != null) {
-            this.b.onPause();
+        if (this.f3085b != null) {
+            this.f3085b.onPause();
         }
     }
 
     public void d() {
-        if (this.b != null) {
-            this.b.onResume();
+        if (this.f3085b != null) {
+            this.f3085b.onResume();
         }
     }
 
     public void e() {
-        if (f2173a != null) {
-            f2173a = null;
+        if (f3084a != null) {
+            f3084a = null;
         }
-        if (this.b != null) {
-            this.b.getMap().clear();
-            this.b.onDestroy();
-            this.b = null;
+        if (this.f3085b != null) {
+            this.f3085b.getMap().clear();
+            this.f3085b.onDestroy();
+            this.f3085b = null;
         }
         if (this.c != null && this.c.getParent() != null) {
             ((ViewGroup) this.c.getParent()).removeAllViews();
@@ -216,15 +218,15 @@ public class a {
         if (this.e != null) {
             this.e.pauseCamera();
         }
-        if (this.b != null) {
-            this.b.getMap().showSDKLayer();
-            this.b.getMap().setPixelFormatTransparent(false);
+        if (this.f3085b != null) {
+            this.f3085b.getMap().showSDKLayer();
+            this.f3085b.getMap().setPixelFormatTransparent(false);
             com.baidu.platform.comapi.walknavi.b.a().J().e();
             com.baidu.platform.comapi.walknavi.b.a().J().a(true);
             com.baidu.platform.comapi.walknavi.b.a().J().g();
-            this.b.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(19.0f));
-            this.b.getMap().setBaiduHeatMapEnabled(false);
-            this.b.getMap().setTrafficEnabled(false);
+            this.f3085b.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(19.0f));
+            this.f3085b.getMap().setBaiduHeatMapEnabled(false);
+            this.f3085b.getMap().setTrafficEnabled(false);
         }
     }
 
@@ -317,16 +319,16 @@ public class a {
         if (Q == null) {
             return null;
         }
-        if (Q.vI() > 0) {
-            int vI = Q.vI();
+        if (Q.uZ() > 0) {
+            int uZ = Q.uZ();
             ArrayList arrayList2 = new ArrayList();
-            for (int i = 0; i < vI; i++) {
-                ArrayList<LatLng> b = g.b(Q, i);
-                if (b.size() >= 2) {
+            for (int i = 0; i < uZ; i++) {
+                ArrayList<LatLng> b2 = g.b(Q, i);
+                if (b2.size() >= 2) {
                     PolylineOptions polylineOptions = new PolylineOptions();
                     Bundle bundle = new Bundle();
                     bundle.putInt("routeIndex", i);
-                    polylineOptions.points(b);
+                    polylineOptions.points(b2);
                     polylineOptions.extraInfo(bundle);
                     if (i == 0) {
                         if (multiRouteDisplayOption != null && multiRouteDisplayOption.getFocusRouteBitmapDescriptor() != null) {
@@ -358,7 +360,7 @@ public class a {
                     if (mapView != null && mapView.getMap() != null) {
                         arrayList.add((Polyline) mapView.getMap().addOverlay(polylineOptions));
                     }
-                    arrayList2.addAll(b);
+                    arrayList2.addAll(b2);
                 }
             }
             if (arrayList2.size() < 2) {
@@ -383,6 +385,6 @@ public class a {
     }
 
     public MapView i() {
-        return this.b;
+        return this.f3085b;
     }
 }

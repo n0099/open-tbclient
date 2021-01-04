@@ -6,142 +6,142 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 /* loaded from: classes.dex */
 public class c {
-    private View eOP;
-    private Drawable eOQ;
+    private View eYO;
+    private Drawable eYP;
 
     private c(View view) {
-        this.eOP = view;
-        this.eOQ = a.bk(this.eOP);
+        this.eYO = view;
+        this.eYP = a.bt(this.eYO);
     }
 
-    public static c bm(View view) {
+    public static c bv(View view) {
         return new c(view);
     }
 
-    public c ps(int i) {
-        if (this.eOP instanceof TextView) {
-            ((TextView) this.eOP).setTextColor(a.getColor(i));
-        }
-        return this;
-    }
-
-    public c pt(int i) {
-        if (this.eOP instanceof TextView) {
-            ((TextView) this.eOP).setTextSize(0, a.pe(i));
-        }
-        return this;
-    }
-
-    public c pu(int i) {
-        if (this.eOP instanceof TextView) {
-            ((TextView) this.eOP).setTypeface(a.Bv(a.getString(i)));
-        }
-        return this;
-    }
-
-    public c pv(int i) {
-        if (!(this.eOP instanceof EMTextView)) {
-            throw new ClassCastException("When setting line spacing, use EMTextView to ensure UI effect.");
-        }
-        ((EMTextView) this.eOP).setLineSpacing(a.pe(i), ((EMTextView) this.eOP).getLineSpacingMultiplier());
-        return this;
-    }
-
-    public c pw(int i) {
-        if (this.eOP instanceof TextView) {
-            ((TextView) this.eOP).setLinkTextColor(a.getColor(i));
-        }
-        return this;
-    }
-
-    public c px(int i) {
-        if (this.eOP instanceof TextView) {
-            ((TextView) this.eOP).setTextColor(a.pg(i));
-        }
-        return this;
-    }
-
-    public void aP(int i, int i2) {
-        if (this.eOP != null) {
-            this.eOQ = a.a(this.eOQ, i, i2);
-            this.eOP.setBackgroundDrawable(this.eOQ);
-        }
-    }
-
-    public void setBackGroundColor(int i) {
-        Drawable a2;
-        if (this.eOP != null && (a2 = a.a(this.eOQ, i)) != null) {
-            this.eOQ = a2;
-            this.eOP.setBackgroundDrawable(this.eOQ);
-        }
-    }
-
-    public void py(int i) {
-        Drawable a2;
-        if (this.eOP != null && (a2 = a.a(this.eOQ, a.getStringArray(i))) != null) {
-            this.eOQ = a2;
-            this.eOP.setBackgroundDrawable(this.eOQ);
-        }
-    }
-
-    public void k(int[] iArr) {
-        Drawable a2;
-        if (this.eOP != null && (a2 = a.a(this.eOQ, iArr)) != null) {
-            this.eOQ = a2;
-            this.eOP.setBackgroundDrawable(this.eOQ);
-        }
-    }
-
-    public c pz(int i) {
-        if (this.eOP != null) {
-            this.eOQ = a.b(this.eOQ, i);
-        }
-        return this;
-    }
-
-    public c pA(int i) {
-        if (this.eOP != null) {
-            this.eOQ = a.c(this.eOQ, i);
-        }
-        return this;
-    }
-
-    public c pB(int i) {
-        Drawable a2;
-        if (this.eOP != null && (a2 = a.a(this.eOP, this.eOQ, a.getStringArray(i))) != null) {
-            this.eOQ = a2;
-            this.eOP.setBackgroundDrawable(this.eOQ);
-            pF(1);
-        }
-        return this;
-    }
-
     public c pC(int i) {
-        Drawable d;
-        if (this.eOP != null && (d = a.d(this.eOQ, i)) != null) {
-            this.eOQ = d;
-            this.eOP.setBackgroundDrawable(this.eOQ);
+        if (this.eYO instanceof TextView) {
+            ((TextView) this.eYO).setTextColor(a.getColor(i));
         }
         return this;
     }
 
     public c pD(int i) {
-        if (this.eOP != null) {
-            this.eOQ = a.e(this.eOQ, i);
+        if (this.eYO instanceof TextView) {
+            ((TextView) this.eYO).setTextSize(0, a.pp(i));
         }
         return this;
     }
 
     public c pE(int i) {
-        if (this.eOP != null) {
-            this.eOQ = a.f(this.eOQ, i);
+        if (this.eYO instanceof TextView) {
+            ((TextView) this.eYO).setTypeface(a.Bu(a.getString(i)));
         }
         return this;
     }
 
     public c pF(int i) {
-        if (this.eOP != null) {
-            this.eOP.setLayerType(i, null);
+        if (!(this.eYO instanceof EMTextView)) {
+            throw new ClassCastException("When setting line spacing, use EMTextView to ensure UI effect.");
+        }
+        ((EMTextView) this.eYO).setLineSpacing(a.pp(i), ((EMTextView) this.eYO).getLineSpacingMultiplier());
+        return this;
+    }
+
+    public c pG(int i) {
+        if (this.eYO instanceof TextView) {
+            ((TextView) this.eYO).setLinkTextColor(a.getColor(i));
+        }
+        return this;
+    }
+
+    public c pH(int i) {
+        if (this.eYO instanceof TextView) {
+            ((TextView) this.eYO).setTextColor(a.pr(i));
+        }
+        return this;
+    }
+
+    public void aM(int i, int i2) {
+        if (this.eYO != null) {
+            this.eYP = a.b(this.eYP, i, i2);
+            this.eYO.setBackgroundDrawable(this.eYP);
+        }
+    }
+
+    public void setBackGroundColor(int i) {
+        Drawable a2;
+        if (this.eYO != null && (a2 = a.a(this.eYP, i)) != null) {
+            this.eYP = a2;
+            this.eYO.setBackgroundDrawable(this.eYP);
+        }
+    }
+
+    public void pI(int i) {
+        Drawable a2;
+        if (this.eYO != null && (a2 = a.a(this.eYP, a.getStringArray(i))) != null) {
+            this.eYP = a2;
+            this.eYO.setBackgroundDrawable(this.eYP);
+        }
+    }
+
+    public void l(int[] iArr) {
+        Drawable a2;
+        if (this.eYO != null && (a2 = a.a(this.eYP, iArr)) != null) {
+            this.eYP = a2;
+            this.eYO.setBackgroundDrawable(this.eYP);
+        }
+    }
+
+    public c pJ(int i) {
+        if (this.eYO != null) {
+            this.eYP = a.b(this.eYP, i);
+        }
+        return this;
+    }
+
+    public c pK(int i) {
+        if (this.eYO != null) {
+            this.eYP = a.c(this.eYP, i);
+        }
+        return this;
+    }
+
+    public c pL(int i) {
+        Drawable a2;
+        if (this.eYO != null && (a2 = a.a(this.eYO, this.eYP, a.getStringArray(i))) != null) {
+            this.eYP = a2;
+            this.eYO.setBackgroundDrawable(this.eYP);
+            pP(1);
+        }
+        return this;
+    }
+
+    public c pM(int i) {
+        Drawable d;
+        if (this.eYO != null && (d = a.d(this.eYP, i)) != null) {
+            this.eYP = d;
+            this.eYO.setBackgroundDrawable(this.eYP);
+        }
+        return this;
+    }
+
+    public c pN(int i) {
+        if (this.eYO != null) {
+            this.eYP = a.e(this.eYP, i);
+        }
+        return this;
+    }
+
+    public c pO(int i) {
+        if (this.eYO != null) {
+            this.eYP = a.f(this.eYP, i);
+        }
+        return this;
+    }
+
+    public c pP(int i) {
+        if (this.eYO != null) {
+            this.eYO.setLayerType(i, null);
         }
         return this;
     }

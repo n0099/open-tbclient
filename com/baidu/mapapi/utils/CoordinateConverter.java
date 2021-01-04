@@ -4,14 +4,16 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.platform.comapi.location.CoordinateType;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class CoordinateConverter {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2158a;
-    private CoordType b;
+    private LatLng f3061a;
 
-    /* loaded from: classes26.dex */
+    /* renamed from: b  reason: collision with root package name */
+    private CoordType f3062b;
+
+    /* loaded from: classes15.dex */
     public enum CoordType {
         GPS,
         COMMON,
@@ -46,33 +48,33 @@ public class CoordinateConverter {
     }
 
     public LatLng convert() {
-        if (this.f2158a == null) {
+        if (this.f3061a == null) {
             return null;
         }
-        if (this.b == null) {
-            this.b = CoordType.GPS;
+        if (this.f3062b == null) {
+            this.f3062b = CoordType.GPS;
         }
-        switch (this.b) {
+        switch (this.f3062b) {
             case COMMON:
-                return b(this.f2158a);
+                return b(this.f3061a);
             case GPS:
-                return a(this.f2158a);
+                return a(this.f3061a);
             case BD09LL:
-                return d(this.f2158a);
+                return d(this.f3061a);
             case BD09MC:
-                return c(this.f2158a);
+                return c(this.f3061a);
             default:
                 return null;
         }
     }
 
     public CoordinateConverter coord(LatLng latLng) {
-        this.f2158a = latLng;
+        this.f3061a = latLng;
         return this;
     }
 
     public CoordinateConverter from(CoordType coordType) {
-        this.b = coordType;
+        this.f3062b = coordType;
         return this;
     }
 }

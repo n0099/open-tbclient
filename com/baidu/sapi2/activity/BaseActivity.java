@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class BaseActivity extends TitleActivity {
     public static final String EXTRA_PARAM_BUSINESS_FROM = "extra_params_business_from";
     public static final int EXTRA_PARAM_FROM_ACCOUNT_CENTER = 2003;
@@ -71,8 +71,10 @@ public class BaseActivity extends TitleActivity {
     private static final int o = 1003;
 
     /* renamed from: a  reason: collision with root package name */
-    private ValueCallback<Uri> f3323a;
-    private ValueCallback<Uri[]> b;
+    private ValueCallback<Uri> f5051a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private ValueCallback<Uri[]> f5052b;
     private SapiWebView.PickPhotoResult c;
     private SapiWebView.BiometricsIdentifyResult d;
     private a e;
@@ -138,41 +140,36 @@ public class BaseActivity extends TitleActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        ImageCropCallback b;
-        ActivityResultCallback a2;
         a aVar;
         super.onActivityResult(i, i2, intent);
         ImageCropCallback imageCropCallback = CoreViewRouter.getInstance().getImageCropCallback();
         ActivityResultCallback activityResultCallback = CoreViewRouter.getInstance().getActivityResultCallback();
         if (imageCropCallback == null || activityResultCallback == null) {
-            b = b();
-            a2 = a();
-        } else {
-            b = imageCropCallback;
-            a2 = activityResultCallback;
+            imageCropCallback = b();
+            activityResultCallback = a();
         }
-        if (a2 != null) {
-            a2.onActivityResult(i, i2, intent);
+        if (activityResultCallback != null) {
+            activityResultCallback.onActivityResult(i, i2, intent);
         }
         if (i == 1010) {
-            if (this.f3323a != null) {
-                this.f3323a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
-                this.f3323a = null;
+            if (this.f5051a != null) {
+                this.f5051a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
+                this.f5051a = null;
             }
         } else if (i == 1011) {
-            if (this.b != null) {
+            if (this.f5052b != null) {
                 Uri data = (intent == null || i2 != -1) ? null : intent.getData();
                 if (data != null) {
-                    this.b.onReceiveValue(new Uri[]{data});
+                    this.f5052b.onReceiveValue(new Uri[]{data});
                 } else {
-                    this.b.onReceiveValue(new Uri[0]);
+                    this.f5052b.onReceiveValue(new Uri[0]);
                 }
-                this.b = null;
+                this.f5052b = null;
             }
         } else if (i == 1001) {
             if (this.c != null) {
-                if (i2 == -1 && b != null) {
-                    b.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), l)), this.f, this.g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.16
+                if (i2 == -1 && imageCropCallback != null) {
+                    imageCropCallback.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), l)), this.f, this.g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.16
                         @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                         public void onImageResult(String str) {
                             if (str != null) {
@@ -192,8 +189,8 @@ public class BaseActivity extends TitleActivity {
             }
             aVar.a(i, i2, intent);
         } else if (this.c != null) {
-            if (i2 == -1 && intent.getData() != null && b != null) {
-                b.onImageCrop(this, intent.getData(), this.f, this.g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.17
+            if (i2 == -1 && intent.getData() != null && imageCropCallback != null) {
+                imageCropCallback.onImageCrop(this, intent.getData(), this.f, this.g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.17
                     @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                     public void onImageResult(String str) {
                         if (str != null) {
@@ -476,7 +473,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ValueCallback<Uri[]> valueCallback) {
-        this.b = valueCallback;
+        this.f5052b = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
@@ -488,7 +485,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ValueCallback<Uri> valueCallback) {
-        this.f3323a = valueCallback;
+        this.f5051a = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");

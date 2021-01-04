@@ -12,7 +12,7 @@ import android.telephony.TelephonyManager;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.framework.MessageManager;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdNetTypeUtil {
     public static final String NATION_CODE = "460";
     public static final int NETWORK_CLASS_2_G = 1;
@@ -218,7 +218,7 @@ public class BdNetTypeUtil {
             return 0;
         }
         String substring = networkOperator.substring(0, 3);
-        if (substring == null || !substring.equals(NATION_CODE)) {
+        if (substring == null || !substring.equals("460")) {
             return 0;
         }
         try {
@@ -299,7 +299,7 @@ public class BdNetTypeUtil {
         return bdNetTypeUtil;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private static class NetChangeReceiver extends BroadcastReceiver {
         private NetChangeReceiver() {
         }
@@ -388,7 +388,7 @@ public class BdNetTypeUtil {
             case 4:
                 return "4g";
             default:
-                return NET_TYPENAME_UNAVAILABLE;
+                return "unreachable";
         }
     }
 

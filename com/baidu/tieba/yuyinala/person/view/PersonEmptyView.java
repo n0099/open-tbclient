@@ -9,11 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class PersonEmptyView extends LinearLayout {
-    private ImageView gFs;
-    private TextView gFt;
-    private TextView gFu;
+    private ImageView gRd;
+    private TextView gRe;
+    private TextView gRf;
 
     public PersonEmptyView(Context context) {
         super(context);
@@ -33,33 +33,33 @@ public class PersonEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.g.ala_person_empty_view, this);
-        this.gFs = (ImageView) findViewById(a.f.empty_image);
+        this.gRd = (ImageView) findViewById(a.f.empty_image);
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            ViewGroup.LayoutParams layoutParams = this.gFs.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.gRd.getLayoutParams();
             layoutParams.height = (int) getContext().getResources().getDimension(a.d.sdk_ds250);
             layoutParams.width = (int) getContext().getResources().getDimension(a.d.sdk_ds334);
-            this.gFs.setPadding(0, (int) getContext().getResources().getDimension(a.d.sdk_ds64), 0, 0);
-            this.gFs.setLayoutParams(layoutParams);
+            this.gRd.setPadding(0, (int) getContext().getResources().getDimension(a.d.sdk_ds64), 0, 0);
+            this.gRd.setLayoutParams(layoutParams);
         }
-        this.gFt = (TextView) findViewById(a.f.empty_text);
-        this.gFu = (TextView) findViewById(a.f.empty_sub_text);
+        this.gRe = (TextView) findViewById(a.f.empty_text);
+        this.gRf = (TextView) findViewById(a.f.empty_sub_text);
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.gFs.setImageResource(i);
+            this.gRd.setImageResource(i);
         } else {
-            this.gFs.setVisibility(8);
+            this.gRd.setVisibility(8);
         }
         if (i2 != -1) {
-            this.gFt.setText(i2);
+            this.gRe.setText(i2);
         } else {
-            this.gFt.setVisibility(8);
+            this.gRe.setVisibility(8);
         }
         if (i3 != -1) {
-            this.gFu.setText(i3);
+            this.gRf.setText(i3);
         } else {
-            this.gFu.setVisibility(8);
+            this.gRf.setVisibility(8);
         }
     }
 }

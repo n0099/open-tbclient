@@ -4,24 +4,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class c {
-    private a aeb;
-    private Map<String, com.baidu.b.b.a> b = new HashMap();
+    private a aeQ;
 
-    /* loaded from: classes26.dex */
+    /* renamed from: b  reason: collision with root package name */
+    private Map<String, com.baidu.b.b.a> f1578b = new HashMap();
+
+    /* loaded from: classes15.dex */
     public interface a {
         List<com.baidu.b.b.a> a();
     }
 
     public c(a aVar) {
-        this.aeb = aVar;
+        this.aeQ = aVar;
         for (com.baidu.b.b.a aVar2 : aVar.a()) {
-            this.b.put(aVar2.a(), aVar2);
+            this.f1578b.put(aVar2.a(), aVar2);
         }
     }
 
     public List<com.baidu.b.b.a> a() {
-        return new ArrayList(this.b.values());
+        return new ArrayList(this.f1578b.values());
     }
 }

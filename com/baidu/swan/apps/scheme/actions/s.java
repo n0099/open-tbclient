@@ -5,9 +5,9 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ap.ah;
+import com.baidu.swan.apps.ao.ah;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class s extends aa {
     public s(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/pageScrollTo");
@@ -20,27 +20,27 @@ public class s extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        JSONObject b = b(unitedSchemeEntity, "params");
-        if (b == null) {
+        JSONObject b2 = b(unitedSchemeEntity, "params");
+        if (b2 == null) {
             com.baidu.swan.apps.console.c.i("PageScrollToAction", "params is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
             return false;
         }
-        int optInt = b.optInt("scrollTop", -1);
-        int optInt2 = b.optInt("duration", -1);
+        int optInt = b2.optInt("scrollTop", -1);
+        int optInt2 = b2.optInt("duration", -1);
         if (optInt <= -1 || optInt2 <= -1) {
             com.baidu.swan.apps.console.c.e("PageScrollToAction", "illegal scrollTop or duration");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;
         }
-        final com.baidu.swan.apps.adaptation.b.d aCa = com.baidu.swan.apps.v.f.aCp().aCa();
-        if (aCa != null) {
-            ValueAnimator ofInt = ValueAnimator.ofInt(aCa.getWebViewScrollY(), com.baidu.swan.apps.api.module.e.d.a(aCa, ah.dip2px(context, optInt)));
+        final com.baidu.swan.apps.adaptation.b.d aDr = com.baidu.swan.apps.v.f.aDG().aDr();
+        if (aDr != null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(aDr.getWebViewScrollY(), com.baidu.swan.apps.api.module.e.d.a(aDr, ah.dip2px(context, optInt)));
             ofInt.setDuration(optInt2);
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.scheme.actions.s.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    aCa.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    aDr.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             });
             ofInt.start();

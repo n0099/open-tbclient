@@ -18,7 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static final void a(Context context, final String str, final c cVar) {
         f.b("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage");
@@ -240,15 +240,15 @@ public class a {
     }
 
     public static final int a(BitmapFactory.Options options, int i, int i2) {
-        int b = b(options, i, i2);
-        if (b <= 8) {
+        int b2 = b(options, i, i2);
+        if (b2 <= 8) {
             int i3 = 1;
-            while (i3 < b) {
+            while (i3 < b2) {
                 i3 <<= 1;
             }
             return i3;
         }
-        return ((b + 7) / 8) * 8;
+        return ((b2 + 7) / 8) * 8;
     }
 
     private static int b(BitmapFactory.Options options, int i, int i2) {

@@ -1,5 +1,5 @@
 package org.apache.http.entity.mime;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class MinimalField {
     private final String name;
     private final String value;

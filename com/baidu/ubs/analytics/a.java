@@ -5,24 +5,24 @@ import com.baidu.ubs.analytics.c.g;
 import com.baidu.ubs.analytics.c.j;
 import com.baidu.ubs.analytics.d;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static boolean oHJ = false;
+    private static boolean oNS = false;
 
-    public static void XW(String str) {
-        if (oHJ) {
-            e.ejv().XW(str);
+    public static void XF(String str) {
+        if (oNS) {
+            e.ejE().XF(str);
         }
     }
 
-    public static void XX(String str) {
-        if (oHJ) {
-            e.ejv().XX(str);
+    public static void XG(String str) {
+        if (oNS) {
+            e.ejE().XG(str);
         }
     }
 
     public static void a(String str, String str2, String str3, Map<String, String> map) {
-        if (oHJ && str != null) {
+        if (oNS && str != null) {
             j.b(str, str2, str3, map);
         }
     }
@@ -33,11 +33,11 @@ public class a {
         }
     }
 
-    public static SampleResult XY(String str) {
-        return oHJ ? d.a.oHR.XZ(str) : SampleResult.OTHERE;
+    public static SampleResult XH(String str) {
+        return oNS ? d.a.oOa.XI(str) : SampleResult.OTHERE;
     }
 
-    public static void Ak(boolean z) {
-        oHJ = z;
+    public static void Al(boolean z) {
+        oNS = z;
     }
 }

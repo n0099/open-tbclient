@@ -8,42 +8,43 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableAmb<T> extends g<T> {
-    final Iterable<? extends org.a.b<? extends T>> pFj;
+    final Iterable<? extends org.a.b<? extends T>> qgL;
     final org.a.b<? extends T>[] sources;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         int length;
-        org.a.b<? extends T>[] bVarArr = this.sources;
-        if (bVarArr == null) {
-            org.a.b<? extends T>[] bVarArr2 = new org.a.b[8];
+        org.a.b<? extends T>[] bVarArr;
+        org.a.b<? extends T>[] bVarArr2 = this.sources;
+        if (bVarArr2 == null) {
+            bVarArr = new org.a.b[8];
             try {
                 int i = 0;
-                for (org.a.b<? extends T> bVar : this.pFj) {
+                for (org.a.b<? extends T> bVar : this.qgL) {
                     if (bVar == null) {
                         EmptySubscription.error(new NullPointerException("One of the sources is null"), cVar);
                         return;
                     }
-                    if (i == bVarArr2.length) {
+                    if (i == bVarArr.length) {
                         org.a.b<? extends T>[] bVarArr3 = new org.a.b[(i >> 2) + i];
-                        System.arraycopy(bVarArr2, 0, bVarArr3, 0, i);
-                        bVarArr2 = bVarArr3;
+                        System.arraycopy(bVarArr, 0, bVarArr3, 0, i);
+                        bVarArr = bVarArr3;
                     }
                     int i2 = i + 1;
-                    bVarArr2[i] = bVar;
+                    bVarArr[i] = bVar;
                     i = i2;
                 }
                 length = i;
-                bVarArr = bVarArr2;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 EmptySubscription.error(th, cVar);
                 return;
             }
         } else {
-            length = bVarArr.length;
+            length = bVarArr2.length;
+            bVarArr = bVarArr2;
         }
         if (length == 0) {
             EmptySubscription.complete(cVar);
@@ -54,26 +55,26 @@ public final class FlowableAmb<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class a<T> implements d {
         final org.a.c<? super T> actual;
-        final AmbInnerSubscriber<T>[] pFk;
-        final AtomicInteger pFl = new AtomicInteger();
+        final AmbInnerSubscriber<T>[] qgM;
+        final AtomicInteger qgN = new AtomicInteger();
 
         a(org.a.c<? super T> cVar, int i) {
             this.actual = cVar;
-            this.pFk = new AmbInnerSubscriber[i];
+            this.qgM = new AmbInnerSubscriber[i];
         }
 
         public void a(org.a.b<? extends T>[] bVarArr) {
-            AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.pFk;
+            AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.qgM;
             int length = ambInnerSubscriberArr.length;
             for (int i = 0; i < length; i++) {
                 ambInnerSubscriberArr[i] = new AmbInnerSubscriber<>(this, i + 1, this.actual);
             }
-            this.pFl.lazySet(0);
+            this.qgN.lazySet(0);
             this.actual.onSubscribe(this);
-            for (int i2 = 0; i2 < length && this.pFl.get() == 0; i2++) {
+            for (int i2 = 0; i2 < length && this.qgN.get() == 0; i2++) {
                 bVarArr[i2].subscribe(ambInnerSubscriberArr[i2]);
             }
         }
@@ -81,20 +82,20 @@ public final class FlowableAmb<T> extends g<T> {
         @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                int i = this.pFl.get();
+                int i = this.qgN.get();
                 if (i > 0) {
-                    this.pFk[i - 1].request(j);
+                    this.qgM[i - 1].request(j);
                 } else if (i == 0) {
-                    for (AmbInnerSubscriber<T> ambInnerSubscriber : this.pFk) {
+                    for (AmbInnerSubscriber<T> ambInnerSubscriber : this.qgM) {
                         ambInnerSubscriber.request(j);
                     }
                 }
             }
         }
 
-        public boolean RN(int i) {
-            if (this.pFl.get() == 0 && this.pFl.compareAndSet(0, i)) {
-                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.pFk;
+        public boolean Tg(int i) {
+            if (this.qgN.get() == 0 && this.qgN.compareAndSet(0, i)) {
+                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.qgM;
                 int length = ambInnerSubscriberArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
                     if (i2 + 1 != i) {
@@ -108,9 +109,9 @@ public final class FlowableAmb<T> extends g<T> {
 
         @Override // org.a.d
         public void cancel() {
-            if (this.pFl.get() != -1) {
-                this.pFl.lazySet(-1);
-                for (AmbInnerSubscriber<T> ambInnerSubscriber : this.pFk) {
+            if (this.qgN.get() != -1) {
+                this.qgN.lazySet(-1);
+                for (AmbInnerSubscriber<T> ambInnerSubscriber : this.qgM) {
                     ambInnerSubscriber.cancel();
                 }
             }
@@ -118,7 +119,7 @@ public final class FlowableAmb<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class AmbInnerSubscriber<T> extends AtomicReference<d> implements j<T>, d {
         private static final long serialVersionUID = -1185974347409665484L;
         final org.a.c<? super T> actual;
@@ -147,7 +148,7 @@ public final class FlowableAmb<T> extends g<T> {
         public void onNext(T t) {
             if (this.won) {
                 this.actual.onNext(t);
-            } else if (this.parent.RN(this.index)) {
+            } else if (this.parent.Tg(this.index)) {
                 this.won = true;
                 this.actual.onNext(t);
             } else {
@@ -159,7 +160,7 @@ public final class FlowableAmb<T> extends g<T> {
         public void onError(Throwable th) {
             if (this.won) {
                 this.actual.onError(th);
-            } else if (this.parent.RN(this.index)) {
+            } else if (this.parent.Tg(this.index)) {
                 this.won = true;
                 this.actual.onError(th);
             } else {
@@ -172,7 +173,7 @@ public final class FlowableAmb<T> extends g<T> {
         public void onComplete() {
             if (this.won) {
                 this.actual.onComplete();
-            } else if (this.parent.RN(this.index)) {
+            } else if (this.parent.Tg(this.index)) {
                 this.won = true;
                 this.actual.onComplete();
             } else {

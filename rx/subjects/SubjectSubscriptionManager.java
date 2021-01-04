@@ -8,7 +8,7 @@ import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 import rx.j;
 import rx.subscriptions.e;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implements d.a<T> {
     private static final long serialVersionUID = 6035251036011671568L;
     boolean active;
@@ -23,11 +23,11 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     public SubjectSubscriptionManager() {
-        super(a.pWa);
+        super(a.qxA);
         this.active = true;
-        this.onStart = Actions.eFD();
-        this.onAdded = Actions.eFD();
-        this.onTerminated = Actions.eFD();
+        this.onStart = Actions.eNL();
+        this.onAdded = Actions.eNL();
+        this.onTerminated = Actions.eNL();
     }
 
     public void call(j<? super T> jVar) {
@@ -59,7 +59,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     b<T>[] observers() {
-        return get().pVX;
+        return get().qxx;
     }
 
     boolean add(b<T> bVar) {
@@ -89,34 +89,34 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] next(Object obj) {
         setLatest(obj);
-        return get().pVX;
+        return get().qxx;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] terminate(Object obj) {
         setLatest(obj);
         this.active = false;
-        return get().terminated ? a.pVY : getAndSet(a.pVZ).pVX;
+        return get().terminated ? a.qxy : getAndSet(a.qxz).qxx;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class a<T> {
-        static final b[] pVY = new b[0];
-        static final a pVZ = new a(true, pVY);
-        static final a pWa = new a(false, pVY);
-        final b[] pVX;
+        final b[] qxx;
         final boolean terminated;
+        static final b[] qxy = new b[0];
+        static final a qxz = new a(true, qxy);
+        static final a qxA = new a(false, qxy);
 
         public a(boolean z, b[] bVarArr) {
             this.terminated = z;
-            this.pVX = bVarArr;
+            this.qxx = bVarArr;
         }
 
         public a b(b bVar) {
-            int length = this.pVX.length;
+            int length = this.qxx.length;
             b[] bVarArr = new b[length + 1];
-            System.arraycopy(this.pVX, 0, bVarArr, 0, length);
+            System.arraycopy(this.qxx, 0, bVarArr, 0, length);
             bVarArr[length] = bVar;
             return new a(this.terminated, bVarArr);
         }
@@ -124,10 +124,10 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         public a c(b bVar) {
             b[] bVarArr;
             int i;
-            b[] bVarArr2 = this.pVX;
+            b[] bVarArr2 = this.qxx;
             int length = bVarArr2.length;
             if (length == 1 && bVarArr2[0] == bVar) {
-                return pWa;
+                return qxA;
             }
             if (length != 0) {
                 b[] bVarArr3 = new b[length - 1];
@@ -147,7 +147,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                     i3 = i;
                 }
                 if (i3 == 0) {
-                    return pWa;
+                    return qxA;
                 }
                 if (i3 < length - 1) {
                     bVarArr = new b[i3];
@@ -162,7 +162,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class b<T> implements rx.e<T> {
         final j<? super T> actual;
         boolean emitting;
@@ -190,7 +190,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void ch(Object obj) {
+        public void cj(Object obj) {
             if (!this.fastPath) {
                 synchronized (this) {
                     this.first = false;
@@ -208,7 +208,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void ci(Object obj) {
+        public void ck(Object obj) {
             synchronized (this) {
                 if (this.first && !this.emitting) {
                     this.first = false;

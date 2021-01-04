@@ -1,0 +1,144 @@
+package com.kwad.sdk.contentalliance.detail.photo.d;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import com.kwad.sdk.R;
+import com.kwad.sdk.mvp.Presenter;
+import com.kwad.sdk.utils.ah;
+import com.kwad.sdk.utils.i;
+import com.kwad.sdk.utils.p;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class b extends LinearLayout {
+
+    /* renamed from: a  reason: collision with root package name */
+    protected Presenter f8756a;
+
+    /* renamed from: b  reason: collision with root package name */
+    protected c f8757b;
+    private LinearLayout c;
+    private Button d;
+    private List<a> e;
+    private com.kwad.sdk.contentalliance.detail.photo.f.c f;
+    private int g;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
+
+        void b();
+    }
+
+    public b(Context context) {
+        super(context);
+        this.c = null;
+        this.d = null;
+        this.e = new ArrayList();
+        this.f = new com.kwad.sdk.contentalliance.detail.photo.f.c() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.b.1
+            @Override // com.kwad.sdk.contentalliance.detail.photo.f.c
+            public void a(com.kwad.sdk.contentalliance.detail.photo.f.d dVar) {
+                b.this.c();
+            }
+        };
+        b();
+    }
+
+    private c b(@NonNull d dVar) {
+        c cVar = new c();
+        cVar.f8763a = dVar;
+        cVar.f8764b = this.f;
+        return cVar;
+    }
+
+    private void b() {
+        LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_bottom_panel_2, (ViewGroup) this, true);
+        this.c = (LinearLayout) findViewById(R.id.ksad_photo_bottom_panel_buttons_layout);
+        this.c.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.b.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+            }
+        });
+        this.d = (Button) findViewById(R.id.ksad_photo_bottom_panel_cancel_button);
+        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.b.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                b.this.d();
+            }
+        });
+        setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.b.4
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                b.this.d();
+            }
+        });
+        View findViewById = findViewById(R.id.ksad_space);
+        if (findViewById == null || !com.kwad.sdk.core.config.c.R()) {
+            return;
+        }
+        findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.b.5
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                b.c(b.this);
+                if (b.this.g > 10) {
+                    i.a(b.this.getContext(), "ksad_debug_deviceId_and_gid", "did:" + ah.m() + "——————egid:" + com.kwad.sdk.core.b.e.a());
+                    p.a(b.this.getContext(), "hello");
+                    b.this.g = 0;
+                }
+            }
+        });
+    }
+
+    static /* synthetic */ int c(b bVar) {
+        int i = bVar.g;
+        bVar.g = i + 1;
+        return i;
+    }
+
+    private Presenter c(d dVar) {
+        Presenter presenter = new Presenter();
+        presenter.a((Presenter) new f());
+        return presenter;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        for (a aVar : this.e) {
+            aVar.a();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        this.g = 0;
+        for (a aVar : this.e) {
+            aVar.b();
+        }
+    }
+
+    public void a() {
+        this.f8756a.j();
+    }
+
+    public void a(@NonNull a aVar) {
+        this.e.add(aVar);
+    }
+
+    public void a(@NonNull d dVar) {
+        this.f8757b = b(dVar);
+        if (this.f8756a == null) {
+            this.f8756a = c(dVar);
+            this.f8756a.a((View) this.c);
+        }
+        this.f8756a.a(this.f8757b);
+    }
+
+    public void b(@NonNull a aVar) {
+        this.e.remove(aVar);
+    }
+}

@@ -1,7 +1,7 @@
 package com.baidu.mapapi.bikenavi.adapter;
 
 import com.baidu.mapapi.bikenavi.model.BikeRoutePlanError;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public interface IBRoutePlanListener {
     void onRoutePlanFail(BikeRoutePlanError bikeRoutePlanError);
 

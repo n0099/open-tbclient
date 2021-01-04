@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private MessageRedDotView jMU;
-    private CustomMessageListener jMV;
+    private MessageRedDotView kai;
+    private CustomMessageListener kaj;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -56,21 +56,21 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        this.jMV = new CustomMessageListener(CmdConfigCustom.CMD_RECOMMEND_FRS_TIP_SHOW) { // from class: com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic.2
+        this.kaj = new CustomMessageListener(CmdConfigCustom.CMD_RECOMMEND_FRS_TIP_SHOW) { // from class: com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016325 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
                     int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-                    TbFragmentTabIndicator.a El = RecommendFrsDelegateStatic.this.mIndicator.El("godFeed");
-                    if (El != null) {
+                    TbFragmentTabIndicator.a Ei = RecommendFrsDelegateStatic.this.mIndicator.Ei("godFeed");
+                    if (Ei != null) {
                         if (intValue <= 0) {
-                            RecommendFrsDelegateStatic.this.jMU.setVisibility(8);
+                            RecommendFrsDelegateStatic.this.kai.setVisibility(8);
                             return;
                         }
-                        RecommendFrsDelegateStatic.this.jMU.refresh(0);
-                        RecommendFrsDelegateStatic.this.jMU.setVisibility(0);
-                        El.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+                        RecommendFrsDelegateStatic.this.kai.refresh(0);
+                        RecommendFrsDelegateStatic.this.kai.setVisibility(0);
+                        Ei.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
                     }
                 }
             }
@@ -80,12 +80,12 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.jMU = new MessageRedDotView(context);
+        this.kai = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.fAk = this.mIndicator;
+        aVar.fJQ = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 12.0f);
-        aVar.view = this.jMU;
-        this.jMU.setVisibility(8);
+        aVar.view = this.kai;
+        this.kai.setVisibility(8);
         this.mIndicator.b("godFeed", aVar);
         return this.mIndicator;
     }

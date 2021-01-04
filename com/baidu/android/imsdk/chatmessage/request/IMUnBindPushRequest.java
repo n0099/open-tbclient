@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -16,7 +15,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMUnBindPushRequest extends BaseHttpRequest {
     private Long mAppid;
     private String mBduss;
@@ -33,39 +32,28 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
-        JSONException jSONException;
-        long j;
         int i2;
-        String str;
-        JSONObject jSONObject;
-        String str2 = new String(bArr);
-        LogUtils.d("IMUnBindPushRequest", str2);
+        String str = new String(bArr);
+        LogUtils.d("IMUnBindPushRequest", str);
+        String str2 = Constants.ERROR_MSG_SUCCESS;
+        long j = 0;
         try {
-            jSONObject = new JSONObject(str2);
+            JSONObject jSONObject = new JSONObject(str);
             j = jSONObject.optLong(BaseJsonData.TAG_REQUESTID);
-        } catch (JSONException e) {
-            jSONException = e;
-            j = 0;
-        }
-        try {
             i2 = jSONObject.optInt("error_code", 0);
-            if (i2 == 0) {
-                str = Constants.ERROR_MSG_SUCCESS;
-            } else {
-                str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            if (i2 != 0) {
+                str2 = jSONObject.optString("error_msg");
             }
             if (i2 == 0) {
                 BindStateManager.clearUnBindInfo(this.mContext);
             }
-        } catch (JSONException e2) {
-            jSONException = e2;
-            LogUtils.e("IMUnBindPushRequest", jSONException.getMessage(), jSONException);
+        } catch (JSONException e) {
+            LogUtils.e("IMUnBindPushRequest", e.getMessage(), e);
             i2 = 1010;
-            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(jSONException)).build();
-            LogUtils.d("IMUnBindPushRequest", "requestid : " + j + " , resultCode: " + i2 + " , resultMsg : " + str);
+            str2 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
         }
-        LogUtils.d("IMUnBindPushRequest", "requestid : " + j + " , resultCode: " + i2 + " , resultMsg : " + str);
+        LogUtils.d("IMUnBindPushRequest", "requestid : " + j + " , resultCode: " + i2 + " , resultMsg : " + str2);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler

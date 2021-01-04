@@ -7,10 +7,6 @@ import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.LocaleList;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.annotation.VisibleForTesting;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -22,6 +18,10 @@ import android.view.accessibility.AccessibilityNodeProvider;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.VisibleForTesting;
 import com.baidu.tbadk.core.util.UtilHelper;
 import io.flutter.Log;
 import io.flutter.embedding.android.AndroidTouchProcessor;
@@ -35,7 +35,7 @@ import io.flutter.view.AccessibilityBridge;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public class XFlutterView extends FrameLayout {
     @Nullable
     private AccessibilityBridge accessibilityBridge;
@@ -232,13 +232,10 @@ public class XFlutterView extends FrameLayout {
 
     @Override // android.view.View
     public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
-        if (!isAttachedToFlutterEngine()) {
-            return super.onTouchEvent(motionEvent);
-        }
         if (Build.VERSION.SDK_INT >= 21) {
             requestUnbufferedDispatch(motionEvent);
         }
-        return this.androidTouchProcessor.onTouchEvent(motionEvent);
+        return this.androidTouchProcessor == null ? super.onTouchEvent(motionEvent) : this.androidTouchProcessor.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
@@ -350,8 +347,8 @@ public class XFlutterView extends FrameLayout {
         return this.flutterEngine != null;
     }
 
-    @VisibleForTesting
     @Nullable
+    @VisibleForTesting
     public FlutterEngine getAttachedFlutterEngine() {
         return this.flutterEngine;
     }

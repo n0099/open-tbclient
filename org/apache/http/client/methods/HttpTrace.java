@@ -2,7 +2,7 @@ package org.apache.http.client.methods;
 
 import java.net.URI;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class HttpTrace extends HttpRequestBase {
     public static final String METHOD_NAME = "TRACE";
 

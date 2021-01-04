@@ -2,8 +2,8 @@ package com.baidu.searchbox.logsystem.basic.upload;
 
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
-import com.baidu.tieba.r.j;
-/* loaded from: classes20.dex */
+import com.baidu.tieba.q.l;
+/* loaded from: classes7.dex */
 public class LokiRuntime {
     private static final ILokiIdentityContext EMPTY = new ILokiIdentityContext() { // from class: com.baidu.searchbox.logsystem.basic.upload.LokiRuntime.1
         @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
@@ -52,6 +52,6 @@ public class LokiRuntime {
     }
 
     public static ILokiIdentityNeedContext getIdentityNeedContext() {
-        return j.dLT();
+        return l.dLL();
     }
 }

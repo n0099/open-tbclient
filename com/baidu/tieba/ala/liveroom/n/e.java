@@ -2,24 +2,24 @@ package com.baidu.tieba.ala.liveroom.n;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.bh;
+import com.baidu.live.data.bj;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e extends a {
-    private HeadImageView aGa;
-    private TextView aYs;
-    private View czb;
-    private TextView htg;
+    private HeadImageView aGr;
+    private TextView aZY;
+    private View cDU;
+    private TextView hFc;
 
     public e(@NonNull Context context) {
         super(context);
@@ -28,34 +28,34 @@ public class e extends a {
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void init() {
         super.init();
-        HH();
+        Hi();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void initView() {
         setContentView(a.g.ala_hor_guide_follow_float);
-        this.czb = findViewById(a.f.layout_root);
-        this.czb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.n.e.1
+        this.cDU = findViewById(a.f.layout_root);
+        this.cDU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.n.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
             }
         });
-        this.aYs = (TextView) findViewById(a.f.tv_guide_folllow_tip);
-        this.htg = (TextView) findViewById(a.f.ala_live_name);
-        this.aGa = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.aZY = (TextView) findViewById(a.f.tv_guide_folllow_tip);
+        this.hFc = (TextView) findViewById(a.f.ala_live_name);
+        this.aGr = (HeadImageView) findViewById(a.f.iv_avatar);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.aGa.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def_hk);
-            this.aGa.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def_hk);
+            this.aGr.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def_hk);
+            this.aGr.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def_hk);
         } else {
-            this.aGa.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
-            this.aGa.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
+            this.aGr.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
+            this.aGr.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
         }
-        this.aGa.setIsRound(true);
-        this.aGa.setAutoChangeStyle(false);
-        this.aGa.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.d.sdk_ds4));
-        this.aGa.setBorderColor(872415231);
-        this.aGa.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.aGr.setIsRound(true);
+        this.aGr.setAutoChangeStyle(false);
+        this.aGr.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.d.sdk_ds4));
+        this.aGr.setBorderColor(872415231);
+        this.aGr.setScaleType(ImageView.ScaleType.CENTER_CROP);
         TextView textView = (TextView) findViewById(a.f.tv_confirm);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             textView.setBackgroundResource(a.e.ala_live_follow_btn_radius_16_selector_hk);
@@ -67,51 +67,51 @@ public class e extends a {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.n.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.hsQ != null) {
-                    e.this.hsQ.onConfirm();
+                if (e.this.hEL != null) {
+                    e.this.hEL.onConfirm();
                 }
             }
         });
-        this.hsR = textView.getText().toString();
-        cge();
+        this.hEM = textView.getText().toString();
+        ciS();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
-    public void eA(String str, String str2) {
-        cgd();
-        this.aGa.startLoad(str, 25, false, false);
-        this.htg.setText(str2);
-        OD();
+    public void ez(String str, String str2) {
+        ciR();
+        this.aGr.startLoad(str, 25, false, false);
+        this.hFc.setText(str2);
+        Oj();
         show();
     }
 
-    private void cge() {
-        bh bhVar;
-        if (com.baidu.live.ae.a.RB().brA != null && (bhVar = com.baidu.live.ae.a.RB().brA.aOf) != null && !TextUtils.isEmpty(bhVar.aQu)) {
-            this.aYs.setText(bhVar.aQu);
+    private void ciS() {
+        bj bjVar;
+        if (com.baidu.live.af.a.SE().bwi != null && (bjVar = com.baidu.live.af.a.SE().bwi.aOM) != null && !TextUtils.isEmpty(bjVar.aRj)) {
+            this.aZY.setText(bjVar.aRj);
         }
     }
 
-    private void HH() {
+    private void Hi() {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.n.e.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                e.this.cgd();
+                e.this.ciR();
             }
         });
     }
 
-    private void OD() {
+    private void Oj() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(400L);
         translateAnimation.setInterpolator(new LinearInterpolator());
-        this.czb.startAnimation(translateAnimation);
+        this.cDU.startAnimation(translateAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgd() {
-        if (this.aGa != null) {
-            this.aGa.stopLoad();
+    public void ciR() {
+        if (this.aGr != null) {
+            this.aGr.stopLoad();
         }
     }
 }

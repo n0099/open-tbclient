@@ -3,7 +3,7 @@ package com.baidubce.util;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class ConvertUtils {
     private static final char[] DIGITS_LOWER = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     static final byte[] CHUNK_SEPARATOR = {13, 10};
@@ -23,12 +23,12 @@ public class ConvertUtils {
     }
 
     public static byte[] decodeHex(char[] cArr) throws IOException {
-        int i = 0;
         int length = cArr.length;
         if ((length & 1) != 0) {
             throw new IOException("Odd number of characters.");
         }
         byte[] bArr = new byte[length >> 1];
+        int i = 0;
         int i2 = 0;
         while (i < length) {
             int i3 = i + 1;
@@ -40,10 +40,10 @@ public class ConvertUtils {
     }
 
     public static char[] encodeHex(byte[] bArr) {
-        int i = 0;
         char[] cArr = DIGITS_LOWER;
         int length = bArr.length;
         char[] cArr2 = new char[length << 1];
+        int i = 0;
         for (int i2 = 0; i2 < length; i2++) {
             int i3 = i + 1;
             cArr2[i] = cArr[(bArr[i2] & 240) >>> 4];

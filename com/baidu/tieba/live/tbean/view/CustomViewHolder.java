@@ -2,7 +2,7 @@ package com.baidu.tieba.live.tbean.view;
 
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.tieba.b.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class CustomViewHolder<T extends a> extends TypeAdapter.ViewHolder {
     protected T mCardView;
 

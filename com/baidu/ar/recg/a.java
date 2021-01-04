@@ -3,7 +3,7 @@ package com.baidu.ar.recg;
 import com.baidu.ar.c;
 import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a extends d implements IOnDeviceIR {
     private WeakReference<IOnDeviceIR> mj;
     private IOnDeviceIRStateChangedListener tT;

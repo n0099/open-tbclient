@@ -10,24 +10,24 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k {
-    private Context eOg;
-    private RoundLinearLayout eOh;
-    private LinearLayout eOi;
-    private LinearLayout eOj;
-    private EMTextView eOk;
-    private View eOl;
-    private TextView eOm;
-    private View eOn;
-    private SpannableStringBuilder eOo;
-    private c eOp;
-    private a eOq;
-    private boolean eOr = false;
+    private Context eYd;
+    private RoundLinearLayout eYe;
+    private LinearLayout eYf;
+    private LinearLayout eYg;
+    private EMTextView eYh;
+    private View eYi;
+    private TextView eYj;
+    private View eYk;
+    private SpannableStringBuilder eYl;
+    private c eYm;
+    private a eYn;
+    private boolean eYo = false;
     private List<? extends j> mItems;
     private String titleText;
 
@@ -48,52 +48,52 @@ public class k {
 
     public k(Context context) {
         if (context != null) {
-            this.eOg = context;
+            this.eYd = context;
             init();
         }
     }
 
     private void init() {
-        this.eOh = (RoundLinearLayout) LayoutInflater.from(this.eOg).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
-        com.baidu.tbadk.core.elementsMaven.c.bm(this.eOh).pA(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
-        this.eOi = (LinearLayout) this.eOh.findViewById(R.id.content_view);
-        this.eOk = (EMTextView) this.eOh.findViewById(R.id.title);
-        this.eOl = this.eOh.findViewById(R.id.title_divide_line);
-        this.eOl.setVisibility(8);
-        this.eOn = this.eOh.findViewById(R.id.dialog_header);
+        this.eYe = (RoundLinearLayout) LayoutInflater.from(this.eYd).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.eYe).pK(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
+        this.eYf = (LinearLayout) this.eYe.findViewById(R.id.content_view);
+        this.eYh = (EMTextView) this.eYe.findViewById(R.id.title);
+        this.eYi = this.eYe.findViewById(R.id.title_divide_line);
+        this.eYi.setVisibility(8);
+        this.eYk = this.eYe.findViewById(R.id.dialog_header);
         this.mItems = new ArrayList();
-        this.eOm = (TextView) this.eOh.findViewById(R.id.dialog_bottom_cancel_button);
+        this.eYj = (TextView) this.eYe.findViewById(R.id.dialog_bottom_cancel_button);
     }
 
-    private void brN() {
-        this.eOr = true;
-        this.eOh = (RoundLinearLayout) LayoutInflater.from(this.eOg).inflate(R.layout.popup_dialog_view_horizal, (ViewGroup) null);
-        com.baidu.tbadk.core.elementsMaven.c.bm(this.eOh).pA(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
-        this.eOi = (LinearLayout) this.eOh.findViewById(R.id.content_view);
-        this.eOj = (LinearLayout) this.eOh.findViewById(R.id.content_view_second);
-        this.eOk = (EMTextView) this.eOh.findViewById(R.id.title);
-        this.eOl = this.eOh.findViewById(R.id.title_divide_line);
-        this.eOl.setVisibility(8);
-        this.eOn = this.eOh.findViewById(R.id.dialog_header);
+    private void bup() {
+        this.eYo = true;
+        this.eYe = (RoundLinearLayout) LayoutInflater.from(this.eYd).inflate(R.layout.popup_dialog_view_horizal, (ViewGroup) null);
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.eYe).pK(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
+        this.eYf = (LinearLayout) this.eYe.findViewById(R.id.content_view);
+        this.eYg = (LinearLayout) this.eYe.findViewById(R.id.content_view_second);
+        this.eYh = (EMTextView) this.eYe.findViewById(R.id.title);
+        this.eYi = this.eYe.findViewById(R.id.title_divide_line);
+        this.eYi.setVisibility(8);
+        this.eYk = this.eYe.findViewById(R.id.dialog_header);
         this.mItems = new ArrayList();
-        this.eOm = (TextView) this.eOh.findViewById(R.id.dialog_bottom_cancel_button);
-        int equipmentWidth = (com.baidu.adp.lib.util.l.getEquipmentWidth(this.eOg) - (g.eNQ * 4)) / 2;
-        ((LinearLayout.LayoutParams) this.eOi.getLayoutParams()).leftMargin = equipmentWidth;
-        ((LinearLayout.LayoutParams) this.eOi.getLayoutParams()).rightMargin = equipmentWidth;
-        ((FrameLayout.LayoutParams) this.eOj.getLayoutParams()).leftMargin = equipmentWidth;
-        ((FrameLayout.LayoutParams) this.eOj.getLayoutParams()).rightMargin = equipmentWidth;
+        this.eYj = (TextView) this.eYe.findViewById(R.id.dialog_bottom_cancel_button);
+        int equipmentWidth = (com.baidu.adp.lib.util.l.getEquipmentWidth(this.eYd) - (g.eXN * 4)) / 2;
+        ((LinearLayout.LayoutParams) this.eYf.getLayoutParams()).leftMargin = equipmentWidth;
+        ((LinearLayout.LayoutParams) this.eYf.getLayoutParams()).rightMargin = equipmentWidth;
+        ((FrameLayout.LayoutParams) this.eYg.getLayoutParams()).leftMargin = equipmentWidth;
+        ((FrameLayout.LayoutParams) this.eYg.getLayoutParams()).rightMargin = equipmentWidth;
     }
 
     public Context getContext() {
-        return this.eOg;
+        return this.eYd;
     }
 
     public ViewGroup getView() {
-        return this.eOi;
+        return this.eYf;
     }
 
     public View getRootView() {
-        return this.eOh;
+        return this.eYe;
     }
 
     public void setTitleText(String str) {
@@ -101,28 +101,28 @@ public class k {
     }
 
     public void a(SpannableStringBuilder spannableStringBuilder) {
-        this.eOo = spannableStringBuilder;
+        this.eYl = spannableStringBuilder;
     }
 
     public void a(c cVar) {
-        this.eOp = cVar;
+        this.eYm = cVar;
     }
 
-    public c brO() {
-        return this.eOp;
+    public c buq() {
+        return this.eYm;
     }
 
-    public void bu(List<? extends j> list) {
+    public void bB(List<? extends j> list) {
         if (list != null) {
             this.mItems = list;
-            this.eOi.removeAllViews();
+            this.eYf.removeAllViews();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
                     j jVar = list.get(i2);
                     if (jVar != null) {
-                        this.eOi.addView(jVar.getView());
+                        this.eYf.addView(jVar.getView());
                     }
                     i = i2 + 1;
                 } else {
@@ -133,22 +133,22 @@ public class k {
     }
 
     public void k(List<? extends j> list, boolean z) {
-        if (z && com.baidu.tbadk.a.d.bkG()) {
-            bv(list);
+        if (z && com.baidu.tbadk.a.d.bmT()) {
+            bC(list);
         } else {
-            bu(list);
+            bB(list);
         }
     }
 
-    private void bv(List<? extends j> list) {
+    private void bC(List<? extends j> list) {
         boolean z;
         boolean z2;
         int i;
         if (list != null) {
-            brN();
+            bup();
             this.mItems = list;
-            this.eOi.removeAllViews();
-            this.eOj.removeAllViews();
+            this.eYf.removeAllViews();
+            this.eYg.removeAllViews();
             if (list.size() < 2) {
                 z2 = false;
                 z = false;
@@ -156,7 +156,7 @@ public class k {
                 z = ((g) list.get(0)).getId() == -1;
                 z2 = ((g) list.get(1)).getId() == -2;
             }
-            this.eOl.setVisibility(z ? 0 : 8);
+            this.eYi.setVisibility(z ? 0 : 8);
             if (z) {
                 i = z2 ? 4 : 3;
             } else {
@@ -166,12 +166,12 @@ public class k {
             for (int i2 = 0; i2 < list.size(); i2++) {
                 g gVar = (g) list.get(i2);
                 gVar.setCanScroll(z3);
-                gVar.brI();
+                gVar.buk();
                 if (gVar != null) {
                     if (i2 < i) {
-                        this.eOi.addView(gVar.getView());
+                        this.eYf.addView(gVar.getView());
                     } else {
-                        this.eOj.addView(gVar.getView());
+                        this.eYg.addView(gVar.getView());
                     }
                 }
             }
@@ -179,22 +179,22 @@ public class k {
     }
 
     public void a(a aVar) {
-        this.eOq = aVar;
+        this.eYn = aVar;
     }
 
     public void onChangeSkinType() {
-        if (this.eOr) {
-            ap.setBackgroundResource(this.eOk, R.color.CAM_X0209);
-            ap.setBackgroundResource(this.eOn, R.color.CAM_X0209);
-            ap.setBackgroundColor(this.eOl, R.color.CAM_X0203);
+        if (this.eYo) {
+            ao.setBackgroundResource(this.eYh, R.color.CAM_X0209);
+            ao.setBackgroundResource(this.eYk, R.color.CAM_X0209);
+            ao.setBackgroundColor(this.eYi, R.color.CAM_X0203);
         } else {
-            ap.setBackgroundResource(this.eOk, R.color.CAM_X0204);
-            ap.setViewTextColor(this.eOk, R.color.CAM_X0109);
-            ap.setBackgroundResource(this.eOn, R.color.CAM_X0204);
-            ap.setBackgroundColor(this.eOl, R.color.CAM_X0204);
+            ao.setBackgroundResource(this.eYh, R.color.CAM_X0204);
+            ao.setViewTextColor(this.eYh, R.color.CAM_X0109);
+            ao.setBackgroundResource(this.eYk, R.color.CAM_X0204);
+            ao.setBackgroundColor(this.eYi, R.color.CAM_X0204);
         }
-        ap.setBackgroundResource(this.eOm, R.color.CAM_X0204);
-        ap.k(this.eOm, R.color.CAM_X0107);
+        ao.setBackgroundResource(this.eYj, R.color.CAM_X0204);
+        ao.n(this.eYj, R.color.CAM_X0107);
         if (this.mItems != null) {
             for (j jVar : this.mItems) {
                 jVar.onChangeSkinType();
@@ -202,23 +202,23 @@ public class k {
         }
     }
 
-    public View brP() {
+    public View bur() {
         if (!StringUtils.isNull(this.titleText)) {
-            this.eOk.setText(this.titleText);
-        } else if (this.eOo != null) {
-            this.eOk.setText(this.eOo);
+            this.eYh.setText(this.titleText);
+        } else if (this.eYl != null) {
+            this.eYh.setText(this.eYl);
         } else {
-            this.eOk.setVisibility(8);
+            this.eYh.setVisibility(8);
         }
-        if (this.eOq != null) {
-            this.eOm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
+        if (this.eYn != null) {
+            this.eYj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    k.this.eOq.onClick();
+                    k.this.eYn.onClick();
                 }
             });
         }
         onChangeSkinType();
-        return this.eOh;
+        return this.eYe;
     }
 }

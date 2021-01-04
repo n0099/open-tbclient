@@ -13,13 +13,15 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class ResUtils {
     public static final String ANIM = "anim";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1527a = "id";
-    private static final String b = "string";
+    private static final String f2045a = "id";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f2046b = "string";
     private static final String c = "layout";
     private static final String d = "style";
     private static final String e = "drawable";
@@ -49,11 +51,11 @@ public final class ResUtils {
     }
 
     public static int string(Context context, String str) {
-        return a(context, b, str);
+        return a(context, f2046b, str);
     }
 
     public static String string(String str) {
-        return m.getString(a(m, b, str));
+        return m.getString(a(m, f2046b, str));
     }
 
     public static int layout(Context context, String str) {

@@ -2,18 +2,20 @@ package com.xiaomi.push;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class cu {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4614a;
+    private int f14220a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f180a;
+    private long f258a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f181a;
-    private long b;
+    private String f259a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private long f14221b;
     private long c;
 
     public cu() {
@@ -21,36 +23,36 @@ public class cu {
     }
 
     public cu(int i, long j, long j2, Exception exc) {
-        this.f4614a = i;
-        this.f180a = j;
+        this.f14220a = i;
+        this.f258a = j;
         this.c = j2;
-        this.b = System.currentTimeMillis();
+        this.f14221b = System.currentTimeMillis();
         if (exc != null) {
-            this.f181a = exc.getClass().getSimpleName();
+            this.f259a = exc.getClass().getSimpleName();
         }
     }
 
     public int a() {
-        return this.f4614a;
+        return this.f14220a;
     }
 
     public cu a(JSONObject jSONObject) {
-        this.f180a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
+        this.f258a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
         this.c = jSONObject.getLong("size");
-        this.b = jSONObject.getLong("ts");
-        this.f4614a = jSONObject.getInt("wt");
-        this.f181a = jSONObject.optString("expt");
+        this.f14221b = jSONObject.getLong("ts");
+        this.f14220a = jSONObject.getInt("wt");
+        this.f259a = jSONObject.optString("expt");
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m198a() {
+    public JSONObject m224a() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f180a);
+        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f258a);
         jSONObject.put("size", this.c);
-        jSONObject.put("ts", this.b);
-        jSONObject.put("wt", this.f4614a);
-        jSONObject.put("expt", this.f181a);
+        jSONObject.put("ts", this.f14221b);
+        jSONObject.put("wt", this.f14220a);
+        jSONObject.put("expt", this.f259a);
         return jSONObject;
     }
 }

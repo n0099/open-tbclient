@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes21.dex */
-public interface ar {
-    void bTa();
 
-    void cBM();
+import java.util.ArrayList;
+/* loaded from: classes.dex */
+public interface ar {
+    void a(int i, int i2, ba baVar, ArrayList<com.baidu.adp.widget.ListView.n> arrayList);
 }

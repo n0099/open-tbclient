@@ -2,10 +2,10 @@ package com.baidu.cyberplayer.sdk.a;
 
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.n;
-import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,10 +15,10 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class b {
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(String str, long j);
 
@@ -30,8 +30,8 @@ public class b {
     }
 
     private static long a(String str, OutputStream outputStream, a aVar) throws Exception {
+        InputStream inputStream;
         HttpURLConnection httpURLConnection;
-        InputStream inputStream = null;
         long currentTimeMillis = System.currentTimeMillis();
         if (Looper.myLooper() == Looper.getMainLooper()) {
             throw new RuntimeException("Unable to execute downloads on the UI thread.");
@@ -39,8 +39,8 @@ public class b {
         try {
             httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
             try {
-                httpURLConnection.setConnectTimeout(CoolPraiseGuideLottieView.ANIM_DURATION);
-                httpURLConnection.setReadTimeout(15000);
+                httpURLConnection.setConnectTimeout(8000);
+                httpURLConnection.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
                 httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.connect();
                 int responseCode = httpURLConnection.getResponseCode();
@@ -102,9 +102,11 @@ public class b {
                 throw new RuntimeException("url that you conneted has error ...");
             } catch (Throwable th2) {
                 th = th2;
+                inputStream = null;
             }
         } catch (Throwable th3) {
             th = th3;
+            inputStream = null;
             httpURLConnection = null;
         }
     }
@@ -131,11 +133,12 @@ public class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0042 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static byte[] a(HashMap<String, String> hashMap) {
+        Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;
         ByteArrayOutputStream byteArrayOutputStream2;
         byte[] bArr;
@@ -147,8 +150,8 @@ public class b {
             byteArrayOutputStream = new ByteArrayOutputStream();
         } catch (Exception e) {
             byteArrayOutputStream2 = null;
-        } catch (Throwable th) {
-            th = th;
+        } catch (Throwable th2) {
+            th = th2;
             byteArrayOutputStream = null;
         }
         try {
@@ -177,9 +180,9 @@ public class b {
                     bArr = null;
                 }
                 return bArr;
-            } catch (Throwable th2) {
+            } catch (Throwable th3) {
+                th = th3;
                 byteArrayOutputStream = byteArrayOutputStream2;
-                th = th2;
                 if (byteArrayOutputStream != null) {
                     try {
                         byteArrayOutputStream.close();
@@ -189,8 +192,8 @@ public class b {
                 }
                 throw th;
             }
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th4) {
+            th = th4;
             if (byteArrayOutputStream != null) {
             }
             throw th;

@@ -9,45 +9,45 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class i {
-    private static i kJk = null;
-    private final HttpMessageListener eTv = new HttpMessageListener(1002500) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
+    private static i kOt = null;
+    private final HttpMessageListener fcS = new HttpMessageListener(1002500) { // from class: com.baidu.tieba.imMessageCenter.mention.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             h msgData;
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage) && (msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData()) != null) {
-                if (msgData.dbD() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.byI().setMsgAtme(msgData.dbD());
+                if (msgData.dbg() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bBc().setMsgAtme(msgData.dbg());
                 }
-                if (msgData.dbC() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.byI().setMsgReplyme(msgData.dbC());
+                if (msgData.dbf() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bBc().setMsgReplyme(msgData.dbf());
                 }
-                if (msgData.dbE() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.byI().setMsgFans(msgData.dbE());
+                if (msgData.dbh() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bBc().setMsgFans(msgData.dbh());
                 }
-                if (msgData.dbB() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.byI().rH(msgData.dbB());
+                if (msgData.dbe() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bBc().rT(msgData.dbe());
                 }
-                if (msgData.dbF() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.byI().setMsgBookmark(msgData.dbF());
+                if (msgData.dbi() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bBc().setMsgBookmark(msgData.dbi());
                 }
             }
         }
     };
-    private long kJl = 0;
+    private long kOu = 0;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.imMessageCenter.mention.i.2
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
                 int i = message.arg1;
-                i.this.kJl = System.currentTimeMillis();
+                i.this.kOu = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().isValid();
                 if (i == 2 || (z && com.baidu.adp.lib.util.j.isNetWorkAvailable())) {
-                    i.this.dbH();
+                    i.this.dbk();
                 }
-                i.this.A(1, 600000L);
+                i.this.z(1, 600000L);
             }
         }
     };
@@ -59,28 +59,28 @@ public class i {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized i dbG() {
+    public static synchronized i dbj() {
         i iVar;
         synchronized (i.class) {
-            if (kJk == null) {
-                kJk = new i();
+            if (kOt == null) {
+                kOt = new i();
             }
-            iVar = kJk;
+            iVar = kOt;
         }
         return iVar;
     }
 
     public i() {
-        MessageManager.getInstance().registerListener(this.eTv);
+        MessageManager.getInstance().registerListener(this.fcS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dbH() {
+    public void dbk() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1002500));
     }
 
     public void restart() {
-        this.kJl = 0L;
+        this.kOu = 0L;
         destroy();
         start();
     }
@@ -88,7 +88,7 @@ public class i {
     public void start() {
         int i;
         long j;
-        long currentTimeMillis = System.currentTimeMillis() - this.kJl;
+        long currentTimeMillis = System.currentTimeMillis() - this.kOu;
         long j2 = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j2 >= 600000) {
             i = 2;
@@ -97,8 +97,8 @@ public class i {
             i = 1;
             j = 600000 - j2;
         }
-        A(i, j);
-        this.kJl = System.currentTimeMillis();
+        z(i, j);
+        this.kOu = System.currentTimeMillis();
     }
 
     public void destroy() {
@@ -106,7 +106,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void A(int i, long j) {
+    public void z(int i, long j) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.arg1 = i;
         this.mHandler.sendMessageDelayed(obtainMessage, j);

@@ -2,23 +2,23 @@ package com.baidu.tieba.personPolymeric.c;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseCardInfo {
-    public static final BdUniqueId mrL = BdUniqueId.gen();
+    public static final BdUniqueId mwZ = BdUniqueId.gen();
     public String avatar;
     public long forumId;
-    public String inT;
-    public String inU;
-    public boolean ioa;
+    public String iAn;
+    public String iAo;
+    public boolean iAu;
     public boolean isAttention;
     public boolean isHost;
-    public String jLy;
-    public int mrM;
+    public String jYM;
+    public int mxa;
     public int postNum;
     public int sex;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mrL;
+        return mwZ;
     }
 }

@@ -1,17 +1,18 @@
 package com.baidu.swan.pms.f;
 
+import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import com.baidu.swan.pms.d;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
-        d.bdz().a(nr(i), str, str2, i2, jSONObject);
+        d.bfV().a(nA(i), str, str2, i2, jSONObject);
     }
 
-    private static String nr(int i) {
+    private static String nA(int i) {
         switch (i) {
             case 0:
-                return "swan";
+                return GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
             case 1:
                 return "swangame";
             case 2:

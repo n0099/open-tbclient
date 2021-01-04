@@ -3,6 +3,7 @@ package com.sdk.base.framework.a;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.http.Headers;
+import com.baidu.ar.constants.HttpConstants;
 import com.sdk.base.module.manager.SDKManager;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -13,12 +14,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class h<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4245a = h.class.getSimpleName();
-    private static boolean b = com.sdk.base.framework.c.f.b;
+    private static final String f13098a = h.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static boolean f13099b = com.sdk.base.framework.c.f.f13118b;
     private static String c = UUID.randomUUID().toString();
     private Context d;
     private j<T> e;
@@ -70,7 +73,7 @@ public class h<T> {
                 }
             } catch (Exception e) {
                 com.sdk.base.framework.f.g.a.b(e.toString());
-                com.sdk.base.framework.a.a.c.b(f4245a, e.toString(), Boolean.valueOf(b));
+                com.sdk.base.framework.a.a.c.b(f13098a, e.toString(), Boolean.valueOf(f13099b));
             }
         }
         return byteArrayOutputStream;
@@ -87,7 +90,7 @@ public class h<T> {
             if (this.e != null) {
                 String a2 = this.e.a();
                 String e = this.e.e();
-                str = i.f4246a.k;
+                str = i.f13100a.k;
                 if (a2.equals(str)) {
                     String b2 = j.b(this.e.f());
                     return com.sdk.base.framework.a.a.c.b(b2).booleanValue() ? e + "?" + b2 : e;
@@ -96,24 +99,23 @@ public class h<T> {
                 return com.sdk.base.framework.a.a.c.b((String) null).booleanValue() ? e + "?unikey=" + ((String) null) : e;
             }
         } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(f4245a, e2.getMessage(), Boolean.valueOf(b));
+            com.sdk.base.framework.a.a.c.b(f13098a, e2.getMessage(), Boolean.valueOf(f13099b));
         }
         return null;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v6 int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x010e: INVOKE  (r0v17 java.lang.Object A[REMOVE]) = (r0v16 java.util.Map$Entry<java.lang.String, java.lang.Object>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r1v10 int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x010d: INVOKE  (r0v21 java.lang.Object A[REMOVE]) = (r0v20 java.util.Map$Entry<java.lang.String, java.lang.Object>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
     @SuppressLint({"DefaultLocale"})
     public final HttpURLConnection a(String str) {
         HttpURLConnection httpURLConnection;
-        int i;
         com.sdk.base.framework.f.h.c.c.a();
         try {
             if (com.sdk.base.framework.a.a.c.b(str).booleanValue()) {
                 URL url = new URL(str);
                 int a2 = com.sdk.base.framework.f.h.b.a(this.d, (ArrayList<String>) null).a();
                 System.currentTimeMillis();
-                if (!b(str) || a2 == com.sdk.base.framework.f.h.c.b.a()) {
+                if (!b(str) || a2 == com.sdk.base.framework.f.h.c.f13146b.a()) {
                     httpURLConnection = null;
                 } else {
                     int b2 = com.sdk.base.framework.f.a.a.b();
@@ -128,7 +130,7 @@ public class h<T> {
                         } else {
                             a2 = com.sdk.base.framework.f.h.b.a(this.d, (ArrayList<String>) null).a();
                         }
-                        httpURLConnection = (b2 <= 21 || a2 == com.sdk.base.framework.f.h.c.b.a()) ? null : new a(this.d, url).a();
+                        httpURLConnection = (b2 <= 21 || a2 == com.sdk.base.framework.f.h.c.f13146b.a()) ? null : new a(this.d, url).a();
                     } else {
                         httpURLConnection = new a(this.d, url).a();
                     }
@@ -138,9 +140,8 @@ public class h<T> {
                 }
                 if (httpURLConnection == null) {
                     httpURLConnection = (HttpURLConnection) url.openConnection();
-                    i = a2;
-                } else {
-                    i = a2 == com.sdk.base.framework.f.h.c.f4271a.a() ? 2 : a2;
+                } else if (a2 == com.sdk.base.framework.f.h.c.f13145a.a()) {
+                    a2 = 2;
                 }
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setConnectTimeout(30000);
@@ -150,11 +151,11 @@ public class h<T> {
                     httpURLConnection.setInstanceFollowRedirects(false);
                 }
                 httpURLConnection.setRequestProperty("user-agent", com.sdk.base.framework.f.e.a.a(this.d));
-                httpURLConnection.setRequestProperty("netType", new StringBuilder().append(i).toString());
-                httpURLConnection.setRequestProperty("os", "android");
-                HashMap<String, Object> i2 = this.e.i();
-                if (i2 != null && i2.size() > 0) {
-                    for (Map.Entry<String, Object> entry : i2.entrySet()) {
+                httpURLConnection.setRequestProperty("netType", new StringBuilder().append(a2).toString());
+                httpURLConnection.setRequestProperty("os", HttpConstants.OS_TYPE_VALUE);
+                HashMap<String, Object> i = this.e.i();
+                if (i != null && i.size() > 0) {
+                    for (Map.Entry<String, Object> entry : i.entrySet()) {
                         httpURLConnection.setRequestProperty(entry.getKey(), new StringBuilder().append(entry.getValue()).toString());
                     }
                 }
@@ -163,7 +164,7 @@ public class h<T> {
             return null;
         } catch (Exception e2) {
             com.sdk.base.framework.f.g.a.b(e2.toString());
-            com.sdk.base.framework.a.a.c.b(f4245a, e2.toString(), Boolean.valueOf(b));
+            com.sdk.base.framework.a.a.c.b(f13098a, e2.toString(), Boolean.valueOf(f13099b));
             throw e2;
         }
     }
@@ -179,7 +180,7 @@ public class h<T> {
             httpURLConnection.setRequestProperty("Charset", "UTF-8");
             httpURLConnection.setRequestProperty(Headers.CONN_DIRECTIVE, "keep-alive");
             if (this.e != null) {
-                str = i.b.k;
+                str = i.f13101b.k;
                 if (str.equals(this.e.a())) {
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.connect();
@@ -198,6 +199,6 @@ public class h<T> {
     }
 
     public final void c() {
-        this.e.a(i.f4246a.toString());
+        this.e.a(i.f13100a.toString());
     }
 }

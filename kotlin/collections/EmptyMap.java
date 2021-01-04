@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class EmptyMap implements Serializable, Map {
     public static final EmptyMap INSTANCE = new EmptyMap();
     private static final long serialVersionUID = 8246714829545688274L;

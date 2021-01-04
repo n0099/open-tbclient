@@ -2,9 +2,9 @@ package com.baidu.live.sdk.goods.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.atomdata.BDxdConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends HttpMessage {
-    public String aWR;
+    public String aYx;
     public String gid;
     public long liveId;
 
@@ -13,8 +13,8 @@ public class b extends HttpMessage {
         this.liveId = 0L;
     }
 
-    public void d(long j, String str, String str2) {
-        this.aWR = str;
+    public void e(long j, String str, String str2) {
+        this.aYx = str;
         this.liveId = j;
         this.gid = str2;
         addParam("feed_id", str);

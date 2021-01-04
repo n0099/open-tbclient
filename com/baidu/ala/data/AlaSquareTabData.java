@@ -1,7 +1,7 @@
 package com.baidu.ala.data;
 
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class AlaSquareTabData {
     public int hasSearch;
     public int showNum;

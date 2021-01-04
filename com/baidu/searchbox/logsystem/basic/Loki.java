@@ -1,9 +1,9 @@
 package com.baidu.searchbox.logsystem.basic;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.crashpad.ZwCrashpad;
 import com.baidu.disasterrecovery.jnicrash.NativeCrashCapture;
 import com.baidu.disasterrecovery.jnicrash.b;
@@ -16,7 +16,7 @@ import com.baidu.searchbox.logsystem.basic.track.LokiTrackUISaver;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.searchbox.logsystem.util.Common;
 import com.baidu.searchbox.track.Track;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class Loki {
     private static final String CRASH_PAD_PROCESS_NAME = ":crashpad";
     private static volatile boolean sIsInitialized = false;
@@ -94,7 +94,7 @@ public class Loki {
     }
 
     public static void retryUpload(Context context) {
-        if (a.afG() && LogSystemUploaderStrategy.checkFlag()) {
+        if (a.ahC() && LogSystemUploaderStrategy.checkFlag()) {
             LogSystemServiceUtil.startLogHandlerService(context);
         }
     }

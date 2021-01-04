@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.UUID;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public abstract class JSONLexerBase implements JSONLexer, Closeable {
     protected static final int INT_MULTMIN_RADIX_TEN = -214748364;
     protected static final long MULTMIN_RADIX_TEN = -922337203685477580L;
@@ -434,50 +434,47 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
 
     @Override // com.alibaba.fastjson.parser.JSONLexer
     public final Number integerValue() throws NumberFormatException {
-        boolean z;
         long j;
+        boolean z;
         int i;
-        int i2;
         long j2 = 0;
         if (this.np == -1) {
             this.np = 0;
         }
-        int i3 = this.np;
-        int i4 = this.sp + this.np;
+        int i2 = this.np;
+        int i3 = this.sp + this.np;
         char c = ' ';
-        switch (charAt(i4 - 1)) {
+        switch (charAt(i3 - 1)) {
             case 'B':
-                i4--;
+                i3--;
                 c = 'B';
                 break;
             case 'L':
-                i4--;
+                i3--;
                 c = 'L';
                 break;
             case 'S':
-                i4--;
+                i3--;
                 c = 'S';
                 break;
         }
-        if (charAt(this.np) != '-') {
-            z = false;
-            j = -9223372036854775807L;
-            i = i3;
-        } else {
-            int i5 = i3 + 1;
-            z = true;
+        if (charAt(this.np) == '-') {
             j = Long.MIN_VALUE;
-            i = i5;
-        }
-        if (i < i4) {
-            i2 = i + 1;
-            j2 = -(charAt(i) - '0');
+            i2++;
+            z = true;
         } else {
-            i2 = i;
+            j = -9223372036854775807L;
+            z = false;
         }
-        while (i2 < i4) {
-            int i6 = i2 + 1;
-            int charAt = charAt(i2) - '0';
+        if (i2 < i3) {
+            i = i2 + 1;
+            j2 = -(charAt(i2) - '0');
+        } else {
+            i = i2;
+        }
+        while (i < i3) {
+            int i4 = i + 1;
+            int charAt = charAt(i) - '0';
             if (j2 < MULTMIN_RADIX_TEN) {
                 return new BigInteger(numberString());
             }
@@ -486,10 +483,10 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 return new BigInteger(numberString());
             }
             j2 = j3 - charAt;
-            i2 = i6;
+            i = i4;
         }
         if (z) {
-            if (i2 > this.np + 1) {
+            if (i > this.np + 1) {
                 if (j2 >= -2147483648L && c != 'L') {
                     if (c == 'S') {
                         return Short.valueOf((short) j2);
@@ -949,13 +946,13 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         this.locale = locale;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0048, code lost:
         if (r1 <= (r10.np + 1)) goto L35;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x004a, code lost:
         return r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0081, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x007e, code lost:
         throw new java.lang.NumberFormatException(numberString());
      */
     @Override // com.alibaba.fastjson.parser.JSONLexer
@@ -967,50 +964,48 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         boolean z;
         int i2;
         int i3;
-        int i4;
-        int i5 = 0;
+        int i4 = 0;
         if (this.np == -1) {
             this.np = 0;
         }
-        int i6 = this.np;
-        int i7 = this.np + this.sp;
+        int i5 = this.np;
+        int i6 = this.np + this.sp;
         if (charAt(this.np) == '-') {
             z = true;
+            i5++;
             i = Integer.MIN_VALUE;
-            i2 = i6 + 1;
         } else {
             i = -2147483647;
             z = false;
-            i2 = i6;
         }
-        if (i2 < i7) {
-            i3 = i2 + 1;
-            i5 = -(charAt(i2) - '0');
+        if (i5 < i6) {
+            i2 = i5 + 1;
+            i4 = -(charAt(i5) - '0');
         } else {
-            i3 = i2;
+            i2 = i5;
         }
         while (true) {
-            if (i3 >= i7) {
-                i4 = i3;
+            if (i2 >= i6) {
+                i3 = i2;
                 break;
             }
-            i4 = i3 + 1;
-            char charAt = charAt(i3);
+            i3 = i2 + 1;
+            char charAt = charAt(i2);
             if (charAt == 'L' || charAt == 'S' || charAt == 'B') {
                 break;
             }
-            int i8 = charAt - '0';
-            if (i5 < -214748364) {
+            int i7 = charAt - '0';
+            if (i4 < -214748364) {
                 throw new NumberFormatException(numberString());
             }
-            int i9 = i5 * 10;
-            if (i9 < i + i8) {
+            int i8 = i4 * 10;
+            if (i8 < i + i7) {
                 throw new NumberFormatException(numberString());
             }
-            i5 = i9 - i8;
-            i3 = i4;
+            i4 = i8 - i7;
+            i2 = i3;
         }
-        return -i5;
+        return -i4;
     }
 
     @Override // com.alibaba.fastjson.parser.JSONLexer, java.io.Closeable, java.lang.AutoCloseable
@@ -1104,15 +1099,13 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     }
 
     public String scanFieldString(char[] cArr) {
-        int i;
-        String str;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
             return stringDefaultValue();
         }
         int length = cArr.length;
-        int i2 = length + 1;
+        int i = length + 1;
         if (charAt(length + this.bp) != '\"') {
             this.matchStat = -1;
             return stringDefaultValue();
@@ -1125,56 +1118,51 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         String subString = subString(length2, indexOf - length2);
         if (subString.indexOf(92) != -1) {
             while (true) {
-                int i3 = 0;
-                for (int i4 = indexOf - 1; i4 >= 0 && charAt(i4) == '\\'; i4--) {
-                    i3++;
+                int i2 = 0;
+                for (int i3 = indexOf - 1; i3 >= 0 && charAt(i3) == '\\'; i3--) {
+                    i2++;
                 }
-                if (i3 % 2 == 0) {
+                if (i2 % 2 == 0) {
                     break;
                 }
                 indexOf = indexOf('\"', indexOf + 1);
             }
             int length3 = indexOf - ((this.bp + cArr.length) + 1);
-            String readString = readString(sub_chars(this.bp + cArr.length + 1, length3), length3);
-            i = indexOf;
-            str = readString;
-        } else {
-            i = indexOf;
-            str = subString;
+            subString = readString(sub_chars(this.bp + cArr.length + 1, length3), length3);
         }
-        int length4 = (i - ((this.bp + cArr.length) + 1)) + 1 + i2;
-        int i5 = length4 + 1;
+        int length4 = (indexOf - ((this.bp + cArr.length) + 1)) + 1 + i;
+        int i4 = length4 + 1;
         char charAt = charAt(length4 + this.bp);
         if (charAt == ',') {
-            this.bp += i5;
+            this.bp += i4;
             this.ch = charAt(this.bp);
             this.matchStat = 3;
-            return str;
+            return subString;
         } else if (charAt == '}') {
-            int i6 = i5 + 1;
-            char charAt2 = charAt(this.bp + i5);
+            int i5 = i4 + 1;
+            char charAt2 = charAt(this.bp + i4);
             if (charAt2 == ',') {
                 this.token = 16;
-                this.bp += i6;
+                this.bp += i5;
                 this.ch = charAt(this.bp);
             } else if (charAt2 == ']') {
                 this.token = 15;
-                this.bp += i6;
+                this.bp += i5;
                 this.ch = charAt(this.bp);
             } else if (charAt2 == '}') {
                 this.token = 13;
-                this.bp += i6;
+                this.bp += i5;
                 this.ch = charAt(this.bp);
             } else if (charAt2 == 26) {
                 this.token = 20;
-                this.bp += i6 - 1;
+                this.bp += i5 - 1;
                 this.ch = JSONLexer.EOI;
             } else {
                 this.matchStat = -1;
                 return stringDefaultValue();
             }
             this.matchStat = 4;
-            return str;
+            return subString;
         } else {
             this.matchStat = -1;
             return stringDefaultValue();
@@ -1183,8 +1171,6 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
 
     @Override // com.alibaba.fastjson.parser.JSONLexer
     public String scanString(char c) {
-        int i;
-        String str;
         this.matchStat = 0;
         char charAt = charAt(this.bp + 0);
         if (charAt == 'n') {
@@ -1201,58 +1187,52 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 return null;
             }
         }
-        char c2 = charAt;
-        int i2 = 1;
-        while (c2 != '\"') {
-            if (isWhitespace(c2)) {
-                c2 = charAt(this.bp + i2);
-                i2++;
+        int i = 1;
+        while (charAt != '\"') {
+            if (isWhitespace(charAt)) {
+                charAt = charAt(this.bp + i);
+                i++;
             } else {
                 this.matchStat = -1;
                 return stringDefaultValue();
             }
         }
-        int i3 = this.bp + i2;
-        int indexOf = indexOf('\"', i3);
+        int i2 = this.bp + i;
+        int indexOf = indexOf('\"', i2);
         if (indexOf == -1) {
             throw new JSONException("unclosed str");
         }
-        String subString = subString(this.bp + i2, indexOf - i3);
+        String subString = subString(this.bp + i, indexOf - i2);
         if (subString.indexOf(92) != -1) {
             while (true) {
-                int i4 = 0;
-                for (int i5 = indexOf - 1; i5 >= 0 && charAt(i5) == '\\'; i5--) {
-                    i4++;
+                int i3 = 0;
+                for (int i4 = indexOf - 1; i4 >= 0 && charAt(i4) == '\\'; i4--) {
+                    i3++;
                 }
-                if (i4 % 2 == 0) {
+                if (i3 % 2 == 0) {
                     break;
                 }
                 indexOf = indexOf('\"', indexOf + 1);
             }
-            int i6 = indexOf - i3;
-            String readString = readString(sub_chars(this.bp + 1, i6), i6);
-            i = indexOf;
-            str = readString;
-        } else {
-            i = indexOf;
-            str = subString;
+            int i5 = indexOf - i2;
+            subString = readString(sub_chars(this.bp + 1, i5), i5);
         }
-        int i7 = (i - i3) + 1 + i2;
-        int i8 = i7 + 1;
-        char charAt2 = charAt(i7 + this.bp);
+        int i6 = (indexOf - i2) + 1 + i;
+        int i7 = i6 + 1;
+        char charAt2 = charAt(i6 + this.bp);
         while (charAt2 != c) {
             if (isWhitespace(charAt2)) {
-                charAt2 = charAt(this.bp + i8);
-                i8++;
+                charAt2 = charAt(this.bp + i7);
+                i7++;
             } else {
                 this.matchStat = -1;
-                return str;
+                return subString;
             }
         }
-        this.bp += i8;
+        this.bp += i7;
         this.ch = charAt(this.bp);
         this.matchStat = 3;
-        return str;
+        return subString;
     }
 
     public long scanFieldSymbol(char[] cArr) {
@@ -1396,82 +1376,82 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00eb, code lost:
-        if (r3.size() != 0) goto L76;
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e7, code lost:
+        if (r3.size() != 0) goto L75;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00ed, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e9, code lost:
         r1 = r5 + 1;
-        r0 = charAt(r13.bp + r5);
+        r0 = charAt(r12.bp + r5);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00f6, code lost:
-        if (r0 != ',') goto L36;
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00f2, code lost:
+        if (r0 != ',') goto L37;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x00f8, code lost:
-        r13.bp += r1;
-        r13.ch = charAt(r13.bp);
-        r13.matchStat = 3;
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x00f4, code lost:
+        r12.bp += r1;
+        r12.ch = charAt(r12.bp);
+        r12.matchStat = 3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x0113, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x010f, code lost:
         throw new com.alibaba.fastjson.JSONException("illega str");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0127, code lost:
-        if (r0 != '}') goto L53;
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0123, code lost:
+        if (r0 != '}') goto L54;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0129, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0125, code lost:
         r4 = r1 + 1;
-        r0 = charAt(r13.bp + r1);
+        r0 = charAt(r12.bp + r1);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x0132, code lost:
-        if (r0 != ',') goto L43;
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x012e, code lost:
+        if (r0 != ',') goto L44;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0134, code lost:
-        r13.token = 16;
-        r13.bp += r4;
-        r13.ch = charAt(r13.bp);
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0130, code lost:
+        r12.token = 16;
+        r12.bp += r4;
+        r12.ch = charAt(r12.bp);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0145, code lost:
-        r13.matchStat = 4;
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0141, code lost:
+        r12.matchStat = 4;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x014b, code lost:
-        if (r0 != ']') goto L45;
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x0147, code lost:
+        if (r0 != ']') goto L46;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x014d, code lost:
-        r13.token = 15;
-        r13.bp += r4;
-        r13.ch = charAt(r13.bp);
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0149, code lost:
+        r12.token = 15;
+        r12.bp += r4;
+        r12.ch = charAt(r12.bp);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x0161, code lost:
-        if (r0 != '}') goto L48;
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x015d, code lost:
+        if (r0 != '}') goto L49;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x0163, code lost:
-        r13.token = 13;
-        r13.bp += r4;
-        r13.ch = charAt(r13.bp);
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x015f, code lost:
+        r12.token = 13;
+        r12.bp += r4;
+        r12.ch = charAt(r12.bp);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x0177, code lost:
-        if (r0 != 26) goto L51;
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x0173, code lost:
+        if (r0 != 26) goto L52;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x0179, code lost:
-        r13.bp += r4 - 1;
-        r13.token = 20;
-        r13.ch = com.alibaba.fastjson.parser.JSONLexer.EOI;
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x0175, code lost:
+        r12.bp += r4 - 1;
+        r12.token = 20;
+        r12.ch = com.alibaba.fastjson.parser.JSONLexer.EOI;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0189, code lost:
-        r13.matchStat = -1;
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0185, code lost:
+        r12.matchStat = -1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x018e, code lost:
-        r13.matchStat = -1;
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x018a, code lost:
+        r12.matchStat = -1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:76:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:75:?, code lost:
+        return r3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:77:?, code lost:
         return r3;
      */
     /* JADX WARN: Code restructure failed: missing block: B:78:?, code lost:
-        return r3;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:79:?, code lost:
         return null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:80:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:79:?, code lost:
         return null;
      */
     /*
@@ -1480,8 +1460,6 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     public Collection<String> scanFieldStringArray(char[] cArr, Class<?> cls) {
         char charAt;
         int i;
-        int i2;
-        String str;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
@@ -1489,60 +1467,54 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         }
         Collection<String> newCollectionByType = newCollectionByType(cls);
         int length = cArr.length;
-        int i3 = length + 1;
+        int i2 = length + 1;
         if (charAt(length + this.bp) != '[') {
             this.matchStat = -1;
             return null;
         }
-        char charAt2 = charAt(this.bp + i3);
-        int i4 = i3 + 1;
+        char charAt2 = charAt(this.bp + i2);
+        int i3 = i2 + 1;
         while (true) {
             if (charAt2 == '\"') {
-                int indexOf = indexOf('\"', this.bp + i4);
+                int indexOf = indexOf('\"', this.bp + i3);
                 if (indexOf == -1) {
                     throw new JSONException("unclosed str");
                 }
-                int i5 = this.bp + i4;
-                String subString = subString(i5, indexOf - i5);
+                int i4 = this.bp + i3;
+                String subString = subString(i4, indexOf - i4);
                 if (subString.indexOf(92) != -1) {
                     while (true) {
-                        int i6 = 0;
-                        for (int i7 = indexOf - 1; i7 >= 0 && charAt(i7) == '\\'; i7--) {
-                            i6++;
+                        int i5 = 0;
+                        for (int i6 = indexOf - 1; i6 >= 0 && charAt(i6) == '\\'; i6--) {
+                            i5++;
                         }
-                        if (i6 % 2 == 0) {
+                        if (i5 % 2 == 0) {
                             break;
                         }
                         indexOf = indexOf('\"', indexOf + 1);
                     }
-                    int i8 = indexOf - (this.bp + i4);
-                    String readString = readString(sub_chars(this.bp + i4, i8), i8);
-                    i2 = indexOf;
-                    str = readString;
-                } else {
-                    i2 = indexOf;
-                    str = subString;
+                    int i7 = indexOf - (this.bp + i3);
+                    subString = readString(sub_chars(this.bp + i3, i7), i7);
                 }
-                int i9 = (i2 - (this.bp + i4)) + 1 + i4;
-                i = i9 + 1;
-                char charAt3 = charAt(i9 + this.bp);
-                newCollectionByType.add(str);
-                charAt = charAt3;
-            } else if (charAt2 != 'n' || charAt(this.bp + i4) != 'u' || charAt(this.bp + i4 + 1) != 'l' || charAt(this.bp + i4 + 2) != 'l') {
+                int i8 = (indexOf - (this.bp + i3)) + 1 + i3;
+                i = i8 + 1;
+                charAt = charAt(i8 + this.bp);
+                newCollectionByType.add(subString);
+            } else if (charAt2 != 'n' || charAt(this.bp + i3) != 'u' || charAt(this.bp + i3 + 1) != 'l' || charAt(this.bp + i3 + 2) != 'l') {
                 break;
             } else {
-                int i10 = i4 + 3;
-                int i11 = i10 + 1;
-                charAt = charAt(i10 + this.bp);
+                int i9 = i3 + 3;
+                int i10 = i9 + 1;
+                charAt = charAt(i9 + this.bp);
                 newCollectionByType.add(null);
-                i = i11;
+                i = i10;
             }
             if (charAt == ',') {
                 charAt2 = charAt(this.bp + i);
-                i4 = i + 1;
+                i3 = i + 1;
             } else if (charAt == ']') {
-                int i12 = i + 1;
-                char charAt4 = charAt(this.bp + i);
+                int i11 = i + 1;
+                char charAt3 = charAt(this.bp + i);
             } else {
                 this.matchStat = -1;
                 return null;
@@ -1553,82 +1525,74 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     @Override // com.alibaba.fastjson.parser.JSONLexer
     public void scanStringArray(Collection<String> collection, char c) {
         int i;
-        String str;
-        int i2;
-        char c2;
-        int i3;
         char charAt;
+        int i2;
+        char charAt2;
         this.matchStat = 0;
-        char charAt2 = charAt(this.bp + 0);
-        if (charAt2 == 'n' && charAt(this.bp + 1) == 'u' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 'l' && charAt(this.bp + 1 + 3) == c) {
+        char charAt3 = charAt(this.bp + 0);
+        if (charAt3 == 'n' && charAt(this.bp + 1) == 'u' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 'l' && charAt(this.bp + 1 + 3) == c) {
             this.bp += 5;
             this.ch = charAt(this.bp);
             this.matchStat = 5;
-        } else if (charAt2 != '[') {
+        } else if (charAt3 != '[') {
             this.matchStat = -1;
         } else {
-            int i4 = 2;
-            char charAt3 = charAt(this.bp + 1);
+            int i3 = 2;
+            char charAt4 = charAt(this.bp + 1);
             while (true) {
-                int i5 = i4;
-                if (charAt3 == 'n' && charAt(this.bp + i5) == 'u' && charAt(this.bp + i5 + 1) == 'l' && charAt(this.bp + i5 + 2) == 'l') {
-                    int i6 = i5 + 3;
-                    int i7 = i6 + 1;
-                    c2 = charAt(i6 + this.bp);
+                int i4 = i3;
+                if (charAt4 == 'n' && charAt(this.bp + i4) == 'u' && charAt(this.bp + i4 + 1) == 'l' && charAt(this.bp + i4 + 2) == 'l') {
+                    int i5 = i4 + 3;
+                    int i6 = i5 + 1;
+                    charAt = charAt(i5 + this.bp);
                     collection.add(null);
-                    i2 = i7;
-                } else if (charAt3 == ']' && collection.size() == 0) {
-                    i3 = i5 + 1;
-                    charAt = charAt(this.bp + i5);
+                    i = i6;
+                } else if (charAt4 == ']' && collection.size() == 0) {
+                    i2 = i4 + 1;
+                    charAt2 = charAt(this.bp + i4);
                     break;
-                } else if (charAt3 != '\"') {
+                } else if (charAt4 != '\"') {
                     this.matchStat = -1;
                     return;
                 } else {
-                    int i8 = this.bp + i5;
-                    int indexOf = indexOf('\"', i8);
+                    int i7 = this.bp + i4;
+                    int indexOf = indexOf('\"', i7);
                     if (indexOf == -1) {
                         throw new JSONException("unclosed str");
                     }
-                    String subString = subString(this.bp + i5, indexOf - i8);
+                    String subString = subString(this.bp + i4, indexOf - i7);
                     if (subString.indexOf(92) != -1) {
                         while (true) {
-                            int i9 = 0;
-                            for (int i10 = indexOf - 1; i10 >= 0 && charAt(i10) == '\\'; i10--) {
-                                i9++;
+                            int i8 = 0;
+                            for (int i9 = indexOf - 1; i9 >= 0 && charAt(i9) == '\\'; i9--) {
+                                i8++;
                             }
-                            if (i9 % 2 == 0) {
+                            if (i8 % 2 == 0) {
                                 break;
                             }
                             indexOf = indexOf('\"', indexOf + 1);
                         }
-                        int i11 = indexOf - i8;
-                        String readString = readString(sub_chars(this.bp + i5, i11), i11);
-                        i = indexOf;
-                        str = readString;
-                    } else {
-                        i = indexOf;
-                        str = subString;
+                        int i10 = indexOf - i7;
+                        subString = readString(sub_chars(this.bp + i4, i10), i10);
                     }
-                    int i12 = (i - (this.bp + i5)) + 1 + i5;
-                    i2 = i12 + 1;
-                    char charAt4 = charAt(i12 + this.bp);
-                    collection.add(str);
-                    c2 = charAt4;
+                    int i11 = (indexOf - (this.bp + i4)) + 1 + i4;
+                    i = i11 + 1;
+                    charAt = charAt(i11 + this.bp);
+                    collection.add(subString);
                 }
-                if (c2 == ',') {
-                    i4 = i2 + 1;
-                    charAt3 = charAt(this.bp + i2);
-                } else if (c2 == ']') {
-                    i3 = i2 + 1;
-                    charAt = charAt(this.bp + i2);
+                if (charAt == ',') {
+                    i3 = i + 1;
+                    charAt4 = charAt(this.bp + i);
+                } else if (charAt == ']') {
+                    i2 = i + 1;
+                    charAt2 = charAt(this.bp + i);
                 } else {
                     this.matchStat = -1;
                     return;
                 }
             }
-            if (charAt == c) {
-                this.bp += i3;
+            if (charAt2 == c) {
+                this.bp += i2;
                 this.ch = charAt(this.bp);
                 this.matchStat = 3;
                 return;
@@ -1713,8 +1677,8 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         return 0;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x00c7, code lost:
-        r13.matchStat = -1;
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x00c0, code lost:
+        r14.matchStat = -1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:75:?, code lost:
         return null;
@@ -1724,118 +1688,117 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     */
     public final int[] scanFieldIntArray(char[] cArr) {
         boolean z;
+        char c;
         int i;
+        int i2;
         char charAt;
         int[] iArr;
-        char charAt2;
-        int i2;
         int i3;
+        char charAt2;
+        int i4;
         int[] iArr2;
-        int[] iArr3;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
             return null;
         }
         int length = cArr.length;
-        int i4 = length + 1;
+        int i5 = length + 1;
         if (charAt(length + this.bp) != '[') {
             this.matchStat = -2;
             return null;
         }
-        int i5 = i4 + 1;
-        char charAt3 = charAt(this.bp + i4);
-        int[] iArr4 = new int[16];
+        int i6 = i5 + 1;
+        char charAt3 = charAt(this.bp + i5);
+        int[] iArr3 = new int[16];
         if (charAt3 == ']') {
-            i3 = i5 + 1;
-            charAt2 = charAt(this.bp + i5);
-            iArr2 = iArr4;
-            i2 = 0;
+            charAt2 = charAt(this.bp + i6);
+            i4 = 0;
+            i3 = i6 + 1;
         } else {
-            int i6 = 0;
-            char c = charAt3;
-            int i7 = i5;
-            int[] iArr5 = iArr4;
+            int i7 = 0;
+            int[] iArr4 = iArr3;
             while (true) {
-                if (c == '-') {
+                if (charAt3 == '-') {
+                    i = i6 + 1;
+                    c = charAt(this.bp + i6);
                     z = true;
-                    c = charAt(this.bp + i7);
-                    i7++;
                 } else {
                     z = false;
+                    c = charAt3;
+                    i = i6;
                 }
                 if (c < '0' || c > '9') {
                     break;
                 }
                 int i8 = c - '0';
                 while (true) {
-                    i = i7 + 1;
-                    charAt = charAt(i7 + this.bp);
+                    i2 = i + 1;
+                    charAt = charAt(i + this.bp);
                     if (charAt < '0' || charAt > '9') {
                         break;
                     }
                     i8 = (i8 * 10) + (charAt - '0');
-                    i7 = i;
+                    i = i2;
                 }
-                if (i6 >= iArr5.length) {
-                    iArr = new int[(iArr5.length * 3) / 2];
-                    System.arraycopy(iArr5, 0, iArr, 0, i6);
+                if (i7 >= iArr4.length) {
+                    iArr = new int[(iArr4.length * 3) / 2];
+                    System.arraycopy(iArr4, 0, iArr, 0, i7);
                 } else {
-                    iArr = iArr5;
+                    iArr = iArr4;
                 }
-                int i9 = i6 + 1;
+                int i9 = i7 + 1;
                 if (z) {
                     i8 = -i8;
                 }
-                iArr[i6] = i8;
+                iArr[i7] = i8;
                 if (charAt == ',') {
-                    c = charAt(this.bp + i);
-                    i++;
+                    charAt3 = charAt(this.bp + i2);
+                    i2++;
                 } else if (charAt == ']') {
-                    int i10 = i + 1;
-                    charAt2 = charAt(this.bp + i);
-                    i2 = i9;
-                    i3 = i10;
-                    iArr2 = iArr;
+                    i3 = i2 + 1;
+                    charAt2 = charAt(this.bp + i2);
+                    i4 = i9;
+                    iArr3 = iArr;
                     break;
                 } else {
-                    c = charAt;
+                    charAt3 = charAt;
                 }
-                i6 = i9;
-                i7 = i;
-                iArr5 = iArr;
+                i7 = i9;
+                iArr4 = iArr;
+                i6 = i2;
             }
         }
-        if (i2 != iArr2.length) {
-            int[] iArr6 = new int[i2];
-            System.arraycopy(iArr2, 0, iArr6, 0, i2);
-            iArr3 = iArr6;
+        if (i4 != iArr3.length) {
+            int[] iArr5 = new int[i4];
+            System.arraycopy(iArr3, 0, iArr5, 0, i4);
+            iArr2 = iArr5;
         } else {
-            iArr3 = iArr2;
+            iArr2 = iArr3;
         }
         if (charAt2 == ',') {
             this.bp += i3 - 1;
             next();
             this.matchStat = 3;
             this.token = 16;
-            return iArr3;
+            return iArr2;
         } else if (charAt2 == '}') {
-            int i11 = i3 + 1;
+            int i10 = i3 + 1;
             char charAt4 = charAt(this.bp + i3);
             if (charAt4 == ',') {
                 this.token = 16;
-                this.bp += i11 - 1;
+                this.bp += i10 - 1;
                 next();
             } else if (charAt4 == ']') {
                 this.token = 15;
-                this.bp += i11 - 1;
+                this.bp += i10 - 1;
                 next();
             } else if (charAt4 == '}') {
                 this.token = 13;
-                this.bp += i11 - 1;
+                this.bp += i10 - 1;
                 next();
             } else if (charAt4 == 26) {
-                this.bp += i11 - 1;
+                this.bp += i10 - 1;
                 this.token = 20;
                 this.ch = JSONLexer.EOI;
             } else {
@@ -1843,38 +1806,37 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 return null;
             }
             this.matchStat = 4;
-            return iArr3;
+            return iArr2;
         } else {
             this.matchStat = -1;
             return null;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00bf  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0047 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00bb  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0045 A[SYNTHETIC] */
     @Override // com.alibaba.fastjson.parser.JSONLexer
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean scanBoolean(char c) {
-        int i;
-        char c2;
+        int i = 2;
         boolean z = false;
         this.matchStat = 0;
         char charAt = charAt(this.bp + 0);
         if (charAt == 't') {
             if (charAt(this.bp + 1) == 'r' && charAt(this.bp + 1 + 1) == 'u' && charAt(this.bp + 1 + 2) == 'e') {
                 i = 5;
-                c2 = charAt(this.bp + 4);
+                charAt = charAt(this.bp + 4);
                 z = true;
                 while (true) {
-                    if (c2 != c) {
+                    if (charAt != c) {
                         this.bp += i;
                         this.ch = charAt(this.bp);
                         this.matchStat = 3;
                         break;
-                    } else if (isWhitespace(c2)) {
-                        c2 = charAt(this.bp + i);
+                    } else if (isWhitespace(charAt)) {
+                        charAt = charAt(this.bp + i);
                         i++;
                     } else {
                         this.matchStat = -1;
@@ -1888,25 +1850,22 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             if (charAt == 'f') {
                 if (charAt(this.bp + 1) == 'a' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 's' && charAt(this.bp + 1 + 3) == 'e') {
                     i = 6;
-                    c2 = charAt(this.bp + 5);
+                    charAt = charAt(this.bp + 5);
                 } else {
                     this.matchStat = -1;
                 }
             } else if (charAt == '1') {
-                i = 2;
+                charAt = charAt(this.bp + 1);
                 z = true;
-                c2 = charAt(this.bp + 1);
             } else if (charAt == '0') {
-                c2 = charAt(this.bp + 1);
-                i = 2;
+                charAt = charAt(this.bp + 1);
             } else {
                 i = 1;
-                c2 = charAt;
             }
             while (true) {
-                if (c2 != c) {
+                if (charAt != c) {
                 }
-                c2 = charAt(this.bp + i);
+                charAt = charAt(this.bp + i);
                 i++;
             }
         }
@@ -2050,43 +2009,42 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 this.matchStat = -1;
                 return false;
             }
-            int i8 = i7 + 1;
-            if (charAt(i7 + this.bp) != 'e') {
+            i = i7 + 1;
+            if (charAt(this.bp + i7) != 'e') {
                 this.matchStat = -1;
                 return false;
             }
-            i = i8;
             z = false;
         } else {
             this.matchStat = -1;
             return false;
         }
-        int i9 = i + 1;
+        int i8 = i + 1;
         char charAt2 = charAt(i + this.bp);
         if (charAt2 == ',') {
-            this.bp += i9;
+            this.bp += i8;
             this.ch = charAt(this.bp);
             this.matchStat = 3;
             this.token = 16;
             return z;
         } else if (charAt2 == '}') {
-            int i10 = i9 + 1;
-            char charAt3 = charAt(this.bp + i9);
+            int i9 = i8 + 1;
+            char charAt3 = charAt(this.bp + i8);
             if (charAt3 == ',') {
                 this.token = 16;
-                this.bp += i10;
+                this.bp += i9;
                 this.ch = charAt(this.bp);
             } else if (charAt3 == ']') {
                 this.token = 15;
-                this.bp += i10;
+                this.bp += i9;
                 this.ch = charAt(this.bp);
             } else if (charAt3 == '}') {
                 this.token = 13;
-                this.bp += i10;
+                this.bp += i9;
                 this.ch = charAt(this.bp);
             } else if (charAt3 == 26) {
                 this.token = 20;
-                this.bp += i10 - 1;
+                this.bp += i9 - 1;
                 this.ch = JSONLexer.EOI;
             } else {
                 this.matchStat = -1;
@@ -2297,7 +2255,6 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         int i8;
         int i9;
         float parseFloat;
-        boolean z = false;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
@@ -2306,15 +2263,15 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         int length2 = cArr.length;
         int i10 = length2 + 1;
         char charAt2 = charAt(length2 + this.bp);
-        boolean z2 = charAt2 == '\"';
-        if (z2) {
+        boolean z = charAt2 == '\"';
+        if (z) {
             i = i10 + 1;
             charAt2 = charAt(this.bp + i10);
         } else {
             i = i10;
         }
-        boolean z3 = charAt2 == '-';
-        if (z3) {
+        boolean z2 = charAt2 == '-';
+        if (z2) {
             i2 = i + 1;
             charAt2 = charAt(this.bp + i);
         } else {
@@ -2331,7 +2288,11 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 i11 = (i11 * 10) + (charAt - '0');
                 i2 = i4;
             }
-            if (charAt == '.') {
+            if (!(charAt == '.')) {
+                i5 = 1;
+                i6 = i11;
+                i7 = i4;
+            } else {
                 int i12 = i4 + 1;
                 char charAt3 = charAt(this.bp + i4);
                 if (charAt3 >= '0' && charAt3 <= '9') {
@@ -2340,11 +2301,11 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                     while (true) {
                         int i15 = i12;
                         i12 = i15 + 1;
-                        c = charAt(i15 + this.bp);
-                        if (c < '0' || c > '9') {
+                        charAt = charAt(i15 + this.bp);
+                        if (charAt < '0' || charAt > '9') {
                             break;
                         }
-                        i13 = (i13 * 10) + (c - '0');
+                        i13 = (i13 * 10) + (charAt - '0');
                         i14 *= 10;
                     }
                     i5 = i14;
@@ -2354,16 +2315,9 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                     this.matchStat = -1;
                     return 0.0f;
                 }
-            } else {
-                i5 = 1;
-                i6 = i11;
-                i7 = i4;
-                c = charAt;
             }
-            if (c == 'e' || c == 'E') {
-                z = true;
-            }
-            if (z) {
+            boolean z3 = charAt == 'e' || charAt == 'E';
+            if (z3) {
                 int i16 = i7 + 1;
                 c = charAt(this.bp + i7);
                 if (c == '+' || c == '-') {
@@ -2376,8 +2330,10 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                     c = charAt(this.bp + i7);
                     i7++;
                 }
+            } else {
+                c = charAt;
             }
-            if (z2) {
+            if (z) {
                 if (c != '\"') {
                     this.matchStat = -1;
                     return 0.0f;
@@ -2391,9 +2347,9 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 i8 = ((this.bp + i7) - length) - 1;
                 i9 = i7;
             }
-            if (!z && i8 < 20) {
+            if (!z3 && i8 < 20) {
                 parseFloat = i6 / i5;
-                if (z3) {
+                if (z2) {
                     parseFloat = -parseFloat;
                 }
             } else {
@@ -2439,7 +2395,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             int i18 = i2 + 3;
             int i19 = i18 + 1;
             char charAt5 = charAt(i18 + this.bp);
-            if (z2 && charAt5 == '\"') {
+            if (z && charAt5 == '\"') {
                 i3 = i19 + 1;
                 charAt5 = charAt(this.bp + i19);
             } else {
@@ -2478,91 +2434,91 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         int i3;
         char charAt;
         long j;
-        long j2;
         int i4;
+        char c2;
         int i5;
         int i6;
         int i7;
         float parseFloat;
         int i8;
-        char charAt2;
         this.matchStat = 0;
         int i9 = 1;
-        char charAt3 = charAt(0 + this.bp);
-        boolean z = charAt3 == '\"';
+        char charAt2 = charAt(0 + this.bp);
+        boolean z = charAt2 == '\"';
         if (z) {
             i9 = 2;
-            charAt3 = charAt(this.bp + 1);
+            charAt2 = charAt(this.bp + 1);
         }
-        boolean z2 = charAt3 == '-';
+        boolean z2 = charAt2 == '-';
         if (z2) {
             i = i9 + 1;
-            charAt3 = charAt(this.bp + i9);
+            charAt2 = charAt(this.bp + i9);
         } else {
             i = i9;
         }
-        if (charAt3 >= '0' && charAt3 <= '9') {
-            long j3 = charAt3 - '0';
+        if (charAt2 >= '0' && charAt2 <= '9') {
+            long j2 = charAt2 - '0';
             while (true) {
                 i3 = i + 1;
                 charAt = charAt(i + this.bp);
                 if (charAt < '0' || charAt > '9') {
                     break;
                 }
-                j3 = (j3 * 10) + (charAt - '0');
+                j2 = (j2 * 10) + (charAt - '0');
                 i = i3;
             }
-            if (!(charAt == '.')) {
-                j = 1;
-                j2 = j3;
-                i4 = i3;
-            } else {
+            long j3 = 1;
+            if (charAt == '.') {
                 int i10 = i3 + 1;
-                char charAt4 = charAt(this.bp + i3);
-                if (charAt4 >= '0' && charAt4 <= '9') {
-                    long j4 = (charAt4 - '0') + (j3 * 10);
+                char charAt3 = charAt(this.bp + i3);
+                if (charAt3 >= '0' && charAt3 <= '9') {
+                    long j4 = (charAt3 - '0') + (j2 * 10);
                     long j5 = 10;
                     while (true) {
                         i8 = i10 + 1;
-                        charAt2 = charAt(i10 + this.bp);
-                        if (charAt2 < '0' || charAt2 > '9') {
+                        charAt = charAt(i10 + this.bp);
+                        if (charAt < '0' || charAt > '9') {
                             break;
                         }
-                        j4 = (j4 * 10) + (charAt2 - '0');
+                        j4 = (j4 * 10) + (charAt - '0');
                         j5 *= 10;
                         i10 = i8;
                     }
-                    j = j5;
-                    j2 = j4;
-                    charAt = charAt2;
+                    j3 = j5;
+                    j = j4;
                     i4 = i8;
                 } else {
                     this.matchStat = -1;
                     return 0.0f;
                 }
+            } else {
+                j = j2;
+                i4 = i3;
             }
             boolean z3 = charAt == 'e' || charAt == 'E';
             if (z3) {
                 int i11 = i4 + 1;
-                charAt = charAt(this.bp + i4);
-                if (charAt == '+' || charAt == '-') {
+                c2 = charAt(this.bp + i4);
+                if (c2 == '+' || c2 == '-') {
                     i4 = i11 + 1;
-                    charAt = charAt(i11 + this.bp);
+                    c2 = charAt(i11 + this.bp);
                 } else {
                     i4 = i11;
                 }
-                while (charAt >= '0' && charAt <= '9') {
-                    charAt = charAt(this.bp + i4);
+                while (c2 >= '0' && c2 <= '9') {
+                    c2 = charAt(this.bp + i4);
                     i4++;
                 }
+            } else {
+                c2 = charAt;
             }
             if (z) {
-                if (charAt != '\"') {
+                if (c2 != '\"') {
                     this.matchStat = -1;
                     return 0.0f;
                 }
                 i7 = i4 + 1;
-                charAt = charAt(this.bp + i4);
+                c2 = charAt(this.bp + i4);
                 i5 = this.bp + 1;
                 i6 = ((this.bp + i7) - i5) - 2;
             } else {
@@ -2571,14 +2527,14 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 i7 = i4;
             }
             if (!z3 && i6 < 20) {
-                parseFloat = ((float) j2) / ((float) j);
+                parseFloat = ((float) j) / ((float) j3);
                 if (z2) {
                     parseFloat = -parseFloat;
                 }
             } else {
                 parseFloat = Float.parseFloat(subString(i5, i6));
             }
-            if (charAt == c) {
+            if (c2 == c) {
                 this.bp += i7;
                 this.ch = charAt(this.bp);
                 this.matchStat = 3;
@@ -2587,26 +2543,26 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             }
             this.matchStat = -1;
             return parseFloat;
-        } else if (charAt3 == 'n' && charAt(this.bp + i) == 'u' && charAt(this.bp + i + 1) == 'l' && charAt(this.bp + i + 2) == 'l') {
+        } else if (charAt2 == 'n' && charAt(this.bp + i) == 'u' && charAt(this.bp + i + 1) == 'l' && charAt(this.bp + i + 2) == 'l') {
             this.matchStat = 5;
             int i12 = i + 3;
             int i13 = i12 + 1;
-            char charAt5 = charAt(i12 + this.bp);
-            if (z && charAt5 == '\"') {
+            char charAt4 = charAt(i12 + this.bp);
+            if (z && charAt4 == '\"') {
                 i2 = i13 + 1;
-                charAt5 = charAt(this.bp + i13);
+                charAt4 = charAt(this.bp + i13);
             } else {
                 i2 = i13;
             }
-            while (charAt5 != ',') {
-                if (charAt5 == ']') {
+            while (charAt4 != ',') {
+                if (charAt4 == ']') {
                     this.bp += i2;
                     this.ch = charAt(this.bp);
                     this.matchStat = 5;
                     this.token = 15;
                     return 0.0f;
-                } else if (isWhitespace(charAt5)) {
-                    charAt5 = charAt(this.bp + i2);
+                } else if (isWhitespace(charAt4)) {
+                    charAt4 = charAt(this.bp + i2);
                     i2++;
                 } else {
                     this.matchStat = -1;
@@ -2631,91 +2587,91 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         int i3;
         char charAt;
         long j;
-        long j2;
         int i4;
+        char c2;
         int i5;
         int i6;
         int i7;
         double parseDouble;
         int i8;
-        char charAt2;
         this.matchStat = 0;
         int i9 = 1;
-        char charAt3 = charAt(0 + this.bp);
-        boolean z = charAt3 == '\"';
+        char charAt2 = charAt(0 + this.bp);
+        boolean z = charAt2 == '\"';
         if (z) {
             i9 = 2;
-            charAt3 = charAt(this.bp + 1);
+            charAt2 = charAt(this.bp + 1);
         }
-        boolean z2 = charAt3 == '-';
+        boolean z2 = charAt2 == '-';
         if (z2) {
             i = i9 + 1;
-            charAt3 = charAt(this.bp + i9);
+            charAt2 = charAt(this.bp + i9);
         } else {
             i = i9;
         }
-        if (charAt3 >= '0' && charAt3 <= '9') {
-            long j3 = charAt3 - '0';
+        if (charAt2 >= '0' && charAt2 <= '9') {
+            long j2 = charAt2 - '0';
             while (true) {
                 i3 = i + 1;
                 charAt = charAt(i + this.bp);
                 if (charAt < '0' || charAt > '9') {
                     break;
                 }
-                j3 = (j3 * 10) + (charAt - '0');
+                j2 = (j2 * 10) + (charAt - '0');
                 i = i3;
             }
-            if (!(charAt == '.')) {
-                j = 1;
-                j2 = j3;
-                i4 = i3;
-            } else {
+            long j3 = 1;
+            if (charAt == '.') {
                 int i10 = i3 + 1;
-                char charAt4 = charAt(this.bp + i3);
-                if (charAt4 >= '0' && charAt4 <= '9') {
-                    long j4 = (charAt4 - '0') + (j3 * 10);
+                char charAt3 = charAt(this.bp + i3);
+                if (charAt3 >= '0' && charAt3 <= '9') {
+                    long j4 = (charAt3 - '0') + (j2 * 10);
                     long j5 = 10;
                     while (true) {
                         i8 = i10 + 1;
-                        charAt2 = charAt(i10 + this.bp);
-                        if (charAt2 < '0' || charAt2 > '9') {
+                        charAt = charAt(i10 + this.bp);
+                        if (charAt < '0' || charAt > '9') {
                             break;
                         }
-                        j4 = (j4 * 10) + (charAt2 - '0');
+                        j4 = (j4 * 10) + (charAt - '0');
                         j5 *= 10;
                         i10 = i8;
                     }
-                    j = j5;
-                    j2 = j4;
-                    charAt = charAt2;
+                    j3 = j5;
+                    j = j4;
                     i4 = i8;
                 } else {
                     this.matchStat = -1;
                     return 0.0d;
                 }
+            } else {
+                j = j2;
+                i4 = i3;
             }
             boolean z3 = charAt == 'e' || charAt == 'E';
             if (z3) {
                 int i11 = i4 + 1;
-                charAt = charAt(this.bp + i4);
-                if (charAt == '+' || charAt == '-') {
+                c2 = charAt(this.bp + i4);
+                if (c2 == '+' || c2 == '-') {
                     i4 = i11 + 1;
-                    charAt = charAt(i11 + this.bp);
+                    c2 = charAt(i11 + this.bp);
                 } else {
                     i4 = i11;
                 }
-                while (charAt >= '0' && charAt <= '9') {
-                    charAt = charAt(this.bp + i4);
+                while (c2 >= '0' && c2 <= '9') {
+                    c2 = charAt(this.bp + i4);
                     i4++;
                 }
+            } else {
+                c2 = charAt;
             }
             if (z) {
-                if (charAt != '\"') {
+                if (c2 != '\"') {
                     this.matchStat = -1;
                     return 0.0d;
                 }
                 i7 = i4 + 1;
-                charAt = charAt(this.bp + i4);
+                c2 = charAt(this.bp + i4);
                 i5 = this.bp + 1;
                 i6 = ((this.bp + i7) - i5) - 2;
             } else {
@@ -2724,14 +2680,14 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 i7 = i4;
             }
             if (!z3 && i6 < 20) {
-                parseDouble = j2 / j;
+                parseDouble = j / j3;
                 if (z2) {
                     parseDouble = -parseDouble;
                 }
             } else {
                 parseDouble = Double.parseDouble(subString(i5, i6));
             }
-            if (charAt == c) {
+            if (c2 == c) {
                 this.bp += i7;
                 this.ch = charAt(this.bp);
                 this.matchStat = 3;
@@ -2740,26 +2696,26 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             }
             this.matchStat = -1;
             return parseDouble;
-        } else if (charAt3 == 'n' && charAt(this.bp + i) == 'u' && charAt(this.bp + i + 1) == 'l' && charAt(this.bp + i + 2) == 'l') {
+        } else if (charAt2 == 'n' && charAt(this.bp + i) == 'u' && charAt(this.bp + i + 1) == 'l' && charAt(this.bp + i + 2) == 'l') {
             this.matchStat = 5;
             int i12 = i + 3;
             int i13 = i12 + 1;
-            char charAt5 = charAt(i12 + this.bp);
-            if (z && charAt5 == '\"') {
+            char charAt4 = charAt(i12 + this.bp);
+            if (z && charAt4 == '\"') {
                 i2 = i13 + 1;
-                charAt5 = charAt(this.bp + i13);
+                charAt4 = charAt(this.bp + i13);
             } else {
                 i2 = i13;
             }
-            while (charAt5 != ',') {
-                if (charAt5 == ']') {
+            while (charAt4 != ',') {
+                if (charAt4 == ']') {
                     this.bp += i2;
                     this.ch = charAt(this.bp);
                     this.matchStat = 5;
                     this.token = 15;
                     return 0.0d;
-                } else if (isWhitespace(charAt5)) {
-                    charAt5 = charAt(this.bp + i2);
+                } else if (isWhitespace(charAt4)) {
+                    charAt4 = charAt(this.bp + i2);
                     i2++;
                 } else {
                     this.matchStat = -1;
@@ -2780,7 +2736,6 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     @Override // com.alibaba.fastjson.parser.JSONLexer
     public BigDecimal scanDecimal(char c) {
         int i;
-        char c2;
         int i2;
         int i3;
         int i4;
@@ -2799,12 +2754,11 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         }
         if (charAt2 == '-') {
             i2 = i + 1;
-            c2 = charAt(this.bp + i);
+            charAt2 = charAt(this.bp + i);
         } else {
-            c2 = charAt2;
             i2 = i;
         }
-        if (c2 >= '0' && c2 <= '9') {
+        if (charAt2 >= '0' && charAt2 <= '9') {
             while (true) {
                 i4 = i2 + 1;
                 charAt = charAt(i2 + this.bp);
@@ -2895,7 +2849,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 this.matchStat = -1;
                 return null;
             }
-        } else if (c2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
+        } else if (charAt2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
             this.matchStat = 5;
             int i12 = i2 + 3;
             int i13 = i12 + 1;
@@ -2932,7 +2886,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:122:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:121:?, code lost:
         return null;
      */
     /* JADX WARN: Code restructure failed: missing block: B:41:0x00ab, code lost:
@@ -2943,194 +2897,11 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     */
     public final float[] scanFieldFloatArray(char[] cArr) {
         int i;
-        char charAt;
         int i2;
         int i3;
-        char c;
-        int i4;
         float parseFloat;
         float[] fArr;
-        float[] fArr2;
-        char c2;
-        int i5;
-        char charAt2;
-        this.matchStat = 0;
-        if (!charArrayCompare(cArr)) {
-            this.matchStat = -2;
-            return null;
-        }
-        int length = cArr.length;
-        int i6 = length + 1;
-        if (charAt(length + this.bp) != '[') {
-            this.matchStat = -2;
-            return null;
-        }
-        int i7 = i6 + 1;
-        char charAt3 = charAt(this.bp + i6);
-        float[] fArr3 = new float[16];
-        int i8 = 0;
-        while (true) {
-            int i9 = (this.bp + i7) - 1;
-            boolean z = charAt3 == '-';
-            if (z) {
-                charAt3 = charAt(this.bp + i7);
-                i7++;
-            }
-            if (charAt3 < '0' || charAt3 > '9') {
-                break;
-            }
-            int i10 = charAt3 - '0';
-            while (true) {
-                i = i7 + 1;
-                charAt = charAt(i7 + this.bp);
-                if (charAt < '0' || charAt > '9') {
-                    break;
-                }
-                i10 = (i10 * 10) + (charAt - '0');
-                i7 = i;
-            }
-            if (!(charAt == '.')) {
-                i2 = 1;
-                i3 = i10;
-                c = charAt;
-                i4 = i;
-            } else {
-                int i11 = i + 1;
-                char charAt4 = charAt(this.bp + i);
-                if (charAt4 < '0' || charAt4 > '9') {
-                    break;
-                }
-                int i12 = (i10 * 10) + (charAt4 - '0');
-                int i13 = i11;
-                int i14 = 10;
-                int i15 = i12;
-                while (true) {
-                    i5 = i13 + 1;
-                    charAt2 = charAt(i13 + this.bp);
-                    if (charAt2 < '0' || charAt2 > '9') {
-                        break;
-                    }
-                    i15 = (i15 * 10) + (charAt2 - '0');
-                    i14 *= 10;
-                    i13 = i5;
-                }
-                i2 = i14;
-                i3 = i15;
-                c = charAt2;
-                i4 = i5;
-            }
-            boolean z2 = c == 'e' || c == 'E';
-            if (z2) {
-                int i16 = i4 + 1;
-                c = charAt(this.bp + i4);
-                if (c == '+' || c == '-') {
-                    i4 = i16 + 1;
-                    c = charAt(this.bp + i16);
-                } else {
-                    i4 = i16;
-                }
-                while (c >= '0' && c <= '9') {
-                    c = charAt(this.bp + i4);
-                    i4++;
-                }
-            }
-            int i17 = i4;
-            char c3 = c;
-            int i18 = ((this.bp + i17) - i9) - 1;
-            if (!z2 && i18 < 10) {
-                float f = i3 / i2;
-                parseFloat = z ? -f : f;
-            } else {
-                parseFloat = Float.parseFloat(subString(i9, i18));
-            }
-            if (i8 >= fArr3.length) {
-                fArr = new float[(fArr3.length * 3) / 2];
-                System.arraycopy(fArr3, 0, fArr, 0, i8);
-            } else {
-                fArr = fArr3;
-            }
-            int i19 = i8 + 1;
-            fArr[i8] = parseFloat;
-            if (c3 == ',') {
-                i7 = i17 + 1;
-                c2 = charAt(this.bp + i17);
-            } else if (c3 == ']') {
-                int i20 = i17 + 1;
-                char charAt5 = charAt(this.bp + i17);
-                if (i19 != fArr.length) {
-                    fArr2 = new float[i19];
-                    System.arraycopy(fArr, 0, fArr2, 0, i19);
-                } else {
-                    fArr2 = fArr;
-                }
-                if (charAt5 == ',') {
-                    this.bp += i20 - 1;
-                    next();
-                    this.matchStat = 3;
-                    this.token = 16;
-                    return fArr2;
-                } else if (charAt5 == '}') {
-                    int i21 = i20 + 1;
-                    char charAt6 = charAt(this.bp + i20);
-                    if (charAt6 == ',') {
-                        this.token = 16;
-                        this.bp += i21 - 1;
-                        next();
-                    } else if (charAt6 == ']') {
-                        this.token = 15;
-                        this.bp += i21 - 1;
-                        next();
-                    } else if (charAt6 == '}') {
-                        this.token = 13;
-                        this.bp += i21 - 1;
-                        next();
-                    } else if (charAt6 == 26) {
-                        this.bp += i21 - 1;
-                        this.token = 20;
-                        this.ch = JSONLexer.EOI;
-                    } else {
-                        this.matchStat = -1;
-                        return null;
-                    }
-                    this.matchStat = 4;
-                    return fArr2;
-                } else {
-                    this.matchStat = -1;
-                    return null;
-                }
-            } else {
-                c2 = c3;
-                i7 = i17;
-            }
-            fArr3 = fArr;
-            charAt3 = c2;
-            i8 = i19;
-        }
-        this.matchStat = -1;
-        return null;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:141:?, code lost:
-        return null;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x0183, code lost:
-        r13.matchStat = -1;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final float[][] scanFieldFloatArray2(char[] cArr) {
-        int i;
-        char charAt;
-        int i2;
-        int i3;
-        char c;
         int i4;
-        float parseFloat;
-        float[] fArr;
-        float[][] fArr2;
-        char c2;
-        char charAt2;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
@@ -3143,148 +2914,305 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             return null;
         }
         int i6 = i5 + 1;
-        char charAt3 = charAt(this.bp + i5);
-        float[][] fArr3 = new float[16];
+        char charAt = charAt(this.bp + i5);
         int i7 = 0;
-        loop0: while (true) {
-            if (charAt3 == '[') {
-                int i8 = i6 + 1;
-                char charAt4 = charAt(this.bp + i6);
-                float[] fArr4 = new float[16];
-                int i9 = 0;
+        float[] fArr2 = new float[16];
+        while (true) {
+            int i8 = (this.bp + i6) - 1;
+            boolean z = charAt == '-';
+            if (z) {
+                charAt = charAt(this.bp + i6);
+                i6++;
+            }
+            if (charAt < '0' || charAt > '9') {
+                break;
+            }
+            int i9 = charAt - '0';
+            while (true) {
+                int i10 = i6;
+                i6 = i10 + 1;
+                charAt = charAt(i10 + this.bp);
+                if (charAt < '0' || charAt > '9') {
+                    break;
+                }
+                i9 = (i9 * 10) + (charAt - '0');
+            }
+            if (!(charAt == '.')) {
+                i = 1;
+                i2 = i9;
+                i3 = i6;
+            } else {
+                int i11 = i6 + 1;
+                char charAt2 = charAt(this.bp + i6);
+                if (charAt2 < '0' || charAt2 > '9') {
+                    break;
+                }
+                int i12 = (charAt2 - '0') + (i9 * 10);
+                int i13 = 10;
                 while (true) {
-                    int i10 = (this.bp + i8) - 1;
-                    boolean z = charAt4 == '-';
-                    if (z) {
-                        charAt4 = charAt(this.bp + i8);
-                        i8++;
+                    i4 = i11 + 1;
+                    charAt = charAt(this.bp + i11);
+                    if (charAt < '0' || charAt > '9') {
+                        break;
                     }
-                    if (charAt4 < '0' || charAt4 > '9') {
+                    i13 *= 10;
+                    i12 = (charAt - '0') + (i12 * 10);
+                    i11 = i4;
+                }
+                i = i13;
+                i2 = i12;
+                i3 = i4;
+            }
+            boolean z2 = charAt == 'e' || charAt == 'E';
+            if (z2) {
+                i6 = i3 + 1;
+                char charAt3 = charAt(this.bp + i3);
+                if (charAt3 == '+' || charAt3 == '-') {
+                    charAt3 = charAt(this.bp + i6);
+                    i6++;
+                }
+                while (charAt3 >= '0' && charAt3 <= '9') {
+                    charAt3 = charAt(this.bp + i6);
+                    i6++;
+                }
+                charAt = charAt3;
+            } else {
+                i6 = i3;
+            }
+            int i14 = ((this.bp + i6) - i8) - 1;
+            if (!z2 && i14 < 10) {
+                float f = i2 / i;
+                parseFloat = z ? -f : f;
+            } else {
+                parseFloat = Float.parseFloat(subString(i8, i14));
+            }
+            if (i7 >= fArr2.length) {
+                float[] fArr3 = new float[(fArr2.length * 3) / 2];
+                System.arraycopy(fArr2, 0, fArr3, 0, i7);
+                fArr2 = fArr3;
+            }
+            int i15 = i7 + 1;
+            fArr2[i7] = parseFloat;
+            if (charAt == ',') {
+                charAt = charAt(this.bp + i6);
+                i6++;
+            } else if (charAt == ']') {
+                int i16 = i6 + 1;
+                char charAt4 = charAt(this.bp + i6);
+                if (i15 != fArr2.length) {
+                    fArr = new float[i15];
+                    System.arraycopy(fArr2, 0, fArr, 0, i15);
+                } else {
+                    fArr = fArr2;
+                }
+                if (charAt4 == ',') {
+                    this.bp += i16 - 1;
+                    next();
+                    this.matchStat = 3;
+                    this.token = 16;
+                    return fArr;
+                } else if (charAt4 == '}') {
+                    int i17 = i16 + 1;
+                    char charAt5 = charAt(this.bp + i16);
+                    if (charAt5 == ',') {
+                        this.token = 16;
+                        this.bp += i17 - 1;
+                        next();
+                    } else if (charAt5 == ']') {
+                        this.token = 15;
+                        this.bp += i17 - 1;
+                        next();
+                    } else if (charAt5 == '}') {
+                        this.token = 13;
+                        this.bp += i17 - 1;
+                        next();
+                    } else if (charAt5 == 26) {
+                        this.bp += i17 - 1;
+                        this.token = 20;
+                        this.ch = JSONLexer.EOI;
+                    } else {
+                        this.matchStat = -1;
+                        return null;
+                    }
+                    this.matchStat = 4;
+                    return fArr;
+                } else {
+                    this.matchStat = -1;
+                    return null;
+                }
+            }
+            i7 = i15;
+        }
+        this.matchStat = -1;
+        return null;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:141:?, code lost:
+        return null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:88:0x0182, code lost:
+        r13.matchStat = -1;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final float[][] scanFieldFloatArray2(char[] cArr) {
+        char charAt;
+        int i;
+        int i2;
+        float parseFloat;
+        float[][] fArr;
+        this.matchStat = 0;
+        if (!charArrayCompare(cArr)) {
+            this.matchStat = -2;
+            return null;
+        }
+        int length = cArr.length;
+        int i3 = length + 1;
+        if (charAt(length + this.bp) != '[') {
+            this.matchStat = -2;
+            return null;
+        }
+        int i4 = i3 + 1;
+        char charAt2 = charAt(this.bp + i3);
+        float[][] fArr2 = new float[16];
+        int i5 = 0;
+        loop0: while (true) {
+            if (charAt2 == '[') {
+                int i6 = i4 + 1;
+                char charAt3 = charAt(this.bp + i4);
+                int i7 = 0;
+                float[] fArr3 = new float[16];
+                while (true) {
+                    int i8 = (this.bp + i6) - 1;
+                    boolean z = charAt3 == '-';
+                    if (z) {
+                        charAt3 = charAt(this.bp + i6);
+                        i6++;
+                    }
+                    if (charAt3 < '0' || charAt3 > '9') {
                         break loop0;
                     }
-                    int i11 = charAt4 - '0';
+                    int i9 = charAt3 - '0';
                     while (true) {
-                        i = i8 + 1;
-                        charAt = charAt(i8 + this.bp);
+                        int i10 = i6;
+                        i6 = i10 + 1;
+                        charAt = charAt(i10 + this.bp);
                         if (charAt < '0' || charAt > '9') {
                             break;
                         }
-                        i11 = (i11 * 10) + (charAt - '0');
-                        i8 = i;
+                        i9 = (i9 * 10) + (charAt - '0');
                     }
                     if (charAt != '.') {
-                        i2 = 1;
-                        i3 = i11;
-                        c = charAt;
-                        i4 = i;
+                        i = 1;
+                        i2 = i9;
                     } else {
-                        int i12 = i + 1;
-                        char charAt5 = charAt(this.bp + i);
-                        if (charAt5 < '0' || charAt5 > '9') {
+                        int i11 = i6 + 1;
+                        char charAt4 = charAt(this.bp + i6);
+                        if (charAt4 < '0' || charAt4 > '9') {
                             break loop0;
                         }
-                        int i13 = (charAt5 - '0') + (i11 * 10);
-                        int i14 = 10;
+                        int i12 = (charAt4 - '0') + (i9 * 10);
+                        int i13 = 10;
                         while (true) {
-                            int i15 = i12;
-                            i12 = i15 + 1;
-                            charAt2 = charAt(i15 + this.bp);
-                            if (charAt2 < '0' || charAt2 > '9') {
+                            int i14 = i11;
+                            i11 = i14 + 1;
+                            charAt = charAt(i14 + this.bp);
+                            if (charAt < '0' || charAt > '9') {
                                 break;
                             }
-                            i13 = (i13 * 10) + (charAt2 - '0');
-                            i14 *= 10;
+                            i12 = (i12 * 10) + (charAt - '0');
+                            i13 *= 10;
                         }
-                        i2 = i14;
-                        i3 = i13;
-                        c = charAt2;
-                        i4 = i12;
+                        i = i13;
+                        i2 = i12;
+                        i6 = i11;
                     }
-                    boolean z2 = c == 'e' || c == 'E';
+                    boolean z2 = charAt == 'e' || charAt == 'E';
                     if (z2) {
-                        int i16 = i4 + 1;
-                        c = charAt(this.bp + i4);
-                        if (c == '+' || c == '-') {
-                            i4 = i16 + 1;
-                            c = charAt(this.bp + i16);
+                        int i15 = i6 + 1;
+                        char charAt5 = charAt(this.bp + i6);
+                        if (charAt5 == '+' || charAt5 == '-') {
+                            i6 = i15 + 1;
+                            charAt5 = charAt(this.bp + i15);
                         } else {
-                            i4 = i16;
+                            i6 = i15;
                         }
-                        while (c >= '0' && c <= '9') {
-                            c = charAt(this.bp + i4);
-                            i4++;
+                        while (charAt5 >= '0' && charAt5 <= '9') {
+                            charAt5 = charAt(this.bp + i6);
+                            i6++;
                         }
+                        charAt3 = charAt5;
+                    } else {
+                        charAt3 = charAt;
                     }
-                    int i17 = i4;
-                    char c3 = c;
-                    int i18 = ((this.bp + i17) - i10) - 1;
-                    if (!z2 && i18 < 10) {
-                        float f = i3 / i2;
+                    int i16 = ((this.bp + i6) - i8) - 1;
+                    if (!z2 && i16 < 10) {
+                        float f = i2 / i;
                         parseFloat = z ? -f : f;
                     } else {
-                        parseFloat = Float.parseFloat(subString(i10, i18));
+                        parseFloat = Float.parseFloat(subString(i8, i16));
                     }
-                    if (i9 >= fArr4.length) {
-                        fArr = new float[(fArr4.length * 3) / 2];
-                        System.arraycopy(fArr4, 0, fArr, 0, i9);
-                    } else {
-                        fArr = fArr4;
+                    if (i7 >= fArr3.length) {
+                        float[] fArr4 = new float[(fArr3.length * 3) / 2];
+                        System.arraycopy(fArr3, 0, fArr4, 0, i7);
+                        fArr3 = fArr4;
                     }
-                    int i19 = i9 + 1;
-                    fArr[i9] = parseFloat;
-                    if (c3 == ',') {
-                        i8 = i17 + 1;
-                        c2 = charAt(this.bp + i17);
-                    } else if (c3 == ']') {
-                        int i20 = i17 + 1;
-                        char charAt6 = charAt(this.bp + i17);
-                        if (i19 != fArr.length) {
-                            float[] fArr5 = new float[i19];
-                            System.arraycopy(fArr, 0, fArr5, 0, i19);
-                            fArr = fArr5;
+                    int i17 = i7 + 1;
+                    fArr3[i7] = parseFloat;
+                    if (charAt3 == ',') {
+                        charAt3 = charAt(this.bp + i6);
+                        i6++;
+                    } else if (charAt3 == ']') {
+                        int i18 = i6 + 1;
+                        char charAt6 = charAt(this.bp + i6);
+                        if (i17 != fArr3.length) {
+                            float[] fArr5 = new float[i17];
+                            System.arraycopy(fArr3, 0, fArr5, 0, i17);
+                            fArr3 = fArr5;
                         }
-                        if (i7 >= fArr3.length) {
-                            fArr2 = new float[(fArr3.length * 3) / 2];
-                            System.arraycopy(fArr, 0, fArr2, 0, i19);
+                        if (i5 >= fArr2.length) {
+                            fArr = new float[(fArr2.length * 3) / 2];
+                            System.arraycopy(fArr3, 0, fArr, 0, i17);
                         } else {
-                            fArr2 = fArr3;
+                            fArr = fArr2;
                         }
-                        int i21 = i7 + 1;
-                        fArr2[i7] = fArr;
+                        int i19 = i5 + 1;
+                        fArr[i5] = fArr3;
                         if (charAt6 == ',') {
-                            i6 = i20 + 1;
-                            charAt3 = charAt(this.bp + i20);
+                            i4 = i18 + 1;
+                            charAt2 = charAt(this.bp + i18);
                         } else if (charAt6 == ']') {
-                            int i22 = i20 + 1;
-                            char charAt7 = charAt(this.bp + i20);
-                            if (i21 != fArr2.length) {
-                                float[][] fArr6 = new float[i21];
-                                System.arraycopy(fArr2, 0, fArr6, 0, i21);
-                                fArr2 = fArr6;
+                            int i20 = i18 + 1;
+                            char charAt7 = charAt(this.bp + i18);
+                            if (i19 != fArr.length) {
+                                float[][] fArr6 = new float[i19];
+                                System.arraycopy(fArr, 0, fArr6, 0, i19);
+                                fArr = fArr6;
                             }
                             if (charAt7 == ',') {
-                                this.bp += i22 - 1;
+                                this.bp += i20 - 1;
                                 next();
                                 this.matchStat = 3;
                                 this.token = 16;
-                                return fArr2;
+                                return fArr;
                             } else if (charAt7 == '}') {
-                                int i23 = i22 + 1;
-                                char charAt8 = charAt(this.bp + i22);
+                                int i21 = i20 + 1;
+                                char charAt8 = charAt(this.bp + i20);
                                 if (charAt8 == ',') {
                                     this.token = 16;
-                                    this.bp += i23 - 1;
+                                    this.bp += i21 - 1;
                                     next();
                                 } else if (charAt8 == ']') {
                                     this.token = 15;
-                                    this.bp += i23 - 1;
+                                    this.bp += i21 - 1;
                                     next();
                                 } else if (charAt8 == '}') {
                                     this.token = 13;
-                                    this.bp += i23 - 1;
+                                    this.bp += i21 - 1;
                                     next();
                                 } else if (charAt8 == 26) {
-                                    this.bp += i23 - 1;
+                                    this.bp += i21 - 1;
                                     this.token = 20;
                                     this.ch = JSONLexer.EOI;
                                 } else {
@@ -3292,24 +3220,19 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                                     return null;
                                 }
                                 this.matchStat = 4;
-                                return fArr2;
+                                return fArr;
                             } else {
                                 this.matchStat = -1;
                                 return null;
                             }
                         } else {
-                            charAt3 = charAt6;
-                            i6 = i20;
+                            charAt2 = charAt6;
+                            i4 = i18;
                         }
-                        i7 = i21;
-                        fArr3 = fArr2;
-                    } else {
-                        c2 = c3;
-                        i8 = i17;
+                        i5 = i19;
+                        fArr2 = fArr;
                     }
-                    fArr4 = fArr;
-                    charAt4 = c2;
-                    i9 = i19;
+                    i7 = i17;
                 }
             }
         }
@@ -3324,14 +3247,13 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         int i4;
         char charAt;
         long j;
-        long j2;
         int i5;
+        char c;
         int length;
         int i6;
         int i7;
         double parseDouble;
         int i8;
-        char charAt2;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
@@ -3339,83 +3261,84 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         }
         int length2 = cArr.length;
         int i9 = length2 + 1;
-        char charAt3 = charAt(length2 + this.bp);
-        boolean z = charAt3 == '\"';
+        char charAt2 = charAt(length2 + this.bp);
+        boolean z = charAt2 == '\"';
         if (z) {
             i = i9 + 1;
-            charAt3 = charAt(this.bp + i9);
+            charAt2 = charAt(this.bp + i9);
         } else {
             i = i9;
         }
-        boolean z2 = charAt3 == '-';
+        boolean z2 = charAt2 == '-';
         if (z2) {
             i2 = i + 1;
-            charAt3 = charAt(this.bp + i);
+            charAt2 = charAt(this.bp + i);
         } else {
             i2 = i;
         }
-        if (charAt3 >= '0' && charAt3 <= '9') {
-            long j3 = charAt3 - '0';
+        if (charAt2 >= '0' && charAt2 <= '9') {
+            long j2 = charAt2 - '0';
             while (true) {
                 i4 = i2 + 1;
                 charAt = charAt(i2 + this.bp);
                 if (charAt < '0' || charAt > '9') {
                     break;
                 }
-                j3 = (j3 * 10) + (charAt - '0');
+                j2 = (j2 * 10) + (charAt - '0');
                 i2 = i4;
             }
-            if (!(charAt == '.')) {
-                j = 1;
-                j2 = j3;
-                i5 = i4;
-            } else {
+            long j3 = 1;
+            if (charAt == '.') {
                 int i10 = i4 + 1;
-                char charAt4 = charAt(this.bp + i4);
-                if (charAt4 >= '0' && charAt4 <= '9') {
-                    long j4 = (charAt4 - '0') + (j3 * 10);
+                char charAt3 = charAt(this.bp + i4);
+                if (charAt3 >= '0' && charAt3 <= '9') {
+                    long j4 = (charAt3 - '0') + (j2 * 10);
                     long j5 = 10;
                     while (true) {
                         i8 = i10 + 1;
-                        charAt2 = charAt(i10 + this.bp);
-                        if (charAt2 < '0' || charAt2 > '9') {
+                        charAt = charAt(i10 + this.bp);
+                        if (charAt < '0' || charAt > '9') {
                             break;
                         }
-                        j4 = (j4 * 10) + (charAt2 - '0');
+                        j4 = (j4 * 10) + (charAt - '0');
                         j5 *= 10;
                         i10 = i8;
                     }
-                    j = j5;
-                    j2 = j4;
-                    charAt = charAt2;
+                    j3 = j5;
+                    j = j4;
                     i5 = i8;
                 } else {
                     this.matchStat = -1;
                     return 0.0d;
                 }
+            } else {
+                j = j2;
+                i5 = i4;
             }
             boolean z3 = charAt == 'e' || charAt == 'E';
             if (z3) {
                 int i11 = i5 + 1;
-                charAt = charAt(this.bp + i5);
-                if (charAt == '+' || charAt == '-') {
+                c = charAt(this.bp + i5);
+                if (c == '+' || c == '-') {
                     i5 = i11 + 1;
-                    charAt = charAt(i11 + this.bp);
+                    c = charAt(i11 + this.bp);
                 } else {
                     i5 = i11;
                 }
-                while (charAt >= '0' && charAt <= '9') {
-                    charAt = charAt(this.bp + i5);
+                while (c >= '0' && c <= '9') {
+                    c = charAt(this.bp + i5);
                     i5++;
                 }
+            } else {
+                c = charAt;
             }
             if (z) {
-                if (charAt != '\"') {
+                if (c != '\"') {
                     this.matchStat = -1;
                     return 0.0d;
                 }
                 i7 = i5 + 1;
-                charAt = charAt(this.bp + i5);
+                c = charAt(this.bp + i5);
                 length = this.bp + cArr.length + 1;
                 i6 = ((this.bp + i7) - length) - 2;
             } else {
@@ -3424,35 +3347,35 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 i7 = i5;
             }
             if (!z3 && i6 < 20) {
-                parseDouble = j2 / j;
+                parseDouble = j / j3;
                 if (z2) {
                     parseDouble = -parseDouble;
                 }
             } else {
                 parseDouble = Double.parseDouble(subString(length, i6));
             }
-            if (charAt == ',') {
+            if (c == ',') {
                 this.bp += i7;
                 this.ch = charAt(this.bp);
                 this.matchStat = 3;
                 this.token = 16;
                 return parseDouble;
-            } else if (charAt == '}') {
+            } else if (c == '}') {
                 int i12 = i7 + 1;
-                char charAt5 = charAt(this.bp + i7);
-                if (charAt5 == ',') {
+                char charAt4 = charAt(this.bp + i7);
+                if (charAt4 == ',') {
                     this.token = 16;
                     this.bp += i12;
                     this.ch = charAt(this.bp);
-                } else if (charAt5 == ']') {
+                } else if (charAt4 == ']') {
                     this.token = 15;
                     this.bp += i12;
                     this.ch = charAt(this.bp);
-                } else if (charAt5 == '}') {
+                } else if (charAt4 == '}') {
                     this.token = 13;
                     this.bp += i12;
                     this.ch = charAt(this.bp);
-                } else if (charAt5 == 26) {
+                } else if (charAt4 == 26) {
                     this.token = 20;
                     this.bp += i12 - 1;
                     this.ch = JSONLexer.EOI;
@@ -3466,26 +3389,26 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 this.matchStat = -1;
                 return 0.0d;
             }
-        } else if (charAt3 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
+        } else if (charAt2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
             this.matchStat = 5;
             int i13 = i2 + 3;
             int i14 = i13 + 1;
-            char charAt6 = charAt(i13 + this.bp);
-            if (z && charAt6 == '\"') {
+            char charAt5 = charAt(i13 + this.bp);
+            if (z && charAt5 == '\"') {
                 i3 = i14 + 1;
-                charAt6 = charAt(this.bp + i14);
+                charAt5 = charAt(this.bp + i14);
             } else {
                 i3 = i14;
             }
-            while (charAt6 != ',') {
-                if (charAt6 == '}') {
+            while (charAt5 != ',') {
+                if (charAt5 == '}') {
                     this.bp += i3;
                     this.ch = charAt(this.bp);
                     this.matchStat = 5;
                     this.token = 13;
                     return 0.0d;
-                } else if (isWhitespace(charAt6)) {
-                    charAt6 = charAt(this.bp + i3);
+                } else if (isWhitespace(charAt5)) {
+                    charAt5 = charAt(this.bp + i3);
                     i3++;
                 } else {
                     this.matchStat = -1;
@@ -3505,7 +3428,6 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
 
     public BigDecimal scanFieldDecimal(char[] cArr) {
         int i;
-        char c;
         int i2;
         int i3;
         int i4;
@@ -3524,18 +3446,17 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         boolean z = charAt2 == '\"';
         if (z) {
             i = i7 + 1;
-            charAt2 = charAt(this.bp + i7);
+            charAt2 = charAt(i7 + this.bp);
         } else {
             i = i7;
         }
         if (charAt2 == '-') {
             i2 = i + 1;
-            c = charAt(this.bp + i);
+            charAt2 = charAt(this.bp + i);
         } else {
-            c = charAt2;
             i2 = i;
         }
-        if (c >= '0' && c <= '9') {
+        if (charAt2 >= '0' && charAt2 <= '9') {
             while (true) {
                 i4 = i2 + 1;
                 charAt = charAt(i2 + this.bp);
@@ -3626,7 +3547,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 this.matchStat = -1;
                 return null;
             }
-        } else if (c == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
+        } else if (charAt2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
             this.matchStat = 5;
             int i12 = i2 + 3;
             int i13 = i12 + 1;
@@ -3669,25 +3590,24 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         int i3;
         int i4;
         char charAt;
+        int length;
         int i5;
-        char c;
         int i6;
-        int i7;
         BigInteger valueOf;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
             return null;
         }
-        int length = cArr.length;
-        int i8 = length + 1;
-        char charAt2 = charAt(length + this.bp);
+        int length2 = cArr.length;
+        int i7 = length2 + 1;
+        char charAt2 = charAt(length2 + this.bp);
         boolean z = charAt2 == '\"';
         if (z) {
-            i = i8 + 1;
-            charAt2 = charAt(this.bp + i8);
+            i = i7 + 1;
+            charAt2 = charAt(this.bp + i7);
         } else {
-            i = i8;
+            i = i7;
         }
         boolean z2 = charAt2 == '-';
         if (z2) {
@@ -3713,15 +3633,14 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                     return null;
                 }
                 i6 = i4 + 1;
-                c = charAt(this.bp + i4);
-                i7 = this.bp + cArr.length + 1;
-                i5 = ((this.bp + i6) - i7) - 2;
+                charAt = charAt(this.bp + i4);
+                int length3 = this.bp + cArr.length + 1;
+                i5 = ((this.bp + i6) - length3) - 2;
+                length = length3;
             } else {
-                int length2 = cArr.length + this.bp;
-                i5 = ((this.bp + i4) - length2) - 1;
-                c = charAt;
+                length = cArr.length + this.bp;
+                i5 = ((this.bp + i4) - length) - 1;
                 i6 = i4;
-                i7 = length2;
             }
             if (i5 < 20 || (z2 && i5 < 21)) {
                 if (z2) {
@@ -3729,32 +3648,32 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 }
                 valueOf = BigInteger.valueOf(j);
             } else {
-                valueOf = new BigInteger(subString(i7, i5));
+                valueOf = new BigInteger(subString(length, i5));
             }
-            if (c == ',') {
+            if (charAt == ',') {
                 this.bp += i6;
                 this.ch = charAt(this.bp);
                 this.matchStat = 3;
                 this.token = 16;
                 return valueOf;
-            } else if (c == '}') {
-                int i9 = i6 + 1;
+            } else if (charAt == '}') {
+                int i8 = i6 + 1;
                 char charAt3 = charAt(this.bp + i6);
                 if (charAt3 == ',') {
                     this.token = 16;
-                    this.bp += i9;
+                    this.bp += i8;
                     this.ch = charAt(this.bp);
                 } else if (charAt3 == ']') {
                     this.token = 15;
-                    this.bp += i9;
+                    this.bp += i8;
                     this.ch = charAt(this.bp);
                 } else if (charAt3 == '}') {
                     this.token = 13;
-                    this.bp += i9;
+                    this.bp += i8;
                     this.ch = charAt(this.bp);
                 } else if (charAt3 == 26) {
                     this.token = 20;
-                    this.bp += i9 - 1;
+                    this.bp += i8 - 1;
                     this.ch = JSONLexer.EOI;
                 } else {
                     this.matchStat = -1;
@@ -3768,14 +3687,14 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             }
         } else if (charAt2 == 'n' && charAt(this.bp + i2) == 'u' && charAt(this.bp + i2 + 1) == 'l' && charAt(this.bp + i2 + 2) == 'l') {
             this.matchStat = 5;
-            int i10 = i2 + 3;
-            int i11 = i10 + 1;
-            char charAt4 = charAt(i10 + this.bp);
+            int i9 = i2 + 3;
+            int i10 = i9 + 1;
+            char charAt4 = charAt(i9 + this.bp);
             if (z && charAt4 == '\"') {
-                i3 = i11 + 1;
-                charAt4 = charAt(this.bp + i11);
+                i3 = i10 + 1;
+                charAt4 = charAt(this.bp + i10);
             } else {
-                i3 = i11;
+                i3 = i10;
             }
             while (charAt4 != ',') {
                 if (charAt4 == '}') {
@@ -3804,25 +3723,20 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     }
 
     public Date scanFieldDate(char[] cArr) {
-        int i;
         boolean z;
+        int i;
         int i2;
         Date date;
         char c;
-        int i3;
-        int i4;
-        char charAt;
-        int i5;
-        String str;
         this.matchStat = 0;
         if (!charArrayCompare(cArr)) {
             this.matchStat = -2;
             return null;
         }
         int length = cArr.length;
-        int i6 = length + 1;
-        char charAt2 = charAt(length + this.bp);
-        if (charAt2 == '\"') {
+        int i3 = length + 1;
+        char charAt = charAt(length + this.bp);
+        if (charAt == '\"') {
             int indexOf = indexOf('\"', this.bp + cArr.length + 1);
             if (indexOf == -1) {
                 throw new JSONException("unclosed str");
@@ -3831,30 +3745,27 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             String subString = subString(length2, indexOf - length2);
             if (subString.indexOf(92) != -1) {
                 while (true) {
-                    int i7 = 0;
-                    for (int i8 = indexOf - 1; i8 >= 0 && charAt(i8) == '\\'; i8--) {
-                        i7++;
+                    int i4 = 0;
+                    for (int i5 = indexOf - 1; i5 >= 0 && charAt(i5) == '\\'; i5--) {
+                        i4++;
                     }
-                    if (i7 % 2 == 0) {
+                    if (i4 % 2 == 0) {
                         break;
                     }
                     indexOf = indexOf('\"', indexOf + 1);
                 }
                 int length3 = indexOf - ((this.bp + cArr.length) + 1);
-                String readString = readString(sub_chars(this.bp + cArr.length + 1, length3), length3);
-                i5 = indexOf;
-                str = readString;
-            } else {
-                i5 = indexOf;
-                str = subString;
+                subString = readString(sub_chars(this.bp + cArr.length + 1, length3), length3);
             }
-            int length4 = (i5 - ((this.bp + cArr.length) + 1)) + 1 + i6;
-            i3 = length4 + 1;
-            c = charAt(length4 + this.bp);
-            JSONScanner jSONScanner = new JSONScanner(str);
+            int length4 = (indexOf - ((this.bp + cArr.length) + 1)) + 1 + i3;
+            i2 = length4 + 1;
+            char charAt2 = charAt(length4 + this.bp);
+            JSONScanner jSONScanner = new JSONScanner(subString);
             try {
                 if (jSONScanner.scanISO8601DateIfMatch(false)) {
                     date = jSONScanner.getCalendar().getTime();
+                    jSONScanner.close();
+                    c = charAt2;
                 } else {
                     this.matchStat = -1;
                     return null;
@@ -3862,32 +3773,29 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             } finally {
                 jSONScanner.close();
             }
-        } else if (charAt2 == '-' || (charAt2 >= '0' && charAt2 <= '9')) {
+        } else if (charAt == '-' || (charAt >= '0' && charAt <= '9')) {
             long j = 0;
-            if (charAt2 == '-') {
-                int i9 = i6 + 1;
-                charAt2 = charAt(this.bp + i6);
+            if (charAt == '-') {
+                i = i3 + 1;
+                charAt = charAt(this.bp + i3);
                 z = true;
-                i = i9;
             } else {
-                i = i6;
                 z = false;
+                i = i3;
             }
-            if (charAt2 < '0' || charAt2 > '9') {
-                i2 = i;
-            } else {
-                j = charAt2 - '0';
+            if (charAt >= '0' && charAt <= '9') {
+                j = charAt - '0';
                 while (true) {
-                    i4 = i + 1;
+                    i2 = i + 1;
                     charAt = charAt(i + this.bp);
                     if (charAt < '0' || charAt > '9') {
                         break;
                     }
                     j = (j * 10) + (charAt - '0');
-                    i = i4;
+                    i = i2;
                 }
-                i2 = i4;
-                charAt2 = charAt;
+            } else {
+                i2 = i;
             }
             if (j < 0) {
                 this.matchStat = -1;
@@ -3897,35 +3805,34 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 j = -j;
             }
             date = new Date(j);
-            c = charAt2;
-            i3 = i2;
+            c = charAt;
         } else {
             this.matchStat = -1;
             return null;
         }
         if (c == ',') {
-            this.bp += i3;
+            this.bp += i2;
             this.ch = charAt(this.bp);
             this.matchStat = 3;
             return date;
         } else if (c == '}') {
-            int i10 = i3 + 1;
-            char charAt3 = charAt(this.bp + i3);
+            int i6 = i2 + 1;
+            char charAt3 = charAt(this.bp + i2);
             if (charAt3 == ',') {
                 this.token = 16;
-                this.bp += i10;
+                this.bp += i6;
                 this.ch = charAt(this.bp);
             } else if (charAt3 == ']') {
                 this.token = 15;
-                this.bp += i10;
+                this.bp += i6;
                 this.ch = charAt(this.bp);
             } else if (charAt3 == '}') {
                 this.token = 13;
-                this.bp += i10;
+                this.bp += i6;
                 this.ch = charAt(this.bp);
             } else if (charAt3 == 26) {
                 this.token = 20;
-                this.bp += i10 - 1;
+                this.bp += i6 - 1;
                 this.ch = JSONLexer.EOI;
             } else {
                 this.matchStat = -1;
@@ -3942,49 +3849,41 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     public Date scanDate(char c) {
         boolean z;
         int i;
-        int i2;
         Date date;
         char c2;
-        int i3;
-        int i4;
-        char charAt;
-        int i5;
-        String str;
         this.matchStat = 0;
-        char charAt2 = charAt(this.bp + 0);
-        if (charAt2 == '\"') {
+        int i2 = 1;
+        char charAt = charAt(this.bp + 0);
+        if (charAt == '\"') {
             int indexOf = indexOf('\"', this.bp + 1);
             if (indexOf == -1) {
                 throw new JSONException("unclosed str");
             }
-            int i6 = this.bp + 1;
-            String subString = subString(i6, indexOf - i6);
+            int i3 = this.bp + 1;
+            String subString = subString(i3, indexOf - i3);
             if (subString.indexOf(92) != -1) {
                 while (true) {
-                    int i7 = 0;
-                    for (int i8 = indexOf - 1; i8 >= 0 && charAt(i8) == '\\'; i8--) {
-                        i7++;
+                    int i4 = 0;
+                    for (int i5 = indexOf - 1; i5 >= 0 && charAt(i5) == '\\'; i5--) {
+                        i4++;
                     }
-                    if (i7 % 2 == 0) {
+                    if (i4 % 2 == 0) {
                         break;
                     }
                     indexOf = indexOf('\"', indexOf + 1);
                 }
-                int i9 = indexOf - (this.bp + 1);
-                String readString = readString(sub_chars(this.bp + 1, i9), i9);
-                i5 = indexOf;
-                str = readString;
-            } else {
-                i5 = indexOf;
-                str = subString;
+                int i6 = indexOf - (this.bp + 1);
+                subString = readString(sub_chars(this.bp + 1, i6), i6);
             }
-            int i10 = (i5 - (this.bp + 1)) + 1 + 1;
-            i3 = i10 + 1;
-            c2 = charAt(i10 + this.bp);
-            JSONScanner jSONScanner = new JSONScanner(str);
+            int i7 = (indexOf - (this.bp + 1)) + 1 + 1;
+            i = i7 + 1;
+            char charAt2 = charAt(i7 + this.bp);
+            JSONScanner jSONScanner = new JSONScanner(subString);
             try {
                 if (jSONScanner.scanISO8601DateIfMatch(false)) {
                     date = jSONScanner.getCalendar().getTime();
+                    jSONScanner.close();
+                    c2 = charAt2;
                 } else {
                     this.matchStat = -1;
                     return null;
@@ -3992,31 +3891,28 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
             } finally {
                 jSONScanner.close();
             }
-        } else if (charAt2 == '-' || (charAt2 >= '0' && charAt2 <= '9')) {
+        } else if (charAt == '-' || (charAt >= '0' && charAt <= '9')) {
             long j = 0;
-            if (charAt2 == '-') {
-                charAt2 = charAt(this.bp + 1);
+            if (charAt == '-') {
+                i2 = 2;
+                charAt = charAt(this.bp + 1);
                 z = true;
-                i = 2;
             } else {
                 z = false;
-                i = 1;
             }
-            if (charAt2 < '0' || charAt2 > '9') {
-                i2 = i;
-            } else {
-                j = charAt2 - '0';
+            if (charAt >= '0' && charAt <= '9') {
+                j = charAt - '0';
                 while (true) {
-                    i4 = i + 1;
-                    charAt = charAt(i + this.bp);
+                    i = i2 + 1;
+                    charAt = charAt(i2 + this.bp);
                     if (charAt < '0' || charAt > '9') {
                         break;
                     }
                     j = (j * 10) + (charAt - '0');
-                    i = i4;
+                    i2 = i;
                 }
-                i2 = i4;
-                charAt2 = charAt;
+            } else {
+                i = i2;
             }
             if (j < 0) {
                 this.matchStat = -1;
@@ -4026,41 +3922,40 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
                 j = -j;
             }
             date = new Date(j);
-            c2 = charAt2;
-            i3 = i2;
-        } else if (charAt2 == 'n' && charAt(this.bp + 1) == 'u' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 'l') {
+            c2 = charAt;
+        } else if (charAt == 'n' && charAt(this.bp + 1) == 'u' && charAt(this.bp + 1 + 1) == 'l' && charAt(this.bp + 1 + 2) == 'l') {
             this.matchStat = 5;
-            i3 = 5;
             c2 = charAt(this.bp + 4);
             date = null;
+            i = 5;
         } else {
             this.matchStat = -1;
             return null;
         }
         if (c2 == ',') {
-            this.bp += i3;
+            this.bp += i;
             this.ch = charAt(this.bp);
             this.matchStat = 3;
             this.token = 16;
             return date;
         } else if (c2 == ']') {
-            int i11 = i3 + 1;
-            char charAt3 = charAt(this.bp + i3);
+            int i8 = i + 1;
+            char charAt3 = charAt(this.bp + i);
             if (charAt3 == ',') {
                 this.token = 16;
-                this.bp += i11;
+                this.bp += i8;
                 this.ch = charAt(this.bp);
             } else if (charAt3 == ']') {
                 this.token = 15;
-                this.bp += i11;
+                this.bp += i8;
                 this.ch = charAt(this.bp);
             } else if (charAt3 == '}') {
                 this.token = 13;
-                this.bp += i11;
+                this.bp += i8;
                 this.ch = charAt(this.bp);
             } else if (charAt3 == 26) {
                 this.token = 20;
-                this.bp += i11 - 1;
+                this.bp += i8 - 1;
                 this.ch = JSONLexer.EOI;
             } else {
                 this.matchStat = -1;

@@ -3,7 +3,7 @@ package android.net.http;
 import android.net.compatibility.WebAddress;
 import java.io.InputStream;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class RequestHandle {
     public static final int MAX_REDIRECT_COUNT = 16;
 

@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class Download implements Serializable {
     public boolean mNotificationShowed;
     public String mUrl = "";
@@ -25,8 +25,10 @@ public class Download implements Serializable {
     public List mRequestHeaders = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    long f1335a = 0;
-    long b = 0;
+    long f1733a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    long f1734b = 0;
     int c = 0;
     boolean d = true;
 

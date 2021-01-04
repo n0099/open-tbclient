@@ -1,16 +1,16 @@
 package com.baidu.spswitch.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.spswitch.a;
 import com.baidu.spswitch.a.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
-    private b czm;
+    private b cEf;
     public static final String TAG = SPSwitchPanelLinearLayout.class.getSimpleName();
     public static final boolean DEBUG = com.baidu.spswitch.b.b.isDebug();
 
@@ -28,7 +28,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
     }
 
     private void init() {
-        this.czm = new b(this);
+        this.cEf = new b(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -36,27 +36,27 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
         if (DEBUG) {
             Log.d(TAG, "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i2));
         }
-        int[] ad = this.czm.ad(i, i2);
+        int[] Y = this.cEf.Y(i, i2);
         if (DEBUG) {
-            Log.d(TAG, "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(ad[1]));
+            Log.d(TAG, "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(Y[1]));
         }
-        super.onMeasure(ad[0], ad[1]);
+        super.onMeasure(Y[0], Y[1]);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.czm.hI(i)) {
+        if (!this.cEf.hC(i)) {
             super.setVisibility(i);
         }
     }
 
     @Override // com.baidu.spswitch.a
-    public void ahQ() {
+    public void aiZ() {
         super.setVisibility(0);
     }
 
     @Override // com.baidu.spswitch.a
-    public void ahR() {
-        this.czm.ahR();
+    public void aja() {
+        this.cEf.aja();
     }
 }

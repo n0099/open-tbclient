@@ -3,23 +3,25 @@ package com.baidu.tieba.myCollection;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.View;
+import androidx.fragment.app.Fragment;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 import java.util.Map;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private CustomMessageListener lnA = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private a lsQ;
+    private CustomMessageListener lsR = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,26 +29,25 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.lnz.djp()) {
-                    CollectTabActivity.this.lnz.tT(z);
+                if (i != -1 && i == CollectTabActivity.this.lsQ.djc()) {
+                    CollectTabActivity.this.lsQ.tU(z);
                 }
             }
         }
     };
-    private a lnz;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.collect_tab_activity);
-        this.lnz = new a(this);
-        registerListener(this.lnA);
-        djo();
-        ab(getIntent());
+        this.lsQ = new a(this);
+        registerListener(this.lsR);
+        djb();
+        aa(getIntent());
     }
 
-    protected void djo() {
+    protected void djb() {
         com.baidu.tbadk.collectTab.a aVar = new com.baidu.tbadk.collectTab.a(getPageContext().getPageActivity());
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
@@ -58,50 +59,50 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 return;
             }
         }
-        this.lnz.aX(aVar.getList());
+        this.lsQ.aX(aVar.getList());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.lnz.onChangeSkinType(i);
+        this.lsQ.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.lnz.djr()) {
-            this.lnz.tS(!this.lnz.djs());
+        if (view == this.lsQ.dje()) {
+            this.lsQ.tT(!this.lsQ.djf());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b.djt().tU(true);
-        b.djt().tV(false);
+        b.djg().tV(true);
+        b.djg().tW(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        b.djt().tU(false);
+        b.djg().tV(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment djq = this.lnz.djq();
-        if (djq != null) {
-            djq.onActivityResult(i, i2, intent);
+        Fragment djd = this.lsQ.djd();
+        if (djd != null) {
+            djd.onActivityResult(i, i2, intent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         try {
             super.onSaveInstanceState(bundle);
@@ -113,14 +114,14 @@ public class CollectTabActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        ab(intent);
+        aa(intent);
         setIntent(intent);
     }
 
-    private void ab(Intent intent) {
+    private void aa(Intent intent) {
         if (intent != null) {
             String dataString = intent.getDataString();
             if (!StringUtils.isNull(dataString) && dataString.startsWith("tbmycollection://")) {
@@ -128,9 +129,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 if (decode.startsWith("//")) {
                     decode = decode.substring(2);
                 }
-                Map<String, String> paramPair = bf.getParamPair(decode);
+                Map<String, String> paramPair = be.getParamPair(decode);
                 if (paramPair != null) {
-                    TiebaStatic.log(new ar("c10320").dY("obj_locate", paramPair.get("obj_locate")).al("obj_type", 1).dY("obj_source", paramPair.get("obj_source")).dY(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2)).al(TiebaInitialize.Params.OBJ_TO, 4));
+                    TiebaStatic.log(new aq("c10320").dX("obj_locate", paramPair.get("obj_locate")).an("obj_type", 1).dX("obj_source", paramPair.get("obj_source")).dX(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2)).an(TiebaInitialize.Params.OBJ_TO, 4).an("obj_name", TbadkCoreApplication.getInst().getStartType()).an(TiebaInitialize.Params.OBJ_PARAM3, 1));
                 }
             }
         }

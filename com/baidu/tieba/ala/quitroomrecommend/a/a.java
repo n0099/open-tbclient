@@ -15,8 +15,8 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.widget.listview.BdListView;
-import com.baidu.live.data.al;
-import com.baidu.live.data.w;
+import com.baidu.live.data.an;
+import com.baidu.live.data.x;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -25,37 +25,37 @@ import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.utils.k;
-import com.baidu.live.x.b;
+import com.baidu.live.y.b;
 import com.baidu.tieba.ala.quitroomrecommend.data.AlaQuitRoomRecommendResponseMessage;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a implements View.OnClickListener, b {
-    private w aLD;
-    private int aLv;
-    private TbPageContext bAn;
-    private View hTT;
-    private com.baidu.live.x.a hTU;
-    private com.baidu.tieba.ala.quitroomrecommend.a hTV;
-    private BdListView hTW;
-    private boolean hTX;
-    private int hUa;
-    private String hUb;
-    private long hUc;
-    private long hUd;
-    private boolean hUe;
+    private int aLZ;
+    private x aMh;
+    private TbPageContext bFa;
+    private int igA;
+    private String igB;
+    private long igC;
+    private long igD;
+    private boolean igE;
+    private View igt;
+    private com.baidu.live.y.a igu;
+    private com.baidu.tieba.ala.quitroomrecommend.a igv;
+    private BdListView igw;
+    private boolean igx;
     private Context mContext;
     private Dialog mDialog;
     private TextView mTitleView;
     private View rootView;
-    private long hTY = System.currentTimeMillis();
-    private long hTZ = 0;
-    private HttpMessageListener hUf = new HttpMessageListener(1021226) { // from class: com.baidu.tieba.ala.quitroomrecommend.a.a.2
+    private long igy = System.currentTimeMillis();
+    private long igz = 0;
+    private HttpMessageListener igF = new HttpMessageListener(1021226) { // from class: com.baidu.tieba.ala.quitroomrecommend.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021226 && (httpResponsedMessage instanceof AlaQuitRoomRecommendResponseMessage)) {
                 if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    a.this.coK();
+                    a.this.crD();
                 } else {
                     a.this.a((AlaQuitRoomRecommendResponseMessage) httpResponsedMessage);
                 }
@@ -64,49 +64,49 @@ public class a implements View.OnClickListener, b {
     };
 
     public a(TbPageContext tbPageContext) {
-        this.hUa = 1;
-        this.hUc = 7000L;
-        this.hUd = 3L;
-        this.hUe = false;
-        this.bAn = tbPageContext;
-        this.mContext = this.bAn.getPageActivity();
-        al alVar = com.baidu.live.ae.a.RB().brA;
-        if (alVar != null && alVar.aOK != null) {
-            this.hUa = alVar.aOK.aLv;
-            this.hUb = alVar.aOK.aLu;
-            this.hUc = alVar.aOK.aLt;
-            this.hUd = alVar.aOK.aLw;
-            this.hUe = alVar.aOK.aLx;
+        this.igA = 1;
+        this.igC = 7000L;
+        this.igD = 3L;
+        this.igE = false;
+        this.bFa = tbPageContext;
+        this.mContext = this.bFa.getPageActivity();
+        an anVar = com.baidu.live.af.a.SE().bwi;
+        if (anVar != null && anVar.aPr != null) {
+            this.igA = anVar.aPr.aLZ;
+            this.igB = anVar.aPr.aLY;
+            this.igC = anVar.aPr.aLX;
+            this.igD = anVar.aPr.aMa;
+            this.igE = anVar.aPr.aMb;
         }
     }
 
-    @Override // com.baidu.live.x.b
-    public void a(w wVar, com.baidu.live.x.a aVar) {
-        this.aLD = wVar;
-        this.hTU = aVar;
-        this.hTZ = System.currentTimeMillis();
+    @Override // com.baidu.live.y.b
+    public void a(x xVar, com.baidu.live.y.a aVar) {
+        this.aMh = xVar;
+        this.igu = aVar;
+        this.igz = System.currentTimeMillis();
     }
 
-    @Override // com.baidu.live.x.b
-    public void en(int i) {
+    @Override // com.baidu.live.y.b
+    public void el(int i) {
         if (this.mContext != null && this.mDialog != null && this.mDialog.isShowing()) {
             this.mDialog.dismiss();
         }
     }
 
-    private void coG() {
+    private void crz() {
         if (this.mDialog == null) {
-            coH();
+            crA();
             this.rootView = LayoutInflater.from(this.mContext).inflate(a.g.sdk_ala_quit_room_recommend_dialog, (ViewGroup) null);
             this.mTitleView = (TextView) this.rootView.findViewById(a.f.sdk_ala_quit_tv_title);
-            if (!TextUtils.isEmpty(this.hUb)) {
-                this.mTitleView.setText(this.hUb);
+            if (!TextUtils.isEmpty(this.igB)) {
+                this.mTitleView.setText(this.igB);
             }
-            this.hTW = (BdListView) this.rootView.findViewById(a.f.sdk_ala_recommend_bdlist);
-            this.hTV = new com.baidu.tieba.ala.quitroomrecommend.a(this.mContext);
-            this.hTW.setAdapter((ListAdapter) this.hTV);
-            this.hTT = this.rootView.findViewById(a.f.sdk_ala_tv_exit);
-            this.hTT.setOnClickListener(this);
+            this.igw = (BdListView) this.rootView.findViewById(a.f.sdk_ala_recommend_bdlist);
+            this.igv = new com.baidu.tieba.ala.quitroomrecommend.a(this.mContext);
+            this.igw.setAdapter((ListAdapter) this.igv);
+            this.igt = this.rootView.findViewById(a.f.sdk_ala_tv_exit);
+            this.igt.setOnClickListener(this);
             this.mDialog = new Dialog(this.mContext, a.i.sdk_TransparentDialog);
             this.mDialog.requestWindowFeature(1);
             this.mDialog.setCancelable(true);
@@ -131,103 +131,103 @@ public class a implements View.OnClickListener, b {
         }
     }
 
-    private void coH() {
+    private void crA() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "quitreco_show").setContentExt(null, "quit_reco", null));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaQuitRoomRecommendResponseMessage alaQuitRoomRecommendResponseMessage) {
-        if (alaQuitRoomRecommendResponseMessage == null || alaQuitRoomRecommendResponseMessage.hUk == null || alaQuitRoomRecommendResponseMessage.hUk.isEmpty()) {
-            coI();
+        if (alaQuitRoomRecommendResponseMessage == null || alaQuitRoomRecommendResponseMessage.igK == null || alaQuitRoomRecommendResponseMessage.igK.isEmpty()) {
+            crB();
             return;
         }
-        coG();
-        if (this.hTV != null) {
-            this.hTV.setData(alaQuitRoomRecommendResponseMessage.hUk);
+        crz();
+        if (this.igv != null) {
+            this.igv.setData(alaQuitRoomRecommendResponseMessage.igK);
         }
     }
 
-    private void coI() {
-        coJ();
+    private void crB() {
+        crC();
     }
 
-    private void coJ() {
-        if (this.hTU != null) {
-            this.hTU.QO();
+    private void crC() {
+        if (this.igu != null) {
+            this.igu.RR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void coK() {
-        coJ();
+    public void crD() {
+        crC();
     }
 
-    private void bFR() {
-        if (this.aLD != null && this.aLD.mLiveInfo != null) {
-            if (!this.hTX) {
-                this.hTX = true;
-                MessageManager.getInstance().registerListener(this.hUf);
+    private void bIm() {
+        if (this.aMh != null && this.aMh.mLiveInfo != null) {
+            if (!this.igx) {
+                this.igx = true;
+                MessageManager.getInstance().registerListener(this.igF);
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.hTY >= 1800000) {
-                this.hTY = currentTimeMillis;
+            if (currentTimeMillis - this.igy >= 1800000) {
+                this.igy = currentTimeMillis;
             }
             com.baidu.tieba.ala.quitroomrecommend.data.b bVar = new com.baidu.tieba.ala.quitroomrecommend.data.b();
-            int i = this.aLv;
-            this.aLv = i + 1;
-            bVar.hUj = i;
-            bVar.roomId = this.aLD.mLiveInfo.room_id;
-            bVar.hTY = this.hTY;
+            int i = this.aLZ;
+            this.aLZ = i + 1;
+            bVar.igJ = i;
+            bVar.roomId = this.aMh.mLiveInfo.room_id;
+            bVar.igy = this.igy;
             bVar.setParams();
             MessageManager.getInstance().sendMessage(bVar);
         }
     }
 
-    @Override // com.baidu.live.x.b
+    @Override // com.baidu.live.y.b
     public void onDestroy() {
-        this.hTX = false;
-        MessageManager.getInstance().unRegisterListener(this.hUf);
+        this.igx = false;
+        MessageManager.getInstance().unRegisterListener(this.igF);
     }
 
-    @Override // com.baidu.live.x.b
-    public boolean QP() {
-        if (this.hUe && TbadkCoreApplication.isLogin() && System.currentTimeMillis() - this.hTZ >= this.hUc && SharedPrefHelper.getInstance().getInt("KEY_QUITROOMRECOMMEND_CLICK_EXIT_COUNT", 0) < this.hUd && !coL()) {
-            bFR();
+    @Override // com.baidu.live.y.b
+    public boolean RS() {
+        if (this.igE && TbadkCoreApplication.isLogin() && System.currentTimeMillis() - this.igz >= this.igC && SharedPrefHelper.getInstance().getInt("KEY_QUITROOMRECOMMEND_CLICK_EXIT_COUNT", 0) < this.igD && !crE()) {
+            bIm();
             return true;
         }
         return false;
     }
 
-    private boolean coL() {
+    private boolean crE() {
         int i;
-        String b = k.b(new Date());
+        String b2 = k.b(new Date());
         String string = SharedPrefHelper.getInstance().getString("KEY_QUITROOMRECOMMEND_COUNT", "");
         if (string.contains(",")) {
             String[] split = string.split(",");
-            if (b.equals(split[0])) {
+            if (b2.equals(split[0])) {
                 i = Integer.valueOf(split[1]).intValue();
-                if (i >= this.hUa) {
+                if (i >= this.igA) {
                     return true;
                 }
-                this.aLv = i;
-                SharedPrefHelper.getInstance().putString("KEY_QUITROOMRECOMMEND_COUNT", b + "," + (i + 1));
+                this.aLZ = i;
+                SharedPrefHelper.getInstance().putString("KEY_QUITROOMRECOMMEND_COUNT", b2 + "," + (i + 1));
                 return false;
             }
         }
         i = 0;
-        this.aLv = i;
-        SharedPrefHelper.getInstance().putString("KEY_QUITROOMRECOMMEND_COUNT", b + "," + (i + 1));
+        this.aLZ = i;
+        SharedPrefHelper.getInstance().putString("KEY_QUITROOMRECOMMEND_COUNT", b2 + "," + (i + 1));
         return false;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hTT == view) {
+        if (this.igt == view) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "quitlive_click").setContentExt(null, "quit_reco", null));
             if (this.mDialog != null && this.mDialog.isShowing()) {
                 this.mDialog.dismiss();
             }
-            coJ();
+            crC();
         }
     }
 }

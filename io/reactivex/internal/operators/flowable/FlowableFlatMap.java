@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableFlatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final boolean delayErrors;
@@ -23,8 +23,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
-        if (!c.a(this.pFi, cVar, this.mapper)) {
-            this.pFi.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
+        if (!c.a(this.qgK, cVar, this.mapper)) {
+            this.qgK.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
         }
     }
 
@@ -33,7 +33,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class MergeSubscriber<T, U> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = -2117620485640801370L;
         final org.a.c<? super U> actual;
@@ -107,7 +107,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.J(th);
+                            io.reactivex.exceptions.a.O(th);
                             this.errs.addThrowable(th);
                             drain();
                             return;
@@ -120,7 +120,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                         bVar.subscribe(innerSubscriber);
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.J(th2);
+                    io.reactivex.exceptions.a.O(th2);
                     this.upstream.cancel();
                     onError(th2);
                 }
@@ -328,9 +328,9 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:74:0x0133, code lost:
-            r25.lastIndex = r11;
-            r25.lastId = r4[r11].id;
+        /* JADX WARN: Code restructure failed: missing block: B:73:0x0130, code lost:
+            r23.lastIndex = r13;
+            r23.lastId = r4[r13].id;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -338,55 +338,53 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
         void drainLoop() {
             boolean z;
             long j;
-            long j2;
-            long j3;
-            long j4;
-            boolean z2;
+            Object obj;
             int i;
             int i2;
+            long j2;
             U u;
             org.a.c<? super U> cVar = this.actual;
             int i3 = 1;
             while (!checkTerminate()) {
                 e<U> eVar = this.queue;
-                long j5 = this.requested.get();
-                boolean z3 = j5 == Long.MAX_VALUE;
-                long j6 = 0;
+                long j3 = this.requested.get();
+                boolean z2 = j3 == Long.MAX_VALUE;
+                long j4 = 0;
                 if (eVar != null) {
                     do {
-                        long j7 = 0;
+                        long j5 = 0;
                         u = (U) null;
-                        while (j5 != 0) {
+                        while (j3 != 0) {
                             u = eVar.poll();
                             if (!checkTerminate()) {
                                 if (u == null) {
                                     break;
                                 }
                                 cVar.onNext(u);
-                                j5--;
-                                j7 = 1 + j7;
-                                j6 = 1 + j6;
+                                j4++;
+                                j5++;
+                                j3--;
                             } else {
                                 return;
                             }
                         }
-                        if (j7 != 0) {
-                            if (z3) {
-                                j5 = Long.MAX_VALUE;
+                        if (j5 != 0) {
+                            if (z2) {
+                                j3 = Long.MAX_VALUE;
                             } else {
-                                j5 = this.requested.addAndGet(-j7);
+                                j3 = this.requested.addAndGet(-j5);
                             }
                         }
-                        if (j5 == 0) {
+                        if (j3 == 0) {
                             break;
                         }
                     } while (u != null);
                 }
-                boolean z4 = this.done;
+                boolean z3 = this.done;
                 e<U> eVar2 = this.queue;
                 InnerSubscriber<?, ?>[] innerSubscriberArr = this.subscribers.get();
                 int length = innerSubscriberArr.length;
-                if (z4 && ((eVar2 == null || eVar2.isEmpty()) && length == 0)) {
+                if (z3 && ((eVar2 == null || eVar2.isEmpty()) && length == 0)) {
                     Throwable terminate = this.errs.terminate();
                     if (terminate != ExceptionHelper.TERMINATED) {
                         if (terminate == null) {
@@ -401,15 +399,15 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                 }
                 if (length == 0) {
                     z = false;
-                    j = j6;
+                    j = j4;
                 } else {
-                    long j8 = this.lastId;
+                    long j6 = this.lastId;
                     int i4 = this.lastIndex;
-                    if (length <= i4 || innerSubscriberArr[i4].id != j8) {
+                    if (length <= i4 || innerSubscriberArr[i4].id != j6) {
                         if (length <= i4) {
                             i4 = 0;
                         }
-                        for (int i5 = 0; i5 < length && innerSubscriberArr[i4].id != j8; i5++) {
+                        for (int i5 = 0; i5 < length && innerSubscriberArr[i4].id != j6; i5++) {
                             i4++;
                             if (i4 == length) {
                                 i4 = 0;
@@ -418,26 +416,23 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                         this.lastIndex = i4;
                         this.lastId = innerSubscriberArr[i4].id;
                     }
-                    boolean z5 = false;
-                    int i6 = i4;
-                    int i7 = 0;
-                    j = j6;
+                    int i6 = 0;
+                    int i7 = i4;
+                    boolean z4 = false;
+                    j = j4;
                     while (true) {
-                        if (i7 >= length) {
-                            z = z5;
+                        if (i6 >= length) {
+                            z = z4;
                             break;
                         } else if (!checkTerminate()) {
-                            InnerSubscriber<T, U> innerSubscriber = innerSubscriberArr[i6];
-                            Object obj = null;
+                            InnerSubscriber<T, U> innerSubscriber = innerSubscriberArr[i7];
+                            long j7 = j3;
                             while (!checkTerminate()) {
                                 f<U> fVar = innerSubscriber.queue;
-                                if (fVar == null) {
-                                    j2 = j5;
-                                } else {
-                                    long j9 = 0;
-                                    long j10 = j5;
+                                if (fVar != null) {
+                                    long j8 = 0;
                                     U u2 = (U) obj;
-                                    while (j10 != 0) {
+                                    while (j7 != 0) {
                                         try {
                                             u2 = fVar.poll();
                                             if (u2 == null) {
@@ -445,13 +440,13 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                             }
                                             cVar.onNext(u2);
                                             if (!checkTerminate()) {
-                                                j10--;
-                                                j9 = 1 + j9;
+                                                j7--;
+                                                j8 = 1 + j8;
                                             } else {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.J(th);
+                                            io.reactivex.exceptions.a.O(th);
                                             innerSubscriber.dispose();
                                             this.errs.addThrowable(th);
                                             if (!this.delayErrors) {
@@ -459,35 +454,28 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                             }
                                             if (!checkTerminate()) {
                                                 removeInner(innerSubscriber);
-                                                i2 = i7 + 1;
-                                                z2 = true;
-                                                i = i6;
-                                                j4 = j;
-                                                j3 = j10;
+                                                z = true;
+                                                i2 = i6 + 1;
+                                                i = i7;
                                             } else {
                                                 return;
                                             }
                                         }
                                     }
-                                    if (j9 != 0) {
-                                        if (!z3) {
-                                            j2 = this.requested.addAndGet(-j9);
+                                    if (j8 != 0) {
+                                        if (!z2) {
+                                            j2 = this.requested.addAndGet(-j8);
                                         } else {
                                             j2 = Long.MAX_VALUE;
                                         }
-                                        innerSubscriber.requestMore(j9);
-                                    } else {
-                                        j2 = j10;
+                                        innerSubscriber.requestMore(j8);
+                                        j7 = j2;
                                     }
-                                    if (j2 != 0 && u2 != null) {
-                                        Object obj2 = u2;
-                                        j5 = j2;
-                                        obj = obj2;
-                                    }
+                                    obj = (j7 == 0 || u2 == null) ? null : u2;
                                 }
-                                boolean z6 = innerSubscriber.done;
+                                boolean z5 = innerSubscriber.done;
                                 f<U> fVar2 = innerSubscriber.queue;
-                                if (z6 && (fVar2 == null || fVar2.isEmpty())) {
+                                if (z5 && (fVar2 == null || fVar2.isEmpty())) {
                                     removeInner(innerSubscriber);
                                     if (!checkTerminate()) {
                                         j++;
@@ -496,32 +484,22 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                         return;
                                     }
                                 } else {
-                                    z = z5;
+                                    z = z4;
                                 }
-                                if (j2 == 0) {
+                                if (j7 == 0) {
                                     break;
                                 }
-                                int i8 = i6 + 1;
-                                if (i8 == length) {
-                                    int i9 = i7;
-                                    j4 = j;
-                                    j3 = j2;
-                                    i2 = i9;
+                                i = i7 + 1;
+                                if (i == length) {
                                     i = 0;
-                                    z2 = z;
+                                    i2 = i6;
                                 } else {
-                                    int i10 = i7;
-                                    j4 = j;
-                                    j3 = j2;
-                                    i2 = i10;
-                                    i = i8;
-                                    z2 = z;
+                                    i2 = i6;
                                 }
-                                z5 = z2;
-                                j5 = j3;
-                                j = j4;
-                                i7 = i2 + 1;
-                                i6 = i;
+                                z4 = z;
+                                i6 = i2 + 1;
+                                i7 = i;
+                                j3 = j7;
                             }
                             return;
                         } else {
@@ -596,7 +574,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class InnerSubscriber<T, U> extends AtomicReference<d> implements io.reactivex.disposables.b, j<U> {
         private static final long serialVersionUID = -4606175640614850599L;
         final int bufferSize;

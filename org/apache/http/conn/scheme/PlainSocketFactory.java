@@ -5,7 +5,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public final class PlainSocketFactory implements SocketFactory {
     public PlainSocketFactory(HostNameResolver hostNameResolver) {
         throw new RuntimeException("Stub!");

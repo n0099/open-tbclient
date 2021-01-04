@@ -1,16 +1,16 @@
 package com.baidu.cesium.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 class e {
     public static int c = 5;
     public static int d = 40;
-    private b ane = new b(d);
+    private b anJ = new b(d);
 
     public e() {
-        this.ane.a(0, d, true);
+        this.anJ.a(0, d, true);
     }
 
     public void a(b bVar, int i, int i2, int i3) {
-        b d2 = this.ane.d(i, i + i2);
+        b d2 = this.anJ.d(i, i + i2);
         switch (i3) {
             case 0:
                 d2.b(bVar);
@@ -29,11 +29,11 @@ class e {
                 break;
         }
         for (int i4 = 0; i4 < i2; i4++) {
-            this.ane.a(i + i4, d2.d(i4));
+            this.anJ.a(i + i4, d2.d(i4));
         }
     }
 
     public byte[] b() {
-        return this.ane.a();
+        return this.anJ.a();
     }
 }

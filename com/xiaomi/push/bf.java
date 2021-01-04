@@ -1,6 +1,7 @@
 package com.xiaomi.push;
 
 import android.text.TextUtils;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -9,7 +10,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.regex.Pattern;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class bf {
     public static String a(int i) {
         Random random = new Random();
@@ -25,8 +26,8 @@ public class bf {
             return "";
         }
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(m157a(str));
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
+            messageDigest.update(m183a(str));
             return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (NoSuchAlgorithmException e) {
             return str;
@@ -134,7 +135,7 @@ public class bf {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m156a(String str) {
+    public static boolean m182a(String str) {
         if (str != null) {
             for (int i = 0; i < str.length(); i++) {
                 char charAt = str.charAt(i);
@@ -147,7 +148,7 @@ public class bf {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m157a(String str) {
+    public static byte[] m183a(String str) {
         try {
             return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -159,7 +160,7 @@ public class bf {
         if (str != null) {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                messageDigest.update(m157a(str));
+                messageDigest.update(m183a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException e) {
                 return str;
@@ -169,7 +170,7 @@ public class bf {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m158b(String str) {
+    public static boolean m184b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

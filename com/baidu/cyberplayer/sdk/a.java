@@ -1,55 +1,57 @@
 package com.baidu.cyberplayer.sdk;
 
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<C0108a> f1357a = new ArrayList<>();
+    private ArrayList<C0100a> f1772a = new ArrayList<>();
 
     /* renamed from: com.baidu.cyberplayer.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    public static class C0108a {
+    /* loaded from: classes6.dex */
+    public static class C0100a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f1358a;
-        private Object b;
+        private String f1773a;
 
-        public C0108a(String str, Object obj) {
-            this.f1358a = str;
-            this.b = obj;
+        /* renamed from: b  reason: collision with root package name */
+        private Object f1774b;
+
+        public C0100a(String str, Object obj) {
+            this.f1773a = str;
+            this.f1774b = obj;
         }
 
         public String a() {
-            return this.f1358a;
+            return this.f1773a;
         }
 
         public void a(Object obj) {
-            this.b = obj;
+            this.f1774b = obj;
         }
 
         public Object b() {
-            return this.b;
+            return this.f1774b;
         }
     }
 
     public void a() {
-        this.f1357a.clear();
+        this.f1772a.clear();
     }
 
     public void a(String str, Object obj) {
-        int size = this.f1357a.size();
+        int size = this.f1772a.size();
         for (int i = 0; i < size; i++) {
-            C0108a c0108a = this.f1357a.get(i);
-            if (c0108a != null && c0108a.a() != null && c0108a.a().equals(str)) {
-                c0108a.a(obj);
+            C0100a c0100a = this.f1772a.get(i);
+            if (c0100a != null && c0100a.a() != null && c0100a.a().equals(str)) {
+                c0100a.a(obj);
                 return;
             }
         }
-        this.f1357a.add(new C0108a(str, obj));
+        this.f1772a.add(new C0100a(str, obj));
     }
 
-    public ArrayList<C0108a> b() {
-        return this.f1357a;
+    public ArrayList<C0100a> b() {
+        return this.f1772a;
     }
 }

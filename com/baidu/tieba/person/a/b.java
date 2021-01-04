@@ -6,9 +6,10 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
-public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.data.c, com.baidu.tieba.person.b.b> {
-    private View.OnClickListener bDc;
+import com.baidu.tieba.person.holder.PersonInfoAddUserPicViewHolder;
+/* loaded from: classes8.dex */
+public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.data.c, PersonInfoAddUserPicViewHolder> {
+    private View.OnClickListener bHO;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -19,24 +20,24 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cB */
-    public com.baidu.tieba.person.b.b c(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.b(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.user_pic_add_item, (ViewGroup) null));
+    /* renamed from: cN */
+    public PersonInfoAddUserPicViewHolder e(ViewGroup viewGroup) {
+        return new PersonInfoAddUserPicViewHolder(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.user_pic_add_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.c cVar, com.baidu.tieba.person.b.b bVar) {
-        if (bVar == null || cVar == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.c cVar, PersonInfoAddUserPicViewHolder personInfoAddUserPicViewHolder) {
+        if (personInfoAddUserPicViewHolder == null || cVar == null) {
             return null;
         }
-        bVar.F(this.bDc);
-        bVar.h(cVar);
-        return bVar.getView();
+        personInfoAddUserPicViewHolder.H(this.bHO);
+        personInfoAddUserPicViewHolder.h(cVar);
+        return personInfoAddUserPicViewHolder.getView();
     }
 
-    public void F(View.OnClickListener onClickListener) {
-        this.bDc = onClickListener;
+    public void H(View.OnClickListener onClickListener) {
+        this.bHO = onClickListener;
     }
 }

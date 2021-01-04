@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import tbclient.ForumMenu.DataReq;
 import tbclient.ForumMenu.ForumMenuReqIdl;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class RequestOfficialBarMenuLocalMessage extends CustomMessage<Object> {
     private String forum_id;
     private long timestamp;

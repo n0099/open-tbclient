@@ -4,21 +4,23 @@ import com.baidu.platform.comapi.exception.ComInitException;
 import com.baidu.platform.comapi.exception.InvalidComException;
 import com.baidu.platform.comjni.base.longlink.NALongLink;
 import java.util.ArrayList;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class LongLinkClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2866a;
-    private long b;
+    private int f4242a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private long f4243b;
     private int c;
 
     private LongLinkClient(long j) {
-        this.b = j;
+        this.f4243b = j;
     }
 
     private LongLinkClient(long j, int i) {
-        this.b = j;
-        this.f2866a = i;
+        this.f4243b = j;
+        this.f4242a = i;
     }
 
     public static LongLinkClient create() throws ComInitException {
@@ -43,27 +45,27 @@ public class LongLinkClient {
 
     public boolean init(String str, String str2) throws InvalidComException {
         if (isValid()) {
-            return NALongLink.init(this.b, str, str2);
+            return NALongLink.init(this.f4243b, str, str2);
         }
         throw new InvalidComException();
     }
 
     public boolean isValid() {
-        return this.b != 0;
+        return this.f4243b != 0;
     }
 
     public synchronized boolean register(LongLinkDataCallback longLinkDataCallback) throws InvalidComException {
         if (!isValid()) {
             throw new InvalidComException();
         }
-        return NALongLink.register(this.b, this.f2866a, longLinkDataCallback);
+        return NALongLink.register(this.f4243b, this.f4242a, longLinkDataCallback);
     }
 
     public int release() {
-        if (!isValid() || NALongLink.release(this.b) > 0) {
+        if (!isValid() || NALongLink.release(this.f4243b) > 0) {
             return -1;
         }
-        this.b = 0L;
+        this.f4243b = 0L;
         return -1;
     }
 
@@ -73,7 +75,7 @@ public class LongLinkClient {
             throw new InvalidComException();
         }
         this.c++;
-        eLongLinkStatus = ELongLinkStatus.values()[NALongLink.sendData(this.b, this.f2866a, this.c, bArr)];
+        eLongLinkStatus = ELongLinkStatus.values()[NALongLink.sendData(this.f4243b, this.f4242a, this.c, bArr)];
         eLongLinkStatus.setRequestId(this.c);
         return eLongLinkStatus;
     }
@@ -84,18 +86,18 @@ public class LongLinkClient {
             throw new InvalidComException();
         }
         this.c++;
-        eLongLinkStatus = ELongLinkStatus.values()[NALongLink.sendFileData(this.b, this.f2866a, this.c, str, arrayList)];
+        eLongLinkStatus = ELongLinkStatus.values()[NALongLink.sendFileData(this.f4243b, this.f4242a, this.c, str, arrayList)];
         eLongLinkStatus.setRequestId(this.c);
         return eLongLinkStatus;
     }
 
     public void setModuleId(int i) {
-        this.f2866a = i;
+        this.f4242a = i;
     }
 
     public boolean start() throws InvalidComException {
         if (isValid()) {
-            return NALongLink.start(this.b);
+            return NALongLink.start(this.f4243b);
         }
         throw new InvalidComException();
     }
@@ -104,13 +106,13 @@ public class LongLinkClient {
         if (!isValid()) {
             throw new InvalidComException();
         }
-        NALongLink.stop(this.b);
+        NALongLink.stop(this.f4243b);
     }
 
     public synchronized boolean unRegister(LongLinkDataCallback longLinkDataCallback) throws InvalidComException {
         if (!isValid()) {
             throw new InvalidComException();
         }
-        return NALongLink.unRegister(this.b, this.f2866a, longLinkDataCallback);
+        return NALongLink.unRegister(this.f4243b, this.f4242a, longLinkDataCallback);
     }
 }

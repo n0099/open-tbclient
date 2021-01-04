@@ -5,17 +5,20 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.MapSurfaceView;
 import com.baidu.platform.comapi.util.SysOSUtil;
 import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class MapViewTest extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    MapSurfaceView f2030a;
-    MapController b;
+    MapSurfaceView f2850a;
+
+    /* renamed from: b  reason: collision with root package name */
+    MapController f2851b;
 
     public MapViewTest(Context context) {
         super(context);
@@ -27,15 +30,15 @@ public class MapViewTest extends ViewGroup {
     }
 
     private void a(Context context) {
-        this.f2030a = new MapSurfaceView(context);
-        if (this.b == null) {
-            this.b = new MapController();
-            this.b.initBaseMap();
-            a(this.b);
+        this.f2850a = new MapSurfaceView(context);
+        if (this.f2851b == null) {
+            this.f2851b = new MapController();
+            this.f2851b.initBaseMap();
+            a(this.f2851b);
         }
-        this.b.onResume();
-        this.f2030a.setMapController(this.b);
-        addView(this.f2030a);
+        this.f2851b.onResume();
+        this.f2850a.setMapController(this.f2851b);
+        addView(this.f2850a);
     }
 
     private void a(MapController mapController) {
@@ -44,7 +47,7 @@ public class MapViewTest extends ViewGroup {
             }
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble("level", 12.0d);
+        bundle.putDouble(MapBundleKey.MapObjKey.OBJ_LEVEL, 12.0d);
         bundle.putDouble("centerptx", 1.295815798E7d);
         bundle.putDouble("centerpty", 4825999.74d);
         bundle.putDouble("centerptz", 0.0d);
@@ -52,7 +55,7 @@ public class MapViewTest extends ViewGroup {
         bundle.putInt(VerticalTranslateLayout.TOP, 0);
         int screenHeight = SysOSUtil.getInstance().getScreenHeight();
         bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, SysOSUtil.getInstance().getScreenWidth());
-        bundle.putInt(VerticalTranslateLayout.BOTTOM, screenHeight);
+        bundle.putInt("bottom", screenHeight);
         String str = SysOSUtil.getInstance().getSdcardPath() + File.separator + "baidusdkdemo";
         String str2 = str + File.separator + "cache";
         bundle.putString("modulePath", SysOSUtil.getInstance().getOutputDirPath());
@@ -80,6 +83,6 @@ public class MapViewTest extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.f2030a.layout(0, 0, getWidth(), getHeight());
+        this.f2850a.layout(0, 0, getWidth(), getHeight());
     }
 }

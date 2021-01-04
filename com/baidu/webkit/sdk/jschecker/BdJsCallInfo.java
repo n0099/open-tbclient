@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk.jschecker;
 
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class BdJsCallInfo implements INoProGuard {
     private String mJsInterfaceName;
     private String mJsMethodName;

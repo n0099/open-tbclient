@@ -2,9 +2,9 @@ package kotlin.collections;
 
 import java.util.Iterator;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public abstract class u implements Iterator<Double> {
-    public abstract double eyG();
+    public abstract double eCs();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class u implements Iterator<Double> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eDL */
+    /* renamed from: eLT */
     public final Double next() {
-        return Double.valueOf(eyG());
+        return Double.valueOf(eCs());
     }
 }

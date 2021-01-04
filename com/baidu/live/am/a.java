@@ -1,38 +1,21 @@
 package com.baidu.live.am;
 
-import android.view.KeyEvent;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.live.data.w;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.AlaLiveUserInfoData;
+/* loaded from: classes11.dex */
 public interface a {
-    void L(Object obj);
 
-    boolean Su();
+    /* renamed from: com.baidu.live.am.a$a  reason: collision with other inner class name */
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0172a {
+    }
 
-    void WD();
+    a a(int i, String str, String str2, String str3, String str4, int i2, String str5);
 
-    boolean WE();
+    void a(InterfaceC0172a interfaceC0172a);
 
-    void WF();
+    void a(AlaLiveUserInfoData alaLiveUserInfoData, String str);
 
-    void WG();
-
-    void WH();
-
-    void a(FrameLayout frameLayout);
-
-    void a(b bVar);
+    void gC(int i);
 
     void onDestroy();
-
-    boolean onKeyDown(int i, KeyEvent keyEvent);
-
-    void s(w wVar);
-
-    void setMute(boolean z);
-
-    void u(ViewGroup viewGroup);
-
-    void v(ViewGroup viewGroup);
 }

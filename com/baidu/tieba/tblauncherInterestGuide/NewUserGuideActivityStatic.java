@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.NewUserGuideActivityConfig;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class NewUserGuideActivityStatic {
     public static String Tag = "tag";
 

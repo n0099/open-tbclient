@@ -3,25 +3,25 @@ package kotlin.jvm.internal;
 import java.util.NoSuchElementException;
 import kotlin.collections.z;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class j extends z {
     private int index;
-    private final long[] pKB;
+    private final long[] qme;
 
     public j(long[] jArr) {
         p.o(jArr, com.baidu.fsg.base.statistics.b.j);
-        this.pKB = jArr;
+        this.qme = jArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.pKB.length;
+        return this.index < this.qme.length;
     }
 
     @Override // kotlin.collections.z
-    public long eyH() {
+    public long eCt() {
         try {
-            long[] jArr = this.pKB;
+            long[] jArr = this.qme;
             int i = this.index;
             this.index = i + 1;
             return jArr[i];

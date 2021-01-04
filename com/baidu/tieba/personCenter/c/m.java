@@ -1,34 +1,34 @@
 package com.baidu.tieba.personCenter.c;
 
 import tbclient.SmartApp;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class m implements c {
-    private String OW;
-    private String eHR;
+    private String OZ;
+    private String eRJ;
     private String mAppKey;
     private String mLink;
     private String mName;
     private int mType;
-    private Long mkG;
-    private String mkH;
-    private String mkI;
-    private Integer mkJ;
+    private Long mpP;
+    private String mpQ;
+    private String mpR;
+    private Integer mpS;
 
     public m(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.mkG = smartApp.swan_app_id;
+            this.mpP = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
-            this.eHR = smartApp.avatar;
+            this.eRJ = smartApp.avatar;
             this.mName = smartApp.name;
-            this.OW = smartApp._abstract;
-            this.mkH = smartApp.pic;
-            this.mkI = smartApp.h5_url;
+            this.OZ = smartApp._abstract;
+            this.mpQ = smartApp.pic;
+            this.mpR = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.mkJ = smartApp.is_game;
+            this.mpS = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class m implements c {
         return this.mType;
     }
 
-    public Long dyA() {
-        return this.mkG;
+    public Long dyp() {
+        return this.mpP;
     }
 
     public String getAppKey() {
@@ -46,7 +46,7 @@ public class m implements c {
     }
 
     public String getAvatar() {
-        return this.eHR;
+        return this.eRJ;
     }
 
     public String getName() {
@@ -54,14 +54,14 @@ public class m implements c {
     }
 
     public String getH5Url() {
-        return this.mkI;
+        return this.mpR;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer dyB() {
-        return this.mkJ;
+    public Integer dyq() {
+        return this.mpS;
     }
 }

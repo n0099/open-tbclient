@@ -1,12 +1,12 @@
 package com.airbnb.lottie.c;
 
-import android.support.annotation.Nullable;
 import android.util.JsonReader;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class g {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -17,7 +17,7 @@ public class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static com.airbnb.lottie.model.content.b m(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+    public static com.airbnb.lottie.model.content.b m(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         String str;
         com.airbnb.lottie.model.content.b v;
         boolean z;
@@ -157,44 +157,44 @@ public class g {
         }
         switch (c) {
             case 0:
-                v = af.x(jsonReader, eVar);
+                v = af.x(jsonReader, dVar);
                 break;
             case 1:
-                v = ah.z(jsonReader, eVar);
+                v = ah.z(jsonReader, dVar);
                 break;
             case 2:
-                v = n.p(jsonReader, eVar);
+                v = n.p(jsonReader, dVar);
                 break;
             case 3:
-                v = ae.w(jsonReader, eVar);
+                v = ae.w(jsonReader, dVar);
                 break;
             case 4:
-                v = m.o(jsonReader, eVar);
+                v = m.o(jsonReader, dVar);
                 break;
             case 5:
-                v = c.e(jsonReader, eVar);
+                v = c.e(jsonReader, dVar);
                 break;
             case 6:
-                v = ag.y(jsonReader, eVar);
+                v = ag.y(jsonReader, dVar);
                 break;
             case 7:
-                v = e.b(jsonReader, eVar, i);
+                v = e.b(jsonReader, dVar, i);
                 break;
             case '\b':
-                v = aa.u(jsonReader, eVar);
+                v = aa.u(jsonReader, dVar);
                 break;
             case '\t':
-                v = ai.A(jsonReader, eVar);
+                v = ai.A(jsonReader, dVar);
                 break;
             case '\n':
-                v = z.t(jsonReader, eVar);
+                v = z.t(jsonReader, dVar);
                 break;
             case 11:
-                v = v.e(jsonReader);
-                eVar.bf("Animation contains merge paths. Merge paths are only supported on KitKat+ and must be manually enabled by calling enableMergePathsForKitKatAndAbove().");
+                v = v.g(jsonReader);
+                dVar.bc("Animation contains merge paths. Merge paths are only supported on KitKat+ and must be manually enabled by calling enableMergePathsForKitKatAndAbove().");
                 break;
             case '\f':
-                v = ab.v(jsonReader, eVar);
+                v = ab.v(jsonReader, dVar);
                 break;
             default:
                 Log.w("LOTTIE", "Unknown shape type " + str);

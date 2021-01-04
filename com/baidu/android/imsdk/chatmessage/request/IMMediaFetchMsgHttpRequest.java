@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaFetchMsgHttpRequest";
     private long mBeginMsgTime;
@@ -71,23 +70,23 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
+        Exception exc;
         boolean z;
         int i2;
         String str;
-        String str2;
         boolean z2;
-        String str3 = new String(bArr);
-        LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i + ", result=" + str3);
+        String str2 = new String(bArr);
+        LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i + ", result=" + str2);
         if (!TextUtils.isEmpty(this.mListenerKey)) {
             ArrayList arrayList = new ArrayList();
             try {
-                JSONObject jSONObject = new JSONObject(str3);
+                JSONObject jSONObject = new JSONObject(str2);
                 if (i != 200) {
-                    str2 = "";
                     z2 = false;
+                    str = "";
                 } else {
                     i = jSONObject.optInt("error_code", -1);
-                    String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+                    String optString = jSONObject.optString("error_msg", "");
                     z2 = jSONObject.optInt("has_more", 0) == 1;
                     if (i == 0) {
                         try {
@@ -99,21 +98,20 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
                                 }
                             }
                         } catch (Exception e) {
+                            exc = e;
                             z = z2;
-                            e = e;
                             i2 = 1010;
                             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                            e.printStackTrace();
+                            exc.printStackTrace();
                             ChatMsgManagerImpl.getInstance(this.mContext).onMediaFetchChatMsgsResult(this.mListenerKey, i2, str, z, arrayList);
                         }
                     }
-                    str2 = optString;
+                    str = optString;
                 }
                 z = z2;
-                str = str2;
                 i2 = i;
             } catch (Exception e2) {
-                e = e2;
+                exc = e2;
                 z = false;
             }
             ChatMsgManagerImpl.getInstance(this.mContext).onMediaFetchChatMsgsResult(this.mListenerKey, i2, str, z, arrayList);

@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.parser;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public enum Feature {
     AutoCloseSource,
     AllowComment,
@@ -44,15 +44,12 @@ public enum Feature {
     }
 
     public static int of(Feature[] featureArr) {
+        if (featureArr == null) {
+            return 0;
+        }
         int i = 0;
-        if (featureArr != null) {
-            int length = featureArr.length;
-            int i2 = 0;
-            while (i2 < length) {
-                int i3 = featureArr[i2].mask | i;
-                i2++;
-                i = i3;
-            }
+        for (Feature feature : featureArr) {
+            i |= feature.mask;
         }
         return i;
     }

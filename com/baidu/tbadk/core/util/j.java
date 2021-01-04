@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    public static void BK(String str) {
+    public static void BJ(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -40,51 +40,36 @@ public class j {
             }
         }
         if (i > 0) {
-            ar arVar = new ar(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-            arVar.al("obj_param1", i);
-            TiebaStatic.log(arVar);
+            aq aqVar = new aq(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+            aqVar.an("obj_param1", i);
+            TiebaStatic.log(aqVar);
         }
     }
 
-    public static void btc() {
+    public static void bvE() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {
-                Cursor cursor;
-                Throwable th;
-                int i;
+                int i = 0;
                 com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+                Cursor cursor = null;
                 try {
                     cursor = mainDBDatabaseManager.getOpenedDatabase().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
-                    i = 0;
                     while (cursor.moveToNext()) {
-                        try {
-                            i++;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            try {
-                                mainDBDatabaseManager.notifySQLException(th, "EmotionsDBManager.listMyEmotions");
-                                com.baidu.adp.lib.util.n.close(cursor);
-                                ar arVar = new ar(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                                arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
-                                arVar.al("obj_param1", i);
-                                TiebaStatic.log(arVar);
-                            } catch (Throwable th3) {
-                                com.baidu.adp.lib.util.n.close(cursor);
-                                throw th3;
-                            }
-                        }
+                        i++;
                     }
-                    com.baidu.adp.lib.util.n.close(cursor);
-                } catch (Throwable th4) {
-                    cursor = null;
-                    th = th4;
-                    i = 0;
+                } catch (Throwable th) {
+                    try {
+                        mainDBDatabaseManager.notifySQLException(th, "EmotionsDBManager.listMyEmotions");
+                        com.baidu.adp.lib.util.n.close(cursor);
+                    } finally {
+                        com.baidu.adp.lib.util.n.close(cursor);
+                    }
                 }
-                ar arVar2 = new ar(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                arVar2.dY("uid", TbadkCoreApplication.getCurrentAccount());
-                arVar2.al("obj_param1", i);
-                TiebaStatic.log(arVar2);
+                aq aqVar = new aq(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
+                aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
+                aqVar.an("obj_param1", i);
+                TiebaStatic.log(aqVar);
             }
         }).start();
     }

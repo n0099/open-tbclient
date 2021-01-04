@@ -3,9 +3,9 @@ package com.baidu.tieba.personCenter.view;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.e> {
     private int mSkinType;
 
@@ -17,7 +17,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.e> 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundColor(getView(), R.color.CAM_X0204);
+            ao.setBackgroundColor(getView(), R.color.CAM_X0204);
             this.mSkinType = i;
         }
     }

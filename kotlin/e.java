@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public @interface e {
 }

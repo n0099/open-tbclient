@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.base.http;
 
 import android.os.Looper;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class BinaryHttpHandlerWrap extends HttpHandlerWrap {
     public String[] allowedContentTypes;
 

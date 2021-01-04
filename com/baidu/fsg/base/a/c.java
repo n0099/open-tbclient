@@ -1,19 +1,21 @@
 package com.baidu.fsg.base.a;
 
 import android.annotation.SuppressLint;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f1449a;
-    private long b;
+    private final long f1914a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private long f1915b;
     private long c;
     private long d;
     @SuppressLint({"InlinedApi"})
     private int e = 1;
 
     public c(long j) {
-        this.f1449a = j;
+        this.f1914a = j;
     }
 
     public int a() {
@@ -25,11 +27,11 @@ public class c {
     }
 
     public long b() {
-        return this.b;
+        return this.f1915b;
     }
 
     public void a(long j) {
-        this.b = j;
+        this.f1915b = j;
     }
 
     public long c() {
@@ -41,7 +43,7 @@ public class c {
     }
 
     public long d() {
-        return this.f1449a;
+        return this.f1914a;
     }
 
     public long e() {
@@ -54,8 +56,8 @@ public class c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("DownloadItem=(id: " + this.f1449a);
-        sb.append(", current bytes: " + this.b);
+        sb.append("DownloadItem=(id: " + this.f1914a);
+        sb.append(", current bytes: " + this.f1915b);
         sb.append(", total bytes: " + this.c);
         sb.append(", speed: " + this.d);
         sb.append(", state: " + this.e);

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.loki.nativecrash;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.loki.nativecrash";
     public static final String BUILD_TYPE = "release";

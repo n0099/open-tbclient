@@ -9,39 +9,39 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.d;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public final class b {
-    private static b gkf = new b();
-    public static boolean gki = false;
-    private JSONObject gkg;
-    private int gkh = 3;
+    private static b guE = new b();
+    public static boolean guH = false;
+    private JSONObject guF;
+    private int guG = 3;
 
-    public static b bQq() {
-        return gkf;
+    public static b bSP() {
+        return guE;
     }
 
     public void init() {
         loadData();
     }
 
-    public void bQr() {
+    public void bSQ() {
         HttpMessage httpMessage = new HttpMessage(1021204);
         httpMessage.setTag(null);
-        httpMessage.addParam("classification_id", bQt());
+        httpMessage.addParam("classification_id", bSS());
         httpMessage.addParam(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
         httpMessage.addParam("live_model", Build.MODEL);
         httpMessage.addParam("manufacture", Build.MANUFACTURER);
-        httpMessage.addParam("quality_sign", bQs());
+        httpMessage.addParam("quality_sign", bSR());
         httpMessage.addParam("submodule", "live");
         httpMessage.addParam(HttpConstants.HTTP_BOARD, Build.BOARD);
         httpMessage.addParam("arsdk_version", String.valueOf(com.baidu.minivideo.arface.a.getVersion()));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private String bQs() {
+    private String bSR() {
         String str = null;
         if (!isEmpty()) {
-            str = this.gkg.optString("quality_sign");
+            str = this.guF.optString("quality_sign");
         }
         if (TextUtils.isEmpty(str)) {
             return "default";
@@ -49,10 +49,10 @@ public final class b {
         return str;
     }
 
-    private String bQt() {
+    private String bSS() {
         String str = null;
         if (!isEmpty()) {
-            str = this.gkg.optString("classification_id");
+            str = this.guF.optString("classification_id");
         }
         if (TextUtils.isEmpty(str)) {
             return "default";
@@ -60,34 +60,34 @@ public final class b {
         return str;
     }
 
-    public JSONObject bQu() {
+    public JSONObject bST() {
         if (isEmpty()) {
             return null;
         }
-        return this.gkg.optJSONObject("classification");
+        return this.guF.optJSONObject("classification");
     }
 
-    public JSONObject bQv() {
+    public JSONObject bSU() {
         if (isEmpty()) {
             return null;
         }
-        return this.gkg.optJSONObject("quality");
+        return this.guF.optJSONObject("quality");
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:59:0x0104 -> B:69:0x00cf). Please submit an issue!!! */
-    public JSONObject dv(JSONObject jSONObject) {
+    public JSONObject dE(JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         if (jSONObject == null) {
-            return this.gkg;
+            return this.guF;
         }
-        if (this.gkg == null) {
-            if (jSONObject.has("quality") && com.baidu.live.ar.b.q(jSONObject.optJSONObject("quality")) == null) {
+        if (this.guF == null) {
+            if (jSONObject.has("quality") && com.baidu.live.ar.b.w(jSONObject.optJSONObject("quality")) == null) {
                 return null;
             }
             return jSONObject;
         }
-        String optString = this.gkg.optString("classification_id");
-        JSONObject optJSONObject = this.gkg.optJSONObject("classification");
+        String optString = this.guF.optString("classification_id");
+        JSONObject optJSONObject = this.guF.optJSONObject("classification");
         String jSONObject3 = optJSONObject != null ? optJSONObject.toString() : null;
         if (jSONObject.has("classification_id")) {
             String optString2 = jSONObject.optString("classification_id");
@@ -111,16 +111,16 @@ public final class b {
             } catch (JSONException e2) {
             }
         }
-        String optString3 = this.gkg.optString("quality_sign");
-        JSONObject optJSONObject3 = this.gkg.optJSONObject("quality");
+        String optString3 = this.guF.optString("quality_sign");
+        JSONObject optJSONObject3 = this.guF.optJSONObject("quality");
         String jSONObject5 = optJSONObject3 != null ? optJSONObject3.toString() : null;
         if (jSONObject.has("quality_sign")) {
             String optString4 = jSONObject.optString("quality_sign");
             JSONObject optJSONObject4 = jSONObject.optJSONObject("quality");
             String jSONObject6 = optJSONObject4 != null ? optJSONObject4.toString() : null;
             try {
-                com.baidu.live.ar.b q = com.baidu.live.ar.b.q(optJSONObject4);
-                if (optString4 != null && !optString4.equals(optString3) && jSONObject6 != null && !jSONObject6.equals(jSONObject5) && q != null) {
+                com.baidu.live.ar.b w = com.baidu.live.ar.b.w(optJSONObject4);
+                if (optString4 != null && !optString4.equals(optString3) && jSONObject6 != null && !jSONObject6.equals(jSONObject5) && w != null) {
                     jSONObject2.put("quality_sign", optString4);
                     jSONObject2.put("quality", optJSONObject4);
                 } else {
@@ -139,23 +139,23 @@ public final class b {
         return jSONObject2;
     }
 
-    public void d(JSONObject jSONObject, boolean z) {
+    public void f(JSONObject jSONObject, boolean z) {
         if (jSONObject != null && jSONObject.length() != 0) {
             if (z) {
-                dw(jSONObject);
+                dF(jSONObject);
             }
-            this.gkg = jSONObject;
-            com.baidu.minivideo.arface.b.setGradingConfig(bQu());
-            com.baidu.minivideo.arface.b.al(bQv());
+            this.guF = jSONObject;
+            com.baidu.minivideo.arface.b.setGradingConfig(bST());
+            com.baidu.minivideo.arface.b.at(bSU());
         }
     }
 
-    private void dw(JSONObject jSONObject) {
+    private void dF(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject.length() > 0) {
             String jSONObject2 = jSONObject.toString();
-            d.BM().putString("ar_grading_quality_config", jSONObject2);
-            if (com.baidu.live.ar.b.d(this.gkg, jSONObject)) {
-                d.BM().putBoolean("ar_grading_quality_config_need_update", true);
+            d.Ba().putString("ar_grading_quality_config", jSONObject2);
+            if (com.baidu.live.ar.b.c(this.guF, jSONObject)) {
+                d.Ba().putBoolean("ar_grading_quality_config_need_update", true);
                 if (isDebug()) {
                     Log.d("GradingQualityConfig", "saveCache: need update quality value ");
                 }
@@ -166,14 +166,14 @@ public final class b {
         }
     }
 
-    private void bQw() {
-        String string = d.BM().getString("ar_grading_quality_config", "");
+    private void bSV() {
+        String string = d.Ba().getString("ar_grading_quality_config", "");
         if (isDebug()) {
             Log.d("GradingQualityConfig", "readCache: " + string);
         }
         if (!TextUtils.isEmpty(string)) {
             try {
-                d(new JSONObject(string), false);
+                f(new JSONObject(string), false);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -181,12 +181,12 @@ public final class b {
     }
 
     protected void loadData() {
-        bQw();
-        bQr();
+        bSV();
+        bSQ();
     }
 
     public boolean isEmpty() {
-        return this.gkg == null || this.gkg.length() == 0;
+        return this.guF == null || this.guF.length() == 0;
     }
 
     public static boolean isDebug() {

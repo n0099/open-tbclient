@@ -6,11 +6,10 @@ import com.baidubce.http.Headers;
 import java.util.Map;
 import org.apache.http.impl.cookie.DateParseException;
 import org.apache.http.impl.cookie.DateUtils;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class h {
     public static b.a a(com.baidu.pano.platform.a.l lVar) {
         boolean z;
-        boolean z2;
         long j;
         long j2;
         long j3;
@@ -20,6 +19,7 @@ public class h {
         long j5 = 0;
         long j6 = 0;
         long j7 = 0;
+        boolean z2 = false;
         String str = map.get("Date");
         if (str != null) {
             j5 = a(str);
@@ -27,48 +27,46 @@ public class h {
         String str2 = map.get(Headers.CACHE_CONTROL);
         if (str2 == null) {
             z = false;
-            z2 = false;
         } else {
             String[] split = str2.split(",");
+            int i = 0;
             z = false;
-            long j8 = 0;
-            long j9 = 0;
-            for (String str3 : split) {
-                String trim = str3.trim();
+            while (i < split.length) {
+                String trim = split[i].trim();
                 if (trim.equals("no-cache") || trim.equals("no-store")) {
                     return null;
                 }
                 if (trim.startsWith("max-age=")) {
                     try {
-                        j9 = Long.parseLong(trim.substring(8));
+                        j6 = Long.parseLong(trim.substring(8));
                     } catch (Exception e) {
                     }
                 } else if (trim.startsWith("stale-while-revalidate=")) {
                     try {
-                        j8 = Long.parseLong(trim.substring(23));
+                        j7 = Long.parseLong(trim.substring(23));
                     } catch (Exception e2) {
                     }
                 } else if (trim.equals("must-revalidate") || trim.equals("proxy-revalidate")) {
                     z = true;
                 }
+                i++;
+                j7 = j7;
             }
-            j6 = j9;
-            j7 = j8;
             z2 = true;
         }
-        String str4 = map.get(Headers.EXPIRES);
-        if (str4 == null) {
+        String str3 = map.get(Headers.EXPIRES);
+        if (str3 == null) {
             j = 0;
         } else {
-            j = a(str4);
+            j = a(str3);
         }
-        String str5 = map.get(Headers.LAST_MODIFIED);
-        if (str5 == null) {
+        String str4 = map.get(Headers.LAST_MODIFIED);
+        if (str4 == null) {
             j2 = 0;
         } else {
-            j2 = a(str5);
+            j2 = a(str4);
         }
-        String str6 = map.get(Headers.ETAG);
+        String str5 = map.get(Headers.ETAG);
         if (z2) {
             j4 = currentTimeMillis + (1000 * j6);
             j3 = z ? j4 : (1000 * j7) + j4;
@@ -76,12 +74,13 @@ public class h {
             j3 = 0;
             j4 = 0;
         } else {
-            j3 = (j - j5) + currentTimeMillis;
-            j4 = j3;
+            long j8 = currentTimeMillis + (j - j5);
+            j3 = j8;
+            j4 = j8;
         }
         b.a aVar = new b.a();
-        aVar.f2650a = lVar.b;
-        aVar.b = str6;
+        aVar.f3901a = lVar.f3918b;
+        aVar.f3902b = str5;
         aVar.f = j4;
         aVar.e = j3;
         aVar.c = j5;

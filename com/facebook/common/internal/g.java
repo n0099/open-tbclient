@@ -1,7 +1,7 @@
 package com.facebook.common.internal;
 
 import javax.annotation.Nullable;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public final class g {
     public static void checkArgument(boolean z) {
         if (!z) {
@@ -27,7 +27,7 @@ public final class g {
         }
     }
 
-    public static void d(boolean z, @Nullable Object obj) {
+    public static void checkState(boolean z, @Nullable Object obj) {
         if (!z) {
             throw new IllegalStateException(String.valueOf(obj));
         }
@@ -48,17 +48,17 @@ public final class g {
     }
 
     public static int dY(int i, int i2) {
-        return s(i, i2, "index");
+        return t(i, i2, "index");
     }
 
-    public static int s(int i, int i2, @Nullable String str) {
+    public static int t(int i, int i2, @Nullable String str) {
         if (i < 0 || i >= i2) {
-            throw new IndexOutOfBoundsException(t(i, i2, str));
+            throw new IndexOutOfBoundsException(u(i, i2, str));
         }
         return i;
     }
 
-    private static String t(int i, int i2, @Nullable String str) {
+    private static String u(int i, int i2, @Nullable String str) {
         if (i < 0) {
             return format("%s (%s) must not be negative", str, Integer.valueOf(i));
         }
@@ -70,9 +70,9 @@ public final class g {
 
     static String format(@Nullable String str, @Nullable Object... objArr) {
         int indexOf;
-        int i = 0;
         String valueOf = String.valueOf(str);
         StringBuilder sb = new StringBuilder(valueOf.length() + (objArr.length * 16));
+        int i = 0;
         int i2 = 0;
         while (i < objArr.length && (indexOf = valueOf.indexOf("%s", i2)) != -1) {
             sb.append(valueOf.substring(i2, indexOf));

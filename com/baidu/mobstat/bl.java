@@ -11,12 +11,14 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2591a;
-    private WeakReference<WebView> b;
+    private static String f3801a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private WeakReference<WebView> f3802b;
     private WeakReference<Activity> c;
     private JSONObject d;
     private boolean e;
@@ -33,11 +35,11 @@ public class bl {
         if (bd.c().b()) {
             bd.c().a("setViewportTreeToNative " + str);
         }
-        f2591a = str;
+        f3801a = str;
     }
 
     public static String a(Activity activity, WebView webView, Rect rect) {
-        f2591a = "";
+        f3801a = "";
         b(activity, webView, rect);
         int i = 0;
         while (true) {
@@ -49,8 +51,8 @@ public class bl {
                 Thread.sleep(20L);
             } catch (Exception e) {
             }
-            if (!TextUtils.isEmpty(f2591a)) {
-                return f2591a;
+            if (!TextUtils.isEmpty(f3801a)) {
+                return f3801a;
             }
             i = i2;
         }
@@ -60,19 +62,21 @@ public class bl {
         int i;
         int i2;
         int i3;
-        int i4 = 0;
+        int i4;
         if (rect != null) {
-            i3 = ah.a(activity, rect.left);
-            i2 = ah.a(activity, rect.top);
-            i = ah.a(activity, rect.width());
-            i4 = ah.a(activity, rect.height());
+            i4 = ah.a(activity, rect.left);
+            i3 = ah.a(activity, rect.top);
+            int a2 = ah.a(activity, rect.width());
+            i = ah.a(activity, rect.height());
+            i2 = a2;
         } else {
             i = 0;
             i2 = 0;
             i3 = 0;
+            i4 = 0;
         }
-        int a2 = ah.a(activity, bj.c(activity));
-        final String str = "javascript:window._automtj.getViewportTree('android', '" + ("{\"x\": " + i3 + ", \"y\": " + i2 + ", \"w\": " + i + ", \"h\": " + i4 + ", \"sw\": " + a2 + ", \"sh\": " + ah.a(activity, bj.d(activity)) + "}") + "', 'window.WebViewInterface.setViewportTreeToNative')";
+        int a3 = ah.a(activity, bj.c(activity));
+        final String str = "javascript:window._automtj.getViewportTree('android', '" + ("{\"x\": " + i4 + ", \"y\": " + i3 + ", \"w\": " + i2 + ", \"h\": " + i + ", \"sw\": " + a3 + ", \"sh\": " + ah.a(activity, bj.d(activity)) + "}") + "', 'window.WebViewInterface.setViewportTreeToNative')";
         activity.runOnUiThread(new Runnable() { // from class: com.baidu.mobstat.bl.1
             @Override // java.lang.Runnable
             public void run() {
@@ -103,7 +107,7 @@ public class bl {
                 this.c = new WeakReference<>(activity);
             }
             if (webView != null) {
-                this.b = new WeakReference<>(webView);
+                this.f3802b = new WeakReference<>(webView);
             }
             this.e = z;
             String a2 = a();
@@ -124,7 +128,7 @@ public class bl {
     }
 
     private boolean a(WebView webView, boolean z) {
-        return (this.b == null || this.b.get() != webView || this.e == z) ? false : true;
+        return (this.f3802b == null || this.f3802b.get() != webView || this.e == z) ? false : true;
     }
 
     private String a() {
@@ -149,16 +153,16 @@ public class bl {
         if (bh.c().b()) {
             bh.c().a("setEventToNative: " + str);
         }
-        if (this.c != null && (activity = this.c.get()) != null && this.b != null && (webView = this.b.get()) != null) {
+        if (this.c != null && (activity = this.c.get()) != null && this.f3802b != null && (webView = this.f3802b.get()) != null) {
             a(str, activity, webView);
         }
     }
 
     private void a(String str, Activity activity, WebView webView) {
         String str2;
-        JSONArray jSONArray;
-        boolean z;
         String str3;
+        JSONArray jSONArray;
+        boolean z = true;
         JSONArray jSONArray2 = null;
         String str4 = null;
         String str5 = null;
@@ -170,14 +174,13 @@ public class bl {
             str5 = jSONObject2.optString("l");
             jSONObject = jSONObject2.optJSONObject(Config.EVENT_HEAT_POINT);
             str2 = str5;
-            jSONArray = jSONArray2;
-            z = true;
             str3 = str4;
+            jSONArray = jSONArray2;
         } catch (Exception e) {
-            str2 = str5;
-            jSONArray = jSONArray2;
             z = false;
+            str2 = str5;
             str3 = str4;
+            jSONArray = jSONArray2;
         }
         if (z) {
             if (TextUtils.isEmpty(str3)) {
@@ -186,12 +189,12 @@ public class bl {
             JSONArray a2 = bj.a(activity, webView);
             String name = activity.getClass().getName();
             String a3 = bj.a(a2);
-            String b = bj.b(jSONArray);
+            String b2 = bj.b(jSONArray);
             String f = bj.f(webView);
             Map<String, String> g = bj.g(webView);
             Context applicationContext = activity.getApplicationContext();
             long currentTimeMillis = System.currentTimeMillis();
-            if (a(this.d, activity.getClass().getName(), str3, a3, b)) {
+            if (a(this.d, activity.getClass().getName(), str3, a3, b2)) {
                 BDStatCore.instance().onEvent(applicationContext, "", str2, 1, System.currentTimeMillis(), a2, jSONArray, name, str3, f, g, true);
             } else if (bd.c().b() && this.f) {
                 bd.c().a("setEventToNative: not circle event, will not take effect");
@@ -201,7 +204,8 @@ public class bl {
     }
 
     private boolean a(JSONObject jSONObject, String str, String str2, String str3, String str4) {
-        boolean z = false;
+        boolean z;
+        boolean z2 = false;
         if (jSONObject == null || jSONObject.toString().equals(new JSONObject().toString())) {
             return false;
         }
@@ -217,12 +221,20 @@ public class bl {
         try {
             JSONArray jSONArray = (JSONArray) jSONObject.get("data");
             int i = 0;
-            while (i < jSONArray.length()) {
-                JSONObject jSONObject2 = (JSONObject) jSONArray.get(i);
-                i++;
-                z = (str.equals(jSONObject2.optString("page")) && str2.equals((String) jSONObject2.opt("url")) && str3.equals(jSONObject2.optString("layout")) && str4.equals((String) jSONObject2.opt("webLayout"))) ? true : z;
+            while (true) {
+                try {
+                    z = z2;
+                    if (i >= jSONArray.length()) {
+                        break;
+                    }
+                    JSONObject jSONObject2 = (JSONObject) jSONArray.get(i);
+                    z2 = (str.equals(jSONObject2.optString("page")) && str2.equals((String) jSONObject2.opt("url")) && str3.equals(jSONObject2.optString("layout")) && str4.equals((String) jSONObject2.opt("webLayout"))) ? true : z;
+                    i++;
+                } catch (Exception e2) {
+                }
             }
-        } catch (Exception e2) {
+        } catch (Exception e3) {
+            z = false;
         }
         return z;
     }

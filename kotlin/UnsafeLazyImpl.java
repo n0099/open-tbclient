@@ -3,7 +3,7 @@ package kotlin;
 import java.io.Serializable;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class UnsafeLazyImpl<T> implements Serializable, c<T> {
     private Object _value;
     private kotlin.jvm.a.a<? extends T> initializer;
@@ -11,15 +11,15 @@ public final class UnsafeLazyImpl<T> implements Serializable, c<T> {
     public UnsafeLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
         p.o(aVar, "initializer");
         this.initializer = aVar;
-        this._value = g.pJZ;
+        this._value = g.qlC;
     }
 
     @Override // kotlin.c
     public T getValue() {
-        if (this._value == g.pJZ) {
+        if (this._value == g.qlC) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar == null) {
-                p.eEa();
+                p.eMi();
             }
             this._value = aVar.invoke();
             this.initializer = null;
@@ -28,7 +28,7 @@ public final class UnsafeLazyImpl<T> implements Serializable, c<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != g.pJZ;
+        return this._value != g.qlC;
     }
 
     public String toString() {

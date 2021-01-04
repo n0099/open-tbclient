@@ -23,55 +23,55 @@ public class b {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("bundle_id", cVar.getBundleId());
         hashMap.put("category", String.valueOf(cVar.getCategory()));
-        if (cVar.bew() == -1) {
-            pMSAppInfo = com.baidu.swan.pms.database.a.bdF().yO(cVar.getBundleId());
-            if (pMSAppInfo != null && com.baidu.swan.pms.database.a.bdF().c(com.baidu.swan.pms.model.f.class, cVar.getBundleId()) != null) {
-                cVar.dr(pMSAppInfo.versionCode);
-            } else {
-                cVar.dr(0L);
-            }
-        }
-        hashMap.put("pkg_ver", String.valueOf(cVar.bew()));
-        if (cVar.bex() == -1) {
-            if (pMSAppInfo == null) {
-                pMSAppInfo = com.baidu.swan.pms.database.a.bdF().yO(cVar.getBundleId());
-            }
-            if (pMSAppInfo != null && pMSAppInfo.csProtocolVersion >= PMSConstants.b.getVersion()) {
-                cVar.ds(pMSAppInfo.appSign);
+        if (cVar.bgR() == -1) {
+            pMSAppInfo = com.baidu.swan.pms.database.a.bgb().yN(cVar.getBundleId());
+            if (pMSAppInfo != null && com.baidu.swan.pms.database.a.bgb().d(com.baidu.swan.pms.model.f.class, cVar.getBundleId()) != null) {
+                cVar.ds(pMSAppInfo.versionCode);
             } else {
                 cVar.ds(0L);
             }
         }
-        hashMap.put("app_sign", String.valueOf(cVar.bex()));
-        if (cVar.bey() != -1) {
-            hashMap.put("expect_pkg_ver", String.valueOf(cVar.bey()));
+        hashMap.put("pkg_ver", String.valueOf(cVar.bgR()));
+        if (cVar.bgS() == -1) {
+            if (pMSAppInfo == null) {
+                pMSAppInfo = com.baidu.swan.pms.database.a.bgb().yN(cVar.getBundleId());
+            }
+            if (pMSAppInfo != null && pMSAppInfo.csProtocolVersion >= PMSConstants.b.getVersion()) {
+                cVar.dt(pMSAppInfo.appSign);
+            } else {
+                cVar.dt(0L);
+            }
         }
-        String bez = cVar.bez();
-        if (TextUtils.isEmpty(bez)) {
-            bez = nn(cVar.getCategory());
-            cVar.yW(bez);
+        hashMap.put("app_sign", String.valueOf(cVar.bgS()));
+        if (cVar.bgT() != -1) {
+            hashMap.put("expect_pkg_ver", String.valueOf(cVar.bgT()));
         }
-        if (TextUtils.isEmpty(bez)) {
-            bez = "0";
+        String bgU = cVar.bgU();
+        if (TextUtils.isEmpty(bgU)) {
+            bgU = nw(cVar.getCategory());
+            cVar.yV(bgU);
         }
-        hashMap.put("framework_ver", bez);
-        String beA = cVar.beA();
-        if (TextUtils.isEmpty(beA)) {
-            beA = no(cVar.getCategory());
-            cVar.yX(beA);
+        if (TextUtils.isEmpty(bgU)) {
+            bgU = "0";
         }
-        if (TextUtils.isEmpty(beA)) {
-            beA = "0";
+        hashMap.put("framework_ver", bgU);
+        String bgV = cVar.bgV();
+        if (TextUtils.isEmpty(bgV)) {
+            bgV = nx(cVar.getCategory());
+            cVar.yW(bgV);
         }
-        hashMap.put("extension_ver", beA);
+        if (TextUtils.isEmpty(bgV)) {
+            bgV = "0";
+        }
+        hashMap.put("extension_ver", bgV);
         if (!TextUtils.isEmpty(cVar.getPath())) {
             hashMap.put("path", cVar.getPath());
         }
         if (!TextUtils.equals(cVar.getFrom(), "-1")) {
             hashMap.put("from", cVar.getFrom());
         }
-        if (!TextUtils.equals(cVar.beG(), "-1")) {
-            hashMap.put("scene", cVar.beG());
+        if (!TextUtils.equals(cVar.bhb(), "-1")) {
+            hashMap.put("scene", cVar.bhb());
         }
         return hashMap;
     }
@@ -83,23 +83,23 @@ public class b {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("bundle_id", fVar.getBundleId());
         hashMap.put("category", String.valueOf(fVar.getCategory()));
-        hashMap.put("pkg_ver", String.valueOf(fVar.beF()));
-        hashMap.put("expect_pkg_ver", String.valueOf(fVar.beF()));
-        hashMap.put("sub_id", fVar.beD());
-        if (TextUtils.isEmpty(fVar.bez())) {
-            fVar.za(nn(fVar.getCategory()));
+        hashMap.put("pkg_ver", String.valueOf(fVar.bha()));
+        hashMap.put("expect_pkg_ver", String.valueOf(fVar.bha()));
+        hashMap.put("sub_id", fVar.bgY());
+        if (TextUtils.isEmpty(fVar.bgU())) {
+            fVar.yZ(nw(fVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(fVar.bez())) {
-            hashMap.put("framework_ver", fVar.bez());
+        if (!TextUtils.isEmpty(fVar.bgU())) {
+            hashMap.put("framework_ver", fVar.bgU());
         }
-        if (TextUtils.isEmpty(fVar.beA())) {
-            fVar.zb(no(fVar.getCategory()));
+        if (TextUtils.isEmpty(fVar.bgV())) {
+            fVar.za(nx(fVar.getCategory()));
         }
-        if (!TextUtils.isEmpty(fVar.beA())) {
-            hashMap.put("extension_ver", fVar.beA());
+        if (!TextUtils.isEmpty(fVar.bgV())) {
+            hashMap.put("extension_ver", fVar.bgV());
         }
-        if (fVar.bey() != -1) {
-            hashMap.put("expect_pkg_ver", String.valueOf(fVar.bey()));
+        if (fVar.bgT() != -1) {
+            hashMap.put("expect_pkg_ver", String.valueOf(fVar.bgT()));
             return hashMap;
         }
         return hashMap;
@@ -110,12 +110,12 @@ public class b {
             return null;
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("bundle_id", dVar.beB());
+        hashMap.put("bundle_id", dVar.bgW());
         hashMap.put("category", String.valueOf(dVar.getCategory()));
-        if (TextUtils.isEmpty(dVar.beC())) {
-            dVar.yZ(String.valueOf(-1));
+        if (TextUtils.isEmpty(dVar.bgX())) {
+            dVar.yY(String.valueOf(-1));
         }
-        hashMap.put("plugin_ver", dVar.beC());
+        hashMap.put("plugin_ver", dVar.bgX());
         return hashMap;
     }
 
@@ -127,54 +127,54 @@ public class b {
         if (!TextUtils.equals(bVar.getFrom(), "-1")) {
             hashMap.put("from", bVar.getFrom());
         }
-        if (!TextUtils.equals(bVar.beG(), "-1")) {
-            hashMap.put("scene", bVar.beG());
+        if (!TextUtils.equals(bVar.bhb(), "-1")) {
+            hashMap.put("scene", bVar.bhb());
             return hashMap;
         }
         return hashMap;
     }
 
     public static JSONObject b(com.baidu.swan.pms.c.d.b bVar) {
-        if (bVar == null || bVar.bev() == null) {
+        if (bVar == null || bVar.bgQ() == null) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("swan_core_ver", nn(0));
-            jSONObject2.put("swan_game_ver", nn(1));
+            jSONObject2.put("swan_core_ver", nw(0));
+            jSONObject2.put("swan_game_ver", nw(1));
             jSONObject.put("framework", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("swan_ext_ver", no(0));
-            jSONObject3.put("game_ext_ver", no(1));
+            jSONObject3.put("swan_ext_ver", nx(0));
+            jSONObject3.put("game_ext_ver", nx(1));
             jSONObject.put(ETAG.KEY_EXTENSION, jSONObject3);
             JSONArray jSONArray = new JSONArray();
-            for (b.a aVar : bVar.bev()) {
+            for (b.a aVar : bVar.bgQ()) {
                 JSONObject jSONObject4 = new JSONObject();
                 jSONObject4.put("bundle_id", aVar.getBundleId());
                 if (aVar.getCategory() != -1) {
                     jSONObject4.put("category", aVar.getCategory());
                 }
-                jSONObject4.put("pkg_ver", aVar.bew());
-                jSONObject4.put("app_sign", aVar.bex());
+                jSONObject4.put("pkg_ver", aVar.bgR());
+                jSONObject4.put("app_sign", aVar.bgS());
                 if (aVar instanceof e.b) {
                     e.b bVar2 = (e.b) aVar;
-                    String[] aXD = bVar2.aXD();
-                    if (aXD != null && aXD.length > 0) {
-                        jSONObject4.put("path", new JSONArray((Collection) Arrays.asList(aXD)));
+                    String[] aZX = bVar2.aZX();
+                    if (aZX != null && aZX.length > 0) {
+                        jSONObject4.put("path", new JSONArray((Collection) Arrays.asList(aZX)));
                     }
                     JSONObject jSONObject5 = new JSONObject();
-                    List<e.a> beE = bVar2.beE();
-                    if (beE != null && !beE.isEmpty()) {
+                    List<e.a> bgZ = bVar2.bgZ();
+                    if (bgZ != null && !bgZ.isEmpty()) {
                         JSONArray jSONArray2 = new JSONArray();
-                        for (e.a aVar2 : beE) {
+                        for (e.a aVar2 : bgZ) {
                             JSONObject jSONObject6 = new JSONObject();
-                            jSONObject6.put("id", aVar2.beD());
+                            jSONObject6.put("id", aVar2.bgY());
                             jSONObject6.put("type", aVar2.getType());
                             jSONArray2.put(jSONObject6);
                         }
                         jSONObject5.put("list", jSONArray2);
-                        jSONObject5.put("ver", beE.get(0).getVersion());
+                        jSONObject5.put("ver", bgZ.get(0).getVersion());
                     }
                     jSONObject4.put("sub_info", jSONObject5);
                 }
@@ -188,22 +188,22 @@ public class b {
         }
     }
 
-    private static String nn(int i) {
+    private static String nw(int i) {
         String str = null;
         if (i == 1) {
-            str = com.baidu.swan.pms.d.bdz().aAp();
+            str = com.baidu.swan.pms.d.bfV().aBG();
         } else if (i == 0) {
-            str = com.baidu.swan.pms.d.bdz().aAn();
+            str = com.baidu.swan.pms.d.bfV().aBE();
         }
         return TextUtils.isEmpty(str) ? "0" : str;
     }
 
-    private static String no(int i) {
+    private static String nx(int i) {
         String str = null;
         if (i == 1) {
-            str = com.baidu.swan.pms.d.bdz().aAq();
+            str = com.baidu.swan.pms.d.bfV().aBH();
         } else if (i == 0) {
-            str = com.baidu.swan.pms.d.bdz().aAo();
+            str = com.baidu.swan.pms.d.bfV().aBF();
         }
         return TextUtils.isEmpty(str) ? "0" : str;
     }

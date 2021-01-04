@@ -1,7 +1,7 @@
 package org.apache.commons.codec.binary4util;
 
 import java.io.OutputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public class Base64OutputStream extends BaseNCodecOutputStream {
     public Base64OutputStream(OutputStream outputStream) {
         this(outputStream, true);

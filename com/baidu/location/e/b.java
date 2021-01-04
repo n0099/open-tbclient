@@ -3,7 +3,8 @@ package com.baidu.location.e;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.lbsapi.auth.LBSAuthManager;
-/* loaded from: classes26.dex */
+import com.tencent.connect.common.Constants;
+/* loaded from: classes15.dex */
 public class b {
     public static String e = null;
     public static String f = null;
@@ -14,23 +15,25 @@ public class b {
     public static long k = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1947a;
-    public String b;
+    public String f2711a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f2712b;
     public String c;
     public String d;
     private boolean l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f1948a = new b();
+        public static final b f2713a = new b();
     }
 
     private b() {
-        this.f1947a = null;
-        this.b = null;
+        this.f2711a = null;
+        this.f2712b = null;
         this.c = null;
         this.d = null;
         this.l = false;
@@ -40,7 +43,7 @@ public class b {
     }
 
     public static b a() {
-        return a.f1948a;
+        return a.f2713a;
     }
 
     public String a(boolean z) {
@@ -89,18 +92,18 @@ public class b {
         }
         if (this.c == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(this.f1947a);
+            stringBuffer.append(this.f2711a);
         } else {
             stringBuffer.append("&cu=");
             stringBuffer.append(this.c);
-            if (this.f1947a != null && !this.f1947a.equals("NULL") && !this.c.contains(new StringBuffer(this.f1947a).reverse().toString())) {
+            if (this.f2711a != null && !this.f2711a.equals("NULL") && !this.c.contains(new StringBuffer(this.f2711a).reverse().toString())) {
                 stringBuffer.append("&Aim=");
-                stringBuffer.append(this.f1947a);
+                stringBuffer.append(this.f2711a);
             }
         }
-        if (this.b != null) {
+        if (this.f2712b != null) {
             stringBuffer.append("&snd=");
-            stringBuffer.append(this.b);
+            stringBuffer.append(this.f2712b);
         }
         if (this.d != null) {
             stringBuffer.append("&Aid=");
@@ -116,7 +119,7 @@ public class b {
             stringBuffer.append(c);
         }
         stringBuffer.append("&resid=");
-        stringBuffer.append("12");
+        stringBuffer.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
         stringBuffer.append("&os=A");
         stringBuffer.append(Build.VERSION.SDK_INT);
         if (z) {
@@ -160,7 +163,7 @@ public class b {
             stringBuffer.append(this.c);
         } else {
             stringBuffer.append("&im=");
-            stringBuffer.append(this.f1947a);
+            stringBuffer.append(this.f2711a);
         }
         try {
             stringBuffer.append("&mb=");

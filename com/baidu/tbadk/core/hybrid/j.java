@@ -3,5 +3,5 @@ package com.baidu.tbadk.core.hybrid;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface j {
-    void bw(List<Long> list);
+    void bD(List<Long> list);
 }

@@ -1,13 +1,12 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes.dex */
-public class a implements q {
-    public static final BdUniqueId fsB = BdUniqueId.gen();
+public class a implements com.baidu.adp.widget.ListView.n {
+    public static final BdUniqueId fCg = BdUniqueId.gen();
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return fsB;
+        return fCg;
     }
 }

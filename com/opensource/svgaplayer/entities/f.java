@@ -11,7 +11,7 @@ import kotlin.jvm.internal.p;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @kotlin.e
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class f {
     private final List<g> frames;
     private final String imageKey;
@@ -20,7 +20,7 @@ public final class f {
         return this.imageKey;
     }
 
-    public final List<g> eAv() {
+    public final List<g> eEn() {
         return this.frames;
     }
 
@@ -35,8 +35,8 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.jz().isEmpty()) && ((SVGAVideoShapeEntity) n.hc(gVar.jz())).eAl() && arrayList.size() > 0) {
-                        gVar.gU(((g) n.hd(arrayList)).jz());
+                    if ((!gVar.iY().isEmpty()) && ((SVGAVideoShapeEntity) n.hj(gVar.iY())).eEd() && arrayList.size() > 0) {
+                        gVar.gR(((g) n.hk(arrayList)).iY());
                     }
                     arrayList.add(gVar);
                 }
@@ -46,7 +46,7 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList eDK;
+        ArrayList eLS;
         p.o(spriteEntity, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
@@ -58,16 +58,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 p.n(frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.jz().isEmpty()) && ((SVGAVideoShapeEntity) n.hc(gVar3.jz())).eAl() && gVar2 != null) {
-                    gVar3.gU(gVar2.jz());
+                if ((!gVar3.iY().isEmpty()) && ((SVGAVideoShapeEntity) n.hj(gVar3.iY())).eEd() && gVar2 != null) {
+                    gVar3.gR(gVar2.iY());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            eDK = arrayList;
+            eLS = arrayList;
         } else {
-            eDK = n.eDK();
+            eLS = n.eLS();
         }
-        this.frames = eDK;
+        this.frames = eLS;
     }
 }

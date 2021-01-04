@@ -6,23 +6,23 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class GradientEnableTextView extends TextView {
-    private int bGZ;
-    private int bHa;
-    private int bHb;
-    private int bHc;
-    private String bHd;
-    private boolean bHe;
-    private int bHf;
-    private int bHg;
-    private boolean bhX;
+    private int bLM;
+    private int bLN;
+    private int bLO;
+    private int bLP;
+    private String bLQ;
+    private boolean bLR;
+    private int bLS;
+    private int bLT;
+    private boolean bjG;
 
     public GradientEnableTextView(Context context) {
         this(context, null);
@@ -35,61 +35,61 @@ public class GradientEnableTextView extends TextView {
     public GradientEnableTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.sdk_GradientEnableTextView);
-        this.bGZ = obtainStyledAttributes.getColor(a.j.sdk_GradientEnableTextView_startColorEnable, -1);
-        this.bHa = obtainStyledAttributes.getColor(a.j.sdk_GradientEnableTextView_endColorEnable, -1);
-        this.bHb = obtainStyledAttributes.getColor(a.j.sdk_GradientEnableTextView_startColorDisableEnable, -1);
-        this.bHc = obtainStyledAttributes.getColor(a.j.sdk_GradientEnableTextView_endColorDisableEnable, -1);
+        this.bLM = obtainStyledAttributes.getColor(a.j.sdk_GradientEnableTextView_startColorEnable, -1);
+        this.bLN = obtainStyledAttributes.getColor(a.j.sdk_GradientEnableTextView_endColorEnable, -1);
+        this.bLO = obtainStyledAttributes.getColor(a.j.sdk_GradientEnableTextView_startColorDisableEnable, -1);
+        this.bLP = obtainStyledAttributes.getColor(a.j.sdk_GradientEnableTextView_endColorDisableEnable, -1);
         obtainStyledAttributes.recycle();
-        this.bHe = true;
+        this.bLR = true;
     }
 
     @Override // android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (isClickable()) {
             if (motionEvent.getAction() == 0) {
-                this.bhX = true;
+                this.bjG = true;
             } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-                this.bhX = false;
+                this.bjG = false;
             }
         } else {
-            this.bhX = false;
+            this.bjG = false;
         }
-        if (isClickable() && !this.bhX) {
-            this.bHf = this.bGZ;
-            this.bHg = this.bHa;
+        if (isClickable() && !this.bjG) {
+            this.bLS = this.bLM;
+            this.bLT = this.bLN;
         } else {
-            this.bHf = this.bHb;
-            this.bHg = this.bHc;
+            this.bLS = this.bLO;
+            this.bLT = this.bLP;
         }
         invalidate();
         return super.onTouchEvent(motionEvent);
     }
 
     public void setCheckStrEquals(boolean z) {
-        this.bHe = z;
+        this.bLR = z;
     }
 
     public void setGradientTextColor(int i, int i2) {
-        this.bGZ = i;
-        this.bHa = i2;
+        this.bLM = i;
+        this.bLN = i2;
         invalidate();
     }
 
     public void setGradientDisableTextColor(int i, int i2) {
-        this.bHb = i;
-        this.bHc = i2;
+        this.bLO = i;
+        this.bLP = i2;
         invalidate();
     }
 
     @Override // android.view.View
     public void setClickable(boolean z) {
         super.setClickable(z);
-        if (z && !this.bhX) {
-            this.bHf = this.bGZ;
-            this.bHg = this.bHa;
+        if (z && !this.bjG) {
+            this.bLS = this.bLM;
+            this.bLT = this.bLN;
         } else {
-            this.bHf = this.bHb;
-            this.bHg = this.bHc;
+            this.bLS = this.bLO;
+            this.bLT = this.bLP;
         }
         invalidate();
     }
@@ -98,15 +98,15 @@ public class GradientEnableTextView extends TextView {
     @SuppressLint({"DrawAllocation"})
     protected void onDraw(Canvas canvas) {
         String charSequence = getText().toString();
-        if (this.bHf == -1 || this.bHg == -1) {
-            this.bHf = this.bGZ;
-            this.bHg = this.bHa;
+        if (this.bLS == -1 || this.bLT == -1) {
+            this.bLS = this.bLM;
+            this.bLT = this.bLN;
         }
-        if (!TextUtils.isEmpty(charSequence) && this.bHf != -1 && this.bHg != -1 && (!this.bHe || !charSequence.equals(this.bHd))) {
-            this.bHd = charSequence;
+        if (!TextUtils.isEmpty(charSequence) && this.bLS != -1 && this.bLT != -1 && (!this.bLR || !charSequence.equals(this.bLQ))) {
+            this.bLQ = charSequence;
             float measureText = getPaint().measureText(charSequence);
             float width = (getWidth() - measureText) / 2.0f;
-            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.bHf, this.bHg, Shader.TileMode.CLAMP));
+            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.bLS, this.bLT, Shader.TileMode.CLAMP));
         }
         super.onDraw(canvas);
     }

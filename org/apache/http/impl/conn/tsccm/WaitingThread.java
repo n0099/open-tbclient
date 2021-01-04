@@ -3,7 +3,7 @@ package org.apache.http.impl.conn.tsccm;
 import java.util.Date;
 import java.util.concurrent.locks.Condition;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class WaitingThread {
     public WaitingThread(Condition condition, RouteSpecificPool routeSpecificPool) {
         throw new RuntimeException("Stub!");

@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class FinderPatternFinder {
     private static final int CENTER_QUORUM = 2;
     protected static final int MAX_MODULES = 57;
@@ -47,64 +47,59 @@ public class FinderPatternFinder {
     public final FinderPatternInfo find(Map<DecodeHintType, ?> map) throws NotFoundException {
         int findRowSkip;
         int i;
-        int i2;
-        boolean z;
-        boolean z2 = map != null && map.containsKey(DecodeHintType.TRY_HARDER);
-        boolean z3 = map != null && map.containsKey(DecodeHintType.PURE_BARCODE);
+        boolean z = map != null && map.containsKey(DecodeHintType.TRY_HARDER);
+        boolean z2 = map != null && map.containsKey(DecodeHintType.PURE_BARCODE);
         int height = this.image.getHeight();
         int width = this.image.getWidth();
-        int i3 = ((height * 3) / 228 < 3 || z2) ? 3 : 3;
-        boolean z4 = false;
+        int i2 = ((height * 3) / 228 < 3 || z) ? 3 : 3;
+        boolean z3 = false;
         int[] iArr = new int[5];
-        int i4 = i3 - 1;
-        int i5 = i3;
-        while (i4 < height && !z4) {
+        int i3 = i2 - 1;
+        int i4 = i2;
+        while (i3 < height && !z3) {
             iArr[0] = 0;
             iArr[1] = 0;
             iArr[2] = 0;
             iArr[3] = 0;
             iArr[4] = 0;
+            int i5 = 0;
             int i6 = 0;
-            int i7 = 0;
-            while (i7 < width) {
-                if (this.image.get(i7, i4)) {
-                    if ((i6 & 1) == 1) {
-                        i6++;
+            while (i6 < width) {
+                if (this.image.get(i6, i3)) {
+                    if ((i5 & 1) == 1) {
+                        i5++;
                     }
-                    iArr[i6] = iArr[i6] + 1;
-                } else if ((i6 & 1) == 0) {
-                    if (i6 == 4) {
+                    iArr[i5] = iArr[i5] + 1;
+                } else if ((i5 & 1) == 0) {
+                    if (i5 == 4) {
                         if (foundPatternCross(iArr)) {
-                            if (handlePossibleCenter(iArr, i4, i7, z3)) {
-                                i5 = 2;
+                            if (handlePossibleCenter(iArr, i3, i6, z2)) {
+                                i4 = 2;
                                 if (this.hasSkipped) {
-                                    z = haveMultiplyConfirmedCenters();
+                                    z3 = haveMultiplyConfirmedCenters();
                                 } else {
                                     if (findRowSkip() > iArr[2]) {
-                                        i2 = i4 + ((findRowSkip - iArr[2]) - 2);
+                                        int i7 = i3 + ((findRowSkip - iArr[2]) - 2);
                                         i = width - 1;
+                                        i3 = i7;
                                     } else {
-                                        i = i7;
-                                        i2 = i4;
+                                        i = i6;
                                     }
-                                    i4 = i2;
-                                    i7 = i;
-                                    z = z4;
+                                    i6 = i;
                                 }
+                                i5 = 0;
                                 iArr[0] = 0;
                                 iArr[1] = 0;
                                 iArr[2] = 0;
                                 iArr[3] = 0;
                                 iArr[4] = 0;
-                                z4 = z;
-                                i6 = 0;
                             } else {
                                 iArr[0] = iArr[2];
                                 iArr[1] = iArr[3];
                                 iArr[2] = iArr[4];
                                 iArr[3] = 1;
                                 iArr[4] = 0;
-                                i6 = 3;
+                                i5 = 3;
                             }
                         } else {
                             iArr[0] = iArr[2];
@@ -112,24 +107,24 @@ public class FinderPatternFinder {
                             iArr[2] = iArr[4];
                             iArr[3] = 1;
                             iArr[4] = 0;
-                            i6 = 3;
+                            i5 = 3;
                         }
                     } else {
-                        i6++;
-                        iArr[i6] = iArr[i6] + 1;
+                        i5++;
+                        iArr[i5] = iArr[i5] + 1;
                     }
                 } else {
-                    iArr[i6] = iArr[i6] + 1;
+                    iArr[i5] = iArr[i5] + 1;
                 }
-                i7++;
+                i6++;
             }
-            if (foundPatternCross(iArr) && handlePossibleCenter(iArr, i4, width, z3)) {
-                i5 = iArr[0];
+            if (foundPatternCross(iArr) && handlePossibleCenter(iArr, i3, width, z2)) {
+                i4 = iArr[0];
                 if (this.hasSkipped) {
-                    z4 = haveMultiplyConfirmedCenters();
+                    z3 = haveMultiplyConfirmedCenters();
                 }
             }
-            i4 += i5;
+            i3 += i4;
         }
         FinderPattern[] selectBestPatterns = selectBestPatterns();
         ResultPoint.orderBestPatterns(selectBestPatterns);
@@ -643,7 +638,6 @@ public class FinderPatternFinder {
             } else {
                 f = f3;
             }
-            i = i;
             f3 = f;
         }
         if (i < 3) {
@@ -693,7 +687,7 @@ public class FinderPatternFinder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static final class FurthestFromAverageComparator implements Serializable, Comparator<FinderPattern> {
         private final float average;
 
@@ -714,7 +708,7 @@ public class FinderPatternFinder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static final class CenterComparator implements Serializable, Comparator<FinderPattern> {
         private final float average;
 

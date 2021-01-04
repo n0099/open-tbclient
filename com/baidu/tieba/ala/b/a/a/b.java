@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.b.a.a;
 import android.content.Context;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes10.dex */
 public class b implements a {
     @Override // com.baidu.tieba.ala.b.a.a.a
     public void j(Context context, File file) {
@@ -20,7 +20,7 @@ public class b implements a {
     public boolean k(Context context, File file) {
         Object fieldValue = com.baidu.tieba.ala.b.a.b.b.getFieldValue(com.baidu.tieba.ala.b.a.b.b.getFieldValue(context.getClassLoader(), "pathList"), "nativeLibraryDirectories");
         if (fieldValue instanceof File[]) {
-            return com.baidu.tieba.ala.b.a.b.a.b((File[]) fieldValue, file);
+            return com.baidu.tieba.ala.b.a.b.a.c((File[]) fieldValue, file);
         }
         return ((ArrayList) fieldValue).contains(file);
     }

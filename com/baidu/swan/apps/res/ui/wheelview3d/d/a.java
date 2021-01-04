@@ -2,55 +2,55 @@ package com.baidu.swan.apps.res.ui.wheelview3d.d;
 
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import java.util.TimerTask;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class a extends TimerTask {
-    private final WheelView3d dwG;
-    private float mCurrentVelocityY = 2.1474836E9f;
-    private final float mFirstVelocityY;
+    private float dDv = 2.1474836E9f;
+    private final float dDw;
+    private final WheelView3d dDx;
 
     public a(WheelView3d wheelView3d, float f) {
-        this.dwG = wheelView3d;
-        this.mFirstVelocityY = f;
+        this.dDx = wheelView3d;
+        this.dDw = f;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
-        if (this.mCurrentVelocityY == 2.1474836E9f) {
-            if (Math.abs(this.mFirstVelocityY) > 2000.0f) {
-                this.mCurrentVelocityY = this.mFirstVelocityY <= 0.0f ? -2000.0f : 2000.0f;
+        if (this.dDv == 2.1474836E9f) {
+            if (Math.abs(this.dDw) > 2000.0f) {
+                this.dDv = this.dDw <= 0.0f ? -2000.0f : 2000.0f;
             } else {
-                this.mCurrentVelocityY = this.mFirstVelocityY;
+                this.dDv = this.dDw;
             }
         }
-        if (Math.abs(this.mCurrentVelocityY) >= 0.0f && Math.abs(this.mCurrentVelocityY) <= 20.0f) {
-            this.dwG.cancelFuture();
-            this.dwG.getHandler().sendEmptyMessage(2000);
+        if (Math.abs(this.dDv) >= 0.0f && Math.abs(this.dDv) <= 20.0f) {
+            this.dDx.aLd();
+            this.dDx.getHandler().sendEmptyMessage(2000);
             return;
         }
-        int i = (int) (this.mCurrentVelocityY / 100.0f);
-        this.dwG.setTotalScrollY(this.dwG.getTotalScrollY() - i);
-        if (!this.dwG.isLoop()) {
-            float itemHeight = this.dwG.getItemHeight();
-            float f = (-this.dwG.getInitPosition()) * itemHeight;
-            float itemsCount = ((this.dwG.getItemsCount() - 1) - this.dwG.getInitPosition()) * itemHeight;
-            if (this.dwG.getTotalScrollY() - (itemHeight * 0.25d) < f) {
-                f = this.dwG.getTotalScrollY() + i;
-            } else if (this.dwG.getTotalScrollY() + (itemHeight * 0.25d) > itemsCount) {
-                itemsCount = this.dwG.getTotalScrollY() + i;
+        int i = (int) (this.dDv / 100.0f);
+        this.dDx.setTotalScrollY(this.dDx.getTotalScrollY() - i);
+        if (!this.dDx.aLf()) {
+            float itemHeight = this.dDx.getItemHeight();
+            float f = (-this.dDx.getInitPosition()) * itemHeight;
+            float itemsCount = ((this.dDx.getItemsCount() - 1) - this.dDx.getInitPosition()) * itemHeight;
+            if (this.dDx.getTotalScrollY() - (itemHeight * 0.25d) < f) {
+                f = this.dDx.getTotalScrollY() + i;
+            } else if (this.dDx.getTotalScrollY() + (itemHeight * 0.25d) > itemsCount) {
+                itemsCount = this.dDx.getTotalScrollY() + i;
             }
-            if (this.dwG.getTotalScrollY() <= f) {
-                this.mCurrentVelocityY = 40.0f;
-                this.dwG.setTotalScrollY((int) f);
-            } else if (this.dwG.getTotalScrollY() >= itemsCount) {
-                this.dwG.setTotalScrollY((int) itemsCount);
-                this.mCurrentVelocityY = -40.0f;
+            if (this.dDx.getTotalScrollY() <= f) {
+                this.dDv = 40.0f;
+                this.dDx.setTotalScrollY((int) f);
+            } else if (this.dDx.getTotalScrollY() >= itemsCount) {
+                this.dDx.setTotalScrollY((int) itemsCount);
+                this.dDv = -40.0f;
             }
         }
-        if (this.mCurrentVelocityY < 0.0f) {
-            this.mCurrentVelocityY += 20.0f;
+        if (this.dDv < 0.0f) {
+            this.dDv += 20.0f;
         } else {
-            this.mCurrentVelocityY -= 20.0f;
+            this.dDv -= 20.0f;
         }
-        this.dwG.getHandler().sendEmptyMessage(1000);
+        this.dDx.getHandler().sendEmptyMessage(1000);
     }
 }

@@ -1,26 +1,26 @@
 package com.baidu.cesium.c.d;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private c anH;
+    private c aoj;
 
     private a() {
     }
 
-    public static a ux() {
+    public static a tW() {
         a aVar = new a();
-        aVar.anH = new c();
-        aVar.anH.b("PKCS1Padding");
+        aVar.aoj = new c();
+        aVar.aoj.b("PKCS1Padding");
         return aVar;
     }
 
     public void a(int i, d dVar) {
-        this.anH.a(i, dVar, b.aex);
+        this.aoj.a(i, dVar, b.afc);
     }
 
     public final byte[] a(byte[] bArr) {
         if (bArr == null) {
             throw new IllegalArgumentException("Null input buffer");
         }
-        return this.anH.k(bArr, 0, bArr.length);
+        return this.aoj.k(bArr, 0, bArr.length);
     }
 }

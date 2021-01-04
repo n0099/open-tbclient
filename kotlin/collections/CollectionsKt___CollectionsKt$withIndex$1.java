@@ -3,7 +3,7 @@ package kotlin.collections;
 import java.util.Iterator;
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class CollectionsKt___CollectionsKt$withIndex$1 extends Lambda implements kotlin.jvm.a.a<Iterator<? extends T>> {
     final /* synthetic */ Iterable receiver$0;
 

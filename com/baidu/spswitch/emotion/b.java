@@ -3,7 +3,6 @@ package com.baidu.spswitch.emotion;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,33 +13,33 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private static b cyv;
+    private static b cDn;
     private static Context mContext;
-    private HashMap<String, a> cyw = new HashMap<>();
-    private List<String> cyx = new ArrayList();
+    private HashMap<String, a> cDo = new HashMap<>();
+    private List<String> cDp = new ArrayList();
 
-    public static b bJ(Context context) {
-        if (cyv == null) {
+    public static b bS(Context context) {
+        if (cDn == null) {
             synchronized (c.class) {
-                if (cyv == null) {
-                    cyv = new b(context.getApplicationContext());
+                if (cDn == null) {
+                    cDn = new b(context.getApplicationContext());
                 }
             }
         }
-        return cyv;
+        return cDn;
     }
 
     private b(Context context) {
         mContext = context;
-        bK(context);
+        bT(context);
     }
 
-    private void bK(Context context) {
+    private void bT(Context context) {
         JSONObject optJSONObject;
         try {
-            JSONArray optJSONArray = new JSONObject(bL(context)).optJSONArray("packages");
+            JSONArray optJSONArray = new JSONObject(bU(context)).optJSONArray("packages");
             if (optJSONArray != null && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
                 if (optJSONArray2 != null) {
@@ -49,16 +48,16 @@ public class b {
                         JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
                         String optString = jSONObject.optString("id");
                         String optString2 = jSONObject.optString("text");
-                        this.cyw.put(optString2, new a(optString, optString2, Integer.valueOf(kL(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
+                        this.cDo.put(optString2, new a(optString, optString2, Integer.valueOf(kE(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
                     }
                 }
                 JSONArray optJSONArray3 = optJSONObject.optJSONArray("panel_emoticons");
                 if (optJSONArray3 != null) {
                     int length2 = optJSONArray3.length();
                     for (int i2 = 0; i2 < length2; i2++) {
-                        String kK = kK((String) optJSONArray3.get(i2));
-                        if (!TextUtils.isEmpty(kK)) {
-                            this.cyx.add(kK);
+                        String kD = kD((String) optJSONArray3.get(i2));
+                        if (!TextUtils.isEmpty(kD)) {
+                            this.cDp.add(kD);
                         }
                     }
                 }
@@ -68,9 +67,9 @@ public class b {
         }
     }
 
-    private String kK(String str) {
+    private String kD(String str) {
         String str2 = "";
-        for (Map.Entry<String, a> entry : this.cyw.entrySet()) {
+        for (Map.Entry<String, a> entry : this.cDo.entrySet()) {
             str2 = entry.getKey();
             if (str.equals(entry.getValue().id)) {
                 break;
@@ -79,18 +78,18 @@ public class b {
         return str2;
     }
 
-    private int kL(String str) {
+    private int kE(String str) {
         if (str == null) {
             return 0;
         }
-        return mContext.getResources().getIdentifier(str.substring(0, str.indexOf(ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX)), "drawable", mContext.getPackageName());
+        return mContext.getResources().getIdentifier(str.substring(0, str.indexOf(".png")), "drawable", mContext.getPackageName());
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0054 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String bL(Context context) {
+    private String bU(Context context) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         StringBuilder sb = new StringBuilder();
@@ -150,9 +149,9 @@ public class b {
         Integer num;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                a aVar = this.cyw.get(str);
+                a aVar = this.cDo.get(str);
                 if (aVar != null) {
-                    num = aVar.cyz;
+                    num = aVar.cDr;
                     break;
                 }
             default:
@@ -169,26 +168,26 @@ public class b {
         a aVar = null;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                aVar = this.cyw.get(str);
+                aVar = this.cDo.get(str);
                 break;
         }
         return aVar == null ? "" : aVar.id;
     }
 
-    public List ahU() {
-        return this.cyx;
+    public List ajd() {
+        return this.cDp;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        public Integer cyz;
+        public Integer cDr;
         public String id;
         public String text;
 
         public a(String str, String str2, Integer num) {
             this.id = str;
             this.text = str2;
-            this.cyz = num;
+            this.cDr = num;
         }
     }
 }

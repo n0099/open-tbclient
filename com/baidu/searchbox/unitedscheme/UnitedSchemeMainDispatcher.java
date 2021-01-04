@@ -19,7 +19,7 @@ import rx.d;
 import rx.e;
 import rx.functions.f;
 import rx.j;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
     public static final String CONTENT_KEY_EXT = "ext";
     public static final String CONTENT_KEY_FROM = "from";
@@ -101,8 +101,9 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             String param = unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
             UnitedSchemeEntity m30clone = unitedSchemeEntity.m30clone();
             m30clone.removeParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
-            unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(param), unitedSchemeEntity.getSource());
+            UnitedSchemeEntity unitedSchemeEntity3 = new UnitedSchemeEntity(Uri.parse(param), unitedSchemeEntity.getSource());
             unitedSchemeEntity2 = m30clone;
+            unitedSchemeEntity = unitedSchemeEntity3;
         }
         String allPath = unitedSchemeEntity.getAllPath();
         if (redirectSchemes.get(allPath) != null) {

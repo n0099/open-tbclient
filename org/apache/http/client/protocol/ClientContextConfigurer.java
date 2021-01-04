@@ -7,7 +7,7 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.cookie.CookieSpecRegistry;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class ClientContextConfigurer implements ClientContext {
     public ClientContextConfigurer(HttpContext httpContext) {
         throw new RuntimeException("Stub!");

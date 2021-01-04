@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.coreextra.data;
 
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaVideoBCChatData extends BaseData {
     public boolean videoBCChatSwitch = false;
     public int audienceWaitTime = 0;

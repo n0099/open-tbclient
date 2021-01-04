@@ -13,6 +13,7 @@ import com.baidu.adp.lib.util.s;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -37,7 +38,7 @@ public final class Util {
         public int step = 0;
     }
 
-    public static boolean qG() {
+    public static boolean qi() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -49,12 +50,12 @@ public final class Util {
         }
     }
 
-    public static String a(InputStream inputStream, byte[] bArr) {
+    public static String b(InputStream inputStream, byte[] bArr) {
         String str = null;
         if (inputStream != null) {
             try {
                 byte[] bArr2 = new byte[1024];
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 if (bArr != null && bArr.length > 0) {
                     messageDigest.update(bArr, 0, bArr.length);
                 }
@@ -83,14 +84,14 @@ public final class Util {
         if (inputStream.read(new byte[4]) == -1 || inputStream.read(bArr, 0, bArr.length) == -1) {
             return null;
         }
-        int f = f(bArr, 6);
-        int f2 = f(bArr, 8);
+        int e = e(bArr, 6);
+        int e2 = e(bArr, 8);
         f fVar = new f();
-        fVar.c(((f2 >> 9) & 127) + 1980, (f2 >> 5) & 15, f2 & 31, (f >> 11) & 31, (f >> 5) & 63, (f & 31) << 1);
+        fVar.c(((e2 >> 9) & 127) + 1980, (e2 >> 5) & 15, e2 & 31, (e >> 11) & 31, (e >> 5) & 63, (e & 31) << 1);
         return fVar;
     }
 
-    private static int f(byte[] bArr, int i) {
+    private static int e(byte[] bArr, int i) {
         if (bArr == null) {
             return 0;
         }
@@ -98,16 +99,16 @@ public final class Util {
     }
 
     public static final boolean M(long j) {
-        long qI = qI();
+        long qk = qk();
         if (j <= 0) {
-            return qI <= 0 || qI >= 31457280;
+            return qk <= 0 || qk >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < qI;
+        return (j2 <= 31457280 ? j2 : 31457280L) < qk;
     }
 
     public static a b(InputStream inputStream, File file) {
@@ -222,15 +223,15 @@ public final class Util {
         }
     }
 
-    public static File cY(String str) {
-        PluginSetting cD = PluginPackageManager.pV().cD(str);
-        if (cD == null || cD.apkPath == null || cD.apkPath.length() <= ".apk".length()) {
+    public static File cR(String str) {
+        PluginSetting cw = PluginPackageManager.px().cw(str);
+        if (cw == null || cw.apkPath == null || cw.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(cD.apkPath.substring(0, cD.apkPath.length() - ".apk".length()));
+        return new File(cw.apkPath.substring(0, cw.apkPath.length() - ".apk".length()));
     }
 
-    public static File qH() {
+    public static File qj() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -245,7 +246,7 @@ public final class Util {
         }
     }
 
-    public static String a(ApplicationInfo applicationInfo) {
+    public static String c(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return null;
         }
@@ -270,42 +271,42 @@ public final class Util {
         return sb.substring(0, sb.length() - 1);
     }
 
-    public static String b(ApplicationInfo applicationInfo) {
+    public static String d(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return null;
         }
         return String.valueOf(applicationInfo.metaData.getInt("require_load"));
     }
 
-    public static boolean c(ApplicationInfo applicationInfo) {
+    public static boolean e(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return false;
         }
         return applicationInfo.metaData.getBoolean("is_inject_classloader");
     }
 
-    public static boolean d(ApplicationInfo applicationInfo) {
+    public static boolean f(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return false;
         }
         return applicationInfo.metaData.getBoolean("has_res", false);
     }
 
-    public static boolean e(ApplicationInfo applicationInfo) {
+    public static boolean g(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return false;
         }
         return applicationInfo.metaData.getBoolean("is_third", false);
     }
 
-    public static boolean f(ApplicationInfo applicationInfo) {
+    public static boolean h(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return false;
         }
         return applicationInfo.metaData.getBoolean("is_patch", false);
     }
 
-    public static String g(ApplicationInfo applicationInfo) {
+    public static String i(ApplicationInfo applicationInfo) {
         if (applicationInfo == null || applicationInfo.metaData == null) {
             return null;
         }
@@ -353,7 +354,7 @@ public final class Util {
         return pluginSetting.packageName + ".apk" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + pluginSetting.tempVersionCode;
     }
 
-    public static String cZ(String str) {
+    public static String cS(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -364,10 +365,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return qH() + File.separator + e(pluginSetting);
+        return qj() + File.separator + e(pluginSetting);
     }
 
-    public static long qI() {
+    public static long qk() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

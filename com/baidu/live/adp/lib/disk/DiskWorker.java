@@ -11,14 +11,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.InvalidParameterException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class DiskWorker {
     protected static final int BUFFER_SIZE = 1024;
     protected DiskFileFactory mDiskFileFactory;
     private DiskFileOperate mDiskFileOp;
     protected AtomicBoolean mIsCanceled;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface DiskWorkerOperate {
         boolean operate(DiskWorker diskWorker, DiskFileOperate diskFileOperate, DiskFileFactory diskFileFactory);
     }
@@ -137,25 +137,29 @@ public class DiskWorker {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [202=5, 203=4, 207=4] */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00a6  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00a5  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean read() {
+        OutputStream outputStream;
         FileInputStream fileInputStream;
         ByteArrayOutputStream byteArrayOutputStream;
         boolean z;
         File file;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
-        byteArrayOutputStream2 = null;
-        FileInputStream fileInputStream2 = null;
         try {
-            file = this.mDiskFileFactory.getFile(this.mDiskFileOp.buildPath(), this.mDiskFileOp.getName(), false, this.mDiskFileOp.isSdCard(), this.mDiskFileOp.isSavedCache());
+            try {
+                file = this.mDiskFileFactory.getFile(this.mDiskFileOp.buildPath(), this.mDiskFileOp.getName(), false, this.mDiskFileOp.isSdCard(), this.mDiskFileOp.isSavedCache());
+            } catch (Throwable th) {
+                th = th;
+            }
         } catch (Exception e) {
             e = e;
             byteArrayOutputStream = null;
-        } catch (Throwable th) {
-            th = th;
+            fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            outputStream = null;
             fileInputStream = null;
         }
         if (file == null || !file.exists() || this.mIsCanceled.get()) {
@@ -178,37 +182,23 @@ public class DiskWorker {
                 }
             } catch (Exception e2) {
                 e = e2;
-                fileInputStream2 = fileInputStream;
-                try {
-                    BdLog.e(e.getMessage());
-                    BdCloseHelper.close((InputStream) fileInputStream2);
-                    BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                    this.mDiskFileOp.unLock();
-                    z = false;
-                    return z;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileInputStream = fileInputStream2;
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                    BdCloseHelper.close((InputStream) fileInputStream);
-                    BdCloseHelper.close((OutputStream) byteArrayOutputStream2);
-                    this.mDiskFileOp.unLock();
-                    throw th;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                byteArrayOutputStream2 = byteArrayOutputStream;
+                BdLog.e(e.getMessage());
                 BdCloseHelper.close((InputStream) fileInputStream);
-                BdCloseHelper.close((OutputStream) byteArrayOutputStream2);
+                BdCloseHelper.close((OutputStream) byteArrayOutputStream);
                 this.mDiskFileOp.unLock();
-                throw th;
+                z = false;
+                return z;
             }
         } catch (Exception e3) {
             e = e3;
             byteArrayOutputStream = null;
-            fileInputStream2 = fileInputStream;
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th3) {
+            th = th3;
+            outputStream = null;
+            BdCloseHelper.close((InputStream) fileInputStream);
+            BdCloseHelper.close(outputStream);
+            this.mDiskFileOp.unLock();
+            throw th;
         }
         if (!this.mIsCanceled.get()) {
             byte[] byteArray = byteArrayOutputStream.toByteArray();

@@ -7,16 +7,16 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tieba.forumMember.member.p;
+import com.baidu.tieba.forumMember.member.l;
 import java.util.ArrayList;
 import tbclient.BawuRoleDes;
 import tbclient.BawuRoleInfoPub;
 import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class e {
-    private a iOv = null;
-    private com.baidu.adp.framework.listener.a iOw = new com.baidu.adp.framework.listener.a(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO) { // from class: com.baidu.tieba.forumMember.bawu.e.1
+    private a jaG = null;
+    private com.baidu.adp.framework.listener.a jaH = new com.baidu.adp.framework.listener.a(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO) { // from class: com.baidu.tieba.forumMember.bawu.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -32,21 +32,21 @@ public class e {
                         e.this.mIsPrivateForum = bawuTeamSocketResponseMessage.isPrivateForum() != 0;
                         e.this.mManagerApplyInfo = bawuTeamSocketResponseMessage.getManagerApplyInfo();
                     }
-                    p pVar = new p();
+                    l lVar = new l();
                     if (e.this.mManagerApplyInfo != null) {
-                        pVar.zu(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                        pVar.KA(e.this.mManagerApplyInfo.manager_apply_url);
-                        pVar.zw(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                        pVar.KB(e.this.mManagerApplyInfo.assist_apply_url);
+                        lVar.zH(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                        lVar.Ky(e.this.mManagerApplyInfo.manager_apply_url);
+                        lVar.zJ(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                        lVar.Kz(e.this.mManagerApplyInfo.assist_apply_url);
                     }
-                    if (e.this.iOv != null) {
-                        e.this.iOv.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (e.this.jaG != null) {
+                        e.this.jaG.a(e.this.a(e.this.mBawuTeamInfo), lVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         }
     };
-    private CustomMessageListener iOx = new CustomMessageListener(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.bawu.e.2
+    private CustomMessageListener jaI = new CustomMessageListener(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.bawu.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,15 +55,15 @@ public class e {
                 e.this.mBawuTeamInfo = bawuTeamReadCacheResponseMessage.getBawuTeamInfo();
                 e.this.mIsPrivateForum = bawuTeamReadCacheResponseMessage.isPrivateForum() != 0;
                 e.this.mManagerApplyInfo = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
-                p pVar = new p();
+                l lVar = new l();
                 if (e.this.mManagerApplyInfo != null) {
-                    pVar.zu(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                    pVar.KA(e.this.mManagerApplyInfo.manager_apply_url);
-                    pVar.zw(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                    pVar.KB(e.this.mManagerApplyInfo.assist_apply_url);
+                    lVar.zH(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                    lVar.Ky(e.this.mManagerApplyInfo.manager_apply_url);
+                    lVar.zJ(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                    lVar.Kz(e.this.mManagerApplyInfo.assist_apply_url);
                 }
-                if (e.this.iOv != null) {
-                    e.this.iOv.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
+                if (e.this.jaG != null) {
+                    e.this.jaG.a(e.this.a(e.this.mBawuTeamInfo), lVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
                 }
             }
         }
@@ -72,14 +72,14 @@ public class e {
     private boolean mIsPrivateForum;
     private ManagerApplyInfo mManagerApplyInfo;
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void a(ArrayList<i> arrayList, p pVar, boolean z, int i, String str);
+        void a(ArrayList<i> arrayList, l lVar, boolean z, int i, String str);
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.iOx);
-        MessageManager.getInstance().registerListener(this.iOw);
+        MessageManager.getInstance().registerListener(this.jaI);
+        MessageManager.getInstance().registerListener(this.jaH);
     }
 
     public void gj(long j) {
@@ -95,12 +95,12 @@ public class e {
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.iOw);
-        MessageManager.getInstance().unRegisterListener(this.iOx);
+        MessageManager.getInstance().unRegisterListener(this.jaH);
+        MessageManager.getInstance().unRegisterListener(this.jaI);
     }
 
     public void a(a aVar) {
-        this.iOv = aVar;
+        this.jaG = aVar;
     }
 
     public ArrayList<i> a(BawuTeam bawuTeam) {
@@ -119,7 +119,7 @@ public class e {
                 int i2 = 0;
                 while (i2 < size2) {
                     b bVar = new b();
-                    bVar.Kw(bawuRoleDes.role_name);
+                    bVar.Ku(bawuRoleDes.role_name);
                     ArrayList<BawuRoleInfoPub> arrayList2 = new ArrayList<>();
                     arrayList2.add(bawuRoleDes.role_info.get(i2));
                     if (i2 + 1 < size2) {
@@ -128,13 +128,13 @@ public class e {
                     i2 += 2;
                     if (i2 >= size2) {
                         if (this.mIsPrivateForum) {
-                            bVar.pJ(false);
+                            bVar.qg(false);
                         } else {
-                            bVar.pJ(true);
+                            bVar.qg(true);
                         }
-                        bVar.pI(true);
+                        bVar.qf(true);
                     } else {
-                        bVar.pI(false);
+                        bVar.qf(false);
                     }
                     bVar.ax(arrayList2);
                     arrayList.add(bVar);

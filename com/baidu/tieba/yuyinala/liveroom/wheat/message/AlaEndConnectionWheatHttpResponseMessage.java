@@ -3,12 +3,12 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaEndConnectionWheatHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int fans;
-    private String owZ;
-    private int oxa;
-    private int oxb;
+    private String oDU;
+    private int oDV;
+    private int oDW;
 
     public AlaEndConnectionWheatHttpResponseMessage() {
         super(1031011);
@@ -19,26 +19,26 @@ public class AlaEndConnectionWheatHttpResponseMessage extends BaseJsonHttpRespon
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031011 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.owZ = optJSONObject.optString("minute");
+            this.oDU = optJSONObject.optString("minute");
             this.fans = optJSONObject.optInt("fans");
-            this.oxa = optJSONObject.optInt(SdkStaticKeys.RANK_TYPE_CHARM);
-            this.oxb = optJSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY);
+            this.oDV = optJSONObject.optInt(SdkStaticKeys.RANK_TYPE_CHARM);
+            this.oDW = optJSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY);
         }
     }
 
-    public boolean efN() {
-        return this.oxb == 1 || this.oxb == 2 || this.oxb == 3;
+    public boolean efW() {
+        return this.oDW == 1 || this.oDW == 2 || this.oDW == 3;
     }
 
-    public String efO() {
-        return this.owZ;
+    public String efX() {
+        return this.oDU;
     }
 
-    public int dbE() {
+    public int dbh() {
         return this.fans;
     }
 
-    public int efP() {
-        return this.oxa;
+    public int efY() {
+        return this.oDV;
     }
 }

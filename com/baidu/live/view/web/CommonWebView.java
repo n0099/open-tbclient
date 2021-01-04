@@ -8,11 +8,11 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class CommonWebView extends WebView {
-    private boolean bRg;
-    private boolean bRh;
-    private boolean bRi;
+    private boolean bWN;
+    private boolean bWO;
+    private boolean bWP;
 
     public CommonWebView(Context context) {
         super(context);
@@ -20,46 +20,56 @@ public class CommonWebView extends WebView {
     }
 
     public void setRequestDisallowInterceptTouchEvent(boolean z) {
-        this.bRg = z;
+        this.bWN = z;
     }
 
     public void setVerticalScrollEnabled(boolean z) {
-        this.bRh = z;
+        this.bWO = z;
     }
 
     public void setHorizontalScrollEnabled(boolean z) {
-        this.bRi = z;
+        this.bWP = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        requestDisallowInterceptTouchEvent(this.bRg);
+        requestDisallowInterceptTouchEvent(this.bWN);
         return super.dispatchTouchEvent(motionEvent);
+    }
+
+    @Override // android.view.View
+    public boolean canScrollHorizontally(int i) {
+        return this.bWP && super.canScrollHorizontally(i);
+    }
+
+    @Override // android.view.View
+    public boolean canScrollVertically(int i) {
+        return this.bWO && super.canScrollVertically(i);
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (!this.bRh && !this.bRi) {
+        if (!this.bWO && !this.bWP) {
             scrollTo(0, 0);
-        } else if (!this.bRh) {
+        } else if (!this.bWO) {
             scrollTo(i, 0);
-        } else if (!this.bRi) {
+        } else if (!this.bWP) {
             scrollTo(0, i2);
         }
     }
 
     @Override // android.webkit.WebView
     public void loadUrl(String str) {
-        i.K(getContext(), str);
-        i.L(getContext(), str);
+        i.R(getContext(), str);
+        i.S(getContext(), str);
         super.loadUrl(str);
     }
 
     private void init() {
-        this.bRg = true;
-        this.bRh = true;
-        this.bRi = true;
+        this.bWN = true;
+        this.bWO = true;
+        this.bWP = true;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);

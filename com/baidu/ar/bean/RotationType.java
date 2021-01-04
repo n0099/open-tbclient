@@ -1,10 +1,12 @@
 package com.baidu.ar.bean;
-/* loaded from: classes10.dex */
+
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+/* loaded from: classes6.dex */
 public enum RotationType {
     ROTATE_0(0),
     ROTATE_90(90),
     ROTATE_180(180),
-    ROTATE_270(270);
+    ROTATE_270(SubsamplingScaleImageView.ORIENTATION_270);
     
     private final int mDegree;
 

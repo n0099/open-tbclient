@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import rx.d;
 import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] pJo = new Object[0];
-    private final SubjectSubscriptionManager<T> pVK;
+    private static final Object[] qkR = new Object[0];
+    private final SubjectSubscriptionManager<T> qxk;
 
-    public static <T> a<T> eGP() {
-        return e(null, false);
+    public static <T> a<T> eOX() {
+        return f(null, false);
     }
 
-    private static <T> a<T> e(T t, boolean z) {
+    private static <T> a<T> f(T t, boolean z) {
         final SubjectSubscriptionManager subjectSubscriptionManager = new SubjectSubscriptionManager();
         if (z) {
             subjectSubscriptionManager.setLatest(NotificationLite.next(t));
@@ -23,7 +23,7 @@ public final class a<T> extends c<T, T> {
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(SubjectSubscriptionManager.b<T> bVar) {
-                bVar.ci(SubjectSubscriptionManager.this.getLatest());
+                bVar.ck(SubjectSubscriptionManager.this.getLatest());
             }
         };
         subjectSubscriptionManager.onTerminated = subjectSubscriptionManager.onAdded;
@@ -32,27 +32,27 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.pVK = subjectSubscriptionManager;
+        this.qxk = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.pVK.getLatest() == null || this.pVK.active) {
-            Object eFG = NotificationLite.eFG();
-            for (SubjectSubscriptionManager.b<T> bVar : this.pVK.terminate(eFG)) {
-                bVar.ch(eFG);
+        if (this.qxk.getLatest() == null || this.qxk.active) {
+            Object eNO = NotificationLite.eNO();
+            for (SubjectSubscriptionManager.b<T> bVar : this.qxk.terminate(eNO)) {
+                bVar.cj(eNO);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.pVK.getLatest() == null || this.pVK.active) {
+        if (this.qxk.getLatest() == null || this.qxk.active) {
             Object error = NotificationLite.error(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.pVK.terminate(error)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.qxk.terminate(error)) {
                 try {
-                    bVar.ch(error);
+                    bVar.cj(error);
                 } catch (Throwable th2) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -60,16 +60,16 @@ public final class a<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.hg(arrayList);
+            rx.exceptions.a.hn(arrayList);
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.pVK.getLatest() == null || this.pVK.active) {
+        if (this.qxk.getLatest() == null || this.qxk.active) {
             Object next = NotificationLite.next(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.pVK.next(next)) {
-                bVar.ch(next);
+            for (SubjectSubscriptionManager.b<T> bVar : this.qxk.next(next)) {
+                bVar.cj(next);
             }
         }
     }

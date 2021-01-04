@@ -4,48 +4,48 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ThreadUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static boolean oBB;
-    private static Handler oBC;
     private static final Object sLock;
+    private static Handler sUiThreadHandler;
+    private static boolean sWillOverride;
 
     static {
         $assertionsDisabled = !ThreadUtils.class.desiredAssertionStatus();
         sLock = new Object();
-        oBB = false;
-        oBC = null;
+        sWillOverride = false;
+        sUiThreadHandler = null;
     }
 
-    private static Handler egV() {
+    private static Handler getUiThreadHandler() {
         Handler handler;
         synchronized (sLock) {
-            if (oBC == null) {
-                if (oBB) {
+            if (sUiThreadHandler == null) {
+                if (sWillOverride) {
                     throw new RuntimeException("Did not yet override the UI thread");
                 }
-                oBC = new Handler(Looper.getMainLooper());
+                sUiThreadHandler = new Handler(Looper.getMainLooper());
             }
-            handler = oBC;
+            handler = sUiThreadHandler;
         }
         return handler;
     }
 
     public static void runOnUiThread(Runnable runnable) {
-        if (egW()) {
+        if (runningOnUiThread()) {
             runnable.run();
         } else {
-            egV().post(runnable);
+            getUiThreadHandler().post(runnable);
         }
     }
 
-    public static void y(Runnable runnable) {
-        egV().post(runnable);
+    public static void x(Runnable runnable) {
+        getUiThreadHandler().post(runnable);
     }
 
-    public static boolean egW() {
-        return egV().getLooper() == Looper.myLooper();
+    public static boolean runningOnUiThread() {
+        return getUiThreadHandler().getLooper() == Looper.myLooper();
     }
 
     @CalledByNative

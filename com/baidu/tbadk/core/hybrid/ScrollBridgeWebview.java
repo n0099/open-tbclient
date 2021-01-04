@@ -5,50 +5,50 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class ScrollBridgeWebview extends BridgeWebView {
-    private a eQy;
-    private boolean eQz;
+    private a fax;
+    private boolean fay;
 
     /* loaded from: classes.dex */
     public interface a {
         void onScrollChanged(int i, int i2, int i3, int i4);
 
-        void s(int i, int i2, int i3, int i4);
-
         void t(int i, int i2, int i3, int i4);
+
+        void u(int i, int i2, int i3, int i4);
     }
 
     public ScrollBridgeWebview(Context context) {
         super(context);
-        this.eQz = false;
+        this.fay = false;
     }
 
     public ScrollBridgeWebview(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eQz = false;
+        this.fay = false;
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.eQy != null) {
+        if (this.fax != null) {
             if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                this.eQy.s(i, i2, i3, i4);
+                this.fax.t(i, i2, i3, i4);
             } else if (getScrollY() == 0) {
-                this.eQy.t(i, i2, i3, i4);
+                this.fax.u(i, i2, i3, i4);
             } else {
-                this.eQy.onScrollChanged(i, i2, i3, i4);
+                this.fax.onScrollChanged(i, i2, i3, i4);
             }
         }
     }
 
     public void setOnScrollChangeListener(a aVar) {
-        this.eQy = aVar;
+        this.fax = aVar;
     }
 
     @Override // android.webkit.WebView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
-        if (this.eQz) {
+        if (this.fay) {
             if (motionEvent.getAction() == 0) {
                 requestDisallowInterceptTouchEvent(false);
             } else {
@@ -59,6 +59,6 @@ public class ScrollBridgeWebview extends BridgeWebView {
     }
 
     public void setNeedDisAllowParentInterceptTouchEvent(boolean z) {
-        this.eQz = z;
+        this.fay = z;
     }
 }

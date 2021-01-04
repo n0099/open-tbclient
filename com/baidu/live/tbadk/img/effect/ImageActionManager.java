@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.img.ImageFileInfo;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ImageActionManager {
     private static ImageActionManager _instance = new ImageActionManager();
     private final HashMap<String, Class<? extends ImageAction>> imageActions = new HashMap<>();
@@ -24,40 +24,40 @@ public class ImageActionManager {
 
     public Bitmap applyImageActions(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
         Bitmap processImage;
-        int i;
+        ResizeImageAction resizeImageAction;
         if (bitmap != null && !ListUtils.isEmpty(list)) {
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ImageAction allocateImageAction = allocateImageAction(list.get(i2));
+            for (int i = 0; i < size; i++) {
+                ImageAction allocateImageAction = allocateImageAction(list.get(i));
                 if ((allocateImageAction instanceof StickerAction) && imageFileInfo != null) {
                     ((StickerAction) allocateImageAction).setPath(imageFileInfo.getFilePath());
                     return allocateImageAction.processImage(bitmap, z);
                 }
             }
-            int i3 = 0;
-            ResizeImageAction resizeImageAction = null;
-            while (i3 < size) {
-                ImageOperation imageOperation = list.get(i3);
+            int i2 = 0;
+            ResizeImageAction resizeImageAction2 = null;
+            while (i2 < size) {
+                ImageOperation imageOperation = list.get(i2);
                 if (ResizeImageAction.ACTION_NAME.equals(imageOperation.actionName)) {
-                    ResizeImageAction resizeImageAction2 = (ResizeImageAction) allocateImageAction(imageOperation);
-                    if (resizeImageAction != null) {
-                        if (resizeImageAction2.getMaxWidth() > resizeImageAction.getMaxWidth() && resizeImageAction2.getMaxHeight() > resizeImageAction.getMaxHeight()) {
-                            resizeImageAction2 = resizeImageAction;
+                    resizeImageAction = (ResizeImageAction) allocateImageAction(imageOperation);
+                    if (resizeImageAction2 != null) {
+                        if (resizeImageAction.getMaxWidth() > resizeImageAction2.getMaxWidth() && resizeImageAction.getMaxHeight() > resizeImageAction2.getMaxHeight()) {
+                            resizeImageAction = resizeImageAction2;
                         }
                     }
-                    list.remove(i3);
-                    resizeImageAction = resizeImageAction2;
-                    i = i3 - 1;
+                    list.remove(i2);
+                    i2--;
                 } else {
-                    i = i3;
+                    resizeImageAction = resizeImageAction2;
                 }
-                i3 = i + 1;
+                i2++;
+                resizeImageAction2 = resizeImageAction;
             }
-            Bitmap processImage2 = resizeImageAction != null ? resizeImageAction.processImage(bitmap, z) : null;
+            Bitmap processImage2 = resizeImageAction2 != null ? resizeImageAction2.processImage(bitmap, z) : null;
             if (list != null) {
-                int i4 = 0;
-                while (i4 < size) {
-                    ImageAction allocateImageAction2 = allocateImageAction(list.get(i4));
+                int i3 = 0;
+                while (i3 < size) {
+                    ImageAction allocateImageAction2 = allocateImageAction(list.get(i3));
                     if (allocateImageAction2 == null) {
                         processImage = processImage2;
                     } else if (processImage2 == null) {
@@ -65,7 +65,7 @@ public class ImageActionManager {
                     } else {
                         processImage = allocateImageAction2.processImage(bitmap, z);
                     }
-                    i4++;
+                    i3++;
                     processImage2 = processImage;
                 }
             }
@@ -76,45 +76,45 @@ public class ImageActionManager {
 
     public Bitmap applyImageActions(String str, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
         Bitmap bitmap;
-        int i;
-        int i2 = 0;
+        ResizeImageAction resizeImageAction;
+        int i = 0;
         if (ListUtils.isEmpty(list)) {
             return null;
         }
         int size = list.size();
-        for (int i3 = 0; i3 < size; i3++) {
-            ImageAction allocateImageAction = allocateImageAction(list.get(i3));
+        for (int i2 = 0; i2 < size; i2++) {
+            ImageAction allocateImageAction = allocateImageAction(list.get(i2));
             if ((allocateImageAction instanceof StickerAction) && imageFileInfo != null) {
                 return allocateImageAction.processImage(imageFileInfo.getFilePath());
             }
         }
-        int i4 = 0;
-        ResizeImageAction resizeImageAction = null;
-        while (i4 < list.size()) {
-            ImageOperation imageOperation = list.get(i4);
+        int i3 = 0;
+        ResizeImageAction resizeImageAction2 = null;
+        while (i3 < list.size()) {
+            ImageOperation imageOperation = list.get(i3);
             if (ResizeImageAction.ACTION_NAME.equals(imageOperation.actionName)) {
-                ResizeImageAction resizeImageAction2 = (ResizeImageAction) allocateImageAction(imageOperation);
-                if (resizeImageAction != null) {
-                    if (resizeImageAction2.getMaxWidth() > resizeImageAction.getMaxWidth() && resizeImageAction2.getMaxHeight() > resizeImageAction.getMaxHeight()) {
-                        resizeImageAction2 = resizeImageAction;
+                resizeImageAction = (ResizeImageAction) allocateImageAction(imageOperation);
+                if (resizeImageAction2 != null) {
+                    if (resizeImageAction.getMaxWidth() > resizeImageAction2.getMaxWidth() && resizeImageAction.getMaxHeight() > resizeImageAction2.getMaxHeight()) {
+                        resizeImageAction = resizeImageAction2;
                     }
                 }
-                list.remove(i4);
-                resizeImageAction = resizeImageAction2;
-                i = i4 - 1;
+                list.remove(i3);
+                i3--;
             } else {
-                i = i4;
+                resizeImageAction = resizeImageAction2;
             }
-            i4 = i + 1;
+            i3++;
+            resizeImageAction2 = resizeImageAction;
         }
-        Bitmap processImage = resizeImageAction != null ? resizeImageAction.processImage(str) : null;
+        Bitmap processImage = resizeImageAction2 != null ? resizeImageAction2.processImage(str) : null;
         if (list != null) {
             while (true) {
                 bitmap = processImage;
-                if (i2 >= list.size()) {
+                if (i >= list.size()) {
                     break;
                 }
-                ImageAction allocateImageAction2 = allocateImageAction(list.get(i2));
+                ImageAction allocateImageAction2 = allocateImageAction(list.get(i));
                 if (allocateImageAction2 == null) {
                     processImage = bitmap;
                 } else if (bitmap == null) {
@@ -122,7 +122,7 @@ public class ImageActionManager {
                 } else {
                     processImage = allocateImageAction2.processImage(bitmap, true);
                 }
-                i2++;
+                i++;
             }
         } else {
             bitmap = processImage;

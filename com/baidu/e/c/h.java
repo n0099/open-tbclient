@@ -4,9 +4,10 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class h {
     private String mUa;
     private String mVersionName;
@@ -30,7 +31,7 @@ public class h {
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(displayHeight);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append("android");
+        stringBuffer.append(HttpConstants.OS_TYPE_VALUE);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(this.mVersionName);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -43,7 +44,7 @@ public class h {
     }
 
     public String getVersionName(Context context) {
-        String appVersion = a.uQ().getAppVersion();
+        String appVersion = a.up().getAppVersion();
         if (TextUtils.isEmpty(appVersion)) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;

@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.group.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +14,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMJoinGroupRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMJoinGroupRequest.class.getSimpleName();
     private long mAppid;
@@ -35,7 +34,7 @@ public class IMJoinGroupRequest extends GroupBaseHttpRequest {
         this.mWhy = str3;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(Context context, String str, String str2) {
             super(str, str2);
@@ -48,11 +47,11 @@ public class IMJoinGroupRequest extends GroupBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
                 i = jSONObject.getInt("error_code");
-                str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+                str = jSONObject.optString("error_msg", "");
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
-                new IMTrack.CrashBuilder(IMJoinGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
                 i = 1010;
+                new IMTrack.CrashBuilder(IMJoinGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(IMJoinGroupRequest.this.mKey);

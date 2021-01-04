@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
 import org.apache.http.client.methods.HttpHead;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class Downloader {
     private String rs;
     private int rt = 0;
@@ -19,7 +19,7 @@ public final class Downloader {
 
     private static void a(InputStream inputStream, String str, int i, IProgressCallback iProgressCallback) {
         RandomAccessFile randomAccessFile;
-        BufferedInputStream bufferedInputStream = null;
+        BufferedInputStream bufferedInputStream;
         int i2 = 0;
         i.c(new File(str));
         byte[] bArr = new byte[8192];
@@ -27,12 +27,12 @@ public final class Downloader {
             randomAccessFile = new RandomAccessFile(str, "rw");
             try {
                 randomAccessFile.seek(0L);
-                BufferedInputStream bufferedInputStream2 = new BufferedInputStream(inputStream, 8192);
+                bufferedInputStream = new BufferedInputStream(inputStream, 8192);
                 while (true) {
                     try {
-                        int read = bufferedInputStream2.read(bArr, 0, 8192);
+                        int read = bufferedInputStream.read(bArr, 0, 8192);
                         if (read == -1) {
-                            k.closeQuietly(bufferedInputStream2);
+                            k.closeQuietly(bufferedInputStream);
                             k.closeQuietly(randomAccessFile);
                             return;
                         }
@@ -43,7 +43,6 @@ public final class Downloader {
                         }
                     } catch (Throwable th) {
                         th = th;
-                        bufferedInputStream = bufferedInputStream2;
                         k.closeQuietly(bufferedInputStream);
                         k.closeQuietly(randomAccessFile);
                         throw th;
@@ -51,10 +50,12 @@ public final class Downloader {
                 }
             } catch (Throwable th2) {
                 th = th2;
+                bufferedInputStream = null;
             }
         } catch (Throwable th3) {
             th = th3;
             randomAccessFile = null;
+            bufferedInputStream = null;
         }
     }
 

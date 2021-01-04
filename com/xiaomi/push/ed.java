@@ -9,23 +9,23 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public abstract class ed extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f4642a;
+    protected int f14261a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f232a;
+    protected Context f310a;
 
     public ed(Context context, int i) {
-        this.f4642a = i;
-        this.f232a = context;
+        this.f14261a = i;
+        this.f310a = context;
     }
 
     public static void a(Context context, hu huVar) {
-        dp m225a = dq.a().m225a();
-        String a2 = m225a == null ? "" : m225a.a();
+        dp m251a = dq.a().m251a();
+        String a2 = m251a == null ? "" : m251a.a();
         if (TextUtils.isEmpty(a2) || TextUtils.isEmpty(huVar.a())) {
             return;
         }
@@ -33,101 +33,89 @@ public abstract class ed extends ai.a {
     }
 
     private static void a(Context context, hu huVar, String str) {
+        BufferedOutputStream bufferedOutputStream;
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
-        BufferedOutputStream bufferedOutputStream;
-        RandomAccessFile randomAccessFile2;
-        BufferedOutputStream bufferedOutputStream2 = null;
-        bufferedOutputStream2 = null;
-        r2 = null;
-        bufferedOutputStream2 = null;
-        FileLock fileLock2 = null;
-        byte[] b = du.b(str, iw.a(huVar));
-        if (b == null || b.length == 0) {
+        byte[] b2 = du.b(str, iw.a(huVar));
+        if (b2 == null || b2.length == 0) {
             return;
         }
-        synchronized (dv.f4637a) {
+        synchronized (dv.f14254a) {
             try {
                 File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                y.m583a(file);
+                y.m609a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
+                } catch (IOException e) {
+                    e = e;
+                    bufferedOutputStream = null;
+                    fileLock = null;
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedOutputStream = null;
+                    fileLock = null;
+                }
+                try {
+                    bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(context.getExternalFilesDir(null), "push_cdata.data"), true));
                     try {
-                        bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(context.getExternalFilesDir(null), "push_cdata.data"), true));
                         try {
-                            bufferedOutputStream.write(ac.a(b.length));
-                            bufferedOutputStream.write(b);
+                            bufferedOutputStream.write(ac.a(b2.length));
+                            bufferedOutputStream.write(b2);
                             bufferedOutputStream.flush();
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
-                                } catch (IOException e) {
+                                } catch (IOException e2) {
                                 }
                             }
                             y.a(bufferedOutputStream);
                             y.a(randomAccessFile);
-                        } catch (IOException e2) {
-                            e = e2;
-                            fileLock2 = fileLock;
-                            randomAccessFile2 = randomAccessFile;
-                            try {
-                                e.printStackTrace();
-                                if (fileLock2 != null && fileLock2.isValid()) {
-                                    try {
-                                        fileLock2.release();
-                                    } catch (IOException e3) {
-                                    }
+                        } catch (IOException e3) {
+                            e = e3;
+                            e.printStackTrace();
+                            if (fileLock != null && fileLock.isValid()) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e4) {
                                 }
-                                y.a(bufferedOutputStream);
-                                y.a(randomAccessFile2);
-                            } catch (Throwable th) {
-                                th = th;
-                                randomAccessFile = randomAccessFile2;
-                                fileLock = fileLock2;
-                                bufferedOutputStream2 = bufferedOutputStream;
-                                if (fileLock != null && fileLock.isValid()) {
-                                    try {
-                                        fileLock.release();
-                                    } catch (IOException e4) {
-                                    }
-                                }
-                                y.a(bufferedOutputStream2);
-                                y.a(randomAccessFile);
-                                throw th;
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            bufferedOutputStream2 = bufferedOutputStream;
-                            if (fileLock != null) {
-                                fileLock.release();
-                            }
-                            y.a(bufferedOutputStream2);
+                            y.a(bufferedOutputStream);
                             y.a(randomAccessFile);
-                            throw th;
                         }
-                    } catch (IOException e5) {
-                        e = e5;
-                        bufferedOutputStream = null;
-                        fileLock2 = fileLock;
-                        randomAccessFile2 = randomAccessFile;
-                    } catch (Throwable th3) {
-                        th = th3;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (fileLock != null && fileLock.isValid()) {
+                            try {
+                                fileLock.release();
+                            } catch (IOException e5) {
+                            }
+                        }
+                        y.a(bufferedOutputStream);
+                        y.a(randomAccessFile);
+                        throw th;
                     }
                 } catch (IOException e6) {
                     e = e6;
                     bufferedOutputStream = null;
-                    randomAccessFile2 = randomAccessFile;
-                } catch (Throwable th4) {
-                    th = th4;
-                    fileLock = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedOutputStream = null;
+                    if (fileLock != null) {
+                        fileLock.release();
+                    }
+                    y.a(bufferedOutputStream);
+                    y.a(randomAccessFile);
+                    throw th;
                 }
             } catch (IOException e7) {
                 e = e7;
                 bufferedOutputStream = null;
-                randomAccessFile2 = null;
-            } catch (Throwable th5) {
-                th = th5;
+                fileLock = null;
+                randomAccessFile = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedOutputStream = null;
                 fileLock = null;
                 randomAccessFile = null;
             }
@@ -136,17 +124,17 @@ public abstract class ed extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract ho mo159a();
+    public abstract ho mo185a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract String mo159a();
+    public abstract String mo185a();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo159a() {
-        return du.a(this.f232a, String.valueOf(mo159a()), this.f4642a);
+    public boolean mo185a() {
+        return du.a(this.f310a, String.valueOf(mo185a()), this.f14261a);
     }
 
     protected boolean b() {
@@ -155,23 +143,23 @@ public abstract class ed extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (mo159a()) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("DC run job mutual: " + mo159a());
+        if (mo185a()) {
+            com.xiaomi.channel.commonutils.logger.b.m73a("DC run job mutual: " + mo185a());
             return;
         }
-        dp m225a = dq.a().m225a();
-        String a2 = m225a == null ? "" : m225a.a();
+        dp m251a = dq.a().m251a();
+        String a2 = m251a == null ? "" : m251a.a();
         if (TextUtils.isEmpty(a2) || !b()) {
             return;
         }
-        String mo159a = mo159a();
-        if (TextUtils.isEmpty(mo159a)) {
+        String mo185a = mo185a();
+        if (TextUtils.isEmpty(mo185a)) {
             return;
         }
         hu huVar = new hu();
-        huVar.a(mo159a);
+        huVar.a(mo185a);
         huVar.a(System.currentTimeMillis());
-        huVar.a(mo159a());
-        a(this.f232a, huVar, a2);
+        huVar.a(mo185a());
+        a(this.f310a, huVar, a2);
     }
 }

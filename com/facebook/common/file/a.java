@@ -1,55 +1,51 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public static String pbP = null;
+    public static String psU = null;
 
     public static void a(File file, b bVar) {
-        File[] b;
-        bVar.am(file);
+        File[] b2;
+        bVar.ar(file);
         try {
-            b = file.listFiles();
+            b2 = file.listFiles();
         } catch (OutOfMemoryError e) {
             System.gc();
-            b = b(file, file.list());
+            b2 = b(file, file.list());
         }
-        if (b != null) {
-            for (File file2 : b) {
+        if (b2 != null) {
+            for (File file2 : b2) {
                 if (file2.isDirectory()) {
                     a(file2, bVar);
                 } else {
-                    bVar.an(file2);
+                    bVar.as(file2);
                     String path = file2.getPath();
                     if (path != null) {
-                        if (pbP == null) {
-                            pbP = path;
-                        } else if (path.length() > pbP.length()) {
-                            pbP = path;
+                        if (psU == null) {
+                            psU = path;
+                        } else if (path.length() > psU.length()) {
+                            psU = path;
                         }
                     }
                 }
             }
         }
-        bVar.ao(file);
+        bVar.at(file);
     }
 
     public static boolean deleteContents(File file) {
         File[] listFiles = file.listFiles();
         boolean z = true;
         if (listFiles != null) {
-            int length = listFiles.length;
-            int i = 0;
-            while (i < length) {
-                boolean au = au(listFiles[i]) & z;
-                i++;
-                z = au;
+            for (File file2 : listFiles) {
+                z &= az(file2);
             }
         }
         return z;
     }
 
-    public static boolean au(File file) {
+    public static boolean az(File file) {
         if (file.isDirectory()) {
             deleteContents(file);
         }
@@ -68,19 +64,19 @@ public class a {
         int length = strArr.length;
         File[] fileArr = new File[length];
         for (int i = 0; i < length; i++) {
-            fileArr[i] = new File(he(path, strArr[i]));
+            fileArr[i] = new File(hk(path, strArr[i]));
         }
         return fileArr;
     }
 
-    private static String he(String str, String str2) {
+    private static String hk(String str, String str2) {
         if (str.isEmpty()) {
             return str2;
         }
-        return str2.isEmpty() ? str : hf(str, str2);
+        return str2.isEmpty() ? str : hl(str, str2);
     }
 
-    private static String hf(String str, String str2) {
+    private static String hl(String str, String str2) {
         boolean z = true;
         int length = str.length();
         boolean z2 = length > 0 && str.charAt(length + (-1)) == File.separatorChar;

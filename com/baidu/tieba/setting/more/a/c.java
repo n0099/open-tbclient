@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class c {
-    public static String dKC() {
+    public static String dKr() {
         try {
             return Environment.getExternalStorageDirectory() + File.separator + "tieba/Logs/";
         } catch (Exception e) {
@@ -16,11 +16,11 @@ public class c {
         }
     }
 
-    public static String dKD() {
-        return dKE() + "tieba/Logs/";
+    public static String dKs() {
+        return dKt() + "tieba/Logs/";
     }
 
-    private static String dKE() {
+    private static String dKt() {
         String path = Environment.getExternalStorageDirectory().getPath();
         int length = path.length() - 1;
         if (length > 0 && !path.substring(length).equals(File.separator)) {
@@ -29,16 +29,16 @@ public class c {
         return path;
     }
 
-    public static boolean SN(String str) {
-        String SO = SO(str);
-        if (TextUtils.isEmpty(SO)) {
+    public static boolean Sw(String str) {
+        String Sx = Sx(str);
+        if (TextUtils.isEmpty(Sx)) {
             return false;
         }
-        File file = new File(SO);
+        File file = new File(Sx);
         return (file.exists() && file.isDirectory()) || file.mkdirs();
     }
 
-    private static String SO(String str) {
+    private static String Sx(String str) {
         if (!TextUtils.isEmpty(str)) {
             int lastIndexOf = str.lastIndexOf(File.separator);
             return lastIndexOf == -1 ? "" : str.substring(0, lastIndexOf);

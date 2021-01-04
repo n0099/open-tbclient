@@ -3,7 +3,7 @@ package com.baidu.tieba.qrcode.lib.zxing;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -11,23 +11,23 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public static final Map<EncodeHintType, Object> mFO = new EnumMap(EncodeHintType.class);
+    public static final Map<EncodeHintType, Object> mLg = new EnumMap(EncodeHintType.class);
 
     static {
-        mFO.put(EncodeHintType.CHARACTER_SET, "utf-8");
-        mFO.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-        mFO.put(EncodeHintType.MARGIN, 0);
+        mLg.put(EncodeHintType.CHARACTER_SET, "utf-8");
+        mLg.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        mLg.put(EncodeHintType.MARGIN, 0);
     }
 
-    public static Bitmap bF(String str, int i) {
+    public static Bitmap bM(String str, int i) {
         return a(str, i, ViewCompat.MEASURED_STATE_MASK, -1, null);
     }
 
     public static Bitmap a(String str, int i, int i2, int i3, Bitmap bitmap) {
         try {
-            BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, mFO);
+            BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, mLg);
             int[] iArr = new int[i * i];
             for (int i4 = 0; i4 < i; i4++) {
                 for (int i5 = 0; i5 < i; i5++) {
@@ -40,13 +40,13 @@ public class b {
             }
             Bitmap createBitmap = Bitmap.createBitmap(i, i, Bitmap.Config.ARGB_8888);
             createBitmap.setPixels(iArr, 0, i, 0, 0, i, i);
-            return b(createBitmap, bitmap);
+            return c(createBitmap, bitmap);
         } catch (Exception e) {
             return null;
         }
     }
 
-    private static Bitmap b(Bitmap bitmap, Bitmap bitmap2) {
+    private static Bitmap c(Bitmap bitmap, Bitmap bitmap2) {
         if (bitmap == null || bitmap2 == null) {
             return bitmap;
         }
@@ -61,7 +61,7 @@ public class b {
             canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
             canvas.scale(f, f, width / 2, height / 2);
             canvas.drawBitmap(bitmap2, (width - width2) / 2, (height - height2) / 2, (Paint) null);
-            canvas.save(31);
+            canvas.save();
             canvas.restore();
             return createBitmap;
         } catch (Exception e) {

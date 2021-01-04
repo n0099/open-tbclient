@@ -1,5 +1,5 @@
 package com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
     public String nid;
     public long postId;

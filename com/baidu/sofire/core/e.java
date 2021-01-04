@@ -1,7 +1,7 @@
 package com.baidu.sofire.core;
 
 import dalvik.system.DexClassLoader;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class e extends DexClassLoader {
     public e(String str, String str2, String str3, ClassLoader classLoader) {
         super(str, str2, str3, classLoader);

@@ -37,10 +37,10 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel;
@@ -62,14 +62,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class PersonPolymericFragment extends BaseFragment implements VoiceManager.c {
-    private VoiceManager abD;
-    private ShareSuccessReplyToServerModel joM;
+    private VoiceManager acp;
+    private ShareSuccessReplyToServerModel jBj;
     private View mRootView;
-    private String mjy;
-    private String mjz;
-    private g mpp;
+    private String moH;
+    private String moI;
+    private g muC;
     private String nid;
     private String stType;
     private String threadId;
@@ -78,43 +78,43 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
     private String mPortrait = "";
     @Deprecated
     private boolean isBigV = false;
-    private boolean mpo = false;
-    private boolean jxF = false;
-    private long lHA = 0;
-    private AntiHelper.a iUs = new AntiHelper.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.1
+    private boolean muB = false;
+    private boolean jKc = false;
+    private long lMP = 0;
+    private AntiHelper.a jgD = new AntiHelper.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.1
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).al("obj_locate", ay.a.LOCATE_LIKE_PERSON));
+            TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).an("obj_locate", ax.a.LOCATE_LIKE_PERSON));
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onNavigationButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).al("obj_locate", ay.a.LOCATE_LIKE_PERSON));
+            TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).an("obj_locate", ax.a.LOCATE_LIKE_PERSON));
         }
     };
-    private CustomMessageListener lbL = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH_PERSONAL) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.3
+    private CustomMessageListener lhp = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH_PERSONAL) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (PersonPolymericFragment.this.isHost) {
-                PersonPolymericFragment.this.jxF = true;
+                PersonPolymericFragment.this.jKc = true;
             }
         }
     };
-    private HttpMessageListener lfK = new HttpMessageListener(1001505) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.4
+    private HttpMessageListener llp = new HttpMessageListener(1001505) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001505) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
-                if (statusCode == 200 && error == 0 && PersonPolymericFragment.this.mpp != null) {
-                    PersonPolymericFragment.this.mpp.wB(true);
+                if (statusCode == 200 && error == 0 && PersonPolymericFragment.this.muC != null) {
+                    PersonPolymericFragment.this.muC.wC(true);
                 }
             }
         }
     };
-    private CustomMessageListener iUK = new CustomMessageListener(CmdConfigCustom.CMD_MODIFY_NICKNAME_SUCCEED) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.5
+    private CustomMessageListener jgW = new CustomMessageListener(CmdConfigCustom.CMD_MODIFY_NICKNAME_SUCCEED) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -123,10 +123,10 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                 Object data = customResponsedMessage.getData();
                 if (data instanceof String) {
                     String str = (String) data;
-                    if (!TextUtils.isEmpty(str) && PersonPolymericFragment.this.mpp != null) {
-                        com.baidu.tieba.personPolymeric.c.a wB = PersonPolymericFragment.this.mpp.wB(true);
-                        PersonPolymericFragment.this.mjy = str;
-                        if (wB != null && (userData = wB.getUserData()) != null) {
+                    if (!TextUtils.isEmpty(str) && PersonPolymericFragment.this.muC != null) {
+                        com.baidu.tieba.personPolymeric.c.a wC = PersonPolymericFragment.this.muC.wC(true);
+                        PersonPolymericFragment.this.moH = str;
+                        if (wC != null && (userData = wC.getUserData()) != null) {
                             userData.setName_show(str);
                         }
                     }
@@ -134,59 +134,59 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             }
         }
     };
-    private CustomMessageListener mjA = new CustomMessageListener(2921378) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.6
+    private CustomMessageListener moJ = new CustomMessageListener(2921378) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && PersonPolymericFragment.this.isHost) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof String) {
-                    PersonPolymericFragment.this.mjz = (String) data;
+                    PersonPolymericFragment.this.moI = (String) data;
                 }
             }
         }
     };
-    private CustomMessageListener eTG = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.7
+    private CustomMessageListener fdd = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage.a data = ((UpdateAttentionMessage) customResponsedMessage).getData();
-                if (data.flk != null && AntiHelper.a(PersonPolymericFragment.this.getActivity(), data.flk, PersonPolymericFragment.this.iUs) != null) {
-                    TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).al("obj_locate", ay.a.LOCATE_LIKE_PERSON));
+                if (data.fuV != null && AntiHelper.a(PersonPolymericFragment.this.getActivity(), data.fuV, PersonPolymericFragment.this.jgD) != null) {
+                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).an("obj_locate", ax.a.LOCATE_LIKE_PERSON));
                 }
             }
         }
     };
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.mIsLogin = TbadkCoreApplication.isLogin();
-        MessageManager.getInstance().registerListener(this.lbL);
-        MessageManager.getInstance().registerListener(this.iUK);
-        MessageManager.getInstance().registerListener(this.mjA);
-        MessageManager.getInstance().registerListener(this.lfK);
-        MessageManager.getInstance().registerListener(this.eTG);
+        MessageManager.getInstance().registerListener(this.lhp);
+        MessageManager.getInstance().registerListener(this.jgW);
+        MessageManager.getInstance().registerListener(this.moJ);
+        MessageManager.getInstance().registerListener(this.llp);
+        MessageManager.getInstance().registerListener(this.fdd);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         long currentTimeMillis = System.currentTimeMillis();
-        b.dzW().reset();
-        b.dzW().dw(currentTimeMillis);
+        b.dzL().reset();
+        b.dzL().dw(currentTimeMillis);
         super.onCreate(bundle);
-        this.abD = getVoiceManager();
-        if (this.abD != null) {
-            this.abD.onCreate(getPageContext());
+        this.acp = getVoiceManager();
+        if (this.acp != null) {
+            this.acp.onCreate(getPageContext());
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         aF(bundle);
-        dzV();
-        dzU();
+        dzK();
+        dzJ();
         View inflate = layoutInflater.inflate(R.layout.fragment_person_center_layout, (ViewGroup) null);
         if (this.userId <= 0 && TbadkCoreApplication.getCurrentAccount() != null) {
             this.userId = com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
@@ -195,27 +195,27 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         return inflate;
     }
 
-    private void dzU() {
-        ar arVar = new ar("c13576");
-        arVar.al("obj_type", this.isHost ? 1 : 0);
-        arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
-        TiebaStatic.log(arVar);
+    private void dzJ() {
+        aq aqVar = new aq("c13576");
+        aqVar.an("obj_type", this.isHost ? 1 : 0);
+        aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(aqVar);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.mpp = new g(this, this.mRootView, getUniqueId(), this.userId, this.isHost, this.mpo, this.mPortrait);
-        this.joM = new ShareSuccessReplyToServerModel();
-        b.dzW().setCreateTime(System.currentTimeMillis() - b.dzW().bgj());
+        this.muC = new g(this, this.mRootView, getUniqueId(), this.userId, this.isHost, this.muB, this.mPortrait);
+        this.jBj = new ShareSuccessReplyToServerModel();
+        b.dzL().setCreateTime(System.currentTimeMillis() - b.dzL().biG());
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
-        this.abD = getVoiceManager();
-        if (this.abD != null) {
-            this.abD.onStart(getPageContext());
+        this.acp = getVoiceManager();
+        if (this.acp != null) {
+            this.acp.onStart(getPageContext());
         }
     }
 
@@ -223,59 +223,59 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
     public void onPrimary() {
         super.onPrimary();
         if (isAdded()) {
-            this.mpp.cb(isPrimary());
-            com.baidu.tieba.q.a.dGO().xt(isPrimary());
+            this.muC.ca(isPrimary());
+            com.baidu.tieba.p.a.dGD().xu(isPrimary());
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        this.abD = getVoiceManager();
-        if (this.abD != null) {
-            this.abD.onResume(getPageContext());
+        this.acp = getVoiceManager();
+        if (this.acp != null) {
+            this.acp.onResume(getPageContext());
         }
-        this.mpp.onResume();
+        this.muC.onResume();
         if (!this.isHost && this.isBigV) {
-            this.lHA = System.currentTimeMillis();
+            this.lMP = System.currentTimeMillis();
         } else {
-            this.lHA = -1L;
+            this.lMP = -1L;
         }
-        if (this.mpp.dAf() != null) {
-            if (!StringUtils.isNull(this.mjy)) {
-                this.mpp.dAf().Rh(this.mjy);
-                this.mjy = null;
+        if (this.muC.dzU() != null) {
+            if (!StringUtils.isNull(this.moH)) {
+                this.muC.dzU().QN(this.moH);
+                this.moH = null;
             }
-            if (!StringUtils.isNull(this.mjz)) {
-                this.mpp.dAf().Ri(this.mjz);
-                this.mjz = null;
+            if (!StringUtils.isNull(this.moI)) {
+                this.muC.dzU().QO(this.moI);
+                this.moI = null;
             }
-            if (this.jxF) {
-                this.mpp.dAf().dAa();
-                this.jxF = false;
+            if (this.jKc) {
+                this.muC.dzU().dzP();
+                this.jKc = false;
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        this.abD = getVoiceManager();
-        if (this.abD != null) {
-            this.abD.onPause(getPageContext());
+        this.acp = getVoiceManager();
+        if (this.acp != null) {
+            this.acp.onPause(getPageContext());
         }
-        if (this.lHA > 0) {
-            TiebaStatic.log(new ar("c12263").dY("obj_duration", String.valueOf((System.currentTimeMillis() - this.lHA) / 1000)).al("obj_type", 2));
-            this.lHA = 0L;
+        if (this.lMP > 0) {
+            TiebaStatic.log(new aq("c12263").dX("obj_duration", String.valueOf((System.currentTimeMillis() - this.lMP) / 1000)).an("obj_type", 2));
+            this.lMP = 0L;
         }
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
-        this.abD = getVoiceManager();
-        if (this.abD != null) {
-            this.abD.onStop(getPageContext());
+        this.acp = getVoiceManager();
+        if (this.acp != null) {
+            this.acp.onStop(getPageContext());
         }
     }
 
@@ -289,12 +289,12 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             if (intent.getParcelableExtra(IntentConfig.KEY_URI) != null) {
                 Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
                 String uri2 = uri.toString();
-                if (f.p(uri)) {
-                    f.biX().d(uri, new f.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.8
+                if (f.r(uri)) {
+                    f.bln().d(uri, new f.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.8
                         @Override // com.baidu.tbadk.BdToken.f.a
                         public void onCallBack(HashMap<String, Object> hashMap) {
-                            if (hashMap != null && (hashMap.get(f.exh) instanceof String)) {
-                                PersonPolymericFragment.this.mPortrait = (String) hashMap.get(f.exh);
+                            if (hashMap != null && (hashMap.get(f.eGx) instanceof String)) {
+                                PersonPolymericFragment.this.mPortrait = (String) hashMap.get(f.eGx);
                                 if (!StringUtils.isNull(PersonPolymericFragment.this.mPortrait)) {
                                     PersonPolymericFragment.this.isHost = false;
                                 }
@@ -329,7 +329,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                                 if (decode.startsWith("//")) {
                                     decode = decode.substring(2);
                                 }
-                                if (!StringUtils.isNull(decode) && (paramPair = bf.getParamPair(decode)) != null) {
+                                if (!StringUtils.isNull(decode) && (paramPair = be.getParamPair(decode)) != null) {
                                     String str = paramPair.get("uid");
                                     if (!StringUtils.isNull(str)) {
                                         this.userId = com.baidu.adp.lib.f.b.toLong(str, 0L);
@@ -352,71 +352,71 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             this.userId = intent.getLongExtra("user_id", com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L));
             this.isHost = intent.getBooleanExtra(PersonPolymericActivityConfig.IS_USER_SELF, true);
             this.isBigV = intent.getBooleanExtra(PersonPolymericActivityConfig.IS_BIGV, false);
-            this.mpo = intent.getBooleanExtra(PersonPolymericActivityConfig.IS_SHOW_THREAD_TOP, false);
+            this.muB = intent.getBooleanExtra(PersonPolymericActivityConfig.IS_SHOW_THREAD_TOP, false);
             this.stType = intent.getStringExtra("st_type");
             this.threadId = intent.getStringExtra("thread_id");
-            this.nid = intent.getStringExtra("nid");
+            this.nid = intent.getStringExtra(IntentConfig.NID);
         } else if (bundle != null) {
             this.userId = bundle.getLong("user_id", com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L));
             this.isHost = bundle.getBoolean(PersonPolymericActivityConfig.IS_USER_SELF, true);
             this.isBigV = bundle.getBoolean(PersonPolymericActivityConfig.IS_BIGV, false);
-            this.mpo = bundle.getBoolean(PersonPolymericActivityConfig.IS_SHOW_THREAD_TOP, false);
+            this.muB = bundle.getBoolean(PersonPolymericActivityConfig.IS_SHOW_THREAD_TOP, false);
             this.stType = bundle.getString("st_type");
             this.threadId = bundle.getString("thread_id");
-            this.nid = bundle.getString("nid");
+            this.nid = bundle.getString(IntentConfig.NID);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.abD != null) {
-            this.abD.onDestory(getPageContext());
+        if (this.acp != null) {
+            this.acp.onDestory(getPageContext());
         }
-        this.abD = null;
-        if (this.mpp != null) {
-            this.mpp.onDestroy();
+        this.acp = null;
+        if (this.muC != null) {
+            this.muC.onDestroy();
         }
         BdAsyncTask.removeAllTask(SetPrivacyModel.UNIQUE_ID_SET_PRIVACY_TASK);
         BdAsyncTask.removeAllTask(ForumManageModel.UNIQUE_ID_DEL_POST_TASK);
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         if (bundle != null) {
             bundle.putLong("user_id", this.userId);
             bundle.putBoolean(PersonPolymericActivityConfig.IS_USER_SELF, this.isHost);
             bundle.putBoolean(PersonPolymericActivityConfig.IS_BIGV, this.isBigV);
-            bundle.putBoolean(PersonPolymericActivityConfig.IS_SHOW_THREAD_TOP, this.mpo);
+            bundle.putBoolean(PersonPolymericActivityConfig.IS_SHOW_THREAD_TOP, this.muB);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDetach() {
         super.onDetach();
-        MessageManager.getInstance().unRegisterListener(this.lbL);
-        MessageManager.getInstance().unRegisterListener(this.iUK);
-        MessageManager.getInstance().unRegisterListener(this.mjA);
-        MessageManager.getInstance().unRegisterListener(this.lfK);
-        MessageManager.getInstance().unRegisterListener(this.eTG);
+        MessageManager.getInstance().unRegisterListener(this.lhp);
+        MessageManager.getInstance().unRegisterListener(this.jgW);
+        MessageManager.getInstance().unRegisterListener(this.moJ);
+        MessageManager.getInstance().unRegisterListener(this.llp);
+        MessageManager.getInstance().unRegisterListener(this.fdd);
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             switch (i) {
                 case 101:
-                    if (this.mpp.dAf() instanceof com.baidu.tieba.model.a) {
-                        ((com.baidu.tieba.model.a) this.mpp.dAf()).resetData();
-                        ((com.baidu.tieba.model.a) this.mpp.dAf()).loadData();
+                    if (this.muC.dzU() instanceof com.baidu.tieba.model.a) {
+                        ((com.baidu.tieba.model.a) this.muC.dzU()).resetData();
+                        ((com.baidu.tieba.model.a) this.muC.dzU()).loadData();
                         return;
                     }
                     return;
-                case RequestResponseCode.REQUEST_ALBUM_IMAGE /* 12002 */:
-                    if (intent != null && this.mpp != null) {
-                        this.mpp.dAf().dAb().dBm().Y(intent);
+                case 12002:
+                    if (intent != null && this.muC != null) {
+                        this.muC.dzU().dzQ().dBb().af(intent);
                         return;
                     }
                     return;
@@ -425,14 +425,14 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                     if (intent != null) {
                         int intExtra = intent.getIntExtra("upload_image_type", 0);
                         if (intExtra == 1) {
-                            if (this.mpp != null) {
-                                this.mpp.dAf().dAb().dBm().dAq();
-                                this.mpp.refreshData();
+                            if (this.muC != null) {
+                                this.muC.dzU().dzQ().dBb().dAf();
+                                this.muC.refreshData();
                                 return;
                             }
                             return;
-                        } else if (intExtra == 2 && this.mpp != null) {
-                            this.mpp.dAk();
+                        } else if (intExtra == 2 && this.muC != null) {
+                            this.muC.dzZ();
                             return;
                         } else {
                             return;
@@ -443,14 +443,14 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                     if (intent != null) {
                         int intExtra2 = intent.getIntExtra("upload_image_type", 0);
                         if (intExtra2 == 1) {
-                            if (this.mpp != null) {
-                                this.mpp.dAf().dAb().dBm().dAq();
-                                this.mpp.refreshData();
+                            if (this.muC != null) {
+                                this.muC.dzU().dzQ().dBb().dAf();
+                                this.muC.refreshData();
                                 return;
                             }
                             return;
-                        } else if (intExtra2 == 2 && this.mpp != null) {
-                            this.mpp.dAk();
+                        } else if (intExtra2 == 2 && this.muC != null) {
+                            this.muC.dzZ();
                             return;
                         } else {
                             return;
@@ -461,15 +461,15 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                     ah(intent);
                     return;
                 case RequestResponseCode.REQUEST_TRANSMIT_POST_EDIT /* 13011 */:
-                    com.baidu.tieba.p.a.dEL().F(getPageContext());
+                    com.baidu.tieba.o.a.dEA().E(getPageContext());
                     return;
                 case RequestResponseCode.REQUEST_SHARE_FRIEND_FORUM /* 23007 */:
-                    S(intent);
+                    T(intent);
                     return;
                 case RequestResponseCode.REQUEST_MEMBER_GIFT /* 24001 */:
-                    if (intent != null && (this.mpp.dAf() instanceof com.baidu.tieba.model.a)) {
-                        ((com.baidu.tieba.model.a) this.mpp.dAf()).resetData();
-                        ((com.baidu.tieba.model.a) this.mpp.dAf()).loadData();
+                    if (intent != null && (this.muC.dzU() instanceof com.baidu.tieba.model.a)) {
+                        ((com.baidu.tieba.model.a) this.muC.dzU()).resetData();
+                        ((com.baidu.tieba.model.a) this.muC.dzU()).loadData();
                         return;
                     }
                     return;
@@ -477,24 +477,24 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                     int intExtra3 = intent.getIntExtra("extra_share_status", 2);
                     int intExtra4 = intent.getIntExtra("extra_show_channel", 1);
                     if (intExtra3 == 1) {
-                        com.baidu.tieba.p.a.dEL().F(getPageContext());
+                        com.baidu.tieba.o.a.dEA().E(getPageContext());
                         ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
-                        ar arVar = new ar(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
-                        arVar.al("obj_locate", 8);
+                        aq aqVar = new aq(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
+                        aqVar.an("obj_locate", 8);
                         if (shareItem != null) {
-                            arVar.dY("tid", shareItem.tid);
+                            aqVar.dX("tid", shareItem.tid);
                         }
-                        arVar.dY("pid", intent.getStringExtra("pid"));
-                        TiebaStatic.log(arVar);
-                        if (shareItem != null && shareItem.linkUrl != null && this.joM != null) {
-                            this.joM.a(shareItem.linkUrl, intExtra4, new ShareSuccessReplyToServerModel.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.9
+                        aqVar.dX("pid", intent.getStringExtra("pid"));
+                        TiebaStatic.log(aqVar);
+                        if (shareItem != null && shareItem.linkUrl != null && this.jBj != null) {
+                            this.jBj.a(shareItem.linkUrl, intExtra4, new ShareSuccessReplyToServerModel.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.9
                                 @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.a
-                                public void bzM() {
+                                public void bCg() {
                                 }
 
                                 @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.a
                                 public void a(final CustomDialogData customDialogData) {
-                                    e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.9.1
+                                    e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.9.1
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             if (PersonPolymericFragment.this.getPageContext().getPageActivity() != null) {
@@ -519,8 +519,8 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         if (intent != null) {
             try {
                 PostWriteCallBackData postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-                if (this.mpp != null && !this.mpp.d(postWriteCallBackData)) {
-                    this.mpp.b(postWriteCallBackData);
+                if (this.muC != null && !this.muC.d(postWriteCallBackData)) {
+                    this.muC.b(postWriteCallBackData);
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -528,11 +528,11 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
     }
 
-    private void S(Intent intent) {
+    private void T(Intent intent) {
         long longExtra = intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L);
         String stringExtra = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME);
         String stringExtra2 = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT);
-        a(cIV(), longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2);
+        a(cLV(), longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2);
     }
 
     private void a(final ShareFromPBMsgData shareFromPBMsgData, final long j, final String str, final String str2, final String str3) {
@@ -540,8 +540,8 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
             final Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(getActivity());
             thread2GroupShareView.setData(shareFromPBMsgData);
-            aVar.oT(1);
-            aVar.bi(thread2GroupShareView);
+            aVar.pd(1);
+            aVar.br(thread2GroupShareView);
             aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericFragment.10
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -550,9 +550,9 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(PersonPolymericFragment.this.getActivity(), j, str, str2, str3, 0, thread2GroupShareView.getLeaveMsg(), shareFromPBMsgData.toChatMessageContent())));
                     aVar2.dismiss();
                     ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
-                    if (shareItem != null && shareItem.bAj() != null) {
-                        Bundle bAj = shareItem.bAj();
-                        TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).al("obj_source", 1).al("obj_type", bAj.getInt("obj_type")).al("obj_param1", 3).dY("fid", bAj.getString("fid")).dY("tid", bAj.getString("tid")).al("obj_locate", 8));
+                    if (shareItem != null && shareItem.bCD() != null) {
+                        Bundle bCD = shareItem.bCD();
+                        TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).an("obj_source", 1).an("obj_type", bCD.getInt("obj_type")).an("obj_param1", 3).dX("fid", bCD.getString("fid")).dX("tid", bCD.getString("tid")).an("obj_locate", 8));
                     }
                 }
             });
@@ -564,15 +564,15 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                     aVar2.dismiss();
                 }
             });
-            aVar.jm(true);
-            aVar.b(getPageContext()).brv();
+            aVar.jI(true);
+            aVar.b(getPageContext()).btX();
             if (!k.isEmpty(shareFromPBMsgData.getImageUrl())) {
                 thread2GroupShareView.aQ(shareFromPBMsgData.getImageUrl(), false);
             }
         }
     }
 
-    private ShareFromPBMsgData cIV() {
+    private ShareFromPBMsgData cLV() {
         ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
         if (shareItem == null) {
             return null;
@@ -580,7 +580,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         String uri = shareItem.imageUri == null ? "https://tieba-fe.gz.bcebos.com/yunying/tieba_logo.jpg" : shareItem.imageUri.toString();
         ShareFromPBMsgData shareFromPBMsgData = new ShareFromPBMsgData();
         shareFromPBMsgData.setTitle(shareItem.title);
-        shareFromPBMsgData.setContent(shareItem.fnC);
+        shareFromPBMsgData.setContent(shareItem.fxm);
         shareFromPBMsgData.setImageUrl(uri);
         shareFromPBMsgData.setForumName(shareItem.fName);
         shareFromPBMsgData.setThreadId(shareItem.tid);
@@ -589,10 +589,10 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.abD == null) {
-            this.abD = VoiceManager.instance();
+        if (this.acp == null) {
+            this.acp = VoiceManager.instance();
         }
-        return this.abD;
+        return this.acp;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -603,16 +603,16 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.mpp != null) {
-            this.mpp.onChangeSkinType(i);
+        if (this.muC != null) {
+            this.muC.onChangeSkinType(i);
         }
     }
 
-    private void dzV() {
+    private void dzK() {
         if (!TextUtils.isEmpty(this.stType)) {
-            ar arVar = new ar("c13541");
-            arVar.dY("tid", this.threadId);
-            arVar.w("uid", this.userId);
+            aq aqVar = new aq("c13541");
+            aqVar.dX("tid", this.threadId);
+            aqVar.w("uid", this.userId);
             int i = 5;
             if (AddFriendActivityConfig.TYPE_PB_HEAD.equals(this.stType)) {
                 i = 1;
@@ -623,8 +623,8 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             } else if (AddFriendActivityConfig.TYPE_CONCERN_HEAD.equals(this.stType)) {
                 i = 4;
             }
-            arVar.al("obj_source", i);
-            TiebaStatic.log(arVar);
+            aqVar.an("obj_source", i);
+            TiebaStatic.log(aqVar);
         }
     }
 
@@ -632,29 +632,31 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
-        Map<String, String> paramPair = bf.getParamPair(str);
+        Map<String, String> paramPair = be.getParamPair(str);
         if (paramPair != null) {
-            ar arVar = new ar("c10320");
-            arVar.dY("obj_locate", paramPair.get("obj_locate"));
-            arVar.al("obj_type", 1);
-            arVar.dY("tid", paramPair.get("tid"));
-            arVar.dY("obj_source", paramPair.get("obj_source"));
-            arVar.dY(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
-            arVar.al(TiebaInitialize.Params.OBJ_TO, 3);
-            arVar.dY("obj_id", paramPair.get("bdid"));
-            if (!au.isEmpty(paramPair.get(LogConfig.LOG_EXT_LOG))) {
+            aq aqVar = new aq("c10320");
+            aqVar.dX("obj_locate", paramPair.get("obj_locate"));
+            aqVar.an("obj_type", 1);
+            aqVar.dX("tid", paramPair.get("tid"));
+            aqVar.dX("obj_source", paramPair.get("obj_source"));
+            aqVar.dX(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
+            aqVar.an(TiebaInitialize.Params.OBJ_TO, 3);
+            aqVar.dX("obj_id", paramPair.get("bdid"));
+            aqVar.an("obj_name", TbadkCoreApplication.getInst().getStartType());
+            aqVar.an(TiebaInitialize.Params.OBJ_PARAM3, 1);
+            if (!at.isEmpty(paramPair.get(LogConfig.LOG_EXT_LOG))) {
                 try {
                     JSONObject jSONObject = new JSONObject(paramPair.get(LogConfig.LOG_EXT_LOG));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        arVar.dY(next, jSONObject.getString(next));
+                        aqVar.dX(next, jSONObject.getString(next));
                     }
                 } catch (JSONException e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            TiebaStatic.log(arVar);
+            TiebaStatic.log(aqVar);
         }
     }
 }

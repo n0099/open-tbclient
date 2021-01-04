@@ -10,36 +10,36 @@ import java.util.RandomAccess;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class i extends h {
-    public static final boolean a(byte[] bArr, byte b) {
+    public static final boolean a(byte[] bArr, byte b2) {
         kotlin.jvm.internal.p.o(bArr, "$receiver");
-        return f.b(bArr, b) >= 0;
+        return f.b(bArr, b2) >= 0;
     }
 
-    public static final int b(byte[] bArr, byte b) {
+    public static final int b(byte[] bArr, byte b2) {
         kotlin.jvm.internal.p.o(bArr, "$receiver");
         int length = bArr.length;
         for (int i = 0; i < length; i++) {
-            if (b == bArr[i]) {
+            if (b2 == bArr[i]) {
                 return i;
             }
         }
         return -1;
     }
 
-    public static final int c(byte[] bArr, byte b) {
+    public static final int c(byte[] bArr, byte b2) {
         kotlin.jvm.internal.p.o(bArr, "$receiver");
         for (Number number : n.e(f.av(bArr))) {
             int intValue = number.intValue();
-            if (b == bArr[intValue]) {
+            if (b2 == bArr[intValue]) {
                 return intValue;
             }
         }
         return -1;
     }
 
-    public static final char b(char[] cArr) {
+    public static final char c(char[] cArr) {
         kotlin.jvm.internal.p.o(cArr, "$receiver");
         switch (cArr.length) {
             case 0:
@@ -55,9 +55,9 @@ public class i extends h {
         kotlin.jvm.internal.p.o(bArr, "$receiver");
         kotlin.jvm.internal.p.o(hVar, "indices");
         if (hVar.isEmpty()) {
-            return n.eDK();
+            return n.eLS();
         }
-        byte[] copyOfRange = Arrays.copyOfRange(bArr, hVar.eEj().intValue(), hVar.eEk().intValue() + 1);
+        byte[] copyOfRange = Arrays.copyOfRange(bArr, hVar.eMr().intValue(), hVar.eMs().intValue() + 1);
         kotlin.jvm.internal.p.n(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return f.ax(copyOfRange);
     }
@@ -81,20 +81,20 @@ public class i extends h {
         return c;
     }
 
-    public static final <T> HashSet<T> O(T[] tArr) {
+    public static final <T> HashSet<T> S(T[] tArr) {
         kotlin.jvm.internal.p.o(tArr, "$receiver");
-        return (HashSet) f.a(tArr, new HashSet(aa.RV(tArr.length)));
+        return (HashSet) f.a(tArr, new HashSet(aa.To(tArr.length)));
     }
 
-    public static final <T> Set<T> P(T[] tArr) {
+    public static final <T> Set<T> T(T[] tArr) {
         kotlin.jvm.internal.p.o(tArr, "$receiver");
         switch (tArr.length) {
             case 0:
-                return ag.eDS();
+                return ag.eMa();
             case 1:
-                return ag.bQ(tArr[0]);
+                return ag.bS(tArr[0]);
             default:
-                return (Set) f.a(tArr, new LinkedHashSet(aa.RV(tArr.length)));
+                return (Set) f.a(tArr, new LinkedHashSet(aa.To(tArr.length)));
         }
     }
 
@@ -106,7 +106,7 @@ public class i extends h {
     }
 
     @kotlin.e
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends d<Byte> implements RandomAccess {
         final /* synthetic */ byte[] receiver$0;
 
@@ -117,7 +117,7 @@ public class i extends h {
         @Override // kotlin.collections.a, java.util.Collection
         public final boolean contains(Object obj) {
             if (obj instanceof Byte) {
-                return e(((Number) obj).byteValue());
+                return f(((Number) obj).byteValue());
             }
             return false;
         }
@@ -125,7 +125,7 @@ public class i extends h {
         @Override // kotlin.collections.d, java.util.List
         public final int indexOf(Object obj) {
             if (obj instanceof Byte) {
-                return f(((Number) obj).byteValue());
+                return g(((Number) obj).byteValue());
             }
             return -1;
         }
@@ -133,7 +133,7 @@ public class i extends h {
         @Override // kotlin.collections.d, java.util.List
         public final int lastIndexOf(Object obj) {
             if (obj instanceof Byte) {
-                return g(((Number) obj).byteValue());
+                return h(((Number) obj).byteValue());
             }
             return -1;
         }
@@ -148,23 +148,23 @@ public class i extends h {
             return this.receiver$0.length == 0;
         }
 
-        public boolean e(byte b) {
-            return f.a(this.receiver$0, b);
+        public boolean f(byte b2) {
+            return f.a(this.receiver$0, b2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: RU */
+        /* renamed from: Tn */
         public Byte get(int i) {
             return Byte.valueOf(this.receiver$0[i]);
         }
 
-        public int f(byte b) {
-            return f.b(this.receiver$0, b);
+        public int g(byte b2) {
+            return f.b(this.receiver$0, b2);
         }
 
-        public int g(byte b) {
-            return f.c(this.receiver$0, b);
+        public int h(byte b2) {
+            return f.c(this.receiver$0, b2);
         }
     }
 

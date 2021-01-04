@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.util.a.c;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.b.c;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
@@ -13,10 +13,10 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public String blockUrl;
-        public c eUF;
         public String errorString;
-        public boolean fhi;
-        public BlockPopInfoData flk;
+        public c fef;
+        public boolean fqS;
+        public BlockPopInfoData fuV;
         public boolean hasShownForbiddenAlert;
         public boolean isAttention;
         public boolean isSucc;
@@ -56,12 +56,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!au.isEmpty(optString) && !au.isEmpty(this.blockUrl) && !au.isEmpty(optString2) && !au.isEmpty(optString3)) {
-                    this.flk = new BlockPopInfoData();
-                    this.flk.block_info = optString;
-                    this.flk.ahead_url = this.blockUrl;
-                    this.flk.ahead_info = optString2;
-                    this.flk.ok_info = optString3;
+                if (!at.isEmpty(optString) && !at.isEmpty(this.blockUrl) && !at.isEmpty(optString2) && !at.isEmpty(optString3)) {
+                    this.fuV = new BlockPopInfoData();
+                    this.fuV.block_info = optString;
+                    this.fuV.ahead_url = this.blockUrl;
+                    this.fuV.ahead_info = optString2;
+                    this.fuV.ok_info = optString3;
                 }
             }
         }

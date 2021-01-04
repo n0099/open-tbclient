@@ -3,9 +3,9 @@ package com.baidu.live.personmanager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class YuyinPersonManagerResponseMessage extends JsonHttpResponsedMessage {
-    private String btV;
+    private String byH;
 
     public YuyinPersonManagerResponseMessage(int i) {
         super(i);
@@ -17,11 +17,11 @@ public class YuyinPersonManagerResponseMessage extends JsonHttpResponsedMessage 
         super.decodeLogicInBackGround(i, jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
         if (optJSONObject != null) {
-            this.btV = optJSONObject.optString("usermsg");
+            this.byH = optJSONObject.optString("usermsg");
         }
     }
 
     public String getUserMsg() {
-        return this.btV;
+        return this.byH;
     }
 }

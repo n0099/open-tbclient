@@ -1,15 +1,15 @@
 package com.baidu.searchbox.player.component;
 
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.LayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.videoplayer.framework.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class KernelErrorComponent extends AbsComponent {
     private LinearLayout mRootView;
     private TextView mTextNetError;

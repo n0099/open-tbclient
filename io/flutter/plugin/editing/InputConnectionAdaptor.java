@@ -5,7 +5,6 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.DynamicLayout;
 import android.text.Editable;
 import android.text.Layout;
@@ -17,11 +16,12 @@ import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.CursorAnchorInfo;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class InputConnectionAdaptor extends BaseInputConnection {
     private final boolean isSamsung;
     private int mBatchCount;

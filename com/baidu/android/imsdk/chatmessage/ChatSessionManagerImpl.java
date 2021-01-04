@@ -39,14 +39,14 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
-import com.baidu.h.a;
+import com.baidu.i.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class ChatSessionManagerImpl {
     private static final String TAG = "SessionManagerImpl";
     private static Context mContext;
@@ -213,11 +213,11 @@ public class ChatSessionManagerImpl {
                             }
                             LogUtils.d(TAG, "FXF triggerChatSessionChange " + state + " " + z + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                             LogUtils.d(TAG, "FXF triggerChatSessionChange lastmsg is: " + chatSession.getLastMsg());
-                            next.onChatSessionUpdate(chatSession.m14clone(), z);
+                            next.onChatSessionUpdate(chatSession.m13clone(), z);
                         } else {
                             int state2 = SyncAllMessage.getInstance(mContext).getState();
                             boolean z2 = state2 == 0;
-                            next.onChatSessionUpdate(chatSession.m14clone(), z2);
+                            next.onChatSessionUpdate(chatSession.m13clone(), z2);
                             LogUtils.d(TAG, "FXF triggerChatSessionChange " + state2 + " " + z2 + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                         }
                     } catch (CloneNotSupportedException e) {
@@ -462,7 +462,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                a.aq(mContext).e(mContext, creatMethodIntent);
+                a.ap(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);

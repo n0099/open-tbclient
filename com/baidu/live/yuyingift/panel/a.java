@@ -1,6 +1,5 @@
 package com.baidu.live.yuyingift.panel;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -11,15 +10,13 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.adp.framework.task.CustomMessageTask;
-import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.d.ac;
 import com.baidu.live.data.AlaLiveGiftUIInfo;
 import com.baidu.live.data.AlaWheatInfoData;
 import com.baidu.live.data.PersonUserData;
-import com.baidu.live.data.bt;
-import com.baidu.live.data.w;
+import com.baidu.live.data.bv;
+import com.baidu.live.data.x;
 import com.baidu.live.gift.k;
 import com.baidu.live.noble.b.b;
 import com.baidu.live.noble.data.NobleDetailInfo;
@@ -35,42 +32,45 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.UrlManager;
 import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.live.tbadk.ubc.UbcStatisticItem;
-import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
-import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.yuyingift.container.AlaGiftTabView;
 import com.baidu.live.yuyingift.panel.e;
-import com.baidu.live.yuyingift.widget.panel.GiftPanelSelectMicrophoneSendView;
+import com.baidu.live.yuyingift.widget.wheatlist.GiftPanelSelectMicrophoneSendView;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private com.baidu.live.yuyingift.a.d bUT;
-    private AlaGiftTabView.a bUU;
-    private InterfaceC0246a bUV;
-    private com.baidu.live.personmanager.b bUW;
-    private com.baidu.live.personmanager.a bUX;
-    private com.baidu.live.noble.b.b bUY;
-    private int baK;
-    private CustomMessageListener bgA;
-    private CustomMessageListener bgB;
-    private NobleUserInfo bgD;
-    private CustomMessageListener bgy;
-    private CustomMessageListener bgz;
+    private int bcr;
+    private CustomMessageListener bih;
+    private CustomMessageListener bii;
+    private CustomMessageListener bij;
+    private CustomMessageListener bik;
+    private NobleUserInfo bim;
+    private com.baidu.live.yuyingift.a.d caO;
+    private AlaGiftTabView.a caP;
+    private InterfaceC0246a caQ;
+    private com.baidu.live.personmanager.b caR;
+    private com.baidu.live.personmanager.a caS;
+    private com.baidu.live.noble.b.b caT;
+    private CustomMessageListener caU = new CustomMessageListener(2501074) { // from class: com.baidu.live.yuyingift.panel.a.5
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() == 2501074) {
+                List<AlaWheatInfoData> aap = com.baidu.live.aq.a.aam().aap();
+                List<AlaWheatInfoData> aao = com.baidu.live.aq.a.aam().aao();
+                if (a.this.caQ != null) {
+                    a.this.caQ.a(aap, aao, a.this.caO.bZQ);
+                }
+            }
+        }
+    };
     private TbPageContext mContext;
     private Handler mHandler;
 
     /* renamed from: com.baidu.live.yuyingift.panel.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface InterfaceC0246a {
-        k Jd();
-
-        GiftPanelSelectMicrophoneSendView.i Zp();
-
-        void Zq();
+        k IF();
 
         void a(int i, SupportXFragment... supportXFragmentArr);
 
@@ -81,6 +81,12 @@ public class a {
         void a(NobleUserInfo.a aVar);
 
         void a(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2, String[] strArr);
+
+        GiftPanelSelectMicrophoneSendView.d aaE();
+
+        void aaF();
+
+        void aaN();
 
         void onClose();
     }
@@ -94,8 +100,8 @@ public class a {
     }
 
     public void a(InterfaceC0246a interfaceC0246a, AlaGiftTabView.a aVar) {
-        this.bUV = interfaceC0246a;
-        this.bUU = aVar;
+        this.caQ = interfaceC0246a;
+        this.caP = aVar;
         registerListener();
         this.mHandler = new Handler();
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.yuyingift.panel.a.1
@@ -104,38 +110,38 @@ public class a {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913087));
             }
         }, 300L);
-        KY();
-        if (this.bUV != null && this.bUT != null && this.bUT.bdn != null) {
-            this.bUV.a(this.bUT.bdn);
+        Ky();
+        if (this.caQ != null && this.caO != null && this.caO.beY != null) {
+            this.caQ.a(this.caO.beY);
         }
-        Zw();
-        KZ();
-        La();
-        Zx();
+        abb();
+        Kz();
+        KA();
+        abc();
     }
 
-    private void Zw() {
-        this.bUW = new com.baidu.live.personmanager.b(this.mContext);
-        this.bUX = new com.baidu.live.personmanager.a(this.mContext.getPageActivity());
+    private void abb() {
+        this.caR = new com.baidu.live.personmanager.b(this.mContext);
+        this.caS = new com.baidu.live.personmanager.a(this.mContext.getPageActivity());
     }
 
     public void d(final AlaWheatInfoData alaWheatInfoData) {
-        w Zd = com.baidu.live.ap.b.YX().Zd();
-        if (alaWheatInfoData != null && Zd != null) {
-            this.bUW.a(new b.a() { // from class: com.baidu.live.yuyingift.panel.a.4
+        x aas = com.baidu.live.aq.a.aam().aas();
+        if (alaWheatInfoData != null && aas != null) {
+            this.caR.a(new b.a() { // from class: com.baidu.live.yuyingift.panel.a.3
                 @Override // com.baidu.live.personmanager.b.a
                 public void b(PersonUserData personUserData) {
-                    if (personUserData != null && a.this.bUV != null) {
-                        a.this.bUV.a(personUserData, alaWheatInfoData);
+                    if (personUserData != null && a.this.caQ != null) {
+                        a.this.caQ.a(personUserData, alaWheatInfoData);
                     }
                 }
 
                 @Override // com.baidu.live.personmanager.b.a
-                public void b(bt btVar) {
+                public void b(bv bvVar) {
                 }
 
                 @Override // com.baidu.live.personmanager.b.a
-                public void c(bt btVar) {
+                public void c(bv bvVar) {
                 }
 
                 @Override // com.baidu.live.personmanager.b.a
@@ -145,163 +151,125 @@ public class a {
                     }
                 }
             });
-            p(alaWheatInfoData.uk, String.valueOf(Zd.mLiveInfo.live_id), String.valueOf(Zd.mLiveInfo.group_id), alaWheatInfoData.userName);
+            p(alaWheatInfoData.uk, String.valueOf(aas.mLiveInfo.live_id), String.valueOf(aas.mLiveInfo.group_id), alaWheatInfoData.userName);
         }
     }
 
-    private void Zx() {
-        if (this.bUV != null) {
-            this.bUV.a(com.baidu.live.ap.b.YX().Za(), com.baidu.live.ap.b.YX().YZ(), this.bUT.bTY);
+    private void abc() {
+        if (this.caQ != null) {
+            this.caQ.a(com.baidu.live.aq.a.aam().aap(), com.baidu.live.aq.a.aam().aao(), this.caO.bZQ);
         }
     }
 
-    public boolean KS() {
-        return this.bUT != null && this.bUT.bdo;
+    public boolean Ks() {
+        return this.caO != null && this.caO.beZ;
     }
 
-    public void KT() {
-        if (this.bgD != null && !TextUtils.isEmpty(this.bgD.detailUrl)) {
+    public void Kt() {
+        if (this.bim != null && !TextUtils.isEmpty(this.bim.detailUrl)) {
             NobleDetailInfo nobleDetailInfo = new NobleDetailInfo();
-            nobleDetailInfo.url = this.bgD.detailUrl;
-            if (this.bgD.user != null) {
-                nobleDetailInfo.roleId = this.bgD.user.id;
+            nobleDetailInfo.url = this.bim.detailUrl;
+            if (this.bim.user != null) {
+                nobleDetailInfo.roleId = this.bim.user.id;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501031, nobleDetailInfo));
-            if (this.bUV != null) {
-                this.bUV.onClose();
+            if (this.caQ != null) {
+                this.caQ.onClose();
             }
         }
     }
 
-    public void hS(String str) {
+    public void hD(String str) {
         UrlManager.getInstance().dealOneLink(this.mContext, new String[]{str});
     }
 
     public void release() {
-        this.bUV = null;
+        this.caQ = null;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.bUY != null) {
-            this.bUY.release();
+        if (this.caT != null) {
+            this.caT.release();
         }
-        if (this.bUW != null) {
-            this.bUW.onDestroy();
+        if (this.caR != null) {
+            this.caR.onDestroy();
         }
-        MessageManager.getInstance().unRegisterTask(2501048);
-        MessageManager.getInstance().unRegisterListener(this.bgy);
-        MessageManager.getInstance().unRegisterListener(this.bgz);
-        MessageManager.getInstance().unRegisterListener(this.bgA);
-        MessageManager.getInstance().unRegisterListener(this.bgB);
+        MessageManager.getInstance().unRegisterListener(this.bih);
+        MessageManager.getInstance().unRegisterListener(this.bii);
+        MessageManager.getInstance().unRegisterListener(this.bij);
+        MessageManager.getInstance().unRegisterListener(this.bik);
+        MessageManager.getInstance().unRegisterListener(this.caU);
     }
 
     private void k(Intent intent) {
-        this.bUT = new com.baidu.live.yuyingift.a.d();
+        this.caO = new com.baidu.live.yuyingift.a.d();
         if (intent != null) {
-            this.baK = intent.getIntExtra("custom_tab_id", 1);
-            this.bUT.mUserName = intent.getStringExtra("user_name");
-            this.bUT.mUserId = intent.getStringExtra("user_id");
-            this.bUT.mLiveId = intent.getStringExtra("live_Id");
-            this.bUT.mRoomId = intent.getStringExtra("room_id");
-            this.bUT.bdh = intent.getStringExtra("feed_id");
-            this.bUT.bdi = intent.getIntExtra("is_block", 0);
-            this.bUT.bdj = intent.getStringExtra("scene");
-            this.bUT.mAppId = intent.getStringExtra("app_id");
-            this.bUT.bdk = intent.getBooleanExtra("can_graffiti", true);
-            this.bUT.bbJ = intent.getIntExtra("custom_category_id", -1);
-            this.bUT.bbK = intent.getIntExtra("custom_gift_id", -1);
-            this.bUT.aZG = intent.getBooleanExtra("new_gift_t_dou_strategy", false);
-            this.bUT.aZE = intent.getIntExtra(IntentConfig.USER_LEVEL, -1);
-            this.bUT.bbc = intent.getBooleanExtra("isJoinGuardClub", false);
-            this.bUT.isNewUser = intent.getBooleanExtra("is_new_user", false);
-            this.bUT.bbL = intent.getIntExtra("guard_club_join_amount", 1000);
-            this.bUT.bbX = intent.getBooleanExtra("is_redpkg_unable", false);
-            this.bUT.bdm = intent.getIntExtra("page_from", -1);
-            this.bUT.aZM = intent.getBooleanExtra("throne_enabled", false);
-            this.bUT.bdo = intent.getBooleanExtra("noble_enabled", false);
-            if (intent.getStringArrayExtra(ac.aFL) != null) {
-                this.bUT.bTY = intent.getStringArrayExtra(ac.aFL);
+            this.bcr = intent.getIntExtra("custom_tab_id", 1);
+            this.caO.mUserName = intent.getStringExtra("user_name");
+            this.caO.mUserId = intent.getStringExtra("user_id");
+            this.caO.mLiveId = intent.getStringExtra("live_Id");
+            this.caO.mRoomId = intent.getStringExtra("room_id");
+            this.caO.beS = intent.getStringExtra("feed_id");
+            this.caO.beT = intent.getIntExtra("is_block", 0);
+            this.caO.beU = intent.getStringExtra("scene");
+            this.caO.mAppId = intent.getStringExtra("app_id");
+            this.caO.beV = intent.getBooleanExtra("can_graffiti", true);
+            this.caO.bdr = intent.getIntExtra("custom_category_id", -1);
+            this.caO.bds = intent.getIntExtra("custom_gift_id", -1);
+            this.caO.bbn = intent.getBooleanExtra("new_gift_t_dou_strategy", false);
+            this.caO.bbl = intent.getIntExtra(IntentConfig.USER_LEVEL, -1);
+            this.caO.bcJ = intent.getBooleanExtra("isJoinGuardClub", false);
+            this.caO.isNewUser = intent.getBooleanExtra("is_new_user", false);
+            this.caO.bdt = intent.getIntExtra("guard_club_join_amount", 1000);
+            this.caO.bdF = intent.getBooleanExtra("is_redpkg_unable", false);
+            this.caO.beX = intent.getIntExtra("page_from", -1);
+            this.caO.bbt = intent.getBooleanExtra("throne_enabled", false);
+            this.caO.beZ = intent.getBooleanExtra("noble_enabled", false);
+            if (intent.getStringArrayExtra(ac.aGc) != null) {
+                this.caO.bZQ = intent.getStringArrayExtra(ac.aGc);
             }
             String stringExtra = intent.getStringExtra("bg_info");
             if (!TextUtils.isEmpty(stringExtra)) {
                 AlaLiveGiftUIInfo alaLiveGiftUIInfo = new AlaLiveGiftUIInfo();
                 alaLiveGiftUIInfo.parserJson(stringExtra);
-                this.bUT.bdn = alaLiveGiftUIInfo;
+                this.caO.beY = alaLiveGiftUIInfo;
             }
             String stringExtra2 = intent.getStringExtra(com.baidu.live.tbadk.core.frameworkdata.IntentConfig.OTHER_PARAMS);
             if (stringExtra2 == null) {
                 stringExtra2 = "";
             }
-            this.bUT.mOtherParams = stringExtra2;
+            this.caO.mOtherParams = stringExtra2;
         }
     }
 
     private void registerListener() {
-        KU();
-        KV();
-        KW();
-        KX();
-        Zy();
-    }
-
-    private void Zy() {
-        MessageManager.getInstance().unRegisterTask(2501048);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2501048, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.live.yuyingift.panel.a.5
-            @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<InterfaceC0246a> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2501048, a.this.bUV);
-            }
-        });
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
+        Ku();
+        Kv();
+        Kw();
+        Kx();
     }
 
     public void p(String str, String str2, String str3, String str4) {
-        if (this.bUW != null) {
-            this.bUW.b(null, str, str2, str3, "", str4);
+        if (this.caR != null) {
+            this.caR.c(null, str, str2, str3, "", str4);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Zz() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            w Zd = com.baidu.live.ap.b.YX().Zd();
-            if (Zd != null && Zd.aKL != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Zd.aKL.croom_id);
-            }
-            jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "giftpanel");
-        } catch (JSONException e) {
-            BdLog.e(e);
-        }
-        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "click", UbcStatConstant.Page.VOICE_ROOM, "follow").setContentExt(jSONObject));
-    }
-
-    private void KU() {
-        this.bgy = new CustomMessageListener(2913097) { // from class: com.baidu.live.yuyingift.panel.a.6
+    private void Ku() {
+        this.bih = new CustomMessageListener(2913097) { // from class: com.baidu.live.yuyingift.panel.a.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.bUV != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.this.bUV.onClose();
+                if (a.this.caQ != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
+                    a.this.caQ.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bgy);
+        MessageManager.getInstance().registerListener(this.bih);
     }
 
-    public void ZA() {
-        com.baidu.live.ap.b.YX().a(new com.baidu.live.ap.a() { // from class: com.baidu.live.yuyingift.panel.a.7
-            @Override // com.baidu.live.ap.a
-            public void YW() {
-                List<AlaWheatInfoData> Za = com.baidu.live.ap.b.YX().Za();
-                List<AlaWheatInfoData> YZ = com.baidu.live.ap.b.YX().YZ();
-                if (a.this.bUV != null) {
-                    a.this.bUV.a(Za, YZ, a.this.bUT.bTY);
-                }
-            }
-        });
+    public void abd() {
+        MessageManager.getInstance().registerListener(this.caU);
     }
 
     public void a(AlaWheatInfoData alaWheatInfoData, boolean z) {
@@ -311,21 +279,21 @@ public class a {
             } else if (TextUtils.equals(alaWheatInfoData.uk, ExtraParamsManager.getEncryptionUserId(TbadkCoreApplication.getCurrentAccount()))) {
                 BdUtilHelper.showToast(this.mContext.getPageActivity(), a.h.ala_cannot_follow_myself);
             } else {
-                this.bUX.s(alaWheatInfoData.uk, com.baidu.live.ap.b.YX().getCustomRoomId(), com.baidu.live.ap.b.YX().Ze());
-                this.bUX.a(new a.InterfaceC0203a() { // from class: com.baidu.live.yuyingift.panel.a.8
-                    @Override // com.baidu.live.personmanager.a.InterfaceC0203a
-                    public void Qu() {
+                this.caS.u(alaWheatInfoData.uk, com.baidu.live.aq.a.aam().getCustomRoomId(), com.baidu.live.aq.a.aam().aat());
+                this.caS.a(new a.InterfaceC0201a() { // from class: com.baidu.live.yuyingift.panel.a.6
+                    @Override // com.baidu.live.personmanager.a.InterfaceC0201a
+                    public void Ry() {
                         if (a.this.mContext != null) {
                             a.this.mContext.showToast(a.this.mContext.getString(a.h.sdk_attention_success_toast));
                         }
-                        if (a.this.bUV != null) {
-                            a.this.bUV.Zq();
+                        if (a.this.caQ != null) {
+                            a.this.caQ.aaN();
+                            a.this.caQ.aaF();
                         }
-                        a.this.Zz();
                     }
 
-                    @Override // com.baidu.live.personmanager.a.InterfaceC0203a
-                    public void t(int i, String str) {
+                    @Override // com.baidu.live.personmanager.a.InterfaceC0201a
+                    public void v(int i, String str) {
                         if (a.this.mContext != null) {
                             a.this.mContext.showToast(str);
                         }
@@ -336,71 +304,71 @@ public class a {
     }
 
     public void a(PersonUserData personUserData, AlaWheatInfoData alaWheatInfoData, Intent intent) {
-        w Zd = com.baidu.live.ap.b.YX().Zd();
-        if (Zd != null && Zd.mLiveInfo != null) {
-            YuyinAlaPersonCardActivityConfig yuyinAlaPersonCardActivityConfig = new YuyinAlaPersonCardActivityConfig((Context) this.mContext.getPageActivity(), "", alaWheatInfoData.uk, alaWheatInfoData.userName, alaWheatInfoData.portrait, alaWheatInfoData.sex, 0, (String) null, (String) null, personUserData.user_info.send_count, personUserData.user_info.fans_count, personUserData.user_info.follow_count, personUserData.relation_info.follow_status, String.valueOf(Zd.mLiveInfo.group_id), String.valueOf(Zd.mLiveInfo.live_id), false, (String) null, (String) null, alaWheatInfoData.userName, (String) null, "");
+        x aas = com.baidu.live.aq.a.aam().aas();
+        if (aas != null && aas.mLiveInfo != null) {
+            YuyinAlaPersonCardActivityConfig yuyinAlaPersonCardActivityConfig = new YuyinAlaPersonCardActivityConfig(this.mContext.getPageActivity(), "", alaWheatInfoData.uk, alaWheatInfoData.userName, alaWheatInfoData.portrait, alaWheatInfoData.sex, 0, null, null, personUserData.user_info.send_count, personUserData.user_info.fans_count, personUserData.user_info.follow_count, personUserData.relation_info.follow_status, String.valueOf(aas.mLiveInfo.group_id), String.valueOf(aas.mLiveInfo.live_id), false, null, null, alaWheatInfoData.userName, null, "");
             yuyinAlaPersonCardActivityConfig.cacheReEnterGiftPanel(intent);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, yuyinAlaPersonCardActivityConfig));
         }
     }
 
-    private void KV() {
-        this.bgz = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.yuyingift.panel.a.9
+    private void Kv() {
+        this.bii = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.yuyingift.panel.a.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                a.this.KZ();
+                a.this.Kz();
             }
         };
-        MessageManager.getInstance().registerListener(this.bgz);
+        MessageManager.getInstance().registerListener(this.bii);
     }
 
-    private void KW() {
-        this.bgA = new CustomMessageListener(2913024) { // from class: com.baidu.live.yuyingift.panel.a.10
+    private void Kw() {
+        this.bij = new CustomMessageListener(2913024) { // from class: com.baidu.live.yuyingift.panel.a.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.bUV != null) {
-                    a.this.bUV.onClose();
+                if (a.this.caQ != null) {
+                    a.this.caQ.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bgA);
+        MessageManager.getInstance().registerListener(this.bij);
     }
 
-    private void KX() {
-        this.bgB = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.live.yuyingift.panel.a.11
+    private void Kx() {
+        this.bik = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.live.yuyingift.panel.a.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                a.this.KZ();
+                a.this.Kz();
             }
         };
-        MessageManager.getInstance().registerListener(this.bgB);
+        MessageManager.getInstance().registerListener(this.bik);
     }
 
-    private void KY() {
+    private void Ky() {
         int i;
-        e.a aVar = new e.a() { // from class: com.baidu.live.yuyingift.panel.a.2
+        e.a aVar = new e.a() { // from class: com.baidu.live.yuyingift.panel.a.10
             @Override // com.baidu.live.yuyingift.panel.e.a
-            public k Jd() {
-                if (a.this.bUV != null) {
-                    return a.this.bUV.Jd();
+            public k IF() {
+                if (a.this.caQ != null) {
+                    return a.this.caQ.IF();
                 }
                 return null;
             }
         };
-        b gU = b.gU(0);
-        gU.setPageContext(this.mContext);
-        gU.a(aVar);
-        gU.b(this.bUU);
-        gU.a(this.bUT);
-        b gU2 = b.gU(1);
-        gU2.setPageContext(this.mContext);
-        gU2.a(aVar);
-        gU2.b(this.bUU);
-        gU2.a(this.bUT);
-        switch (this.baK) {
+        b a2 = b.a(this.caQ, 0);
+        a2.setPageContext(this.mContext);
+        a2.a(aVar);
+        a2.b(this.caP);
+        a2.a(this.caO);
+        b a3 = b.a(this.caQ, 1);
+        a3.setPageContext(this.mContext);
+        a3.a(aVar);
+        a3.b(this.caP);
+        a3.a(this.caO);
+        switch (this.bcr) {
             case 1:
                 i = 0;
                 break;
@@ -411,13 +379,13 @@ public class a {
                 i = 0;
                 break;
         }
-        if (this.bUV != null) {
-            this.bUV.a(i, gU, gU2);
+        if (this.caQ != null) {
+            this.caQ.a(i, a2, a3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KZ() {
+    public void Kz() {
         if (TbadkCoreApplication.isLogin()) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES);
             httpMessage.addParam("tbs", TbadkCoreApplication.getCurrentTbs());
@@ -425,23 +393,23 @@ public class a {
         }
     }
 
-    private void La() {
+    private void KA() {
         CustomResponsedMessage runTask;
-        if (KS()) {
-            if (this.bUY == null && (runTask = MessageManager.getInstance().runTask(2501035, com.baidu.live.noble.b.b.class, this.mContext.getPageActivity())) != null && runTask.getData() != null) {
-                this.bUY = (com.baidu.live.noble.b.b) runTask.getData();
+        if (Ks()) {
+            if (this.caT == null && (runTask = MessageManager.getInstance().runTask(2501035, com.baidu.live.noble.b.b.class, this.mContext.getPageActivity())) != null && runTask.getData() != null) {
+                this.caT = (com.baidu.live.noble.b.b) runTask.getData();
             }
-            if (this.bUY != null) {
-                this.bUY.a(new b.a() { // from class: com.baidu.live.yuyingift.panel.a.3
+            if (this.caT != null) {
+                this.caT.a(new b.a() { // from class: com.baidu.live.yuyingift.panel.a.2
                     @Override // com.baidu.live.noble.b.b.a
                     public void a(NobleUserInfo nobleUserInfo) {
-                        a.this.bgD = nobleUserInfo;
-                        if (a.this.bUV != null) {
-                            a.this.bUV.a(nobleUserInfo != null ? nobleUserInfo.tip : null);
+                        a.this.bim = nobleUserInfo;
+                        if (a.this.caQ != null) {
+                            a.this.caQ.a(nobleUserInfo != null ? nobleUserInfo.tip : null);
                         }
                     }
                 });
-                this.bUY.aE(com.baidu.live.ap.b.YX().getCustomRoomId(), com.baidu.live.ap.b.YX().Zb());
+                this.caT.aC(com.baidu.live.aq.a.aam().getCustomRoomId(), com.baidu.live.aq.a.aam().aaq());
             }
         }
     }

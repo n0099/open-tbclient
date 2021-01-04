@@ -6,36 +6,36 @@ import android.util.Log;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private static c aAp;
-    private static File aAq;
+    private static c aAF;
+    private static File aAG;
     private static Context mContext;
 
-    public static c aL(Context context) {
+    public static c aK(Context context) {
         Log.i("LogToFileUtils", "init ...");
-        if (mContext == null || aAp == null || aAq == null || !aAq.exists()) {
+        if (mContext == null || aAF == null || aAG == null || !aAG.exists()) {
             mContext = context;
-            aAp = new c();
-            aAq = getLogFile();
-            write("imsdkversion:" + BK());
-            write("lcpsdkversion:" + BJ());
-            Log.i("LogToFileUtils", "LogFilePath is: " + aAq.getPath());
+            aAF = new c();
+            aAG = getLogFile();
+            write("imsdkversion:" + AY());
+            write("lcpsdkversion:" + AX());
+            Log.i("LogToFileUtils", "LogFilePath is: " + aAG.getPath());
         } else {
             Log.i("LogToFileUtils", "LogToFileUtils has been init ...");
         }
-        return aAp;
+        return aAF;
     }
 
     public static void write(Object obj) {
-        if (mContext == null || aAp == null || aAq == null || !aAq.exists()) {
+        if (mContext == null || aAF == null || aAG == null || !aAG.exists()) {
             Log.e("LogToFileUtils", "Initialization failure !!!");
             return;
         }
         String str = System.currentTimeMillis() + ":" + obj.toString();
         Log.i("LogToFileUtils", str);
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(aAq, true));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(aAG, true));
             bufferedWriter.write(str);
             bufferedWriter.write("\r\n");
             bufferedWriter.flush();
@@ -44,21 +44,19 @@ public class c {
         }
     }
 
-    private static String BJ() {
+    private static String AX() {
         return "2240016";
     }
 
-    private static String BK() {
-        String str = "";
+    private static String AY() {
         try {
             Class<?> cls = Class.forName("com.baidu.android.imsdk.internal.IMConfigInternal");
-            str = String.valueOf(cls.getMethod("getSDKVersionValue", Context.class).invoke(cls.getMethod("getInstance", new Class[0]).invoke(new Object(), new Object[0]), mContext));
-            return String.format("%s.%s.%s", str.substring(0, 1), str.substring(1, 2), str.substring(2, 3));
+            String valueOf = String.valueOf(cls.getMethod("getSDKVersionValue", Context.class).invoke(cls.getMethod("getInstance", new Class[0]).invoke(new Object(), new Object[0]), mContext));
+            return String.format("%s.%s.%s", valueOf.substring(0, 1), valueOf.substring(1, 2), valueOf.substring(2, 3));
         } catch (Exception e) {
-            String str2 = str;
             Log.i("LogToFileUtils", e.getMessage());
             e.printStackTrace();
-            return str2;
+            return "";
         }
     }
 

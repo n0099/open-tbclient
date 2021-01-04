@@ -4,27 +4,29 @@ import com.baidu.platform.comapi.b.c;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
     private c c = null;
-    private static JSONObject b = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static JSONObject f4238b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f2863a = null;
+    public static a f4237a = null;
 
     public static a a() {
-        if (f2863a == null) {
-            f2863a = new a();
+        if (f4237a == null) {
+            f4237a = new a();
         }
-        if (b == null) {
-            b = new JSONObject();
+        if (f4238b == null) {
+            f4238b = new JSONObject();
         }
-        return f2863a;
+        return f4237a;
     }
 
     private void b() {
-        b = null;
-        b = new JSONObject();
+        f4238b = null;
+        f4238b = new JSONObject();
     }
 
     public synchronized void a(String str, Map<String, String> map) {
@@ -47,7 +49,7 @@ public class a {
         }
         z = false;
         if (this.c != null) {
-            z = (b == null || b.length() <= 0) ? this.c.a(1100, 1, str, null) : this.c.a(1100, 1, str, b.toString());
+            z = (f4238b == null || f4238b.length() <= 0) ? this.c.a(1100, 1, str, null) : this.c.a(1100, 1, str, f4238b.toString());
             b();
         }
         return z;

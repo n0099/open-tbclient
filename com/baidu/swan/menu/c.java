@@ -3,12 +3,12 @@ package com.baidu.swan.menu;
 import android.animation.ObjectAnimator;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static ObjectAnimator b(BaseMenuView baseMenuView) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, "translationY", 0.0f);
         ofFloat.setDuration(d(baseMenuView));
-        ofFloat.setInterpolator(new e(0.32f, 0.6f, 0.1f, 1.0f));
+        ofFloat.setInterpolator(new d(0.32f, 0.6f, 0.1f, 1.0f));
         return ofFloat;
     }
 
@@ -19,7 +19,7 @@ public class c {
         return ofFloat;
     }
 
-    public static ObjectAnimator ba(View view) {
+    public static ObjectAnimator bj(View view) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "alpha", 0.0f);
         ofFloat.setDuration(160L);
         ofFloat.setInterpolator(new LinearInterpolator());
@@ -29,11 +29,11 @@ public class c {
     public static ObjectAnimator c(BaseMenuView baseMenuView) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, "translationY", baseMenuView.getHeight());
         ofFloat.setDuration(160L);
-        ofFloat.setInterpolator(new e(0.32f, 0.6f, 0.1f, 1.0f));
+        ofFloat.setInterpolator(new d(0.32f, 0.6f, 0.1f, 1.0f));
         return ofFloat;
     }
 
     private static long d(BaseMenuView baseMenuView) {
-        return baseMenuView.aEv() ? 240L : 200L;
+        return baseMenuView.aFO() ? 240L : 200L;
     }
 }

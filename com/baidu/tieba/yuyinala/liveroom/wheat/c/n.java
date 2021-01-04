@@ -13,13 +13,14 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class n {
-    private FrameLayout iFp;
+    private FrameLayout iRB;
     private View mView;
 
     public void a(FrameLayout frameLayout, TextView textView, String str, BdPageContext bdPageContext) {
-        if (o.efe().eew() || o.efe().jv(o.efe().Zc())) {
+        JSONObject optJSONObject;
+        if (o.eff().eev() || o.eff().jo(o.eff().aar())) {
             if (!TextUtils.isEmpty(str)) {
                 if (TextUtils.equals("hide_dot", str)) {
                     hide();
@@ -30,9 +31,9 @@ public class n {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     String optString = jSONObject.optString("user_name");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (optJSONObject != null) {
-                        String optString2 = optJSONObject.optString("msg");
+                    String optString2 = jSONObject.optString("room_id");
+                    if (com.baidu.live.aq.a.aam().aas() != null && com.baidu.live.aq.a.aam().aas().aLl != null && TextUtils.equals(optString2, com.baidu.live.aq.a.aam().aas().aLl.aVu) && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                        String optString3 = optJSONObject.optString("msg");
                         int optInt = optJSONObject.optInt("count");
                         if (optInt > 0) {
                             int i = optInt <= 9 ? optInt : 9;
@@ -43,7 +44,7 @@ public class n {
                             textView.setVisibility(8);
                         }
                         if (TextUtils.equals("audio_link_apply_toast", jSONObject.optString("content_type"))) {
-                            a(optString + " " + optString2, 0L, 5000, bdPageContext, frameLayout);
+                            a(optString + " " + optString3, 0L, 5000, bdPageContext, frameLayout);
                             return;
                         }
                         return;
@@ -75,13 +76,13 @@ public class n {
                 textView.setBackgroundResource(a.e.bg_guide_gift_toast_qm);
                 imageView.setImageResource(a.e.bg_guide_gift_toast_arrow_qm);
             }
-            this.iFp = (FrameLayout) bdPageContext.getPageActivity().getWindow().getDecorView();
-            if (this.iFp != null) {
-                this.iFp.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.n.1
+            this.iRB = (FrameLayout) bdPageContext.getPageActivity().getWindow().getDecorView();
+            if (this.iRB != null) {
+                this.iRB.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.n.1
                     @Override // java.lang.Runnable
                     public void run() {
                         Activity pageActivity;
-                        if (n.this.iFp != null && (pageActivity = bdPageContext.getPageActivity()) != null && !pageActivity.isFinishing()) {
+                        if (n.this.iRB != null && (pageActivity = bdPageContext.getPageActivity()) != null && !pageActivity.isFinishing()) {
                             FrameLayout frameLayout2 = frameLayout;
                             int[] iArr = new int[2];
                             frameLayout2.getLocationOnScreen(iArr);
@@ -96,15 +97,15 @@ public class n {
                             if (viewGroup != null) {
                                 viewGroup.removeView(n.this.mView);
                             }
-                            n.this.iFp.addView(n.this.mView, layoutParams);
+                            n.this.iRB.addView(n.this.mView, layoutParams);
                         }
                     }
                 }, j);
-                this.iFp.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.n.2
+                this.iRB.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.n.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (n.this.iFp != null) {
-                            n.this.iFp.removeView(n.this.mView);
+                        if (n.this.iRB != null) {
+                            n.this.iRB.removeView(n.this.mView);
                         }
                     }
                 }, i + j);
@@ -120,8 +121,8 @@ public class n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
-        if (this.iFp != null && this.mView != null) {
-            this.iFp.removeView(this.mView);
+        if (this.iRB != null && this.mView != null) {
+            this.iRB.removeView(this.mView);
         }
     }
 }

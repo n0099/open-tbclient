@@ -2,10 +2,10 @@ package com.baidu.tieba.homepage.concern.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.RedNotify.DataReq;
 import tbclient.RedNotify.RedNotifyReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class CheckRedNotifyReqMessage extends NetMessage {
     public boolean reqUnreadTipAfterFinish;
 
@@ -19,7 +19,7 @@ public class CheckRedNotifyReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                u.a(builder, true);
+                t.b(builder, true);
             }
             RedNotifyReqIdl.Builder builder2 = new RedNotifyReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -9,84 +9,84 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.a.e;
 import com.baidu.tbadk.data.n;
+import com.baidu.tieba.p.b;
 import com.baidu.tieba.personCenter.c.f;
 import com.baidu.tieba.personCenter.model.PersonCenterModel;
 import com.baidu.tieba.personCenter.view.c;
-import com.baidu.tieba.q.b;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class b implements c.a {
-    private PersonCenterModel mjO;
-    private com.baidu.tieba.personCenter.view.c mjP;
-    PersonCenterModel.a mjQ = new PersonCenterModel.a() { // from class: com.baidu.tieba.personCenter.b.b.1
+    private PersonCenterModel moX;
+    private com.baidu.tieba.personCenter.view.c moY;
+    PersonCenterModel.a moZ = new PersonCenterModel.a() { // from class: com.baidu.tieba.personCenter.b.b.1
         @Override // com.baidu.tieba.personCenter.model.PersonCenterModel.a
         public void a(f fVar) {
             long currentTimeMillis = System.currentTimeMillis();
-            b.this.mjP.Yb();
-            b.this.mjP.b(fVar);
+            b.this.moY.Zi();
+            b.this.moY.b(fVar);
             if (fVar != null && fVar.getUserData() != null) {
                 e.a(fVar.getUserData().getPersonPrivate());
             }
-            com.baidu.tieba.personCenter.a.dym().ht(System.currentTimeMillis() - currentTimeMillis);
-            long dyo = com.baidu.tieba.personCenter.a.dym().dyo();
-            if (dyo > 0) {
-                com.baidu.tieba.personCenter.a.dym().setRefreshTime(System.currentTimeMillis() - dyo);
-                com.baidu.tieba.personCenter.a.dym().hu(0L);
+            com.baidu.tieba.personCenter.a.dyb().ho(System.currentTimeMillis() - currentTimeMillis);
+            long dyd = com.baidu.tieba.personCenter.a.dyb().dyd();
+            if (dyd > 0) {
+                com.baidu.tieba.personCenter.a.dyb().setRefreshTime(System.currentTimeMillis() - dyd);
+                com.baidu.tieba.personCenter.a.dyb().hp(0L);
             }
         }
 
         @Override // com.baidu.tieba.personCenter.model.PersonCenterModel.a
         public void onFail(int i, String str) {
-            if (i != -1 || b.this.mjO.mIsDataLoaded) {
-                b.this.mjP.bf(i, str);
+            if (i != -1 || b.this.moX.mIsDataLoaded) {
+                b.this.moY.bh(i, str);
             } else {
-                b.this.mjP.bSf();
+                b.this.moY.bUH();
             }
         }
     };
-    private CustomMessageListener mjR = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_RED_TIP) { // from class: com.baidu.tieba.personCenter.b.b.2
+    private CustomMessageListener mpa = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_RED_TIP) { // from class: com.baidu.tieba.personCenter.b.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.q.b)) {
-                com.baidu.tieba.q.b bVar = (com.baidu.tieba.q.b) customResponsedMessage.getData();
-                if (bVar.mRw != null && bVar.mRw.size() > 0) {
-                    b.a aVar = bVar.mRw.get(2);
-                    b.a aVar2 = bVar.mRw.get(3);
-                    b.a aVar3 = bVar.mRw.get(9);
-                    b.a aVar4 = bVar.mRw.get(10);
-                    if (b.this.mjO.dyC() != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.p.b)) {
+                com.baidu.tieba.p.b bVar = (com.baidu.tieba.p.b) customResponsedMessage.getData();
+                if (bVar.mWX != null && bVar.mWX.size() > 0) {
+                    b.a aVar = bVar.mWX.get(2);
+                    b.a aVar2 = bVar.mWX.get(3);
+                    b.a aVar3 = bVar.mWX.get(9);
+                    b.a aVar4 = bVar.mWX.get(10);
+                    if (b.this.moX.dyr() != null) {
                         if (aVar2 != null) {
-                            b.this.mjO.dyC().ws(aVar2.dpw);
+                            b.this.moX.dyr().wt(aVar2.duv);
                         }
                         if (aVar != null) {
-                            b.this.mjO.dyC().wv(aVar.dpw);
+                            b.this.moX.dyr().ww(aVar.duv);
                         }
                         if (aVar3 != null) {
-                            b.this.mjO.dyC().wu(aVar3.dpw);
+                            b.this.moX.dyr().wv(aVar3.duv);
                         }
                         if (aVar4 != null) {
-                            b.this.mjO.dyC().wt(aVar4.dpw);
+                            b.this.moX.dyr().wu(aVar4.duv);
                         }
                     }
-                    b.a aVar5 = bVar.mRw.get(5);
+                    b.a aVar5 = bVar.mWX.get(5);
                     if (aVar5 != null) {
-                        b.this.mjP.ag(5, aVar5.dpw);
+                        b.this.moY.ae(5, aVar5.duv);
                     }
-                    b.a aVar6 = bVar.mRw.get(6);
+                    b.a aVar6 = bVar.mWX.get(6);
                     if (aVar6 != null) {
-                        b.this.mjP.ag(6, aVar6.dpw);
+                        b.this.moY.ae(6, aVar6.duv);
                     }
-                    b.this.mjP.notifyDataSetChanged();
+                    b.this.moY.notifyDataSetChanged();
                 }
             }
         }
     };
-    private CustomMessageListener fYM = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.personCenter.b.b.3
+    private CustomMessageListener git = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.personCenter.b.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                com.baidu.tieba.q.a.dGO().xt(false);
+                com.baidu.tieba.p.a.dGD().xu(false);
             }
         }
     };
@@ -96,9 +96,9 @@ public class b implements c.a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             n nVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof n) && (nVar = (n) customResponsedMessage.getData()) != null) {
-                if (b.this.mjO.dyC() != null) {
-                    b.this.mjO.dyC().a(nVar);
-                    b.this.mjP.notifyDataSetChanged();
+                if (b.this.moX.dyr() != null) {
+                    b.this.moX.dyr().a(nVar);
+                    b.this.moY.notifyDataSetChanged();
                     return;
                 }
                 b.this.refreshView();
@@ -107,66 +107,66 @@ public class b implements c.a {
     };
 
     public b(View view, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.mjP = new com.baidu.tieba.personCenter.view.c(view, tbPageContext, bdUniqueId);
-        this.mjP.a(this);
-        this.mjO = new PersonCenterModel(tbPageContext, bdUniqueId);
-        this.mjO.a(this.mjQ);
-        com.baidu.tieba.q.a.dGO();
-        this.mjR.setTag(bdUniqueId);
-        this.fYM.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.mjR);
-        MessageManager.getInstance().registerListener(this.fYM);
+        this.moY = new com.baidu.tieba.personCenter.view.c(view, tbPageContext, bdUniqueId);
+        this.moY.a(this);
+        this.moX = new PersonCenterModel(tbPageContext, bdUniqueId);
+        this.moX.a(this.moZ);
+        com.baidu.tieba.p.a.dGD();
+        this.mpa.setTag(bdUniqueId);
+        this.git.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.mpa);
+        MessageManager.getInstance().registerListener(this.git);
         this.mUpdatePendantListener.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.mUpdatePendantListener);
     }
 
-    public void QU(String str) {
-        f dyC = this.mjO.dyC();
-        if (dyC != null && dyC.getUserData() != null) {
-            dyC.getUserData().setName_show(str);
-            this.mjP.notifyDataSetChanged();
+    public void QA(String str) {
+        f dyr = this.moX.dyr();
+        if (dyr != null && dyr.getUserData() != null) {
+            dyr.getUserData().setName_show(str);
+            this.moY.notifyDataSetChanged();
         }
     }
 
-    public void QV(String str) {
-        f dyC = this.mjO.dyC();
-        if (dyC != null && dyC.getUserData() != null) {
-            dyC.getUserData().setPortrait(str);
-            this.mjP.notifyDataSetChanged();
+    public void QB(String str) {
+        f dyr = this.moX.dyr();
+        if (dyr != null && dyr.getUserData() != null) {
+            dyr.getUserData().setPortrait(str);
+            this.moY.notifyDataSetChanged();
         }
     }
 
     public void refreshView() {
-        com.baidu.tieba.personCenter.a.dym().hu(System.currentTimeMillis());
-        this.mjO.LoadData();
+        com.baidu.tieba.personCenter.a.dyb().hp(System.currentTimeMillis());
+        this.moX.LoadData();
     }
 
     public void initView() {
-        this.mjP.initView();
+        this.moY.initView();
     }
 
-    public void wr(boolean z) {
-        this.mjO.wr(z);
+    public void ws(boolean z) {
+        this.moX.ws(z);
     }
 
     public void onDestroy() {
-        this.mjP.onDestroy();
+        this.moY.onDestroy();
     }
 
     public void onChangeSkinType(int i) {
-        this.mjP.onChangeSkinType(i);
+        this.moY.onChangeSkinType(i);
     }
 
-    public void dyt() {
-        this.mjP.dyr();
+    public void dyi() {
+        this.moY.dyg();
     }
 
-    public void dyu() {
-        this.mjP.dys();
+    public void dyj() {
+        this.moY.dyh();
     }
 
     @Override // com.baidu.tieba.personCenter.view.c.a
-    public void dN(View view) {
-        this.mjO.LoadData();
+    public void dX(View view) {
+        this.moX.LoadData();
     }
 }

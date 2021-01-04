@@ -1,55 +1,55 @@
 package com.baidu.swan.apps.storage.b;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import java.io.File;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class a implements d {
-    private static final ReadWriteLock dFY = new ReentrantReadWriteLock();
-    private File dFZ = aNj();
+    private static final ReadWriteLock dOC = new ReentrantReadWriteLock();
+    private File dOD = aPz();
     private final long MAX_SIZE = getMaxSize();
 
     @NonNull
-    public abstract String aNk();
+    public abstract String aPA();
 
     @Override // com.baidu.swan.apps.storage.b.d
-    public void cP(long j) {
-        dFY.writeLock().lock();
+    public void cQ(long j) {
+        dOC.writeLock().lock();
         try {
-            if (this.dFZ == null) {
-                this.dFZ = aNj();
+            if (this.dOD == null) {
+                this.dOD = aPz();
             }
-            File file = this.dFZ;
+            File file = this.dOD;
             if (!file.exists()) {
                 file.createNewFile();
             }
-            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aNi() + j).getBytes(), file);
+            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aPy() + j).getBytes(), file);
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         } finally {
-            dFY.writeLock().unlock();
+            dOC.writeLock().unlock();
         }
     }
 
     @Override // com.baidu.swan.apps.storage.b.d
-    public boolean cQ(long j) {
-        dFY.readLock().lock();
+    public boolean cR(long j) {
+        dOC.readLock().lock();
         try {
-            return aNi() + j > this.MAX_SIZE;
+            return aPy() + j > this.MAX_SIZE;
         } finally {
-            dFY.readLock().unlock();
+            dOC.readLock().unlock();
         }
     }
 
-    private long aNi() {
-        if (this.dFZ == null) {
-            this.dFZ = aNj();
+    private long aPy() {
+        if (this.dOD == null) {
+            this.dOD = aPz();
         }
-        File file = this.dFZ;
+        File file = this.dOD;
         if (file.exists() && file.isFile()) {
             String readFileData = com.baidu.swan.c.d.readFileData(file);
             try {
@@ -68,7 +68,7 @@ public abstract class a implements d {
         return 0L;
     }
 
-    private File aNj() {
-        return new File(aNk() + File.separator + "record.pro");
+    private File aPz() {
+        return new File(aPA() + File.separator + "record.pro");
     }
 }

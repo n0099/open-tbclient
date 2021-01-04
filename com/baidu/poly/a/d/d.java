@@ -8,16 +8,26 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class d {
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [8=4] */
     public static boolean a(String str, OutputStream outputStream) {
         BufferedInputStream bufferedInputStream;
-        BufferedOutputStream bufferedOutputStream = null;
+        BufferedOutputStream bufferedOutputStream;
+        BufferedOutputStream bufferedOutputStream2;
         try {
             bufferedInputStream = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream());
+        } catch (IOException e) {
+            e = e;
+            bufferedInputStream = null;
+            bufferedOutputStream2 = null;
+        } catch (Throwable th) {
+            th = th;
+            bufferedInputStream = null;
+            bufferedOutputStream = null;
+        }
+        try {
+            bufferedOutputStream2 = new BufferedOutputStream(outputStream);
             try {
-                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(outputStream);
                 try {
                     byte[] bArr = new byte[8192];
                     while (true) {
@@ -28,39 +38,30 @@ public class d {
                         }
                         bufferedOutputStream2.write(bArr, 0, read);
                     }
-                } catch (IOException e) {
-                    e = e;
-                    bufferedOutputStream = bufferedOutputStream2;
-                    try {
-                        e.printStackTrace();
-                        com.baidu.poly.util.c.a(bufferedInputStream, bufferedOutputStream);
-                        return false;
-                    } catch (Throwable th) {
-                        th = th;
-                        com.baidu.poly.util.c.a(bufferedInputStream, bufferedOutputStream);
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedOutputStream = bufferedOutputStream2;
-                    com.baidu.poly.util.c.a(bufferedInputStream, bufferedOutputStream);
-                    throw th;
+                } catch (IOException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    com.baidu.poly.util.c.a(bufferedInputStream, bufferedOutputStream2);
+                    return false;
                 }
-            } catch (IOException e2) {
-                e = e2;
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedOutputStream = bufferedOutputStream2;
+                com.baidu.poly.util.c.a(bufferedInputStream, bufferedOutputStream);
+                throw th;
             }
         } catch (IOException e3) {
             e = e3;
-            bufferedInputStream = null;
-        } catch (Throwable th4) {
-            th = th4;
-            bufferedInputStream = null;
+            bufferedOutputStream2 = null;
+        } catch (Throwable th3) {
+            th = th3;
+            bufferedOutputStream = null;
+            com.baidu.poly.util.c.a(bufferedInputStream, bufferedOutputStream);
+            throw th;
         }
     }
 
-    public static Bitmap jW(String str) {
+    public static Bitmap jS(String str) {
         BufferedInputStream bufferedInputStream;
         BufferedInputStream bufferedInputStream2 = null;
         try {

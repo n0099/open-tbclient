@@ -7,34 +7,34 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
-    public b aVv;
-    public String aVw;
+    public b aXb;
+    public String aXc;
     public ArrayList<String> unZipFilesPathList;
     public String upZipDirPath;
     public String videoPath;
 
     public String getDynamicGiftId() {
-        if (this.aVv == null) {
+        if (this.aXb == null) {
             return null;
         }
-        return this.aVv.giftId;
+        return this.aXb.giftId;
     }
 
     public boolean isLandScapeZip() {
-        if (this.aVv == null || this.aVv.aVt == null) {
+        if (this.aXb == null || this.aXb.aWY == null) {
             return false;
         }
-        return this.aVv.aVt.isLandScape();
+        return this.aXb.aWY.isLandScape();
     }
 
-    public String GE() {
+    public String Ge() {
         File[] listFiles;
         if (!TextUtils.isEmpty(this.videoPath)) {
             return this.videoPath;
         }
-        if (TextUtils.isEmpty(this.aVw) || (listFiles = new File(this.aVw).listFiles()) == null || listFiles.length == 0 || listFiles[0] == null) {
+        if (TextUtils.isEmpty(this.aXc) || (listFiles = new File(this.aXc).listFiles()) == null || listFiles.length == 0 || listFiles[0] == null) {
             return null;
         }
         this.videoPath = listFiles[0].getAbsolutePath();

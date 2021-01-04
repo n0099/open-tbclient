@@ -5,7 +5,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Handler;
 import android.os.Message;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 final class h extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
@@ -35,7 +35,7 @@ final class h extends Handler {
                 if (VIContext.getContext() != null) {
                     vGps.c = (LocationManager) VIContext.getContext().getSystemService("location");
                     locationManager4 = vGps.c;
-                    listener2 = vGps.f3906a;
+                    listener2 = vGps.f5916a;
                     locationManager4.addGpsStatusListener(listener2);
                     return;
                 }
@@ -44,10 +44,10 @@ final class h extends Handler {
                 locationManager = vGps.c;
                 if (locationManager != null) {
                     locationManager2 = vGps.c;
-                    listener = vGps.f3906a;
+                    listener = vGps.f5916a;
                     locationManager2.removeGpsStatusListener(listener);
                     locationManager3 = vGps.c;
-                    locationListener = vGps.b;
+                    locationListener = vGps.f5917b;
                     locationManager3.removeUpdates(locationListener);
                     return;
                 }

@@ -4,20 +4,22 @@ import android.text.TextUtils;
 import android.view.View;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class cx implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3821a;
-    final /* synthetic */ JSONArray b;
+    final /* synthetic */ String f5792a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ JSONArray f5793b;
     final /* synthetic */ int c;
     final /* synthetic */ cg d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cx(cg cgVar, String str, JSONArray jSONArray, int i) {
         this.d = cgVar;
-        this.f3821a = str;
-        this.b = jSONArray;
+        this.f5792a = str;
+        this.f5793b = jSONArray;
         this.c = i;
     }
 
@@ -35,18 +37,18 @@ final class cx implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         com.baidu.ufosdk.f.c.a("点击查看不满意原因");
-        if (!TextUtils.isEmpty(this.f3821a) || (this.b != null && this.b.length() != 0)) {
-            ((Map) this.d.f3804a.h.get(this.c)).put("isClicked", 1);
+        if (!TextUtils.isEmpty(this.f5792a) || (this.f5793b != null && this.f5793b.length() != 0)) {
+            ((Map) this.d.f5771a.h.get(this.c)).put("isClicked", 1);
         }
-        this.d.f3804a.aF = this.c;
-        if (((Map) this.d.f3804a.h.get(this.c)).containsKey("chatId")) {
-            this.d.f3804a.f = new StringBuilder().append(((Map) this.d.f3804a.h.get(this.c)).get("chatId")).toString();
+        this.d.f5771a.aF = this.c;
+        if (((Map) this.d.f5771a.h.get(this.c)).containsKey("chatId")) {
+            this.d.f5771a.f = new StringBuilder().append(((Map) this.d.f5771a.h.get(this.c)).get("chatId")).toString();
         }
-        if (TextUtils.isEmpty(this.f3821a) && (this.b == null || this.b.length() == 0)) {
-            FeedbackInputActivity.a(this.d.f3804a, false, false);
+        if (TextUtils.isEmpty(this.f5792a) && (this.f5793b == null || this.f5793b.length() == 0)) {
+            FeedbackInputActivity.a(this.d.f5771a, false, false);
         } else {
-            FeedbackInputActivity.a(this.d.f3804a, true, false);
+            FeedbackInputActivity.a(this.d.f5771a, true, false);
         }
-        this.d.f3804a.j.notifyDataSetChanged();
+        this.d.f5771a.j.notifyDataSetChanged();
     }
 }

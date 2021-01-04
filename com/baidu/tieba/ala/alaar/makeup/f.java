@@ -5,7 +5,8 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.ala.alaar.makeup.a;
-/* loaded from: classes4.dex */
+import com.xiaomi.mipush.sdk.MiPushClient;
+/* loaded from: classes11.dex */
 public class f extends CustomMessageTask {
     public f() {
         super(2913246, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.ala.alaar.makeup.f.1
@@ -14,16 +15,16 @@ public class f extends CustomMessageTask {
                 if (h.isDebug()) {
                     h.d("MakeupDM_TASK", "GetMakeupDataTask run " + customMessage);
                 }
-                g.bPZ().a(new a.b() { // from class: com.baidu.tieba.ala.alaar.makeup.f.1.1
+                g.bSz().a(new a.b() { // from class: com.baidu.tieba.ala.alaar.makeup.f.1.1
                     @Override // com.baidu.tieba.ala.alaar.makeup.a.b
                     public void c(a aVar) {
-                        com.baidu.live.ar.f fVar = new com.baidu.live.ar.f();
-                        com.baidu.tieba.ala.alaar.makeup.a.c bQb = g.bPZ().bQb();
-                        fVar.bk(bQb != null && bQb.Dt());
+                        com.baidu.live.ar.g gVar = new com.baidu.live.ar.g();
+                        com.baidu.tieba.ala.alaar.makeup.a.c bSB = g.bSz().bSB();
+                        gVar.bh(bSB != null && bSB.CJ());
                         if (h.isDebug()) {
-                            h.d("MakeupDM_TASK", "GetMakeupDataTask done " + fVar.Dt());
+                            h.d("MakeupDM_TASK", "GetMakeupDataTask done " + gVar.CJ());
                         }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913246, fVar));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913246, gVar));
                     }
                 });
                 return null;
@@ -33,7 +34,7 @@ public class f extends CustomMessageTask {
 
     public void register() {
         if (h.isDebug()) {
-            h.d("MakeupDM_TASK", "register");
+            h.d("MakeupDM_TASK", MiPushClient.COMMAND_REGISTER);
         }
         MessageManager.getInstance().registerTask(this);
     }

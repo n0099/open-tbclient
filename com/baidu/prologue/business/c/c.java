@@ -5,19 +5,19 @@ import android.graphics.Bitmap;
 import android.view.View;
 import com.baidu.prologue.b;
 import com.baidu.prologue.image.PrologueImageView;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c extends b<com.baidu.prologue.business.b.b> {
-    protected PrologueImageView cnw;
-    View cnx;
-    String cny;
+    protected PrologueImageView cuD;
+    View cuE;
+    String cuF;
     protected Bitmap mBitmap;
 
     public c(Context context) {
         super(context);
-        this.cnw = null;
+        this.cuD = null;
         this.mBitmap = null;
-        this.cnx = null;
-        this.cny = "";
+        this.cuE = null;
+        this.cuF = "";
     }
 
     @Override // com.baidu.prologue.business.c.a
@@ -26,26 +26,26 @@ public class c extends b<com.baidu.prologue.business.b.b> {
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public void ZG() {
-        this.cnw = (PrologueImageView) this.mRootView.findViewById(b.C0327b.splash_ad_image);
-        this.cnx = this.mRootView.findViewById(b.C0327b.image_splash_clickable);
-        if (this.cns) {
-            com.baidu.prologue.image.d.afq().a(this.cny, this.cnw);
+    public void abn() {
+        this.cuD = (PrologueImageView) this.mRootView.findViewById(b.C0327b.splash_ad_image);
+        this.cuE = this.mRootView.findViewById(b.C0327b.image_splash_clickable);
+        if (this.cuA) {
+            com.baidu.prologue.image.d.ahm().b(this.cuF, this.cuD);
         } else {
-            this.cnw.setImageBitmap(this.mBitmap);
+            this.cuD.setImageBitmap(this.mBitmap);
         }
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public View afc() {
-        return this.cnx;
+    public View agY() {
+        return this.cuE;
     }
 
     public void setImageUrl(String str) {
-        this.cny = str;
+        this.cuF = str;
     }
 
-    public c g(Bitmap bitmap) {
+    public c h(Bitmap bitmap) {
         this.mBitmap = bitmap;
         return this;
     }

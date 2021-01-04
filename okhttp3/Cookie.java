@@ -16,7 +16,7 @@ import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.http.cookie.ClientCookie;
 import org.apache.http.cookie.SM;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class Cookie {
     private final String domain;
     private final long expiresAt;
@@ -185,8 +185,8 @@ public final class Cookie {
                 }
             } else if (trimSubstring3.equalsIgnoreCase("domain")) {
                 try {
-                    str2 = parseDomain(trimSubstring4);
                     z3 = false;
+                    str2 = parseDomain(trimSubstring4);
                 } catch (IllegalArgumentException e3) {
                     str2 = str3;
                 }
@@ -202,15 +202,13 @@ public final class Cookie {
             } else {
                 str2 = str3;
             }
-            String str5 = str2;
             i = delimiterOffset3 + 1;
-            j3 = j3;
-            str3 = str5;
+            str3 = str2;
         }
         if (j4 == Long.MIN_VALUE) {
             j2 = Long.MIN_VALUE;
         } else if (j4 != -1) {
-            j2 = (j4 <= 9223372036854775L ? j4 * 1000 : Long.MAX_VALUE) + j;
+            j2 = (j4 <= 9223372036854775L ? 1000 * j4 : Long.MAX_VALUE) + j;
             if (j2 < j || j2 > HttpDate.MAX_DATE) {
                 j2 = HttpDate.MAX_DATE;
             }
@@ -354,7 +352,7 @@ public final class Cookie {
         return Collections.emptyList();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         @Nullable
         String domain;

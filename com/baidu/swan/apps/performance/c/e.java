@@ -1,36 +1,36 @@
 package com.baidu.swan.apps.performance.c;
 
-import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
-/* loaded from: classes25.dex */
-public class e implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
-    private static boolean dpt = true;
-    private static int dpu = -1;
-    private final String cFU;
+/* loaded from: classes9.dex */
+public class e implements com.baidu.swan.apps.ao.e.b<HybridUbcFlow> {
+    private static boolean dus = true;
+    private static int dut = -1;
+    private final String cKK;
 
     public e(String str) {
-        this.cFU = str;
+        this.cKK = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.ap.e.b
+    @Override // com.baidu.swan.apps.ao.e.b
     /* renamed from: a */
-    public synchronized void M(HybridUbcFlow hybridUbcFlow) {
-        if (dpt) {
-            if (dpu == -1) {
-                dpu = com.baidu.swan.apps.t.a.azd().getSwitch("swan_next_env_delay", 600);
+    public synchronized void L(HybridUbcFlow hybridUbcFlow) {
+        if (dus) {
+            if (dut == -1) {
+                dut = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_next_env_delay", 600);
             }
             ak.c(new Runnable() { // from class: com.baidu.swan.apps.performance.c.e.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    ak.aPv();
+                    ak.aRM();
                 }
-            }, dpu);
+            }, dut);
         }
-        if ("fmp_callback".equals(this.cFU)) {
-            dpt = false;
-        } else if ("callback_on_submit".equals(this.cFU)) {
-            dpt = true;
+        if ("fmp_callback".equals(this.cKK)) {
+            dus = false;
+        } else if ("callback_on_submit".equals(this.cKK)) {
+            dus = true;
         }
     }
 }

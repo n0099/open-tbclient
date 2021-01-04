@@ -21,7 +21,6 @@ import com.alibaba.fastjson.serializer.LongCodec;
 import com.alibaba.fastjson.serializer.StringCodec;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.io.Closeable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -39,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class DefaultJSONParser implements Closeable {
     public static final int NONE = 0;
     public static final int NeedToResolve = 1;
@@ -147,142 +146,124 @@ public class DefaultJSONParser implements Closeable {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [592=10] */
-    /* JADX WARN: Code restructure failed: missing block: B:116:0x0278, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:116:0x0277, code lost:
         r10.nextToken(16);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:117:0x0283, code lost:
-        if (r10.token() != 13) goto L284;
+    /* JADX WARN: Code restructure failed: missing block: B:117:0x0282, code lost:
+        if (r10.token() != 13) goto L282;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:118:0x0285, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:118:0x0284, code lost:
         r10.nextToken(16);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:120:0x028b, code lost:
-        r1 = r14.config.getDeserializer(r6);
+    /* JADX WARN: Code restructure failed: missing block: B:120:0x028a, code lost:
+        r1 = r13.config.getDeserializer(r6);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:121:0x0293, code lost:
-        if ((r1 instanceof com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) == false) goto L280;
+    /* JADX WARN: Code restructure failed: missing block: B:121:0x0292, code lost:
+        if ((r1 instanceof com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) == false) goto L278;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:122:0x0295, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:122:0x0294, code lost:
         r1 = (com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) r1;
-        r5 = r1.createInstance(r14, r6);
+        r5 = r1.createInstance(r13, r6);
         r8 = r2.entrySet().iterator();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:124:0x02a7, code lost:
-        if (r8.hasNext() == false) goto L268;
+    /* JADX WARN: Code restructure failed: missing block: B:124:0x02a6, code lost:
+        if (r8.hasNext() == false) goto L266;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:125:0x02a9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:125:0x02a8, code lost:
         r2 = (java.util.Map.Entry) r8.next();
         r3 = r2.getKey();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:126:0x02b5, code lost:
-        if ((r3 instanceof java.lang.String) == false) goto L267;
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x02b4, code lost:
+        if ((r3 instanceof java.lang.String) == false) goto L265;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:127:0x02b7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:127:0x02b6, code lost:
         r3 = r1.getFieldDeserializer((java.lang.String) r3);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:128:0x02bd, code lost:
-        if (r3 == null) goto L266;
+    /* JADX WARN: Code restructure failed: missing block: B:128:0x02bc, code lost:
+        if (r3 == null) goto L264;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:129:0x02bf, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:129:0x02be, code lost:
         r3.setValue(r5, r2.getValue());
      */
-    /* JADX WARN: Code restructure failed: missing block: B:131:0x02c7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:131:0x02c6, code lost:
         r1 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:133:0x02d0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:133:0x02cf, code lost:
         throw new com.alibaba.fastjson.JSONException("create instance error", r1);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:134:0x02d1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:134:0x02d0, code lost:
         r1 = r5;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:135:0x02d2, code lost:
-        if (r1 != null) goto L278;
+    /* JADX WARN: Code restructure failed: missing block: B:135:0x02d1, code lost:
+        if (r1 != null) goto L276;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:137:0x02d6, code lost:
-        if (r6 != java.lang.Cloneable.class) goto L274;
+    /* JADX WARN: Code restructure failed: missing block: B:137:0x02d5, code lost:
+        if (r6 != java.lang.Cloneable.class) goto L272;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:138:0x02d8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:138:0x02d7, code lost:
         r1 = new java.util.HashMap();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:139:0x02dd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:139:0x02dc, code lost:
         setContext(r4);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:141:0x02ea, code lost:
-        if ("java.util.Collections$EmptyMap".equals(r7) == false) goto L277;
+    /* JADX WARN: Code restructure failed: missing block: B:141:0x02e9, code lost:
+        if ("java.util.Collections$EmptyMap".equals(r7) == false) goto L275;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:142:0x02ec, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:142:0x02eb, code lost:
         r1 = java.util.Collections.emptyMap();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:143:0x02f1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:143:0x02f0, code lost:
         r1 = r6.newInstance();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:146:0x02f7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:146:0x02f6, code lost:
         setResolveStatus(2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:147:0x02fc, code lost:
-        if (r14.context == null) goto L293;
+    /* JADX WARN: Code restructure failed: missing block: B:147:0x02fb, code lost:
+        if (r13.context == null) goto L291;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:148:0x02fe, code lost:
-        if (r16 == null) goto L293;
+    /* JADX WARN: Code restructure failed: missing block: B:148:0x02fd, code lost:
+        if (r15 == null) goto L291;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:150:0x0304, code lost:
-        if ((r16 instanceof java.lang.Integer) != false) goto L293;
+    /* JADX WARN: Code restructure failed: missing block: B:150:0x0301, code lost:
+        if ((r15 instanceof java.lang.Integer) != false) goto L291;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:152:0x030c, code lost:
-        if ((r14.context.fieldName instanceof java.lang.Integer) != false) goto L293;
+    /* JADX WARN: Code restructure failed: missing block: B:152:0x0309, code lost:
+        if ((r13.context.fieldName instanceof java.lang.Integer) != false) goto L291;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:153:0x030e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:153:0x030b, code lost:
         popContext();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:155:0x0315, code lost:
-        if (r15.size() <= 0) goto L298;
+    /* JADX WARN: Code restructure failed: missing block: B:155:0x0312, code lost:
+        if (r14.size() <= 0) goto L296;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:156:0x0317, code lost:
-        r15 = com.alibaba.fastjson.util.TypeUtils.cast((java.lang.Object) r15, (java.lang.Class<java.lang.Object>) r6, r14.config);
-        parseObject(r15);
+    /* JADX WARN: Code restructure failed: missing block: B:156:0x0314, code lost:
+        r14 = com.alibaba.fastjson.util.TypeUtils.cast((java.lang.Object) r14, (java.lang.Class<java.lang.Object>) r6, r13.config);
+        parseObject(r14);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:325:0x063f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:324:0x0630, code lost:
         r1 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:383:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:381:?, code lost:
         return r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:384:?, code lost:
-        return r15;
+    /* JADX WARN: Code restructure failed: missing block: B:382:?, code lost:
+        return r14;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:385:?, code lost:
-        return r14.config.getDeserializer(r6).deserialze(r14, r6, r16);
+    /* JADX WARN: Code restructure failed: missing block: B:383:?, code lost:
+        return r13.config.getDeserializer(r6).deserialze(r13, r6, r15);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00fb, code lost:
-        if (r4 != null) goto L383;
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00f9, code lost:
+        if (r4 != null) goto L381;
      */
-    /* JADX WARN: Removed duplicated region for block: B:208:0x0410 A[Catch: all -> 0x00ca, TryCatch #2 {all -> 0x00ca, blocks: (B:16:0x005a, B:18:0x005e, B:20:0x0069, B:24:0x007c, B:28:0x008e, B:30:0x00a1, B:31:0x00c9, B:94:0x01d9, B:95:0x01df, B:97:0x01ea, B:99:0x01f2, B:102:0x0204, B:104:0x0212, B:106:0x0219, B:116:0x0278, B:118:0x0285, B:120:0x028b, B:122:0x0295, B:123:0x02a3, B:125:0x02a9, B:127:0x02b7, B:129:0x02bf, B:138:0x02d8, B:140:0x02e3, B:142:0x02ec, B:143:0x02f1, B:132:0x02c8, B:133:0x02d0, B:146:0x02f7, B:149:0x0300, B:151:0x0306, B:153:0x030e, B:154:0x0311, B:156:0x0317, B:158:0x0325, B:115:0x026b, B:163:0x033d, B:165:0x0345, B:167:0x0350, B:169:0x0363, B:171:0x0367, B:173:0x036f, B:181:0x0386, B:177:0x0375, B:179:0x037d, B:180:0x0385, B:203:0x03e2, B:183:0x038a, B:184:0x038f, B:186:0x0398, B:188:0x039c, B:189:0x03a0, B:190:0x03ae, B:193:0x03b8, B:195:0x03bc, B:196:0x03bf, B:198:0x03c3, B:200:0x03c7, B:201:0x03d4, B:205:0x03ec, B:206:0x040d, B:208:0x0410, B:210:0x0414, B:212:0x041c, B:214:0x0422, B:215:0x0425, B:221:0x0437, B:223:0x0446, B:225:0x0451, B:226:0x0459, B:227:0x045c, B:228:0x045f, B:230:0x046a, B:317:0x05f7, B:319:0x0608, B:320:0x0630, B:241:0x0486, B:243:0x0490, B:244:0x0494, B:245:0x0498, B:248:0x04a7, B:250:0x04b1, B:253:0x04bb, B:254:0x04be, B:256:0x04c9, B:257:0x04cd, B:259:0x04d8, B:261:0x04e0, B:264:0x04eb, B:265:0x04f3, B:268:0x04f8, B:270:0x04fd, B:273:0x0507, B:275:0x0515, B:276:0x051a, B:279:0x0522, B:280:0x0526, B:282:0x052e, B:284:0x053e, B:287:0x0546, B:289:0x054a, B:290:0x0551, B:292:0x0556, B:293:0x0559, B:295:0x0561, B:299:0x0571, B:302:0x057b, B:303:0x0581, B:304:0x0587, B:305:0x05a4, B:306:0x05a5, B:308:0x05b7, B:310:0x05bf, B:313:0x05ca, B:314:0x05f2, B:231:0x0470, B:37:0x00d3, B:39:0x00de, B:41:0x00e2, B:43:0x00ea, B:45:0x00f0, B:47:0x00f7, B:52:0x0103, B:54:0x010b, B:55:0x0113, B:56:0x0114, B:58:0x0127, B:59:0x0144, B:62:0x0149, B:63:0x0151, B:66:0x0156, B:67:0x015e, B:74:0x016b, B:75:0x0171, B:77:0x0178, B:78:0x017c, B:80:0x0184, B:81:0x01a1, B:83:0x01a3, B:86:0x01a9, B:87:0x01c6, B:107:0x0220, B:109:0x0228, B:110:0x0230, B:111:0x0231, B:113:0x0242, B:114:0x026a, B:92:0x01cf), top: B:331:0x005a, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:230:0x046a A[Catch: all -> 0x00ca, TryCatch #2 {all -> 0x00ca, blocks: (B:16:0x005a, B:18:0x005e, B:20:0x0069, B:24:0x007c, B:28:0x008e, B:30:0x00a1, B:31:0x00c9, B:94:0x01d9, B:95:0x01df, B:97:0x01ea, B:99:0x01f2, B:102:0x0204, B:104:0x0212, B:106:0x0219, B:116:0x0278, B:118:0x0285, B:120:0x028b, B:122:0x0295, B:123:0x02a3, B:125:0x02a9, B:127:0x02b7, B:129:0x02bf, B:138:0x02d8, B:140:0x02e3, B:142:0x02ec, B:143:0x02f1, B:132:0x02c8, B:133:0x02d0, B:146:0x02f7, B:149:0x0300, B:151:0x0306, B:153:0x030e, B:154:0x0311, B:156:0x0317, B:158:0x0325, B:115:0x026b, B:163:0x033d, B:165:0x0345, B:167:0x0350, B:169:0x0363, B:171:0x0367, B:173:0x036f, B:181:0x0386, B:177:0x0375, B:179:0x037d, B:180:0x0385, B:203:0x03e2, B:183:0x038a, B:184:0x038f, B:186:0x0398, B:188:0x039c, B:189:0x03a0, B:190:0x03ae, B:193:0x03b8, B:195:0x03bc, B:196:0x03bf, B:198:0x03c3, B:200:0x03c7, B:201:0x03d4, B:205:0x03ec, B:206:0x040d, B:208:0x0410, B:210:0x0414, B:212:0x041c, B:214:0x0422, B:215:0x0425, B:221:0x0437, B:223:0x0446, B:225:0x0451, B:226:0x0459, B:227:0x045c, B:228:0x045f, B:230:0x046a, B:317:0x05f7, B:319:0x0608, B:320:0x0630, B:241:0x0486, B:243:0x0490, B:244:0x0494, B:245:0x0498, B:248:0x04a7, B:250:0x04b1, B:253:0x04bb, B:254:0x04be, B:256:0x04c9, B:257:0x04cd, B:259:0x04d8, B:261:0x04e0, B:264:0x04eb, B:265:0x04f3, B:268:0x04f8, B:270:0x04fd, B:273:0x0507, B:275:0x0515, B:276:0x051a, B:279:0x0522, B:280:0x0526, B:282:0x052e, B:284:0x053e, B:287:0x0546, B:289:0x054a, B:290:0x0551, B:292:0x0556, B:293:0x0559, B:295:0x0561, B:299:0x0571, B:302:0x057b, B:303:0x0581, B:304:0x0587, B:305:0x05a4, B:306:0x05a5, B:308:0x05b7, B:310:0x05bf, B:313:0x05ca, B:314:0x05f2, B:231:0x0470, B:37:0x00d3, B:39:0x00de, B:41:0x00e2, B:43:0x00ea, B:45:0x00f0, B:47:0x00f7, B:52:0x0103, B:54:0x010b, B:55:0x0113, B:56:0x0114, B:58:0x0127, B:59:0x0144, B:62:0x0149, B:63:0x0151, B:66:0x0156, B:67:0x015e, B:74:0x016b, B:75:0x0171, B:77:0x0178, B:78:0x017c, B:80:0x0184, B:81:0x01a1, B:83:0x01a3, B:86:0x01a9, B:87:0x01c6, B:107:0x0220, B:109:0x0228, B:110:0x0230, B:111:0x0231, B:113:0x0242, B:114:0x026a, B:92:0x01cf), top: B:331:0x005a, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:235:0x047a  */
-    /* JADX WARN: Removed duplicated region for block: B:284:0x053e A[Catch: all -> 0x00ca, TryCatch #2 {all -> 0x00ca, blocks: (B:16:0x005a, B:18:0x005e, B:20:0x0069, B:24:0x007c, B:28:0x008e, B:30:0x00a1, B:31:0x00c9, B:94:0x01d9, B:95:0x01df, B:97:0x01ea, B:99:0x01f2, B:102:0x0204, B:104:0x0212, B:106:0x0219, B:116:0x0278, B:118:0x0285, B:120:0x028b, B:122:0x0295, B:123:0x02a3, B:125:0x02a9, B:127:0x02b7, B:129:0x02bf, B:138:0x02d8, B:140:0x02e3, B:142:0x02ec, B:143:0x02f1, B:132:0x02c8, B:133:0x02d0, B:146:0x02f7, B:149:0x0300, B:151:0x0306, B:153:0x030e, B:154:0x0311, B:156:0x0317, B:158:0x0325, B:115:0x026b, B:163:0x033d, B:165:0x0345, B:167:0x0350, B:169:0x0363, B:171:0x0367, B:173:0x036f, B:181:0x0386, B:177:0x0375, B:179:0x037d, B:180:0x0385, B:203:0x03e2, B:183:0x038a, B:184:0x038f, B:186:0x0398, B:188:0x039c, B:189:0x03a0, B:190:0x03ae, B:193:0x03b8, B:195:0x03bc, B:196:0x03bf, B:198:0x03c3, B:200:0x03c7, B:201:0x03d4, B:205:0x03ec, B:206:0x040d, B:208:0x0410, B:210:0x0414, B:212:0x041c, B:214:0x0422, B:215:0x0425, B:221:0x0437, B:223:0x0446, B:225:0x0451, B:226:0x0459, B:227:0x045c, B:228:0x045f, B:230:0x046a, B:317:0x05f7, B:319:0x0608, B:320:0x0630, B:241:0x0486, B:243:0x0490, B:244:0x0494, B:245:0x0498, B:248:0x04a7, B:250:0x04b1, B:253:0x04bb, B:254:0x04be, B:256:0x04c9, B:257:0x04cd, B:259:0x04d8, B:261:0x04e0, B:264:0x04eb, B:265:0x04f3, B:268:0x04f8, B:270:0x04fd, B:273:0x0507, B:275:0x0515, B:276:0x051a, B:279:0x0522, B:280:0x0526, B:282:0x052e, B:284:0x053e, B:287:0x0546, B:289:0x054a, B:290:0x0551, B:292:0x0556, B:293:0x0559, B:295:0x0561, B:299:0x0571, B:302:0x057b, B:303:0x0581, B:304:0x0587, B:305:0x05a4, B:306:0x05a5, B:308:0x05b7, B:310:0x05bf, B:313:0x05ca, B:314:0x05f2, B:231:0x0470, B:37:0x00d3, B:39:0x00de, B:41:0x00e2, B:43:0x00ea, B:45:0x00f0, B:47:0x00f7, B:52:0x0103, B:54:0x010b, B:55:0x0113, B:56:0x0114, B:58:0x0127, B:59:0x0144, B:62:0x0149, B:63:0x0151, B:66:0x0156, B:67:0x015e, B:74:0x016b, B:75:0x0171, B:77:0x0178, B:78:0x017c, B:80:0x0184, B:81:0x01a1, B:83:0x01a3, B:86:0x01a9, B:87:0x01c6, B:107:0x0220, B:109:0x0228, B:110:0x0230, B:111:0x0231, B:113:0x0242, B:114:0x026a, B:92:0x01cf), top: B:331:0x005a, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:289:0x054a A[Catch: all -> 0x00ca, TryCatch #2 {all -> 0x00ca, blocks: (B:16:0x005a, B:18:0x005e, B:20:0x0069, B:24:0x007c, B:28:0x008e, B:30:0x00a1, B:31:0x00c9, B:94:0x01d9, B:95:0x01df, B:97:0x01ea, B:99:0x01f2, B:102:0x0204, B:104:0x0212, B:106:0x0219, B:116:0x0278, B:118:0x0285, B:120:0x028b, B:122:0x0295, B:123:0x02a3, B:125:0x02a9, B:127:0x02b7, B:129:0x02bf, B:138:0x02d8, B:140:0x02e3, B:142:0x02ec, B:143:0x02f1, B:132:0x02c8, B:133:0x02d0, B:146:0x02f7, B:149:0x0300, B:151:0x0306, B:153:0x030e, B:154:0x0311, B:156:0x0317, B:158:0x0325, B:115:0x026b, B:163:0x033d, B:165:0x0345, B:167:0x0350, B:169:0x0363, B:171:0x0367, B:173:0x036f, B:181:0x0386, B:177:0x0375, B:179:0x037d, B:180:0x0385, B:203:0x03e2, B:183:0x038a, B:184:0x038f, B:186:0x0398, B:188:0x039c, B:189:0x03a0, B:190:0x03ae, B:193:0x03b8, B:195:0x03bc, B:196:0x03bf, B:198:0x03c3, B:200:0x03c7, B:201:0x03d4, B:205:0x03ec, B:206:0x040d, B:208:0x0410, B:210:0x0414, B:212:0x041c, B:214:0x0422, B:215:0x0425, B:221:0x0437, B:223:0x0446, B:225:0x0451, B:226:0x0459, B:227:0x045c, B:228:0x045f, B:230:0x046a, B:317:0x05f7, B:319:0x0608, B:320:0x0630, B:241:0x0486, B:243:0x0490, B:244:0x0494, B:245:0x0498, B:248:0x04a7, B:250:0x04b1, B:253:0x04bb, B:254:0x04be, B:256:0x04c9, B:257:0x04cd, B:259:0x04d8, B:261:0x04e0, B:264:0x04eb, B:265:0x04f3, B:268:0x04f8, B:270:0x04fd, B:273:0x0507, B:275:0x0515, B:276:0x051a, B:279:0x0522, B:280:0x0526, B:282:0x052e, B:284:0x053e, B:287:0x0546, B:289:0x054a, B:290:0x0551, B:292:0x0556, B:293:0x0559, B:295:0x0561, B:299:0x0571, B:302:0x057b, B:303:0x0581, B:304:0x0587, B:305:0x05a4, B:306:0x05a5, B:308:0x05b7, B:310:0x05bf, B:313:0x05ca, B:314:0x05f2, B:231:0x0470, B:37:0x00d3, B:39:0x00de, B:41:0x00e2, B:43:0x00ea, B:45:0x00f0, B:47:0x00f7, B:52:0x0103, B:54:0x010b, B:55:0x0113, B:56:0x0114, B:58:0x0127, B:59:0x0144, B:62:0x0149, B:63:0x0151, B:66:0x0156, B:67:0x015e, B:74:0x016b, B:75:0x0171, B:77:0x0178, B:78:0x017c, B:80:0x0184, B:81:0x01a1, B:83:0x01a3, B:86:0x01a9, B:87:0x01c6, B:107:0x0220, B:109:0x0228, B:110:0x0230, B:111:0x0231, B:113:0x0242, B:114:0x026a, B:92:0x01cf), top: B:331:0x005a, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:292:0x0556 A[Catch: all -> 0x00ca, TryCatch #2 {all -> 0x00ca, blocks: (B:16:0x005a, B:18:0x005e, B:20:0x0069, B:24:0x007c, B:28:0x008e, B:30:0x00a1, B:31:0x00c9, B:94:0x01d9, B:95:0x01df, B:97:0x01ea, B:99:0x01f2, B:102:0x0204, B:104:0x0212, B:106:0x0219, B:116:0x0278, B:118:0x0285, B:120:0x028b, B:122:0x0295, B:123:0x02a3, B:125:0x02a9, B:127:0x02b7, B:129:0x02bf, B:138:0x02d8, B:140:0x02e3, B:142:0x02ec, B:143:0x02f1, B:132:0x02c8, B:133:0x02d0, B:146:0x02f7, B:149:0x0300, B:151:0x0306, B:153:0x030e, B:154:0x0311, B:156:0x0317, B:158:0x0325, B:115:0x026b, B:163:0x033d, B:165:0x0345, B:167:0x0350, B:169:0x0363, B:171:0x0367, B:173:0x036f, B:181:0x0386, B:177:0x0375, B:179:0x037d, B:180:0x0385, B:203:0x03e2, B:183:0x038a, B:184:0x038f, B:186:0x0398, B:188:0x039c, B:189:0x03a0, B:190:0x03ae, B:193:0x03b8, B:195:0x03bc, B:196:0x03bf, B:198:0x03c3, B:200:0x03c7, B:201:0x03d4, B:205:0x03ec, B:206:0x040d, B:208:0x0410, B:210:0x0414, B:212:0x041c, B:214:0x0422, B:215:0x0425, B:221:0x0437, B:223:0x0446, B:225:0x0451, B:226:0x0459, B:227:0x045c, B:228:0x045f, B:230:0x046a, B:317:0x05f7, B:319:0x0608, B:320:0x0630, B:241:0x0486, B:243:0x0490, B:244:0x0494, B:245:0x0498, B:248:0x04a7, B:250:0x04b1, B:253:0x04bb, B:254:0x04be, B:256:0x04c9, B:257:0x04cd, B:259:0x04d8, B:261:0x04e0, B:264:0x04eb, B:265:0x04f3, B:268:0x04f8, B:270:0x04fd, B:273:0x0507, B:275:0x0515, B:276:0x051a, B:279:0x0522, B:280:0x0526, B:282:0x052e, B:284:0x053e, B:287:0x0546, B:289:0x054a, B:290:0x0551, B:292:0x0556, B:293:0x0559, B:295:0x0561, B:299:0x0571, B:302:0x057b, B:303:0x0581, B:304:0x0587, B:305:0x05a4, B:306:0x05a5, B:308:0x05b7, B:310:0x05bf, B:313:0x05ca, B:314:0x05f2, B:231:0x0470, B:37:0x00d3, B:39:0x00de, B:41:0x00e2, B:43:0x00ea, B:45:0x00f0, B:47:0x00f7, B:52:0x0103, B:54:0x010b, B:55:0x0113, B:56:0x0114, B:58:0x0127, B:59:0x0144, B:62:0x0149, B:63:0x0151, B:66:0x0156, B:67:0x015e, B:74:0x016b, B:75:0x0171, B:77:0x0178, B:78:0x017c, B:80:0x0184, B:81:0x01a1, B:83:0x01a3, B:86:0x01a9, B:87:0x01c6, B:107:0x0220, B:109:0x0228, B:110:0x0230, B:111:0x0231, B:113:0x0242, B:114:0x026a, B:92:0x01cf), top: B:331:0x005a, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:299:0x0571 A[Catch: all -> 0x00ca, TRY_ENTER, TryCatch #2 {all -> 0x00ca, blocks: (B:16:0x005a, B:18:0x005e, B:20:0x0069, B:24:0x007c, B:28:0x008e, B:30:0x00a1, B:31:0x00c9, B:94:0x01d9, B:95:0x01df, B:97:0x01ea, B:99:0x01f2, B:102:0x0204, B:104:0x0212, B:106:0x0219, B:116:0x0278, B:118:0x0285, B:120:0x028b, B:122:0x0295, B:123:0x02a3, B:125:0x02a9, B:127:0x02b7, B:129:0x02bf, B:138:0x02d8, B:140:0x02e3, B:142:0x02ec, B:143:0x02f1, B:132:0x02c8, B:133:0x02d0, B:146:0x02f7, B:149:0x0300, B:151:0x0306, B:153:0x030e, B:154:0x0311, B:156:0x0317, B:158:0x0325, B:115:0x026b, B:163:0x033d, B:165:0x0345, B:167:0x0350, B:169:0x0363, B:171:0x0367, B:173:0x036f, B:181:0x0386, B:177:0x0375, B:179:0x037d, B:180:0x0385, B:203:0x03e2, B:183:0x038a, B:184:0x038f, B:186:0x0398, B:188:0x039c, B:189:0x03a0, B:190:0x03ae, B:193:0x03b8, B:195:0x03bc, B:196:0x03bf, B:198:0x03c3, B:200:0x03c7, B:201:0x03d4, B:205:0x03ec, B:206:0x040d, B:208:0x0410, B:210:0x0414, B:212:0x041c, B:214:0x0422, B:215:0x0425, B:221:0x0437, B:223:0x0446, B:225:0x0451, B:226:0x0459, B:227:0x045c, B:228:0x045f, B:230:0x046a, B:317:0x05f7, B:319:0x0608, B:320:0x0630, B:241:0x0486, B:243:0x0490, B:244:0x0494, B:245:0x0498, B:248:0x04a7, B:250:0x04b1, B:253:0x04bb, B:254:0x04be, B:256:0x04c9, B:257:0x04cd, B:259:0x04d8, B:261:0x04e0, B:264:0x04eb, B:265:0x04f3, B:268:0x04f8, B:270:0x04fd, B:273:0x0507, B:275:0x0515, B:276:0x051a, B:279:0x0522, B:280:0x0526, B:282:0x052e, B:284:0x053e, B:287:0x0546, B:289:0x054a, B:290:0x0551, B:292:0x0556, B:293:0x0559, B:295:0x0561, B:299:0x0571, B:302:0x057b, B:303:0x0581, B:304:0x0587, B:305:0x05a4, B:306:0x05a5, B:308:0x05b7, B:310:0x05bf, B:313:0x05ca, B:314:0x05f2, B:231:0x0470, B:37:0x00d3, B:39:0x00de, B:41:0x00e2, B:43:0x00ea, B:45:0x00f0, B:47:0x00f7, B:52:0x0103, B:54:0x010b, B:55:0x0113, B:56:0x0114, B:58:0x0127, B:59:0x0144, B:62:0x0149, B:63:0x0151, B:66:0x0156, B:67:0x015e, B:74:0x016b, B:75:0x0171, B:77:0x0178, B:78:0x017c, B:80:0x0184, B:81:0x01a1, B:83:0x01a3, B:86:0x01a9, B:87:0x01c6, B:107:0x0220, B:109:0x0228, B:110:0x0230, B:111:0x0231, B:113:0x0242, B:114:0x026a, B:92:0x01cf), top: B:331:0x005a, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:324:0x063c  */
-    /* JADX WARN: Removed duplicated region for block: B:346:0x05f3 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:349:0x0437 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:355:0x0561 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x01d9 A[Catch: all -> 0x00ca, TryCatch #2 {all -> 0x00ca, blocks: (B:16:0x005a, B:18:0x005e, B:20:0x0069, B:24:0x007c, B:28:0x008e, B:30:0x00a1, B:31:0x00c9, B:94:0x01d9, B:95:0x01df, B:97:0x01ea, B:99:0x01f2, B:102:0x0204, B:104:0x0212, B:106:0x0219, B:116:0x0278, B:118:0x0285, B:120:0x028b, B:122:0x0295, B:123:0x02a3, B:125:0x02a9, B:127:0x02b7, B:129:0x02bf, B:138:0x02d8, B:140:0x02e3, B:142:0x02ec, B:143:0x02f1, B:132:0x02c8, B:133:0x02d0, B:146:0x02f7, B:149:0x0300, B:151:0x0306, B:153:0x030e, B:154:0x0311, B:156:0x0317, B:158:0x0325, B:115:0x026b, B:163:0x033d, B:165:0x0345, B:167:0x0350, B:169:0x0363, B:171:0x0367, B:173:0x036f, B:181:0x0386, B:177:0x0375, B:179:0x037d, B:180:0x0385, B:203:0x03e2, B:183:0x038a, B:184:0x038f, B:186:0x0398, B:188:0x039c, B:189:0x03a0, B:190:0x03ae, B:193:0x03b8, B:195:0x03bc, B:196:0x03bf, B:198:0x03c3, B:200:0x03c7, B:201:0x03d4, B:205:0x03ec, B:206:0x040d, B:208:0x0410, B:210:0x0414, B:212:0x041c, B:214:0x0422, B:215:0x0425, B:221:0x0437, B:223:0x0446, B:225:0x0451, B:226:0x0459, B:227:0x045c, B:228:0x045f, B:230:0x046a, B:317:0x05f7, B:319:0x0608, B:320:0x0630, B:241:0x0486, B:243:0x0490, B:244:0x0494, B:245:0x0498, B:248:0x04a7, B:250:0x04b1, B:253:0x04bb, B:254:0x04be, B:256:0x04c9, B:257:0x04cd, B:259:0x04d8, B:261:0x04e0, B:264:0x04eb, B:265:0x04f3, B:268:0x04f8, B:270:0x04fd, B:273:0x0507, B:275:0x0515, B:276:0x051a, B:279:0x0522, B:280:0x0526, B:282:0x052e, B:284:0x053e, B:287:0x0546, B:289:0x054a, B:290:0x0551, B:292:0x0556, B:293:0x0559, B:295:0x0561, B:299:0x0571, B:302:0x057b, B:303:0x0581, B:304:0x0587, B:305:0x05a4, B:306:0x05a5, B:308:0x05b7, B:310:0x05bf, B:313:0x05ca, B:314:0x05f2, B:231:0x0470, B:37:0x00d3, B:39:0x00de, B:41:0x00e2, B:43:0x00ea, B:45:0x00f0, B:47:0x00f7, B:52:0x0103, B:54:0x010b, B:55:0x0113, B:56:0x0114, B:58:0x0127, B:59:0x0144, B:62:0x0149, B:63:0x0151, B:66:0x0156, B:67:0x015e, B:74:0x016b, B:75:0x0171, B:77:0x0178, B:78:0x017c, B:80:0x0184, B:81:0x01a1, B:83:0x01a3, B:86:0x01a9, B:87:0x01c6, B:107:0x0220, B:109:0x0228, B:110:0x0230, B:111:0x0231, B:113:0x0242, B:114:0x026a, B:92:0x01cf), top: B:331:0x005a, inners: #0, #1 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final Object parseObject(Map map, Object obj) {
         ParseContext parseContext;
+        Object parse;
         boolean z;
         Object obj2;
-        char current;
-        boolean z2;
         Object obj3;
-        char current2;
-        Object obj4;
-        boolean z3;
-        Object obj5;
-        String str;
         JSONLexer jSONLexer = this.lexer;
         if (jSONLexer.token() == 8) {
             jSONLexer.nextToken();
@@ -296,310 +277,269 @@ public class DefaultJSONParser implements Closeable {
             ParseContext parseContext2 = this.context;
             try {
                 Map<String, Object> innerMap = map instanceof JSONObject ? ((JSONObject) map).getInnerMap() : map;
-                boolean z4 = false;
+                boolean z2 = false;
                 while (true) {
                     jSONLexer.skipWhitespace();
-                    char current3 = jSONLexer.getCurrent();
+                    char current = jSONLexer.getCurrent();
                     if (jSONLexer.isEnabled(Feature.AllowArbitraryCommas)) {
-                        while (current3 == ',') {
+                        while (current == ',') {
                             jSONLexer.next();
                             jSONLexer.skipWhitespace();
-                            current3 = jSONLexer.getCurrent();
+                            current = jSONLexer.getCurrent();
                         }
                     }
-                    if (current3 != '\"') {
-                        if (current3 != '}') {
-                            if (current3 != '\'') {
-                                if (current3 != 26) {
-                                    if (current3 != ',') {
-                                        if ((current3 >= '0' && current3 <= '9') || current3 == '-') {
-                                            jSONLexer.resetStringPosition();
-                                            jSONLexer.scanNumber();
-                                            try {
-                                                Object integerValue = jSONLexer.token() == 2 ? jSONLexer.integerValue() : jSONLexer.decimalValue(true);
-                                                if (jSONLexer.getCurrent() != ':') {
-                                                    throw new JSONException("parse number key error" + jSONLexer.info());
-                                                }
-                                                obj2 = integerValue;
-                                                z = false;
-                                            } catch (NumberFormatException e) {
-                                                throw new JSONException("parse number key error" + jSONLexer.info());
-                                            }
-                                        } else if (current3 == '{' || current3 == '[') {
-                                            jSONLexer.nextToken();
-                                            z = true;
-                                            obj2 = parse();
-                                        } else if (!jSONLexer.isEnabled(Feature.AllowUnQuotedFieldNames)) {
-                                            throw new JSONException("syntax error");
-                                        } else {
-                                            String scanSymbolUnQuoted = jSONLexer.scanSymbolUnQuoted(this.symbolTable);
-                                            jSONLexer.skipWhitespace();
-                                            char current4 = jSONLexer.getCurrent();
-                                            str = scanSymbolUnQuoted;
-                                            if (current4 != ':') {
-                                                throw new JSONException("expect ':' at " + jSONLexer.pos() + ", actual " + current4);
-                                            }
-                                        }
-                                        if (!z) {
-                                            jSONLexer.next();
-                                            jSONLexer.skipWhitespace();
-                                        }
-                                        current = jSONLexer.getCurrent();
-                                        jSONLexer.resetStringPosition();
-                                        if (obj2 != JSON.DEFAULT_TYPE_KEY && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
-                                            String scanSymbol = jSONLexer.scanSymbol(this.symbolTable, '\"');
-                                            if (!jSONLexer.isEnabled(Feature.IgnoreAutoType)) {
-                                                Class<?> checkAutoType = (map == null || !map.getClass().getName().equals(scanSymbol)) ? this.config.checkAutoType(scanSymbol, null, jSONLexer.getFeatures()) : map.getClass();
-                                                if (checkAutoType != null) {
-                                                    break;
-                                                }
-                                                innerMap.put(JSON.DEFAULT_TYPE_KEY, scanSymbol);
-                                            } else {
-                                                continue;
-                                            }
-                                        } else if (obj2 != "$ref" && parseContext2 != null && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
-                                            jSONLexer.nextToken(4);
-                                            if (jSONLexer.token() == 4) {
-                                                String stringVal = jSONLexer.stringVal();
-                                                jSONLexer.nextToken(13);
-                                                Object obj6 = null;
-                                                if (UgcConstant.AT_RULE_TAG.equals(stringVal)) {
-                                                    if (this.context != null) {
-                                                        ParseContext parseContext3 = this.context;
-                                                        Object obj7 = parseContext3.object;
-                                                        if ((obj7 instanceof Object[]) || (obj7 instanceof Collection)) {
-                                                            obj6 = obj7;
-                                                        } else if (parseContext3.parent != null) {
-                                                            obj6 = parseContext3.parent.object;
-                                                        }
-                                                        obj5 = obj6;
-                                                    }
-                                                    obj5 = null;
-                                                } else if (IStringUtil.TOP_PATH.equals(stringVal)) {
-                                                    if (parseContext2.object != null) {
-                                                        obj5 = parseContext2.object;
-                                                    } else {
-                                                        addResolveTask(new ResolveTask(parseContext2, stringVal));
-                                                        setResolveStatus(1);
-                                                        obj5 = null;
-                                                    }
-                                                } else if ("$".equals(stringVal)) {
-                                                    ParseContext parseContext4 = parseContext2;
-                                                    while (parseContext4.parent != null) {
-                                                        parseContext4 = parseContext4.parent;
-                                                    }
-                                                    if (parseContext4.object != null) {
-                                                        obj6 = parseContext4.object;
-                                                    } else {
-                                                        addResolveTask(new ResolveTask(parseContext4, stringVal));
-                                                        setResolveStatus(1);
-                                                    }
-                                                    obj5 = obj6;
-                                                } else {
-                                                    addResolveTask(new ResolveTask(parseContext2, stringVal));
-                                                    setResolveStatus(1);
-                                                    obj5 = null;
-                                                }
-                                                if (jSONLexer.token() != 13) {
-                                                    throw new JSONException("syntax error");
-                                                }
-                                                jSONLexer.nextToken(16);
-                                                return obj5;
-                                            }
-                                            throw new JSONException("illegal ref, " + JSONToken.name(jSONLexer.token()));
-                                        } else {
-                                            if (!z4) {
-                                                z2 = z4;
-                                            } else if (this.context != null && obj == this.context.fieldName && map == this.context.object) {
-                                                parseContext2 = this.context;
-                                                z2 = z4;
-                                            } else {
-                                                ParseContext context = setContext(map, obj);
-                                                if (parseContext2 == null) {
-                                                    parseContext2 = context;
-                                                }
-                                                z2 = true;
-                                            }
-                                            String str2 = (map.getClass() == JSONObject.class || obj2 != null) ? obj2 : "null";
-                                            if (current != '\"') {
-                                                jSONLexer.scanString();
-                                                String stringVal2 = jSONLexer.stringVal();
-                                                String str3 = stringVal2;
-                                                if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
-                                                    JSONScanner jSONScanner = new JSONScanner(stringVal2);
-                                                    Date date = stringVal2;
-                                                    if (jSONScanner.scanISO8601DateIfMatch()) {
-                                                        date = jSONScanner.getCalendar().getTime();
-                                                    }
-                                                    jSONScanner.close();
-                                                    str3 = date;
-                                                }
-                                                innerMap.put(str2, str3);
-                                                obj3 = str3;
-                                            } else if ((current >= '0' && current <= '9') || current == '-') {
-                                                jSONLexer.scanNumber();
-                                                Number integerValue2 = jSONLexer.token() == 2 ? jSONLexer.integerValue() : jSONLexer.decimalValue(jSONLexer.isEnabled(Feature.UseBigDecimal));
-                                                innerMap.put(str2, integerValue2);
-                                                obj3 = integerValue2;
-                                            } else if (current == '[') {
-                                                jSONLexer.nextToken();
-                                                Collection jSONArray = new JSONArray();
-                                                if (obj == null || obj.getClass() == Integer.class) {
-                                                }
-                                                if (obj == null) {
-                                                    setContext(parseContext2);
-                                                }
-                                                parseArray(jSONArray, str2);
-                                                Object[] objArr = jSONArray;
-                                                if (jSONLexer.isEnabled(Feature.UseObjectArray)) {
-                                                    objArr = jSONArray.toArray();
-                                                }
-                                                innerMap.put(str2, objArr);
-                                                if (jSONLexer.token() == 13) {
-                                                    jSONLexer.nextToken();
-                                                    return map;
-                                                } else if (jSONLexer.token() != 16) {
-                                                    throw new JSONException("syntax error");
-                                                } else {
-                                                    z4 = z2;
-                                                }
-                                            } else if (current == '{') {
-                                                jSONLexer.nextToken();
-                                                boolean z5 = obj != null && obj.getClass() == Integer.class;
-                                                Map jSONObject = new JSONObject(jSONLexer.isEnabled(Feature.OrderedField));
-                                                ParseContext context2 = !z5 ? setContext(parseContext2, jSONObject, str2) : null;
-                                                if (this.fieldTypeResolver != null) {
-                                                    Type resolve = this.fieldTypeResolver.resolve(map, str2 != null ? str2.toString() : null);
-                                                    if (resolve != null) {
-                                                        obj4 = this.config.getDeserializer(resolve).deserialze(this, resolve, str2);
-                                                        z3 = true;
-                                                        if (!z3) {
-                                                            obj4 = parseObject(jSONObject, str2);
-                                                        }
-                                                        if (context2 != null && jSONObject != obj4) {
-                                                            context2.object = map;
-                                                        }
-                                                        if (str2 != null) {
-                                                            checkMapResolve(map, str2.toString());
-                                                        }
-                                                        innerMap.put(str2, obj4);
-                                                        if (z5) {
-                                                            setContext(obj4, str2);
-                                                        }
-                                                        if (jSONLexer.token() != 13) {
-                                                            jSONLexer.nextToken();
-                                                            setContext(parseContext2);
-                                                            return map;
-                                                        } else if (jSONLexer.token() != 16) {
-                                                            throw new JSONException("syntax error, " + jSONLexer.tokenName());
-                                                        } else {
-                                                            if (z5) {
-                                                                popContext();
-                                                                z4 = z2;
-                                                            } else {
-                                                                setContext(parseContext2);
-                                                                z4 = z2;
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                obj4 = null;
-                                                z3 = false;
-                                                if (!z3) {
-                                                }
-                                                if (context2 != null) {
-                                                    context2.object = map;
-                                                }
-                                                if (str2 != null) {
-                                                }
-                                                innerMap.put(str2, obj4);
-                                                if (z5) {
-                                                }
-                                                if (jSONLexer.token() != 13) {
-                                                }
-                                            } else {
-                                                jSONLexer.nextToken();
-                                                innerMap.put(str2, parse());
-                                                if (jSONLexer.token() == 13) {
-                                                    jSONLexer.nextToken();
-                                                    return map;
-                                                } else if (jSONLexer.token() != 16) {
-                                                    throw new JSONException("syntax error, position at " + jSONLexer.pos() + ", name " + ((Object) str2));
-                                                } else {
-                                                    z4 = z2;
-                                                }
-                                            }
-                                            jSONLexer.skipWhitespace();
-                                            current2 = jSONLexer.getCurrent();
-                                            if (current2 == ',') {
-                                                if (current2 == '}') {
-                                                    jSONLexer.next();
-                                                    jSONLexer.resetStringPosition();
-                                                    jSONLexer.nextToken();
-                                                    setContext(obj3, str2);
-                                                    return map;
-                                                }
-                                                throw new JSONException("syntax error, position at " + jSONLexer.pos() + ", name " + ((Object) str2));
-                                            }
-                                            jSONLexer.next();
-                                            z4 = z2;
-                                        }
-                                    } else {
-                                        throw new JSONException("syntax error");
-                                    }
-                                } else {
-                                    throw new JSONException("syntax error");
-                                }
-                            } else if (!jSONLexer.isEnabled(Feature.AllowSingleQuotes)) {
-                                throw new JSONException("syntax error");
-                            } else {
-                                String scanSymbol2 = jSONLexer.scanSymbol(this.symbolTable, '\'');
-                                jSONLexer.skipWhitespace();
-                                str = scanSymbol2;
-                                if (jSONLexer.getCurrent() != ':') {
-                                    throw new JSONException("expect ':' at " + jSONLexer.pos());
-                                }
-                            }
-                        } else {
-                            jSONLexer.next();
-                            jSONLexer.resetStringPosition();
-                            jSONLexer.nextToken();
-                            if (!z4) {
-                                parseContext = (this.context != null && obj == this.context.fieldName && map == this.context.object) ? this.context : setContext(map, obj);
-                                setContext(parseContext);
-                                return map;
-                            }
-                            parseContext = parseContext2;
+                    boolean z3 = false;
+                    if (current == '\"') {
+                        parse = jSONLexer.scanSymbol(this.symbolTable, '\"');
+                        jSONLexer.skipWhitespace();
+                        if (jSONLexer.getCurrent() != ':') {
+                            throw new JSONException("expect ':' at " + jSONLexer.pos() + ", name " + parse);
+                        }
+                    } else if (current == '}') {
+                        jSONLexer.next();
+                        jSONLexer.resetStringPosition();
+                        jSONLexer.nextToken();
+                        if (!z2) {
+                            parseContext = (this.context != null && obj == this.context.fieldName && map == this.context.object) ? this.context : setContext(map, obj);
                             setContext(parseContext);
                             return map;
                         }
-                    } else {
-                        String scanSymbol3 = jSONLexer.scanSymbol(this.symbolTable, '\"');
+                        parseContext = parseContext2;
+                        setContext(parseContext);
+                        return map;
+                    } else if (current == '\'') {
+                        if (!jSONLexer.isEnabled(Feature.AllowSingleQuotes)) {
+                            throw new JSONException("syntax error");
+                        }
+                        parse = jSONLexer.scanSymbol(this.symbolTable, '\'');
                         jSONLexer.skipWhitespace();
-                        str = scanSymbol3;
                         if (jSONLexer.getCurrent() != ':') {
-                            throw new JSONException("expect ':' at " + jSONLexer.pos() + ", name " + ((Object) scanSymbol3));
+                            throw new JSONException("expect ':' at " + jSONLexer.pos());
+                        }
+                    } else if (current == 26) {
+                        throw new JSONException("syntax error");
+                    } else {
+                        if (current == ',') {
+                            throw new JSONException("syntax error");
+                        }
+                        if ((current >= '0' && current <= '9') || current == '-') {
+                            jSONLexer.resetStringPosition();
+                            jSONLexer.scanNumber();
+                            try {
+                                Object integerValue = jSONLexer.token() == 2 ? jSONLexer.integerValue() : jSONLexer.decimalValue(true);
+                                if (jSONLexer.getCurrent() != ':') {
+                                    throw new JSONException("parse number key error" + jSONLexer.info());
+                                }
+                                parse = integerValue;
+                            } catch (NumberFormatException e) {
+                                throw new JSONException("parse number key error" + jSONLexer.info());
+                            }
+                        } else if (current == '{' || current == '[') {
+                            jSONLexer.nextToken();
+                            parse = parse();
+                            z3 = true;
+                        } else if (!jSONLexer.isEnabled(Feature.AllowUnQuotedFieldNames)) {
+                            throw new JSONException("syntax error");
+                        } else {
+                            parse = jSONLexer.scanSymbolUnQuoted(this.symbolTable);
+                            jSONLexer.skipWhitespace();
+                            char current2 = jSONLexer.getCurrent();
+                            if (current2 != ':') {
+                                throw new JSONException("expect ':' at " + jSONLexer.pos() + ", actual " + current2);
+                            }
                         }
                     }
-                    z = false;
-                    obj2 = str;
-                    if (!z) {
+                    if (!z3) {
+                        jSONLexer.next();
+                        jSONLexer.skipWhitespace();
                     }
-                    current = jSONLexer.getCurrent();
+                    char current3 = jSONLexer.getCurrent();
                     jSONLexer.resetStringPosition();
-                    if (obj2 != JSON.DEFAULT_TYPE_KEY) {
-                    }
-                    if (obj2 != "$ref") {
-                    }
-                    if (!z4) {
-                    }
-                    if (map.getClass() == JSONObject.class) {
-                    }
-                    if (current != '\"') {
-                    }
-                    jSONLexer.skipWhitespace();
-                    current2 = jSONLexer.getCurrent();
-                    if (current2 == ',') {
+                    if (parse == JSON.DEFAULT_TYPE_KEY && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
+                        String scanSymbol = jSONLexer.scanSymbol(this.symbolTable, '\"');
+                        if (!jSONLexer.isEnabled(Feature.IgnoreAutoType)) {
+                            Class<?> checkAutoType = (map == null || !map.getClass().getName().equals(scanSymbol)) ? this.config.checkAutoType(scanSymbol, null, jSONLexer.getFeatures()) : map.getClass();
+                            if (checkAutoType != null) {
+                                break;
+                            }
+                            innerMap.put(JSON.DEFAULT_TYPE_KEY, scanSymbol);
+                        } else {
+                            continue;
+                        }
+                    } else if (parse == "$ref" && parseContext2 != null && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
+                        jSONLexer.nextToken(4);
+                        if (jSONLexer.token() == 4) {
+                            String stringVal = jSONLexer.stringVal();
+                            jSONLexer.nextToken(13);
+                            Object obj4 = null;
+                            if ("@".equals(stringVal)) {
+                                if (this.context != null) {
+                                    ParseContext parseContext3 = this.context;
+                                    Object obj5 = parseContext3.object;
+                                    if ((obj5 instanceof Object[]) || (obj5 instanceof Collection)) {
+                                        obj4 = obj5;
+                                    } else if (parseContext3.parent != null) {
+                                        obj4 = parseContext3.parent.object;
+                                    }
+                                    obj3 = obj4;
+                                }
+                                obj3 = null;
+                            } else if (IStringUtil.TOP_PATH.equals(stringVal)) {
+                                if (parseContext2.object != null) {
+                                    obj3 = parseContext2.object;
+                                } else {
+                                    addResolveTask(new ResolveTask(parseContext2, stringVal));
+                                    setResolveStatus(1);
+                                    obj3 = null;
+                                }
+                            } else if ("$".equals(stringVal)) {
+                                ParseContext parseContext4 = parseContext2;
+                                while (parseContext4.parent != null) {
+                                    parseContext4 = parseContext4.parent;
+                                }
+                                if (parseContext4.object != null) {
+                                    obj4 = parseContext4.object;
+                                } else {
+                                    addResolveTask(new ResolveTask(parseContext4, stringVal));
+                                    setResolveStatus(1);
+                                }
+                                obj3 = obj4;
+                            } else {
+                                addResolveTask(new ResolveTask(parseContext2, stringVal));
+                                setResolveStatus(1);
+                                obj3 = null;
+                            }
+                            if (jSONLexer.token() != 13) {
+                                throw new JSONException("syntax error");
+                            }
+                            jSONLexer.nextToken(16);
+                            return obj3;
+                        }
+                        throw new JSONException("illegal ref, " + JSONToken.name(jSONLexer.token()));
+                    } else {
+                        if (z2) {
+                            z = z2;
+                        } else if (this.context != null && obj == this.context.fieldName && map == this.context.object) {
+                            parseContext2 = this.context;
+                            z = z2;
+                        } else {
+                            ParseContext context = setContext(map, obj);
+                            if (parseContext2 == null) {
+                                parseContext2 = context;
+                            }
+                            z = true;
+                        }
+                        String str = (map.getClass() == JSONObject.class && parse == null) ? "null" : parse;
+                        if (current3 == '\"') {
+                            jSONLexer.scanString();
+                            String stringVal2 = jSONLexer.stringVal();
+                            String str2 = stringVal2;
+                            if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
+                                JSONScanner jSONScanner = new JSONScanner(stringVal2);
+                                Date date = stringVal2;
+                                if (jSONScanner.scanISO8601DateIfMatch()) {
+                                    date = jSONScanner.getCalendar().getTime();
+                                }
+                                jSONScanner.close();
+                                str2 = date;
+                            }
+                            innerMap.put(str, str2);
+                            obj2 = str2;
+                        } else if ((current3 >= '0' && current3 <= '9') || current3 == '-') {
+                            jSONLexer.scanNumber();
+                            Number integerValue2 = jSONLexer.token() == 2 ? jSONLexer.integerValue() : jSONLexer.decimalValue(jSONLexer.isEnabled(Feature.UseBigDecimal));
+                            innerMap.put(str, integerValue2);
+                            obj2 = integerValue2;
+                        } else if (current3 == '[') {
+                            jSONLexer.nextToken();
+                            Collection jSONArray = new JSONArray();
+                            if (obj == null || obj.getClass() == Integer.class) {
+                            }
+                            if (obj == null) {
+                                setContext(parseContext2);
+                            }
+                            parseArray(jSONArray, str);
+                            Object[] objArr = jSONArray;
+                            if (jSONLexer.isEnabled(Feature.UseObjectArray)) {
+                                objArr = jSONArray.toArray();
+                            }
+                            innerMap.put(str, objArr);
+                            if (jSONLexer.token() == 13) {
+                                jSONLexer.nextToken();
+                                return map;
+                            } else if (jSONLexer.token() != 16) {
+                                throw new JSONException("syntax error");
+                            } else {
+                                z2 = z;
+                            }
+                        } else if (current3 == '{') {
+                            jSONLexer.nextToken();
+                            boolean z4 = obj != null && obj.getClass() == Integer.class;
+                            Map jSONObject = new JSONObject(jSONLexer.isEnabled(Feature.OrderedField));
+                            ParseContext context2 = !z4 ? setContext(parseContext2, jSONObject, str) : null;
+                            Object obj6 = null;
+                            boolean z5 = false;
+                            if (this.fieldTypeResolver != null) {
+                                Type resolve = this.fieldTypeResolver.resolve(map, str != null ? str.toString() : null);
+                                if (resolve != null) {
+                                    obj6 = this.config.getDeserializer(resolve).deserialze(this, resolve, str);
+                                    z5 = true;
+                                }
+                            }
+                            if (!z5) {
+                                obj6 = parseObject(jSONObject, str);
+                            }
+                            if (context2 != null && jSONObject != obj6) {
+                                context2.object = map;
+                            }
+                            if (str != null) {
+                                checkMapResolve(map, str.toString());
+                            }
+                            innerMap.put(str, obj6);
+                            if (z4) {
+                                setContext(obj6, str);
+                            }
+                            if (jSONLexer.token() == 13) {
+                                jSONLexer.nextToken();
+                                setContext(parseContext2);
+                                return map;
+                            } else if (jSONLexer.token() != 16) {
+                                throw new JSONException("syntax error, " + jSONLexer.tokenName());
+                            } else {
+                                if (z4) {
+                                    popContext();
+                                    z2 = z;
+                                } else {
+                                    setContext(parseContext2);
+                                    z2 = z;
+                                }
+                            }
+                        } else {
+                            jSONLexer.nextToken();
+                            innerMap.put(str, parse());
+                            if (jSONLexer.token() == 13) {
+                                jSONLexer.nextToken();
+                                return map;
+                            } else if (jSONLexer.token() != 16) {
+                                throw new JSONException("syntax error, position at " + jSONLexer.pos() + ", name " + str);
+                            } else {
+                                z2 = z;
+                            }
+                        }
+                        jSONLexer.skipWhitespace();
+                        char current4 = jSONLexer.getCurrent();
+                        if (current4 != ',') {
+                            if (current4 == '}') {
+                                jSONLexer.next();
+                                jSONLexer.resetStringPosition();
+                                jSONLexer.nextToken();
+                                setContext(obj2, str);
+                                return map;
+                            }
+                            throw new JSONException("syntax error, position at " + jSONLexer.pos() + ", name " + str);
+                        }
+                        jSONLexer.next();
+                        z2 = z;
                     }
                 }
             } finally {
@@ -1409,7 +1349,7 @@ public class DefaultJSONParser implements Closeable {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class ResolveTask {
         public final ParseContext context;
         public FieldDeserializer fieldDeserializer;

@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.base.db.DatabaseManager;
 import com.baidu.live.adp.lib.safe.BdCloseHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdBlobCachePerTableDBManager extends BdCacheBaseDBManager<byte[]> {
     public BdBlobCachePerTableDBManager(DatabaseManager databaseManager) {
         super(databaseManager);
@@ -31,11 +31,10 @@ public class BdBlobCachePerTableDBManager extends BdCacheBaseDBManager<byte[]> {
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r2v15, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r1v15, types: [byte[], T] */
     @Override // com.baidu.live.adp.lib.cache.BdCacheBaseDBManager
     protected BdCacheItem<byte[]> getFromDB(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor;
-        Throwable th;
         BdCacheItem<byte[]> bdCacheItem = null;
         try {
             cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.tableName + " where m_key = ?", new String[]{str});
@@ -52,14 +51,14 @@ public class BdBlobCachePerTableDBManager extends BdCacheBaseDBManager<byte[]> {
                     BdCloseHelper.close(cursor);
                 }
                 return bdCacheItem;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 BdCloseHelper.close(cursor);
                 throw th;
             }
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             cursor = null;
-            th = th3;
         }
     }
 

@@ -10,6 +10,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.annotation.RequiresApi;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Iterator;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
     private static final String TAG = "ConnectManager";
@@ -320,6 +321,7 @@ public class ConnectManager {
         }
     }
 
+    @RequiresApi(api = 21)
     private static boolean checkVPN(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         if (connectivityManager != null && connectivityManager.getNetworkInfo(17) != null) {

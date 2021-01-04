@@ -3,10 +3,10 @@ package com.baidu.afd.videopaster;
 import com.baidu.tbadk.util.AdExtParam;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class c implements a {
-    private final int ZJ;
-    private HashMap ZM;
+    private final int aas;
+    private HashMap aav;
     private int floor;
     private final int height;
     private final String pid;
@@ -14,7 +14,7 @@ public class c implements a {
     private final int width;
 
     private c(int i, int i2, String str, int i3, int i4, int i5) {
-        this.ZJ = i;
+        this.aas = i;
         this.refreshCount = i2;
         this.pid = str;
         this.floor = i3;
@@ -37,30 +37,30 @@ public class c implements a {
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public String rA() {
+    public String rc() {
         return this.pid;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public int rn() {
-        return this.ZJ;
+    public int qP() {
+        return this.aas;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public int rp() {
+    public int qR() {
         return this.floor;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public Map<String, String> rq() {
-        return this.ZM;
+    public Map<String, String> qS() {
+        return this.aav;
     }
 
     @Override // com.baidu.afd.videopaster.a
     public void u(HashMap hashMap) {
-        this.ZM = hashMap;
-        if (!this.ZM.containsKey(AdExtParam.KEY_IADEX)) {
-            hashMap.put(AdExtParam.KEY_IADEX, com.baidu.tbadk.util.c.bGe());
+        this.aav = hashMap;
+        if (!this.aav.containsKey(AdExtParam.KEY_IADEX)) {
+            hashMap.put(AdExtParam.KEY_IADEX, com.baidu.tbadk.util.c.bIz());
         }
     }
 }

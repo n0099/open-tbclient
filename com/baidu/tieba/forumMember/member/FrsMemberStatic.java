@@ -7,27 +7,27 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumMemberActivityConfig;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import com.baidu.tieba.frs.ah;
-import com.baidu.tieba.frs.ai;
-/* loaded from: classes23.dex */
+import com.baidu.tieba.frs.ae;
+import com.baidu.tieba.frs.af;
+/* loaded from: classes8.dex */
 public class FrsMemberStatic {
     public static String Tag = "tag";
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumMemberActivityConfig.class, ForumMemberActivity.class);
-        ai.cEj().Aj(3);
+        af.cHe().Av(3);
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.forumMember.member.FrsMemberStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new i(null, j.iPj));
-                    absDelegateAdapterList.add(new l(null, m.iPu));
-                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.n.iSG));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.iOM));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.iOP));
-                    absDelegateAdapterList.add(new o(null, p.iPL));
+                    absDelegateAdapterList.add(new g(null, h.jbv));
+                    absDelegateAdapterList.add(new i(null, j.jbG));
+                    absDelegateAdapterList.add(new f(null, com.baidu.tieba.frs.n.jeR));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.manito.a(null, com.baidu.tieba.forumMember.manito.b.jaY));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.manito.c(null, com.baidu.tieba.forumMember.manito.d.jbb));
+                    absDelegateAdapterList.add(new k(null, l.jbX));
                 }
             }
         });
@@ -35,11 +35,11 @@ public class FrsMemberStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ah)) {
-                    ah ahVar = (ah) customResponsedMessage.getData();
-                    e eVar = new e();
-                    eVar.setTag(ahVar.fzO);
-                    ahVar.a(3, eVar);
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ae)) {
+                    ae aeVar = (ae) customResponsedMessage.getData();
+                    d dVar = new d();
+                    dVar.setTag(aeVar.fJu);
+                    aeVar.a(3, dVar);
                 }
             }
         });

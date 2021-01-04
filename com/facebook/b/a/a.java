@@ -1,5 +1,5 @@
 package com.facebook.b.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    void eqC();
+    void euE();
 }

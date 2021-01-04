@@ -9,38 +9,41 @@ import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
 import com.baidu.searchbox.performance.speed.launcher.NetworkRequestScheduler;
+import com.kwad.sdk.collector.AppStatusRules;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3564a = "qrlogin_enter";
-    private static final Map<String, String> b = new HashMap();
+    public static final String f5422a = "qrlogin_enter";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final Map<String, String> f5423b = new HashMap();
     private static List<String> c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ HttpHashMapWrap f3565a;
+        final /* synthetic */ HttpHashMapWrap f5424a;
 
         a(HttpHashMapWrap httpHashMapWrap) {
-            this.f3565a = httpHashMapWrap;
+            this.f5424a = httpHashMapWrap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            k.b(this.f3565a);
+            k.b(this.f5424a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class b extends HttpHandlerWrap {
         b(boolean z) {
             super(z);
@@ -53,9 +56,9 @@ public final class k {
     }
 
     static {
-        b.put("pid", "111");
-        b.put("type", "1023");
-        b.put(Config.DEVICE_PART, Build.MODEL);
+        f5423b.put("pid", "111");
+        f5423b.put("type", "1023");
+        f5423b.put(Config.DEVICE_PART, Build.MODEL);
         c = new ArrayList();
         c.add("share_read");
         c.add("share_silent_account");
@@ -74,7 +77,7 @@ public final class k {
         if (!TextUtils.isEmpty(str)) {
             try {
                 HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-                httpHashMapWrap.putAll(b);
+                httpHashMapWrap.putAll(f5423b);
                 httpHashMapWrap.put("name", str);
                 httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
                 httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
@@ -86,7 +89,7 @@ public final class k {
                     }
                 }
                 if (c.contains(str) && a()) {
-                    NetworkRequestScheduler.execute(new a(httpHashMapWrap), "pass_sdk_".concat(str), 60000L, false);
+                    NetworkRequestScheduler.execute(new a(httpHashMapWrap), "pass_sdk_".concat(str), (long) AppStatusRules.DEFAULT_GRANULARITY, false);
                     return;
                 }
                 b(httpHashMapWrap);

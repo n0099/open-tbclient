@@ -1,12 +1,12 @@
 package com.baidu.tieba.ad.download;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.tieba.ad.download.mvp.IDownloadModel;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 import java.io.Serializable;
 import java.util.Objects;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public final class AdDownloadData implements IDownloadModel, Serializable {
     private final String mAdId;
     private String mDownloadUrl;
@@ -93,7 +93,7 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         this.mExtInfo = str;
     }
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes.dex */
     public static final class a {
         private final String mAdId;
         private String mDownloadUrl;
@@ -108,7 +108,7 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         }
 
         @NonNull
-        public AdDownloadData bMx() {
+        public AdDownloadData bOP() {
             return new AdDownloadData(this);
         }
     }

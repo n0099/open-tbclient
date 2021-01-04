@@ -1,33 +1,33 @@
 package com.baidu.tieba.newdetail.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.newdetail.adapter.a;
 import com.baidu.tieba.newdetail.adapter.b;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
-    private int jQw;
+    private int kdK;
 
     public HotTopicDetailSpecialLayout(Context context) {
         super(context);
-        this.jQw = 3;
+        this.kdK = 3;
         initView();
     }
 
     public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jQw = 3;
+        this.kdK = 3;
         initView();
     }
 
     public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jQw = 3;
+        this.kdK = 3;
         initView();
     }
 
@@ -36,7 +36,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         setOverScrollMode(2);
     }
 
-    public void x(TbPageContext tbPageContext) {
+    public void w(TbPageContext tbPageContext) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new a(tbPageContext));
         arrayList.add(new b(tbPageContext));
@@ -44,9 +44,9 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jQw != i) {
+        if (this.kdK != i) {
             getListAdapter().notifyDataSetChanged();
-            this.jQw = i;
+            this.kdK = i;
         }
     }
 }

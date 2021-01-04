@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.view.spanGroup;
 
-import android.support.annotation.NonNull;
 import android.text.Selection;
 import android.text.SpanWatcher;
 import android.text.Spannable;
+import androidx.annotation.NonNull;
 /* loaded from: classes.dex */
 public class c implements SpanWatcher {
-    private int fgH;
-    private int fgI;
+    private int fqq;
+    private int fqr;
     private SpanGroupManager mSpanGroupManager;
 
     public c(@NonNull SpanGroupManager spanGroupManager) {
@@ -25,13 +25,13 @@ public class c implements SpanWatcher {
     @Override // android.text.SpanWatcher
     public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
         if (this.mSpanGroupManager != null) {
-            if (obj == Selection.SELECTION_END && this.fgI != i3) {
-                this.fgI = i3;
-                a ro = this.mSpanGroupManager.ro(this.fgI);
-                if (ro instanceof TbLinkSpanGroup) {
-                    int start = ro.getStart();
-                    int end = ro.getEnd();
-                    if (Math.abs(this.fgI - end) <= Math.abs(this.fgI - start)) {
+            if (obj == Selection.SELECTION_END && this.fqr != i3) {
+                this.fqr = i3;
+                a rA = this.mSpanGroupManager.rA(this.fqr);
+                if (rA instanceof TbLinkSpanGroup) {
+                    int start = rA.getStart();
+                    int end = rA.getEnd();
+                    if (Math.abs(this.fqr - end) <= Math.abs(this.fqr - start)) {
                         start = end;
                     }
                     int selectionStart = Selection.getSelectionStart(spannable);
@@ -44,13 +44,13 @@ public class c implements SpanWatcher {
                     Selection.setSelection(spannable, selectionStart, start);
                 }
             }
-            if (obj == Selection.SELECTION_START && this.fgH != i3) {
-                this.fgH = i3;
-                a ro2 = this.mSpanGroupManager.ro(this.fgH);
-                if (ro2 instanceof TbLinkSpanGroup) {
-                    int start2 = ro2.getStart();
-                    int end2 = ro2.getEnd();
-                    if (Math.abs(this.fgH - end2) <= Math.abs(this.fgH - start2)) {
+            if (obj == Selection.SELECTION_START && this.fqq != i3) {
+                this.fqq = i3;
+                a rA2 = this.mSpanGroupManager.rA(this.fqq);
+                if (rA2 instanceof TbLinkSpanGroup) {
+                    int start2 = rA2.getStart();
+                    int end2 = rA2.getEnd();
+                    if (Math.abs(this.fqq - end2) <= Math.abs(this.fqq - start2)) {
                         start2 = end2;
                     }
                     int selectionEnd = Selection.getSelectionEnd(spannable);

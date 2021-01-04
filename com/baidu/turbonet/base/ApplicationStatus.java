@@ -10,25 +10,25 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @JNINamespace
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ApplicationStatus {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static Object oAU;
-    private static Integer oAV;
-    private static Activity oAW;
-    private static c oAX;
-    private static final Map<Activity, a> oAY;
-    private static final com.baidu.turbonet.base.b<b> oAZ;
-    private static final com.baidu.turbonet.base.b<c> oBa;
+    private static Object oIJ;
+    private static Integer oIK;
+    private static Activity oIL;
+    private static c oIM;
+    private static final com.baidu.turbonet.base.b<b> oIN;
+    private static final com.baidu.turbonet.base.b<c> oIO;
+    private static final Map<Activity, a> sActivityInfo;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void l(Activity activity, int i);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface c {
-        void NZ(int i);
+        void NT(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -36,21 +36,21 @@ public class ApplicationStatus {
 
     static {
         $assertionsDisabled = !ApplicationStatus.class.desiredAssertionStatus();
-        oAU = new Object();
-        oAY = new ConcurrentHashMap();
-        oAZ = new com.baidu.turbonet.base.b<>();
-        oBa = new com.baidu.turbonet.base.b<>();
+        oIJ = new Object();
+        sActivityInfo = new ConcurrentHashMap();
+        oIN = new com.baidu.turbonet.base.b<>();
+        oIO = new com.baidu.turbonet.base.b<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         private int mStatus;
-        private com.baidu.turbonet.base.b<b> oBc;
+        private com.baidu.turbonet.base.b<b> oIQ;
 
         private a() {
             this.mStatus = 6;
-            this.oBc = new com.baidu.turbonet.base.b<>();
+            this.oIQ = new com.baidu.turbonet.base.b<>();
         }
 
         public int getStatus() {
@@ -61,8 +61,8 @@ public class ApplicationStatus {
             this.mStatus = i;
         }
 
-        public com.baidu.turbonet.base.b<b> egI() {
-            return this.oBc;
+        public com.baidu.turbonet.base.b<b> ehn() {
+            return this.oIQ;
         }
     }
 
@@ -73,9 +73,9 @@ public class ApplicationStatus {
         baseChromiumApplication.a(new BaseChromiumApplication.b() { // from class: com.baidu.turbonet.base.ApplicationStatus.1
             @Override // com.baidu.turbonet.base.BaseChromiumApplication.b
             public void m(Activity activity, boolean z) {
-                int aE;
-                if (z && activity != ApplicationStatus.oAW && (aE = ApplicationStatus.aE(activity)) != 6 && aE != 5) {
-                    Activity unused = ApplicationStatus.oAW = activity;
+                int aI;
+                if (z && activity != ApplicationStatus.oIL && (aI = ApplicationStatus.aI(activity)) != 6 && aI != 5) {
+                    Activity unused = ApplicationStatus.oIL = activity;
                 }
             }
         });
@@ -121,46 +121,46 @@ public class ApplicationStatus {
         if (activity == null) {
             throw new IllegalArgumentException("null activity is not supported");
         }
-        if (oAW == null || i == 1 || i == 3 || i == 2) {
-            oAW = activity;
+        if (oIL == null || i == 1 || i == 3 || i == 2) {
+            oIL = activity;
         }
         int stateForApplication = getStateForApplication();
         if (i == 1) {
-            if (!$assertionsDisabled && oAY.containsKey(activity)) {
+            if (!$assertionsDisabled && sActivityInfo.containsKey(activity)) {
                 throw new AssertionError();
             }
-            oAY.put(activity, new a());
+            sActivityInfo.put(activity, new a());
         }
-        synchronized (oAU) {
-            oAV = null;
+        synchronized (oIJ) {
+            oIK = null;
         }
-        a aVar = oAY.get(activity);
+        a aVar = sActivityInfo.get(activity);
         aVar.setStatus(i);
-        Iterator<b> it = aVar.egI().iterator();
+        Iterator<b> it = aVar.ehn().iterator();
         while (it.hasNext()) {
             it.next().l(activity, i);
         }
-        Iterator<b> it2 = oAZ.iterator();
+        Iterator<b> it2 = oIN.iterator();
         while (it2.hasNext()) {
             it2.next().l(activity, i);
         }
         int stateForApplication2 = getStateForApplication();
         if (stateForApplication2 != stateForApplication) {
-            Iterator<c> it3 = oBa.iterator();
+            Iterator<c> it3 = oIO.iterator();
             while (it3.hasNext()) {
-                it3.next().NZ(stateForApplication2);
+                it3.next().NT(stateForApplication2);
             }
         }
         if (i == 6) {
-            oAY.remove(activity);
-            if (activity == oAW) {
-                oAW = null;
+            sActivityInfo.remove(activity);
+            if (activity == oIL) {
+                oIL = null;
             }
         }
     }
 
-    public static int aE(Activity activity) {
-        a aVar = oAY.get(activity);
+    public static int aI(Activity activity) {
+        a aVar = sActivityInfo.get(activity);
         if (aVar != null) {
             return aVar.getStatus();
         }
@@ -170,17 +170,17 @@ public class ApplicationStatus {
     @CalledByNative
     public static int getStateForApplication() {
         int intValue;
-        synchronized (oAU) {
-            if (oAV == null) {
-                oAV = Integer.valueOf(egF());
+        synchronized (oIJ) {
+            if (oIK == null) {
+                oIK = Integer.valueOf(ehk());
             }
-            intValue = oAV.intValue();
+            intValue = oIK.intValue();
         }
         return intValue;
     }
 
     public static void a(c cVar) {
-        oBa.aT(cVar);
+        oIO.addObserver(cVar);
     }
 
     @CalledByNative
@@ -188,45 +188,39 @@ public class ApplicationStatus {
         ThreadUtils.runOnUiThread(new Runnable() { // from class: com.baidu.turbonet.base.ApplicationStatus.3
             @Override // java.lang.Runnable
             public void run() {
-                if (ApplicationStatus.oAX == null) {
-                    c unused = ApplicationStatus.oAX = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
+                if (ApplicationStatus.oIM == null) {
+                    c unused = ApplicationStatus.oIM = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
                         @Override // com.baidu.turbonet.base.ApplicationStatus.c
-                        public void NZ(int i) {
+                        public void NT(int i) {
                             ApplicationStatus.nativeOnApplicationStateChange(i);
                         }
                     };
-                    ApplicationStatus.a(ApplicationStatus.oAX);
+                    ApplicationStatus.a(ApplicationStatus.oIM);
                 }
             }
         });
     }
 
-    private static int egF() {
+    private static int ehk() {
         boolean z;
-        boolean z2;
+        boolean z2 = false;
         boolean z3 = false;
-        boolean z4 = false;
-        for (a aVar : oAY.values()) {
+        for (a aVar : sActivityInfo.values()) {
             int status = aVar.getStatus();
             if (status != 4 && status != 5 && status != 6) {
                 return 1;
             }
             if (status == 4) {
-                z = z3;
-                z2 = true;
-            } else if (status == 5) {
-                z = true;
-                z2 = z4;
+                z = z2;
+                z3 = true;
             } else {
-                z = z3;
-                z2 = z4;
+                z = status == 5 ? true : z2;
             }
-            z4 = z2;
-            z3 = z;
+            z2 = z;
         }
-        if (z4) {
+        if (z3) {
             return 2;
         }
-        return z3 ? 3 : 4;
+        return z2 ? 3 : 4;
     }
 }

@@ -1,11 +1,11 @@
 package org.webrtc;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import org.webrtc.EncodedImage;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public interface VideoEncoder {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class BitrateAllocation {
         public final int[][] bitratesBbs;
 
@@ -15,44 +15,39 @@ public interface VideoEncoder {
         }
 
         public int getSum() {
-            int[][] iArr = this.bitratesBbs;
-            int length = iArr.length;
+            int[][] iArr;
             int i = 0;
-            int i2 = 0;
-            while (i2 < length) {
-                int i3 = i;
-                for (int i4 : iArr[i2]) {
-                    i3 += i4;
+            for (int[] iArr2 : this.bitratesBbs) {
+                for (int i2 : iArr2) {
+                    i += i2;
                 }
-                i2++;
-                i = i3;
             }
             return i;
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public interface Callback {
         void onEncodedFrame(EncodedImage encodedImage, CodecSpecificInfo codecSpecificInfo);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class CodecSpecificInfo {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class CodecSpecificInfoH264 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class CodecSpecificInfoVP8 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class CodecSpecificInfoVP9 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class EncodeInfo {
         public final EncodedImage.FrameType[] frameTypes;
 
@@ -62,7 +57,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class ScalingSettings {
         public static final ScalingSettings OFF = new ScalingSettings();
         @Nullable
@@ -105,7 +100,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class Settings {
         public final boolean automaticResizeOn;
         public final int height;

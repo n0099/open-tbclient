@@ -1,6 +1,6 @@
 package okhttp3.internal.connection;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import java.io.IOException;
 import java.lang.ref.Reference;
 import java.net.ConnectException;
@@ -54,7 +54,7 @@ import okio.Okio;
 import okio.Source;
 import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
     private static final int MAX_TUNNEL_ATTEMPTS = 21;
     private static final String NPE_THROW_WITH_NULL = "throw with null exception";
@@ -219,17 +219,19 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     }
 
     private void connectTls(ConnectionSpecSelector connectionSpecSelector) throws IOException {
+        Throwable th;
+        AssertionError e;
         SSLSocket sSLSocket;
         SSLSocket sSLSocket2 = null;
         Address address = this.route.address();
         try {
             try {
                 sSLSocket = (SSLSocket) address.sslSocketFactory().createSocket(this.rawSocket, address.url().host(), address.url().port(), true);
-            } catch (Throwable th) {
-                th = th;
+            } catch (AssertionError e2) {
+                e = e2;
             }
-        } catch (AssertionError e) {
-            e = e;
+        } catch (Throwable th2) {
+            th = th2;
         }
         try {
             ConnectionSpec configureSecureSocket = connectionSpecSelector.configureSecureSocket(sSLSocket);
@@ -260,15 +262,15 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             if (sSLSocket != null) {
                 Platform.get().afterHandshake(sSLSocket);
             }
-        } catch (AssertionError e2) {
-            e = e2;
+        } catch (AssertionError e3) {
+            e = e3;
             if (!Util.isAndroidGetsocknameError(e)) {
                 throw e;
             }
             throw new IOException(e);
-        } catch (Throwable th2) {
+        } catch (Throwable th3) {
+            th = th3;
             sSLSocket2 = sSLSocket;
-            th = th2;
             if (sSLSocket2 != null) {
                 Platform.get().afterHandshake(sSLSocket2);
             }

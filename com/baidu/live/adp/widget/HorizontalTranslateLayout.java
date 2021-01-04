@@ -19,7 +19,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class HorizontalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String DIRECTION_LEFT = "left";
@@ -59,26 +59,26 @@ public class HorizontalTranslateLayout extends FrameLayout {
     private final Tracker mTracker;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnHorizontalTrackListener {
         void onStartHorizontalTrack(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnLeftAnimationListener {
         void onLeftAnimationEnd();
 
         void onLeftAnimationStart();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     interface OnLeftTrackListener {
         void onLeftTrackStart();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnOpenAnimationListener {
         void onOpenAnimationEnd();
 
@@ -86,20 +86,20 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnRightAnimationListener {
         void onRightAnimationEnd();
 
         void onRightAnimationStart();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     interface OnRightTrackListener {
         void onRightTrackStart();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public enum TrackDirection {
         left,
         right,
@@ -470,7 +470,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class AnimationHandler extends Handler {
         private AnimationHandler() {
         }
@@ -501,7 +501,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class Tracker {
         static final float MIN_VELOCITY = 500.0f;
         static final int VELOCITY_UNIT = 200;
@@ -642,7 +642,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class Animator {
         static final String TAG = "Animator";
         static final int VELOCITY = 600;

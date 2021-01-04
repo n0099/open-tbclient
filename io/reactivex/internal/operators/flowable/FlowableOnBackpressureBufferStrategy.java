@@ -9,7 +9,7 @@ import java.util.Deque;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
     final long bufferSize;
     final io.reactivex.b.a onOverflow;
@@ -17,10 +17,10 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pFi.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
+        this.qgK.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class OnBackpressureBufferStrategySubscriber<T> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = 3240706908776709697L;
         final org.a.c<? super T> actual;
@@ -52,8 +52,8 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
 
         @Override // org.a.c
         public void onNext(T t) {
-            boolean z = false;
-            boolean z2 = true;
+            boolean z;
+            boolean z2;
             if (!this.done) {
                 Deque<T> deque = this.deque;
                 synchronized (deque) {
@@ -62,18 +62,23 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
                             case DROP_LATEST:
                                 deque.pollLast();
                                 deque.offer(t);
+                                z = false;
+                                z2 = true;
                                 break;
                             case DROP_OLDEST:
                                 deque.poll();
                                 deque.offer(t);
+                                z = false;
+                                z2 = true;
                                 break;
                             default:
-                                z2 = false;
                                 z = true;
+                                z2 = false;
                                 break;
                         }
                     } else {
                         deque.offer(t);
+                        z = false;
                         z2 = false;
                     }
                 }
@@ -82,7 +87,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
                         try {
                             this.onOverflow.run();
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.J(th);
+                            io.reactivex.exceptions.a.O(th);
                             this.s.cancel();
                             onError(th);
                         }

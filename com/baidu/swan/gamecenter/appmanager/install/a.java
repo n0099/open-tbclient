@@ -6,18 +6,18 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.content.FileProvider;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.storage.c.h;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean wF(String str) {
+    public static boolean wE(String str) {
         return ak(str, false);
     }
 
@@ -57,7 +57,7 @@ public class a {
             if (Build.VERSION.SDK_INT < 24) {
                 intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
             }
-            processFileUriIntent(context, file, intent);
+            a(context, file, intent);
             context.startActivity(intent);
             if (DEBUG) {
                 Log.e("GameCenterApkUtil", "install apk done");
@@ -69,7 +69,7 @@ public class a {
                 e.printStackTrace();
             }
             intent.setComponent(null);
-            processFileUriIntent(context, file, intent);
+            a(context, file, intent);
             try {
                 context.startActivity(intent);
                 if (DEBUG) {
@@ -86,7 +86,7 @@ public class a {
         }
     }
 
-    public static boolean am(Context context, String str) {
+    public static boolean au(Context context, String str) {
         if (context != null) {
             try {
                 if (context.getPackageManager() != null) {
@@ -100,7 +100,7 @@ public class a {
         return false;
     }
 
-    public static boolean ao(Context context, String str) {
+    public static boolean aw(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
         }
@@ -126,7 +126,7 @@ public class a {
         return false;
     }
 
-    private static boolean processFileUriIntent(Context context, File file, Intent intent) {
+    private static boolean a(Context context, File file, Intent intent) {
         if (Build.VERSION.SDK_INT >= 24) {
             try {
                 Uri uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
@@ -153,57 +153,57 @@ public class a {
         return true;
     }
 
-    public static void hF(boolean z) {
-        h.aNr().edit().putBoolean("install_guide_switch_key", z).apply();
+    public static void hX(boolean z) {
+        h.aPH().edit().putBoolean("install_guide_switch_key", z).apply();
     }
 
-    public static boolean aUF() {
-        return h.aNr().getBoolean("install_guide_switch_key", true);
+    public static boolean aWZ() {
+        return h.aPH().getBoolean("install_guide_switch_key", true);
     }
 
-    public static void aUG() {
-        h.aNr().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
+    public static void aXa() {
+        h.aPH().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
     }
 
-    public static long aUH() {
-        return h.aNr().getLong("install_authorize_guide_time_key", 0L);
+    public static long aXb() {
+        return h.aPH().getLong("install_authorize_guide_time_key", 0L);
     }
 
-    public static void aUI() {
-        h.aNr().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
+    public static void aXc() {
+        h.aPH().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
     }
 
-    public static long aUJ() {
-        return h.aNr().getLong("install_continue_guide_time_key", 0L);
+    public static long aXd() {
+        return h.aPH().getLong("install_continue_guide_time_key", 0L);
     }
 
-    public static boolean wG(String str) {
-        return (System.currentTimeMillis() / 86400000) - ((TextUtils.equals(str, "authorize") ? aUH() : aUJ()) / 86400000) > 0;
+    public static boolean wF(String str) {
+        return (System.currentTimeMillis() / 86400000) - ((TextUtils.equals(str, "authorize") ? aXb() : aXd()) / 86400000) > 0;
     }
 
-    public static String axR() {
+    public static String azi() {
         return (Build.VERSION.SDK_INT < 26 || AppRuntime.getAppContext().getPackageManager().canRequestPackageInstalls()) ? "continue" : "authorize";
     }
 
-    public static boolean wH(String str) {
-        return aUF() && wG(str) && aUK() < aUM();
+    public static boolean wG(String str) {
+        return aWZ() && wF(str) && aXe() < aXg();
     }
 
-    public static int aUK() {
-        return h.aNr().getInt("install_guide_count_key", 0);
+    public static int aXe() {
+        return h.aPH().getInt("install_guide_count_key", 0);
     }
 
-    public static void aUL() {
-        h.aNr().edit().putInt("install_guide_count_key", h.aNr().getInt("install_guide_count_key", 0) + 1).apply();
+    public static void aXf() {
+        h.aPH().edit().putInt("install_guide_count_key", h.aPH().getInt("install_guide_count_key", 0) + 1).apply();
     }
 
-    public static int aUM() {
-        return h.aNr().getInt("install_guide_max_count_key", 3);
+    public static int aXg() {
+        return h.aPH().getInt("install_guide_max_count_key", 3);
     }
 
-    public static void mn(int i) {
+    public static void mv(int i) {
         if (i > 0) {
-            h.aNr().edit().putInt("install_guide_max_count_key", i).apply();
+            h.aPH().edit().putInt("install_guide_max_count_key", i).apply();
         }
     }
 }

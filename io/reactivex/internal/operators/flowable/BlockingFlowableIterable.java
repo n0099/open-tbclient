@@ -13,19 +13,19 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class BlockingFlowableIterable<T> implements Iterable<T> {
     final int bufferSize;
-    final g<T> pFi;
+    final g<T> qgK;
 
     @Override // java.lang.Iterable
     public Iterator<T> iterator() {
         BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
-        this.pFi.a((j) blockingFlowableIterator);
+        this.qgK.a((j) blockingFlowableIterator);
         return blockingFlowableIterator;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class BlockingFlowableIterator<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T>, Runnable, Iterator<T> {
         private static final long serialVersionUID = 6695226475494099826L;
         final long batchSize;
@@ -51,14 +51,14 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                 if (z) {
                     Throwable th = this.error;
                     if (th != null) {
-                        throw ExceptionHelper.L(th);
+                        throw ExceptionHelper.Q(th);
                     }
                     if (isEmpty) {
                         return false;
                     }
                 }
                 if (isEmpty) {
-                    io.reactivex.internal.util.c.eDr();
+                    io.reactivex.internal.util.c.eLz();
                     this.lock.lock();
                     while (!this.done && this.queue.isEmpty()) {
                         try {
@@ -66,7 +66,7 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                                 this.condition.await();
                             } catch (InterruptedException e) {
                                 run();
-                                throw ExceptionHelper.L(e);
+                                throw ExceptionHelper.Q(e);
                             }
                         } finally {
                             this.lock.unlock();

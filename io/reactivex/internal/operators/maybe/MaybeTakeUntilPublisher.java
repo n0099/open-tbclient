@@ -6,19 +6,19 @@ import io.reactivex.j;
 import io.reactivex.m;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class MaybeTakeUntilPublisher<T, U> extends a<T, T> {
-    final org.a.b<U> pFC;
+    final org.a.b<U> qhe;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         TakeUntilMainMaybeObserver takeUntilMainMaybeObserver = new TakeUntilMainMaybeObserver(mVar);
         mVar.onSubscribe(takeUntilMainMaybeObserver);
-        this.pFC.subscribe(takeUntilMainMaybeObserver.other);
+        this.qhe.subscribe(takeUntilMainMaybeObserver.other);
         this.source.a(takeUntilMainMaybeObserver);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class TakeUntilMainMaybeObserver<T, U> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -2187421758664251153L;
         final m<? super T> actual;
@@ -84,7 +84,7 @@ public final class MaybeTakeUntilPublisher<T, U> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         static final class TakeUntilOtherMaybeObserver<U> extends AtomicReference<d> implements j<U> {
             private static final long serialVersionUID = -1266041316834525931L;
             final TakeUntilMainMaybeObserver<?, U> parent;

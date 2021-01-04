@@ -12,12 +12,14 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ConnectivityManager f1152a = null;
-    private static TelephonyManager b = null;
+    private static ConnectivityManager f1422a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static TelephonyManager f1423b = null;
 
     public static boolean a(Context context) {
         NetworkInfo c = c(context);
@@ -148,23 +150,23 @@ public class g {
 
     private static ConnectivityManager j(Context context) {
         if (context == null) {
-            return f1152a;
+            return f1422a;
         }
-        if (f1152a == null) {
-            f1152a = (ConnectivityManager) context.getSystemService("connectivity");
+        if (f1422a == null) {
+            f1422a = (ConnectivityManager) context.getSystemService("connectivity");
         }
-        return f1152a;
+        return f1422a;
     }
 
     private static TelephonyManager k(Context context) {
         if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
             if (context == null) {
-                return b;
+                return f1423b;
             }
-            if (b == null) {
-                b = (TelephonyManager) context.getSystemService("phone");
+            if (f1423b == null) {
+                f1423b = (TelephonyManager) context.getSystemService("phone");
             }
         }
-        return b;
+        return f1423b;
     }
 }

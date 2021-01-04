@@ -3,24 +3,24 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
-public class o implements com.baidu.adp.widget.ListView.q {
-    private ForumData jDs;
-    private final boolean nkv;
+public class o implements com.baidu.adp.widget.ListView.n {
+    private ForumData jPU;
+    private final boolean nqd;
 
     public o(ForumData forumData, boolean z) {
-        this.jDs = forumData;
-        this.nkv = z;
+        this.jPU = forumData;
+        this.nqd = z;
     }
 
-    public ForumData bDp() {
-        return this.jDs;
+    public ForumData bFK() {
+        return this.jPU;
     }
 
-    public boolean dOv() {
-        return this.nkv;
+    public boolean dOn() {
+        return this.nqd;
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         return null;
     }

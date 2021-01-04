@@ -1,10 +1,12 @@
 package io.flutter.embedding.engine.plugins.service;
 
 import android.app.Service;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public interface ServiceControlSurface {
-    void attachToService(Service service, Lifecycle lifecycle, boolean z);
+    void attachToService(@NonNull Service service, @Nullable Lifecycle lifecycle, boolean z);
 
     void detachFromService();
 

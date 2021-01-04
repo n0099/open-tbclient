@@ -2,7 +2,7 @@ package com.baidu.minivideo.plugin.capture.bean;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class ErrorLogInfo implements Jsonable {
     public String code;
     public String data;
@@ -44,12 +44,11 @@ public class ErrorLogInfo implements Jsonable {
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
     public JSONObject toJson() {
         JSONObject jSONObject;
-        JSONException e;
         try {
             jSONObject = new JSONObject();
-        } catch (JSONException e2) {
+        } catch (JSONException e) {
+            e = e;
             jSONObject = null;
-            e = e2;
         }
         try {
             jSONObject.put("type", this.type);
@@ -60,8 +59,8 @@ public class ErrorLogInfo implements Jsonable {
             jSONObject.put("data", this.data);
             jSONObject.put("isShowSpecialToast", this.isShowSpecialToast);
             jSONObject.put("specialToast", this.specialToast);
-        } catch (JSONException e3) {
-            e = e3;
+        } catch (JSONException e2) {
+            e = e2;
             e.printStackTrace();
             return jSONObject;
         }

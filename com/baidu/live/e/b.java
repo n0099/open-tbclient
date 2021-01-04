@@ -2,10 +2,10 @@ package com.baidu.live.e;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.support.annotation.NonNull;
 import android.view.KeyEvent;
+import androidx.annotation.NonNull;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface b {
     void a(TbPageContext tbPageContext, a aVar);
 

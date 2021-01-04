@@ -1,9 +1,9 @@
 package com.baidu.minivideo.plugin.capture.download.utils;
 
 import android.app.Activity;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import java.text.DecimalFormat;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class CommonUtils {
     private static final DecimalFormat DF = new DecimalFormat("0.00");
     private static String[] PERMISSIONS_STORAGE = {"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"};

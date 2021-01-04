@@ -2,7 +2,7 @@ package com.baidu.minivideo.plugin.capture.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class BitmapUtils {
     public static Bitmap cropBitmapLeft(Bitmap bitmap, int i, boolean z) {
         Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, i, bitmap.getHeight());
@@ -37,14 +37,19 @@ public class BitmapUtils {
     }
 
     public static Bitmap scaleCover(Bitmap bitmap, int i, int i2, boolean z) {
+        int i3;
+        int i4;
         if (i > 0) {
             if ((i2 > 0 || bitmap != null) && !bitmap.isRecycled()) {
-                if ((bitmap.getWidth() > bitmap.getHeight()) == (i > i2)) {
-                    i2 = i;
-                    i = i2;
+                if ((bitmap.getWidth() > bitmap.getHeight()) != (i > i2)) {
+                    i3 = i;
+                    i4 = i2;
+                } else {
+                    i3 = i2;
+                    i4 = i;
                 }
-                if (i2 != bitmap.getWidth() || i != bitmap.getHeight()) {
-                    return scaleImage(bitmap, i2, i, z);
+                if (i4 != bitmap.getWidth() || i3 != bitmap.getHeight()) {
+                    return scaleImage(bitmap, i4, i3, z);
                 }
                 return bitmap;
             }

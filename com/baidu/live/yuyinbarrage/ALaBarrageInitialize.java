@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.yuyinbarrage.a.a;
 import com.baidu.live.yuyinbarrage.view.ImBarrageItemView;
 import com.baidu.live.yuyinbarrage.view.ImBarrageOptionListView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ALaBarrageInitialize {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2501050, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.yuyinbarrage.ALaBarrageInitialize.1

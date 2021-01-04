@@ -1,8 +1,6 @@
 package com.baidu.tbadk.widget.horizontalpullview;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +8,16 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class RefreshView extends FrameLayout implements a {
-    private int aku;
-    private ImageView ckh;
+    private int akW;
+    private ImageView icon;
     private int status;
     private TextView textView;
 
@@ -31,31 +31,31 @@ public class RefreshView extends FrameLayout implements a {
 
     public RefreshView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aku = 3;
+        this.akW = 3;
         init(context);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.pull_left_item_view, (ViewGroup) this, true);
-        this.ckh = (ImageView) findViewById(R.id.arrow_icon);
+        this.icon = (ImageView) findViewById(R.id.arrow_icon);
         this.textView = (TextView) findViewById(R.id.text);
     }
 
     @Override // com.baidu.tbadk.widget.horizontalpullview.a
-    public void bS(View view) {
+    public void cb(View view) {
         if (this.status != 1) {
             this.status = 1;
             this.textView.setText("查看更多");
-            SvgManager.btW().a(this.ckh, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bwq().a(this.icon, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
         }
     }
 
     @Override // com.baidu.tbadk.widget.horizontalpullview.a
-    public void bT(View view) {
+    public void cc(View view) {
         if (this.status != 2) {
             this.status = 2;
             this.textView.setText("释放跳转");
-            SvgManager.btW().a(this.ckh, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bwq().a(this.icon, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -66,10 +66,10 @@ public class RefreshView extends FrameLayout implements a {
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.aku) {
+        if (skinType != this.akW) {
             this.status = 0;
-            this.aku = skinType;
-            ap.setViewTextColor(this.textView, R.color.CAM_X0109);
+            this.akW = skinType;
+            ao.setViewTextColor(this.textView, R.color.CAM_X0109);
         }
     }
 }

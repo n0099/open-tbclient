@@ -1,7 +1,8 @@
 package com.baidu.searchbox.elasticthread.task;
 
 import android.text.TextUtils;
-/* loaded from: classes16.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes6.dex */
 public class ElasticTaskBuilder {
     private static volatile ElasticTaskBuilder sInstance = null;
     private long currentTaskId = 0;
@@ -20,7 +21,7 @@ public class ElasticTaskBuilder {
     private ElasticTaskBuilder() {
     }
 
-    public ElasticTask build(Runnable runnable, String str, int i) {
+    public ElasticTask build(@NonNull Runnable runnable, @NonNull String str, int i) {
         ElasticTask elasticTask;
         if (runnable == null || TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("illegal params");

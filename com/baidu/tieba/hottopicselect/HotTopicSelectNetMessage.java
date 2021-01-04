@@ -4,13 +4,13 @@ import GetSugTopic.DataReq;
 import GetSugTopic.GetSugTopicReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.CommonReq;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class HotTopicSelectNetMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3693common;
+    private CommonReq f5621common;
     private long fid;
     private String firstDir;
     private String prefix;
@@ -52,11 +52,11 @@ public class HotTopicSelectNetMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f3693common;
+        return this.f5621common;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f3693common = commonReq;
+        this.f5621common = commonReq;
     }
 
     public void setPrefix(String str) {
@@ -66,7 +66,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f949common = getCommon();
+        builder.f1027common = getCommon();
         builder.fid = Long.valueOf(this.fid);
         if (this.prefix != null) {
             builder.prefix = this.prefix;
@@ -78,7 +78,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
             builder.second_dir = this.secondDir;
         }
         if (z) {
-            u.a(builder, true);
+            t.b(builder, true);
         }
         GetSugTopicReqIdl.Builder builder2 = new GetSugTopicReqIdl.Builder();
         builder2.data = builder.build(false);

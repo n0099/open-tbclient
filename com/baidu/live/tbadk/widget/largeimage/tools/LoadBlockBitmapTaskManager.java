@@ -16,7 +16,7 @@ import com.baidu.live.tbadk.widget.largeimage.atomskeleton.Viewpoint;
 import com.baidu.live.tbadk.widget.largeimage.logic.ILoadBlockBitmapCallback;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class LoadBlockBitmapTaskManager {
     private static final String TAG = LoadBlockBitmapTaskManager.class.getSimpleName();
     private BdCache<BlockBitmap.Position, BlockBitmap> mBlockBitmapLruCache;
@@ -90,7 +90,7 @@ public class LoadBlockBitmapTaskManager {
         return this.mBlockBitmapSimplePool;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class LoadBitmapAsyncTask extends BdAsyncTask {
         private int column;
         private BdCache<BlockBitmap.Position, BlockBitmap> mBlockBitmapLruCache;

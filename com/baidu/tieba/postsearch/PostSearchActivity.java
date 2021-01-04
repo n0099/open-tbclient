@@ -2,89 +2,89 @@ package com.baidu.tieba.postsearch;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-/* loaded from: classes24.dex */
+import com.baidu.tbadk.core.util.aq;
+/* loaded from: classes8.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String iQL;
-    private g mCE;
-    private d mCF;
+    public String jcX;
     public String mForumId;
     public String mForumName;
+    private g mHV;
+    private d mHW;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
-        @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
         }
 
-        @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            PostSearchActivity.this.IP(i);
+            PostSearchActivity.this.IJ(i);
         }
 
-        @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
         }
     };
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mCE = new g(this);
-        this.mCE.initView();
-        this.mCE.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.mCF = new d(this);
+        this.mHV = new g(this);
+        this.mHV.initView();
+        this.mHV.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.mHW = new d(this);
         initData();
     }
 
-    public void yJ(String str) {
-        this.iQL = str;
-        this.mCE.IU(1);
-        this.mCF.dDG();
-        this.mCE.showLoadingView();
+    public void yI(String str) {
+        this.jcX = str;
+        this.mHV.IO(1);
+        this.mHW.dDv();
+        this.mHV.showLoadingView();
     }
 
-    public void Rw(String str) {
-        this.mCE.Rw(str);
+    public void Rc(String str) {
+        this.mHV.Rc(str);
     }
 
-    public void dDq() {
-        this.mCE.bh(this.mCF.mDd);
+    public void dDf() {
+        this.mHV.bh(this.mHW.mIw);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.cZL())) {
-            this.mCE.hideLoadingView();
-            this.mCE.dDK();
+        if (i == 1 && (bVar == null || !bVar.cZx())) {
+            this.mHV.hideLoadingView();
+            this.mHV.dDz();
             return;
         }
-        this.mCE.hideLoadingView();
-        this.mCE.dDy();
-        this.mCE.a(i, bVar, z);
+        this.mHV.hideLoadingView();
+        this.mHV.dDn();
+        this.mHV.a(i, bVar, z);
     }
 
-    public boolean dDr() {
-        return this.mCE.dDr();
+    public boolean dDg() {
+        return this.mHV.dDg();
     }
 
     public void hideSoftKeyPad() {
-        this.mCE.hideSoftKeyPad();
+        this.mHV.hideSoftKeyPad();
     }
 
-    public d dDs() {
-        return this.mCF;
+    public d dDh() {
+        return this.mHW;
     }
 
-    public g dDt() {
-        return this.mCE;
+    public g dDi() {
+        return this.mHV;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.mCE.onChangeSkinType(i);
+        this.mHV.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -93,20 +93,20 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.mCF.dDD();
+        this.mHW.dDs();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.mCE != null) {
-            this.mCE.onDestroy();
+        if (this.mHV != null) {
+            this.mHV.onDestroy();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IP(int i) {
+    public void IJ(int i) {
         int i2 = 0;
         switch (i) {
             case 0:
@@ -119,10 +119,10 @@ public class PostSearchActivity extends BaseFragmentActivity {
                 i2 = 3;
                 break;
         }
-        ar dY = new ar("c12404").dY("fid", this.mForumId).dY("fname", this.mForumName).dY("uid", TbadkCoreApplication.getCurrentAccount());
+        aq dX = new aq("c12404").dX("fid", this.mForumId).dX("fname", this.mForumName).dX("uid", TbadkCoreApplication.getCurrentAccount());
         if (i2 != 0) {
-            dY.al("tab_id", i2);
+            dX.an("tab_id", i2);
         }
-        TiebaStatic.log(dY);
+        TiebaStatic.log(dX);
     }
 }

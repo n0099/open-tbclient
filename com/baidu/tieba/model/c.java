@@ -4,15 +4,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.personExtra.RecommendGodHttpResponseMessage;
 import com.baidu.tieba.personExtra.RecommendGodReqMsg;
 import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
 import com.baidu.tieba.personPolymeric.c.q;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private a lkQ;
-    private boolean lkR;
+    private a lqA;
+    private boolean lqB;
     private q recommendGodData;
     private BdUniqueId uniqueId;
     private int pageNum = 0;
@@ -28,25 +28,25 @@ public class c {
                         c.this.recommendGodData = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
                     }
                     if (c.this.recommendGodData != null) {
-                        c.this.pageNum = c.this.recommendGodData.gQA;
+                        c.this.pageNum = c.this.recommendGodData.hcn;
                     }
                     int error = responsedMessage.getError();
                     if (error == 0 && c.this.recommendGodData != null) {
-                        if (y.isEmpty(c.this.recommendGodData.msf)) {
-                            error = c.this.lkR ? 3 : 2;
+                        if (x.isEmpty(c.this.recommendGodData.mxt)) {
+                            error = c.this.lqB ? 3 : 2;
                         }
                     } else {
                         error = 1;
                     }
-                    if (c.this.lkQ != null) {
-                        c.this.lkQ.a(c.this.recommendGodData, error);
+                    if (c.this.lqA != null) {
+                        c.this.lqA.a(c.this.recommendGodData, error);
                     }
                 }
             }
         }
     };
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(q qVar, int i);
     }
@@ -61,16 +61,16 @@ public class c {
         RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
         recommendGodReqMsg.portrait = str;
         if (this.pageNum == 0) {
-            this.lkR = false;
+            this.lqB = false;
         } else {
-            this.lkR = true;
+            this.lqB = true;
         }
         recommendGodReqMsg.pageNum = this.pageNum + 1;
         recommendGodReqMsg.setTag(this.uniqueId);
         MessageManager.getInstance().sendMessage(recommendGodReqMsg);
     }
 
-    public void bv(String str, int i) {
+    public void bC(String str, int i) {
         this.pageNum = i;
         request(str);
     }
@@ -81,6 +81,6 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.lkQ = aVar;
+        this.lqA = aVar;
     }
 }

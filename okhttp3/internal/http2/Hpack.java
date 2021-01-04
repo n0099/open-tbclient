@@ -1,11 +1,9 @@
 package okhttp3.internal.http2;
 
 import android.net.http.Headers;
-import android.support.v7.widget.ActivityChooserView;
-import com.baidu.android.ext.widget.toast.UniversalToast;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.appframework.AppFrameworkConstants;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,19 +20,19 @@ import okio.Okio;
 import okio.Source;
 import org.apache.http.HttpHost;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class Hpack {
     private static final int PREFIX_4_BITS = 15;
     private static final int PREFIX_5_BITS = 31;
     private static final int PREFIX_6_BITS = 63;
     private static final int PREFIX_7_BITS = 127;
-    static final Header[] STATIC_HEADER_TABLE = {new Header(Header.TARGET_AUTHORITY, ""), new Header(Header.TARGET_METHOD, "GET"), new Header(Header.TARGET_METHOD, "POST"), new Header(Header.TARGET_PATH, "/"), new Header(Header.TARGET_PATH, "/index.html"), new Header(Header.TARGET_SCHEME, HttpHost.DEFAULT_SCHEME_NAME), new Header(Header.TARGET_SCHEME, "https"), new Header(Header.RESPONSE_STATUS, BasicPushStatus.SUCCESS_CODE), new Header(Header.RESPONSE_STATUS, "204"), new Header(Header.RESPONSE_STATUS, AppFrameworkConstants.ID_BACK), new Header(Header.RESPONSE_STATUS, "304"), new Header(Header.RESPONSE_STATUS, "400"), new Header(Header.RESPONSE_STATUS, "404"), new Header(Header.RESPONSE_STATUS, "500"), new Header("accept-charset", ""), new Header("accept-encoding", "gzip, deflate"), new Header("accept-language", ""), new Header(Headers.ACCEPT_RANGES, ""), new Header(UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET, ""), new Header("access-control-allow-origin", ""), new Header("age", ""), new Header(UniversalToast.ToastCallbackWithAction.PARAMS_RESULT_KEY, ""), new Header("authorization", ""), new Header(Headers.CACHE_CONTROL, ""), new Header(Headers.CONTENT_DISPOSITION, ""), new Header(Headers.CONTENT_ENCODING, ""), new Header("content-language", ""), new Header(Headers.CONTENT_LEN, ""), new Header("content-location", ""), new Header("content-range", ""), new Header(Headers.CONTENT_TYPE, ""), new Header("cookie", ""), new Header("date", ""), new Header("etag", ""), new Header("expect", ""), new Header("expires", ""), new Header("from", ""), new Header("host", ""), new Header("if-match", ""), new Header("if-modified-since", ""), new Header("if-none-match", ""), new Header("if-range", ""), new Header("if-unmodified-since", ""), new Header(Headers.LAST_MODIFIED, ""), new Header("link", ""), new Header("location", ""), new Header("max-forwards", ""), new Header(Headers.PROXY_AUTHENTICATE, ""), new Header("proxy-authorization", ""), new Header("range", ""), new Header(Config.LAUNCH_REFERER, ""), new Header(Headers.REFRESH, ""), new Header("retry-after", ""), new Header("server", ""), new Header(Headers.SET_COOKIE, ""), new Header("strict-transport-security", ""), new Header(Headers.TRANSFER_ENCODING, ""), new Header("user-agent", ""), new Header("vary", ""), new Header("via", ""), new Header(Headers.WWW_AUTHENTICATE, "")};
+    static final Header[] STATIC_HEADER_TABLE = {new Header(Header.TARGET_AUTHORITY, ""), new Header(Header.TARGET_METHOD, "GET"), new Header(Header.TARGET_METHOD, "POST"), new Header(Header.TARGET_PATH, "/"), new Header(Header.TARGET_PATH, "/index.html"), new Header(Header.TARGET_SCHEME, HttpHost.DEFAULT_SCHEME_NAME), new Header(Header.TARGET_SCHEME, "https"), new Header(Header.RESPONSE_STATUS, BasicPushStatus.SUCCESS_CODE), new Header(Header.RESPONSE_STATUS, "204"), new Header(Header.RESPONSE_STATUS, "206"), new Header(Header.RESPONSE_STATUS, "304"), new Header(Header.RESPONSE_STATUS, "400"), new Header(Header.RESPONSE_STATUS, "404"), new Header(Header.RESPONSE_STATUS, "500"), new Header("accept-charset", ""), new Header("accept-encoding", "gzip, deflate"), new Header("accept-language", ""), new Header(Headers.ACCEPT_RANGES, ""), new Header(UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET, ""), new Header("access-control-allow-origin", ""), new Header("age", ""), new Header("allow", ""), new Header("authorization", ""), new Header(Headers.CACHE_CONTROL, ""), new Header(Headers.CONTENT_DISPOSITION, ""), new Header(Headers.CONTENT_ENCODING, ""), new Header("content-language", ""), new Header(Headers.CONTENT_LEN, ""), new Header("content-location", ""), new Header("content-range", ""), new Header(Headers.CONTENT_TYPE, ""), new Header("cookie", ""), new Header("date", ""), new Header("etag", ""), new Header("expect", ""), new Header("expires", ""), new Header("from", ""), new Header("host", ""), new Header("if-match", ""), new Header("if-modified-since", ""), new Header("if-none-match", ""), new Header("if-range", ""), new Header("if-unmodified-since", ""), new Header(Headers.LAST_MODIFIED, ""), new Header("link", ""), new Header("location", ""), new Header("max-forwards", ""), new Header(Headers.PROXY_AUTHENTICATE, ""), new Header("proxy-authorization", ""), new Header("range", ""), new Header(Config.LAUNCH_REFERER, ""), new Header(Headers.REFRESH, ""), new Header("retry-after", ""), new Header("server", ""), new Header(Headers.SET_COOKIE, ""), new Header("strict-transport-security", ""), new Header(Headers.TRANSFER_ENCODING, ""), new Header("user-agent", ""), new Header("vary", ""), new Header("via", ""), new Header(Headers.WWW_AUTHENTICATE, "")};
     static final Map<ByteString, Integer> NAME_TO_FIRST_INDEX = nameToFirstIndex();
 
     private Hpack() {
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     static final class Reader {
         Header[] dynamicTable;
         int dynamicTableByteCount;
@@ -253,7 +251,7 @@ public final class Hpack {
         return Collections.unmodifiableMap(linkedHashMap);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     static final class Writer {
         private static final int SETTINGS_HEADER_TABLE_SIZE = 4096;
         private static final int SETTINGS_HEADER_TABLE_SIZE_LIMIT = 16384;
@@ -352,14 +350,17 @@ public final class Hpack {
                 ByteString byteString = header.value;
                 Integer num = Hpack.NAME_TO_FIRST_INDEX.get(asciiLowercase);
                 if (num != null) {
-                    i = num.intValue() + 1;
-                    if (i > 1 && i < 8) {
-                        if (Util.equal(Hpack.STATIC_HEADER_TABLE[i - 1].value, byteString)) {
-                            i2 = i;
-                        } else if (Util.equal(Hpack.STATIC_HEADER_TABLE[i].value, byteString)) {
-                            i2 = i + 1;
+                    int intValue = num.intValue() + 1;
+                    if (intValue > 1 && intValue < 8) {
+                        if (Util.equal(Hpack.STATIC_HEADER_TABLE[intValue - 1].value, byteString)) {
+                            i = intValue;
+                            i2 = intValue;
+                        } else if (Util.equal(Hpack.STATIC_HEADER_TABLE[intValue].value, byteString)) {
+                            i2 = intValue + 1;
+                            i = intValue;
                         }
                     }
+                    i = intValue;
                     i2 = -1;
                 } else {
                     i = -1;
@@ -456,8 +457,8 @@ public final class Hpack {
     static ByteString checkLowercase(ByteString byteString) throws IOException {
         int size = byteString.size();
         for (int i = 0; i < size; i++) {
-            byte b = byteString.getByte(i);
-            if (b >= 65 && b <= 90) {
+            byte b2 = byteString.getByte(i);
+            if (b2 >= 65 && b2 <= 90) {
                 throw new IOException("PROTOCOL_ERROR response malformed: mixed case name: " + byteString.utf8());
             }
         }

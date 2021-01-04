@@ -13,10 +13,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 import com.baidu.android.util.io.DocumentOpenUtil;
-import com.baidu.android.util.media.MimeType;
+import com.baidu.down.manage.DownloadConstants;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -27,7 +26,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class Utils {
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
     public static final int NET = 2;
@@ -44,11 +43,11 @@ public class Utils {
         extMimeMap.put(".bmp", "image/bmp");
         extMimeMap.put(".dif", "video/x-dv");
         extMimeMap.put(".dv", "video/x-dv");
-        extMimeMap.put(".gif", "image/gif");
+        extMimeMap.put(".gif", DownloadConstants.MIMETYPE_GIF);
         extMimeMap.put(".jp2", "image/jp2");
-        extMimeMap.put(".jpe", MimeType.Image.JPEG);
-        extMimeMap.put(".jpeg", MimeType.Image.JPEG);
-        extMimeMap.put(".jpg", MimeType.Image.JPEG);
+        extMimeMap.put(".jpe", "image/jpeg");
+        extMimeMap.put(".jpeg", "image/jpeg");
+        extMimeMap.put(".jpg", "image/jpeg");
         extMimeMap.put(".kar", "audio/midi");
         extMimeMap.put(".m3u", "audio/x-mpegurl");
         extMimeMap.put(".m4a", "audio/mp4a-latm");
@@ -63,16 +62,16 @@ public class Utils {
         extMimeMap.put(".movie", "video/x-sgi-movie");
         extMimeMap.put(".mp2", "audio/mpeg");
         extMimeMap.put(".mp3", "audio/mpeg");
-        extMimeMap.put(".mp4", MimeType.Video.MP4);
-        extMimeMap.put(".mpe", MimeType.Video.MPEG);
-        extMimeMap.put(".mpeg", MimeType.Video.MPEG);
-        extMimeMap.put(".mpg", MimeType.Video.MPEG);
+        extMimeMap.put(".mp4", "video/mp4");
+        extMimeMap.put(".mpe", "video/mpeg");
+        extMimeMap.put(".mpeg", "video/mpeg");
+        extMimeMap.put(".mpg", "video/mpeg");
         extMimeMap.put(".mpga", "audio/mpeg");
         extMimeMap.put(".mxu", "video/vnd.mpegurl");
         extMimeMap.put(".pct", "image/pict");
         extMimeMap.put(".pic", "image/pict");
         extMimeMap.put(".pict", "image/pict");
-        extMimeMap.put(ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX, MimeType.Image.PNG);
+        extMimeMap.put(".png", "image/png");
         extMimeMap.put(".pnm", "image/x-portable-anymap");
         extMimeMap.put(".pnt", "image/x-macpaint");
         extMimeMap.put(".pntg", "image/x-macpaint");
@@ -88,7 +87,7 @@ public class Utils {
         extMimeMap.put(".svg", "image/svg+xml");
         extMimeMap.put(".tif", "image/tiff");
         extMimeMap.put(".tiff", "image/tiff");
-        extMimeMap.put(".wav", MimeType.Audio.WAV);
+        extMimeMap.put(".wav", "audio/x-wav");
         extMimeMap.put(".apk", "application/apk");
         extMimeMap.put(".rtf", "text/rtf");
         extMimeMap.put(".rtx", "text/richtext");
@@ -265,28 +264,20 @@ public class Utils {
     }
 
     public static byte[] gZip(byte[] bArr) {
-        byte[] bArr2;
-        Exception e;
-        ByteArrayOutputStream byteArrayOutputStream;
+        byte[] bArr2 = null;
         try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
             gZIPOutputStream.write(bArr);
             gZIPOutputStream.finish();
             gZIPOutputStream.close();
             bArr2 = byteArrayOutputStream.toByteArray();
-        } catch (Exception e2) {
-            bArr2 = null;
-            e = e2;
-        }
-        try {
             byteArrayOutputStream.close();
-        } catch (Exception e3) {
-            e = e3;
+            return bArr2;
+        } catch (Exception e) {
             e.printStackTrace();
             return bArr2;
         }
-        return bArr2;
     }
 
     public static String getWifiOr2gOr3G(Context context) {
@@ -352,23 +343,23 @@ public class Utils {
         int indexOf = str.indexOf(46);
         int i = 0;
         int i2 = 0;
-        while (i < str.length()) {
+        while (i2 < str.length()) {
             if (indexOf == -1) {
                 indexOf = str.length();
             }
             try {
-                int parseInt = Integer.parseInt(str.substring(i, indexOf));
+                int parseInt = Integer.parseInt(str.substring(i2, indexOf));
                 if (parseInt > 255 || parseInt < 0) {
                     return false;
                 }
-                i2++;
-                i = indexOf + 1;
-                indexOf = str.indexOf(46, i);
+                i++;
+                i2 = indexOf + 1;
+                indexOf = str.indexOf(46, i2);
             } catch (NumberFormatException e) {
                 return false;
             }
         }
-        return i2 == 4;
+        return i == 4;
     }
 
     public static int extractPositiveInteger(String str, int i) {

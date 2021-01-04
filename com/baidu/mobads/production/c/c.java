@@ -15,12 +15,11 @@ import com.baidu.mobads.production.v;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.n;
-import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.mobads.production.b {
     private d w;
     private ArrayList<IXAdInstanceInfo> x;
@@ -66,7 +65,7 @@ public class c extends com.baidu.mobads.production.b {
 
     @Override // com.baidu.mobads.production.b
     protected void h() {
-        this.m = CoolPraiseGuideLottieView.ANIM_DURATION;
+        this.m = 8000;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProd
@@ -121,7 +120,7 @@ public class c extends com.baidu.mobads.production.b {
             stringBuffer.append("_&_");
             stringBuffer.append(iXAdInstanceInfo.getTitle());
             stringBuffer.append("_&_");
-            q.f2348a = stringBuffer.toString();
+            q.f3384a = stringBuffer.toString();
         } catch (Exception e) {
         }
         try {

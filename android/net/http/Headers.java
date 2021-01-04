@@ -2,7 +2,7 @@ package android.net.http;
 
 import java.util.ArrayList;
 import org.apache.http.util.CharArrayBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public final class Headers {
     public static final String ACCEPT_RANGES = "accept-ranges";
     public static final String CACHE_CONTROL = "cache-control";
@@ -29,7 +29,7 @@ public final class Headers {
     public static final String WWW_AUTHENTICATE = "www-authenticate";
     public static final String X_PERMITTED_CROSS_DOMAIN_POLICIES = "x-permitted-cross-domain-policies";
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes6.dex */
     public interface HeaderCallback {
         void header(String str, String str2);
     }

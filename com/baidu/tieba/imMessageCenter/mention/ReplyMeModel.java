@@ -9,14 +9,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ReplyMeModel extends BdBaseModel {
-    private a kJt;
-    private com.baidu.adp.framework.listener.a kJu;
+    private a kOC;
+    private com.baidu.adp.framework.listener.a kOD;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(long j, long j2, long j3, String str, long j4);
     }
@@ -29,7 +29,7 @@ public class ReplyMeModel extends BdBaseModel {
     public ReplyMeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
-        dbK();
+        dbn();
     }
 
     public void a(long j, int i, String str, String str2, BaijiahaoData baijiahaoData) {
@@ -48,17 +48,17 @@ public class ReplyMeModel extends BdBaseModel {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void dbK() {
-        this.kJu = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CHECK_POST, CmdConfigSocket.CMD_CHECK_POST) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
+    public void dbn() {
+        this.kOD = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CHECK_POST, CmdConfigSocket.CMD_CHECK_POST) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
+                long forumId;
+                long postState;
                 long quoteId;
                 long repostId;
                 String forumName;
                 long j;
                 long j2;
-                long j3;
-                long j4;
                 if (responsedMessage != null) {
                     if (!(responsedMessage instanceof CheckPostResponseMessage) && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
                         ReplyMeModel.this.mPageContext.showToast(R.string.neterror);
@@ -71,54 +71,47 @@ public class ReplyMeModel extends BdBaseModel {
                     } else {
                         if (responsedMessage instanceof CheckPostResponseMessage) {
                             CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) responsedMessage;
-                            long forumId = checkPostResponseMessage.getForumId();
-                            long postState = checkPostResponseMessage.getPostState();
+                            forumId = checkPostResponseMessage.getForumId();
+                            postState = checkPostResponseMessage.getPostState();
                             quoteId = checkPostResponseMessage.getQuoteId();
                             repostId = checkPostResponseMessage.getRepostId();
                             forumName = checkPostResponseMessage.getForumName();
                             if (responsedMessage.getOrginalMessage() == null || !(checkPostResponseMessage.getOrginalMessage().getExtra() instanceof CheckPostRequestMessage)) {
-                                j4 = 0;
+                                j2 = 0;
                             } else {
-                                j4 = ((CheckPostRequestMessage) checkPostResponseMessage.getOrginalMessage().getExtra()).getTid();
+                                j2 = ((CheckPostRequestMessage) checkPostResponseMessage.getOrginalMessage().getExtra()).getTid();
                             }
-                            j3 = forumId;
-                            j2 = j4;
-                            j = postState;
+                            j = j2;
                         } else {
                             CheckPostHttpResponseMessage checkPostHttpResponseMessage = (CheckPostHttpResponseMessage) responsedMessage;
-                            long forumId2 = checkPostHttpResponseMessage.getForumId();
-                            long postState2 = checkPostHttpResponseMessage.getPostState();
+                            forumId = checkPostHttpResponseMessage.getForumId();
+                            postState = checkPostHttpResponseMessage.getPostState();
                             quoteId = checkPostHttpResponseMessage.getQuoteId();
                             repostId = checkPostHttpResponseMessage.getRepostId();
                             forumName = checkPostHttpResponseMessage.getForumName();
                             if (responsedMessage.getOrginalMessage() == null || !(checkPostHttpResponseMessage.getOrginalMessage().getExtra() instanceof CheckPostRequestMessage)) {
-                                j = postState2;
-                                j2 = 0;
-                                j3 = forumId2;
+                                j = 0;
                             } else {
-                                long tid = ((CheckPostRequestMessage) checkPostHttpResponseMessage.getOrginalMessage().getExtra()).getTid();
-                                j = postState2;
-                                j2 = tid;
-                                j3 = forumId2;
+                                j = ((CheckPostRequestMessage) checkPostHttpResponseMessage.getOrginalMessage().getExtra()).getTid();
                             }
                         }
-                        if (j == 1) {
-                            if (ReplyMeModel.this.kJt != null) {
-                                ReplyMeModel.this.kJt.a(j3, quoteId, repostId, forumName, j2);
+                        if (postState == 1) {
+                            if (ReplyMeModel.this.kOC != null) {
+                                ReplyMeModel.this.kOC.a(forumId, quoteId, repostId, forumName, j);
                             }
-                        } else if (j == 0) {
+                        } else if (postState == 0) {
                             ReplyMeModel.this.mPageContext.showToast(R.string.thread_delete_tip);
-                        } else if (j == -1) {
+                        } else if (postState == -1) {
                             ReplyMeModel.this.mPageContext.showToast(R.string.thread_shield_tip);
                         }
                     }
                 }
             }
         };
-        this.kJu.setTag(this.mPageContext.getUniqueId());
-        this.kJu.getHttpMessageListener().setSelfListener(true);
-        this.kJu.getSocketMessageListener().setSelfListener(true);
-        this.mPageContext.registerListener(this.kJu);
+        this.kOD.setTag(this.mPageContext.getUniqueId());
+        this.kOD.getHttpMessageListener().setSelfListener(true);
+        this.kOD.getSocketMessageListener().setSelfListener(true);
+        this.mPageContext.registerListener(this.kOD);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -132,12 +125,12 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.kJt = aVar;
+        this.kOC = aVar;
     }
 
     public void onDestroy() {
-        if (this.kJu != null) {
-            MessageManager.getInstance().unRegisterListener(this.kJu);
+        if (this.kOD != null) {
+            MessageManager.getInstance().unRegisterListener(this.kOD);
         }
     }
 }

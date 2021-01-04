@@ -4,21 +4,21 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
 import com.baidu.tieba.card.data.p;
 import tbclient.ActiveCenter;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class g extends com.baidu.tieba.card.data.b implements p {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private ActiveCenterData eyG;
+    private ActiveCenterData eHU;
     public int position;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         return TYPE;
     }
 
     public void a(ActiveCenter activeCenter) {
         if (activeCenter != null) {
-            this.eyG = new ActiveCenterData();
-            this.eyG.parseProto(activeCenter);
+            this.eHU = new ActiveCenterData();
+            this.eHU.parseProto(activeCenter);
         }
     }
 
@@ -28,15 +28,15 @@ public class g extends com.baidu.tieba.card.data.b implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean csD() {
+    public boolean cvw() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void pa(boolean z) {
+    public void py(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void pb(boolean z) {
+    public void pz(boolean z) {
     }
 }

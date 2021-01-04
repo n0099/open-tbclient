@@ -2,13 +2,15 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class TransitBaseInfo implements Parcelable {
     public static final Parcelable.Creator<TransitBaseInfo> CREATOR = new o();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2113a;
-    private String b;
+    private String f2979a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2980b;
     private String c;
     private String d;
     private String e;
@@ -18,8 +20,8 @@ public class TransitBaseInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public TransitBaseInfo(Parcel parcel) {
-        this.f2113a = parcel.readString();
-        this.b = parcel.readString();
+        this.f2979a = parcel.readString();
+        this.f2980b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readString();
         this.e = parcel.readString();
@@ -39,7 +41,7 @@ public class TransitBaseInfo implements Parcelable {
     }
 
     public String getDepartureStation() {
-        return this.b;
+        return this.f2980b;
     }
 
     public String getDepartureTime() {
@@ -47,7 +49,7 @@ public class TransitBaseInfo implements Parcelable {
     }
 
     public String getName() {
-        return this.f2113a;
+        return this.f2979a;
     }
 
     public void setArriveStation(String str) {
@@ -59,7 +61,7 @@ public class TransitBaseInfo implements Parcelable {
     }
 
     public void setDepartureStation(String str) {
-        this.b = str;
+        this.f2980b = str;
     }
 
     public void setDepartureTime(String str) {
@@ -67,13 +69,13 @@ public class TransitBaseInfo implements Parcelable {
     }
 
     public void setName(String str) {
-        this.f2113a = str;
+        this.f2979a = str;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2113a);
-        parcel.writeString(this.b);
+        parcel.writeString(this.f2979a);
+        parcel.writeString(this.f2980b);
         parcel.writeString(this.c);
         parcel.writeString(this.d);
         parcel.writeString(this.e);

@@ -6,12 +6,11 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.StatFs;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -31,16 +30,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
 /* loaded from: classes.dex */
 public class n {
     public static final File EXTERNAL_STORAGE_DIRECTORY = Environment.getExternalStorageDirectory();
     private static final File CACHE_DIR = TbadkCoreApplication.getInst().getApp().getCacheDir();
-
-    /* loaded from: classes.dex */
-    public interface b {
-        void C(HashMap<String, String> hashMap);
-    }
 
     public static boolean checkSD() {
         String str = null;
@@ -98,7 +91,7 @@ public class n {
         return false;
     }
 
-    public static boolean u(Uri uri) {
+    public static boolean w(Uri uri) {
         if (uri == null) {
             return false;
         }
@@ -110,22 +103,6 @@ public class n {
         } catch (URISyntaxException e2) {
             return false;
         }
-    }
-
-    public static long checkImageFileSize(String str, String str2) {
-        if (checkSD()) {
-            try {
-                if (new File(EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str + "/" + str2).exists()) {
-                    return TbConfig.getBigImageSize();
-                }
-                return -1L;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                TiebaStatic.file(e, com.baidu.adp.lib.util.k.join("FileHelper", ".", "checkImageFileSize", " ", str, "/", str2));
-                return -1L;
-            }
-        }
-        return -1L;
     }
 
     public static String getFileDireciory(String str) {
@@ -246,10 +223,10 @@ public class n {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [567=4, 568=4, 570=4, 571=4, 572=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x01c8 */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [564=4, 565=4, 567=4, 568=4, 569=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x01c6 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0196 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0194 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.StringBuilder] */
     /* JADX WARN: Type inference failed for: r2v1 */
     /* JADX WARN: Type inference failed for: r2v4, types: [java.io.InputStream] */
@@ -258,9 +235,7 @@ public class n {
     */
     public static boolean isGif(String str, String str2) {
         FileInputStream fileInputStream;
-        IOException e;
         boolean z;
-        FileNotFoundException e2;
         String str3 = str != null ? EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str + "/" : EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/";
         ?? sb = new StringBuilder();
         try {
@@ -273,10 +248,23 @@ public class n {
                         try {
                             fileInputStream.close();
                             fileInputStream = null;
-                        } catch (FileNotFoundException e3) {
-                            e2 = e3;
-                            e2.printStackTrace();
-                            TiebaStatic.file(e2, com.baidu.adp.lib.util.k.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            e.printStackTrace();
+                            TiebaStatic.file(e, com.baidu.adp.lib.util.k.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (Exception e2) {
+                                    e2.printStackTrace();
+                                    TiebaStatic.file(e2, com.baidu.adp.lib.util.k.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                                }
+                            }
+                            return z;
+                        } catch (IOException e3) {
+                            e = e3;
+                            e.printStackTrace();
+                            TiebaStatic.file(e, com.baidu.adp.lib.util.k.join("FileHelper", "isGif", " ", str, "/", str2));
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
@@ -286,34 +274,21 @@ public class n {
                                 }
                             }
                             return z;
-                        } catch (IOException e5) {
-                            e = e5;
-                            e.printStackTrace();
-                            TiebaStatic.file(e, com.baidu.adp.lib.util.k.join("FileHelper", "isGif", " ", str, "/", str2));
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e6) {
-                                    e6.printStackTrace();
-                                    TiebaStatic.file(e6, com.baidu.adp.lib.util.k.join("FileHelper", ".", "isGif", " ", str, "/", str2));
-                                }
-                            }
-                            return z;
                         }
                     }
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
-                        } catch (Exception e7) {
-                            e7.printStackTrace();
-                            TiebaStatic.file(e7, com.baidu.adp.lib.util.k.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                            TiebaStatic.file(e5, com.baidu.adp.lib.util.k.join("FileHelper", ".", "isGif", " ", str, "/", str2));
                         }
                     }
-                } catch (FileNotFoundException e8) {
-                    e2 = e8;
+                } catch (FileNotFoundException e6) {
+                    e = e6;
                     z = false;
-                } catch (IOException e9) {
-                    e = e9;
+                } catch (IOException e7) {
+                    e = e7;
                     z = false;
                 }
             } catch (Throwable th) {
@@ -321,20 +296,20 @@ public class n {
                 if (sb != 0) {
                     try {
                         sb.close();
-                    } catch (Exception e10) {
-                        e10.printStackTrace();
-                        TiebaStatic.file(e10, com.baidu.adp.lib.util.k.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                    } catch (Exception e8) {
+                        e8.printStackTrace();
+                        TiebaStatic.file(e8, com.baidu.adp.lib.util.k.join("FileHelper", ".", "isGif", " ", str, "/", str2));
                     }
                 }
                 throw th;
             }
-        } catch (FileNotFoundException e11) {
+        } catch (FileNotFoundException e9) {
+            e = e9;
             fileInputStream = null;
-            e2 = e11;
             z = false;
-        } catch (IOException e12) {
+        } catch (IOException e10) {
+            e = e10;
             fileInputStream = null;
-            e = e12;
             z = false;
         } catch (Throwable th2) {
             th = th2;
@@ -376,11 +351,11 @@ public class n {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean BL(String str) {
+    public static boolean BK(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean BM(String str) {
+    public static boolean BL(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -661,11 +636,11 @@ public class n {
         }
     }
 
-    public static String i(String str, byte[] bArr) {
+    public static String k(String str, byte[] bArr) {
         return c(null, str, bArr);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1125=5, 1126=5, 1128=5, 1129=5, 1130=10, 1131=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1122=5, 1123=5, 1125=5, 1126=5, 1127=10, 1128=5] */
     public static String c(String str, String str2, byte[] bArr) {
         String str3 = str != null ? EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str + "/" : EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/";
         if (!CheckTempDir(str3) || bArr == null || str2 == null) {
@@ -775,8 +750,8 @@ public class n {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1186=4, 1187=4, 1189=4, 1190=4, 1191=4, 1195=4, 1196=4, 1198=4, 1199=4, 1200=4] */
-    public static boolean w(java.lang.String r8, java.lang.String r9, boolean r10) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1183=4, 1184=4, 1186=4, 1187=4, 1188=4, 1192=4, 1193=4, 1195=4, 1196=4, 1197=4] */
+    public static boolean y(java.lang.String r8, java.lang.String r9, boolean r10) {
         /*
             r0 = 0
             r3 = 0
@@ -784,11 +759,11 @@ public class n {
             r2 = 0
             java.lang.String r4 = getPrefixPath(r8, r10)
             java.lang.String r5 = getPrefixPath(r9, r10)
-            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L221
-            r6.<init>(r4)     // Catch: java.lang.Throwable -> L221
-            java.io.File r7 = new java.io.File     // Catch: java.lang.Throwable -> L221
-            r7.<init>(r5)     // Catch: java.lang.Throwable -> L221
-            boolean r4 = r6.exists()     // Catch: java.lang.Throwable -> L221
+            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L220
+            r6.<init>(r4)     // Catch: java.lang.Throwable -> L220
+            java.io.File r7 = new java.io.File     // Catch: java.lang.Throwable -> L220
+            r7.<init>(r5)     // Catch: java.lang.Throwable -> L220
+            boolean r4 = r6.exists()     // Catch: java.lang.Throwable -> L220
             if (r4 != 0) goto L85
             if (r3 == 0) goto L21
             r1.close()     // Catch: java.lang.Throwable -> L27
@@ -830,42 +805,41 @@ public class n {
             com.baidu.tbadk.core.util.TiebaStatic.file(r1, r2)
             goto L26
         L85:
-            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L221
-            r4.<init>(r6)     // Catch: java.lang.Throwable -> L221
+            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L220
+            r4.<init>(r6)     // Catch: java.lang.Throwable -> L220
             java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L225
             r2.<init>(r7)     // Catch: java.lang.Throwable -> L225
             r1 = 1024(0x400, float:1.435E-42)
             byte[] r1 = new byte[r1]     // Catch: java.lang.Throwable -> L9e
         L93:
             int r5 = r4.read(r1)     // Catch: java.lang.Throwable -> L9e
-            if (r5 <= 0) goto L109
+            if (r5 <= 0) goto L108
             r6 = 0
             r2.write(r1, r6, r5)     // Catch: java.lang.Throwable -> L9e
             goto L93
         L9e:
             r1 = move-exception
-            r3 = r4
-        La0:
-            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L21f
-            com.baidu.adp.lib.util.BdLog.e(r4)     // Catch: java.lang.Throwable -> L21f
-            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L21f
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L21f
-            r4.<init>()     // Catch: java.lang.Throwable -> L21f
+        L9f:
+            java.lang.String r3 = r1.toString()     // Catch: java.lang.Throwable -> L21b
+            com.baidu.adp.lib.util.BdLog.e(r3)     // Catch: java.lang.Throwable -> L21b
+            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L21b
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L21b
+            r3.<init>()     // Catch: java.lang.Throwable -> L21b
             java.lang.String r5 = "FileHelper.CopyFile "
-            java.lang.StringBuilder r4 = r4.append(r5)     // Catch: java.lang.Throwable -> L21f
-            java.lang.StringBuilder r4 = r4.append(r8)     // Catch: java.lang.Throwable -> L21f
+            java.lang.StringBuilder r3 = r3.append(r5)     // Catch: java.lang.Throwable -> L21b
+            java.lang.StringBuilder r3 = r3.append(r8)     // Catch: java.lang.Throwable -> L21b
             java.lang.String r5 = " to "
-            java.lang.StringBuilder r4 = r4.append(r5)     // Catch: java.lang.Throwable -> L21f
-            java.lang.StringBuilder r4 = r4.append(r9)     // Catch: java.lang.Throwable -> L21f
-            java.lang.String r4 = r4.toString()     // Catch: java.lang.Throwable -> L21f
-            com.baidu.tbadk.core.util.TiebaStatic.file(r1, r4)     // Catch: java.lang.Throwable -> L21f
-            if (r3 == 0) goto Ld2
-            r3.close()     // Catch: java.lang.Throwable -> L17d
-        Ld2:
+            java.lang.StringBuilder r3 = r3.append(r5)     // Catch: java.lang.Throwable -> L21b
+            java.lang.StringBuilder r3 = r3.append(r9)     // Catch: java.lang.Throwable -> L21b
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L21b
+            com.baidu.tbadk.core.util.TiebaStatic.file(r1, r3)     // Catch: java.lang.Throwable -> L21b
+            if (r4 == 0) goto Ld1
+            r4.close()     // Catch: java.lang.Throwable -> L17c
+        Ld1:
             if (r2 == 0) goto L26
-            r2.close()     // Catch: java.lang.Throwable -> Ld9
+            r2.close()     // Catch: java.lang.Throwable -> Ld8
             goto L26
-        Ld9:
+        Ld8:
             r1 = move-exception
             java.lang.String r2 = r1.toString()
             com.baidu.adp.lib.util.BdLog.e(r2)
@@ -881,19 +855,19 @@ public class n {
             java.lang.String r2 = r2.toString()
             com.baidu.tbadk.core.util.TiebaStatic.file(r1, r2)
             goto L26
-        L109:
+        L108:
             r4.close()     // Catch: java.lang.Throwable -> L9e
             r1 = 0
-            r2.close()     // Catch: java.lang.Throwable -> L22a
+            r2.close()     // Catch: java.lang.Throwable -> L229
             r2 = 0
             r0 = 1
-            if (r3 == 0) goto L117
-            r1.close()     // Catch: java.lang.Throwable -> L14e
-        L117:
+            if (r3 == 0) goto L116
+            r1.close()     // Catch: java.lang.Throwable -> L14d
+        L116:
             if (r3 == 0) goto L26
-            r2.close()     // Catch: java.lang.Throwable -> L11e
+            r2.close()     // Catch: java.lang.Throwable -> L11d
             goto L26
-        L11e:
+        L11d:
             r1 = move-exception
             java.lang.String r2 = r1.toString()
             com.baidu.adp.lib.util.BdLog.e(r2)
@@ -909,7 +883,7 @@ public class n {
             java.lang.String r2 = r2.toString()
             com.baidu.tbadk.core.util.TiebaStatic.file(r1, r2)
             goto L26
-        L14e:
+        L14d:
             r1 = move-exception
             java.lang.String r4 = r1.toString()
             com.baidu.adp.lib.util.BdLog.e(r4)
@@ -924,8 +898,8 @@ public class n {
             java.lang.StringBuilder r4 = r4.append(r9)
             java.lang.String r4 = r4.toString()
             com.baidu.tbadk.core.util.TiebaStatic.file(r1, r4)
-            goto L117
-        L17d:
+            goto L116
+        L17c:
             r1 = move-exception
             java.lang.String r3 = r1.toString()
             com.baidu.adp.lib.util.BdLog.e(r3)
@@ -940,13 +914,14 @@ public class n {
             java.lang.StringBuilder r3 = r3.append(r9)
             java.lang.String r3 = r3.toString()
             com.baidu.tbadk.core.util.TiebaStatic.file(r1, r3)
-            goto Ld2
-        L1ad:
+            goto Ld1
+        L1ac:
             r0 = move-exception
             r2 = r3
+            r4 = r3
         L1af:
-            if (r3 == 0) goto L1b4
-            r3.close()     // Catch: java.lang.Throwable -> L1ba
+            if (r4 == 0) goto L1b4
+            r4.close()     // Catch: java.lang.Throwable -> L1ba
         L1b4:
             if (r2 == 0) goto L1b9
             r2.close()     // Catch: java.lang.Throwable -> L1e9
@@ -987,29 +962,29 @@ public class n {
         L218:
             r0 = move-exception
             r2 = r3
-            r3 = r4
             goto L1af
-        L21c:
-            r0 = move-exception
-            r3 = r4
-            goto L1af
-        L21f:
+        L21b:
             r0 = move-exception
             goto L1af
-        L221:
+        L21d:
+            r0 = move-exception
+            r4 = r3
+            goto L1af
+        L220:
             r1 = move-exception
             r2 = r3
-            goto La0
+            r4 = r3
+            goto L9f
         L225:
             r1 = move-exception
             r2 = r3
-            r3 = r4
-            goto La0
-        L22a:
+            goto L9f
+        L229:
             r1 = move-exception
-            goto La0
+            r4 = r3
+            goto L9f
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.n.w(java.lang.String, java.lang.String, boolean):boolean");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.n.y(java.lang.String, java.lang.String, boolean):boolean");
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -1020,18 +995,18 @@ public class n {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1242=4, 1243=4, 1245=4, 1246=4, 1247=4, 1251=4, 1252=4, 1254=4, 1255=4, 1256=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1239=4, 1240=4, 1242=4, 1243=4, 1244=4, 1248=4, 1249=4, 1251=4, 1252=4, 1253=4] */
     public static boolean copyFile(java.lang.String r7, java.lang.String r8) {
         /*
             r0 = 0
             r3 = 0
             r1 = 0
             r2 = 0
-            java.io.File r5 = new java.io.File     // Catch: java.lang.Throwable -> L219
-            r5.<init>(r7)     // Catch: java.lang.Throwable -> L219
-            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L219
-            r6.<init>(r8)     // Catch: java.lang.Throwable -> L219
-            boolean r4 = r5.exists()     // Catch: java.lang.Throwable -> L219
+            java.io.File r5 = new java.io.File     // Catch: java.lang.Throwable -> L218
+            r5.<init>(r7)     // Catch: java.lang.Throwable -> L218
+            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L218
+            r6.<init>(r8)     // Catch: java.lang.Throwable -> L218
+            boolean r4 = r5.exists()     // Catch: java.lang.Throwable -> L218
             if (r4 != 0) goto L7d
             if (r3 == 0) goto L19
             r1.close()     // Catch: java.lang.Throwable -> L1f
@@ -1073,42 +1048,41 @@ public class n {
             com.baidu.tbadk.core.util.TiebaStatic.file(r1, r2)
             goto L1e
         L7d:
-            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L219
-            r4.<init>(r5)     // Catch: java.lang.Throwable -> L219
+            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L218
+            r4.<init>(r5)     // Catch: java.lang.Throwable -> L218
             java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L21d
             r2.<init>(r6)     // Catch: java.lang.Throwable -> L21d
             r1 = 1024(0x400, float:1.435E-42)
             byte[] r1 = new byte[r1]     // Catch: java.lang.Throwable -> L96
         L8b:
             int r5 = r4.read(r1)     // Catch: java.lang.Throwable -> L96
-            if (r5 <= 0) goto L101
+            if (r5 <= 0) goto L100
             r6 = 0
             r2.write(r1, r6, r5)     // Catch: java.lang.Throwable -> L96
             goto L8b
         L96:
             r1 = move-exception
-            r3 = r4
-        L98:
-            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L217
-            com.baidu.adp.lib.util.BdLog.e(r4)     // Catch: java.lang.Throwable -> L217
-            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L217
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L217
-            r4.<init>()     // Catch: java.lang.Throwable -> L217
+        L97:
+            java.lang.String r3 = r1.toString()     // Catch: java.lang.Throwable -> L213
+            com.baidu.adp.lib.util.BdLog.e(r3)     // Catch: java.lang.Throwable -> L213
+            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L213
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L213
+            r3.<init>()     // Catch: java.lang.Throwable -> L213
             java.lang.String r5 = "FileHelper.CopyFile "
-            java.lang.StringBuilder r4 = r4.append(r5)     // Catch: java.lang.Throwable -> L217
-            java.lang.StringBuilder r4 = r4.append(r7)     // Catch: java.lang.Throwable -> L217
+            java.lang.StringBuilder r3 = r3.append(r5)     // Catch: java.lang.Throwable -> L213
+            java.lang.StringBuilder r3 = r3.append(r7)     // Catch: java.lang.Throwable -> L213
             java.lang.String r5 = " to "
-            java.lang.StringBuilder r4 = r4.append(r5)     // Catch: java.lang.Throwable -> L217
-            java.lang.StringBuilder r4 = r4.append(r8)     // Catch: java.lang.Throwable -> L217
-            java.lang.String r4 = r4.toString()     // Catch: java.lang.Throwable -> L217
-            com.baidu.tbadk.core.util.TiebaStatic.file(r1, r4)     // Catch: java.lang.Throwable -> L217
-            if (r3 == 0) goto Lca
-            r3.close()     // Catch: java.lang.Throwable -> L175
-        Lca:
+            java.lang.StringBuilder r3 = r3.append(r5)     // Catch: java.lang.Throwable -> L213
+            java.lang.StringBuilder r3 = r3.append(r8)     // Catch: java.lang.Throwable -> L213
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L213
+            com.baidu.tbadk.core.util.TiebaStatic.file(r1, r3)     // Catch: java.lang.Throwable -> L213
+            if (r4 == 0) goto Lc9
+            r4.close()     // Catch: java.lang.Throwable -> L174
+        Lc9:
             if (r2 == 0) goto L1e
-            r2.close()     // Catch: java.lang.Throwable -> Ld1
+            r2.close()     // Catch: java.lang.Throwable -> Ld0
             goto L1e
-        Ld1:
+        Ld0:
             r1 = move-exception
             java.lang.String r2 = r1.toString()
             com.baidu.adp.lib.util.BdLog.e(r2)
@@ -1124,19 +1098,19 @@ public class n {
             java.lang.String r2 = r2.toString()
             com.baidu.tbadk.core.util.TiebaStatic.file(r1, r2)
             goto L1e
-        L101:
+        L100:
             r4.close()     // Catch: java.lang.Throwable -> L96
             r1 = 0
-            r2.close()     // Catch: java.lang.Throwable -> L222
+            r2.close()     // Catch: java.lang.Throwable -> L221
             r2 = 0
             r0 = 1
-            if (r3 == 0) goto L10f
-            r1.close()     // Catch: java.lang.Throwable -> L146
-        L10f:
+            if (r3 == 0) goto L10e
+            r1.close()     // Catch: java.lang.Throwable -> L145
+        L10e:
             if (r3 == 0) goto L1e
-            r2.close()     // Catch: java.lang.Throwable -> L116
+            r2.close()     // Catch: java.lang.Throwable -> L115
             goto L1e
-        L116:
+        L115:
             r1 = move-exception
             java.lang.String r2 = r1.toString()
             com.baidu.adp.lib.util.BdLog.e(r2)
@@ -1152,7 +1126,7 @@ public class n {
             java.lang.String r2 = r2.toString()
             com.baidu.tbadk.core.util.TiebaStatic.file(r1, r2)
             goto L1e
-        L146:
+        L145:
             r1 = move-exception
             java.lang.String r4 = r1.toString()
             com.baidu.adp.lib.util.BdLog.e(r4)
@@ -1167,8 +1141,8 @@ public class n {
             java.lang.StringBuilder r4 = r4.append(r8)
             java.lang.String r4 = r4.toString()
             com.baidu.tbadk.core.util.TiebaStatic.file(r1, r4)
-            goto L10f
-        L175:
+            goto L10e
+        L174:
             r1 = move-exception
             java.lang.String r3 = r1.toString()
             com.baidu.adp.lib.util.BdLog.e(r3)
@@ -1183,13 +1157,14 @@ public class n {
             java.lang.StringBuilder r3 = r3.append(r8)
             java.lang.String r3 = r3.toString()
             com.baidu.tbadk.core.util.TiebaStatic.file(r1, r3)
-            goto Lca
-        L1a5:
+            goto Lc9
+        L1a4:
             r0 = move-exception
             r2 = r3
+            r4 = r3
         L1a7:
-            if (r3 == 0) goto L1ac
-            r3.close()     // Catch: java.lang.Throwable -> L1b2
+            if (r4 == 0) goto L1ac
+            r4.close()     // Catch: java.lang.Throwable -> L1b2
         L1ac:
             if (r2 == 0) goto L1b1
             r2.close()     // Catch: java.lang.Throwable -> L1e1
@@ -1230,35 +1205,34 @@ public class n {
         L210:
             r0 = move-exception
             r2 = r3
-            r3 = r4
             goto L1a7
-        L214:
-            r0 = move-exception
-            r3 = r4
-            goto L1a7
-        L217:
+        L213:
             r0 = move-exception
             goto L1a7
-        L219:
+        L215:
+            r0 = move-exception
+            r4 = r3
+            goto L1a7
+        L218:
             r1 = move-exception
             r2 = r3
-            goto L98
+            r4 = r3
+            goto L97
         L21d:
             r1 = move-exception
             r2 = r3
-            r3 = r4
-            goto L98
-        L222:
+            goto L97
+        L221:
             r1 = move-exception
-            goto L98
+            r4 = r3
+            goto L97
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.n.copyFile(java.lang.String, java.lang.String):boolean");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1322=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1319=5] */
     public static String saveFile(String str, InputStream inputStream) {
         FileOutputStream fileOutputStream;
-        Throwable th;
         String str2 = null;
         if (!StringUtils.isNull(str) && inputStream != null) {
             File file = new File(str);
@@ -1294,8 +1268,8 @@ public class n {
                             com.baidu.adp.lib.util.n.close((OutputStream) fileOutputStream);
                             return str2;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th) {
+                        th = th;
                         com.baidu.adp.lib.util.n.close((OutputStream) fileOutputStream);
                         throw th;
                     }
@@ -1305,9 +1279,9 @@ public class n {
             } catch (IOException e2) {
                 e = e2;
                 fileOutputStream = null;
-            } catch (Throwable th3) {
+            } catch (Throwable th2) {
+                th = th2;
                 fileOutputStream = null;
-                th = th3;
                 com.baidu.adp.lib.util.n.close((OutputStream) fileOutputStream);
                 throw th;
             }
@@ -1388,8 +1362,8 @@ public class n {
         }
     }
 
-    public static boolean dV(String str, String str2) {
-        return w(str, str2, false);
+    public static boolean dU(String str, String str2) {
+        return y(str, str2, false);
     }
 
     public static InputStream GetStreamFromFile(String str) {
@@ -1483,7 +1457,7 @@ public class n {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1626=5, 1627=5, 1629=5, 1630=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1623=5, 1624=5, 1626=5, 1627=5] */
     public static boolean saveFileByAbsolutePath(String str, byte[] bArr) {
         FileOutputStream fileOutputStream = null;
         boolean z = false;
@@ -1727,17 +1701,6 @@ public class n {
         return j;
     }
 
-    public static void makeRootDirectory(String str) {
-        try {
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdir();
-            }
-        } catch (Exception e) {
-            TiebaStatic.file(e, "FileHelper.makeRootDirectory " + str);
-        }
-    }
-
     /* loaded from: classes.dex */
     public static class a {
         public static final String PACKAGE_DATA_DIR = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
@@ -1811,8 +1774,8 @@ public class n {
                 File file = new File(PACKAGE_DATA_DIR + "/" + str);
                 if (file.exists() && file.isDirectory()) {
                     File[] listFiles = file.listFiles();
-                    int length = listFiles.length;
                     long j = 0;
+                    int length = listFiles.length;
                     for (int i = 0; i < length; i++) {
                         if (j > listFiles[i].lastModified()) {
                             j = listFiles[i].lastModified();
@@ -1827,14 +1790,14 @@ public class n {
             return str2;
         }
 
-        public static String btd() {
+        public static String bvF() {
             File[] listFiles;
             try {
                 File file = new File(PACKAGE_DATA_DIR + "/" + FileHelper.DataDir.PACKAGE_VERSION_CUR_DIR);
                 if (!file.exists() || !file.isDirectory() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
                     return null;
                 }
-                Arrays.sort(listFiles, new C0590a());
+                Arrays.sort(listFiles, new C0581a());
                 File file2 = listFiles[0];
                 if (file2 != null) {
                     return file2.getName();
@@ -1846,10 +1809,11 @@ public class n {
             }
         }
 
+        /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.tbadk.core.util.n$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        static class C0590a implements Comparator<File> {
-            C0590a() {
+        public static class C0581a implements Comparator<File> {
+            C0581a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1881,18 +1845,18 @@ public class n {
                 str2 = ".gif";
             }
             if (com.baidu.adp.lib.util.l.isDataWebpFormat(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
-                bArr = com.baidu.adp.lib.util.d.oh().Bitmap2Bytes(decodeByteArray, 100);
+                bArr = com.baidu.adp.lib.util.d.nI().Bitmap2Bytes(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
-            String nameMd5FromUrl = aw.getNameMd5FromUrl(str);
+            String nameMd5FromUrl = av.getNameMd5FromUrl(str);
             if (nameMd5FromUrl != null) {
                 String str3 = nameMd5FromUrl + str2;
                 for (int i = 0; CheckFile(str3) && i < 10000; i++) {
                     str3 = nameMd5FromUrl + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
                 }
-                String i2 = i(str3, bArr);
-                if (i2 != null) {
-                    new z(context).saveImage(i2);
+                String k = k(str3, bArr);
+                if (k != null) {
+                    new y(context).saveImage(k);
                     return 0;
                 }
                 return -2;
@@ -1902,52 +1866,6 @@ public class n {
             BdLog.e(e.getMessage());
             return -1;
         }
-    }
-
-    public static void a(String[] strArr, final b bVar) {
-        if (strArr == null || strArr.length == 0) {
-            if (bVar != null) {
-                bVar.C(null);
-                return;
-            }
-            return;
-        }
-        for (String str : strArr) {
-            if (TextUtils.isEmpty(str)) {
-                if (bVar != null) {
-                    bVar.C(null);
-                    return;
-                } else {
-                    return;
-                }
-            }
-        }
-        final HashMap hashMap = new HashMap();
-        for (String str2 : strArr) {
-            hashMap.put(str2, null);
-        }
-        final int length = strArr.length;
-        MediaScannerConnection.scanFile(TbadkCoreApplication.getInst(), strArr, null, new MediaScannerConnection.OnScanCompletedListener() { // from class: com.baidu.tbadk.core.util.n.1
-            int eRZ = 0;
-
-            @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-            public void onScanCompleted(String str3, Uri uri) {
-                this.eRZ++;
-                if (uri != null) {
-                    hashMap.put(str3, uri.toString());
-                }
-                if (this.eRZ == length) {
-                    com.baidu.adp.lib.f.e.mY().post(new Runnable() { // from class: com.baidu.tbadk.core.util.n.1.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            if (bVar != null) {
-                                bVar.C(hashMap);
-                            }
-                        }
-                    });
-                }
-            }
-        });
     }
 
     public static int copyImageFile(String str, String str2, Context context) {
@@ -1961,7 +1879,7 @@ public class n {
             } else {
                 str3 = ".gif";
             }
-            String nameMd5FromUrl = aw.getNameMd5FromUrl(str2);
+            String nameMd5FromUrl = av.getNameMd5FromUrl(str2);
             if (nameMd5FromUrl != null) {
                 String str4 = nameMd5FromUrl + str3;
                 for (int i = 0; CheckFile(str4) && i < 10000; i++) {
@@ -1969,7 +1887,7 @@ public class n {
                 }
                 String str5 = getCacheDir() + str4;
                 com.baidu.adp.lib.util.f.copyFile(new File(str), new File(str5));
-                new z(context).saveImage(str5);
+                new y(context).saveImage(str5);
                 return 0;
             }
             return -1;
@@ -2040,7 +1958,7 @@ public class n {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String BN(String str) {
+    public static String BM(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2048,7 +1966,7 @@ public class n {
         return parse.getLastPathSegment();
     }
 
-    public static String BO(String str) {
+    public static String BN(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2056,18 +1974,18 @@ public class n {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void BP(@NonNull String str) {
+    public static void BO(@NonNull String str) {
         if (str != null) {
-            P(new File(CACHE_DIR + "/" + str));
+            S(new File(CACHE_DIR + "/" + str));
         }
     }
 
-    private static void P(File file) {
+    private static void S(File file) {
         File[] listFiles;
         if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    P(file2);
+                    S(file2);
                     file2.delete();
                 } else {
                     file2.delete();

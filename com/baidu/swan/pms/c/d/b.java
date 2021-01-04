@@ -1,8 +1,8 @@
 package com.baidu.swan.pms.c.d;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.pms.PMSConstants;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import java.util.Collection;
@@ -13,18 +13,18 @@ import java.util.Objects;
 import java.util.Set;
 /* loaded from: classes6.dex */
 public class b extends g {
-    private Set<a> eoa;
+    private Set<a> exI;
 
     public b(List<? extends a> list, @Nullable com.baidu.swan.pms.utils.a aVar) {
         super(-1);
         if (list != null && !list.isEmpty()) {
-            this.eoa = new LinkedHashSet();
-            Map<String, PMSAppInfo> bdH = com.baidu.swan.pms.database.a.bdF().bdH();
-            Map<String, com.baidu.swan.pms.model.f> bdG = com.baidu.swan.pms.database.a.bdF().bdG();
+            this.exI = new LinkedHashSet();
+            Map<String, PMSAppInfo> bgd = com.baidu.swan.pms.database.a.bgb().bgd();
+            Map<String, com.baidu.swan.pms.model.f> bgc = com.baidu.swan.pms.database.a.bgb().bgc();
             for (a aVar2 : list) {
                 if (aVar2 != null && !TextUtils.isEmpty(aVar2.getBundleId())) {
-                    a(bdH, bdG, aVar2, aVar);
-                    this.eoa.add(aVar2);
+                    a(bgd, bgc, aVar2, aVar);
+                    this.exI.add(aVar2);
                 }
             }
         }
@@ -33,14 +33,14 @@ public class b extends g {
     public b(Collection<String> collection, @Nullable com.baidu.swan.pms.utils.a aVar) {
         super(-1);
         if (collection != null && !collection.isEmpty()) {
-            this.eoa = new LinkedHashSet();
-            Map<String, PMSAppInfo> bdH = com.baidu.swan.pms.database.a.bdF().bdH();
-            Map<String, com.baidu.swan.pms.model.f> bdG = com.baidu.swan.pms.database.a.bdF().bdG();
+            this.exI = new LinkedHashSet();
+            Map<String, PMSAppInfo> bgd = com.baidu.swan.pms.database.a.bgb().bgd();
+            Map<String, com.baidu.swan.pms.model.f> bgc = com.baidu.swan.pms.database.a.bgb().bgc();
             for (String str : collection) {
                 if (!TextUtils.isEmpty(str)) {
                     a aVar2 = new a(str);
-                    a(bdH, bdG, aVar2, aVar);
-                    this.eoa.add(aVar2);
+                    a(bgd, bgc, aVar2, aVar);
+                    this.exI.add(aVar2);
                 }
             }
         }
@@ -54,74 +54,74 @@ public class b extends g {
                 aVar.setCategory(pMSAppInfo.appCategory);
             }
             if (!map2.containsKey(aVar.getBundleId())) {
-                aVar.dp(0L);
-            } else if (aVar2 != null && pMSAppInfo.versionCode != 0 && !aVar2.ve(aVar.getBundleId())) {
-                aVar.dp(0L);
+                aVar.dq(0L);
+            } else if (aVar2 != null && pMSAppInfo.versionCode != 0 && !aVar2.vd(aVar.getBundleId())) {
+                aVar.dq(0L);
             } else {
                 com.baidu.swan.pms.model.f fVar = map2.get(aVar.getBundleId());
                 if (fVar != null) {
-                    aVar.dp(fVar.versionCode);
+                    aVar.dq(fVar.versionCode);
                 } else {
-                    aVar.dp(0L);
+                    aVar.dq(0L);
                 }
             }
             if (pMSAppInfo.csProtocolVersion >= PMSConstants.b.getVersion()) {
-                aVar.dq(pMSAppInfo.appSign);
+                aVar.dr(pMSAppInfo.appSign);
             } else {
-                aVar.dq(0L);
+                aVar.dr(0L);
             }
         }
     }
 
     @Nullable
-    public Set<a> bev() {
-        return this.eoa;
+    public Set<a> bgQ() {
+        return this.exI;
     }
 
     /* loaded from: classes6.dex */
     public static class a {
-        private String eob;
-        private long eoc;
-        private long eod;
+        private String exJ;
+        private long exK;
+        private long exL;
         private int mCategory;
 
         public a(String str) {
             this.mCategory = -1;
-            this.eoc = 0L;
-            this.eod = 0L;
-            this.eob = str;
+            this.exK = 0L;
+            this.exL = 0L;
+            this.exJ = str;
         }
 
         public a(String str, int i) {
             this.mCategory = -1;
-            this.eoc = 0L;
-            this.eod = 0L;
-            this.eob = str;
+            this.exK = 0L;
+            this.exL = 0L;
+            this.exJ = str;
             this.mCategory = i;
         }
 
         public String getBundleId() {
-            return this.eob;
+            return this.exJ;
         }
 
-        public long bew() {
-            return this.eoc;
+        public long bgR() {
+            return this.exK;
         }
 
         public int getCategory() {
             return this.mCategory;
         }
 
-        public long bex() {
-            return this.eod;
-        }
-
-        void dp(long j) {
-            this.eoc = j;
+        public long bgS() {
+            return this.exL;
         }
 
         void dq(long j) {
-            this.eod = j;
+            this.exK = j;
+        }
+
+        void dr(long j) {
+            this.exL = j;
         }
 
         void setCategory(int i) {
@@ -129,7 +129,7 @@ public class b extends g {
         }
 
         public int hashCode() {
-            return Objects.hash(this.eob, Integer.valueOf(this.mCategory));
+            return Objects.hash(this.exJ, Integer.valueOf(this.mCategory));
         }
 
         public boolean equals(Object obj) {
@@ -138,7 +138,7 @@ public class b extends g {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.getBundleId(), this.eob) && aVar.getCategory() == this.mCategory;
+                return TextUtils.equals(aVar.getBundleId(), this.exJ) && aVar.getCategory() == this.mCategory;
             }
             return false;
         }

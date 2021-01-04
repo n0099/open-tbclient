@@ -1,6 +1,5 @@
 package com.idlefish.flutterboost;
 
-import android.support.v7.widget.ActivityChooserView;
 import android.text.DynamicLayout;
 import android.text.Editable;
 import android.text.Layout;
@@ -10,10 +9,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.InputMethodManager;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 class XInputConnectionAdaptor extends BaseInputConnection {
     private int mBatchCount;
     private final int mClient;

@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.process.a.b.a;
 
 import android.os.Bundle;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b extends a<Bundle> {
-    private String dqD;
+    private String dvC;
 
     public b(String str) {
-        this.dqD = str;
+        this.dvC = str;
     }
 
-    public String aHw() {
-        return this.dqD;
+    public String aIP() {
+        return this.dvC;
     }
 }

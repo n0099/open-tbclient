@@ -36,7 +36,6 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
 
     protected JSONObject parseServerResponsedData(String str) {
         JSONObject jSONObject;
-        Exception e;
         if (str == null) {
             return null;
         }
@@ -52,16 +51,16 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                     setErrorString(errorData.getError_msg());
                 }
                 return jSONObject;
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 BdLog.e(e.getMessage());
                 setError(-1);
                 setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
                 return jSONObject;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             jSONObject = null;
-            e = e3;
         }
     }
 }

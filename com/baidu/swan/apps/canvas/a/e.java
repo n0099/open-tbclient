@@ -8,11 +8,11 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ap.ah;
+import com.baidu.swan.apps.ao.ah;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class e extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
@@ -20,8 +20,8 @@ public class e extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject hW(int i) {
-        return super.hW(i);
+    public /* bridge */ /* synthetic */ JSONObject hQ(int i) {
+        return super.hQ(i);
     }
 
     public e(j jVar) {
@@ -33,26 +33,26 @@ public class e extends a {
         int i;
         int i2;
         Rect rect;
-        unitedSchemeEntity.result = hW(201);
-        com.baidu.swan.apps.canvas.b.d d = d(unitedSchemeEntity);
-        if (d == null) {
+        unitedSchemeEntity.result = hQ(201);
+        com.baidu.swan.apps.canvas.b.d c = c(unitedSchemeEntity);
+        if (c == null) {
             return false;
         }
-        if (d.mText == null || d.mText.length() <= 0) {
+        if (c.mText == null || c.mText.length() <= 0) {
             i = 0;
         } else {
-            if (d.cHG && d.mItalic) {
+            if (c.cMv && c.mItalic) {
                 i2 = 3;
-            } else if (d.cHG) {
+            } else if (c.cMv) {
                 i2 = 1;
             } else {
-                i2 = d.mItalic ? 2 : 0;
+                i2 = c.mItalic ? 2 : 0;
             }
             TextPaint textPaint = new TextPaint();
-            textPaint.setTypeface(Typeface.create(d.cHE, i2));
-            textPaint.setTextSize(d.cHF);
-            textPaint.getTextBounds(d.mText, 0, d.mText.length(), new Rect());
-            i = ah.O(rect.width());
+            textPaint.setTypeface(Typeface.create(c.cMt, i2));
+            textPaint.setTextSize(c.cMu);
+            textPaint.getTextBounds(c.mText, 0, c.mText.length(), new Rect());
+            i = ah.Q(rect.width());
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -66,8 +66,8 @@ public class e extends a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.canvas.a.a
-    /* renamed from: g */
-    public com.baidu.swan.apps.canvas.b.d d(UnitedSchemeEntity unitedSchemeEntity) {
+    /* renamed from: f */
+    public com.baidu.swan.apps.canvas.b.d c(UnitedSchemeEntity unitedSchemeEntity) {
         String str = unitedSchemeEntity.getParams().get("params");
         if (TextUtils.isEmpty(str)) {
             return null;

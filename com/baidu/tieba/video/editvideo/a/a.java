@@ -1,32 +1,31 @@
 package com.baidu.tieba.video.editvideo.a;
 
-import android.support.media.ExifInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.base.e;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.adp.base.f;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class a extends BaseAdapter {
-    private e eNZ;
+    private f eXW;
     private List<PendantData> mList;
-    private InterfaceC0878a nCP;
+    private InterfaceC0861a nGU;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes23.dex */
-    public interface InterfaceC0878a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0861a {
         void a(View view, int i, PendantData pendantData);
     }
 
-    public a(e eVar) {
-        this.eNZ = eVar;
+    public a(f fVar) {
+        this.eXW = fVar;
     }
 
     public void setData(List<PendantData> list) {
@@ -58,89 +57,88 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null) {
-            view = LayoutInflater.from(this.eNZ.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.eXW.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.nCR = (TextView) view.findViewById(R.id.cover_text);
-            bVar.nCS = (TbImageView) view.findViewById(R.id.pendant_image);
-            bVar.nCT = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
-            bVar.nCS.setDefaultBgResource(R.color.transparent);
-            bVar.nCS.setDefaultErrorResource(R.color.CAM_X0101);
-            bVar.nCS.setDefaultResource(R.color.CAM_X0101);
+            bVar.nGW = (TextView) view.findViewById(R.id.cover_text);
+            bVar.nGX = (TbImageView) view.findViewById(R.id.pendant_image);
+            bVar.nGY = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
+            bVar.nGX.setDefaultBgResource(R.color.transparent);
+            bVar.nGX.setDefaultResource(R.color.CAM_X0101);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.nCP != null) {
+                    if (a.this.nGU != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.nCS.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.nCS.getTag();
+                        if (bVar2.nGX.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.nGX.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.nCP.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.nGU.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
                 }
             });
-            view.setBackgroundColor(ap.getColor(R.color.CAM_X0201));
+            view.setBackgroundColor(ao.getColor(R.color.CAM_X0201));
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.nCS.setTag(Integer.valueOf(i));
+            bVar.nGX.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.nCR.setVisibility(0);
-                    bVar.nCS.setVisibility(8);
-                    bVar.nCT.setVisibility(8);
-                    bVar.nCR.setTextColor(ap.getColor(R.color.CAM_X0110));
-                    bVar.nCR.setText("No");
-                    bVar.nCR.setBackgroundDrawable(ap.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.nGW.setVisibility(0);
+                    bVar.nGX.setVisibility(8);
+                    bVar.nGY.setVisibility(8);
+                    bVar.nGW.setTextColor(ao.getColor(R.color.CAM_X0110));
+                    bVar.nGW.setText("No");
+                    bVar.nGW.setBackgroundDrawable(ao.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.nCR.setVisibility(0);
-                    bVar.nCS.setVisibility(8);
-                    bVar.nCT.setVisibility(8);
-                    bVar.nCR.setTextColor(ap.getColor(R.color.CAM_X0111));
-                    bVar.nCR.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                    bVar.nCR.setBackgroundColor(ap.getColor(R.color.CAM_X0302));
+                    bVar.nGW.setVisibility(0);
+                    bVar.nGX.setVisibility(8);
+                    bVar.nGY.setVisibility(8);
+                    bVar.nGW.setTextColor(ao.getColor(R.color.CAM_X0111));
+                    bVar.nGW.setText("T");
+                    bVar.nGW.setBackgroundColor(ao.getColor(R.color.CAM_X0302));
                     break;
                 case 2:
-                    bVar.nCR.setVisibility(0);
-                    bVar.nCS.setVisibility(8);
-                    bVar.nCT.setVisibility(8);
-                    bVar.nCR.setTextColor(ap.getColor(R.color.CAM_X0111));
-                    bVar.nCR.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                    bVar.nCR.setBackgroundColor(ap.getColor(R.color.CAM_X0109));
+                    bVar.nGW.setVisibility(0);
+                    bVar.nGX.setVisibility(8);
+                    bVar.nGY.setVisibility(8);
+                    bVar.nGW.setTextColor(ao.getColor(R.color.CAM_X0111));
+                    bVar.nGW.setText("T");
+                    bVar.nGW.setBackgroundColor(ao.getColor(R.color.CAM_X0109));
                     break;
                 case 3:
-                    bVar.nCR.setVisibility(0);
-                    bVar.nCS.setVisibility(8);
-                    bVar.nCT.setVisibility(8);
-                    bVar.nCR.setTextColor(ap.getColor(R.color.CAM_X0109));
-                    bVar.nCR.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                    bVar.nCR.setBackgroundDrawable(ap.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.nGW.setVisibility(0);
+                    bVar.nGX.setVisibility(8);
+                    bVar.nGY.setVisibility(8);
+                    bVar.nGW.setTextColor(ao.getColor(R.color.CAM_X0109));
+                    bVar.nGW.setText("T");
+                    bVar.nGW.setBackgroundDrawable(ao.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 default:
-                    bVar.nCR.setVisibility(8);
-                    bVar.nCS.setVisibility(0);
-                    bVar.nCT.setVisibility(8);
-                    bVar.nCS.startLoad(pendantData.img, 10, false);
+                    bVar.nGW.setVisibility(8);
+                    bVar.nGX.setVisibility(0);
+                    bVar.nGY.setVisibility(8);
+                    bVar.nGX.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
         return view;
     }
 
-    public void a(InterfaceC0878a interfaceC0878a) {
-        this.nCP = interfaceC0878a;
+    public void a(InterfaceC0861a interfaceC0861a) {
+        this.nGU = interfaceC0861a;
     }
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes8.dex */
     public class b {
-        public TextView nCR;
-        public TbImageView nCS;
-        public ProgressBar nCT;
+        public TextView nGW;
+        public TbImageView nGX;
+        public ProgressBar nGY;
 
         public b() {
         }

@@ -1,20 +1,20 @@
 package com.baidu.tieba.yuyinala.liveroom.messages;
 
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class YuyinGetLiveInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private w aFN;
+    private x aGe;
 
     public YuyinGetLiveInfoHttpResponseMessage() {
         super(1031024);
     }
 
-    public w Iq() {
-        return this.aFN;
+    public x HR() {
+        return this.aGe;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,9 +22,9 @@ public class YuyinGetLiveInfoHttpResponseMessage extends JsonHttpResponsedMessag
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && getError() == 0) {
-            this.aFN = new w();
-            this.aFN.bz(true);
-            this.aFN.parserJson(optJSONObject);
+            this.aGe = new x();
+            this.aGe.bw(true);
+            this.aGe.parserJson(optJSONObject);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("live_info");
             if (optJSONObject2 != null) {
                 AlaLiveSwitchData.isHotLive = optJSONObject2.optInt(HttpRequest.SDK_LIVE_IS_HOT);

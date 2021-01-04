@@ -1,9 +1,9 @@
 package com.facebook.drawee.drawable;
 
 import android.graphics.drawable.Drawable;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class e {
     public static void d(Drawable drawable, Drawable drawable2) {
         if (drawable2 != null && drawable != null && drawable != drawable2) {
@@ -17,7 +17,7 @@ public class e {
 
     public static void a(Drawable drawable, d dVar) {
         if (drawable != null && dVar != null) {
-            dVar.q(drawable);
+            dVar.w(drawable);
         }
     }
 
@@ -25,7 +25,7 @@ public class e {
         if (drawable != null) {
             drawable.setCallback(callback);
             if (drawable instanceof q) {
-                ((q) drawable).setTransformCallback(rVar);
+                ((q) drawable).a(rVar);
             }
         }
     }
@@ -40,7 +40,7 @@ public class e {
         return i;
     }
 
-    public static int Qe(int i) {
+    public static int Qn(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

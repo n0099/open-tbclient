@@ -12,20 +12,20 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e extends a implements DialogInterface.OnDismissListener, View.OnClickListener {
-    private View bTg;
-    public CustomMessageListener bgy;
-    private TextView eBQ;
-    private HeadImageView ovQ;
-    private TextView ovR;
-    private TextView ovS;
-    private TextView ovT;
-    private TextView ovU;
+    private View bYQ;
+    public CustomMessageListener bih;
+    private TextView eLt;
+    private HeadImageView oCE;
+    private TextView oCF;
+    private TextView oCG;
+    private TextView oCH;
+    private TextView oCI;
 
     public e(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bgy = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e.1
+        this.bih = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,15 +38,15 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
     }
 
     protected void initView() {
-        this.bTg = findViewById(a.f.view);
-        this.ovQ = (HeadImageView) findViewById(a.f.user_avatar);
-        this.eBQ = (TextView) findViewById(a.f.user_name);
-        this.ovR = (TextView) findViewById(a.f.tv_connection_wheat_time);
-        this.ovS = (TextView) findViewById(a.f.tv_new_fans_num);
-        this.ovT = (TextView) findViewById(a.f.tv_charm_earnings);
-        this.ovU = (TextView) findViewById(a.f.tv_ok);
-        this.bTg.setOnClickListener(this);
-        this.ovU.setOnClickListener(this);
+        this.bYQ = findViewById(a.f.view);
+        this.oCE = (HeadImageView) findViewById(a.f.user_avatar);
+        this.eLt = (TextView) findViewById(a.f.user_name);
+        this.oCF = (TextView) findViewById(a.f.tv_connection_wheat_time);
+        this.oCG = (TextView) findViewById(a.f.tv_new_fans_num);
+        this.oCH = (TextView) findViewById(a.f.tv_charm_earnings);
+        this.oCI = (TextView) findViewById(a.f.tv_ok);
+        this.bYQ.setOnClickListener(this);
+        this.oCI.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -60,16 +60,16 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
     protected View getView() {
-        return LayoutInflater.from(this.beD).inflate(a.g.yuyin_layout_dialog_connnection_wheat_end, (ViewGroup) null);
+        return LayoutInflater.from(this.mContext).inflate(a.g.yuyin_layout_dialog_connnection_wheat_end, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean Ty() {
+    protected boolean UD() {
         return true;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean Tz() {
+    protected boolean UE() {
         return true;
     }
 
@@ -85,7 +85,7 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        MessageManager.getInstance().registerListener(this.bgy);
+        MessageManager.getInstance().registerListener(this.bih);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -95,53 +95,53 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bTg) {
+        if (view == this.bYQ) {
             dismiss();
-        } else if (view == this.ovU) {
+        } else if (view == this.oCI) {
             dismiss();
         }
     }
 
-    public void c(String str, String str2, String str3, int i, int i2) {
-        this.ovQ.setIsRound(true);
-        this.ovQ.setAutoChangeStyle(false);
-        this.ovQ.setDefaultResource(a.e.yuyin_sdk_default_avatar);
-        if (this.ovQ != null && !TextUtils.isEmpty(str)) {
-            this.ovQ.setUrl(str);
-            this.ovQ.startLoad(str, 12, false);
+    public void d(String str, String str2, String str3, int i, int i2) {
+        this.oCE.setIsRound(true);
+        this.oCE.setAutoChangeStyle(false);
+        this.oCE.setDefaultResource(a.e.yuyin_sdk_default_avatar);
+        if (this.oCE != null && !TextUtils.isEmpty(str)) {
+            this.oCE.setUrl(str);
+            this.oCE.startLoad(str, 12, false);
         }
-        if (this.eBQ != null) {
+        if (this.eLt != null) {
             if (!TextUtils.isEmpty(str2)) {
-                this.eBQ.setText(str2);
+                this.eLt.setText(str2);
             } else {
-                this.eBQ.setText("");
+                this.eLt.setText("");
             }
         }
-        if (this.ovR != null) {
+        if (this.oCF != null) {
             if (!TextUtils.isEmpty(str3)) {
-                this.ovR.setText(str3);
+                this.oCF.setText(str3);
             } else {
-                this.ovR.setText("");
+                this.oCF.setText("");
             }
         }
-        if (this.ovS != null) {
+        if (this.oCG != null) {
             if (!TextUtils.isEmpty(Integer.toString(i))) {
-                this.ovS.setText(Integer.toString(i));
+                this.oCG.setText(Integer.toString(i));
             } else {
-                this.ovS.setText("");
+                this.oCG.setText("");
             }
         }
-        if (this.ovT != null) {
+        if (this.oCH != null) {
             if (!TextUtils.isEmpty(Integer.toString(i2))) {
-                this.ovT.setText(Integer.toString(i2));
+                this.oCH.setText(Integer.toString(i2));
             } else {
-                this.ovT.setText("");
+                this.oCH.setText("");
             }
         }
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        MessageManager.getInstance().unRegisterListener(this.bgy);
+        MessageManager.getInstance().unRegisterListener(this.bih);
     }
 }

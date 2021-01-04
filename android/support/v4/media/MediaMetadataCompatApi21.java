@@ -4,14 +4,11 @@ import android.graphics.Bitmap;
 import android.media.MediaMetadata;
 import android.media.Rating;
 import android.os.Parcel;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import java.util.Set;
 @RequiresApi(21)
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 class MediaMetadataCompatApi21 {
-    MediaMetadataCompatApi21() {
-    }
-
     public static Set<String> keySet(Object obj) {
         return ((MediaMetadata) obj).keySet();
     }
@@ -40,7 +37,7 @@ class MediaMetadataCompatApi21 {
         return MediaMetadata.CREATOR.createFromParcel(parcel);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static Object newInstance() {
             return new MediaMetadata.Builder();
@@ -69,5 +66,11 @@ class MediaMetadataCompatApi21 {
         public static Object build(Object obj) {
             return ((MediaMetadata.Builder) obj).build();
         }
+
+        private Builder() {
+        }
+    }
+
+    private MediaMetadataCompatApi21() {
     }
 }

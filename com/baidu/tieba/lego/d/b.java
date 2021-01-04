@@ -7,15 +7,15 @@ import com.baidu.tieba.lego.c.e;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class b implements a {
-    public static final AtomicReference<a> kWV = new AtomicReference<>(null);
-    private static final a kWW = new b();
+    public static final AtomicReference<a> lcA = new AtomicReference<>(null);
+    private static final a lcB = new b();
 
     private b() {
     }
 
-    public static a dfb() {
-        a aVar = kWV.get();
-        return aVar == null ? kWW : aVar;
+    public static a deM() {
+        a aVar = lcA.get();
+        return aVar == null ? lcB : aVar;
     }
 
     @Override // com.baidu.tieba.lego.d.a
@@ -31,7 +31,7 @@ public class b implements a {
     }
 
     @Override // com.baidu.tieba.lego.d.a
-    public com.baidu.tieba.lego.card.a.a a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+    public com.baidu.tieba.lego.card.adapter.a a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
         BdLog.e("Card project loaded failed.");
         return null;
     }

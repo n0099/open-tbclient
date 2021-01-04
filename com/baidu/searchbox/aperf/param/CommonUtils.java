@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes19.dex */
+/* loaded from: classes6.dex */
 public class CommonUtils {
     private static final String SDK_VERSION = "sdkversion";
     public static String sAppVersion;

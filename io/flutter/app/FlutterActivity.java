@@ -5,11 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
 import io.flutter.app.FlutterActivityDelegate;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterView;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class FlutterActivity extends Activity implements FlutterActivityDelegate.ViewFactory, PluginRegistry, FlutterView.Provider {
     private static final String TAG = "FlutterActivity";
     private final FlutterActivityDelegate delegate = new FlutterActivityDelegate(this, this);
@@ -102,7 +103,7 @@ public class FlutterActivity extends Activity implements FlutterActivityDelegate
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.eventDelegate.onRequestPermissionsResult(i, strArr, iArr);
     }
 

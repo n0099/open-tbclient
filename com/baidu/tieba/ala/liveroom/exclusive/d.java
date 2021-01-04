@@ -11,82 +11,82 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.live.data.ah;
-import com.baidu.live.data.u;
+import com.baidu.live.data.aj;
+import com.baidu.live.data.v;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.BdGridView;
 import com.baidu.live.tbadk.util.ScreenHelper;
 import com.baidu.live.view.RoundRectRelativeLayout;
 import com.baidu.tieba.ala.liveroom.exclusive.a;
-/* loaded from: classes4.dex */
-public class d extends com.baidu.live.view.e implements View.OnClickListener, com.baidu.live.view.web.f, a.InterfaceC0687a {
-    private u aKN;
-    private BdGridView bJR;
-    private int bRA;
-    private RoundRectRelativeLayout bue;
-    private float bui;
-    private boolean hdC;
-    private TextView hrh;
-    private a hri;
-    private int hrj;
-    private f hrk;
+/* loaded from: classes11.dex */
+public class d extends com.baidu.live.view.e implements View.OnClickListener, com.baidu.live.view.web.f, a.InterfaceC0679a {
+    private v aLn;
+    private BdGridView bOF;
+    private int bXh;
+    private RoundRectRelativeLayout byQ;
+    private float byT;
+    private TextView hDd;
+    private a hDe;
+    private int hDf;
+    private f hDg;
+    private boolean hpp;
     private Activity mActivity;
     private View mRootView;
 
     public void a(f fVar) {
-        this.hrk = fVar;
+        this.hDg = fVar;
     }
 
     public d(Activity activity) {
         super(activity);
-        this.hrj = -1;
+        this.hDf = -1;
         this.mActivity = activity;
         init();
     }
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!YV()) {
-            YQ();
+        if (!aal()) {
+            aag();
         }
     }
 
-    public void a(u uVar, int i) {
-        if (!this.mActivity.isFinishing() && uVar != null && uVar.Fm()) {
-            this.hrj = i;
-            this.aKN = uVar;
-            if (this.hri != null) {
-                this.hri.setDatas(this.aKN.Fn());
-                if (this.hrj >= 0) {
-                    nF(false);
-                    this.hri.wF(this.hrj);
+    public void a(v vVar, int i) {
+        if (!this.mActivity.isFinishing() && vVar != null && vVar.EC()) {
+            this.hDf = i;
+            this.aLn = vVar;
+            if (this.hDe != null) {
+                this.hDe.setDatas(this.aLn.ED());
+                if (this.hDf >= 0) {
+                    of(false);
+                    this.hDe.wQ(this.hDf);
                 } else {
-                    nF(true);
-                    this.hri.wF(-1);
+                    of(true);
+                    this.hDe.wQ(-1);
                 }
             }
             View findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290);
             if (findViewById != null) {
-                this.bue.setCornerRadius(this.bui, 0.0f, 0.0f, this.bui);
-                this.bRA = 5;
-                int YT = YT();
-                int YU = YU();
-                setWidth(YT);
-                setHeight(YU);
+                this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
+                this.bXh = 5;
+                int aaj = aaj();
+                int aak = aak();
+                setWidth(aaj);
+                setHeight(aak);
                 showAtLocation(findViewById, 85, 0, 0);
-                ah(this.bue);
-                OD();
+                ah(this.byQ);
+                Oj();
             }
         }
     }
 
-    private void nF(boolean z) {
-        if (this.aKN != null) {
-            c.a(this.mActivity, this.hrh, z, this.aKN.Fp(), this.aKN.Fo(), false);
+    private void of(boolean z) {
+        if (this.aLn != null) {
+            c.a(this.mActivity, this.hDd, z, this.aLn.EF(), this.aLn.EE(), false);
         }
     }
 
-    public void YQ() {
+    public void aag() {
         super.dismiss();
     }
 
@@ -99,32 +99,31 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
     }
 
     private void initView() {
-        this.bui = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds36);
-        this.bue = new RoundRectRelativeLayout(this.mActivity);
+        this.byT = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds36);
+        this.byQ = new RoundRectRelativeLayout(this.mActivity);
         this.mRootView = LayoutInflater.from(this.mActivity).inflate(a.g.ala_exclusive_scene_land_pop_layout, (ViewGroup) null);
-        this.hrh = (TextView) this.mRootView.findViewById(a.f.tv_land_allscene);
-        this.hrh.setOnClickListener(this);
-        this.bJR = (BdGridView) this.mRootView.findViewById(a.f.ala_live_land_scene_gridview);
-        this.hri = new a(this.mActivity, false);
-        this.hri.a(this);
-        this.bJR.setAdapter((ListAdapter) this.hri);
-        this.bue.addView(this.mRootView, new ViewGroup.LayoutParams(-1, -1));
-        setContentView(this.bue);
-        setClippingEnabled(false);
+        this.hDd = (TextView) this.mRootView.findViewById(a.f.tv_land_allscene);
+        this.hDd.setOnClickListener(this);
+        this.bOF = (BdGridView) this.mRootView.findViewById(a.f.ala_live_land_scene_gridview);
+        this.hDe = new a(this.mActivity, false);
+        this.hDe.a(this);
+        this.bOF.setAdapter((ListAdapter) this.hDe);
+        this.byQ.addView(this.mRootView, new ViewGroup.LayoutParams(-1, -1));
+        setContentView(this.byQ);
     }
 
-    private int YT() {
+    private int aaj() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
-    private int YU() {
+    private int aak() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
-    private void OD() {
+    private void Oj() {
         if (getContentView() != null) {
             TranslateAnimation translateAnimation = null;
-            switch (this.bRA) {
+            switch (this.bXh) {
                 case 5:
                     translateAnimation = new TranslateAnimation(1, 1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
                     break;
@@ -140,15 +139,15 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
         }
     }
 
-    private boolean YV() {
+    private boolean aal() {
         if (getContentView() == null) {
             return false;
         }
-        if (this.hdC) {
+        if (this.hpp) {
             return true;
         }
         TranslateAnimation translateAnimation = null;
-        switch (this.bRA) {
+        switch (this.bXh) {
             case 5:
                 translateAnimation = new TranslateAnimation(1, 0.0f, 1, 1.0f, 1, 0.0f, 1, 0.0f);
                 break;
@@ -166,8 +165,8 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    d.this.YQ();
-                    d.this.hdC = false;
+                    d.this.aag();
+                    d.this.hpp = false;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -175,7 +174,7 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
                 }
             });
             getContentView().startAnimation(translateAnimation);
-            this.hdC = true;
+            this.hpp = true;
             return true;
         }
         return false;
@@ -186,20 +185,20 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
         dismiss();
     }
 
-    @Override // com.baidu.tieba.ala.liveroom.exclusive.a.InterfaceC0687a
-    public void a(View view, int i, ah ahVar) {
+    @Override // com.baidu.tieba.ala.liveroom.exclusive.a.InterfaceC0679a
+    public void a(View view, int i, aj ajVar) {
         dismiss();
-        if (this.hrk != null) {
-            this.hrk.a(false, view, i, ahVar);
+        if (this.hDg != null) {
+            this.hDg.a(false, view, i, ajVar);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hrh) {
+        if (view == this.hDd) {
             dismiss();
-            if (this.hrk != null) {
-                this.hrk.a(true, this.hrh, -1, null);
+            if (this.hDg != null) {
+                this.hDg.a(true, this.hDd, -1, null);
             }
         }
     }

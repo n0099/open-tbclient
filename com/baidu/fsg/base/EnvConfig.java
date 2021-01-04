@@ -1,18 +1,20 @@
 package com.baidu.fsg.base;
 
 import android.content.Context;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class EnvConfig {
     public static final String ENVIRONMENT_PRELINE = "PRELINE";
     public static final String ENVIRONMENT_QA = "QA";
     public static final String ENVIRONMENT_RD = "RD";
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final String f1445a = "https://jrws.baidu.com";
+    protected static final String f1906a = "https://jrws.baidu.com";
     private static final String c = "https://jrws.baidu.com";
     public static final String ENVIRONMENT_ONLINE = "ONLINE";
     public static String DEFAULT_ENVIRONMENT = ENVIRONMENT_ONLINE;
-    protected static String b = "https://jrws.baidu.com";
+
+    /* renamed from: b  reason: collision with root package name */
+    protected static String f1907b = "https://jrws.baidu.com";
     private static EnvConfig d = null;
 
     public static synchronized EnvConfig getInstance(Context context) {
@@ -52,11 +54,11 @@ public class EnvConfig {
     }
 
     private void b() {
-        b = "https://jrws.baidu.com";
+        f1907b = "https://jrws.baidu.com";
         DEFAULT_ENVIRONMENT = ENVIRONMENT_ONLINE;
     }
 
     public String getRimHttpsHost() {
-        return b;
+        return f1907b;
     }
 }

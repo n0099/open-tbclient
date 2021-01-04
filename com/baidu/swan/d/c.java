@@ -5,17 +5,17 @@ import com.baidu.swan.pms.e.b;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class c implements com.baidu.swan.pms.e.b {
-    private static boolean euK = false;
-    private static final Set<b.a> euL = new HashSet();
+    private static boolean eEr = false;
+    private static final Set<b.a> eEs = new HashSet();
 
     @Override // com.baidu.swan.pms.e.b
     public void a(String str, b.a aVar) {
-        synchronized (euL) {
-            euL.add(aVar);
-            if (!euK) {
-                euK = true;
+        synchronized (eEs) {
+            eEs.add(aVar);
+            if (!eEr) {
+                eEr = true;
                 WebKitFactory.installAsync("file://" + str, new WebKitFactory.WebkitInstallListener() { // from class: com.baidu.swan.d.c.1
                     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
                     public void onInstallStart() {
@@ -23,10 +23,10 @@ public final class c implements com.baidu.swan.pms.e.b {
 
                     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
                     public void onInstallFinish(int i, String str2) {
-                        synchronized (c.euL) {
-                            a.iz(true);
-                            c.this.iA(new b(AppRuntime.getAppContext()).bhK());
-                            boolean unused = c.euK = false;
+                        synchronized (c.eEs) {
+                            a.iU(true);
+                            c.this.iV(new b(AppRuntime.getAppContext()).bkg());
+                            boolean unused = c.eEr = false;
                         }
                     }
                 });
@@ -35,14 +35,14 @@ public final class c implements com.baidu.swan.pms.e.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iA(boolean z) {
-        synchronized (euL) {
-            for (b.a aVar : euL) {
+    public void iV(boolean z) {
+        synchronized (eEs) {
+            for (b.a aVar : eEs) {
                 if (aVar != null) {
-                    aVar.fv(z);
+                    aVar.fE(z);
                 }
             }
-            euL.clear();
+            eEs.clear();
         }
     }
 }

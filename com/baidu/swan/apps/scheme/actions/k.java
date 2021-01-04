@@ -2,14 +2,13 @@ package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.storage.PathType;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class k extends aa {
     public k(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getLocalImgData");
@@ -33,20 +32,20 @@ public class k extends aa {
             com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "GetLocalImgDataAction bdfile path null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (com.baidu.swan.apps.storage.b.tZ(optString) != PathType.BD_FILE) {
+        } else if (com.baidu.swan.apps.storage.b.tW(optString) != PathType.BD_FILE) {
             com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "invalid path : " + optString);
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND, com.baidu.swan.apps.scheme.f.getErrMessage(UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND));
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2006, com.baidu.swan.apps.scheme.f.getErrMessage(2006));
             return false;
         } else {
-            String cF = com.baidu.swan.apps.storage.b.cF(optString, eVar.id);
-            if (TextUtils.isEmpty(cF)) {
+            String cE = com.baidu.swan.apps.storage.b.cE(optString, eVar.id);
+            if (TextUtils.isEmpty(cE)) {
                 com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "GetLocalImgDataAction realPath null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("filePath", cF);
+                jSONObject.put("filePath", cE);
                 com.baidu.swan.apps.console.c.i("GetLocalImgDataAction", "getLocalImgData success");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
                 return true;

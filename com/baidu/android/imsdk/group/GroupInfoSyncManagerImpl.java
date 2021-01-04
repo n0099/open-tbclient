@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class GroupInfoSyncManagerImpl {
     public static final String TAG_GROUPLIST_STATE = "get_all_grouplist_state";
     public static HashMap<String, ArrayList<String>> sUpdateGroupMembers = new HashMap<>();
@@ -164,16 +164,15 @@ public class GroupInfoSyncManagerImpl {
     }
 
     public static void activeSyncGroup(Context context, String str) {
-        ArrayList<String> arrayList;
         boolean z;
         boolean z2;
+        ArrayList<String> arrayList = null;
         synchronized (sUpdateGroupMembers) {
-            if (!sUpdateGroupMembers.containsKey(str)) {
-                arrayList = null;
-                z = false;
-            } else {
+            if (sUpdateGroupMembers.containsKey(str)) {
                 arrayList = sUpdateGroupMembers.remove(str);
                 z = true;
+            } else {
+                z = false;
             }
         }
         if (z) {

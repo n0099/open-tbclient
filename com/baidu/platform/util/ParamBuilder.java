@@ -1,4 +1,4 @@
 package com.baidu.platform.util;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public interface ParamBuilder<T> {
 }

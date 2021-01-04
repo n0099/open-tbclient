@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class WebChromeClient {
     public static final String DEFAULT_ERROR_IMAGE_PATH = "file:///android_asset/webkit/errorpage/images/error_page.png";
     protected static final int ERROR_CODE_FUNCTION_CALL_FAILED = 100;
@@ -43,12 +43,12 @@ public class WebChromeClient {
     protected static final String MSG_PROMPT_HEADER = "BdboxApp:";
     protected static final String MSG_PROMPT_HEADER_IMPACT = MSG_PROMPT_HEADER.toLowerCase();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface CustomViewCallback {
         void onCustomViewHidden();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static abstract class FileChooserParams {
         public static final int MODE_OPEN = 0;
         public static final int MODE_OPEN_FOLDER = 2;
@@ -182,8 +182,8 @@ public class WebChromeClient {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:90:0x024f  */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x0270  */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x024e  */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x026f  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.

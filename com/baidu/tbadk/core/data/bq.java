@@ -1,53 +1,42 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class bq extends a {
-    public static final BdUniqueId eFE = BdUniqueId.gen();
-    public int eHT;
-    private boolean eIe;
-    public String title;
-    public boolean eIg = true;
-    private List<MetaData> eIf = new ArrayList();
+public class bq {
+    private String uid = "";
+    private String uname = "";
+    private String portrait = "";
+    private String institute = "";
+    private int isLike = -1;
 
-    public void bn(List<User> list) {
-        if (list != null) {
-            int min = Math.min(list.size(), this.eIg ? 10 : list.size());
-            for (int i = 0; i < min; i++) {
-                MetaData metaData = new MetaData();
-                metaData.parserProtobuf(list.get(i));
-                this.eIf.add(metaData);
-            }
+    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
+        if (schoolRecomUserInfo != null) {
+            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
+            this.uname = schoolRecomUserInfo.uname;
+            this.portrait = schoolRecomUserInfo.portrait;
+            this.institute = schoolRecomUserInfo.institute;
+            this.isLike = schoolRecomUserInfo.is_liked.intValue();
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return eFE;
+    public String getUid() {
+        return this.uid;
     }
 
-    @Override // com.baidu.tbadk.core.data.a
-    public by bmn() {
-        return null;
+    public String bqB() {
+        return this.uname;
     }
 
-    @Override // com.baidu.tbadk.core.data.a
-    public at bmp() {
-        return new at();
+    public String getPortrait() {
+        return this.portrait;
     }
 
-    public List<MetaData> boc() {
-        return this.eIf;
+    public String bqC() {
+        return this.institute;
     }
 
-    public boolean bod() {
-        return this.eIe;
-    }
-
-    public void jb(boolean z) {
-        this.eIe = z;
+    public int getIsLike() {
+        return this.isLike;
     }
 }

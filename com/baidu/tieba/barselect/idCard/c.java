@@ -4,34 +4,34 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class c {
-    static Timer iek = null;
-    private static int iel = Runtime.getRuntime().availableProcessors();
-    private static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(iel);
+    static Timer iqF = null;
+    private static int iqG = Runtime.getRuntime().availableProcessors();
+    private static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(iqG);
 
     public static void execute(Runnable runnable) {
         fixedThreadPool.execute(runnable);
     }
 
-    public static Timer r(final Runnable runnable) {
-        if (iek != null) {
-            return iek;
+    public static Timer q(final Runnable runnable) {
+        if (iqF != null) {
+            return iqF;
         }
-        iek = new Timer();
-        iek.scheduleAtFixedRate(new TimerTask() { // from class: com.baidu.tieba.barselect.idCard.c.1
+        iqF = new Timer();
+        iqF.scheduleAtFixedRate(new TimerTask() { // from class: com.baidu.tieba.barselect.idCard.c.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 runnable.run();
             }
         }, 0L, 2000L);
-        return iek;
+        return iqF;
     }
 
-    public static void crB() {
-        if (iek != null) {
-            iek.cancel();
-            iek = null;
+    public static void cuu() {
+        if (iqF != null) {
+            iqF.cancel();
+            iqF = null;
         }
     }
 }

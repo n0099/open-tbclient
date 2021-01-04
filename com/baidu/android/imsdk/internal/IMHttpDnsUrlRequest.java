@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMHttpDnsUrlRequest extends BaseHttpRequest {
     public static final String HTTP_DNS_HOST = "https://httpsdns.baidu.com/";
     private static final String HTTP_DNS_URL = "https://180.76.76.112/v6/0025";
@@ -24,7 +24,6 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
         ArrayList arrayList;
-        Exception e;
         String str = new String(bArr);
         LogUtils.d(TAG, "onSuccess----ip of " + Constants.URL_SOCKET_SERVER + " is " + str);
         try {
@@ -40,8 +39,8 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
                 if (optJSONArray != null && length2 > 0) {
                     try {
                         arrayList.add(optJSONArray.getString(0));
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         LogUtils.e(TAG, "HttpDnsRequester ip parse exception " + e.getMessage());
                         IMSocketAddrProvider.getInstance(this.mContext).onGetHttpDNSAddressResult(arrayList);
                     }
@@ -50,9 +49,9 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
                     arrayList.add(optJSONArray2.getString(0));
                 }
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             arrayList = null;
-            e = e3;
         }
         IMSocketAddrProvider.getInstance(this.mContext).onGetHttpDNSAddressResult(arrayList);
     }

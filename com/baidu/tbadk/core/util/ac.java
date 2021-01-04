@@ -1,34 +1,45 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class ac {
-    private static ac eSZ;
-    public static int eTc;
-    private static volatile int eTa = 0;
-    private static int INTERVAL_TIME = 300000;
-    private static int eTb = 10;
+    private static ArrayList<a> mStatisticsDatas = new ArrayList<>();
+    public static AtomicInteger mErrorNums = new AtomicInteger(0);
 
-    private ac() {
-        eTc = TbadkCoreApplication.getInst().getNetWorkCoreType();
+    /* loaded from: classes.dex */
+    public static class a {
+        public int mMethod;
+        public int mMode;
+        public long mSize;
+        public long mTime;
+        public int mTimesNum;
     }
 
-    public static synchronized ac btz() {
-        ac acVar;
+    public static int getErrorNumsAndSet(int i) {
+        return mErrorNums.getAndSet(i);
+    }
+
+    public static int addErrorNumsAndGet(int i) {
+        return mErrorNums.addAndGet(i);
+    }
+
+    public static synchronized void a(a aVar) {
         synchronized (ac.class) {
-            if (eSZ == null) {
-                eSZ = new ac();
+            if (aVar != null) {
+                if (mStatisticsDatas.size() <= 20) {
+                    mStatisticsDatas.add(aVar);
+                }
             }
-            acVar = eSZ;
         }
-        return acVar;
     }
 
-    public s a(com.baidu.tbadk.core.util.a.a aVar) {
-        return new ab(aVar);
-    }
-
-    public static void pO(int i) {
-        eTc = i;
+    public static synchronized a bvV() {
+        a remove;
+        synchronized (ac.class) {
+            int size = mStatisticsDatas.size();
+            remove = size > 0 ? mStatisticsDatas.remove(size - 1) : null;
+        }
+        return remove;
     }
 }

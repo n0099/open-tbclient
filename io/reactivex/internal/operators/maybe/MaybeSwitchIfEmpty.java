@@ -4,7 +4,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class MaybeSwitchIfEmpty<T> extends a<T, T> {
     final o<? extends T> other;
 
@@ -13,7 +13,7 @@ public final class MaybeSwitchIfEmpty<T> extends a<T, T> {
         this.source.a(new SwitchIfEmptyMaybeObserver(mVar, this.other));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class SwitchIfEmptyMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -2223459372976438024L;
         final m<? super T> actual;
@@ -59,19 +59,19 @@ public final class MaybeSwitchIfEmpty<T> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         static final class a<T> implements m<T> {
             final m<? super T> actual;
-            final AtomicReference<io.reactivex.disposables.b> pFa;
+            final AtomicReference<io.reactivex.disposables.b> qgC;
 
             a(m<? super T> mVar, AtomicReference<io.reactivex.disposables.b> atomicReference) {
                 this.actual = mVar;
-                this.pFa = atomicReference;
+                this.qgC = atomicReference;
             }
 
             @Override // io.reactivex.m
             public void onSubscribe(io.reactivex.disposables.b bVar) {
-                DisposableHelper.setOnce(this.pFa, bVar);
+                DisposableHelper.setOnce(this.qgC, bVar);
             }
 
             @Override // io.reactivex.m

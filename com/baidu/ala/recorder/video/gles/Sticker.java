@@ -3,7 +3,7 @@ package com.baidu.ala.recorder.video.gles;
 import android.graphics.Bitmap;
 import android.graphics.RectF;
 import android.opengl.Matrix;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class Sticker {
     private Bitmap mBmp;
     private int mCameraHeight;
@@ -24,18 +24,20 @@ public class Sticker {
 
     private void updateMatrix() {
         float f;
-        float f2 = 1.0f;
+        float f2;
         this.mScaleX = 1.0f;
         this.mScaleY = this.mScreenHeight / this.mScreenWidth;
         if (this.mScreenWidth < this.mScreenHeight) {
             f = this.mScreenWidth / this.mScreenHeight;
+            f2 = 1.0f;
         } else if (this.mScreenWidth > this.mScreenHeight) {
             f2 = this.mScreenHeight / this.mScreenWidth;
             f = 1.0f;
         } else {
             f = 1.0f;
+            f2 = 1.0f;
         }
-        setScale(f2 * this.mScaleX, f * this.mScaleY);
+        setScale(this.mScaleX * f2, f * this.mScaleY);
     }
 
     public synchronized void setBitmap(Bitmap bitmap) {

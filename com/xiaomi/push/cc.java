@@ -4,20 +4,20 @@ import com.xiaomi.push.ai;
 import com.xiaomi.push.cb;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class cc extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cb f4605a;
+    final /* synthetic */ cb f14207a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cc(cb cbVar) {
-        this.f4605a = cbVar;
+        this.f14207a = cbVar;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo159a() {
+    public int mo185a() {
         return 100957;
     }
 
@@ -29,21 +29,21 @@ public class cc extends ai.a {
         ArrayList arrayList4;
         ArrayList arrayList5;
         ArrayList<cb.a> arrayList6;
-        arrayList = this.f4605a.f150a;
+        arrayList = this.f14207a.f228a;
         synchronized (arrayList) {
-            arrayList2 = this.f4605a.f150a;
+            arrayList2 = this.f14207a.f228a;
             if (arrayList2.size() > 0) {
-                arrayList3 = this.f4605a.f150a;
+                arrayList3 = this.f14207a.f228a;
                 if (arrayList3.size() > 1) {
-                    cb cbVar = this.f4605a;
-                    arrayList6 = this.f4605a.f150a;
+                    cb cbVar = this.f14207a;
+                    arrayList6 = this.f14207a.f228a;
                     cbVar.a(arrayList6);
                 } else {
-                    cb cbVar2 = this.f4605a;
-                    arrayList4 = this.f4605a.f150a;
+                    cb cbVar2 = this.f14207a;
+                    arrayList4 = this.f14207a.f228a;
                     cbVar2.b((cb.a) arrayList4.get(0));
                 }
-                arrayList5 = this.f4605a.f150a;
+                arrayList5 = this.f14207a.f228a;
                 arrayList5.clear();
                 System.gc();
             }

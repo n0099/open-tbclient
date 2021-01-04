@@ -20,7 +20,7 @@ public class PackageChangedReceiver extends BroadcastReceiver {
             } else if (ACTION_UNINSTALL.equals(intent.getAction())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PACKAGE_REMOVED, intent));
             }
-            c.K(intent);
+            c.L(intent);
         }
     }
 }

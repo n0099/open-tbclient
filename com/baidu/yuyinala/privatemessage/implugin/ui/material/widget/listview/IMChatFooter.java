@@ -5,29 +5,29 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class IMChatFooter extends LinearLayout {
-    private View oTa;
+    private View oZf;
 
     public IMChatFooter(Context context) {
         super(context);
-        ev(context);
+        eO(context);
     }
 
     public IMChatFooter(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        ev(context);
+        eO(context);
     }
 
-    private void ev(Context context) {
-        this.oTa = new TextView(context);
-        this.oTa.setLayoutParams(new LinearLayout.LayoutParams(-1, 80));
-        addView(this.oTa);
+    private void eO(Context context) {
+        this.oZf = new TextView(context);
+        this.oZf.setLayoutParams(new LinearLayout.LayoutParams(-1, 80));
+        addView(this.oZf);
     }
 
     public void setFooterHeight(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.oTa.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.oZf.getLayoutParams();
         layoutParams.height = i;
-        this.oTa.setLayoutParams(layoutParams);
+        this.oZf.setLayoutParams(layoutParams);
     }
 }

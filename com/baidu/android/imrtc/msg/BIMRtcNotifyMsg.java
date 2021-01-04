@@ -1,7 +1,7 @@
 package com.baidu.android.imrtc.msg;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.notify.BIMInviteSyncRtcInfo;
 import com.baidu.android.imrtc.notify.BIMKickReqSyncRtcInfo;
@@ -13,7 +13,7 @@ import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class BIMRtcNotifyMsg {
     private static final String TAG = "IMRtcNotifyMsg";
 

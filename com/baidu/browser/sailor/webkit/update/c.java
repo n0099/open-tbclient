@@ -7,30 +7,30 @@ import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f1293a;
-    final /* synthetic */ a agC;
+    final /* synthetic */ Context f1663a;
+    final /* synthetic */ a ahb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, Context context) {
-        this.agC = aVar;
-        this.f1293a = context;
+        this.ahb = aVar;
+        this.f1663a = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.f1293a != null) {
+        if (this.f1663a != null) {
             Log.i(EngineManager.LOG_TAG, "start check zeus update async");
-            a aVar = this.agC;
-            Context context = this.f1293a;
+            a aVar = this.ahb;
+            Context context = this.f1663a;
             if (WebKitFactory.isUserPrivacyEnabled() && !aVar.d && com.baidu.browser.sailor.util.b.a(context)) {
-                a.C0096a c0096a = new a.C0096a(context, "https://mbrowser.baidu.com/api/update/kernel?version=");
+                a.C0088a c0088a = new a.C0088a(context, "https://mbrowser.baidu.com/api/update/kernel?version=");
                 BdNet bdNet = new BdNet(context);
-                bdNet.setEventListener(c0096a);
-                bdNet.start(c0096a, false);
+                bdNet.setEventListener(c0088a);
+                bdNet.start(c0088a, false);
                 aVar.d = true;
             }
         }

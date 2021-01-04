@@ -7,16 +7,16 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private DownloadManager dUO;
+    private DownloadManager edL;
 
     public c(DownloadManager downloadManager) {
-        this.dUO = downloadManager;
+        this.edL = downloadManager;
     }
 
-    public Collection<Download> aUy() {
-        return this.dUO.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.1
+    public Collection<Download> aWS() {
+        return this.edL.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.1
             @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
             public boolean filter(Download download) {
                 return (download == null || c.this.a(download)) ? false : true;
@@ -24,11 +24,11 @@ public class c {
         });
     }
 
-    public Download wA(String str) {
+    public Download wz(String str) {
         Download download = null;
-        Collection<Download> wB = wB(str);
-        if (wB != null) {
-            for (Download download2 : wB) {
+        Collection<Download> wA = wA(str);
+        if (wA != null) {
+            for (Download download2 : wA) {
                 if (download2 == null) {
                     download2 = download;
                 }
@@ -38,8 +38,8 @@ public class c {
         return download;
     }
 
-    public synchronized Collection<Download> wB(final String str) {
-        return TextUtils.isEmpty(str) ? null : this.dUO.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.2
+    public synchronized Collection<Download> wA(final String str) {
+        return TextUtils.isEmpty(str) ? null : this.edL.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.2
             @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
             public boolean filter(Download download) {
                 return (download == null || !TextUtils.equals(download.getUrl(), str) || c.this.a(download)) ? false : true;
@@ -47,9 +47,9 @@ public class c {
         });
     }
 
-    public synchronized boolean wC(final String str) {
+    public synchronized boolean wB(final String str) {
         boolean z;
-        Collection<Download> downloadListByFilter = this.dUO.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.3
+        Collection<Download> downloadListByFilter = this.edL.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.3
             @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
             public boolean filter(Download download) {
                 return download != null && TextUtils.equals(download.getKeyByUser(), str);
@@ -61,8 +61,8 @@ public class c {
         return z;
     }
 
-    public synchronized Collection<Download> wD(final String str) {
-        return TextUtils.isEmpty(str) ? null : this.dUO.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.4
+    public synchronized Collection<Download> wC(final String str) {
+        return TextUtils.isEmpty(str) ? null : this.edL.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.4
             @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
             public boolean filter(Download download) {
                 return download != null && TextUtils.equals(download.getUrl(), str);
@@ -70,38 +70,38 @@ public class c {
         });
     }
 
-    public void aSQ() {
-        Collection<Download> aUy = aUy();
-        if (aUy != null && !aUy.isEmpty()) {
-            for (Download download : aUy) {
+    public void aVk() {
+        Collection<Download> aWS = aWS();
+        if (aWS != null && !aWS.isEmpty()) {
+            for (Download download : aWS) {
                 if (download != null && (download.getState() == Download.DownloadState.WAITING || download.getState() == Download.DownloadState.DOWNLOADING)) {
-                    this.dUO.pause(download.getId().longValue());
+                    this.edL.pause(download.getId().longValue());
                 }
             }
         }
     }
 
-    public Collection<Download> aUz() {
-        Collection<Download> aUy = aUy();
-        if (aUy == null || aUy.isEmpty()) {
+    public Collection<Download> aWT() {
+        Collection<Download> aWS = aWS();
+        if (aWS == null || aWS.isEmpty()) {
             return null;
         }
-        for (Download download : aUy) {
+        for (Download download : aWS) {
             if (download != null && (download.getState() == Download.DownloadState.WAITING || download.getState() == Download.DownloadState.PAUSE)) {
-                this.dUO.resume(download.getId().longValue());
+                this.edL.resume(download.getId().longValue());
             }
         }
-        return aUy;
+        return aWS;
     }
 
-    public synchronized void aUA() {
+    public synchronized void aWU() {
         int size;
         int i = 0;
         synchronized (this) {
-            Collection<Download> downloadListByFilter = this.dUO.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.5
+            Collection<Download> downloadListByFilter = this.edL.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.5
                 @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
                 public boolean filter(Download download) {
-                    return (download == null || download.getState() != Download.DownloadState.FINISH || c.this.c(download) || !c.b(download) || com.baidu.swan.gamecenter.appmanager.install.a.am(AppRuntime.getAppContext(), download.getKeyByUser())) ? false : true;
+                    return (download == null || download.getState() != Download.DownloadState.FINISH || c.this.c(download) || !c.b(download) || com.baidu.swan.gamecenter.appmanager.install.a.au(AppRuntime.getAppContext(), download.getKeyByUser())) ? false : true;
                 }
             });
             if (downloadListByFilter != null && downloadListByFilter.size() - 20 > 0) {
@@ -116,7 +116,7 @@ public class c {
                         break;
                     }
                     if (next != null) {
-                        this.dUO.cancel(next.getId().longValue());
+                        this.edL.cancel(next.getId().longValue());
                     }
                     i = i2 + 1;
                 }
@@ -124,14 +124,14 @@ public class c {
         }
     }
 
-    public synchronized void aUq() {
+    public synchronized void aWK() {
         int size;
         int i = 0;
         synchronized (this) {
-            Collection<Download> downloadListByFilter = this.dUO.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.6
+            Collection<Download> downloadListByFilter = this.edL.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.6
                 @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
                 public boolean filter(Download download) {
-                    return download != null && download.getState() == Download.DownloadState.FINISH && com.baidu.swan.gamecenter.appmanager.install.a.am(AppRuntime.getAppContext(), download.getKeyByUser());
+                    return download != null && download.getState() == Download.DownloadState.FINISH && com.baidu.swan.gamecenter.appmanager.install.a.au(AppRuntime.getAppContext(), download.getKeyByUser());
                 }
             });
             if (downloadListByFilter != null && downloadListByFilter.size() - 30 > 0) {
@@ -146,7 +146,7 @@ public class c {
                         break;
                     }
                     if (next != null) {
-                        this.dUO.cancel(next.getId().longValue());
+                        this.edL.cancel(next.getId().longValue());
                     }
                     i = i2 + 1;
                 }
@@ -154,8 +154,8 @@ public class c {
         }
     }
 
-    public synchronized void aUB() {
-        j(this.dUO.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.7
+    public synchronized void aWV() {
+        j(this.edL.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.7
             @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
             public boolean filter(Download download) {
                 return c.this.a(download);
@@ -163,9 +163,9 @@ public class c {
         }));
     }
 
-    public void wE(String str) {
+    public void wD(String str) {
         if (!TextUtils.isEmpty(str)) {
-            j(wD(str));
+            j(wC(str));
         }
     }
 
@@ -173,7 +173,7 @@ public class c {
         if (collection != null) {
             for (Download download : collection) {
                 if (download != null) {
-                    this.dUO.cancel(download.getId().longValue());
+                    this.edL.cancel(download.getId().longValue());
                 }
             }
         }
@@ -185,7 +185,7 @@ public class c {
         if (download == null) {
             return false;
         }
-        return (c(download) || (download.getState() == Download.DownloadState.FINISH && !b(download))) && !com.baidu.swan.gamecenter.appmanager.install.a.am(AppRuntime.getAppContext(), download.getKeyByUser());
+        return (c(download) || (download.getState() == Download.DownloadState.FINISH && !b(download))) && !com.baidu.swan.gamecenter.appmanager.install.a.au(AppRuntime.getAppContext(), download.getKeyByUser());
     }
 
     public static boolean b(Download download) {

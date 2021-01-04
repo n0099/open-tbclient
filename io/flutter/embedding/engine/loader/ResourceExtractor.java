@@ -6,6 +6,7 @@ import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -20,16 +21,21 @@ import java.util.Iterator;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class ResourceExtractor {
     private static final String[] SUPPORTED_ABIS = getSupportedAbis();
     private static final String TAG = "ResourceExtractor";
     private static final String TIMESTAMP_PREFIX = "res_timestamp-";
+    @NonNull
     private final AssetManager mAssetManager;
+    @NonNull
     private final String mDataDirPath;
     private ExtractTask mExtractTask;
+    @NonNull
     private final PackageManager mPackageManager;
+    @NonNull
     private final String mPackageName;
+    @NonNull
     private final HashSet<String> mResources = new HashSet<>();
 
     /* JADX DEBUG: Marked for inline */
@@ -44,19 +50,24 @@ public class ResourceExtractor {
         copy(inputStream, outputStream);
     }
 
-    static long getVersionCode(PackageInfo packageInfo) {
+    static long getVersionCode(@NonNull PackageInfo packageInfo) {
         return Build.VERSION.SDK_INT >= 28 ? packageInfo.getLongVersionCode() : packageInfo.versionCode;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     private static class ExtractTask extends AsyncTask<Void, Void, Void> {
+        @NonNull
         private final AssetManager mAssetManager;
+        @NonNull
         private final String mDataDirPath;
+        @NonNull
         private final PackageManager mPackageManager;
+        @NonNull
         private final String mPackageName;
+        @NonNull
         private final HashSet<String> mResources;
 
-        ExtractTask(String str, HashSet<String> hashSet, String str2, PackageManager packageManager, AssetManager assetManager) {
+        ExtractTask(@NonNull String str, @NonNull HashSet<String> hashSet, @NonNull String str2, @NonNull PackageManager packageManager, @NonNull AssetManager assetManager) {
             this.mDataDirPath = str;
             this.mResources = hashSet;
             this.mAssetManager = assetManager;
@@ -92,73 +103,72 @@ public class ResourceExtractor {
             	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
             */
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [102=4, 105=6] */
-        private boolean extractAPK(java.io.File r8) {
+        @androidx.annotation.WorkerThread
+        private boolean extractAPK(@androidx.annotation.NonNull java.io.File r7) {
             /*
-                r7 = this;
+                r6 = this;
                 r2 = 0
-                java.util.HashSet<java.lang.String> r0 = r7.mResources
-                java.util.Iterator r3 = r0.iterator()
+                java.util.HashSet<java.lang.String> r0 = r6.mResources
+                java.util.Iterator r4 = r0.iterator()
             L7:
-                boolean r0 = r3.hasNext()
-                if (r0 == 0) goto Lc8
-                java.lang.Object r0 = r3.next()
+                boolean r0 = r4.hasNext()
+                if (r0 == 0) goto Lc7
+                java.lang.Object r0 = r4.next()
                 java.lang.String r0 = (java.lang.String) r0
-                java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                r1.<init>()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                java.lang.String r4 = "assets/"
-                java.lang.StringBuilder r1 = r1.append(r4)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                java.lang.StringBuilder r1 = r1.append(r0)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                r1.toString()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                java.io.File r1 = new java.io.File     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                r1.<init>(r8, r0)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                boolean r4 = r1.exists()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                if (r4 != 0) goto L7
-                java.io.File r4 = r1.getParentFile()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                if (r4 == 0) goto L3e
-                java.io.File r4 = r1.getParentFile()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                r4.mkdirs()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
+                java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                r1.<init>()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                java.lang.String r3 = "assets/"
+                java.lang.StringBuilder r1 = r1.append(r3)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                java.lang.StringBuilder r1 = r1.append(r0)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                r1.toString()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                java.io.File r1 = new java.io.File     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                r1.<init>(r7, r0)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                boolean r3 = r1.exists()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                if (r3 != 0) goto L7
+                java.io.File r3 = r1.getParentFile()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                if (r3 == 0) goto L3e
+                java.io.File r3 = r1.getParentFile()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                r3.mkdirs()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
             L3e:
-                android.content.res.AssetManager r4 = r7.mAssetManager     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                java.io.InputStream r4 = r4.open(r0)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
+                android.content.res.AssetManager r3 = r6.mAssetManager     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                java.io.InputStream r5 = r3.open(r0)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
                 r0 = 0
-                java.io.FileOutputStream r5 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L69
-                r5.<init>(r1)     // Catch: java.lang.Throwable -> L69
+                java.io.FileOutputStream r3 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L69
+                r3.<init>(r1)     // Catch: java.lang.Throwable -> L69
                 r1 = 0
-                io.flutter.embedding.engine.loader.ResourceExtractor.access$200(r4, r5)     // Catch: java.lang.Throwable -> La6
-                if (r5 == 0) goto L55
-                if (r2 == 0) goto L9f
-                r5.close()     // Catch: java.lang.Throwable -> L64
+                io.flutter.embedding.engine.loader.ResourceExtractor.access$200(r5, r3)     // Catch: java.lang.Throwable -> La5
+                if (r3 == 0) goto L55
+                if (r2 == 0) goto L9d
+                r3.close()     // Catch: java.lang.Throwable -> L64
             L55:
-                if (r4 == 0) goto L7
-                if (r2 == 0) goto Lba
-                r4.close()     // Catch: java.lang.Throwable -> L5d
+                if (r5 == 0) goto L7
+                if (r2 == 0) goto Lb9
+                r5.close()     // Catch: java.lang.Throwable -> L5d
                 goto L7
             L5d:
                 r1 = move-exception
-                com.google.devtools.build.android.desugar.runtime.ThrowableExtension.addSuppressed(r0, r1)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
+                r0.addSuppressed(r1)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
                 goto L7
             L62:
                 r0 = move-exception
                 goto L7
             L64:
-                r5 = move-exception
-                com.google.devtools.build.android.desugar.runtime.ThrowableExtension.addSuppressed(r1, r5)     // Catch: java.lang.Throwable -> L69
+                r3 = move-exception
+                r1.addSuppressed(r3)     // Catch: java.lang.Throwable -> L69
                 goto L55
             L69:
                 r0 = move-exception
                 throw r0     // Catch: java.lang.Throwable -> L6b
             L6b:
                 r1 = move-exception
-                r6 = r1
-                r1 = r0
-                r0 = r6
-            L6f:
-                if (r4 == 0) goto L76
-                if (r1 == 0) goto Lc4
-                r4.close()     // Catch: java.lang.Throwable -> Lbf
-            L76:
-                throw r0     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-            L77:
+                r3 = r0
+            L6d:
+                if (r5 == 0) goto L74
+                if (r3 == 0) goto Lc3
+                r5.close()     // Catch: java.lang.Throwable -> Lbe
+            L74:
+                throw r1     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+            L75:
                 r0 = move-exception
                 java.lang.String r1 = "ResourceExtractor"
                 java.lang.StringBuilder r2 = new java.lang.StringBuilder
@@ -169,72 +179,73 @@ public class ResourceExtractor {
                 java.lang.StringBuilder r0 = r2.append(r0)
                 java.lang.String r0 = r0.toString()
                 android.util.Log.w(r1, r0)
-                java.lang.String r0 = r7.mDataDirPath
-                java.util.HashSet<java.lang.String> r1 = r7.mResources
+                java.lang.String r0 = r6.mDataDirPath
+                java.util.HashSet<java.lang.String> r1 = r6.mResources
                 io.flutter.embedding.engine.loader.ResourceExtractor.access$100(r0, r1)
                 r0 = 0
-            L9e:
+            L9c:
                 return r0
-            L9f:
-                r5.close()     // Catch: java.lang.Throwable -> L69
+            L9d:
+                r3.close()     // Catch: java.lang.Throwable -> L69
                 goto L55
-            La3:
+            La1:
                 r0 = move-exception
-                r1 = r2
-                goto L6f
-            La6:
+                r1 = r0
+                r3 = r2
+                goto L6d
+            La5:
                 r1 = move-exception
-                throw r1     // Catch: java.lang.Throwable -> La8
-            La8:
+                throw r1     // Catch: java.lang.Throwable -> La7
+            La7:
                 r0 = move-exception
-            La9:
-                if (r5 == 0) goto Lb0
-                if (r1 == 0) goto Lb6
-                r5.close()     // Catch: java.lang.Throwable -> Lb1
-            Lb0:
+            La8:
+                if (r3 == 0) goto Laf
+                if (r1 == 0) goto Lb5
+                r3.close()     // Catch: java.lang.Throwable -> Lb0
+            Laf:
                 throw r0     // Catch: java.lang.Throwable -> L69
-            Lb1:
-                r5 = move-exception
-                com.google.devtools.build.android.desugar.runtime.ThrowableExtension.addSuppressed(r1, r5)     // Catch: java.lang.Throwable -> L69
-                goto Lb0
-            Lb6:
-                r5.close()     // Catch: java.lang.Throwable -> L69
-                goto Lb0
-            Lba:
-                r4.close()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
+            Lb0:
+                r3 = move-exception
+                r1.addSuppressed(r3)     // Catch: java.lang.Throwable -> L69
+                goto Laf
+            Lb5:
+                r3.close()     // Catch: java.lang.Throwable -> L69
+                goto Laf
+            Lb9:
+                r5.close()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
                 goto L7
-            Lbf:
-                r4 = move-exception
-                com.google.devtools.build.android.desugar.runtime.ThrowableExtension.addSuppressed(r1, r4)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                goto L76
-            Lc4:
-                r4.close()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L77
-                goto L76
-            Lc8:
+            Lbe:
+                r0 = move-exception
+                r3.addSuppressed(r0)     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                goto L74
+            Lc3:
+                r5.close()     // Catch: java.io.FileNotFoundException -> L62 java.io.IOException -> L75
+                goto L74
+            Lc7:
                 r0 = 1
-                goto L9e
-            Lca:
+                goto L9c
+            Lc9:
                 r0 = move-exception
                 r1 = r2
-                goto La9
+                goto La8
             */
             throw new UnsupportedOperationException("Method not decompiled: io.flutter.embedding.engine.loader.ResourceExtractor.ExtractTask.extractAPK(java.io.File):boolean");
         }
     }
 
-    ResourceExtractor(String str, String str2, PackageManager packageManager, AssetManager assetManager) {
+    ResourceExtractor(@NonNull String str, @NonNull String str2, @NonNull PackageManager packageManager, @NonNull AssetManager assetManager) {
         this.mDataDirPath = str;
         this.mPackageName = str2;
         this.mPackageManager = packageManager;
         this.mAssetManager = assetManager;
     }
 
-    ResourceExtractor addResource(String str) {
+    ResourceExtractor addResource(@NonNull String str) {
         this.mResources.add(str);
         return this;
     }
 
-    ResourceExtractor addResources(Collection<String> collection) {
+    ResourceExtractor addResources(@NonNull Collection<String> collection) {
         this.mResources.addAll(collection);
         return this;
     }
@@ -266,7 +277,7 @@ public class ResourceExtractor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void deleteFiles(String str, HashSet<String> hashSet) {
+    public static void deleteFiles(@NonNull String str, @NonNull HashSet<String> hashSet) {
         File file = new File(str);
         Iterator<String> it = hashSet.iterator();
         while (it.hasNext()) {
@@ -284,7 +295,7 @@ public class ResourceExtractor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String checkTimestamp(File file, PackageManager packageManager, String str) {
+    public static String checkTimestamp(@NonNull File file, @NonNull PackageManager packageManager, @NonNull String str) {
         PackageInfo packageInfo;
         try {
             if (packageManager.getPackageInfo(str, 0) == null) {
@@ -307,7 +318,7 @@ public class ResourceExtractor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void copy(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public static void copy(@NonNull InputStream inputStream, @NonNull OutputStream outputStream) throws IOException {
         byte[] bArr = new byte[16384];
         while (true) {
             int read = inputStream.read(bArr);

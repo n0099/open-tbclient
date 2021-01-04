@@ -1,42 +1,31 @@
 package com.baidu.minivideo.arface.utils;
 
 import java.io.File;
-/* loaded from: classes8.dex */
-public class e {
-    public static void deleteFileOrDir(File file) {
-        if (file.isDirectory()) {
-            deleteDir(file);
-        } else {
-            o(file);
+/* loaded from: classes6.dex */
+public class e extends d {
+    private static e cmp;
+
+    private e() {
+    }
+
+    public static e aeJ() {
+        if (cmp == null) {
+            init();
         }
+        return cmp;
     }
 
-    public static void deleteDir(File file) {
-        d(file, true);
-    }
-
-    public static void d(File file, boolean z) {
-        if (file != null && file.isDirectory()) {
-            File[] listFiles = file.listFiles();
-            if (listFiles != null && listFiles.length > 0) {
-                for (File file2 : listFiles) {
-                    if (file2.isDirectory()) {
-                        d(file2, z);
-                    } else {
-                        file2.delete();
-                    }
-                }
-            }
-            if (z) {
-                file.delete();
+    private static synchronized void init() {
+        synchronized (e.class) {
+            if (cmp == null) {
+                cmp = new e();
             }
         }
     }
 
-    public static boolean o(File file) {
-        if (file != null && file.exists()) {
-            return file.delete();
-        }
-        return false;
+    @Override // com.baidu.minivideo.arface.utils.d
+    protected void run() {
+        com.baidu.minivideo.arface.b.adM();
+        setState(new File(com.baidu.minivideo.arface.c.adX()).exists() ? 2 : 3);
     }
 }

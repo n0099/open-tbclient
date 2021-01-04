@@ -14,7 +14,7 @@ public class KeepAliveSwitch extends a {
         b bVar = new b(this.mName, this.mDefaultType, this.mSwitchListener);
         bVar.a(this.mMaxCrashTimes, this.mKey, this.mOffType);
         bVar.g(getSwitchLibs());
-        bVar.ab(true);
+        bVar.aa(true);
         SwitchManager.getInstance().addSwitchData(bVar);
     }
 

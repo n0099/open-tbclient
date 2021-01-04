@@ -5,26 +5,26 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class c extends com.baidu.tieba.card.b<b> {
     private int dividerHeight;
-    private View fYf;
-    private int ioo;
+    private View ghM;
+    private int iAI;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.ioo = R.color.CAM_X0204;
+        this.iAI = R.color.CAM_X0204;
         this.dividerHeight = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.fYf = getView().findViewById(R.id.card_divider);
+        this.ghM = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundColor(this.fYf, this.ioo);
+            ao.setBackgroundColor(this.ghM, this.iAI);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.b<b> {
     @Override // com.baidu.tieba.card.b
     public void a(b bVar) {
         if (bVar != null) {
-            this.fYf.setVisibility(0);
-            this.ioo = bVar.ioo;
+            this.ghM.setVisibility(0);
+            this.iAI = bVar.iAI;
             this.dividerHeight = bVar.dividerHeight;
-            csM();
+            cvF();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void csM() {
-        ViewGroup.LayoutParams layoutParams = this.fYf.getLayoutParams();
+    private void cvF() {
+        ViewGroup.LayoutParams layoutParams = this.ghM.getLayoutParams();
         if (layoutParams != null && layoutParams.height != this.dividerHeight) {
             layoutParams.height = this.dividerHeight;
-            this.fYf.setLayoutParams(layoutParams);
+            this.ghM.setLayoutParams(layoutParams);
         }
     }
 

@@ -8,19 +8,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private List<String> Nm;
-    private long Nn;
+    private List<String> MK;
+    private long MN;
     private String mHost;
     private long mStartTime = System.currentTimeMillis();
 
-    public a bN(String str) {
+    public a bH(String str) {
         JSONArray optJSONArray;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.Nn = jSONObject.optLong("ttl");
+            this.MN = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
                 return null;
@@ -28,12 +28,12 @@ public class a {
             this.mHost = optJSONObject.keys().next();
             JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.mHost);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP)) != null && optJSONArray.length() > 0) {
-                this.Nm = new ArrayList();
+                this.MK = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.Nm.add((String) optJSONArray.get(i2));
+                        this.MK.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -50,7 +50,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void C(long j) {
-        this.Nn = j;
+        this.MN = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -58,11 +58,11 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> mH() {
-        return this.Nm;
+    public List<String> mf() {
+        return this.MK;
     }
 
     public boolean D(long j) {
-        return j - this.mStartTime > this.Nn * 1000;
+        return j - this.mStartTime > this.MN * 1000;
     }
 }

@@ -1,19 +1,19 @@
 package com.baidu.swan.game.ad.downloader;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.swan.apps.process.a.b.c.c {
-    private com.baidu.swan.apps.adlanding.download.a.a dRC;
-    private SwanAppDownloadAction.SwanAppDownloadType dRD;
+    private SwanAppDownloadAction.SwanAppDownloadType eaA;
+    private com.baidu.swan.apps.adlanding.download.a.a eaz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.baidu.swan.apps.adlanding.download.a.a aVar, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType) {
-        this.dRC = aVar;
-        this.dRD = swanAppDownloadType;
+        this.eaz = aVar;
+        this.eaA = swanAppDownloadType;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,20 +24,20 @@ public class d extends com.baidu.swan.apps.process.a.b.c.c {
             int i = result.getInt("state", SwanAdDownloadState.NOT_START.value());
             int i2 = result.getInt("progress", 0);
             SwanAdDownloadState convert = SwanAdDownloadState.convert(i);
-            this.dRC.a(convert, i2);
-            this.dRC.b(convert, i2);
+            this.eaz.a(convert, i2);
+            this.eaz.b(convert, i2);
             String string = result.getString("packageName", "");
             if (!TextUtils.isEmpty(string)) {
-                this.dRC.lc(string);
+                this.eaz.kV(string);
             }
-            if (this.dRD == SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
-                this.dRC.eI(true);
+            if (this.eaA == SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
+                this.eaz.eR(true);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.a.b.c.a
-    public boolean aHy() {
+    public boolean aIR() {
         return false;
     }
 

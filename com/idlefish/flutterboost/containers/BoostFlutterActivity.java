@@ -1,9 +1,6 @@
 package com.idlefish.flutterboost.containers;
 
 import android.app.Activity;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.j;
-import android.arch.lifecycle.k;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -12,11 +9,15 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
+import com.baidu.adp.base.a;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.XPlatformPlugin;
@@ -31,8 +32,8 @@ import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
-public class BoostFlutterActivity extends Activity implements j, FlutterActivityAndFragmentDelegate.Host {
+/* loaded from: classes7.dex */
+public class BoostFlutterActivity extends Activity implements LifecycleOwner, FlutterActivityAndFragmentDelegate.Host {
     protected static final String DEFAULT_BACKGROUND_MODE = BackgroundMode.opaque.name();
     protected static final String EXTRA_ANIMATED = "animated";
     protected static final String EXTRA_BACKGROUND_MODE = "background_mode";
@@ -48,9 +49,9 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     private static XPlatformPlugin sXPlatformPlugin;
     private FlutterActivityAndFragmentDelegate delegate;
     @NonNull
-    private k lifecycle = new k(this);
+    private LifecycleRegistry lifecycle = new LifecycleRegistry(this);
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes7.dex */
     public enum BackgroundMode {
         opaque,
         transparent
@@ -64,12 +65,12 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         return new NewEngineIntentBuilder(BoostFlutterActivity.class);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes7.dex */
     public static class NewEngineIntentBuilder {
         private final Class<? extends BoostFlutterActivity> activityClass;
         private String backgroundMode = BoostFlutterActivity.DEFAULT_BACKGROUND_MODE;
         private String url = "";
-        private Map params = new HashMap();
+        private Map<String, Object> params = new HashMap();
 
         public NewEngineIntentBuilder(@NonNull Class<? extends BoostFlutterActivity> cls) {
             this.activityClass = cls;
@@ -82,7 +83,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes7.dex */
     public static class SerializableMap implements Serializable {
         private Map<String, Object> map;
 
@@ -103,12 +104,20 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         switchLaunchThemeForNormalTheme();
+        a.j(this);
         super.onCreate(bundle);
-        this.lifecycle.b(Lifecycle.Event.ON_CREATE);
+        this.lifecycle.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
         this.delegate = new FlutterActivityAndFragmentDelegate(this);
         this.delegate.onAttach(this);
         configureWindowForTransparency();
         setContentView(createFlutterView());
+    }
+
+    @Override // android.app.Activity
+    public void setRequestedOrientation(int i) {
+        if (!a.k(this) || !a.Z(i)) {
+            super.setRequestedOrientation(i);
+        }
     }
 
     private void switchLaunchThemeForNormalTheme() {
@@ -178,10 +187,11 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         return this.delegate.getFlutterView();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
-        this.lifecycle.b(Lifecycle.Event.ON_START);
+        this.lifecycle.handleLifecycleEvent(Lifecycle.Event.ON_START);
         this.delegate.onStart();
     }
 
@@ -189,7 +199,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        this.lifecycle.b(Lifecycle.Event.ON_RESUME);
+        this.lifecycle.handleLifecycleEvent(Lifecycle.Event.ON_RESUME);
         this.delegate.onResume();
     }
 
@@ -204,11 +214,12 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     public void onPause() {
         super.onPause();
         this.delegate.onPause();
-        this.lifecycle.b(Lifecycle.Event.ON_PAUSE);
+        this.lifecycle.handleLifecycleEvent(Lifecycle.Event.ON_PAUSE);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         this.delegate.onStop();
     }
@@ -265,7 +276,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         return this;
     }
 
-    @Override // android.arch.lifecycle.j
+    @Override // androidx.lifecycle.LifecycleOwner
     @NonNull
     public Lifecycle getLifecycle() {
         return this.lifecycle;
@@ -331,7 +342,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
         return getIntent().hasExtra("url") ? getIntent().getStringExtra("url") : "";
     }
 
-    public Map getContainerUrlParams() {
+    public Map<String, Object> getContainerUrlParams() {
         if (getIntent().hasExtra("params")) {
             return ((SerializableMap) getIntent().getSerializableExtra("params")).getMap();
         }

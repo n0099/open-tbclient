@@ -2,7 +2,7 @@ package com.baidu.down.utils;
 
 import android.text.TextUtils;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class URLRegUtils {
     private static final boolean DEBUG = false;
     private static final String DEFAULT_HOST_REG = "^http[s]?:\\/\\/(.*(gdown|appdown|app.dcdn)\\.baidu\\.com|.*baijincdn.cn)(:\\d+)?(\\/.*|)$";

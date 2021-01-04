@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.core.d;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.model.c;
 import com.baidu.swan.support.v4.app.Fragment;
@@ -17,19 +17,19 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> cQa = new HashSet();
-    public static final int cQb = a.C0379a.aiapps_slide_in_from_right;
-    public static final int cQc = a.C0379a.aiapps_slide_out_to_right;
-    public static final int cQd = a.C0379a.aiapps_hold;
-    private k cPW;
-    private Queue<Runnable> cPY = new LinkedList();
-    private ArrayList<c> cPX = new ArrayList<>();
-    private final List<a> cPZ = new CopyOnWriteArrayList();
+    private static final Set<String> cUX = new HashSet();
+    public static final int cUY = a.C0372a.aiapps_slide_in_from_right;
+    public static final int cUZ = a.C0372a.aiapps_slide_out_to_right;
+    public static final int cVa = a.C0372a.aiapps_hold;
+    private k cUT;
+    private Queue<Runnable> cUV = new LinkedList();
+    private ArrayList<c> cUU = new ArrayList<>();
+    private final List<a> cUW = new CopyOnWriteArrayList();
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(@NonNull Fragment fragment);
 
@@ -37,37 +37,37 @@ public final class f {
     }
 
     static {
-        cQa.add("adLanding");
-        cQa.add("wxPay");
-        cQa.add("default_webview");
-        cQa.add("allianceLogin");
-        cQa.add("allianceChooseAddress");
-        cQa.add("qrCodePay");
+        cUX.add("adLanding");
+        cUX.add("wxPay");
+        cUX.add("default_webview");
+        cUX.add("allianceLogin");
+        cUX.add("allianceChooseAddress");
+        cUX.add("qrCodePay");
     }
 
     public f(FragmentActivity fragmentActivity) {
-        this.cPW = fragmentActivity.bfh();
+        this.cUT = fragmentActivity.bhE();
     }
 
     public void a(@Nullable a aVar) {
         if (aVar != null) {
-            this.cPZ.add(aVar);
+            this.cUW.add(aVar);
         }
     }
 
     public void b(@Nullable a aVar) {
         if (aVar != null) {
-            this.cPZ.remove(aVar);
+            this.cUW.remove(aVar);
         }
     }
 
-    public c arB() {
-        return it(this.cPX.size() - 1);
+    public c asT() {
+        return io(this.cUU.size() - 1);
     }
 
-    public <T extends c> T q(Class<T> cls) {
-        for (int size = this.cPX.size() - 1; size >= 0; size--) {
-            T t = (T) this.cPX.get(size);
+    public <T extends c> T j(Class<T> cls) {
+        for (int size = this.cUU.size() - 1; size >= 0; size--) {
+            T t = (T) this.cUU.get(size);
             if (t.getClass() == cls) {
                 return t;
             }
@@ -75,9 +75,9 @@ public final class f {
         return null;
     }
 
-    public e arC() {
-        for (int size = this.cPX.size() - 1; size >= 0; size--) {
-            c cVar = this.cPX.get(size);
+    public e asU() {
+        for (int size = this.cUU.size() - 1; size >= 0; size--) {
+            c cVar = this.cUU.get(size);
             if (cVar instanceof e) {
                 return (e) cVar;
             }
@@ -85,50 +85,50 @@ public final class f {
         return null;
     }
 
-    public c it(int i) {
-        if (this.cPX.isEmpty() || i < 0 || i >= this.cPX.size()) {
+    public c io(int i) {
+        if (this.cUU.isEmpty() || i < 0 || i >= this.cUU.size()) {
             return null;
         }
-        return this.cPX.get(i);
+        return this.cUU.get(i);
     }
 
-    public e arD() {
-        if (this.cPX.isEmpty()) {
+    public e asV() {
+        if (this.cUU.isEmpty()) {
             return null;
         }
-        int size = this.cPX.size();
+        int size = this.cUU.size();
         for (int i = 0; i < size; i++) {
-            if (this.cPX.get(i).aqq()) {
-                return (e) this.cPX.get(i);
+            if (this.cUU.get(i).arC()) {
+                return (e) this.cUU.get(i);
             }
         }
         return null;
     }
 
-    public int arE() {
-        return this.cPX.size();
+    public int asW() {
+        return this.cUU.size();
     }
 
-    public b arF() {
+    public b asX() {
         return new b("");
     }
 
-    public b nC(String str) {
+    public b nv(String str) {
         return new b(str);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public class b {
-        private m cQe;
-        private String cQf;
+        private m cVb;
+        private String cVc;
 
         public b(String str) {
-            this.cQe = f.this.cPW.bfk();
-            this.cQf = str;
+            this.cVb = f.this.cUT.bhH();
+            this.cVc = str;
         }
 
-        public b an(int i, int i2) {
-            this.cQe.aG(i, i2);
+        public b ai(int i, int i2) {
+            this.cVb.aD(i, i2);
             return this;
         }
 
@@ -139,17 +139,17 @@ public final class f {
         public b a(String str, com.baidu.swan.apps.model.b bVar, boolean z) {
             c a2;
             if ("about".equals(str)) {
-                a2 = com.baidu.swan.apps.core.d.a.aqr();
+                a2 = com.baidu.swan.apps.core.d.a.arD();
             } else if ("authority".equals(str)) {
-                a2 = com.baidu.swan.apps.core.d.b.aqF();
+                a2 = com.baidu.swan.apps.core.d.b.arR();
             } else if ("pluginFunPage".equals(str)) {
-                a2 = g.bD(bVar.mBaseUrl, bVar.mParams);
-            } else if (nD(str)) {
+                a2 = g.bC(bVar.mBaseUrl, bVar.mParams);
+            } else if (nw(str)) {
                 a2 = i.c(bVar, str);
             } else if (TextUtils.equals("settings", str)) {
-                a2 = h.arO();
+                a2 = h.atg();
             } else {
-                a2 = "normal".equals(str) ? e.a(new c.a().qQ(bVar.mPage).qR(bVar.mParams).qS(bVar.mBaseUrl).gb(z).aEA()) : null;
+                a2 = "normal".equals(str) ? e.a(new c.a().qK(bVar.mPage).qL(bVar.mParams).qM(bVar.mBaseUrl).gk(z).aFT()) : null;
             }
             if (a2 == null) {
                 return null;
@@ -157,15 +157,15 @@ public final class f {
             return f(a2);
         }
 
-        private boolean nD(String str) {
-            return f.cQa.contains(str);
+        private boolean nw(String str) {
+            return f.cUX.contains(str);
         }
 
         public b f(c cVar) {
             g(cVar);
-            this.cQe.a(a.f.ai_apps_container, cVar, "SwanAppFragment");
-            f.this.cPX.add(cVar);
-            for (a aVar : f.this.cPZ) {
+            this.cVb.a(a.f.ai_apps_container, cVar, "SwanAppFragment");
+            f.this.cUU.add(cVar);
+            for (a aVar : f.this.cUW) {
                 if (aVar != null) {
                     aVar.a(cVar);
                 }
@@ -174,48 +174,48 @@ public final class f {
         }
 
         private void g(final c cVar) {
-            final c arB = f.this.arB();
-            f.this.cPY.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.f.b.1
+            final c asT = f.this.asT();
+            f.this.cUV.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.f.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (arB != null && arB.getUserVisibleHint()) {
-                        arB.setUserVisibleHint(false);
+                    if (asT != null && asT.getUserVisibleHint()) {
+                        asT.setUserVisibleHint(false);
                     }
-                    if (arB instanceof e) {
-                        ((e) arB).ary();
+                    if (asT instanceof e) {
+                        ((e) asT).asQ();
                     }
                     cVar.setUserVisibleHint(true);
                 }
             });
         }
 
-        private void arH() {
-            final c arB = f.this.arB();
-            f.this.cPY.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.f.b.2
+        private void asZ() {
+            final c asT = f.this.asT();
+            f.this.cUV.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.f.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (arB != null) {
-                        arB.setUserVisibleHint(true);
+                    if (asT != null) {
+                        asT.setUserVisibleHint(true);
                     }
                 }
             });
         }
 
-        public b iu(int i) {
-            int size = f.this.cPX.size();
-            if (!f.this.cPX.isEmpty() && i >= 0 && i < size) {
-                this.cQe.c((c) f.this.cPX.remove(i));
+        public b ip(int i) {
+            int size = f.this.cUU.size();
+            if (!f.this.cUU.isEmpty() && i >= 0 && i < size) {
+                this.cVb.c((c) f.this.cUU.remove(i));
             }
             return this;
         }
 
-        public b arI() {
-            return iv(1);
+        public b ata() {
+            return iq(1);
         }
 
-        public b iv(int i) {
-            if (!f.this.cPX.isEmpty()) {
-                ArrayList arrayList = (ArrayList) f.this.cPX.clone();
+        public b iq(int i) {
+            if (!f.this.cUU.isEmpty()) {
+                ArrayList arrayList = (ArrayList) f.this.cUU.clone();
                 int size = arrayList.size();
                 int i2 = size - i;
                 final c cVar = (i2 < 0 || i <= 0) ? null : (c) arrayList.get(i2);
@@ -225,16 +225,16 @@ public final class f {
                     if (i4 <= (size - i) - 1 || i4 < 0) {
                         break;
                     }
-                    for (a aVar : f.this.cPZ) {
+                    for (a aVar : f.this.cUW) {
                         if (aVar != null) {
                             aVar.b((Fragment) arrayList.get(i4));
                         }
                     }
-                    this.cQe.c((Fragment) arrayList.get(i4));
-                    f.this.cPX.remove(i4);
+                    this.cVb.c((Fragment) arrayList.get(i4));
+                    f.this.cUU.remove(i4);
                     i3 = i4 - 1;
                 }
-                f.this.cPY.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.f.b.3
+                f.this.cUV.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.f.b.3
                     @Override // java.lang.Runnable
                     public void run() {
                         if (cVar != null) {
@@ -242,96 +242,96 @@ public final class f {
                         }
                     }
                 });
-                arH();
+                asZ();
             }
             return this;
         }
 
-        public b arJ() {
-            if (!f.this.cPX.isEmpty()) {
-                ArrayList arrayList = (ArrayList) f.this.cPX.clone();
+        public b atb() {
+            if (!f.this.cUU.isEmpty()) {
+                ArrayList arrayList = (ArrayList) f.this.cUU.clone();
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    if (!((c) arrayList.get(size)).aqq()) {
-                        this.cQe.c((Fragment) arrayList.get(size));
-                        f.this.cPX.remove(size);
+                    if (!((c) arrayList.get(size)).arC()) {
+                        this.cVb.c((Fragment) arrayList.get(size));
+                        f.this.cUU.remove(size);
                     }
                 }
-                arH();
+                asZ();
             }
             return this;
         }
 
-        public b arK() {
-            List<Fragment> fragments = f.this.cPW.getFragments();
-            if (fragments != null && fragments.size() != f.this.cPX.size()) {
+        public b atc() {
+            List<Fragment> fragments = f.this.cUT.getFragments();
+            if (fragments != null && fragments.size() != f.this.cUU.size()) {
                 for (Fragment fragment : fragments) {
-                    if (fragment != null && !f.this.cPX.contains(fragment)) {
+                    if (fragment != null && !f.this.cUU.contains(fragment)) {
                         if (f.DEBUG) {
                             Log.d("SwanAppFragmentManager", "popAllFragments remove: " + fragment);
                         }
-                        for (a aVar : f.this.cPZ) {
+                        for (a aVar : f.this.cUW) {
                             if (aVar != null) {
                                 aVar.b(fragment);
                             }
                         }
-                        this.cQe.c(fragment);
+                        this.cVb.c(fragment);
                     }
                 }
             }
-            return iv(f.this.cPX.size());
+            return iq(f.this.cUU.size());
         }
 
         public b b(com.baidu.swan.apps.model.b bVar) {
-            e arD = f.this.arD();
-            if (arD != null) {
-                arD.a(bVar);
+            e asV = f.this.asV();
+            if (asV != null) {
+                asV.a(bVar);
                 return this;
             }
             return a("normal", bVar);
         }
 
-        private void arL() {
-            if (!f.this.cPX.isEmpty()) {
-                int size = f.this.cPX.size();
+        private void atd() {
+            if (!f.this.cUU.isEmpty()) {
+                int size = f.this.cUU.size();
                 for (int i = size - 1; i >= 0; i--) {
                     if (i >= size - 1) {
                         if (f.DEBUG) {
                             Log.d("SwanAppFragmentManager", "show fragment i " + i + " ,size: " + size);
                         }
-                        this.cQe.e((Fragment) f.this.cPX.get(i));
+                        this.cVb.e((Fragment) f.this.cUU.get(i));
                     } else {
-                        this.cQe.d((Fragment) f.this.cPX.get(i));
+                        this.cVb.d((Fragment) f.this.cUU.get(i));
                     }
                 }
             }
         }
 
         public void h(c cVar) {
-            this.cQe.e(cVar).commitAllowingStateLoss();
-            f.this.cPW.executePendingTransactions();
+            this.cVb.e(cVar).commitAllowingStateLoss();
+            f.this.cUT.executePendingTransactions();
         }
 
         public void i(c cVar) {
-            this.cQe.d(cVar).commitAllowingStateLoss();
-            f.this.cPW.executePendingTransactions();
+            this.cVb.d(cVar).commitAllowingStateLoss();
+            f.this.cUT.executePendingTransactions();
         }
 
         public void commit() {
-            if (!TextUtils.isEmpty(this.cQf)) {
-                e.nw(this.cQf);
+            if (!TextUtils.isEmpty(this.cVc)) {
+                e.np(this.cVc);
             }
-            while (!f.this.cPY.isEmpty()) {
-                if (f.this.cPY.peek() != null) {
-                    ((Runnable) f.this.cPY.poll()).run();
+            while (!f.this.cUV.isEmpty()) {
+                if (f.this.cUV.peek() != null) {
+                    ((Runnable) f.this.cUV.poll()).run();
                 }
             }
-            arL();
-            this.cQe.commitAllowingStateLoss();
+            atd();
+            this.cVb.commitAllowingStateLoss();
         }
 
-        public boolean arM() {
+        public boolean ate() {
             commit();
-            return f.this.cPW.executePendingTransactions();
+            return f.this.cUT.executePendingTransactions();
         }
     }
 }

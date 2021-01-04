@@ -42,12 +42,14 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class bw {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2597a = null;
-    private static String b = null;
+    private static String f3811a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f3812b = null;
     private static String c = null;
     private static final Pattern d = Pattern.compile("\\s*|\t|\r|\n");
 
@@ -292,16 +294,17 @@ public class bw {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [512=4] */
     public static String a() {
-        InputStreamReader inputStreamReader;
         Throwable th;
+        InputStreamReader inputStreamReader;
+        InputStreamReader inputStreamReader2;
         String str = null;
         StringBuffer stringBuffer = new StringBuffer();
         try {
             char[] cArr = new char[20];
-            inputStreamReader = new InputStreamReader(new FileInputStream("/sys/class/net/eth0/address"));
+            inputStreamReader2 = new InputStreamReader(new FileInputStream("/sys/class/net/eth0/address"));
             while (true) {
                 try {
-                    int read = inputStreamReader.read(cArr);
+                    int read = inputStreamReader2.read(cArr);
                     if (read == -1) {
                         break;
                     } else if (read != cArr.length || cArr[cArr.length - 1] == '\r') {
@@ -314,15 +317,16 @@ public class bw {
                         System.out.print(cArr);
                     }
                 } catch (Exception e) {
-                    if (inputStreamReader != null) {
+                    if (inputStreamReader2 != null) {
                         try {
-                            inputStreamReader.close();
+                            inputStreamReader2.close();
                         } catch (Exception e2) {
                         }
                     }
                     return str;
                 } catch (Throwable th2) {
                     th = th2;
+                    inputStreamReader = inputStreamReader2;
                     if (inputStreamReader != null) {
                         try {
                             inputStreamReader.close();
@@ -333,17 +337,17 @@ public class bw {
                 }
             }
             str = stringBuffer.toString().trim().replaceAll(":", "");
-            if (inputStreamReader != null) {
+            if (inputStreamReader2 != null) {
                 try {
-                    inputStreamReader.close();
+                    inputStreamReader2.close();
                 } catch (Exception e4) {
                 }
             }
         } catch (Exception e5) {
-            inputStreamReader = null;
+            inputStreamReader2 = null;
         } catch (Throwable th3) {
-            inputStreamReader = null;
             th = th3;
+            inputStreamReader = null;
         }
         return str;
     }
@@ -586,7 +590,7 @@ public class bw {
 
     private static String y(Context context) {
         String str;
-        String str2 = f2597a;
+        String str2 = f3811a;
         if (str2 == null) {
             try {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -604,7 +608,7 @@ public class bw {
             if (str == null) {
                 str = "";
             }
-            f2597a = str;
+            f3811a = str;
             return str;
         }
         return str2;
@@ -631,7 +635,7 @@ public class bw {
     }
 
     public static String u(Context context) {
-        String str = b;
+        String str = f3812b;
         if (str == null) {
             String y = y(context);
             str = b(context, y);
@@ -641,7 +645,7 @@ public class bw {
             if (str == null) {
                 str = "";
             }
-            b = str;
+            f3812b = str;
         }
         return str;
     }
@@ -742,62 +746,67 @@ public class bw {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1032=4] */
     private static String a(String str) {
-        BufferedReader bufferedReader;
         Throwable th;
         Process process;
+        BufferedReader bufferedReader;
+        Process process2;
+        BufferedReader bufferedReader2;
         String str2 = null;
         try {
-            process = Runtime.getRuntime().exec("getprop " + str);
+            process2 = Runtime.getRuntime().exec("getprop " + str);
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()), 1024);
-            } catch (Exception e) {
-                bufferedReader = null;
-            } catch (Throwable th2) {
-                bufferedReader = null;
-                th = th2;
-            }
-        } catch (Exception e2) {
-            process = null;
-            bufferedReader = null;
-        } catch (Throwable th3) {
-            bufferedReader = null;
-            th = th3;
-            process = null;
-        }
-        try {
-            str2 = bufferedReader.readLine();
-            if (bufferedReader != null) {
+                bufferedReader2 = new BufferedReader(new InputStreamReader(process2.getInputStream()), 1024);
                 try {
-                    bufferedReader.close();
-                } catch (Exception e3) {
+                    str2 = bufferedReader2.readLine();
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (Exception e) {
+                        }
+                    }
+                    if (process2 != null) {
+                        process2.destroy();
+                    }
+                } catch (Exception e2) {
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (Exception e3) {
+                        }
+                    }
+                    if (process2 != null) {
+                        process2.destroy();
+                    }
+                    return str2;
+                } catch (Throwable th2) {
+                    th = th2;
+                    process = process2;
+                    bufferedReader = bufferedReader2;
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    if (process != null) {
+                        process.destroy();
+                    }
+                    throw th;
                 }
+            } catch (Exception e5) {
+                bufferedReader2 = null;
+            } catch (Throwable th3) {
+                th = th3;
+                process = process2;
+                bufferedReader = null;
             }
-            if (process != null) {
-                process.destroy();
-            }
-        } catch (Exception e4) {
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (Exception e5) {
-                }
-            }
-            if (process != null) {
-                process.destroy();
-            }
-            return str2;
+        } catch (Exception e6) {
+            process2 = null;
+            bufferedReader2 = null;
         } catch (Throwable th4) {
             th = th4;
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (Exception e6) {
-                }
-            }
-            if (process != null) {
-                process.destroy();
-            }
-            throw th;
+            process = null;
+            bufferedReader = null;
         }
         return str2;
     }

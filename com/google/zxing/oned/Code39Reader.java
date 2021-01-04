@@ -1,8 +1,7 @@
 package com.google.zxing.oned;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.ar.face.algo.FAUEnum;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -13,7 +12,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Code39Reader extends OneDReader {
     static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%";
     static final int ASTERISK_ENCODING;
@@ -25,7 +24,7 @@ public final class Code39Reader extends OneDReader {
     private final boolean usingCheckDigit;
 
     static {
-        int[] iArr = {52, 289, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, 280, 88, 13, 268, 76, 28, 259, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, 448, 145, 400, FAUEnum.PR_ANIMATE_FAILED, 133, 388, 196, Opcodes.LCMP, 168, 162, 138, 42};
+        int[] iArr = {52, 289, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, 280, 88, 13, 268, 76, 28, 259, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, 448, 145, 400, 208, 133, 388, 196, Opcodes.LCMP, 168, 162, 138, 42};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[39];
     }
@@ -108,24 +107,25 @@ public final class Code39Reader extends OneDReader {
         int nextSet = bitArray.getNextSet(0);
         int length = iArr.length;
         boolean z = false;
-        int i = 0;
-        for (int i2 = nextSet; i2 < size; i2++) {
-            if (bitArray.get(i2) ^ z) {
-                iArr[i] = iArr[i] + 1;
+        int i = nextSet;
+        int i2 = 0;
+        for (int i3 = nextSet; i3 < size; i3++) {
+            if (bitArray.get(i3) ^ z) {
+                iArr[i2] = iArr[i2] + 1;
             } else {
-                if (i == length - 1) {
-                    if (toNarrowWidePattern(iArr) == ASTERISK_ENCODING && bitArray.isRange(Math.max(0, nextSet - ((i2 - nextSet) / 2)), nextSet, false)) {
-                        return new int[]{nextSet, i2};
+                if (i2 == length - 1) {
+                    if (toNarrowWidePattern(iArr) == ASTERISK_ENCODING && bitArray.isRange(Math.max(0, i - ((i3 - i) / 2)), i, false)) {
+                        return new int[]{i, i3};
                     }
-                    nextSet += iArr[0] + iArr[1];
+                    i += iArr[0] + iArr[1];
                     System.arraycopy(iArr, 2, iArr, 0, length - 2);
                     iArr[length - 2] = 0;
                     iArr[length - 1] = 0;
-                    i--;
+                    i2--;
                 } else {
-                    i++;
+                    i2++;
                 }
-                iArr[i] = 1;
+                iArr[i2] = 1;
                 z = !z;
             }
         }
@@ -133,42 +133,47 @@ public final class Code39Reader extends OneDReader {
     }
 
     private static int toNarrowWidePattern(int[] iArr) {
+        int i;
         int length = iArr.length;
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-            for (int i3 : iArr) {
-                if (i3 < i2 && i3 > i) {
-                    i2 = i3;
+            int i3 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            for (int i4 : iArr) {
+                if (i4 < i3 && i4 > i2) {
+                    i3 = i4;
                 }
             }
-            int i4 = 0;
             int i5 = 0;
             int i6 = 0;
-            for (int i7 = 0; i7 < length; i7++) {
-                int i8 = iArr[i7];
-                if (i8 > i2) {
-                    i4 |= 1 << ((length - 1) - i7);
-                    i6++;
-                    i5 += i8;
+            int i7 = 0;
+            for (int i8 = 0; i8 < length; i8++) {
+                int i9 = iArr[i8];
+                if (i9 > i3) {
+                    i5 |= 1 << ((length - 1) - i8);
+                    i7++;
+                    i6 += i9;
                 }
             }
-            if (i6 == 3) {
-                int i9 = i6;
-                for (int i10 = 0; i10 < length && i9 > 0; i10++) {
+            if (i7 == 3) {
+                int i10 = 0;
+                while (i10 < length && i7 > 0) {
                     int i11 = iArr[i10];
-                    if (i11 > i2) {
-                        i9--;
-                        if ((i11 << 1) >= i5) {
+                    if (i11 > i3) {
+                        i = i7 - 1;
+                        if ((i11 << 1) >= i6) {
                             return -1;
                         }
+                    } else {
+                        i = i7;
                     }
+                    i10++;
+                    i7 = i;
                 }
-                return i4;
-            } else if (i6 <= 3) {
+                return i5;
+            } else if (i7 <= 3) {
                 return -1;
             } else {
-                i = i2;
+                i2 = i3;
             }
         }
     }

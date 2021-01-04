@@ -5,9 +5,9 @@ import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.c hpK;
+    private com.baidu.tieba.ala.liveroom.views.c hBG;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,19 +17,19 @@ public class d {
     }
 
     private void init() {
-        this.hpK = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
-        this.hpK.setTbPageContext(this.mPageContext);
-        this.mRootView = this.hpK.getView();
+        this.hBG = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
+        this.hBG.setTbPageContext(this.mPageContext);
+        this.mRootView = this.hBG.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.hpK != null) {
-            this.hpK.a(iShareCallback);
+        if (this.hBG != null) {
+            this.hBG.a(iShareCallback);
         }
     }
 
-    private void cev() {
-        this.hpK.cev();
+    private void chl() {
+        this.hBG.chl();
     }
 
     public View getView() {
@@ -37,40 +37,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.hpK.c(alaLiveRecorder);
-        cev();
+        this.hBG.c(alaLiveRecorder);
+        chl();
     }
 
-    public boolean cew() {
-        return this.hpK.cew();
+    public boolean chm() {
+        return this.hBG.chm();
     }
 
-    public boolean cex() {
-        return this.hpK.cex();
+    public boolean chn() {
+        return this.hBG.chn();
     }
 
     public String getLiveTitle() {
-        return this.hpK.getLiveTitle();
+        return this.hBG.getLiveTitle();
     }
 
-    public boolean cey() {
-        return this.hpK.cey();
+    public boolean cho() {
+        return this.hBG.cho();
     }
 
-    public boolean cez() {
-        return this.hpK.cez();
+    public boolean chp() {
+        return this.hBG.chp();
     }
 
-    public void nA(boolean z) {
-        this.hpK.nA(z);
+    public void oa(boolean z) {
+        this.hBG.oa(z);
     }
 
-    public void ceA() {
-        this.hpK.hDx = false;
+    public void chq() {
+        this.hBG.hPx = false;
     }
 
-    public String ceB() {
-        return this.hpK.ceB();
+    public String chr() {
+        return this.hBG.chr();
     }
 
     public void setVisibility(int i) {
@@ -82,68 +82,68 @@ public class d {
     }
 
     public void a(e.b bVar) {
-        this.hpK.a(bVar);
+        this.hBG.a(bVar);
     }
 
-    public void P(boolean z, boolean z2) {
+    public void R(boolean z, boolean z2) {
         if (z) {
-            this.hpK.onKeyboardVisibilityChanged(false);
+            this.hBG.onKeyboardVisibilityChanged(false);
         } else {
-            this.hpK.onKeyboardVisibilityChanged(z2);
+            this.hBG.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(e.a aVar) {
-        this.hpK.a(aVar);
+        this.hBG.a(aVar);
     }
 
-    public void In(String str) {
-        this.hpK.In(str);
+    public void Ip(String str) {
+        this.hBG.Ip(str);
     }
 
     public void onResume() {
-        this.hpK.onResume();
+        this.hBG.onResume();
     }
 
     public void onRefresh() {
-        this.hpK.onRefresh();
+        this.hBG.onRefresh();
     }
 
-    public boolean ceC() {
-        return this.hpK.ceC();
+    public boolean chs() {
+        return this.hBG.chs();
     }
 
-    public void ceD() {
-        this.hpK.ceD();
+    public void cht() {
+        this.hBG.cht();
     }
 
     public void release() {
-        this.hpK.release();
+        this.hBG.release();
     }
 
     public void destroy() {
-        this.hpK.destroy();
+        this.hBG.destroy();
     }
 
-    public void nB(boolean z) {
-        this.hpK.nB(z);
+    public void ob(boolean z) {
+        this.hBG.ob(z);
     }
 
-    public void ceE() {
-        if (this.hpK != null) {
-            this.hpK.ceE();
+    public void chu() {
+        if (this.hBG != null) {
+            this.hBG.chu();
         }
     }
 
-    public void nC(boolean z) {
-        if (this.hpK != null) {
-            this.hpK.nC(z);
+    public void oc(boolean z) {
+        if (this.hBG != null) {
+            this.hBG.oc(z);
         }
     }
 
-    public void a(com.baidu.live.m.a aVar) {
-        if (this.hpK != null) {
-            this.hpK.a(aVar);
+    public void a(com.baidu.live.n.a aVar) {
+        if (this.hBG != null) {
+            this.hBG.a(aVar);
         }
     }
 }

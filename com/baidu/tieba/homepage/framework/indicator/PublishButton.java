@@ -1,14 +1,14 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class PublishButton extends TBSpecificationBtn {
     private float mAlpha;
 
@@ -33,8 +33,8 @@ public class PublishButton extends TBSpecificationBtn {
     private void init() {
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
         bVar.a(R.drawable.icon_pure_issue16, 0, TBSpecificationButtonConfig.IconType.WEBP);
-        bVar.rc(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-        bVar.bd(R.color.CAM_X0302, R.color.CAM_X0101);
+        bVar.setIconSize(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+        bVar.bb(R.color.CAM_X0302, R.color.CAM_X0101);
         setConfig(bVar);
         setTextSize(R.dimen.T_X08);
         setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_thread_publish));

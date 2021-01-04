@@ -1,9 +1,9 @@
 package com.baidu.searchbox.player.event;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.message.IMessenger;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class SingleTargetTrigger implements IEventTrigger {
     protected IMessenger mIMessenger;
 

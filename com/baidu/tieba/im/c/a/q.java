@@ -6,14 +6,21 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
 import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class q implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
             return null;
         }
-        com.baidu.tbadk.core.c.a.brq().clearStringCacheWithSapce("tb.im_group_search_history");
-        return new ResponseSearchGroupLocalMessage(CmdConfigCustom.CMD_CACHE_CLEAR_REQUEST_SEARCH_GROUP);
+        long groupId = ((RequestSearchGroupsLocalMessage) customMessage).getGroupId();
+        ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage(CmdConfigCustom.CMD_CACHE_ORDER_REQUEST_SEARCH_GROUP);
+        responseSearchGroupLocalMessage.setOrginalMessage(customMessage);
+        responseSearchGroupLocalMessage.setError(0);
+        responseSearchGroupLocalMessage.setGid(groupId);
+        String str = groupId + "";
+        com.baidu.adp.lib.cache.l<String> Bn = com.baidu.tbadk.core.c.a.btS().Bn("tb.im_group_search_history");
+        Bn.setForever(str, Bn.get(str));
+        return responseSearchGroupLocalMessage;
     }
 }

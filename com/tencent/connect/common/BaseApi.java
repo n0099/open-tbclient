@@ -7,9 +7,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import androidx.fragment.app.Fragment;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.kwai.video.player.KsMediaMeta;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.auth.c;
 import com.tencent.open.TDialog;
@@ -27,20 +29,22 @@ import java.net.SocketTimeoutException;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    protected c f4320a;
-    protected QQToken b;
+    protected c f13624a;
+
+    /* renamed from: b  reason: collision with root package name */
+    protected QQToken f13625b;
     public static String registerChannel = null;
     public static String installChannel = null;
     public static String businessId = null;
     public static boolean isOEM = false;
 
     public BaseApi(c cVar, QQToken qQToken) {
-        this.f4320a = cVar;
-        this.b = qQToken;
+        this.f13624a = cVar;
+        this.f13625b = qQToken;
     }
 
     public BaseApi(QQToken qQToken) {
@@ -50,21 +54,21 @@ public abstract class BaseApi {
     /* JADX INFO: Access modifiers changed from: protected */
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putString("format", "json");
+        bundle.putString(KsMediaMeta.KSM_KEY_FORMAT, "json");
         bundle.putString("status_os", Build.VERSION.RELEASE);
         bundle.putString("status_machine", Build.MODEL);
         bundle.putString("status_version", Build.VERSION.SDK);
         bundle.putString("sdkv", Constants.SDK_VERSION);
         bundle.putString("sdkp", "a");
-        if (this.b != null && this.b.isSessionValid()) {
-            bundle.putString("access_token", this.b.getAccessToken());
-            bundle.putString("oauth_consumer_key", this.b.getAppId());
-            bundle.putString("openid", this.b.getOpenId());
-            bundle.putString("appid_for_getting_config", this.b.getAppId());
+        if (this.f13625b != null && this.f13625b.isSessionValid()) {
+            bundle.putString("access_token", this.f13625b.getAccessToken());
+            bundle.putString("oauth_consumer_key", this.f13625b.getAppId());
+            bundle.putString("openid", this.f13625b.getOpenId());
+            bundle.putString("appid_for_getting_config", this.f13625b.getAppId());
         }
         SharedPreferences sharedPreferences = e.a().getSharedPreferences(Constants.PREFERENCE_PF, 0);
         if (isOEM) {
-            bundle.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+            bundle.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + HttpConstants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
         } else {
             bundle.putString("pf", sharedPreferences.getString("pf", Constants.DEFAULT_PF));
         }
@@ -86,19 +90,19 @@ public abstract class BaseApi {
     /* JADX INFO: Access modifiers changed from: protected */
     public Bundle b() {
         Bundle bundle = new Bundle();
-        bundle.putString("appid", this.b.getAppId());
-        if (this.b.isSessionValid()) {
-            bundle.putString(Constants.PARAM_KEY_STR, this.b.getAccessToken());
+        bundle.putString("appid", this.f13625b.getAppId());
+        if (this.f13625b.isSessionValid()) {
+            bundle.putString(Constants.PARAM_KEY_STR, this.f13625b.getAccessToken());
             bundle.putString(Constants.PARAM_KEY_TYPE, "0x80");
         }
-        String openId = this.b.getOpenId();
+        String openId = this.f13625b.getOpenId();
         if (openId != null) {
             bundle.putString("hopenid", openId);
         }
         bundle.putString("platform", "androidqz");
         SharedPreferences sharedPreferences = e.a().getSharedPreferences(Constants.PREFERENCE_PF, 0);
         if (isOEM) {
-            bundle.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+            bundle.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + HttpConstants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
         } else {
             bundle.putString("pf", sharedPreferences.getString("pf", Constants.DEFAULT_PF));
             bundle.putString("pf", Constants.DEFAULT_PF);
@@ -168,37 +172,39 @@ public abstract class BaseApi {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Activity activity, Bundle bundle, IUiListener iUiListener) {
         f.c("openSDK_LOG.BaseApi", "--handleDownloadLastestQQ");
-        new TDialog(activity, "", "http://qzs.qq.com/open/mobile/login/qzsjump.html?" + HttpUtils.encodeUrl(bundle), null, this.b).show();
+        new TDialog(activity, "", "http://qzs.qq.com/open/mobile/login/qzsjump.html?" + HttpUtils.encodeUrl(bundle), null, this.f13625b).show();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Intent c(String str) {
         Intent intent = new Intent();
-        Intent b = b(str);
-        if (b == null || b.getComponent() == null) {
+        Intent b2 = b(str);
+        if (b2 == null || b2.getComponent() == null) {
             return null;
         }
-        intent.setClassName(b.getComponent().getPackageName(), "com.tencent.open.agent.AgentActivity");
+        intent.setClassName(b2.getComponent().getPackageName(), "com.tencent.open.agent.AgentActivity");
         return intent;
     }
 
     public void releaseResource() {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public class TempRequestListener implements IRequestListener {
-        private final IUiListener b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private final IUiListener f13627b;
         private final Handler c;
 
         public TempRequestListener(IUiListener iUiListener) {
-            this.b = iUiListener;
+            this.f13627b = iUiListener;
             this.c = new Handler(e.a().getMainLooper()) { // from class: com.tencent.connect.common.BaseApi.TempRequestListener.1
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
                     if (message.what == 0) {
-                        TempRequestListener.this.b.onComplete(message.obj);
+                        TempRequestListener.this.f13627b.onComplete(message.obj);
                     } else {
-                        TempRequestListener.this.b.onError(new UiError(message.what, (String) message.obj, null));
+                        TempRequestListener.this.f13627b.onError(new UiError(message.what, (String) message.obj, null));
                     }
                 }
             };

@@ -8,10 +8,10 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.GridLayoutAnimationController;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class GameVideoGridView extends BdGridView {
-    private Animation jPq;
-    private GridLayoutAnimationController jPr;
+    private Animation kcE;
+    private GridLayoutAnimationController kcF;
     private int mMaxHeight;
 
     public GameVideoGridView(Context context, AttributeSet attributeSet, int i) {
@@ -33,15 +33,15 @@ public class GameVideoGridView extends BdGridView {
     }
 
     private void init() {
-        if (this.jPq == null) {
-            this.jPq = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
+        if (this.kcE == null) {
+            this.kcE = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
         }
-        if (this.jPr == null) {
-            this.jPr = new GridLayoutAnimationController(this.jPq);
-            this.jPr.setColumnDelay(0.4f);
-            this.jPr.setRowDelay(0.2f);
-            this.jPr.setDirection(0);
-            this.jPr.setDirectionPriority(0);
+        if (this.kcF == null) {
+            this.kcF = new GridLayoutAnimationController(this.kcE);
+            this.kcF.setColumnDelay(0.4f);
+            this.kcF.setRowDelay(0.2f);
+            this.kcF.setDirection(0);
+            this.kcF.setDirectionPriority(0);
         }
     }
 
@@ -57,17 +57,17 @@ public class GameVideoGridView extends BdGridView {
         super.onMeasure(i, i2);
     }
 
-    public void cPf() {
-        if (this.jPr != null) {
-            setLayoutAnimation(this.jPr);
-            this.jPr.start();
+    public void cSl() {
+        if (this.kcF != null) {
+            setLayoutAnimation(this.kcF);
+            this.kcF.start();
             startLayoutAnimation();
         }
     }
 
     public void onDestroy() {
-        if (this.jPq != null) {
-            this.jPq.cancel();
+        if (this.kcE != null) {
+            this.kcE.cancel();
         }
     }
 }

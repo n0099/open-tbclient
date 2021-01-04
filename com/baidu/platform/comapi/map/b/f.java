@@ -6,23 +6,25 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import com.baidu.platform.comapi.map.b.a;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f2915a;
-    public final int b;
+    public final int f4333a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final int f4334b;
     private VelocityTracker c;
 
     public f() {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(com.baidu.platform.comapi.b.e());
         if (viewConfiguration == null) {
-            this.b = ViewConfiguration.getMinimumFlingVelocity();
-            this.f2915a = ViewConfiguration.getMaximumFlingVelocity();
+            this.f4334b = ViewConfiguration.getMinimumFlingVelocity();
+            this.f4333a = ViewConfiguration.getMaximumFlingVelocity();
             return;
         }
-        this.b = viewConfiguration.getScaledMinimumFlingVelocity();
-        this.f2915a = viewConfiguration.getScaledMaximumFlingVelocity();
+        this.f4334b = viewConfiguration.getScaledMinimumFlingVelocity();
+        this.f4333a = viewConfiguration.getScaledMaximumFlingVelocity();
     }
 
     public void a() {
@@ -52,7 +54,7 @@ public class f {
         if (this.c == null) {
             return new Pair<>(new a.d(0.0d, 0.0d), new a.d(0.0d, 0.0d));
         }
-        this.c.computeCurrentVelocity(1000, this.f2915a);
+        this.c.computeCurrentVelocity(1000, this.f4333a);
         if (Build.VERSION.SDK_INT < 8) {
             xVelocity = this.c.getXVelocity();
             yVelocity = this.c.getYVelocity();

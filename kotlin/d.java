@@ -2,7 +2,7 @@ package kotlin;
 
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class d {
     public static final <T> c<T> b(kotlin.jvm.a.a<? extends T> aVar) {
         p.o(aVar, "initializer");

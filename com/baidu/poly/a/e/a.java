@@ -9,33 +9,33 @@ import com.baidu.poly.a.f.a;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private com.baidu.poly.a.f.a cgR;
+    private com.baidu.poly.a.f.a cnU;
 
     public a(Context context) {
-        File N = N(context, "bitmap");
-        if (!N.exists()) {
-            N.mkdirs();
+        File a2 = a(context, "bitmap");
+        if (!a2.exists()) {
+            a2.mkdirs();
         }
         try {
-            this.cgR = com.baidu.poly.a.f.a.a(N, 1, 1, 10485760L);
+            this.cnU = com.baidu.poly.a.f.a.b(a2, 1, 1, 10485760L);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void d(String str) {
-        if (this.cgR != null) {
+        if (this.cnU != null) {
             try {
-                a.c ka = this.cgR.ka(com.baidu.poly.a.g.b.g(str));
-                if (ka != null) {
-                    if (d.a(str, ka.hg(0))) {
-                        ka.commit();
+                a.c jW = this.cnU.jW(com.baidu.poly.a.g.b.g(str));
+                if (jW != null) {
+                    if (d.a(str, jW.hf(0))) {
+                        jW.commit();
                     } else {
-                        ka.abort();
+                        jW.abort();
                     }
-                    this.cgR.flush();
+                    this.cnU.flush();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -44,12 +44,12 @@ public class a {
     }
 
     public Bitmap m(String str, int i, int i2) {
-        if (this.cgR == null) {
+        if (this.cnU == null) {
             return null;
         }
-        a.e jZ = this.cgR.jZ(com.baidu.poly.a.g.b.g(str));
-        if (jZ != null) {
-            FileInputStream fileInputStream = (FileInputStream) jZ.hj(0);
+        a.e jV = this.cnU.jV(com.baidu.poly.a.g.b.g(str));
+        if (jV != null) {
+            FileInputStream fileInputStream = (FileInputStream) jV.hi(0);
             if (i > 0 && i2 > 0) {
                 return com.baidu.poly.a.g.a.a(fileInputStream.getFD(), i, i2);
             }
@@ -58,7 +58,7 @@ public class a {
         return null;
     }
 
-    public File N(Context context, String str) {
+    public File a(Context context, String str) {
         String path;
         if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
             path = context.getExternalCacheDir().getPath();

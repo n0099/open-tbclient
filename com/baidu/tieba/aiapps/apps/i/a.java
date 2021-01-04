@@ -1,24 +1,24 @@
 package com.baidu.tieba.aiapps.apps.i;
 
 import android.content.Intent;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatDelegate;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public static boolean getNightModeSwitcherState() {
-        return com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState();
+    public static boolean alD() {
+        return com.baidu.swan.apps.t.a.aAN().alD();
     }
 
-    public static void lK(boolean z) {
+    public static void mh(boolean z) {
         Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
         intent.putExtra("key_night_mode", z);
         LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
     }
 
-    public static void bOE() {
+    public static void bQW() {
         int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
-        int i = getNightModeSwitcherState() ? 2 : 1;
+        int i = alD() ? 2 : 1;
         if (defaultNightMode != i) {
             AppCompatDelegate.setDefaultNightMode(i);
         }

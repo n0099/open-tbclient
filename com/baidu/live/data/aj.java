@@ -1,24 +1,19 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import android.text.TextUtils;
+/* loaded from: classes11.dex */
 public class aj {
-    public int aLE;
-    public int aLF;
-    public String mAppid;
-    public int mOpenType;
+    public String aMc;
+    public String endColor;
+    public String imageUrl;
+    public String startColor;
+    public String url;
 
-    public String toJsonString() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, Integer.valueOf(this.aLE));
-            jSONObject.putOpt("open_type", Integer.valueOf(this.mOpenType));
-            jSONObject.putOpt("screen_direction", Integer.valueOf(this.aLF));
-            jSONObject.putOpt("appid", this.mAppid);
-            return jSONObject.toString();
-        } catch (Exception e) {
-            return "";
-        }
+    public String getLabelName() {
+        return (TextUtils.isEmpty(this.aMc) || this.aMc.length() <= 4) ? this.aMc : this.aMc.substring(0, 4);
+    }
+
+    public String toString() {
+        return "AlaSceneData{url='" + this.url + "', sceneName='" + this.aMc + "', imageUrl='" + this.imageUrl + "', startColor='" + this.startColor + "', endColor='" + this.endColor + "'}";
     }
 }

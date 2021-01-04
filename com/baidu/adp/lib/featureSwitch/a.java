@@ -4,6 +4,8 @@ import com.baidu.adp.lib.featureSwitch.b;
 /* loaded from: classes.dex */
 public abstract class a {
     protected static final int DEF_CRASHTIME_LIMIT = 10;
+    public static final int OFF_TYPE = 0;
+    public static final int ON_TYPE = 1;
     protected String[] mKey;
     protected String mName;
     protected int mDefaultType = 0;

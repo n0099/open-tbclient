@@ -1,5 +1,5 @@
 package com.baidu.ar;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public enum ARType {
     TRACK_2D(0),
     LBS(1),

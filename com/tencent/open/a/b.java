@@ -1,18 +1,20 @@
 package com.tencent.open.a;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f4346a = d.C1030d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat f13670a = d.C1240d.a("yy.MM.dd.HH");
     private File g;
-    private String b = "Tracer.File";
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f13671b = "Tracer.File";
     private int c = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int d = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int e = 4096;
@@ -38,12 +40,12 @@ public class b {
     }
 
     private File c(long j) {
-        File b = b();
+        File b2 = b();
         try {
-            return new File(b, c(d(j)));
+            return new File(b2, c(d(j)));
         } catch (Throwable th) {
             th.printStackTrace();
-            return b;
+            return b2;
         }
     }
 
@@ -64,11 +66,11 @@ public class b {
     }
 
     public String c() {
-        return this.b;
+        return this.f13671b;
     }
 
     public void a(String str) {
-        this.b = str;
+        this.f13671b = str;
     }
 
     public void a(int i) {

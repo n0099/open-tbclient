@@ -32,7 +32,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCallback {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final long CANCEL_AFTER_CLOSE_MILLIS = 60000;
@@ -321,7 +321,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
 
     @Override // okhttp3.WebSocket
     public boolean close(int i, String str) {
-        return close(i, str, CANCEL_AFTER_CLOSE_MILLIS);
+        return close(i, str, 60000L);
     }
 
     synchronized boolean close(int i, String str, long j) {
@@ -357,9 +357,9 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
 
     boolean writeOneFrame() throws IOException {
         Streams streams;
+        String str;
         int i;
         Message message;
-        String str = null;
         synchronized (this) {
             if (this.failed) {
                 return false;
@@ -369,32 +369,29 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
             if (poll == null) {
                 Object poll2 = this.messageAndCloseQueue.poll();
                 if (poll2 instanceof Close) {
-                    int i2 = this.receivedCloseCode;
-                    String str2 = this.receivedCloseReason;
-                    if (i2 != -1) {
-                        Streams streams2 = this.streams;
+                    i = this.receivedCloseCode;
+                    str = this.receivedCloseReason;
+                    if (i != -1) {
+                        streams = this.streams;
                         this.streams = null;
                         this.executor.shutdown();
-                        str = str2;
-                        i = i2;
                         message = poll2;
-                        streams = streams2;
                     } else {
                         this.cancelFuture = this.executor.schedule(new CancelRunnable(), ((Close) poll2).cancelAfterCloseMillis, TimeUnit.MILLISECONDS);
-                        message = poll2;
                         streams = null;
-                        str = str2;
-                        i = i2;
+                        message = poll2;
                     }
                 } else if (poll2 == null) {
                     return false;
                 } else {
+                    streams = null;
+                    str = null;
                     i = -1;
                     message = poll2;
-                    streams = null;
                 }
             } else {
                 streams = null;
+                str = null;
                 i = -1;
                 message = null;
             }
@@ -426,7 +423,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public final class PingRunnable implements Runnable {
         PingRunnable() {
         }
@@ -479,7 +476,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class Message {
         final ByteString data;
         final int formatOpcode;
@@ -491,7 +488,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class Close {
         final long cancelAfterCloseMillis;
         final int code;
@@ -504,7 +501,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Streams implements Closeable {
         public final boolean client;
         public final BufferedSink sink;
@@ -518,7 +515,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public final class CancelRunnable implements Runnable {
         CancelRunnable() {
         }

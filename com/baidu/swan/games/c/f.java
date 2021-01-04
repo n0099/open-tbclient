@@ -1,17 +1,17 @@
 package com.baidu.swan.games.c;
 
-import android.support.annotation.NonNull;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes9.dex */
 public class f {
-    public static String aWZ() {
-        return com.baidu.swan.apps.storage.c.h.aNr().getString("get_app_console_core", "-1");
+    public static String aZt() {
+        return com.baidu.swan.apps.storage.c.h.aPH().getString("get_app_console_core", "-1");
     }
 
-    public static void xj(@NonNull String str) {
-        com.baidu.swan.apps.storage.c.h.aNr().putString("get_app_console_core", str);
+    public static void xi(@NonNull String str) {
+        com.baidu.swan.apps.storage.c.h.aPH().putString("get_app_console_core", str);
     }
 
-    public static void aXa() {
-        xj("-1");
+    public static void aZu() {
+        xi("-1");
     }
 }

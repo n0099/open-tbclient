@@ -5,20 +5,22 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1437a;
+    private final int f1891a;
     private c c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
-    private List<c> b = new ArrayList();
+
+    /* renamed from: b  reason: collision with root package name */
+    private List<c> f1892b = new ArrayList();
 
     public f(int i) {
-        this.f1437a = i;
+        this.f1891a = i;
     }
 
     public int a() {
-        return this.f1437a;
+        return this.f1891a;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
@@ -27,11 +29,11 @@ public class f {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.b.size()) {
+            if (i2 >= this.f1892b.size()) {
                 break;
             }
             JSONObject jSONObject2 = new JSONObject();
-            if (this.b.get(i2).a(jSONObject2) != null) {
+            if (this.f1892b.get(i2).a(jSONObject2) != null) {
                 jSONArray.put(jSONObject2);
             }
             i = i2 + 1;

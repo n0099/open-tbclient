@@ -21,8 +21,8 @@ public class g {
         return arrayList;
     }
 
-    public static List<String> bxn() {
-        String string = com.baidu.tbadk.core.sharedPref.b.bsO().getString("scheme_white_list", null);
+    public static List<String> bzH() {
+        String string = com.baidu.tbadk.core.sharedPref.b.bvq().getString("scheme_white_list", null);
         if (StringUtils.isNull(string)) {
             return null;
         }
@@ -35,9 +35,9 @@ public class g {
 
     public static void U(JSONArray jSONArray) {
         if (jSONArray == null) {
-            com.baidu.tbadk.core.sharedPref.b.bsO().putString("scheme_white_list", "");
+            com.baidu.tbadk.core.sharedPref.b.bvq().putString("scheme_white_list", "");
         } else {
-            com.baidu.tbadk.core.sharedPref.b.bsO().putString("scheme_white_list", jSONArray.toString());
+            com.baidu.tbadk.core.sharedPref.b.bvq().putString("scheme_white_list", jSONArray.toString());
         }
     }
 }

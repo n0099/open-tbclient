@@ -2,7 +2,7 @@ package com.baidu.tieba.tbadkCore.e.a;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,16 +12,16 @@ public class c {
     private String mData;
     private String mMessage;
     private String mMethodName;
-    private boolean noh;
-    private boolean noi;
+    private boolean ntS;
+    private boolean ntT;
     private int mStatus = -1;
-    private boolean noj = true;
+    private boolean ntU = true;
 
-    public String getMethodName() {
+    public String cxa() {
         return this.mMethodName;
     }
 
-    public void TI(String str) {
+    public void Ts(String str) {
         this.mMethodName = str;
     }
 
@@ -33,19 +33,19 @@ public class c {
         this.mStatus = i;
         switch (i) {
             case 0:
-                TK(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
+                Tu(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
                 return;
             case 101:
-                TK(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_scheme_parse_fail));
+                Tu(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_scheme_parse_fail));
                 return;
             case 201:
-                TK(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_module));
+                Tu(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_module));
                 return;
             case 202:
-                TK(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_action));
+                Tu(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_action));
                 return;
             case 301:
-                TK(TbadkCoreApplication.getInst().getString(R.string.scheme_action_security_check_fail));
+                Tu(TbadkCoreApplication.getInst().getString(R.string.scheme_action_security_check_fail));
                 return;
             default:
                 return;
@@ -56,28 +56,28 @@ public class c {
         this.mMessage = str;
     }
 
-    public void TJ(String str) {
-        TK(str);
-        Ld(401);
+    public void Tt(String str) {
+        Tu(str);
+        KZ(401);
     }
 
-    public void dPL() {
-        TK(TbadkCoreApplication.getInst().getString(R.string.na_business_error));
-        Ld(401);
+    public void dPH() {
+        Tu(TbadkCoreApplication.getInst().getString(R.string.na_business_error));
+        KZ(401);
     }
 
     public String getMessage() {
         return this.mMessage;
     }
 
-    public void Ld(int i) {
+    public void KZ(int i) {
         if (this.mStatus == -1) {
             setStatus(i);
         }
     }
 
-    public void TK(String str) {
-        if (au.isEmpty(this.mMessage)) {
+    public void Tu(String str) {
+        if (at.isEmpty(this.mMessage)) {
             this.mMessage = str;
         }
     }
@@ -90,46 +90,46 @@ public class c {
         this.mData = str;
     }
 
-    public boolean dPM() {
-        return this.noh;
+    public boolean dPI() {
+        return this.ntS;
     }
 
-    public void ye(boolean z) {
-        this.noh = z;
+    public void yj(boolean z) {
+        this.ntS = z;
     }
 
-    public boolean dPN() {
-        return this.noi;
+    public boolean dPJ() {
+        return this.ntT;
     }
 
-    public void yf(boolean z) {
-        this.noi = z;
+    public void yk(boolean z) {
+        this.ntT = z;
     }
 
-    public boolean dPO() {
-        return this.noj;
+    public boolean dPK() {
+        return this.ntU;
     }
 
-    public void yg(boolean z) {
-        this.noj = z;
+    public void yl(boolean z) {
+        this.ntU = z;
     }
 
     public boolean isError() {
         return this.mStatus > 0;
     }
 
-    public boolean dPP() {
+    public boolean dPL() {
         return this.mStatus != -1;
     }
 
-    public String dPQ() {
+    public String dPM() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("status", this.mStatus);
             jSONObject.put("message", this.mMessage);
-            if (au.Cf(this.mData)) {
+            if (at.Cd(this.mData)) {
                 jSONObject.put("data", new JSONObject(this.mData));
-            } else if (au.isJSONArray(this.mData)) {
+            } else if (at.isJSONArray(this.mData)) {
                 jSONObject.put("data", new JSONArray(this.mData));
             } else {
                 jSONObject.put("data", this.mData);

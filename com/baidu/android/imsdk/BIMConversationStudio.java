@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.mcast.IMcastSetListener;
 import com.baidu.android.imsdk.mcast.UnLoginCastService;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class BIMConversationStudio extends BIMConversation {
     private static String TAG = "BIMConversationStudio";
     private String mCastId;

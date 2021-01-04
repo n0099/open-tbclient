@@ -3,7 +3,7 @@ package com.baidu.ala.recorder.video.gles;
 import android.annotation.TargetApi;
 import android.opengl.GLES20;
 @TargetApi(16)
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class FrameBuffer {
     private int[] mFrameBuffer;
     private int lastWidth = 0;

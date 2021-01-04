@@ -11,20 +11,20 @@ import java.util.List;
 public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: g */
-    public PMSAppInfo j(Cursor cursor) {
+    /* renamed from: h */
+    public PMSAppInfo k(Cursor cursor) {
         if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
             return null;
         }
-        return i(cursor);
+        return j(cursor);
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<PMSAppInfo> h(Cursor cursor) {
+    public List<PMSAppInfo> i(Cursor cursor) {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
-                arrayList.add(i(cursor));
+                arrayList.add(j(cursor));
             } while (cursor.moveToNext());
             return arrayList;
         }
@@ -34,7 +34,7 @@ public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: t */
-    public ContentValues aj(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
+    public ContentValues al(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
         ContentValues contentValues = new ContentValues();
         if (pMSAppInfo != null) {
             contentValues.put("app_id", pMSAppInfo.appId);
@@ -74,13 +74,13 @@ public class a extends b<PMSAppInfo> {
             if (0 < lastLaunchTime) {
                 contentValues.put("last_launch_time", Long.valueOf(lastLaunchTime));
             }
-            int aPp = pMSAppInfo.aPp();
-            if (aPp > 0) {
-                contentValues.put("launch_count", Integer.valueOf(aPp));
+            int aRG = pMSAppInfo.aRG();
+            if (aRG > 0) {
+                contentValues.put("launch_count", Integer.valueOf(aRG));
             }
-            int atd = pMSAppInfo.atd();
-            if (atd > 0) {
-                contentValues.put("install_src", Integer.valueOf(atd));
+            int auu = pMSAppInfo.auu();
+            if (auu > 0) {
+                contentValues.put("install_src", Integer.valueOf(auu));
             }
             contentValues.put("web_url", pMSAppInfo.webUrl);
             contentValues.put("cs_protocol_version", Integer.valueOf(pMSAppInfo.csProtocolVersion));
@@ -88,7 +88,7 @@ public class a extends b<PMSAppInfo> {
         return contentValues;
     }
 
-    private PMSAppInfo i(Cursor cursor) {
+    private PMSAppInfo j(Cursor cursor) {
         if (cursor != null) {
             int columnIndex = cursor.getColumnIndex("app_id");
             int columnIndex2 = cursor.getColumnIndex("app_key");
@@ -162,9 +162,9 @@ public class a extends b<PMSAppInfo> {
             pMSAppInfo.paNumber = cursor.getString(columnIndex31);
             pMSAppInfo.brandsInfo = cursor.getString(columnIndex32);
             pMSAppInfo.quickAppKey = cursor.getString(columnIndex36);
-            pMSAppInfo.dm(cursor.getLong(columnIndex33));
-            pMSAppInfo.nk(cursor.getInt(columnIndex34));
-            pMSAppInfo.nl(cursor.getInt(columnIndex35));
+            pMSAppInfo.dn(cursor.getLong(columnIndex33));
+            pMSAppInfo.nt(cursor.getInt(columnIndex34));
+            pMSAppInfo.nu(cursor.getInt(columnIndex35));
             pMSAppInfo.webUrl = cursor.getString(columnIndex37);
             pMSAppInfo.csProtocolVersion = cursor.getInt(columnIndex38);
             return pMSAppInfo;

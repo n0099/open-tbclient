@@ -1,12 +1,12 @@
 package com.baidu.ala.player;
 
 import android.media.AudioTrack;
+import com.baidu.ala.adp.lib.util.BdLog;
 import com.baidu.ala.helper.AlaAudioBuffer;
 import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.ndk.AudioProcessModule;
-import com.baidu.live.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaAudioPlayer {
     private static final int BUFFER_LENGTH = 4096;
     private static final boolean ENABLE_FRAGMENT = false;
@@ -28,7 +28,6 @@ public class AlaAudioPlayer {
 
     public AlaAudioPlayer(int i, int i2, boolean z) {
         boolean z2;
-        int i3 = 0;
         this.mAudioTrack = null;
         this.mIsEnableACE = false;
         this.mSampleRate = 0;
@@ -53,23 +52,23 @@ public class AlaAudioPlayer {
         this.mRtcBuffer = new byte[4096];
         this.mNativeBuffer = ByteBuffer.allocateDirect(4096);
         int minBufferSize = AudioTrack.getMinBufferSize(i, i2, 2);
-        if (!z) {
-            i3 = 3;
-            z2 = true;
-        } else {
+        int i3 = 3;
+        if (z) {
             try {
                 if (StreamConfig.useOpenSLES()) {
-                    i3 = 3;
                     z2 = false;
                 } else {
                     AudioProcessModule.sharedInstance().setRenderBuffer(this.mNativeBuffer, 1.4f);
                     z2 = true;
+                    i3 = 0;
                 }
             } catch (IllegalArgumentException e2) {
                 this.mAudioTrack = null;
                 BdLog.e(e2.getMessage());
                 return;
             }
+        } else {
+            z2 = true;
         }
         BdLog.e("LIVE_SDK_JNIaudio stream type=" + i3);
         if (z2) {

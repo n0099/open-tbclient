@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a<TLeft, R> {
     final h<? super TLeft, ? extends t<TLeftEnd>> leftEnd;
     final t<? extends TRight> other;
@@ -30,7 +30,7 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
         this.other.subscribe(leftRightObserver2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class JoinDisposable<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements io.reactivex.disposables.b, ObservableGroupJoin.a {
         private static final long serialVersionUID = -6071216598687999801L;
         final u<? super R> actual;
@@ -45,7 +45,7 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
         static final Integer LEFT_CLOSE = 3;
         static final Integer RIGHT_CLOSE = 4;
         final io.reactivex.disposables.a disposables = new io.reactivex.disposables.a();
-        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(q.eCS());
+        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(q.eLa());
         final Map<Integer, TLeft> lefts = new LinkedHashMap();
         final Map<Integer, TRight> rights = new LinkedHashMap();
         final AtomicReference<Throwable> error = new AtomicReference<>();
@@ -86,7 +86,7 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
         }
 
         void fail(Throwable th, u<?> uVar, io.reactivex.internal.queue.a<?> aVar) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             ExceptionHelper.addThrowable(this.error, th);
             aVar.clear();
             cancelAll();

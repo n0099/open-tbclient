@@ -1,7 +1,7 @@
 package org.brotli.dec;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 final class f {
-    private static int es(int i, int i2) {
+    private static int er(int i, int i2) {
         int i3 = 1 << (i2 - 1);
         while ((i & i3) != 0) {
             i3 >>= 1;
@@ -16,7 +16,7 @@ final class f {
         } while (i3 > 0);
     }
 
-    private static int c(int[] iArr, int i, int i2) {
+    private static int d(int[] iArr, int i, int i2) {
         int i3;
         int i4 = 1 << (i - i2);
         while (i < 15 && (i3 = i4 - iArr[i]) > 0) {
@@ -28,80 +28,87 @@ final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(int[] iArr, int i, int i2, int[] iArr2, int i3) {
+        int i4;
+        int i5;
         int[] iArr3 = new int[i3];
         int[] iArr4 = new int[16];
         int[] iArr5 = new int[16];
-        for (int i4 = 0; i4 < i3; i4++) {
-            int i5 = iArr2[i4];
-            iArr4[i5] = iArr4[i5] + 1;
+        for (int i6 = 0; i6 < i3; i6++) {
+            int i7 = iArr2[i6];
+            iArr4[i7] = iArr4[i7] + 1;
         }
         iArr5[1] = 0;
-        for (int i6 = 1; i6 < 15; i6++) {
-            iArr5[i6 + 1] = iArr5[i6] + iArr4[i6];
+        for (int i8 = 1; i8 < 15; i8++) {
+            iArr5[i8 + 1] = iArr5[i8] + iArr4[i8];
         }
-        for (int i7 = 0; i7 < i3; i7++) {
-            if (iArr2[i7] != 0) {
-                int i8 = iArr2[i7];
-                int i9 = iArr5[i8];
-                iArr5[i8] = i9 + 1;
-                iArr3[i9] = i7;
+        for (int i9 = 0; i9 < i3; i9++) {
+            if (iArr2[i9] != 0) {
+                int i10 = iArr2[i9];
+                int i11 = iArr5[i10];
+                iArr5[i10] = i11 + 1;
+                iArr3[i11] = i9;
             }
         }
-        int i10 = 1 << i2;
+        int i12 = 1 << i2;
         if (iArr5[15] == 1) {
-            for (int i11 = 0; i11 < i10; i11++) {
-                iArr[i + i11] = iArr3[0];
+            for (int i13 = 0; i13 < i12; i13++) {
+                iArr[i + i13] = iArr3[0];
             }
             return;
         }
-        int i12 = 1;
-        int i13 = 0;
-        int i14 = 2;
+        int i14 = 0;
         int i15 = 0;
-        while (i12 <= i2) {
-            int i16 = i13;
-            while (iArr4[i12] > 0) {
-                int i17 = i15 + 1;
-                b(iArr, i + i16, i14, i10, iArr3[i15] | (i12 << 16));
-                int es = es(i16, i12);
-                iArr4[i12] = iArr4[i12] - 1;
-                i16 = es;
-                i15 = i17;
+        int i16 = 1;
+        int i17 = 2;
+        while (i16 <= i2) {
+            int i18 = i14;
+            while (iArr4[i16] > 0) {
+                b(iArr, i + i18, i17, i12, iArr3[i15] | (i16 << 16));
+                i18 = er(i18, i16);
+                iArr4[i16] = iArr4[i16] - 1;
+                i15++;
             }
-            i12++;
-            i14 <<= 1;
-            i13 = i16;
+            i16++;
+            i17 <<= 1;
+            i14 = i18;
         }
-        int i18 = i10 - 1;
-        int i19 = 2;
-        int i20 = i2 + 1;
-        int i21 = i10;
-        int i22 = i10;
-        int i23 = i13;
-        int i24 = -1;
-        int i25 = i15;
-        int i26 = i;
-        while (i20 <= 15) {
-            int i27 = i23;
-            while (iArr4[i20] > 0) {
-                if ((i27 & i18) != i24) {
-                    i26 += i22;
-                    int c = c(iArr4, i20, i2);
-                    i22 = 1 << c;
-                    i21 += i22;
-                    i24 = i27 & i18;
-                    iArr[i + i24] = ((c + i2) << 16) | ((i26 - i) - i24);
+        int i19 = i12 - 1;
+        int i20 = -1;
+        int i21 = i2 + 1;
+        int i22 = 2;
+        int i23 = i;
+        int i24 = i12;
+        int i25 = i12;
+        int i26 = i15;
+        int i27 = i14;
+        while (i21 <= 15) {
+            int i28 = i23;
+            int i29 = i20;
+            int i30 = i27;
+            while (iArr4[i21] > 0) {
+                if ((i30 & i19) != i29) {
+                    i28 += i25;
+                    int d = d(iArr4, i21, i2);
+                    i5 = 1 << d;
+                    i4 = i24 + i5;
+                    i29 = i30 & i19;
+                    iArr[i + i29] = ((d + i2) << 16) | ((i28 - i) - i29);
+                } else {
+                    i4 = i24;
+                    i5 = i25;
                 }
-                int i28 = i25 + 1;
-                b(iArr, i26 + (i27 >> i2), i19, i22, iArr3[i25] | ((i20 - i2) << 16));
-                int es2 = es(i27, i20);
-                iArr4[i20] = iArr4[i20] - 1;
-                i27 = es2;
-                i25 = i28;
+                b(iArr, (i30 >> i2) + i28, i22, i5, ((i21 - i2) << 16) | iArr3[i26]);
+                i30 = er(i30, i21);
+                iArr4[i21] = iArr4[i21] - 1;
+                i24 = i4;
+                i25 = i5;
+                i26++;
             }
-            i20++;
-            i19 <<= 1;
-            i23 = i27;
+            i21++;
+            i22 <<= 1;
+            i23 = i28;
+            i20 = i29;
+            i27 = i30;
         }
     }
 }

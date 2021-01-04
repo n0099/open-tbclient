@@ -1,7 +1,7 @@
 package com.baidu.tbadk.q;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.util.n;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.b.c {
     public a() {
@@ -16,7 +16,7 @@ public class a extends com.baidu.adp.framework.b.c {
             return null;
         }
         if (httpResponsedMessage.getError() == 2260104) {
-            o.bGy();
+            n.bIR();
             return httpResponsedMessage;
         }
         return httpResponsedMessage;

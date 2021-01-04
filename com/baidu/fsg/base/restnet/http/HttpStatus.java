@@ -1,9 +1,8 @@
 package com.baidu.fsg.base.restnet.http;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.face.algo.FAUEnum;
 import okhttp3.internal.http.StatusLine;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public enum HttpStatus {
     CONTINUE(100, "Continue"),
     SWITCHING_PROTOCOLS(101, "Switching Protocols"),
@@ -17,7 +16,7 @@ public enum HttpStatus {
     RESET_CONTENT(205, "Reset Content"),
     PARTIAL_CONTENT(206, "Partial Content"),
     MULTI_STATUS(207, "Multi-Status"),
-    ALREADY_REPORTED(FAUEnum.PR_ANIMATE_FAILED, "Already Reported"),
+    ALREADY_REPORTED(208, "Already Reported"),
     IM_USED(Constants.METHOD_MEDIA_NOTIFY, "IM Used"),
     MULTIPLE_CHOICES(300, "Multiple Choices"),
     MOVED_PERMANENTLY(301, "Moved Permanently"),
@@ -105,7 +104,7 @@ public enum HttpStatus {
         return Integer.toString(this.value);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public enum Series {
         INFORMATIONAL(1),
         SUCCESSFUL(2),

@@ -1,9 +1,9 @@
 package io.reactivex;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class a implements e {
     protected abstract void b(c cVar);
 
-    private static NullPointerException H(Throwable th) {
+    private static NullPointerException M(Throwable th) {
         NullPointerException nullPointerException = new NullPointerException("Actually not, but can't pass out an exception otherwise...");
         nullPointerException.initCause(th);
         return nullPointerException;
@@ -17,9 +17,9 @@ public abstract class a implements e {
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             io.reactivex.d.a.onError(th);
-            throw H(th);
+            throw M(th);
         }
     }
 }

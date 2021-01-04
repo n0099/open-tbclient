@@ -1,0 +1,441 @@
+package com.fun.ad.sdk;
+
+import android.app.Activity;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTFeedAd;
+import com.fun.ad.au;
+import com.fun.ad.d;
+import com.fun.ad.m;
+import com.fun.ad.sdk.AdRipper;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsNativeAd;
+import com.kwad.sdk.api.KsScene;
+import com.qq.e.ads.nativ.NativeADUnifiedListener;
+import com.qq.e.ads.nativ.NativeUnifiedAD;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.comm.util.AdError;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBNative;
+import com.win.opensdk.PBNativeListener;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes15.dex */
+public class FunNativeAdLoader {
+    public List<au.a> mLoopAdIds;
+    public au mSlotId;
+    public boolean mIsLoading = false;
+    public int mBaiduNativeCpuAdPageIndex = 1;
+
+    /* loaded from: classes15.dex */
+    public class a implements PBNativeListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f8110a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ au.a f8111b;
+        public final /* synthetic */ PBNative c;
+        public final /* synthetic */ FunNativeAdLoadListener d;
+        public final /* synthetic */ Activity e;
+
+        public a(String str, au.a aVar, PBNative pBNative, FunNativeAdLoadListener funNativeAdLoadListener, Activity activity) {
+            this.f8110a = str;
+            this.f8111b = aVar;
+            this.c = pBNative;
+            this.d = funNativeAdLoadListener;
+            this.e = activity;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+        }
+
+        @Override // com.win.opensdk.PBNativeListener
+        public void onDisplayed() {
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            m.a("JYNativeAd onFail code: " + pBError.getCode() + ", message: " + pBError.getMsg());
+            ((d.a) com.fun.ad.d.pHm).a(this.f8110a, FunAdType.JY_NATIVE, this.f8111b.f8059a, pBError.getCode(), pBError.getMsg());
+            if (!FunNativeAdLoader.this.mLoopAdIds.isEmpty()) {
+                FunNativeAdLoader.this.doLoad(this.e, this.f8110a, this.d);
+                return;
+            }
+            FunNativeAdLoader.this.mIsLoading = false;
+            FunNativeAdLoadListener funNativeAdLoadListener = this.d;
+            if (funNativeAdLoadListener != null) {
+                funNativeAdLoadListener.onError(this.f8110a, pBError.getCode(), pBError.getMsg());
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new FunNativeAd(this.f8110a, this.f8111b.f8059a, this.c, (FunRippedAd) null));
+            FunNativeAdLoader.this.mIsLoading = false;
+            FunNativeAdLoadListener funNativeAdLoadListener = this.d;
+            if (funNativeAdLoadListener != null) {
+                funNativeAdLoadListener.onNativeAdLoaded(this.f8110a, arrayList);
+            }
+            ((d.a) com.fun.ad.d.pHm).c(this.f8110a, FunAdType.JY_NATIVE, this.f8111b.f8059a);
+        }
+    }
+
+    public FunNativeAdLoader(au auVar) {
+        this.mSlotId = auVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void doLoad(Activity activity, String str, FunNativeAdLoadListener funNativeAdLoadListener) {
+        au.a remove = this.mLoopAdIds.remove(0);
+        String str2 = remove.f8060b;
+        char c2 = 65535;
+        int hashCode = str2.hashCode();
+        if (hashCode != -1900686778) {
+            if (hashCode != -1187931233) {
+                if (hashCode != 425812868) {
+                    if (hashCode == 1922685617 && str2.equals(FunAdType.CSJ_NATIVE)) {
+                        c2 = 0;
+                    }
+                } else if (str2.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
+                    c2 = 2;
+                }
+            } else if (str2.equals(FunAdType.KS_NATIVE)) {
+                c2 = 1;
+            }
+        } else if (str2.equals(FunAdType.JY_NATIVE)) {
+            c2 = 3;
+        }
+        switch (c2) {
+            case 0:
+                doLoadCsjNativeAd(activity, str, remove, funNativeAdLoadListener);
+                return;
+            case 1:
+                doLoadKsNativeAd(activity, str, remove, funNativeAdLoadListener);
+                return;
+            case 2:
+                doLoadGdtNativeUnifiedAd(activity, str, remove, funNativeAdLoadListener);
+                return;
+            case 3:
+                doLoadJyNativeAd(activity, str, remove, funNativeAdLoadListener);
+                return;
+            default:
+                return;
+        }
+    }
+
+    private void doLoadCsjNativeAd(Activity activity, String str, au.a aVar, FunNativeAdLoadListener funNativeAdLoadListener) {
+        TTAdSdk.getAdManager().createAdNative(activity).loadFeedAd(new AdSlot.Builder().setCodeId(aVar.f8059a).setSupportDeepLink(true).setImageAcceptedSize(aVar.c, aVar.d).setAdCount(3).build(), new d(str, aVar, funNativeAdLoadListener, activity));
+        ((d.a) com.fun.ad.d.pHm).b(str, FunAdType.CSJ_NATIVE, aVar.f8059a);
+    }
+
+    private void doLoadGdtNativeUnifiedAd(Activity activity, String str, au.a aVar, FunNativeAdLoadListener funNativeAdLoadListener) {
+        NativeUnifiedAD nativeUnifiedAD = new NativeUnifiedAD(activity, aVar.f8059a, new b(str, aVar, funNativeAdLoadListener, activity));
+        nativeUnifiedAD.setMinVideoDuration(0);
+        nativeUnifiedAD.setMaxVideoDuration(0);
+        nativeUnifiedAD.setVideoPlayPolicy(1);
+        nativeUnifiedAD.setVideoADContainerRender(1);
+        nativeUnifiedAD.loadData(5);
+        ((d.a) com.fun.ad.d.pHm).b(str, FunAdType.GDT_NATIVE_UNIFIED, aVar.f8059a);
+    }
+
+    private void doLoadJyNativeAd(Activity activity, String str, au.a aVar, FunNativeAdLoadListener funNativeAdLoadListener) {
+        PBNative pBNative = new PBNative(activity.getApplicationContext(), aVar.f8059a);
+        pBNative.setNativeListener(new a(str, aVar, pBNative, funNativeAdLoadListener, activity));
+        pBNative.load();
+        ((d.a) com.fun.ad.d.pHm).b(str, FunAdType.JY_NATIVE, aVar.f8059a);
+    }
+
+    private void doLoadKsNativeAd(Activity activity, String str, au.a aVar, FunNativeAdLoadListener funNativeAdLoadListener) {
+        KsAdSDK.getLoadManager().loadNativeAd(new KsScene.Builder(Long.parseLong(aVar.f8059a)).adNum(5).build(), new c(str, aVar, funNativeAdLoadListener, activity));
+        ((d.a) com.fun.ad.d.pHm).b(str, FunAdType.KS_NATIVE, aVar.f8059a);
+    }
+
+    public void load(Activity activity, FunAdSlot funAdSlot, FunNativeAdLoadListener funNativeAdLoadListener) {
+        List<au.a> list = this.mSlotId.c;
+        if (list != null && !list.isEmpty()) {
+            if (this.mIsLoading) {
+                return;
+            }
+            this.mIsLoading = true;
+            this.mLoopAdIds = new ArrayList();
+            for (au.a aVar : list) {
+                String str = aVar.f8060b;
+                char c2 = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != -1900686778) {
+                    if (hashCode != -1187931233) {
+                        if (hashCode != 425812868) {
+                            if (hashCode == 1922685617 && str.equals(FunAdType.CSJ_NATIVE)) {
+                                c2 = 0;
+                            }
+                        } else if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
+                            c2 = 2;
+                        }
+                    } else if (str.equals(FunAdType.KS_NATIVE)) {
+                        c2 = 1;
+                    }
+                } else if (str.equals(FunAdType.JY_NATIVE)) {
+                    c2 = 3;
+                }
+                switch (c2) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        this.mLoopAdIds.add(aVar);
+                        break;
+                }
+            }
+            if (!this.mLoopAdIds.isEmpty()) {
+                doLoad(activity, funAdSlot.getSid(), funNativeAdLoadListener);
+                return;
+            }
+            this.mIsLoading = false;
+            if (funNativeAdLoadListener != null) {
+                funNativeAdLoadListener.onError(funAdSlot.getSid(), 0, "自定义错误：无自渲染广告类型");
+                return;
+            }
+            return;
+        }
+        Log.e("FunAdSdk", "FunNativeAdLoader load广告位：" + this.mSlotId.f8057a + "未配置任何类型的广告ID");
+    }
+
+    /* loaded from: classes15.dex */
+    public class b implements NativeADUnifiedListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f8112a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ au.a f8113b;
+        public final /* synthetic */ FunNativeAdLoadListener c;
+        public final /* synthetic */ Activity d;
+
+        public b(String str, au.a aVar, FunNativeAdLoadListener funNativeAdLoadListener, Activity activity) {
+            this.f8112a = str;
+            this.f8113b = aVar;
+            this.c = funNativeAdLoadListener;
+            this.d = activity;
+        }
+
+        @Override // com.qq.e.ads.AbstractAD.BasicADListener
+        public void onNoAD(AdError adError) {
+            m.a("GDTNativeUnified onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg());
+            ((d.a) com.fun.ad.d.pHm).a(this.f8112a, FunAdType.GDT_NATIVE_UNIFIED, this.f8113b.f8059a, adError.getErrorCode(), adError.getErrorMsg());
+            if (!FunNativeAdLoader.this.mLoopAdIds.isEmpty()) {
+                FunNativeAdLoader.this.doLoad(this.d, this.f8112a, this.c);
+                return;
+            }
+            FunNativeAdLoader.this.mIsLoading = false;
+            FunNativeAdLoadListener funNativeAdLoadListener = this.c;
+            if (funNativeAdLoadListener != null) {
+                funNativeAdLoadListener.onError(this.f8112a, adError.getErrorCode(), adError.getErrorMsg());
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADUnifiedListener
+        public void onADLoaded(List<NativeUnifiedADData> list) {
+            if (list != null && !list.isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                for (NativeUnifiedADData nativeUnifiedADData : list) {
+                    AdRipper.ripGDTNativeUnified(nativeUnifiedADData);
+                    AdRipper.RippedGDTAd rippedGDTNativeUnifiedAd = AdRipper.getRippedGDTNativeUnifiedAd(nativeUnifiedADData, false);
+                    if (rippedGDTNativeUnifiedAd != null) {
+                        FunRippedAd funRippedAd = new FunRippedAd();
+                        funRippedAd.title = rippedGDTNativeUnifiedAd.title;
+                        funRippedAd.description = rippedGDTNativeUnifiedAd.description;
+                        funRippedAd.isDeepLinkAd = !TextUtils.isEmpty(rippedGDTNativeUnifiedAd.customized_invoke_url);
+                        funRippedAd.uniqueId = rippedGDTNativeUnifiedAd.title;
+                        funRippedAd.appName = rippedGDTNativeUnifiedAd.appName;
+                        funRippedAd.appPackageName = rippedGDTNativeUnifiedAd.appPackageName;
+                        funRippedAd.appLinkUrl = rippedGDTNativeUnifiedAd.appLinkUrl;
+                        arrayList.add(new FunNativeAd(this.f8112a, this.f8113b.f8059a, nativeUnifiedADData, funRippedAd));
+                    } else {
+                        arrayList.add(new FunNativeAd(this.f8112a, this.f8113b.f8059a, nativeUnifiedADData, (FunRippedAd) null));
+                    }
+                }
+                FunNativeAdLoader.this.mIsLoading = false;
+                FunNativeAdLoadListener funNativeAdLoadListener = this.c;
+                if (funNativeAdLoadListener != null) {
+                    funNativeAdLoadListener.onNativeAdLoaded(this.f8112a, arrayList);
+                }
+                ((d.a) com.fun.ad.d.pHm).c(this.f8112a, FunAdType.GDT_NATIVE_UNIFIED, this.f8113b.f8059a);
+                return;
+            }
+            m.a("GDTNativeUnified onADLoaded error: adList is null or empty");
+            ((d.a) com.fun.ad.d.pHm).a(this.f8112a, FunAdType.GDT_NATIVE_UNIFIED, this.f8113b.f8059a, 0, "Custom error message: adList is null");
+            if (!FunNativeAdLoader.this.mLoopAdIds.isEmpty()) {
+                FunNativeAdLoader.this.doLoad(this.d, this.f8112a, this.c);
+                return;
+            }
+            FunNativeAdLoader.this.mIsLoading = false;
+            FunNativeAdLoadListener funNativeAdLoadListener2 = this.c;
+            if (funNativeAdLoadListener2 != null) {
+                funNativeAdLoadListener2.onError(this.f8112a, 0, "自定义错误：优量汇gdt无填充");
+            }
+        }
+    }
+
+    /* loaded from: classes15.dex */
+    public class c implements KsLoadManager.NativeAdListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f8114a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ au.a f8115b;
+        public final /* synthetic */ FunNativeAdLoadListener c;
+        public final /* synthetic */ Activity d;
+
+        public c(String str, au.a aVar, FunNativeAdLoadListener funNativeAdLoadListener, Activity activity) {
+            this.f8114a = str;
+            this.f8115b = aVar;
+            this.c = funNativeAdLoadListener;
+            this.d = activity;
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.NativeAdListener
+        public void onError(int i, String str) {
+            m.a("KSNativeAd onError code: " + i + ", message: " + str);
+            ((d.a) com.fun.ad.d.pHm).a(this.f8114a, FunAdType.KS_NATIVE, this.f8115b.f8059a, i, str);
+            if (!FunNativeAdLoader.this.mLoopAdIds.isEmpty()) {
+                FunNativeAdLoader.this.doLoad(this.d, this.f8114a, this.c);
+                return;
+            }
+            FunNativeAdLoader.this.mIsLoading = false;
+            FunNativeAdLoadListener funNativeAdLoadListener = this.c;
+            if (funNativeAdLoadListener != null) {
+                funNativeAdLoadListener.onError(this.f8114a, i, str);
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.NativeAdListener
+        public void onNativeAdLoad(@Nullable List<KsNativeAd> list) {
+            m.a("KSNativeAd onNativeAdLoad");
+            if (list != null && !list.isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                for (KsNativeAd ksNativeAd : list) {
+                    AdRipper.ripKS(ksNativeAd);
+                    AdRipper.RippedKSAd rippedKSAd = AdRipper.getRippedKSAd((Object) ksNativeAd, false);
+                    if (rippedKSAd != null) {
+                        FunRippedAd funRippedAd = new FunRippedAd();
+                        funRippedAd.description = rippedKSAd.adDescription;
+                        funRippedAd.isDeepLinkAd = !TextUtils.isEmpty(rippedKSAd.deeplinkUrl);
+                        funRippedAd.uniqueId = rippedKSAd.adDescription;
+                        funRippedAd.appName = rippedKSAd.appName;
+                        funRippedAd.appPackageName = rippedKSAd.appPackageName;
+                        funRippedAd.appLinkUrl = rippedKSAd.appDownloadUrl;
+                        funRippedAd.appMarketUrl = rippedKSAd.marketUrl;
+                        arrayList.add(new FunNativeAd(this.f8114a, this.f8115b.f8059a, ksNativeAd, funRippedAd));
+                    } else {
+                        arrayList.add(new FunNativeAd(this.f8114a, this.f8115b.f8059a, ksNativeAd, (FunRippedAd) null));
+                    }
+                }
+                FunNativeAdLoader.this.mIsLoading = false;
+                FunNativeAdLoadListener funNativeAdLoadListener = this.c;
+                if (funNativeAdLoadListener != null) {
+                    funNativeAdLoadListener.onNativeAdLoaded(this.f8114a, arrayList);
+                }
+                ((d.a) com.fun.ad.d.pHm).c(this.f8114a, FunAdType.KS_NATIVE, this.f8115b.f8059a);
+                return;
+            }
+            ((d.a) com.fun.ad.d.pHm).a(this.f8114a, FunAdType.KS_NATIVE, this.f8115b.f8059a, 0, "Custom error message: adList is null");
+            if (FunNativeAdLoader.this.mLoopAdIds.isEmpty()) {
+                FunNativeAdLoader.this.mIsLoading = false;
+                FunNativeAdLoadListener funNativeAdLoadListener2 = this.c;
+                if (funNativeAdLoadListener2 != null) {
+                    funNativeAdLoadListener2.onError(this.f8114a, 0, "自定义错误：快手ks无填充");
+                }
+            } else {
+                FunNativeAdLoader.this.doLoad(this.d, this.f8114a, this.c);
+            }
+            m.a("KSNativeAd onNativeAdLoad error: adList is null or empty");
+        }
+    }
+
+    /* loaded from: classes15.dex */
+    public class d implements TTAdNative.FeedAdListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f8116a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ au.a f8117b;
+        public final /* synthetic */ FunNativeAdLoadListener c;
+        public final /* synthetic */ Activity d;
+
+        public d(String str, au.a aVar, FunNativeAdLoadListener funNativeAdLoadListener, Activity activity) {
+            this.f8116a = str;
+            this.f8117b = aVar;
+            this.c = funNativeAdLoadListener;
+            this.d = activity;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener, com.bytedance.sdk.openadsdk.a.b
+        public void onError(int i, String str) {
+            m.a("CSJNative onError code: " + i + ", message: " + str);
+            ((d.a) com.fun.ad.d.pHm).a(this.f8116a, FunAdType.CSJ_NATIVE, this.f8117b.f8059a, i, str);
+            if (!FunNativeAdLoader.this.mLoopAdIds.isEmpty()) {
+                FunNativeAdLoader.this.doLoad(this.d, this.f8116a, this.c);
+                return;
+            }
+            FunNativeAdLoader.this.mIsLoading = false;
+            FunNativeAdLoadListener funNativeAdLoadListener = this.c;
+            if (funNativeAdLoadListener != null) {
+                funNativeAdLoadListener.onError(this.f8116a, i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener
+        public void onFeedAdLoad(List<TTFeedAd> list) {
+            m.a("CSJNative onFeedAdLoad");
+            if (list != null && !list.isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                for (TTFeedAd tTFeedAd : list) {
+                    AdRipper.ripCSJ(tTFeedAd);
+                    AdRipper.RippedCSJAd rippedCSJAd = AdRipper.getRippedCSJAd(tTFeedAd, false);
+                    if (rippedCSJAd != null) {
+                        FunRippedAd funRippedAd = new FunRippedAd();
+                        funRippedAd.title = rippedCSJAd.title;
+                        funRippedAd.description = rippedCSJAd.description;
+                        funRippedAd.isDeepLinkAd = !TextUtils.isEmpty(rippedCSJAd.landingPageUrl);
+                        funRippedAd.uniqueId = rippedCSJAd.title;
+                        funRippedAd.appName = rippedCSJAd.appName;
+                        funRippedAd.appPackageName = rippedCSJAd.appPackageName;
+                        funRippedAd.appLinkUrl = rippedCSJAd.appLinkUrl;
+                        funRippedAd.appMarketUrl = rippedCSJAd.marketUrl;
+                        arrayList.add(new FunNativeAd(this.f8116a, this.f8117b.f8059a, tTFeedAd, funRippedAd));
+                    } else {
+                        arrayList.add(new FunNativeAd(this.f8116a, this.f8117b.f8059a, tTFeedAd, (FunRippedAd) null));
+                    }
+                }
+                FunNativeAdLoader.this.mIsLoading = false;
+                FunNativeAdLoadListener funNativeAdLoadListener = this.c;
+                if (funNativeAdLoadListener != null) {
+                    funNativeAdLoadListener.onNativeAdLoaded(this.f8116a, arrayList);
+                }
+                ((d.a) com.fun.ad.d.pHm).c(this.f8116a, FunAdType.CSJ_NATIVE, this.f8117b.f8059a);
+                return;
+            }
+            ((d.a) com.fun.ad.d.pHm).a(this.f8116a, FunAdType.CSJ_NATIVE, this.f8117b.f8059a, 0, "Custom error message: adList is null");
+            if (FunNativeAdLoader.this.mLoopAdIds.isEmpty()) {
+                FunNativeAdLoader.this.mIsLoading = false;
+                FunNativeAdLoadListener funNativeAdLoadListener2 = this.c;
+                if (funNativeAdLoadListener2 != null) {
+                    funNativeAdLoadListener2.onError(this.f8116a, 0, "自定义错误：穿山甲csj无填充");
+                }
+            } else {
+                FunNativeAdLoader.this.doLoad(this.d, this.f8116a, this.c);
+            }
+            m.a("CSJNative onFeedAdLoad error: adList is null or empty");
+        }
+    }
+}

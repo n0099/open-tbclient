@@ -1,32 +1,16 @@
 package com.baidu.adp.widget.ListView;
 
-import android.graphics.Rect;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public class p extends RecyclerView.ItemDecoration {
-    private int Ym;
-    private int Yn;
-    private int mEnd;
+public interface p<V extends ViewGroup> {
+    int getContentViewsCount();
 
-    public p(int i, int i2, int i3) {
-        this.Ym = i;
-        this.Yn = i2;
-        this.mEnd = i3;
-    }
+    int getFooterViewsCount();
 
-    @Override // android.support.v7.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-        GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
-        if (layoutParams.getSpanIndex() != -1) {
-            if (layoutParams.getSpanIndex() % 2 == 0) {
-                rect.left = this.Ym;
-                rect.right = this.Yn;
-                return;
-            }
-            rect.left = this.Yn;
-            rect.right = this.mEnd;
-        }
-    }
+    int getHeaderViewsCount();
+
+    V getListView();
+
+    boolean removeHeaderView(View view);
 }

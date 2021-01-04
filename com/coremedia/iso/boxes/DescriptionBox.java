@@ -6,17 +6,18 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
+import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DescriptionBox extends AbstractFullBox {
     public static final String TYPE = "dscp";
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_4 = null;
     private String description;
     private String language;
 
@@ -29,7 +30,7 @@ public class DescriptionBox extends AbstractFullBox {
         ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getLanguage", "com.coremedia.iso.boxes.DescriptionBox", "", "", "", FieldUtil.TYPE_STRING), 40);
         ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getDescription", "com.coremedia.iso.boxes.DescriptionBox", "", "", "", FieldUtil.TYPE_STRING), 44);
         ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.DescriptionBox", "", "", "", FieldUtil.TYPE_STRING), 67);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.DescriptionBox", FieldUtil.TYPE_STRING, "language", "", "void"), 71);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.DescriptionBox", FieldUtil.TYPE_STRING, KsMediaMeta.KSM_KEY_LANGUAGE, "", "void"), 71);
         ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "setDescription", "com.coremedia.iso.boxes.DescriptionBox", FieldUtil.TYPE_STRING, "description", "", "void"), 75);
     }
 

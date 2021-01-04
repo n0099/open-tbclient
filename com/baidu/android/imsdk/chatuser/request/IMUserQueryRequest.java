@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.chatuser.request;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
@@ -18,7 +17,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     private long mAppid;
     private String mKey;
@@ -59,7 +58,6 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     public void onSuccess(int i, byte[] bArr) {
         int i2;
         String str;
-        int i3;
         String str2 = new String(bArr);
         LogUtils.d("", "IMUserQueryRequest  " + str2);
         String str3 = Constants.ERROR_MSG_SUCCESS;
@@ -69,10 +67,10 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
             JSONObject jSONObject = new JSONObject(str2);
             if (jSONObject.has("response_params")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                int i4 = jSONObject2.getInt("error_code");
+                int i3 = jSONObject2.getInt("error_code");
                 JSONArray jSONArray = jSONObject2.getJSONArray("contacters");
-                for (int i5 = 0; i5 < jSONArray.length(); i5++) {
-                    JSONObject jSONObject3 = jSONArray.getJSONObject(i5);
+                for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+                    JSONObject jSONObject3 = jSONArray.getJSONObject(i4);
                     long optLong = jSONObject3.optLong("contacter");
                     int optInt = jSONObject3.optInt("contacter_type");
                     int optInt2 = jSONObject3.optInt("do_not_disturb");
@@ -89,17 +87,16 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
                         arrayList.add(groupInfo);
                     }
                 }
-                i3 = i4;
+                i2 = i3;
             } else {
-                i3 = jSONObject.getInt("error_code");
-                str3 = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+                i2 = jSONObject.getInt("error_code");
+                str3 = jSONObject.optString("error_msg", "");
             }
-            i2 = i3;
             str = str3;
         } catch (JSONException e) {
             LogUtils.e("IMUserQueryRequest", "JSONException", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             i2 = 1010;
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
         }
         GroupInfoDAOImpl.setAllStarDisturbDefault(this.mContext);

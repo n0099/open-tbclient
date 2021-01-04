@@ -1,10 +1,10 @@
 package com.google.zxing.oned.rss;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.oned.OneDReader;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractRSSReader extends OneDReader {
     private static final float MAX_AVG_VARIANCE = 0.2f;
     private static final float MAX_FINDER_PATTERN_RATIO = 0.89285713f;

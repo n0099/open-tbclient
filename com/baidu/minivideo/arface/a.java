@@ -37,7 +37,7 @@ import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.arface.bean.Makeup;
 import com.baidu.minivideo.arface.bean.SharpnessFilter;
 import com.baidu.minivideo.arface.c.a;
-import com.baidu.minivideo.arface.utils.g;
+import com.baidu.minivideo.arface.utils.i;
 import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.File;
@@ -49,71 +49,71 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static a ccP;
-    private static long cdm;
-    private static String cdn;
-    private EGLContext ccR;
-    private InterfaceC0268a ccS;
-    private DuMixController ccU;
-    private DuMixInput ccW;
-    private DuMixOutput ccX;
-    private SurfaceTexture.OnFrameAvailableListener ccY;
-    private SurfaceTexture.OnFrameAvailableListener ccZ;
-    private FaceListener cda;
-    private LuaMsgListener cdb;
-    FilterStateListener cdc;
-    private DefinedLuaListener cdd;
-    private Texture cdg;
-    private Texture cdh;
-    private long cdj;
-    private long cdk;
-    private long cdl;
-    private long cdo;
-    private com.baidu.minivideo.arface.c.c cdp;
-    private Makeup cdt;
+    private static long cjQ;
+    private static String cjR;
+    private static a cjt;
+    private DuMixInput cjA;
+    private DuMixOutput cjB;
+    private SurfaceTexture.OnFrameAvailableListener cjC;
+    private SurfaceTexture.OnFrameAvailableListener cjD;
+    private FaceListener cjE;
+    private LuaMsgListener cjF;
+    FilterStateListener cjG;
+    private DefinedLuaListener cjH;
+    private Texture cjK;
+    private Texture cjL;
+    private long cjN;
+    private long cjO;
+    private long cjP;
+    private long cjS;
+    private com.baidu.minivideo.arface.c.c cjT;
+    private Makeup cjX;
+    private Handler cjY;
+    private EGLContext cjv;
+    private InterfaceC0268a cjw;
+    private DuMixController cjy;
     private Context mContext;
     private HandlerThread mHandlerThread;
-    private Handler mThreadHandler;
-    public static final String ccO = c.ack();
-    private static boolean ccQ = false;
-    private static final InterfaceC0268a cde = null;
-    private static boolean cdi = false;
+    public static final String cjs = c.adY();
+    private static boolean cju = false;
+    private static final InterfaceC0268a cjI = null;
+    private static boolean cjM = false;
     private boolean mPaused = false;
-    private boolean ccT = false;
-    private List<DuMixCallback> ccV = new ArrayList();
+    private boolean cjx = false;
+    private List<DuMixCallback> cjz = new ArrayList();
     private int mInputWidth = PlatformPlugin.DEFAULT_SYSTEM_UI;
     private int mInputHeight = 720;
-    private boolean cdf = false;
-    private HashMap<BeautyType, String> cdq = new HashMap<>();
-    private JSONObject cdr = new JSONObject();
-    private JSONObject cds = new JSONObject();
+    private boolean cjJ = false;
+    private HashMap<BeautyType, String> cjU = new HashMap<>();
+    private JSONObject cjV = new JSONObject();
+    private JSONObject cjW = new JSONObject();
     private int mOutputFPS = 0;
     private boolean mIsLandscape = false;
     private DuMixCallback mDuMixCallback = new DuMixCallback() { // from class: com.baidu.minivideo.arface.a.7
         @Override // com.baidu.ar.DuMixCallback
         public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
-            a.this.cdk = System.currentTimeMillis() - a.this.cdj;
+            a.this.cjO = System.currentTimeMillis() - a.this.cjN;
             if (a.isDebug()) {
-                a.d("DuAr_DuController", Build.MODEL + ", onSetup: " + z + ", spendTime:" + a.this.cdk);
+                a.d("DuAr_DuController", Build.MODEL + ", onSetup: " + z + ", spendTime:" + a.this.cjO);
             }
-            a.this.dQ(z);
-            a.this.cdq.clear();
-            if (z && a.this.ccU != null && b.abY() != null) {
+            a.this.dX(z);
+            a.this.cjU.clear();
+            if (z && a.this.cjy != null && b.adM() != null) {
                 a aVar = a.this;
-                b.abY();
-                aVar.jN(c.dS(true));
+                b.adM();
+                aVar.jF(c.dZ(true));
                 a aVar2 = a.this;
                 BeautyType beautyType = BeautyType.beautyJsonPath;
-                b.abY();
-                aVar2.setBeautyValue(beautyType, c.acl());
+                b.adM();
+                aVar2.setBeautyValue(beautyType, c.adZ());
             }
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < a.this.ccV.size()) {
-                    DuMixCallback duMixCallback = (DuMixCallback) a.this.ccV.get(i2);
+                if (i2 < a.this.cjz.size()) {
+                    DuMixCallback duMixCallback = (DuMixCallback) a.this.cjz.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onSetup(z, duMixInput, duMixOutput);
                     }
@@ -132,8 +132,8 @@ public class a {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < a.this.ccV.size()) {
-                    DuMixCallback duMixCallback = (DuMixCallback) a.this.ccV.get(i2);
+                if (i2 < a.this.cjz.size()) {
+                    DuMixCallback duMixCallback = (DuMixCallback) a.this.cjz.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onCaseCreate(z, str, str2);
                     }
@@ -152,8 +152,8 @@ public class a {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < a.this.ccV.size()) {
-                    DuMixCallback duMixCallback = (DuMixCallback) a.this.ccV.get(i2);
+                if (i2 < a.this.cjz.size()) {
+                    DuMixCallback duMixCallback = (DuMixCallback) a.this.cjz.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onCaseDestroy();
                     }
@@ -172,14 +172,14 @@ public class a {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < a.this.ccV.size()) {
-                    DuMixCallback duMixCallback = (DuMixCallback) a.this.ccV.get(i2);
+                if (i2 < a.this.cjz.size()) {
+                    DuMixCallback duMixCallback = (DuMixCallback) a.this.cjz.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onRelease();
                     }
                     i = i2 + 1;
                 } else {
-                    a.this.ccV.clear();
+                    a.this.cjz.clear();
                     return;
                 }
             }
@@ -190,16 +190,41 @@ public class a {
             if (a.isDebug()) {
                 a.d("DuAr_DuController", "onError Type: " + duMixErrorType.name() + ", msg: " + str + ", ext: " + str2);
             }
-            for (DuMixCallback duMixCallback : a.this.ccV) {
+            for (DuMixCallback duMixCallback : a.this.cjz) {
                 duMixCallback.onError(duMixErrorType, str, str2);
             }
         }
     };
 
     /* renamed from: com.baidu.minivideo.arface.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface InterfaceC0268a {
         void onHolderChanged(InterfaceC0268a interfaceC0268a);
+    }
+
+    public static boolean adC() {
+        if (cju) {
+            return cju;
+        }
+        try {
+            System.loadLibrary("c++_shared");
+            System.loadLibrary("ardatabasic2");
+            System.loadLibrary("opencv_java3");
+            System.loadLibrary("anakin_lite");
+            System.loadLibrary("FaceAttributes");
+            System.loadLibrary("EglCore2");
+            System.loadLibrary("AREngineCpp2");
+            System.loadLibrary("FaceAlgoSDK2");
+            System.loadLibrary("ARMdlSDK2");
+            if (isDebug()) {
+                i.d("DuAr_UGC_SO", "so loaded!");
+            }
+            cju = true;
+        } catch (Throwable th) {
+            i.d("DuAr_UGC_SO", "so loaded: " + th.getMessage());
+            cju = false;
+        }
+        return cju;
     }
 
     private a(Context context, InterfaceC0268a interfaceC0268a, EGLContext eGLContext, byte[] bArr) {
@@ -209,41 +234,41 @@ public class a {
         this.mHandlerThread = new HandlerThread("ARControllerProxy");
         this.mHandlerThread.start();
         this.mContext = context.getApplicationContext();
-        this.ccR = eGLContext;
-        this.ccS = interfaceC0268a;
-        this.ccU = DuMixController.getInstance(this.mContext, b.b(eGLContext));
+        this.cjv = eGLContext;
+        this.cjw = interfaceC0268a;
+        this.cjy = DuMixController.getInstance(this.mContext, b.b(eGLContext));
         if (bArr != null && bArr.length > 0) {
-            aw(this.ccU.checkAuth(bArr, null, null));
+            aB(this.cjy.checkAuth(bArr, null, null));
         } else {
-            aw(null);
+            aB(null);
         }
-        dR(false);
-        this.ccU.getARProxyManager().getFaceAR().setFaceListener(new FaceListener() { // from class: com.baidu.minivideo.arface.a.1
+        dY(false);
+        this.cjy.getARProxyManager().getFaceAR().setFaceListener(new FaceListener() { // from class: com.baidu.minivideo.arface.a.1
             @Override // com.baidu.ar.face.FaceListener
             public void onFaceResult(Object obj) {
-                if (a.this.cda != null) {
-                    a.this.cda.onFaceResult(obj);
+                if (a.this.cjE != null) {
+                    a.this.cjE.onFaceResult(obj);
                 }
             }
 
             @Override // com.baidu.ar.face.FaceListener
             public void onStickerLoadingFinished(List<String> list) {
-                if (a.this.cda != null) {
-                    a.this.cda.onStickerLoadingFinished(list);
+                if (a.this.cjE != null) {
+                    a.this.cjE.onStickerLoadingFinished(list);
                 }
             }
 
             @Override // com.baidu.ar.face.FaceListener
             public void onTriggerFired(String str) {
-                if (a.this.cda != null) {
-                    a.this.cda.onTriggerFired(str);
+                if (a.this.cjE != null) {
+                    a.this.cjE.onTriggerFired(str);
                 }
             }
         });
-        this.ccU.addLuaMsgListener(new LuaMsgListener() { // from class: com.baidu.minivideo.arface.a.2
+        this.cjy.addLuaMsgListener(new LuaMsgListener() { // from class: com.baidu.minivideo.arface.a.2
             @Override // com.baidu.ar.lua.LuaMsgListener
             public List<String> getMsgKeyListened() {
-                List<String> msgKeyListened = a.this.cdb != null ? a.this.cdb.getMsgKeyListened() : null;
+                List<String> msgKeyListened = a.this.cjF != null ? a.this.cjF.getMsgKeyListened() : null;
                 if (a.isDebug()) {
                     if (msgKeyListened == null) {
                         a.d("DuAr_DuController", "getMsgKeyListened: " + ((Object) null));
@@ -268,85 +293,85 @@ public class a {
                         }
                     }
                 }
-                if (a.this.cdb != null) {
-                    a.this.cdb.onLuaMessage(hashMap);
+                if (a.this.cjF != null) {
+                    a.this.cjF.onLuaMessage(hashMap);
                 }
             }
         });
-        this.ccU.setDefinedLuaListener(new DefinedLuaListener() { // from class: com.baidu.minivideo.arface.a.3
+        this.cjy.setDefinedLuaListener(new DefinedLuaListener() { // from class: com.baidu.minivideo.arface.a.3
             @Override // com.baidu.ar.DefinedLuaListener
             public void onRequireSwitchCamera(int i) {
                 if (a.isDebug()) {
                     a.d("DuAr_DuController", "onRequireSwitchCamera: " + i);
                 }
-                if (a.this.cdd != null) {
-                    a.this.cdd.onRequireSwitchCamera(i);
+                if (a.this.cjH != null) {
+                    a.this.cjH.onRequireSwitchCamera(i);
                 }
             }
 
             @Override // com.baidu.ar.DefinedLuaListener
             public void onOpenUrl(String str, int i, HashMap<String, Object> hashMap) {
                 if (a.isDebug()) {
-                    a.d("DuAr_DuController", "onOpenUrl: " + str + ", " + i + ", " + a.h(hashMap));
+                    a.d("DuAr_DuController", "onOpenUrl: " + str + ", " + i + ", " + a.i(hashMap));
                 }
-                if (a.this.cdd != null) {
-                    a.this.cdd.onOpenUrl(str, i, hashMap);
+                if (a.this.cjH != null) {
+                    a.this.cjH.onOpenUrl(str, i, hashMap);
                 }
             }
         });
-        this.ccU.setFilterStateListener(new FilterStateListener() { // from class: com.baidu.minivideo.arface.a.4
+        this.cjy.setFilterStateListener(new FilterStateListener() { // from class: com.baidu.minivideo.arface.a.4
             @Override // com.baidu.ar.filter.FilterStateListener
             public void onFilterStateChanged(HashMap<FilterNode, Boolean> hashMap, String str) {
                 if (a.isDebug()) {
-                    a.d("DuAr_DuController", "onFilterStateChanged: " + a.h(hashMap) + "\n" + str);
+                    a.d("DuAr_DuController", "onFilterStateChanged: " + a.i(hashMap) + "\n" + str);
                 }
-                if (a.this.cdc != null) {
-                    a.this.cdc.onFilterStateChanged(hashMap, str);
+                if (a.this.cjG != null) {
+                    a.this.cjG.onFilterStateChanged(hashMap, str);
                 }
             }
         });
-        this.ccZ = new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.minivideo.arface.a.5
+        this.cjD = new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.minivideo.arface.a.5
             @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
             public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-                a.this.cdp.acI();
-                if (a.this.ccY != null) {
-                    a.this.ccY.onFrameAvailable(surfaceTexture);
+                a.this.cjT.aeB();
+                if (a.this.cjC != null) {
+                    a.this.cjC.onFrameAvailable(surfaceTexture);
                 }
             }
         };
-        this.cdp = new com.baidu.minivideo.arface.c.c(AlaRecorderLog.KEY_CANERA_START_FPS, "ar");
-        this.cdp.bI(5000L);
+        this.cjT = new com.baidu.minivideo.arface.c.c(AlaRecorderLog.KEY_CANERA_START_FPS, "ar");
+        this.cjT.bI(5000L);
     }
 
-    private Handler abQ() {
-        if (this.mThreadHandler != null) {
-            return this.mThreadHandler;
+    private Handler adD() {
+        if (this.cjY != null) {
+            return this.cjY;
         }
-        this.mThreadHandler = new Handler(this.mHandlerThread.getLooper()) { // from class: com.baidu.minivideo.arface.a.6
+        this.cjY = new Handler(this.mHandlerThread.getLooper()) { // from class: com.baidu.minivideo.arface.a.6
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        a.this.abW();
+                        a.this.adJ();
                         return;
                     case 2:
-                        a.this.abV();
+                        a.this.adI();
                         return;
                     case 3:
-                        a.C0269a c0269a = new a.C0269a();
-                        c0269a.ceK = (int) com.baidu.minivideo.arface.c.b.acD().acF();
-                        ActivityManager.MemoryInfo acE = com.baidu.minivideo.arface.c.b.acD().acE();
-                        if (acE != null) {
-                            c0269a.ceM = (acE.availMem / 1024) / 1024;
-                            c0269a.ceL = (acE.totalMem / 1024) / 1024;
+                        a.C0270a c0270a = new a.C0270a();
+                        c0270a.clH = (int) com.baidu.minivideo.arface.c.b.aew().aey();
+                        ActivityManager.MemoryInfo aex = com.baidu.minivideo.arface.c.b.aew().aex();
+                        if (aex != null) {
+                            c0270a.clJ = (aex.availMem / 1024) / 1024;
+                            c0270a.clI = (aex.totalMem / 1024) / 1024;
                         }
-                        c0269a.fps = 0;
-                        c0269a.ceN = 0L;
-                        if (a.this.cdp.cfb > 0) {
-                            c0269a.fps = (int) ((a.this.cdp.cfb * 1000) / a.this.cdp.cfa);
-                            c0269a.ceN = a.this.cdp.cfa / a.this.cdp.cfb;
+                        c0270a.fps = 0;
+                        c0270a.clK = 0L;
+                        if (a.this.cjT.clY > 0) {
+                            c0270a.fps = (int) ((a.this.cjT.clY * 1000) / a.this.cjT.clX);
+                            c0270a.clK = a.this.cjT.clX / a.this.cjT.clY;
                         }
-                        a.this.a(c0269a);
+                        a.this.a(c0270a);
                         sendMessageDelayed(obtainMessage(3), 5000L);
                         return;
                     default:
@@ -354,11 +379,11 @@ public class a {
                 }
             }
         };
-        return this.mThreadHandler;
+        return this.cjY;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String h(Map map) {
+    public static String i(Map map) {
         StringBuilder sb = new StringBuilder();
         if (map == null) {
             sb.append("null");
@@ -381,64 +406,64 @@ public class a {
     }
 
     public static a a(Context context, InterfaceC0268a interfaceC0268a, EGLContext eGLContext, byte[] bArr) {
-        if (ccP == null || ccP.ccS != interfaceC0268a || ccP.ccR != eGLContext) {
+        if (cjt == null || cjt.cjw != interfaceC0268a || cjt.cjv != eGLContext) {
             synchronized (a.class) {
-                if (ccP == null || ccP.ccS != interfaceC0268a || ccP.ccR != eGLContext) {
-                    if (ccP != null) {
-                        InterfaceC0268a interfaceC0268a2 = ccP.ccS;
-                        ccP.release();
+                if (cjt == null || cjt.cjw != interfaceC0268a || cjt.cjv != eGLContext) {
+                    if (cjt != null) {
+                        InterfaceC0268a interfaceC0268a2 = cjt.cjw;
+                        cjt.release();
                         if (interfaceC0268a2 != null) {
                             interfaceC0268a2.onHolderChanged(interfaceC0268a);
                         }
                     }
-                    ccP = new a(context, interfaceC0268a, eGLContext, bArr);
+                    cjt = new a(context, interfaceC0268a, eGLContext, bArr);
                 }
             }
         }
-        return ccP;
+        return cjt;
     }
 
-    public InterfaceC0268a abR() {
-        return this.ccS;
+    public InterfaceC0268a adE() {
+        return this.cjw;
     }
 
     public void resume() {
-        if (ccP == this) {
-            if (this.ccU != null) {
+        if (cjt == this) {
+            if (this.cjy != null) {
                 d("DuAr_DuController", "resume");
-                this.ccU.resume();
+                this.cjy.resume();
                 this.mPaused = false;
             }
-            this.cdp.reset();
+            this.cjT.reset();
         }
     }
 
     public void pause() {
-        if (ccP == this) {
-            if (this.ccU != null) {
+        if (cjt == this) {
+            if (this.cjy != null) {
                 d("DuAr_DuController", "pause");
-                this.ccU.pause();
+                this.cjy.pause();
                 this.mPaused = true;
             }
-            this.cdp.reset();
+            this.cjT.reset();
         }
     }
 
     public void release() {
-        if (ccP == this) {
+        if (cjt == this) {
             this.mPaused = false;
-            this.ccT = true;
-            this.ccS = cde;
-            DuMixController duMixController = this.ccU;
-            this.ccU = null;
-            cdn = this.cdp.acK();
+            this.cjx = true;
+            this.cjw = cjI;
+            DuMixController duMixController = this.cjy;
+            this.cjy = null;
+            cjR = this.cjT.aeD();
             if (duMixController != null) {
                 d("DuAr_DuController", "release");
-                this.cdl = System.currentTimeMillis();
+                this.cjP = System.currentTimeMillis();
                 duMixController.release();
-                cdm = System.currentTimeMillis() - this.cdl;
+                cjQ = System.currentTimeMillis() - this.cjP;
                 if (isDebug()) {
-                    d("DuAr_DuController", Build.MODEL + ", release spendTime: " + cdm);
+                    d("DuAr_DuController", Build.MODEL + ", release spendTime: " + cjQ);
                 }
             }
             if (Build.VERSION.SDK_INT >= 18) {
@@ -446,21 +471,21 @@ public class a {
             } else {
                 this.mHandlerThread.quit();
             }
-            ccP = null;
-            this.ccR = null;
+            cjt = null;
+            this.cjv = null;
         }
     }
 
-    public boolean abS() {
-        return this.cdf;
+    public boolean adF() {
+        return this.cjJ;
     }
 
-    private boolean abT() {
-        return (this.ccU == null || !abS() || isPaused()) ? false : true;
+    private boolean adG() {
+        return (this.cjy == null || !adF() || isPaused()) ? false : true;
     }
 
-    public boolean abU() {
-        return this.ccT;
+    public boolean adH() {
+        return this.cjx;
     }
 
     public boolean isPaused() {
@@ -471,88 +496,88 @@ public class a {
         if (isDebug()) {
             d("DuAr_DuController", "onCameraDrawerCreated " + surfaceTexture + "size[" + i + ", " + i2);
         }
-        if (this.ccR != null) {
-            this.ccW = new DuMixInput2(this.cdg, i, i2);
-            ((DuMixInput2) this.ccW).setSyncInputContent(cdi);
-            d("DuAr_DuController", "onCameraDrawerCreated : sSyncInputContent = " + cdi);
-            this.ccW.setInputDegree(0);
+        if (this.cjv != null) {
+            this.cjA = new DuMixInput2(this.cjK, i, i2);
+            ((DuMixInput2) this.cjA).setSyncInputContent(cjM);
+            d("DuAr_DuController", "onCameraDrawerCreated : sSyncInputContent = " + cjM);
+            this.cjA.setInputDegree(0);
             return;
         }
-        this.ccW = new DuMixInput(surfaceTexture, this.mInputWidth, this.mInputHeight);
+        this.cjA = new DuMixInput(surfaceTexture, this.mInputWidth, this.mInputHeight);
     }
 
     public void a(SurfaceTexture surfaceTexture, SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener, int i, int i2, boolean z, DuMixCallback duMixCallback) {
         if (isDebug()) {
             d("DuAr_DuController", "onARDrawerCreated frontCamera: " + z + ", surfaceTexture: " + surfaceTexture + "size[" + i + ", " + i2 + " duMixCallback =" + duMixCallback);
         }
-        if (this.ccU != null) {
-            this.ccY = onFrameAvailableListener;
-            this.cdj = System.currentTimeMillis();
+        if (this.cjy != null) {
+            this.cjC = onFrameAvailableListener;
+            this.cjN = System.currentTimeMillis();
             if (surfaceTexture != null) {
-                surfaceTexture.setOnFrameAvailableListener(this.ccZ);
+                surfaceTexture.setOnFrameAvailableListener(this.cjD);
             }
             a(duMixCallback);
-            if (!this.cdf) {
-                this.ccW.setFrontCamera(z);
-                if (this.ccR != null) {
-                    this.cdh = V(i, i2);
-                    this.ccX = new DuMixOutput2(this.cdh, i, i2);
+            if (!this.cjJ) {
+                this.cjA.setFrontCamera(z);
+                if (this.cjv != null) {
+                    this.cjL = V(i, i2);
+                    this.cjB = new DuMixOutput2(this.cjL, i, i2);
                 } else {
                     if (this.mIsLandscape) {
-                        this.ccX = new DuMixOutput(surfaceTexture, this.mInputWidth, this.mInputHeight);
-                        this.ccX.setScreenOrientation(0);
+                        this.cjB = new DuMixOutput(surfaceTexture, this.mInputWidth, this.mInputHeight);
+                        this.cjB.setScreenOrientation(0);
                     } else {
-                        this.ccX = new DuMixOutput(surfaceTexture, this.mInputHeight, this.mInputWidth);
+                        this.cjB = new DuMixOutput(surfaceTexture, this.mInputHeight, this.mInputWidth);
                     }
                     if (isDebug()) {
                         d("DuAr_DuController", " ARControllerProxy mIsLandscape = " + this.mIsLandscape + " mInputHeight = " + this.mInputHeight + " mInputWidth = " + this.mInputWidth);
                     }
                 }
                 if (this.mOutputFPS != 0) {
-                    this.ccX.setOutputFPS(this.mOutputFPS);
+                    this.cjB.setOutputFPS(this.mOutputFPS);
                 }
-                this.cdo = System.currentTimeMillis();
-                this.ccU.setup(this.ccW, this.ccX, this.mDuMixCallback);
-                this.cdf = true;
-                dP(true);
-                k("output", this.ccX.getOutputWidth(), this.ccX.getOutputWidth());
-                abQ().obtainMessage(3).sendToTarget();
+                this.cjS = System.currentTimeMillis();
+                this.cjy.setup(this.cjA, this.cjB, this.mDuMixCallback);
+                this.cjJ = true;
+                dW(true);
+                k("output", this.cjB.getOutputWidth(), this.cjB.getOutputHeight());
+                adD().obtainMessage(3).sendToTarget();
                 return;
             }
-            this.ccU.changeOutputSize(i, i2);
-            dP(false);
+            this.cjy.changeOutputSize(i, i2);
+            dW(false);
             k("output", i, i2);
         }
     }
 
-    private void dP(boolean z) {
+    private void dW(boolean z) {
         File file = null;
         int i = 1;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("beauty_onsetup_ID", this.cdo);
-            if (this.ccW != null) {
-                jSONObject.put("beauty_width", this.ccW.getInputWidth());
-                jSONObject.put("beauty_height", this.ccW.getInputWidth());
-                jSONObject.put("beauty_is_front_camera", this.ccW.isFrontCamera() ? 1 : 0);
+            jSONObject.put("beauty_onsetup_ID", this.cjS);
+            if (this.cjA != null) {
+                jSONObject.put("beauty_width", this.cjA.getInputWidth());
+                jSONObject.put("beauty_height", this.cjA.getInputHeight());
+                jSONObject.put("beauty_is_front_camera", this.cjA.isFrontCamera() ? 1 : 0);
                 jSONObject.put("beauty_is_landscape", this.mIsLandscape ? 1 : 0);
-                jSONObject.put("beauty_is_sync", cdi ? 1 : 0);
+                jSONObject.put("beauty_is_sync", cjM ? 1 : 0);
             }
-            if (this.ccX != null) {
-                jSONObject.put("beauty_out_width", this.ccX.getOutputWidth());
-                jSONObject.put("beauty_out_height", this.ccX.getOutputHeight());
-                jSONObject.put("beauty_out_fps", this.ccX.getOutputFPS());
+            if (this.cjB != null) {
+                jSONObject.put("beauty_out_width", this.cjB.getOutputWidth());
+                jSONObject.put("beauty_out_height", this.cjB.getOutputHeight());
+                jSONObject.put("beauty_out_fps", this.cjB.getOutputFPS());
             }
             jSONObject.put("beauty_is_resume", z ? 1 : 0);
-            String acg = b.abY() != null ? c.acg() : null;
-            if (!TextUtils.isEmpty(acg)) {
-                b.abY();
-                file = new File(c.acg());
+            String adU = b.adM() != null ? c.adU() : null;
+            if (!TextUtils.isEmpty(adU)) {
+                b.adM();
+                file = new File(c.adU());
             }
-            if (acg == null) {
-                acg = "null";
+            if (adU == null) {
+                adU = "null";
             }
-            jSONObject.put("beauty_ar_path", acg);
+            jSONObject.put("beauty_ar_path", adU);
             if (file == null || !file.exists()) {
                 i = 0;
             }
@@ -564,19 +589,19 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dQ(boolean z) {
+    public void dX(boolean z) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("beauty_onsetup_ID", this.cdo);
+            jSONObject.put("beauty_onsetup_ID", this.cjS);
             jSONObject.put("beauty_onsetup", z ? 1 : 0);
-            jSONObject.put("beauty_onsetup_time", this.cdk);
-            if (cdm != 0) {
-                jSONObject.put("beauty_onsetup_release_time", cdm);
-                cdm = 0L;
+            jSONObject.put("beauty_onsetup_time", this.cjO);
+            if (cjQ != 0) {
+                jSONObject.put("beauty_onsetup_release_time", cjQ);
+                cjQ = 0L;
             }
-            if (cdn != null) {
-                jSONObject.put("beauty_release_frame_info", cdn);
-                cdn = null;
+            if (cjR != null) {
+                jSONObject.put("beauty_release_frame_info", cjR);
+                cjR = null;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -584,10 +609,10 @@ public class a {
         com.baidu.minivideo.arface.c.a.report("beauty_start", jSONObject);
     }
 
-    private void bd(String str, String str2) {
+    private void bc(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("operating", TextUtils.isEmpty(str) ? TrackLoadSettingsAtom.TYPE : "unload");
+            jSONObject.put("operating", TextUtils.isEmpty(str) ? "unload" : TrackLoadSettingsAtom.TYPE);
             jSONObject.put(AlaLiveStickerInfo.STICKER_ID, str2);
         } catch (Exception e) {
             e.printStackTrace();
@@ -596,10 +621,10 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abV() {
+    public void adI() {
         JSONObject jSONObject = new JSONObject();
         try {
-            Makeup makeup = this.cdt;
+            Makeup makeup = this.cjX;
             jSONObject.put("makeup_parameters", makeup == null ? "null" : makeup.getInfo());
         } catch (Exception e) {
             e.printStackTrace();
@@ -608,30 +633,30 @@ public class a {
     }
 
     private void a(Makeup makeup) {
-        this.cdt = makeup;
-        abQ().removeMessages(2);
-        abQ().sendMessageDelayed(abQ().obtainMessage(2), 500L);
+        this.cjX = makeup;
+        adD().removeMessages(2);
+        adD().sendMessageDelayed(adD().obtainMessage(2), 500L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abW() {
-        JSONObject jSONObject = this.cds;
+    public void adJ() {
+        JSONObject jSONObject = this.cjW;
         try {
-            jSONObject.put("beauty_parameters", this.cdr);
+            jSONObject.put("beauty_parameters", this.cjV);
         } catch (Exception e) {
             e.printStackTrace();
         }
         com.baidu.minivideo.arface.c.a.report("beauty_face", jSONObject);
     }
 
-    public void a(a.C0269a c0269a) {
+    public void a(a.C0270a c0270a) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(AlaRecorderLog.KEY_CANERA_START_FPS, c0269a.fps);
-            jSONObject.put("cup", c0269a.ceK);
-            jSONObject.put("memory_avalable", c0269a.ceM);
-            jSONObject.put("memory_total", c0269a.ceL);
-            jSONObject.put("frame_time", c0269a.ceN);
+            jSONObject.put(AlaRecorderLog.KEY_CANERA_START_FPS, c0270a.fps);
+            jSONObject.put("cup", c0270a.clH);
+            jSONObject.put("memory_avalable", c0270a.clJ);
+            jSONObject.put("memory_total", c0270a.clI);
+            jSONObject.put("frame_time", c0270a.clK);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -641,25 +666,25 @@ public class a {
     private void a(BeautyType beautyType, Object obj) {
         if (beautyType != null) {
             try {
-                this.cdr.put(beautyType.name(), obj);
+                this.cjV.put(beautyType.name(), obj);
                 if (beautyType == BeautyType.beautyJsonPath) {
                     if (obj == null) {
-                        this.cds.remove("feature_name");
-                        this.cds.remove("feature_file_exist");
+                        this.cjW.remove("feature_name");
+                        this.cjW.remove("feature_file_exist");
                     } else if (obj instanceof String) {
-                        this.cds.put("feature_file_exist", new File((String) obj).exists() ? 1 : 0);
+                        this.cjW.put("feature_file_exist", new File((String) obj).exists() ? 1 : 0);
                     }
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            abQ().removeMessages(1);
-            abQ().sendMessageDelayed(abQ().obtainMessage(1), 500L);
+            adD().removeMessages(1);
+            adD().sendMessageDelayed(adD().obtainMessage(1), 500L);
         }
     }
 
-    private void aw(List<Integer> list) {
-        JSONObject jSONObject = this.cdr;
+    private void aB(List<Integer> list) {
+        JSONObject jSONObject = this.cjV;
         if (list != null) {
             try {
                 JSONArray jSONArray = new JSONArray();
@@ -675,7 +700,7 @@ public class a {
     }
 
     private void k(String str, int i, int i2) {
-        JSONObject jSONObject = this.cdr;
+        JSONObject jSONObject = this.cjV;
         try {
             jSONObject.put("stream_direction", str);
             jSONObject.put("stream_width", i);
@@ -687,36 +712,36 @@ public class a {
     }
 
     public void sendMessage2Lua(HashMap<String, Object> hashMap) {
-        if (this.ccU != null && hashMap != null) {
+        if (this.cjy != null && hashMap != null) {
             if (isDebug()) {
-                g.d("DuAr_DuController", "sendMessage2Lua " + hashMap);
+                i.d("DuAr_DuController", "sendMessage2Lua " + hashMap);
             }
-            this.ccU.sendMsg2Lua(hashMap);
+            this.cjy.sendMsg2Lua(hashMap);
         }
     }
 
     public void setMdlModelPath(String str) {
         if (isDebug()) {
-            g.d("DuAr_DuController", "setMdlModelPath " + str);
+            i.d("DuAr_DuController", "setMdlModelPath " + str);
         }
-        if (this.ccU != null && str != null) {
-            this.ccU.setMdlModelPath(str);
+        if (this.cjy != null && str != null) {
+            this.cjy.setMdlModelPath(str);
         }
     }
 
     public void a(DuMixCallback duMixCallback) {
-        if (duMixCallback != null && !this.ccV.contains(duMixCallback)) {
-            this.ccV.add(duMixCallback);
+        if (duMixCallback != null && !this.cjz.contains(duMixCallback)) {
+            this.cjz.add(duMixCallback);
         }
-        g.d("DuAr_DuController", "addDuMixCallback size " + this.ccV.size());
+        i.d("DuAr_DuController", "addDuMixCallback size " + this.cjz.size());
     }
 
     public void setBeautyValue(BeautyType beautyType, int i) {
         if (isDebug()) {
-            g.d("DuAr_DuController", " updateFilter :" + beautyType + " = " + i);
+            i.d("DuAr_DuController", " updateFilter :" + beautyType + " = " + i);
         }
-        if (this.ccU != null && beautyType != null) {
-            this.ccU.updateFilter(beautyType.type, i);
+        if (this.cjy != null && beautyType != null) {
+            this.cjy.updateFilter(beautyType.type, i);
             a(beautyType, Integer.valueOf(i));
         }
     }
@@ -724,44 +749,44 @@ public class a {
     public void a(BeautyType beautyType, Makeup makeup) {
         String str;
         if (makeup != null) {
-            DuMixController duMixController = this.ccU;
+            DuMixController duMixController = this.cjy;
             if (duMixController == null) {
                 str = "";
             } else {
                 if (beautyType != null) {
-                    if (TextUtils.equals(this.cdq.get(beautyType), makeup.getResPath())) {
+                    if (TextUtils.equals(this.cjU.get(beautyType), makeup.getResPath())) {
                         str = "";
                     } else {
                         str = duMixController.updateFilterCase(makeup.getResPath());
                         if (str != null) {
-                            this.cdq.put(beautyType, makeup.getResPath());
+                            this.cjU.put(beautyType, makeup.getResPath());
                         }
                     }
                     duMixController.updateFilter(beautyType.type, makeup.getValue());
                 } else {
-                    this.cdq.clear();
+                    this.cjU.clear();
                     str = duMixController.updateFilterCase(makeup.getResPath());
                 }
                 a(makeup);
             }
             if (isDebug()) {
-                g.d("DuAr_DuController", " updateMakeup: " + beautyType + " = " + makeup.getInfo() + ", resResult: " + str);
+                i.d("DuAr_DuController", " updateMakeup: " + beautyType + " = " + makeup.getInfo() + ", resResult: " + str);
             }
         }
     }
 
     public void setBeautyValue(BeautyType beautyType, float f) {
         if (isDebug()) {
-            g.d("DuAr_DuController", " updateFilter :" + beautyType + " = " + f);
+            i.d("DuAr_DuController", " updateFilter :" + beautyType + " = " + f);
         }
-        if (this.ccU != null && beautyType != null) {
-            this.ccU.updateFilter(beautyType.type, f);
+        if (this.cjy != null && beautyType != null) {
+            this.cjy.updateFilter(beautyType.type, f);
             a(beautyType, Float.valueOf(f));
         }
     }
 
     public void setCurve(List<List<Point>> list) {
-        DuMixController duMixController = this.ccU;
+        DuMixController duMixController = this.cjy;
         if (duMixController != null && list != null) {
             duMixController.updateFilter(FilterParam.TuneColorFilter.rgbPoints, list.get(0));
             duMixController.updateFilter(FilterParam.TuneColorFilter.redPoints, list.get(1));
@@ -773,75 +798,75 @@ public class a {
 
     public void setQulaityParm(com.baidu.minivideo.arface.bean.b bVar) {
         if (bVar != null) {
-            a(SharpnessFilter.sharpness, bVar.aEI);
-            a(FilterParam.TuneColorFilter.brightness, bVar.aEJ);
-            a(FilterParam.TuneColorFilter.contrast, bVar.aEK);
-            a(FilterParam.TuneColorFilter.saturation, bVar.aEL);
-            a(FilterParam.TuneColorFilter.curve, bVar.aEM);
-            a(FilterParam.TuneColorFilter.rgbPoints, bVar.aEN);
-            a(FilterParam.TuneColorFilter.redPoints, bVar.aEO);
-            a(FilterParam.TuneColorFilter.greenPoints, bVar.aEP);
-            a(FilterParam.TuneColorFilter.bluePoints, bVar.aEQ);
+            a(SharpnessFilter.sharpness, bVar.aEZ);
+            a(FilterParam.TuneColorFilter.brightness, bVar.aFa);
+            a(FilterParam.TuneColorFilter.contrast, bVar.aFb);
+            a(FilterParam.TuneColorFilter.saturation, bVar.aFc);
+            a(FilterParam.TuneColorFilter.curve, bVar.aFd);
+            a(FilterParam.TuneColorFilter.rgbPoints, bVar.aFe);
+            a(FilterParam.TuneColorFilter.redPoints, bVar.aFf);
+            a(FilterParam.TuneColorFilter.greenPoints, bVar.aFg);
+            a(FilterParam.TuneColorFilter.bluePoints, bVar.aFh);
             return;
         }
-        a(SharpnessFilter.sharpness, com.baidu.minivideo.arface.bean.b.aEu);
-        a(FilterParam.TuneColorFilter.brightness, com.baidu.minivideo.arface.bean.b.aEv);
-        a(FilterParam.TuneColorFilter.contrast, com.baidu.minivideo.arface.bean.b.aEw);
-        a(FilterParam.TuneColorFilter.saturation, com.baidu.minivideo.arface.bean.b.aEx);
-        a(FilterParam.TuneColorFilter.curve, com.baidu.minivideo.arface.bean.b.aEy);
-        a(FilterParam.TuneColorFilter.rgbPoints, com.baidu.minivideo.arface.bean.b.aEz);
-        a(FilterParam.TuneColorFilter.redPoints, com.baidu.minivideo.arface.bean.b.aEA);
-        a(FilterParam.TuneColorFilter.greenPoints, com.baidu.minivideo.arface.bean.b.aEB);
-        a(FilterParam.TuneColorFilter.bluePoints, com.baidu.minivideo.arface.bean.b.aEC);
+        a(SharpnessFilter.sharpness, com.baidu.minivideo.arface.bean.b.aEL);
+        a(FilterParam.TuneColorFilter.brightness, com.baidu.minivideo.arface.bean.b.aEM);
+        a(FilterParam.TuneColorFilter.contrast, com.baidu.minivideo.arface.bean.b.aEN);
+        a(FilterParam.TuneColorFilter.saturation, com.baidu.minivideo.arface.bean.b.aEO);
+        a(FilterParam.TuneColorFilter.curve, com.baidu.minivideo.arface.bean.b.aEP);
+        a(FilterParam.TuneColorFilter.rgbPoints, com.baidu.minivideo.arface.bean.b.aEQ);
+        a(FilterParam.TuneColorFilter.redPoints, com.baidu.minivideo.arface.bean.b.aER);
+        a(FilterParam.TuneColorFilter.greenPoints, com.baidu.minivideo.arface.bean.b.aES);
+        a(FilterParam.TuneColorFilter.bluePoints, com.baidu.minivideo.arface.bean.b.aET);
     }
 
     public void a(FilterParam filterParam, float f) {
         if (isDebug()) {
-            g.d("DuAr_DuController", " updateFilter :" + filterParam + " = " + f);
+            i.d("DuAr_DuController", " updateFilter :" + filterParam + " = " + f);
         }
-        if (abT() && filterParam != null) {
-            this.ccU.updateFilter(filterParam, f);
+        if (adG() && filterParam != null) {
+            this.cjy.updateFilter(filterParam, f);
         }
     }
 
     public void a(FilterParam filterParam, List<Point> list) {
         if (isDebug()) {
-            g.d("DuAr_DuController", new StringBuilder().append(" updateFilter :").append(filterParam).append(" = ").append(list).toString() != null ? list.toString() : "");
+            i.d("DuAr_DuController", new StringBuilder().append(" updateFilter :").append(filterParam).append(" = ").append(list).toString() != null ? list.toString() : "");
         }
-        if (abT() && filterParam != null && list != null) {
-            this.ccU.updateFilter(filterParam, list);
+        if (adG() && filterParam != null && list != null) {
+            this.cjy.updateFilter(filterParam, list);
         }
     }
 
     public void setBeautyValue(BeautyType beautyType, String str) {
         if (isDebug()) {
-            g.d("DuAr_DuController", " updateFilter :" + beautyType + " = " + str);
+            i.d("DuAr_DuController", " updateFilter :" + beautyType + " = " + str);
         }
-        if (this.ccU != null && beautyType != null) {
+        if (this.cjy != null && beautyType != null) {
             if (beautyType == BeautyType.cheeks || beautyType == BeautyType.lips || beautyType == BeautyType.highlight || beautyType == BeautyType.eyeshadow || beautyType == BeautyType.eyeliner || beautyType == BeautyType.eyebrow || beautyType == BeautyType.eyeball) {
-                this.ccU.updateFilterCase(str);
+                this.cjy.updateFilterCase(str);
                 return;
             }
-            this.ccU.updateFilter(beautyType.type, str);
+            this.cjy.updateFilter(beautyType.type, str);
             a(beautyType, str);
         }
     }
 
-    public void jN(String str) {
+    public void jF(String str) {
         if (isDebug()) {
-            g.d("DuAr_DuController", " setInitBeautyPath :  " + str);
+            i.d("DuAr_DuController", " setInitBeautyPath :  " + str);
         }
-        if (this.ccU != null) {
-            this.ccU.updateFilterCase(str);
+        if (this.cjy != null) {
+            this.cjy.updateFilterCase(str);
         }
     }
 
     public void setBeautyValue(BeautyType beautyType, float[] fArr) {
         if (isDebug()) {
-            g.d("DuAr_DuController", " updateFilter :" + beautyType + " = " + com.baidu.arface.a.a.F(fArr));
+            i.d("DuAr_DuController", " updateFilter :" + beautyType + " = " + com.baidu.arface.a.a.B(fArr));
         }
-        if (this.ccU != null && beautyType != null) {
-            this.ccU.updateFilter(beautyType.type, fArr);
+        if (this.cjy != null && beautyType != null) {
+            this.cjy.updateFilter(beautyType.type, fArr);
         }
     }
 
@@ -872,7 +897,7 @@ public class a {
         }
     }
 
-    public void i(Map<BeautyType, Object> map) {
+    public void j(Map<BeautyType, Object> map) {
         Map.Entry<BeautyType, Object> next;
         if (map != null) {
             Iterator<Map.Entry<BeautyType, Object>> it = map.entrySet().iterator();
@@ -882,10 +907,10 @@ public class a {
         }
     }
 
-    public static String bo(Context context) {
+    public static String bz(Context context) {
         String soDownLoadDir = DuMixController.getSoDownLoadDir(context);
         if (isDebug()) {
-            g.d("DuAr_DuController", " getSoDownloadDir: " + soDownLoadDir);
+            i.d("DuAr_DuController", " getSoDownloadDir: " + soDownLoadDir);
         }
         return soDownLoadDir;
     }
@@ -893,9 +918,17 @@ public class a {
     public static int getVersion() {
         int versionCode = DuMixController.getVersionCode();
         if (isDebug()) {
-            g.d("DuAr_DuController", " getSdkVersion: " + versionCode);
+            i.d("DuAr_DuController", " getSdkVersion: " + versionCode);
         }
         return versionCode;
+    }
+
+    public static String getVersionName() {
+        String versionName = DuMixController.getVersionName();
+        if (isDebug()) {
+            i.d("DuAr_DuController", " getVersionName:" + versionName);
+        }
+        return versionName;
     }
 
     public void loadCase(String str, String str2) {
@@ -903,33 +936,33 @@ public class a {
     }
 
     public void loadCase(ARType aRType, String str, String str2) {
-        if (this.cdc != null && TextUtils.isEmpty(str)) {
-            this.cdc.onFilterStateChanged(null, null);
+        if (this.cjG != null && TextUtils.isEmpty(str)) {
+            this.cjG.onFilterStateChanged(null, null);
         }
-        if (abT()) {
+        if (adG()) {
             if (isDebug()) {
-                g.d("DuAr_DuController", "loadcase Path = " + str + ", arType = " + str2 + ", casePath = " + str2);
+                i.d("DuAr_DuController", "loadcase Path = " + str + ", arType = " + str2 + ", casePath = " + str2);
             }
-            this.ccU.loadCase(aRType, str, str2);
-            bd(str, str2);
+            this.cjy.loadCase(aRType, str, str2);
+            bc(str, str2);
         }
     }
 
     public void a(ICaptureAbilityListener iCaptureAbilityListener) {
-        if (this.ccU != null && this.ccU.getARProxyManager() != null && this.ccU.getARProxyManager().getCaptureAR() != null) {
-            this.ccU.getARProxyManager().getCaptureAR().setAbilityListener(iCaptureAbilityListener);
+        if (this.cjy != null && this.cjy.getARProxyManager() != null && this.cjy.getARProxyManager().getCaptureAR() != null) {
+            this.cjy.getARProxyManager().getCaptureAR().setAbilityListener(iCaptureAbilityListener);
         }
     }
 
     public void e(ICallbackWith<ICaptureResult> iCallbackWith) {
-        if (this.ccU != null && this.ccU.getARProxyManager() != null && this.ccU.getARProxyManager().getCaptureAR() != null) {
-            this.ccU.getARProxyManager().getCaptureAR().setCaptureCallback(iCallbackWith);
+        if (this.cjy != null && this.cjy.getARProxyManager() != null && this.cjy.getARProxyManager().getCaptureAR() != null) {
+            this.cjy.getARProxyManager().getCaptureAR().setCaptureCallback(iCallbackWith);
         }
     }
 
-    public void j(Object... objArr) {
+    public void k(Object... objArr) {
         int i = 0;
-        if (objArr != null && objArr.length != 0 && this.ccU != null && this.ccU.getARProxyManager() != null && this.ccU.getARProxyManager().getCaptureAR() != null) {
+        if (objArr != null && objArr.length != 0 && this.cjy != null && this.cjy.getARProxyManager() != null && this.cjy.getARProxyManager().getCaptureAR() != null) {
             if (objArr[0] instanceof Bitmap) {
                 Bitmap[] bitmapArr = new Bitmap[objArr.length];
                 while (true) {
@@ -938,7 +971,7 @@ public class a {
                         bitmapArr[i2] = (Bitmap) objArr[i2];
                         i = i2 + 1;
                     } else {
-                        this.ccU.getARProxyManager().getCaptureAR().sendImageToLua(bitmapArr);
+                        this.cjy.getARProxyManager().getCaptureAR().sendImageToLua(bitmapArr);
                         return;
                     }
                 }
@@ -950,7 +983,7 @@ public class a {
                         strArr[i3] = (String) objArr[i3];
                         i = i3 + 1;
                     } else {
-                        this.ccU.getARProxyManager().getCaptureAR().sendBase64ImageToLua(strArr);
+                        this.cjy.getARProxyManager().getCaptureAR().sendBase64ImageToLua(strArr);
                         return;
                     }
                 }
@@ -958,18 +991,18 @@ public class a {
         }
     }
 
-    public static boolean jO(String str) {
+    public static boolean jG(String str) {
         return !TextUtils.isEmpty(str);
     }
 
     public void setFaceListener(FaceListener faceListener) {
-        this.cda = faceListener;
+        this.cjE = faceListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void d(String str, String str2) {
         if (isDebug()) {
-            Log.e(str, "ar->" + str2 + (ccP == null ? "" : " by: " + ccP.ccS));
+            Log.e(str, "ar->" + str2 + (cjt == null ? "" : " by: " + cjt.cjw));
         }
     }
 
@@ -978,33 +1011,33 @@ public class a {
         return b.isDebug();
     }
 
-    public void dR(boolean z) {
+    public void dY(boolean z) {
     }
 
     public void c(LuaMsgListener luaMsgListener) {
-        this.cdb = luaMsgListener;
+        this.cjF = luaMsgListener;
     }
 
     public void setDefinedLuaListener(DefinedLuaListener definedLuaListener) {
-        this.cdd = definedLuaListener;
+        this.cjH = definedLuaListener;
     }
 
     public void setFilterStateListener(FilterStateListener filterStateListener) {
-        this.cdc = filterStateListener;
+        this.cjG = filterStateListener;
     }
 
     public void clearCase() {
-        if (this.cdc != null) {
-            this.cdc.onFilterStateChanged(null, null);
+        if (this.cjG != null) {
+            this.cjG.onFilterStateChanged(null, null);
         }
-        if (this.ccU != null) {
-            this.ccU.clearCase();
+        if (this.cjy != null) {
+            this.cjy.clearCase();
         }
     }
 
     private Texture V(int i, int i2) {
         IGLRenderer gLRenderer;
-        if (this.ccU == null || (gLRenderer = this.ccU.getGLRenderer()) == null) {
+        if (this.cjy == null || (gLRenderer = this.cjy.getGLRenderer()) == null) {
             return null;
         }
         return gLRenderer.createTexture(3553, i, i2);
@@ -1019,24 +1052,24 @@ public class a {
     }
 
     public static boolean a(a aVar, Object obj) {
-        return (aVar == null || aVar.abU() || aVar.abR() != obj) ? false : true;
+        return (aVar == null || aVar.adH() || aVar.adE() != obj) ? false : true;
     }
 
     public void updateFilterBrightness(float f) {
-        if (this.ccU != null) {
-            this.ccU.updateFilter(FilterParam.TuneColorFilter.brightness, f);
+        if (this.cjy != null) {
+            this.cjy.updateFilter(FilterParam.TuneColorFilter.brightness, f);
         }
     }
 
     public void updateFilterContrast(float f) {
-        if (this.ccU != null) {
-            this.ccU.updateFilter(FilterParam.TuneColorFilter.contrast, f);
+        if (this.cjy != null) {
+            this.cjy.updateFilter(FilterParam.TuneColorFilter.contrast, f);
         }
     }
 
     public void updateFilterSaturation(float f) {
-        if (this.ccU != null) {
-            this.ccU.updateFilter(FilterParam.TuneColorFilter.saturation, f);
+        if (this.cjy != null) {
+            this.cjy.updateFilter(FilterParam.TuneColorFilter.saturation, f);
         }
     }
 }

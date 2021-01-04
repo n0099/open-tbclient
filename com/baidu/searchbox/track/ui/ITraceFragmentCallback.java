@@ -1,7 +1,7 @@
 package com.baidu.searchbox.track.ui;
 
 import android.app.Activity;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface ITraceFragmentCallback {
     boolean register(Activity activity);
 

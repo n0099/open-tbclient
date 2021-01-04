@@ -10,12 +10,14 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.BdWalletUtils;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class SafeScrollView extends ScrollView {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1548a = SafeScrollView.class.getSimpleName();
-    private ScrollChangedListener b;
+    private static final String f2082a = SafeScrollView.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private ScrollChangedListener f2083b;
     private boolean c;
     private int d;
     private Context e;
@@ -26,12 +28,12 @@ public class SafeScrollView extends ScrollView {
     private int j;
     private boolean k;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public interface ScrollChangedListener {
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public interface onKeyBoardStatusChangeListener {
         void onKeyBoardStatusChange(boolean z, int i);
     }
@@ -173,17 +175,17 @@ public class SafeScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.b != null) {
-            this.b.onScrollChanged(i, i2, i3, i4);
+        if (this.f2083b != null) {
+            this.f2083b.onScrollChanged(i, i2, i3, i4);
         }
     }
 
     public void setScrollChangeListener(ScrollChangedListener scrollChangedListener) {
-        this.b = scrollChangedListener;
+        this.f2083b = scrollChangedListener;
     }
 
     private void a() {
-        this.b = null;
+        this.f2083b = null;
     }
 
     @Override // android.widget.ScrollView, android.view.ViewGroup, android.view.View

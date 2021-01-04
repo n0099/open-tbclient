@@ -2,9 +2,9 @@ package com.facebook.imagepipeline.g;
 
 import com.facebook.imagepipeline.producers.am;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public interface c extends am {
-    void Zn(String str);
+    void Zy(String str);
 
     void a(ImageRequest imageRequest, Object obj, String str, boolean z);
 

@@ -5,7 +5,7 @@ import android.content.res.AssetManager;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.IOException;
 import java.util.concurrent.Executor;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class v extends z {
     private final AssetManager mAssetManager;
 
@@ -20,36 +20,38 @@ public class v extends z {
     }
 
     private int h(ImageRequest imageRequest) {
-        AssetFileDescriptor assetFileDescriptor;
         Throwable th;
+        AssetFileDescriptor assetFileDescriptor;
+        AssetFileDescriptor assetFileDescriptor2;
         int i;
         try {
-            assetFileDescriptor = this.mAssetManager.openFd(i(imageRequest));
+            assetFileDescriptor2 = this.mAssetManager.openFd(i(imageRequest));
         } catch (IOException e) {
-            assetFileDescriptor = null;
+            assetFileDescriptor2 = null;
         } catch (Throwable th2) {
-            assetFileDescriptor = null;
             th = th2;
+            assetFileDescriptor = null;
         }
         try {
-            i = (int) assetFileDescriptor.getLength();
-            if (assetFileDescriptor != null) {
+            i = (int) assetFileDescriptor2.getLength();
+            if (assetFileDescriptor2 != null) {
                 try {
-                    assetFileDescriptor.close();
+                    assetFileDescriptor2.close();
                 } catch (IOException e2) {
                 }
             }
         } catch (IOException e3) {
             i = -1;
-            if (assetFileDescriptor != null) {
+            if (assetFileDescriptor2 != null) {
                 try {
-                    assetFileDescriptor.close();
+                    assetFileDescriptor2.close();
                 } catch (IOException e4) {
                 }
             }
             return i;
         } catch (Throwable th3) {
             th = th3;
+            assetFileDescriptor = assetFileDescriptor2;
             if (assetFileDescriptor != null) {
                 try {
                     assetFileDescriptor.close();
@@ -62,11 +64,11 @@ public class v extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String ewH() {
+    protected String eAo() {
         return "LocalAssetFetchProducer";
     }
 
     private static String i(ImageRequest imageRequest) {
-        return imageRequest.exm().getPath().substring(1);
+        return imageRequest.eAT().getPath().substring(1);
     }
 }

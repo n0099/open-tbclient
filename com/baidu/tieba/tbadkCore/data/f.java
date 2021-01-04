@@ -3,56 +3,56 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class f {
-    public static final int[] nli = {3, 8, 13};
-    public static final int[] nlj = {2, 12};
-    public static final int[] nlk = {20};
-    public static final int[] nll = {3, 13, 23};
-    private SparseIntArray nlm = new SparseIntArray();
-    private String nln;
-    private final int[] nlo;
+    public static final int[] nqQ = {3, 8, 13};
+    public static final int[] nqR = {2, 12};
+    public static final int[] nqS = {20};
+    public static final int[] nqT = {3, 13, 23};
+    private SparseIntArray nqU = new SparseIntArray();
+    private String nqV;
+    private final int[] nqW;
 
     public f(String str, int[] iArr) {
-        this.nlo = iArr;
-        this.nln = str;
+        this.nqW = iArr;
+        this.nqV = str;
     }
 
-    public void KR(int i) {
+    public void KN(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
         }
-        if (this.nlm != null) {
-            this.nlm.clear();
-            if (this.nlo != null) {
-                for (int i2 : this.nlo) {
+        if (this.nqU != null) {
+            this.nqU.clear();
+            if (this.nqW != null) {
+                for (int i2 : this.nqW) {
                     if (i2 >= 0) {
-                        this.nlm.append(i2 + i, i2);
+                        this.nqU.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void dOO() {
-        KR(0);
+    public void dOG() {
+        KN(0);
     }
 
-    public void dy(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.nlm != null) {
-            this.nlm.append(i2, i);
+    public void du(int i, int i2) {
+        if (i >= 0 && i2 >= 0 && this.nqU != null) {
+            this.nqU.append(i2, i);
         }
     }
 
-    public int KS(int i) {
-        if (i >= 0 && this.nlm != null) {
-            return this.nlm.get(i, -1);
+    public int KO(int i) {
+        if (i >= 0 && this.nqU != null) {
+            return this.nqU.get(i, -1);
         }
         return -1;
     }
 
-    public void KT(int i) {
-        if (this.nlm != null) {
-            this.nlm.delete(i);
+    public void KP(int i) {
+        if (this.nqU != null) {
+            this.nqU.delete(i);
         }
     }
 }

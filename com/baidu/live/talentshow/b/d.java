@@ -3,13 +3,13 @@ package com.baidu.live.talentshow.b;
 import com.baidu.live.tbadk.core.data.BaseData;
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d extends BaseData {
     public String appid;
-    public String bBD;
-    public String bBE;
-    public int bBF = -1;
+    public String bGr;
+    public String bGs;
     public String cuid;
+    public int itemPosition = -1;
     public String nickName;
     public String portrait;
     public int status;
@@ -26,13 +26,13 @@ public class d extends BaseData {
             this.status = jSONObject.optInt("status");
             this.appid = jSONObject.optString("appid");
             this.cuid = jSONObject.optString("cuid");
-            this.bBD = jSONObject.optString("im_uk");
-            this.bBE = jSONObject.optString(HttpRequest.SUBAPP_VERSION);
+            this.bGr = jSONObject.optString("im_uk");
+            this.bGs = jSONObject.optString(HttpRequest.SUBAPP_VERSION);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: TO */
+    /* renamed from: UT */
     public d clone() {
         try {
             return (d) super.clone();

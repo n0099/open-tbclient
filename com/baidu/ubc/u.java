@@ -1,7 +1,7 @@
 package com.baidu.ubc;
 
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public interface u {
-    boolean i(JSONObject jSONObject, boolean z);
+    boolean k(JSONObject jSONObject, boolean z);
 }

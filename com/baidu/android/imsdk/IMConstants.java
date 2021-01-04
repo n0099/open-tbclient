@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMConstants implements ResponseCode, NoProGuard {
     public static final int ACCOUNT_ANON = 0;
     public static final int ACCOUNT_BAIDU = 1;

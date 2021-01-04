@@ -6,9 +6,8 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.a.h;
+import com.baidu.tbadk.core.util.b.h;
 import com.baidu.tbadk.coreExtra.data.d;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.tbadkCore.d.a;
@@ -16,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class ShowStatisticUploadRequest extends HttpMessage {
     private static final TbHttpMessageTask task = new TbHttpMessageTask(1003183, "https://als.baidu.com/flog/logFeed");
 
@@ -30,14 +29,14 @@ public class ShowStatisticUploadRequest extends HttpMessage {
             addParam("net_type", netType);
         }
         d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        task.setUrl((adAdSense == null || adAdSense.bxe()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
+        task.setUrl((adAdSense == null || adAdSense.bzx()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
     }
 
     ShowStatisticUploadRequest init(int i, String str, String str2, String str3) {
         addParam("da_page", i == 1 ? "FRS" : "PB");
         addParam("da_menu1", str);
         addParam("da_menu2", str2);
-        addParam(UgcConstant.EXT_INFO, str3);
+        addParam("ext_info", str3);
         return this;
     }
 
@@ -50,8 +49,8 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                 if (bVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tid", bVar.amY);
-                        jSONObject.put("locate", bVar.imG);
+                        jSONObject.put("tid", bVar.anD);
+                        jSONObject.put("locate", bVar.izb);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);
@@ -74,7 +73,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     try {
                         jSONObject.put("pid", bVar.mPid);
                         jSONObject.put("tid", str4);
-                        jSONObject.put("locate", bVar.imG);
+                        jSONObject.put("locate", bVar.izb);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);
@@ -92,7 +91,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
         task.setIsNeedAddCommenParam(true);
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes8.dex */
     private static final class ResponseMessage extends HttpResponsedMessage {
         public ResponseMessage(int i) {
             super(i);

@@ -1,19 +1,19 @@
 package com.baidu.tieba.ala.liveroom.performancewatchtask;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
-    public int hAS;
-    public String hAT;
-    public int hAU;
-    public String hAV;
-    public int hAW;
-    public int hAX;
-    public String hAY;
-    public int hAZ;
-    public String hBa;
-    public int hBb;
-    public int hBc;
+    public int hMS;
+    public String hMT;
+    public int hMU;
+    public String hMV;
+    public int hMW;
+    public int hMX;
+    public String hMY;
+    public int hMZ;
+    public String hNa;
+    public int hNb;
+    public int hNc;
     public String msg;
     public int status;
     public String taskId;
@@ -23,22 +23,22 @@ public class c {
             this.status = jSONObject.optInt("status");
             this.msg = jSONObject.optString("msg");
             this.taskId = jSONObject.optString("task_id");
-            this.hBc = jSONObject.optInt("ticket_num");
+            this.hNc = jSONObject.optInt("ticket_num");
             JSONObject optJSONObject = jSONObject.optJSONObject("type1");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("type2");
             if (optJSONObject != null) {
-                this.hAS = optJSONObject.optInt("isok");
-                this.hAT = optJSONObject.optString("content");
-                this.hAU = optJSONObject.optInt("type");
-                this.hAV = optJSONObject.optString("h5url");
-                this.hAW = optJSONObject.optInt("len_time");
+                this.hMS = optJSONObject.optInt("isok");
+                this.hMT = optJSONObject.optString("content");
+                this.hMU = optJSONObject.optInt("type");
+                this.hMV = optJSONObject.optString("h5url");
+                this.hMW = optJSONObject.optInt("len_time");
             }
             if (optJSONObject2 != null) {
-                this.hAX = optJSONObject2.optInt("isok");
-                this.hAY = optJSONObject2.optString("content");
-                this.hAZ = optJSONObject2.optInt("type");
-                this.hBa = optJSONObject2.optString("h5url");
-                this.hBb = optJSONObject2.optInt("len_time");
+                this.hMX = optJSONObject2.optInt("isok");
+                this.hMY = optJSONObject2.optString("content");
+                this.hMZ = optJSONObject2.optInt("type");
+                this.hNa = optJSONObject2.optString("h5url");
+                this.hNb = optJSONObject2.optInt("len_time");
             }
         }
     }

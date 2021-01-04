@@ -11,7 +11,7 @@ import java.io.FileReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class b {
     private Context mContext;
 
@@ -43,19 +43,19 @@ public class b {
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(iVar.getContent())) {
                 jSONObject.put("content", iVar.getContent());
-            } else if (iVar.bge() != null) {
-                jSONObject.put("content", iVar.bge().toString());
+            } else if (iVar.biB() != null) {
+                jSONObject.put("content", iVar.biB().toString());
             }
-            if (!TextUtils.isEmpty(iVar.bgd())) {
-                jSONObject.put("abtest", iVar.bgd());
+            if (!TextUtils.isEmpty(iVar.biA())) {
+                jSONObject.put("abtest", iVar.biA());
             }
             if (!TextUtils.isEmpty(iVar.getCategory())) {
                 jSONObject.put("c", iVar.getCategory());
             }
-            if (iVar.bfZ()) {
+            if (iVar.biw()) {
                 jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
             }
-            jSONObject.put("idtype", d.bfM().zv(iVar.getId()));
+            jSONObject.put("idtype", d.bij().zu(iVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -113,7 +113,7 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has("abtest")) {
-                            vVar.zG("1");
+                            vVar.zF("1");
                         }
                         long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
@@ -124,7 +124,7 @@ public class b {
                                 j2 = j3;
                             }
                         }
-                        vVar.df(jSONObject);
+                        vVar.dn(jSONObject);
                         z2 = true;
                     } catch (Exception e) {
                         com.baidu.swan.c.d.closeSafely(bufferedReader);
@@ -135,7 +135,7 @@ public class b {
                         throw th;
                     }
                 }
-                vVar.r(j, j2);
+                vVar.u(j, j2);
                 com.baidu.swan.c.d.closeSafely(bufferedReader);
             } catch (Exception e2) {
                 bufferedReader = null;
@@ -169,7 +169,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                vVar.zG("1");
+                                vVar.zF("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -180,7 +180,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            vVar.df(jSONObject);
+                            vVar.dn(jSONObject);
                             i++;
                         } catch (Exception e) {
                             e = e;
@@ -193,7 +193,7 @@ public class b {
                         throw th;
                     }
                 } while (i < 10);
-                vVar.r(j, j2);
+                vVar.u(j, j2);
                 com.baidu.swan.c.d.closeSafely(bufferedReader);
             } catch (Exception e2) {
                 e = e2;
@@ -207,7 +207,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void io(boolean z) {
+    public void iJ(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

@@ -5,62 +5,62 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaConfig;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.b.b;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MyConcernTabModel extends BdBaseModel {
-    private a gts;
-    private b gtt;
+    private a gEr;
+    private b gEs;
     private TbPageContext mTbPageContext;
     private int pn = 1;
-    private HttpMessageListener gtu = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.1
+    private HttpMessageListener gEt = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021140 && (httpResponsedMessage instanceof AlaLiveTabMyConcernResponse)) {
                 AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse = (AlaLiveTabMyConcernResponse) httpResponsedMessage;
-                boolean z = y.isEmpty(alaLiveTabMyConcernResponse.followList) && y.isEmpty(alaLiveTabMyConcernResponse.recommendList) && y.isEmpty(alaLiveTabMyConcernResponse.followCloseList) && alaLiveTabMyConcernResponse.followStatus == 0;
+                boolean z = x.isEmpty(alaLiveTabMyConcernResponse.followList) && x.isEmpty(alaLiveTabMyConcernResponse.recommendList) && x.isEmpty(alaLiveTabMyConcernResponse.followCloseList) && alaLiveTabMyConcernResponse.followStatus == 0;
                 if (alaLiveTabMyConcernResponse.getError() != 0 || !alaLiveTabMyConcernResponse.isSuccess() || z) {
-                    if (MyConcernTabModel.this.gts != null) {
-                        MyConcernTabModel.this.gts.mf(MyConcernTabModel.this.pn == 1);
+                    if (MyConcernTabModel.this.gEr != null) {
+                        MyConcernTabModel.this.gEr.mC(MyConcernTabModel.this.pn == 1);
                         return;
                     }
                     return;
                 }
-                MyConcernTabModel.this.gtt.c(alaLiveTabMyConcernResponse, MyConcernTabModel.this.pn == 1);
-                if (MyConcernTabModel.this.gts != null) {
-                    MyConcernTabModel.this.gts.b(MyConcernTabModel.this.gtt.bSs(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
+                MyConcernTabModel.this.gEs.c(alaLiveTabMyConcernResponse, MyConcernTabModel.this.pn == 1);
+                if (MyConcernTabModel.this.gEr != null) {
+                    MyConcernTabModel.this.gEr.b(MyConcernTabModel.this.gEs.bUU(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
                 }
                 MyConcernTabModel.this.pn = alaLiveTabMyConcernResponse.pn + 1;
             }
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void b(List<q> list, boolean z, boolean z2);
+        void b(List<n> list, boolean z, boolean z2);
 
-        void mf(boolean z);
+        void mC(boolean z);
     }
 
     public MyConcernTabModel(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.gtt = new b(this.mTbPageContext);
-        bRG();
-        MessageManager.getInstance().registerListener(this.gtu);
+        this.gEs = new b(this.mTbPageContext);
+        bUe();
+        MessageManager.getInstance().registerListener(this.gEt);
     }
 
-    private void bRG() {
+    private void bUe() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_TAB_SUB_MY_CONCERN_LIST);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -69,31 +69,31 @@ public class MyConcernTabModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void VC() {
+    public void WE() {
         this.pn = 1;
-        this.gtt.clearData();
-        uY(1);
+        this.gEs.clearData();
+        loadData(1);
     }
 
-    public void bSp() {
-        uY(this.pn);
+    public void bUR() {
+        loadData(this.pn);
     }
 
-    private void uY(int i) {
+    private void loadData(int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        this.gtt.clearData();
-        if (this.gtu != null) {
-            MessageManager.getInstance().unRegisterListener(this.gtu);
+        this.gEs.clearData();
+        if (this.gEt != null) {
+            MessageManager.getInstance().unRegisterListener(this.gEt);
         }
     }
 
     public void a(a aVar) {
-        this.gts = aVar;
+        this.gEr = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -106,7 +106,7 @@ public class MyConcernTabModel extends BdBaseModel {
         return false;
     }
 
-    public void x(Class<? extends BaseCardInfo> cls) {
-        this.gtt.x(cls);
+    public void q(Class<? extends BaseCardInfo> cls) {
+        this.gEs.q(cls);
     }
 }

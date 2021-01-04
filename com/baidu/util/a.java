@@ -1,31 +1,33 @@
 package com.baidu.util;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f3900a;
-    private Context b;
+    private static a f5905a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f5906b;
 
     private a(Context context) {
-        this.b = context;
+        this.f5906b = context;
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f3900a == null) {
-                f3900a = new a(context);
+            if (f5905a == null) {
+                f5905a = new a(context);
             }
-            aVar = f3900a;
+            aVar = f5905a;
         }
         return aVar;
     }
 
     public long a(String str, String str2, long j) {
         try {
-            return this.b.getSharedPreferences(str, 0).getLong(str2, j);
+            return this.f5906b.getSharedPreferences(str, 0).getLong(str2, j);
         } catch (Exception e) {
             e.printStackTrace();
             return System.currentTimeMillis();
@@ -34,7 +36,7 @@ public class a {
 
     public String a(String str, String str2, String str3) {
         try {
-            return this.b.getSharedPreferences(str, 0).getString(str2, str3);
+            return this.f5906b.getSharedPreferences(str, 0).getString(str2, str3);
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -42,10 +44,10 @@ public class a {
     }
 
     public void b(String str, String str2, long j) {
-        this.b.getSharedPreferences(str, 0).edit().putLong(str2, j).commit();
+        this.f5906b.getSharedPreferences(str, 0).edit().putLong(str2, j).commit();
     }
 
     public void b(String str, String str2, String str3) {
-        this.b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
+        this.f5906b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
     }
 }

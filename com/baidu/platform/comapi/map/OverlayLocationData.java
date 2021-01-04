@@ -1,18 +1,20 @@
 package com.baidu.platform.comapi.map;
 
 import android.graphics.Bitmap;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class OverlayLocationData {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2891a;
-    private Bitmap b;
+    private String f4288a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Bitmap f4289b;
     private int c;
     private int d;
     private int e;
 
     public Bitmap getImage() {
-        return this.b;
+        return this.f4289b;
     }
 
     public int getImgHeight() {
@@ -20,7 +22,7 @@ public class OverlayLocationData {
     }
 
     public String getImgName() {
-        return this.f2891a;
+        return this.f4288a;
     }
 
     public int getImgWidth() {
@@ -32,7 +34,7 @@ public class OverlayLocationData {
     }
 
     public void setImage(Bitmap bitmap) {
-        this.b = bitmap;
+        this.f4289b = bitmap;
     }
 
     public void setImgHeight(int i) {
@@ -40,7 +42,7 @@ public class OverlayLocationData {
     }
 
     public void setImgName(String str) {
-        this.f2891a = str;
+        this.f4288a = str;
     }
 
     public void setImgWidth(int i) {

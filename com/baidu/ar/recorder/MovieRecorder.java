@@ -17,7 +17,7 @@ import com.baidu.ar.recorder.b.e;
 import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class MovieRecorder implements b {
     public static final int ERROR_CODE_ON_START = 4001;
     public static final int ERROR_CODE_ON_STOP = 4002;
@@ -45,7 +45,7 @@ public class MovieRecorder implements b {
     private volatile boolean uv = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -406,7 +406,7 @@ public class MovieRecorder implements b {
         com.baidu.ar.h.b.k(TAG, "stopRecorder mStarting = " + this.uj);
         if (this.uj) {
             if (!fF() && this.ul != null) {
-                this.ul.sendMessage(this.ul.obtainMessage(7004, Integer.valueOf((int) ERROR_CODE_ON_STOP)));
+                this.ul.sendMessage(this.ul.obtainMessage(7004, 4002));
             }
             com.baidu.ar.h.b.c(TAG, "stopRecorder() MovieRecorder is starting, we will try to stop 500ms later!!!");
             if (this.ul != null) {

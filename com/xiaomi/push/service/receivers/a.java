@@ -1,23 +1,23 @@
 package com.xiaomi.push.service.receivers;
 
 import android.content.Context;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f4886a;
+    final /* synthetic */ Context f14617a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ NetworkStatusReceiver f929a;
+    final /* synthetic */ NetworkStatusReceiver f1007a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(NetworkStatusReceiver networkStatusReceiver, Context context) {
-        this.f929a = networkStatusReceiver;
-        this.f4886a = context;
+        this.f1007a = networkStatusReceiver;
+        this.f14617a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f929a.a(this.f4886a);
+        this.f1007a.a(this.f14617a);
     }
 }

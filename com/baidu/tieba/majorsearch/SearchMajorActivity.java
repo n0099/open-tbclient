@@ -7,53 +7,53 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.model.SearchMajorModel;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> implements SearchMajorModel.a {
-    private com.baidu.tieba.majorsearch.b.a lbk;
-    private SearchMajorModel lbl;
+    private com.baidu.tieba.majorsearch.a.a lgO;
+    private SearchMajorModel lgP;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.lbk = new com.baidu.tieba.majorsearch.b.a(this);
-        this.lbl = new SearchMajorModel(getPageContext(), this);
+        this.lgO = new com.baidu.tieba.majorsearch.a.a(this);
+        this.lgP = new SearchMajorModel(getPageContext(), this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.lbk.onResume();
+        this.lgO.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.lbk != null) {
-            this.lbk.onChangeSkinType(i);
+        if (this.lgO != null) {
+            this.lgO.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
-    public void ah(List<String> list) {
-        if (this.lbk != null && this.lbk.dgW() != null) {
-            this.lbk.eS(list);
-            hideNetRefreshView(this.lbk.dgW().dgR());
+    public void ai(List<String> list) {
+        if (this.lgO != null && this.lgO.dgI() != null) {
+            this.lgO.eS(list);
+            hideNetRefreshView(this.lgO.dgI().dgD());
         }
     }
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.a
     public void b(ErrorData errorData) {
-        if (this.lbk != null && this.lbk.dgW() != null) {
-            this.lbk.d(errorData);
-            getRefreshView().sD(R.drawable.new_pic_emotion_07);
-            showNetRefreshViewNoClick(this.lbk.dgW().dgR(), null);
-            getRefreshView().Ek(getString(R.string.search_major_no_data));
+        if (this.lgO != null && this.lgO.dgI() != null) {
+            this.lgO.d(errorData);
+            getRefreshView().sP(R.drawable.new_pic_emotion_07);
+            showNetRefreshViewNoClick(this.lgO.dgI().dgD(), null);
+            getRefreshView().Eh(getString(R.string.search_major_no_data));
         }
     }
 
-    public void aa(Intent intent) {
+    public void Z(Intent intent) {
         setResult(-1, intent);
         finish();
     }

@@ -1,31 +1,31 @@
 package com.baidu.tieba.majorsearch.model;
 
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.f;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.message.SearchMajorHttpResponsedMessage;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class SearchMajorModel extends BdBaseModel {
-    a lbB;
+    a lhf;
     private HttpMessageListener mHttpMessageListener;
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void ah(List<String> list);
+        void ai(List<String> list);
 
         void b(ErrorData errorData);
     }
 
-    public SearchMajorModel(e eVar, a aVar) {
-        super(eVar);
+    public SearchMajorModel(f fVar, a aVar) {
+        super(fVar);
         this.mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_SEARCH_MAJOR) { // from class: com.baidu.tieba.majorsearch.model.SearchMajorModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -48,17 +48,17 @@ public class SearchMajorModel extends BdBaseModel {
                     } else {
                         searchMajorHttpResponsedMessage = (SearchMajorHttpResponsedMessage) httpResponsedMessage;
                     }
-                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !y.isEmpty(searchMajorHttpResponsedMessage.getData().lbA)) {
-                        SearchMajorModel.this.lbB.ah(searchMajorHttpResponsedMessage.getData().lbA);
+                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !x.isEmpty(searchMajorHttpResponsedMessage.getData().lhe)) {
+                        SearchMajorModel.this.lhf.ai(searchMajorHttpResponsedMessage.getData().lhe);
                     } else {
-                        SearchMajorModel.this.lbB.b(errorData);
+                        SearchMajorModel.this.lhf.b(errorData);
                     }
                 }
             }
         };
         this.mHttpMessageListener.setSelfListener(true);
         registerListener(this.mHttpMessageListener);
-        this.lbB = aVar;
+        this.lhf = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

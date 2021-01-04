@@ -5,16 +5,16 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableTake<T> extends a<T, T> {
     final long limit;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pFi.a((j) new TakeSubscriber(cVar, this.limit));
+        this.qgK.a((j) new TakeSubscriber(cVar, this.limit));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class TakeSubscriber<T> extends AtomicBoolean implements j<T>, d {
         private static final long serialVersionUID = -5636543848937116287L;
         final org.a.c<? super T> actual;

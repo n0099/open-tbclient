@@ -11,55 +11,50 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class ei extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4646a;
+    private Context f14267a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f233a;
+    private SharedPreferences f311a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.push.service.ak f234a;
+    private com.xiaomi.push.service.ak f312a;
 
     public ei(Context context) {
-        this.f4646a = context;
-        this.f233a = context.getSharedPreferences("mipush_extra", 0);
-        this.f234a = com.xiaomi.push.service.ak.a(context);
+        this.f14267a = context;
+        this.f311a = context.getSharedPreferences("mipush_extra", 0);
+        this.f312a = com.xiaomi.push.service.ak.a(context);
     }
 
     private List<hu> a(File file) {
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
-        RandomAccessFile randomAccessFile2;
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2 = null;
-        fileInputStream2 = null;
-        r1 = null;
-        fileInputStream2 = null;
-        FileLock fileLock2 = null;
-        dp m225a = dq.a().m225a();
-        String a2 = m225a == null ? "" : m225a.a();
+        FileLock fileLock2;
+        dp m251a = dq.a().m251a();
+        String a2 = m251a == null ? "" : m251a.a();
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         byte[] bArr = new byte[4];
-        synchronized (dv.f4637a) {
+        synchronized (dv.f14254a) {
             try {
-                File file2 = new File(this.f4646a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m583a(file2);
+                File file2 = new File(this.f14267a.getExternalFilesDir(null), "push_cdata.lock");
+                y.m609a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
                     try {
-                        FileInputStream fileInputStream3 = new FileInputStream(file);
-                        while (fileInputStream3.read(bArr) == 4) {
+                        fileInputStream = new FileInputStream(file);
+                        while (fileInputStream.read(bArr) == 4) {
                             try {
                                 int a3 = ac.a(bArr);
                                 byte[] bArr2 = new byte[a3];
-                                if (fileInputStream3.read(bArr2) != a3) {
+                                if (fileInputStream.read(bArr2) != a3) {
                                     break;
                                 }
                                 byte[] a4 = du.a(a2, bArr2);
@@ -70,8 +65,6 @@ public class ei extends ai.a {
                                 }
                             } catch (Exception e) {
                                 fileLock2 = fileLock;
-                                randomAccessFile2 = randomAccessFile;
-                                fileInputStream = fileInputStream3;
                                 if (fileLock2 != null && fileLock2.isValid()) {
                                     try {
                                         fileLock2.release();
@@ -79,18 +72,17 @@ public class ei extends ai.a {
                                     }
                                 }
                                 y.a(fileInputStream);
-                                y.a(randomAccessFile2);
+                                y.a(randomAccessFile);
                                 return arrayList;
                             } catch (Throwable th) {
                                 th = th;
-                                fileInputStream2 = fileInputStream3;
                                 if (fileLock != null && fileLock.isValid()) {
                                     try {
                                         fileLock.release();
                                     } catch (IOException e3) {
                                     }
                                 }
-                                y.a(fileInputStream2);
+                                y.a(fileInputStream);
                                 y.a(randomAccessFile);
                                 throw th;
                             }
@@ -101,79 +93,82 @@ public class ei extends ai.a {
                             } catch (IOException e4) {
                             }
                         }
-                        y.a(fileInputStream3);
+                        y.a(fileInputStream);
                         y.a(randomAccessFile);
                     } catch (Exception e5) {
-                        randomAccessFile2 = randomAccessFile;
-                        fileInputStream = null;
                         fileLock2 = fileLock;
+                        fileInputStream = null;
                     } catch (Throwable th2) {
                         th = th2;
+                        fileInputStream = null;
                     }
                 } catch (Exception e6) {
-                    randomAccessFile2 = randomAccessFile;
+                    fileLock2 = null;
                     fileInputStream = null;
                 } catch (Throwable th3) {
                     th = th3;
                     fileLock = null;
+                    fileInputStream = null;
                 }
             } catch (Exception e7) {
-                randomAccessFile2 = null;
+                fileLock2 = null;
+                randomAccessFile = null;
                 fileInputStream = null;
             } catch (Throwable th4) {
                 th = th4;
                 fileLock = null;
                 randomAccessFile = null;
+                fileInputStream = null;
             }
         }
         return arrayList;
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f233a.edit();
+        SharedPreferences.Editor edit = this.f311a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m230a() {
-        if (az.d(this.f4646a)) {
+    private boolean m256a() {
+        if (az.d(this.f14267a)) {
             return false;
         }
-        if (!az.f(this.f4646a) || c()) {
-            return (az.g(this.f4646a) && !b()) || az.h(this.f4646a);
+        if (!az.f(this.f14267a) || c()) {
+            return (az.g(this.f14267a) && !b()) || az.h(this.f14267a);
         }
         return true;
     }
 
     private boolean b() {
-        if (this.f234a.a(hr.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f233a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f234a.a(hr.Upload3GFrequency.a(), 432000)));
+        if (this.f312a.a(hr.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f311a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f312a.a(hr.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f234a.a(hr.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f233a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f234a.a(hr.Upload4GFrequency.a(), 259200)));
+        if (this.f312a.a(hr.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f311a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f312a.a(hr.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo159a() {
+    public int mo185a() {
         return 1;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        File file = new File(this.f4646a.getExternalFilesDir(null), "push_cdata.data");
-        if (!az.c(this.f4646a)) {
+        File file = new File(this.f14267a.getExternalFilesDir(null), "push_cdata.data");
+        if (!az.c(this.f14267a)) {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (m230a() || !file.exists()) {
+        } else if (m256a() || !file.exists()) {
         } else {
             List<hu> a2 = a(file);
             if (!ad.a(a2)) {
@@ -185,11 +180,11 @@ public class ei extends ai.a {
                 cif.a(a2);
                 byte[] a3 = y.a(iw.a(cif));
                 il ilVar = new il("-1", false);
-                ilVar.c(hw.DataCollection.f477a);
+                ilVar.c(hw.DataCollection.f555a);
                 ilVar.a(a3);
-                dp m225a = dq.a().m225a();
-                if (m225a != null) {
-                    m225a.a(ilVar, hm.Notification, null);
+                dp m251a = dq.a().m251a();
+                if (m251a != null) {
+                    m251a.a(ilVar, hm.Notification, null);
                 }
                 a();
             }

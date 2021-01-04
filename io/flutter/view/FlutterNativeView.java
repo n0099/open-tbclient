@@ -3,6 +3,8 @@ package io.flutter.view;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
 import io.flutter.app.FlutterPluginRegistry;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterJNI;
@@ -10,7 +12,7 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class FlutterNativeView implements BinaryMessenger {
     private static final String TAG = "FlutterNativeView";
     private boolean applicationIsRunning;
@@ -21,11 +23,11 @@ public class FlutterNativeView implements BinaryMessenger {
     private FlutterView mFlutterView;
     private final FlutterPluginRegistry mPluginRegistry;
 
-    public FlutterNativeView(Context context) {
+    public FlutterNativeView(@NonNull Context context) {
         this(context, false);
     }
 
-    public FlutterNativeView(Context context, boolean z) {
+    public FlutterNativeView(@NonNull Context context, boolean z) {
         this.flutterUiDisplayListener = new FlutterUiDisplayListener() { // from class: io.flutter.view.FlutterNativeView.1
             @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
             public void onFlutterUiDisplayed() {
@@ -62,10 +64,12 @@ public class FlutterNativeView implements BinaryMessenger {
         this.applicationIsRunning = false;
     }
 
+    @NonNull
     public DartExecutor getDartExecutor() {
         return this.dartExecutor;
     }
 
+    @NonNull
     public FlutterPluginRegistry getPluginRegistry() {
         return this.mPluginRegistry;
     }
@@ -106,11 +110,13 @@ public class FlutterNativeView implements BinaryMessenger {
     }
 
     @Override // io.flutter.plugin.common.BinaryMessenger
+    @UiThread
     public void send(String str, ByteBuffer byteBuffer) {
         this.dartExecutor.getBinaryMessenger().send(str, byteBuffer);
     }
 
     @Override // io.flutter.plugin.common.BinaryMessenger
+    @UiThread
     public void send(String str, ByteBuffer byteBuffer, BinaryMessenger.BinaryReply binaryReply) {
         if (!isAttached()) {
             Log.d(TAG, "FlutterView.send called on a detached view, channel=" + str);
@@ -120,6 +126,7 @@ public class FlutterNativeView implements BinaryMessenger {
     }
 
     @Override // io.flutter.plugin.common.BinaryMessenger
+    @UiThread
     public void setMessageHandler(String str, BinaryMessenger.BinaryMessageHandler binaryMessageHandler) {
         this.dartExecutor.getBinaryMessenger().setMessageHandler(str, binaryMessageHandler);
     }
@@ -134,7 +141,7 @@ public class FlutterNativeView implements BinaryMessenger {
         this.dartExecutor.onAttachedToJNI();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     private final class EngineLifecycleListenerImpl implements FlutterEngine.EngineLifecycleListener {
         private EngineLifecycleListenerImpl() {
         }
